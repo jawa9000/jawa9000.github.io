@@ -8,6 +8,7 @@ dl, dd, ol, ul, figure {
     padding: 0;
 }
 
+$background-color: aqua;
 
 
 /**
@@ -35,6 +36,10 @@ p, blockquote, pre,
 ul, ol, dl, figure,
 %vertical-rhythm {
     margin-bottom: $spacing-unit / 2;
+}
+/* customized */
+h1 {
+	font-family: cursive;
 }
 
 
