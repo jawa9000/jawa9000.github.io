@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="tutorial, maya, mirror, geometry, head, blend, shape">
+		<meta name="description" content="Mirror Heads by Tracing 3D Geometry for Blend Shape Facial Animation Tutorial">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>Mirror Heads by Tracing 3D Geometry for Blend Shape Facial Animation Tutorial</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer="defer" src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1>Mirror Heads by Tracing 3D Geometry for Blend Shape Facial Animation</h1>
+					<p class="lead">
+						Mirror Heads by Tracing 3D Geometry for Blend Shape Facial Animation
+					</p>
+					<p class="about">
+						his tutorial covers the basics of tracing geometry in 3D space. The basic premise is to make a mirrored duplicate of the shape
+						you are trying to recreate on the other side of the face for facial animation.
+					</p>
+					<p class="about">
+						Written by Brian Immel
+					</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+            		<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Duplicate Base Head</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Duplicate the base head (without any expression or mouth shapes) two times. Move each head apart on TranslateX by 1.
+				                </p>
+				                <p>
+				                	Name each head Brow_Up_L, Brow_Up_R.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Mirror_Heads/figure01.jpg" id="figure01" class="imgThumbnail" title="figure01" data-toggle="modal" data-target=".figure01"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Name and Scale Head</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Model the head labeled Brow_Up_L to the shape you need. In this case, I've modeled the left brow raised.
+				                </p>
+				                <p>
+				                	Select the head labeled Brow_Up_L and duplicate it. Name this head <span class="strong">Trace_ME</span>.
+				                </p>
+				                <p>
+				                	Select the Trace_Me head and type in -1 for ScaleX. This will make the head appeared to be mirrored. We do not want to
+				                	use this head for the right brow raise head because it will not work. Maya's Blend Shape system works on a per vertex
+				                	basis, not by the entire shape of the objects involved in the surface. By mirroring the geometry (-1 on ScaleX) does
+				                	not affect the vertices, it just flips the orientation of the entire object.
+				                </p>
+				                <p>
+				                	Move the Trace_Me head to have the same exact location as the head labeled as <span class="strong">Brow_Up_R</span>.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Mirror_Heads/figure02.jpg" id="figure02" class="imgThumbnail" title="figure02" data-toggle="modal" data-target=".figure02"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Template Trace_Me</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Now we want to use the Trace_Me head as a template to model the other brow. Select the Brow_Up_R head and go to vertex
+				                	component mode (right-click-hold over the geometry and select vertex).
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Mirror_Heads/figure03.jpg" id="figure03" class="imgThumbnail" title="figure03" data-toggle="modal" data-target=".figure03"/>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Mirror_Heads/figure04.jpg" id="figure04" class="imgThumbnail" title="figure04" data-toggle="modal" data-target=".figure04"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Layer and Wireframe</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				            	<p>
+				                	Create a layer and place the Trace_Me in that layer. Double-click this layer, name this layer Trace_Me_Layer, select a
+				                	yellow color chip and hit the Save button.
+				                </p>
+				                <p>
+				                	Change your view to wireframe by hitting the keyboard shortcut 4. Notice how the vertex components are light blue and
+				                	the unselected head (Trace_Me) is yellow). We want to move the vertices of Brow_Up_R to match the exact location of
+				                	Trace_Me geometry. Refer to Figure 5 at this point to see where we should be.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Mirror_Heads/figure05.jpg" id="figure05" class="imgThumbnail" title="figure05" data-toggle="modal" data-target=".figure05"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Snap points</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Turn on Snapping to Points in the Snapping options.
+				                </p>
+				                <p>
+				                	Carefully select one vertex at a time and move it to the corresponding location of the Trace_Me head. The best strategy
+				                	for matching these vertices up is to start on the outside and work your way around the outside slowing moving in.
+				                <p>
+				                	Go to the Outliner (Window &gt; Outliner...), select the Trace_Me head, and delete it. Now we have a perfectly matched
+				                	and mirrored head to the Brow_Up_L head.
+				                </p>
+				            </div>
+				             <div class="images">
+				                <img src="../../images/tutorials/Mirror_Heads/figure06.jpg" id="figure06" class="imgThumbnail" title="figure06" data-toggle="modal" data-target=".figure06"/>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Mirror_Heads/figure07.gif" id="figure07" class="imgThumbnail" title="figure07" data-toggle="modal" data-target=".figure07"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Blend Shape</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Set up a Blend Shape between the brow heads and the base head to test the blending abilities of the brows. Look for
+				                	areas around the center edge that may travel to far and too fast when both blend shapes are active. If the center
+				                	edges/vertices to travel too much, leave the blend shape attributes active (set to 1 on both Brow_UP_R and Brow_Up_L)
+				                	go back and make any necessary adjustments with the brow heads. Refer to Figure 8 to see how the brow should move.
+				                </p>
+				                <p>Happy modeling!</p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Mirror_Heads/figure08.gif" id="figure08" class="imgThumbnail" title="figure08" data-toggle="modal" data-target=".figure08"/>
+				            </div>
+				        </div>
+					</section>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		<!-- automated modal image storage-->
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+	</body>
+	<script src="../../js/getYear.js"></script>
+	<script src="../../js/modal-images.js"></script>
+	<script src="../../js/auto-number.js"></script>
+</html>

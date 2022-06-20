@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="tutorial, maya, foot, roll, skeleton, setup">
+		<meta name="description" content="Foot Roll Maya Character Skeletons Tutorial">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>Foot Roll Maya Character Skeletons Tutorial</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer="defer" src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1></h1>
+					<p class="lead">
+						Foot Roll Maya Character Skeletons
+					</p>
+					<p class="about">
+						This tutorial walks you through the steps to create a rig that will allow for foot rolls which includes heel bend to toe bend.
+					</p>
+					<p class="about">
+						Written by Brian Immel
+					</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+            		<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>FK and IK Setup</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Create a skeleton similar to Figure 1 using the <span class="strong">joint tool</span> and rename joints to according to Figure 2.
+				                	The names should be (from top to last joint) <span class="strong">hip joint, knee joint, ankle joint, heel joint</span>,
+				                	<span class="ballJoint">ball joint</span> and <span class="strong">toe joint</span>.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Foot_Roll_Setup/figure01.jpg" id="figure01" class="imgThumbnail" title="figure01" data-toggle="modal" data-target=".figure01"/>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Foot_Roll_Setup/figure02.jpg" id="figure02" class="imgThumbnail" title="figure02" data-toggle="modal" data-target=".figure02"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>IKs</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Before we start creating the <span class="strong">IKs</span>, make sure the tool option is set for '<span class="strong">sticky</span>'
+				                	and the solver type is set to <span class="strong">ikRpSolver</span>. To do this, either double-click on the tool icon in the
+				                	menu tab or go <span class="strong">Skeleton &gt; IK Handle Tool &gt; Option box</span>.
+				                </p>
+				                <p>
+				                	Make an IK connecting the <span class="strong">hip joint</span> to <span class="strong">ankle joint</span> using the IK tool. Rename this
+				                	IK handle to <span class="ankleIK">ankle IK</span> in the channel box.
+				                </p>
+				                <p>
+				                	Make an IK connecting the <span class="strong">ankle joint</span> to <span class="ballJoint">ball joint</span>. Rename this
+				                	IK handle to <span class="ballIK">ball IK</span>.
+				                </p>
+				                <p>
+				                	Make an IK connecting the <span class="strong">toe joint</span> to <span class="ballJoint">ball joint</span>. Rename this IK
+				                	handle to <span class="strong">toe IK</span>. All your IK handles should look like Figure 3.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Foot_Roll_Setup/figure03.jpg" id="figure03" class="imgThumbnail" title="figure03" data-toggle="modal" data-target=".figure03"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Groups for Ankle and Toe IKs</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Select the <span class="ankleIK">ankle IK</span> and <span class="strong">group</span> (ctrl-g) by it self. Snap
+				                	the pivot of this group by hitting the insert key, hold down the v key and move the pivot to the
+				                	<span class="ballJoint">ball joint</span>. Rename this group to
+				                	<span class="anklePivot">ankle pivot</span>. Your pivot should be located according to Figure 4. The
+				                	reason we group things by themselves, or with others, is to have the ability to relocate our pivot point. Having another
+				                	pivot on our joints or IKs gives us another animation possibility. That, and you cannot relocate the pivot point of an IK.
+				                </p>
+				                <p>
+				                	Select the <span class="strong">toe IK</span> and <span class="strong">group it by it self</span>. Snap the pivot to the
+				                	<span class="ballJoint">ball joint</span>. Rename this group to the <span class="strong">toe pivot</span>.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Foot_Roll_Setup/figure04.jpg" id="figure04" class="imgThumbnail" title="figure04" data-toggle="modal" data-target=".figure04"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Grouping</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	<span class="strong">Open up the hypergraph</span> to see the current hierarchy.
+				                </p>
+				                <p>
+				                	Select the <span class="ballIK">ball IK</span>, <span class="strong">shift-select the</span>
+				                	<span class="anklePivot">ankle pivot</span> and the <span class="strong">toe pivot</span> in the hypergraph.
+				                	<span class="strong">Group these three items together and rename to <span class="heelPivot">heel pivot</span></span>.
+				                	<span class="strong">Snap the pivot to the heel joint</span>. <span class="strong">Group this selection again</span>. <span class="strong">Snap this
+				                	pivot to the toe joint and rename this group to <span class="toeGroup">toe group</span></span>. <span class="strong">Group this
+				                	selection one last time</span>. <span class="strong">Snap pivot to the ball</span> and <span class="strong">rename this group to left foot
+				                	group</span> (since this is the left foot). Your hierarchy should look like Figure 6.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Foot_Roll_Setup/figure05.jpg" id="figure05" class="imgThumbnail" title="figure05" data-toggle="modal" data-target=".figure05"/>
+				            </div>
+				             <div class="images">
+				                <img src="../../images/tutorials/Foot_Roll_Setup/figure06.jpg" id="figure06" class="imgThumbnail" title="figure06" data-toggle="modal" data-target=".figure06"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Layer and Controller Object</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	<span class="strong">Create a layer and put the skeleton and IK in it</span>. <span class="strong">Turn off this layer</span> so we won't
+				                	accidentally select or snap to any of its points during the next few steps.
+				                </p>
+				                <p>
+				                	Next we are going to make an arrow to handle the leg IK and the entire leg animation. <span class="strong">Create a circle</span>
+				                	(Create NURBS &gt; Circle &gt; option box). <span class="strong">Make the degrees linear and hit create</span>.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Foot Controller</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	<span class="strong">Using snap to grid option (holding down x), move the circle's edit points to form an arrow in the top
+				                	view</span>. You arrow should look similar to Figure 7. Name the arrow to
+				                	<span class="leftFootControl">Left Foot Control</span>.
+				                </p>
+				                <p>
+				                	Turn back on the layer for the skeleton and IK. Snap the arrow's pivot to the <span class="ballJoint">ball joint</span>.
+				                	You may have to rescale the arrow to better fit your foot.
+				                </p>
+				                <p>
+				                	<span class="strong">Freeze transformations</span> and <span class="strong">delete the history</span>. Select the
+				                	<span class="strong">left foot group</span> <span class="strong">from the hypergraph</span> and then <span class="strong">parent it to the arrow</span>.
+				                	Now the arrow should handle the movement of the entire left leg.
+				                </p>
+				                <p>
+				                	<span class="strong">Select all the IK handles and turn off visibility</span>.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Foot_Roll_Setup/figure07.jpg" id="figure07" class="imgThumbnail" title="figure07" data-toggle="modal" data-target=".figure07"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Restrict Animation Channels</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Optional: While the IK handles are still selected, open the <span class="strong">Channel Control window</span> (Window &gt;
+				                	General Editors &gt; Channel Control). <span class="strong">Move all the translate, rotate, scale, visibility</span> attributes
+				                	(Figure 8) to the <span class="strong">Non Keyable side</span> of the window. We don't want to accidentally key one of these
+				                	attributes.
+				                </p>
+				                <p>
+				                	Select the <span class="leftFootControl">Left Foot Control</span> and open the <span class="strong">Channel Control
+				                	window</span>. <span class="strong">Move the scale and visibility attributes to Non Keyable</span>. There's no need to
+				                	animate these attributes.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Foot_Roll_Setup/figure08.jpg" id="figure08" class="imgThumbnail" title="figure08" data-toggle="modal" data-target=".figure08"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Create Roll Attribute</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Next we need to create an attribute to handle the roll of the foot. <span class="strong">Go to Modify &gt; Add Attribute....</span>
+				                </p>
+				                <p>
+				                	<span class="strong">Name the attribute Roll</span>. <span class="strong">Give it a minimum of -5, maximum of 10 and a default of 0 and hit
+				                	ok</span>. You values should look like Figure 9.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Left_Foot_Control</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	<span class="strong">Open up the Set Driven Key window</span> (under Animation menu, Animate &gt; Set Driven Key &gt; Set &gt;
+				                	option box).
+				                </p>
+				                <p>
+				                	Select the <span class="leftFootControl">Left Foot Control</span> and load that as the
+				                	<span class="Driver">driver</span>. Select the roll attribute . It is very important to make this
+				                	the <span class="Driver">driver</span>. Make sure the value for roll is currently set to
+				                	<span class="strong">0</span>.
+				                </p>
+				                <p>
+				                	<span class="strong">In the hypergraph, select the</span> <span class="toeGroup">toe group</span>,
+				                	<span class="heelPivot">heel pivot</span> and the
+				                	<span class="anklePivot">ankle pivot</span>. In the <span class="strong">Set Driven Key window</span>, load this
+				                	selection as the <span class="Driven">driven</span>. We want the roll attribute to drive these
+				                	attributes.
+				                </p>
+				                <p>
+				                	In the perspective window, rotate the X axis to make sure all the attributes are rotating on the same axis. Reset the
+				                	values to zero (or just undo the last command).
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Foot_Roll_Setup/figure09.jpg" id="figure09" class="imgThumbnail" title="figure09" data-toggle="modal" data-target=".figure09"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Set Driven Keys</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Once we made sure that the group and pivot rotations are correct, in the <span class="strong">Set Driven Key window</span>,
+				                	select the rotate X axis of the <span class="toeGroup">toe group</span>,
+				                	<span class="heelPivot">heel pivot</span> and <span class="anklePivot">ankle pivot</span>
+				                	and <span class="strong">select the roll attribute and hit the key button</span>. Your <span class="strong">Set Driven Key window</span>
+				                	should look like Figure 10 at this point.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Foot_Roll_Setup/figure10.jpg" id="figure10" class="imgThumbnail" title="figure10" data-toggle="modal" data-target=".figure10"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Backwards on the Heel</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Select the <span class="leftFootControl">Left Foot Control</span> and change the <span class="strong">roll attribute
+				                	value to -5</span>.
+				                </p>
+				                <p>
+				                	Select the <span class="heelPivot">heel pivot</span> and <span class="strong">rotate X to something around -30 and
+				                	hit the key button</span>. We should be able to change the roll value to a negative number and the heel will rotate
+				                	(Figure 11). We have now set up the ability to rotate the foot backwards on it's heel.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Foot_Roll_Setup/figure11.jpg" id="figure11" class="imgThumbnail" title="figure11" data-toggle="modal" data-target=".figure11"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Mid Foot Bend</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	<span class="strong">Change the roll attribute to 5</span>.
+				                </p>
+				                <p>
+				                	Select the <span class="anklePivot">ankle pivot</span> and <span class="strong">change the rotate X to something around
+				                	20</span>. <span class="strong">Hit the key button</span> to assign this value to the roll attribute. At this point of the foot
+				                	roll, the foot is lifting but the toes haven't left the ground yet in similar position to Figure 12.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Foot_Roll_Setup/figure12.jpg" id="figure12" class="imgThumbnail" title="figure12" data-toggle="modal" data-target=".figure12"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Toe Bend</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	<span class="strong">Change the roll attribute to 10</span>.
+				                </p>
+				                <p>
+				                	Select the <span class="toeGroup">toe group</span> and <span class="anklePivot">ankle pivot</span>
+				                	and <span class="strong">rotate X to 35 </span>or so (Figure 13). <span class="strong">Hit the key button</span>. This sets the foot up on
+				                	it's tip toe. You may notice that the <span class="toeGroup">toe group</span> lifts sooner than it should. Take the
+				                	roll value back to 5 and check to see if you <span class="toeGroup">toe group</span> has a value (like 17.5). If it
+				                	does, change it to 0 and key it. The whole reason we use Set Driven keys is to get away from having to select many
+				                	joints and key each one individually to make a simple foot pick up and down.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Foot_Roll_Setup/figure13.jpg" id="figure13" class="imgThumbnail" title="figure13" data-toggle="modal" data-target=".figure13"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Knee Vector</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	You may have issues where the knee doesn't stay in alignment with the direction of the foot. <span class="strong">Create a curve that
+				                	is shaped like a pointed triangle</span> similar to Figure 14 and rename it <span class="strong">left knee direction</span>. It
+				                	would be a good idea to use the side view to create the triangle in.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Foot_Roll_Setup/figure14.jpg" id="figure14" class="imgThumbnail" title="figure14" data-toggle="modal" data-target=".figure14"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Center Knee Controller</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	<span class="strong">Center the triangle's pivot and snap the triangle to the knee joint</span>. <span class="strong">Pull it forward so it's
+				                	position in front of the knee</span> (Figure 15).
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Foot_Roll_Setup/figure15.jpg" id="figure15" class="imgThumbnail" title="figure15" data-toggle="modal" data-target=".figure15"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Pole Vector Relationship</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	<span class="strong">Using the outliner, select the triangle then the</span> <span class="ankleIK">ankle IK</span>
+				                	(Figure 16). <span class="strong">Go to Animation, Constrain &gt; Pole Vector</span>. Unlike parenting, the selecting process is
+				                	reversed. You pick the "parent" first, then all the "children" objects that will follow the parent. In a parenting
+				                	relationship, you pick the child(ren) first and then the parent last.
+				                </p>
+				                <p>
+				                	<span class="strong">Parent the triangle to the</span> <span class="leftFootControl">Left Foot Control</span>.
+				                </p>
+
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Foot_Roll_Setup/figure16.jpg" id="figure16" class="imgThumbnail" title="figure16" data-toggle="modal" data-target=".figure16"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Optional</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Optional: You can also limit your foot rotates to prevent any odd keying issues using the <span class="strong">Attribute Editor &gt;
+				                	Limit Information &gt; Rotate </span>(Figure 17).
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Foot_Roll_Setup/figure17.jpg" id="figure17" class="imgThumbnail" title="figure17" data-toggle="modal" data-target=".figure17"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>The End</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	You're ready to animate a nice bouncy walk cycle (Figure 18).
+				                </p>
+				                <p>Happy rigging!</p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Foot_Roll_Setup/foot-roll-complete.gif" id="foot-roll-complete" class="imgThumbnail" title="figure18" data-toggle="modal" data-target=".foot-roll-complete"/>
+				            </div>
+				        </div>
+					</section>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		<!-- automated modal image storage-->
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+	</body>
+	<script src="../../js/getYear.js"></script>
+	<script src="../../js/modal-images.js"></script>
+	<script src="../../js/auto-number.js"></script>
+</html>

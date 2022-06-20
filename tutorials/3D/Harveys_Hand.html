@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="tutorial, polygon, uv, mapping, maya">
+		<meta name="description" content="Harvey's Hand Tutorial">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>Harvey's Hand Tutorial</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer="defer" src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1>Mapping Harvey's Hand</h1>
+					<p class="about">
+						Here some steps I took to create the UV sets for mapping Harvey's hand
+					</p>
+					<p class="about">
+						Written by Brian Immel
+					</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+            		<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>UV Map Planning</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	The first step I took was deciding what level of detail I wanted and the color scheme. With Harvey, I wanted semi-realism
+				                	but not photo-realism. So I created a short list of detail areas:
+				                </p>
+				                <ol>
+								  	<li>Fingernails</li>
+								  	<li>Finger joint folder (top)</li>
+								  	<li>Palm wrinkles</li>
+								  	<li>Discolored (lighter) portions along the left wrist (watchband protected the skin from sunburn for example).</li>
+								  	<li>No hairy arms or freckles</li>
+								  	<li>High yellow tones</li>
+								</ol>
+								<p>
+									Having reviewed my list, I set out to set up the UVs for these areas.
+								</p>
+								<p>
+									The first step for UV mapping was to get a generalized layout. So I selected the geometry and hit Automatic Mapping (Edit
+									Polygons &gt; Texture &gt; Automatic Mapping).
+								</p>
+								<p>
+									This gave me a pretty good layout (lucky) but I need to set up the detail areas like the finger joint folds.
+								</p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/uv-mapping-stages01.jpg" id="uv-mapping-stages01" class="imgThumbnail" title="uv-mapping-stages01" data-toggle="modal" data-target=".uv-mapping-stages01"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Cylindrical Projection</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	 Next I selected each finger and created a cylindrical projection and moved the new projection off the original creation
+				                	 point in the UV Texture Editor. Some UVs were flipped and overlapping themselves, so I rotated them until they were no
+				                	 longer overlapping.
+				                </p>
+				                <p>
+				                	I continued this process until I have UV mapped all the fingers, the back of the hand, the palm and the wrist.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/uv-mapping-stages02.jpg" id="uv-mapping-stages02" class="imgThumbnail" title="uv-mapping-stages02" data-toggle="modal" data-target=".uv-mapping-stages02"/>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/uv-mapping-stages03.jpg" id="uv-mapping-stages03" class="imgThumbnail" title="uv-mapping-stages03" data-toggle="modal" data-target=".uv-mapping-stages03"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Stage UVs and Export</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Next I scaled and moved all the UV sets back into the top right quadrant.
+				                </p>
+				                <p>
+				                	I output the faces as a texture map use the UV Snapshot function (UV Texture Editor window, Polygons &gt; UV Snapshot)
+				                	using 256x256 resolution, white color value and a Targa format.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/uv-mapping-stages04.jpg" id="uv-mapping-stages04" class="imgThumbnail" title="uv-mapping-stages04" data-toggle="modal" data-target=".uv-mapping-stages04"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Photoshop</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	In Photoshop, I scanned my hand to get the appropriate textures I needed for this surface (why draw it when you already
+				                	have it at hand?).
+				                </p>
+				                <p>
+				                	I made the outline layer (the UVs I just set up) as a locked layer. You never want to work on the same layer an your UV
+				                	sets! I renamed this layer to UVs.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/uv-mapping-stages05.jpg" id="uv-mapping-stages05" class="imgThumbnail" title="uv-mapping-stages05" data-toggle="modal" data-target=".uv-mapping-stages05"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Label Each Section</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Next I labeled each region as to what it was.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/uv-mapping-stages06.jpg" id="uv-mapping-stages06" class="imgThumbnail" title="uv-mapping-stages06" data-toggle="modal" data-target=".uv-mapping-stages06"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Layers, Painting, and Checking the Map</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	I created another layer and moved it underneath the UV sets. I then flooded this layer with the base color of the hand and
+				                	renamed the layer to base-color.
+				                </p>
+				                <p>
+				                	Next I took my scans of my hand and manipulated them to work with the image size of the arm UVs.
+				                </p>
+				                <p>
+				                	Periodically, I saved the layered file as a Photoshop PSD.
+				                </p>
+				                <p>
+				                	I bounced back and forth from Maya and Photoshop to make sure I was detail the right areas (the edge of the middle finger
+				                	for the fingernail, the middle edge of the index finger for the skin folds, etc.).
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/arm_R_UVmap02.jpg" id="arm_R_UVmap02" class="imgThumbnail" title="arm_R_UVmap02" data-toggle="modal" data-target=".arm_R_UVmap02"/>
+				            </div>
+				        </div>
+					</section><br /><section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Wrapping Up</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Once I was done drawing up the details of the hand, I saved the file one last time with all the layers as a PSD. Then I
+				                	turned off the UV layer and flattened everything disregarding the hidden layers. I saved the file as a Targa with 24-bit
+				                	color depth. I named the file arm_R_map02.tga.
+				                </p>
+				                <p>
+				                	And finally, I went back into Maya and linked my shader to this new file. From here, I can use the same UV map to lay my
+				                	bump map, specular map and anything else I may need for this project.
+				                </p>
+				            </article>
+				        </div>
+					</section>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		</div>
+		<!-- automated modal image storage-->
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+		<script src="../../js/getYear.js"></script>
+		<script src="../../js/modal-images.js"></script>
+		<script src="../../js/auto-number.js"></script>
+	</body>
+</html>

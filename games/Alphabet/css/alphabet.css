@@ -1,0 +1,66 @@
+/* flip defaults */
+html, body, div, ul {
+	box-sizing: border-box;
+}
+html, body {
+	margin: 0;
+	padding: 0;
+}
+.card-grid {
+	width: 100px;
+	height: 100px;
+	margin: 20px;
+	display: inline-block;
+	cursor: pointer;
+}
+.card-grid .front, .card-grid .back {
+	padding: 10px;
+	text-align: center;
+	/*border: 1px #333 solid;*/
+}
+.card-grid .front {
+	background-color: #eee;
+}
+.front:hover {
+	background-color: #ddd;
+}
+.card-grid .back {
+	/*background-color: #333;*/
+	color: white;
+}
+.card .front{
+	text-align: center;
+	font-size: 30px;
+	font-weight: 200;
+}
+.card .back{
+	text-align: center;
+	font-size: 30px;
+	font-weight: 200;
+	background-color: #eee;
+}
+
+
+/* flip overrides */
+.front {
+	font-size: 3em;
+}
+.card-grid .back {
+	padding: 0;
+}
+.back img {
+	height: 100%;
+}
+.card-grid .front, .card-grid .back {
+	/*border-radius: 6px;*/
+}
+
+/* Bootstrap overrides */
+body {
+	line-height: 1.8;
+}
+
+
+/* custom additions */
+
+/* font-family? */

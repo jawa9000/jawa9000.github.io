@@ -1,0 +1,20 @@
+#alphabet, #number, #both {
+  font-size: 4em;
+  padding: 5px;
+  position: absolute;
+  margin: 0;
+  text-align: center;
+  line-height: 37px;
+  display: inline-block;
+  vertical-align: middle;
+  font-family: 'Roboto Slab', serif, Arial;
+  color: black;
+}
+
+#audio, #audioText, #location, #locationText {
+  font-size: 1.5em;
+}
+
+ul#nav li a {
+  font-size: 1.5em;
+}

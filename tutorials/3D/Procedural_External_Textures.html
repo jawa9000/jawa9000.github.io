@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="tutorial, procedural, external, texture, maya, shader">
+		<meta name="description" content=">Working with Both Procedural and External Textures Tutorial">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>Working with Both Procedural and External Textures Tutorial</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer="defer" src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1>Working with Both Procedural and External Textures</h1>
+					<p class="about">
+						Written by Brian Immel
+					</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+            		<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Working with Both Procedural and External Textures</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				            	<p>Which is more render-time efficient? </p>
+						    	<ul>
+						        	<li>Simple procedural maps</li>
+						        	<li>Complex but unchanging maps</li>
+						      	</ul>
+						      	<p>Resolution</p>
+						      	<ul>
+						        	<li>What is the level of detail needed with this map?</li>
+						          	<ul>
+						            	<li>Gaming, speaking close-ups, distant backgrounds, photo-realism, etc.</li>
+						          	</ul>
+						        	<li>Try to keep the values square.</li>
+						          	<ul>
+						            	<li>Keeping the image map values square cuts down on render time (128x128, 256x256, etc.).</li>
+						            	<li>Also try to use square numbers (2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, etc.).</li>
+						            	<li>
+						            		You can use other numbers that would create a rectangular map size but be aware that this may up the rendering time
+						            		a little.
+						            	</li>
+						          	</ul>
+      							</ul>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Layers, Layers, Layers</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Always work with layers. If you 2D image manipulation software allows, create and use as many layers as necessary to build
+				                	up the image you need for your shaders.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/uv-mapping-in-photoshop.jpg" id="uv-mapping-in-photoshop" class="imgThumbnail" title="uv-mapping-in-photoshop" data-toggle="modal" data-target=".uv-mapping-in-photoshop"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Tiling</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <ol>
+							        <li>Video offsetting</li>
+							        <li>Blend edges to make them </li>
+							        <ul>
+							          	<li>Use the clone tool with lowered opacity or use the healing brush or a combination of both.</li>
+							        </ul>
+							        <li>Offset layers</li>
+							        <li>Copy-paste larger areas</li>
+								</ol>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/photoshop-offset.jpg" id="photoshop-offset" class="imgThumbnail" title="photoshop-offset" data-toggle="modal" data-target=".photoshop-offset"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>File Types</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Always use a lossless format.
+				                </p>
+				                <ul>
+							        <li>Targa</li>
+							        	<ol>
+							            	<li>24-bit: three 8-bit color channels.</li>
+							           	    <li>32-bit: three 8-bit color channels and one 8-bit alpha channel.</li>
+							            </ol>
+							        <li>Tiff</li>
+							    </ul>
+							    <p>
+							    	Save a master file with all the layers so you can go back later and manipulate the texture map as needed. The best way to
+							    	manage this is to save a separate Photoshop file (psd) with all the layers intact.
+							    </p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Exporting Procedural Maps as an External Map</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Once we have created a beautiful procedural map, you may want to export as a stand-alone file so that you may manipulate
+				                	the image in ways that would take longer while still in Maya.
+				                </p>
+				                <p>
+				                	In the Hypershade window, select the shader or the procedural image node, go to Edit &gt; Convert to File Texture (Maya
+				                	Software).
+				                </p>
+				                <ol>
+							        <li>Make sure Anti-alias is checked.</li>
+							        <li>Background Mode should be Shader default.</li>
+							        <li>
+							        	At the very least, Fill Texture Seams should be checked. Bake Shading Group Lighting will take the lighting
+							        	information in the scene and also include that in the texture file. At this point you may not want to do this. You can
+							        	bake shadows onto a texture map later. Bake Transparency only if you want the texture map file itself to have an alpha
+							        	channel. This is usually undesirable because you can export the alpha channel as a separate file. Double Sided is
+							        	unnecessary for what we are working with in this workshop.
+							        </li>
+							        <li>UV Range should be selected to Default.</li>
+							        <li>Choose a X and Y Resolution (keep in mind the resolution we have been working with prior to this choice).</li>
+							        <li>Select a File Format (TGA works the best for editing in Photoshop or any other 2D paint program and its lossless).</li>
+							        <li>
+							        	Click on Convert and Close to start and complete this function. If you have multiple shaders you want to export, just
+							        	click on Convert and repeat all these steps until finished.
+							        </li>
+							        <li>Depending on how complex your shading network is and the speed of you computer, this procedure could take a few minutes</li>
+								</ol>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/procedural-output.jpg" id="procedural-output" class="imgThumbnail" title="procedural-output" data-toggle="modal" data-target=".procedural-output"/>
+				            </div>
+				        </div>
+					</section>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		</div>
+		<!-- automated modal image storage-->
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+		<script src="../../js/getYear.js"></script>
+		<script src="../../js/modal-images.js"></script>
+		<script src="../../js/auto-number.js"></script>
+	</body>
+</html>

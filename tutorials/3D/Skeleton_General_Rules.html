@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="tutorial, skeleton, maya, joint">
+		<meta name="description" content="General Rules About Creating Skeletons for Biped Characters Tutorial">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>General Rules About Creating Skeletons for Biped Characters Tutorial</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer="defer" src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1></h1>
+					<p class="lead">
+						General rules about creating skeletons for biped characters
+					</p>
+					<p class="about">
+						Written by Brian Immel
+					</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+            		<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Centering Joints</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Joints should be placed relatively center of the area it is to control unless otherwise stated. Figure 1 illustrates a
+				                	generic character skeleton system.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Skeleton_General_Rules/figure01.jpg" id="figure01" class="imgThumbnail" title="figure01" data-toggle="modal" data-target=".figure01"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Naming Joints</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	NAME EVERY JOINT ACCORDINGLY! If a joint is placed in the area of the spine, name it something that relates to the
+				                	location (such as spine, shoulder, elbow, hip, knee, etc.).
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Center of Gravity</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Start with the center of the character's gravity. Usually, a biped's Root joint will located somewhere between the
+				                	belly button (if he/she has one) and the belt buckle region).
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Good Naming Conventions</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Use good naming conventions (left, right, upper, lower, etc.). If a joint is on the left side of the body use a
+				                	suffix of _L or _left or some other ID tag that tells the user that this joint is on the left side of the
+				                	character. Personally, I use _L/_R for left and right sides respectively. Figure 2 shows the naming convention
+				                	named according to the character's POV (not the user's) and where the Root joint is located.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Skeleton_General_Rules/figure02.jpg" id="figure02" class="imgThumbnail" title="figure02" data-toggle="modal" data-target=".figure02"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Anatomical Reference</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Use real anatomy as a reference for how and where to place your joints. However, don't use this idea as "be-all,
+				                	end-all" answer to where to place your joints. Example, the human spine is located in the back of the torso but this
+				                	may cause skinning issues if you place your spine joints in a similar location for your character.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Types of Joints</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Consider the types of joints each part of the human anatomy uses:
+				                </p>
+				                <ul>
+				                	<li>Ball: allows for rotation in any direction.</li>
+									<li>Hinge: allows for rotation in only one axis.</li>
+									<li>Pivot: allows for an orbiting rotation.</li>
+									<li>Ellipsoid: basically the same as ball except it has limited rotations.</li>
+									<li>Non-moving: As humans, all of our joints play some role in the locomotion of our body movements. However in the
+										case of CG skeletons, it is sometimes useful to place a joint that does not have any bending responsibilities
+										but would serve us well for skinning and base locations for branching out.</li>
+				                </ul>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Skeleton_General_Rules/figure02b.jpg" id="figure02b" class="imgThumbnail" title="figure02b" data-toggle="modal" data-target=".figure02b"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Branches</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	 When creating FK joints, think them as branches. Start with the root and work your way out. Figure 2b shows which
+				                	 direction these branches should created in.
+				                </p>
+				                <ul>
+				                	<li> Spine should be created up from root to base of neck.</li>
+									<li> Arms should be created out from base of neck to the palm joint.</li>
+									<li> Legs should be created down from hip to the ankle.</li>
+									<li> Foot should be created out from ankle to toe.</li>
+									<li> Finger should be created out from palm joint to the tip of finger.</li>
+									<li> Head should be created up or out from base of neck.</li>
+				                </ul>
+				            </div>
+				        </div>
+					</section>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		<!-- automated modal image storage-->
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+	</body>
+	<script src="../../js/getYear.js"></script>
+	<script src="../../js/modal-images.js"></script>
+	<script src="../../js/auto-number.js"></script>
+</html>

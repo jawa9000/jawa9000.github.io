@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<meta charset="UTF-8">
+		<link rel="shortcut icon" href="assets/ico/favicon.ico">
+		<title>Current Weather</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		
+		<!-- CSS for this page -->
+		<link href="main.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+		
+		<!-- geolocation data -->
+		<script src="http://www.geoplugin.net/javascript.gp"></script>
+		
+		<!-- main script -->
+		<script src="main.js"></script>
+	</head>
+	<body>
+		<div class="outer">
+			<div class="myContainer">
+				<div id="main" class="topPush">
+					<!--content-->
+					
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-10">
+							<div class="center-block">
+								<form class="topOffset40">
+									<div class="noWhite text-center">
+								    	<input type="text" class="inlineBlock" id="location" value="" placeholder="city,2-digit-state" />
+								    	<img id="submit" class="inlineBlock" src="img/searchIcon.jpg" alt="submit location" />
+								  	</div>
+								</form>
+							</div>
+						</div>
+						<div class="col-md-1"></div>
+					</div>
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-10">
+							<div id="locationText" class="location text-center">Weather in <strong class="city"></strong>, <strong class="state"></strong> <strong class="zip"></strong></div>
+						</div>
+						<div class="col-md-1"></div>
+					</div>
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-10">
+							<div id="info" class="text-center">
+								<div class="info-container">
+									<div class="tble">
+										<div class="tr">
+											<div class="td">
+												<img id="weatherIcon" src="img/empty.png" alt="weather icon"/>
+												<div class="paddingTop15 fontSmall">WEATHER</div>
+												<div class="bold" id="weatherDetail"></div>
+											</div>
+											<div class="td">
+												<img src="img/tool_temp.png" alt="Temperature"/>
+												<div class="paddingTop15 fontSmall">TEMPERATURE</div>
+												<div class="bold" id="temperatureDetailF"></div>
+												<div id="temperatureDetailC"></div>
+											</div>
+											<div class="td">
+												<img src="img/tool_wind.png" alt="Wind"/>
+												<div class="paddingTop15 fontSmall">WIND</div>
+												<div class="bold" id="windDetail"></div>
+												<div id="windDirection"></div>
+											</div>
+											<div class="td">
+												<img src="img/tool_windgust.png" alt="Wind Gust"/>
+												<div class="paddingTop15 fontSmall">WIND GUST</div>
+												<div class="bold" id="windGustDetail"></div>
+											</div>
+											<div class="td">
+												<img src="img/tool_humidity.png" alt="Humidity"/>
+												<div class="paddingTop15 fontSmall">HUMIDITY</div>
+												<div class="bold" id="humidityDetail"></div>
+											</div>
+											<div class="td">
+												<img src="img/tool_pressure.png" alt="Pressure"/>
+												<div class="paddingTop15 fontSmall">PRESSURE</div>
+												<div class="bold" id="pressureDetail"><span id="pressureChange"></span></div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="credits">
+									<span>Data by <a href="">weather underground</a></span>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-1"></div>
+					</div>
+				</div>
+					
+			</div>
+		</div>
+		<script>
+			var imageURL = $(".myContainer").css("background-image"), image;
+			imageURL = imageURL.match(/^url\("?(.+?)"?\)$/);
+			if (imageURL[1]) {
+				imageURL = imageURL[1];
+				image = new Image();
+				
+				$(image).load(function() {
+					$("#main").width(image.width - 120);
+					$(".myContainer").width(image.width).height(image.height);
+				});
+				image.src = imageURL;
+			}
+			
+			getOutput();
+		</script>
+	</body>
+</html>

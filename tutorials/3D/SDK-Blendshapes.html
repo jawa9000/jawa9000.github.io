@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="Maya, SDK, Set Driven Keys, Blend Shapes, tutorial">
+		<meta name="description" content="One Control, Four SDKed Blend Shapes, One Simple Facial Animation Setup Tutorial">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>One Control, Four SDKed Blend Shapes, One Simple Facial Animation Setup Tutorial</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer="defer" src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1>One Control, Four SDKed Blend Shapes, One Simple Facial Animation Setup</h1>
+					<p class="lead">
+						In this tutorial, I will lead you through the process to create one control object to handle four blend shapes
+						at once. This setup makes facial animation much faster and cleaner to animate. This tutorial assumes that
+						the user knows how to model simple heads using polygons.
+					</p>
+					<p class="about">
+						Written by Brian Immel
+					</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+            		<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name="modeling"></a>Creating the four basic visimes for facial animation</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                    With a perfected head, or something close to it, <strong>duplicate and offset the original head
+				                    five times</strong>. <strong>Name the original head</strong> <span class="base">Base</span> or
+				                    something along the lines that it is the target or original head.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader">Hide 5th Head</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                    <strong>Select the fifth head and hide it (Ctrl-h)</strong> just in case you mess up any of the
+				                    other heads. It's always good to have an extra head lying around just in case.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader">Name The Heads</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                    Name each head according to it's function:
+				                </p>
+				                <ul>
+									<li><span class="wide">Wide</span></li>
+									<li><span class="narrow">Narrow</span></li>
+									<li><span class="open">Open</span></li>
+									<li><span class="closed">Closed</span></li>
+								</ul>
+								<p>
+									With these four basic visimes, you can recreate any shape the mouth makes during normal speech. A visime gives the
+									viewer the illusion that the mouth makes or nearly makes the shape its suppose to when speaking. Using a standard set
+									of phenomes, one cannot take into account that these heads are designed to hit very specific shapes and allow only
+									one way to form the shape of what is being said. Using visimes simplifies this process but still creates a pretty good
+									representation of mouth motion during speech.
+								</p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/SDKed_Blend_Shapes/figure01.jpg" id="figure01" class="imgThumbnail" title="figure01" data-toggle="modal" data-target=".figure01"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Model Heads</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                    Model each of the four visimes according to their names.
+				                </p>
+				                <p>
+				                	Use any method available to create these shapes as long you are manipulating the geometry at the
+				                	component level! Remember to keep volume where volume and displacement are necessary (lips, cheeks,
+				                	etc.).
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/SDKed_Blend_Shapes/figure02.jpg" id="figure02" class="imgThumbnail" title="figure02" data-toggle="modal" data-target=".figure02"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Delete History</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                    Regardless of any method you use to model the heads, be sure to <strong>Delete History</strong>
+				                    off of each head. Select the heads and go to <strong>Edit &gt; Delete by Type &gt; History</strong>. I often use
+				                    this tool so I usually put it in a tab on my shelf. To add any tool or function to the shelf, hold down the keys
+				                    <strong>Ctrl, Alt, and Shift and select any tool or function</strong> you want. A short icon will appear in the
+				                    currently open shelf.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Select Heads</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                    <strong>Select all the visime heads</strong> (<span class="wide">Wide</span>,
+				                    <span class="narrow">Narrow</span>, <span class="open">Open</span>, and
+				                    <span class="closed">Closed</span>). <strong>Shift-select the</strong>
+				                    <span class="base">Base</span> <strong>head last</strong>. When creating blend shapes, you must
+				                    select the morph shapes and then the target, <span class="base">Base</span>, last. You can tell
+				                    which object was selected last by the color of the last selected object will have green edges.
+				                    Not selecting the <span class="base">Base</span> head last will cause the blend shape be attached
+				                    to another head. Big no-no!
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Create Blend Shape Option Box</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                    In the Animation Menu, go to <strong>Deform &gt; Create Blend Shape &gt; Option Box</strong>.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/SDKed_Blend_Shapes/figure03.gif" id="figure03" class="imgThumbnail" title="figure03" data-toggle="modal" data-target=".figure03"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>BlendShape Node</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                    In the <strong>Create Blend Shape window</strong>, in the <strong>BlendShape Node, type in the
+				                    word <span class="visime_basic">Basic_Visimes</span></strong> and <strong>hit the</strong>
+				                    <strong>Create button</strong>.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/SDKed_Blend_Shapes/figure04.jpg" id="figure04" class="imgThumbnail" title="figure04" data-toggle="modal" data-target=".figure04"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Test Blend Shapes</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                    Test out all the blend shapes before going on to the next step. In the
+				                    <strong>Channel Box</strong>, select the node we named earlier <span class="visime_basic strong">Basic_Visimes</span>
+				                    under the <strong>INPUTS</strong> section. Select the attribute name and use the middle mouse button (MMB) to slide to
+				                    the right or left over a viewport to test the blend shapes. With the attribute name selected and the MMB active, the
+				                    cursor will turn into a left/right arrow.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/SDKed_Blend_Shapes/figure05.jpg" id="figure05" class="imgThumbnail" title="figure05" data-toggle="modal" data-target=".figure05"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Create the Control Object and Set Limitations</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                    Now we get into the fun stuff. By fun, I mean long, technical and wordy section of this tutorial. Create a locator
+				                    (<strong>Create &gt; Locator</strong>) and move it three units to the right of the <span class="base">Base</span>
+				                    head. In this example, the located has the position of Translate X = 3, Translate Y = 5, Translate = -2.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Visime_Control</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                    Name the locator <span class="visime_control strong">Visime_Control</span>.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Freeze Transformations on Visime_Control</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                    What we want to do with this <span class="visime_control strong">Visime_Control</span> is to drive the blend shapes
+				                    of all four visimes with one simple control. To do this we will need to limit the locator's translation but before we
+				                    do that we have to set the location of the <span class="visime_control strong">Visime_Control</span> to zero without
+				                    moving it back to its original creation location. To do this we need to <strong>Freeze Transformations</strong>. With
+				                    the <span class="visime_control strong">Visime_Control</span> still selected, go to <strong>Modify &gt; Freeze
+				                    Transformations &gt; Option Box</strong>. Make sure the box for <strong>Translate</strong> is checked on as in.
+				                    <strong>Hit the button Freeze Transform</strong>. Now our translations have been reset to zero without moving the locator.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/SDKed_Blend_Shapes/figure06.jpg" id="figure06" class="imgThumbnail" title="figure06" data-toggle="modal" data-target=".figure06"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Limit Visime_Control</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                    Now its time to limit the movement of the <span class="visime_control strong">Visime_Control</span>. With the
+				                    <span class="visime_control strong">Visime_Control</span> still select go to the <strong>Attribute Editor</strong>
+				                    by hitting the keyboard shortcut <strong>Ctrl-a</strong>. <strong>Click on the tab labeled</strong>
+				                    <span class="visime_control strong">Visime_Control</span>.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Limit Information window</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                    Open the <strong>Limit Information window</strong> and <strong>expand the Translate window</strong>. In the section for
+				                    <strong>Translate X and Translate Y</strong>, <strong>enable the grayed out sections</strong>. <strong>The minimums
+				                    should be set to -1 and the maximum set to 1</strong>. Now try moving the
+				                    <span class="visime_control strong">Visime_Control</span> around. You will see that the
+				                    <span class="visime_control strong">Visime_Control</span> cannot move beyond 1 and -1 on both X and Y.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Lock Attributes</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                    Before we move on the final, and most entertaining section (wink, wink), we should lock the attributes we do not want
+				                    to use and keyframe. The attributes we want to lock include all the Rotates, Scales, Visibility and Translate Z. To
+				                    lock attributes, <strong>select the attribute name in the Channel Box and right-click hold over them, and select Lock
+				                    Selected</strong>. Now these selected attributes cannot be edited, keyframed or changed in any way until we unlock them.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Set up the SDK (Set Driven Keys) for the Control Object</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                    The idea we are trying to set up is a 1,1 to -1, -1 grid. The upper portion will drive the <span class="open">Open</span>
+				                    blend shape, the lower portion will drive the <span class="closed">Closed</span> blend shape, the left portion will
+				                    drive the <span class="narrow">Narrow</span> blend shape, and the right portion of this grid system will drive the
+				                    <span class="wide">Wide</span> blend shape. Refer to the illustration on the right for the visual layout. The controls
+				                    won't look like this image but this will give us an idea where and how this setup will work.
+				                </p>
+				                <p>
+									The values we are going to set up will follow this example:
+				                </p>
+				                <ul>
+									<li>
+										<span class="wide">Wide</span> blend shape will be driven by
+										<span class="visime_control strong">Visime_Control</span> Translate X. <strong>The values will be</strong>
+										<span class="wide">Wide</span><strong> blend shape = 1 and the <span class="visime_control">Visime_Control</span>
+											Translate X = 1.</strong>
+									</li>
+									<li>
+										<span class="narrow">Narrow</span> blend shape will be driven by
+										<span class="visime_control strong">Visime_Control</span> Translate -X. <strong>The values will be</strong>
+										<span class="narrow">Narrow</span><strong> blend shape = 1 and the <span class="visime_control">Visime_Control</span>
+											Translate X = -1.</strong>
+									</li>
+									<li>
+										<span class="open">Open</span> blend shape will be driven by
+										<span class="visime_control strong">Visime_Control</span> Translate Y. <strong>The values will be
+											<span class="open">Open</span> blend shape = 1 and the <span class="visime_control">Visime_Control</span>
+											Translate Y = 1.</strong>
+									</li>
+									<li>
+										<span class="closed">Closed</span> blend shape will be driven by
+										<span class="visime_control strong">Visime_Control</span> Translate -Y. <strong>The values will be
+											<span class="closed">Closed</span> blend shape = 1 and the <span class="visime_control">Visime_Control</span>
+											Translate Y = -1.</strong>
+									</li>
+								</ul>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/SDKed_Blend_Shapes/figure08.jpg" id="figure08" class="imgThumbnail" title="figure08" data-toggle="modal" data-target=".figure08"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Set Driven Key Option Box</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                    Now we are going to set up the connections between the <span class="visime_control strong">Visime_Control</span> and
+				                    the <strong><span class="visime_basic">Basic_Visimes</span></strong> blend shape node. Through this setup, we can manage four
+				                    blendshapes with one simple interface control. Will use the Set Driven Key (SDK) method to set this up. To open up the
+				                    SDK window, <strong>go to Animate &gt; Set Driven Key &gt; Set &gt; Option Box</strong> or select one of the attributes
+				                    to be included in the SDK in the Channel Box, right-click hold and select Set Driven Key.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Load Driver</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                   When this window first opens, the <span class="visime_control strong">Visime_Control</span> will be placed in
+				                   the <span class="visime_driven strong">Driven</span> window. We want to move the
+				                   <span class="visime_control strong">Visime_Control</span> to the <span class="visime_driver strong">Driver</span>
+				                   window. To do this, <strong>hit the Load Driver button</strong>. As the name suggests, attributes in the
+				                   <span class="visime_driver strong">Driver</span> window will drive the attributes in the
+				                   <span class="visime_driven strong">Driven</span> window.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Base Head</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                   Next, <strong>select the</strong> <span class="base">Base</span> <strong>head</strong> and <strong>select the</strong>
+				                   <span class="visime_basic strong">Basic_Visimes</span> <strong>blend shape node in the Channel Box</strong>. We are
+				                   going to load this into the <span class="visime_driven strong">Driven</span> window of the SDK window. In the SDK
+				                   window, <strong>hit the Load <span class="visime_driven">Driven</span> button</strong>. At this point, the SDK window should
+				                   look like this illustration.
+				                </p>
+				            </div>
+				             <div class="images">
+				                <img src="../../images/tutorials/SDKed_Blend_Shapes/figure09.jpg" id="figure09" class="imgThumbnail" title="figure09" data-toggle="modal" data-target=".figure09"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Build Connections</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                   We are now ready to set up the connections between the <span class="visime_control strong">Visime_Control</span>s and
+				                   the <span class="visime_basic strong">Basic_Visimes</span> blend shapes. <strong>Highlight translateX</strong> of
+				                   <span class="visime_control strong">Visime_Control</span>. <strong>Highlight <span class="visime_basic">Basic_Visimes</span>
+				                   and then the attribute</strong> <span class="wide">Wide</span>. We can <strong>hit Key</strong> at this point to set up
+				                   	a base for the controls between translateX and <span class="wide">Wide</span>. The method we will follow is like this:
+				                   	Select the driver translate attribute, select the driven blend shape attribute, set all values to zero and key, set
+				                   	the driver translate attribute to 1 or -1 and the driven blend shape attribute to 1. At no time will we set a blend
+				                   	shape attribute to -1!
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Driven Wide</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                    If you haven't already, <strong>hit Key to set translateX to 0 and </strong><span class="wide">Wide</span>
+				                    <strong>to 0</strong>. You will notice the <span class="wide">Wide</span>attribute will turn orange (in Maya 4.5
+				                    and below). This means that this value is being driven, keyframed or is connected to some sort of input.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Drive Wide: Position</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                    <strong>Set translateX to 1 and</strong> <span class="wide">Wide</span><strong> to 1. Hit Key in the SDK window</strong>.
+				                    Now we can slide the <span class="visime_control strong">Visime_Controls</span> on translateX up and watch the
+				                    blendshape change from the base shape to the <span class="wide">Wide</span> blend shape.
+				                </p>
+				                <p>
+				                	<strong>Set translateX to 0</strong> for <span class="visime_control strong">Visime_Controls</span>.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Narrow</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                   <strong>Make sure the</strong> <span class="narrow">Narrow</span> <strong>value is set to 0</strong>.
+				                   <strong>Select</strong> <span class="narrow">Narrow</span> <strong>and hit Key</strong>. Now the base is set for
+				                   the <span class="narrow">Narrow</span> controls.
+				                </p>
+				                <p>
+				                	<strong>Set translateX to -1</strong> for <span class="visime_control strong">Visime_Controls</span>.
+				                </p>
+				                <p>
+				                	<strong>Set</strong> <span class="narrow">Narrow</span><strong> to 1 and hit Key</strong>. Test the control and
+				                	blend shape set by sliding completely to the left and right.
+				                </p>
+				                <p>
+				                	<strong>Set translateX to 0.</strong>
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Open</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                   <strong>Make sure both translateY and <span class="open">Open</span> have the values of 0. Select translateY and
+				                   	<span class="open">Open</span> and hit Key.</strong>
+				                </p>
+				                <p>
+				                	<strong>Set translateY to 1. Select <span class="open">Open</span> and set it to 1. Hit the Key button.</strong>
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Closed</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+								<p>
+				                	<strong>Set translateY and <span class="closed">Closed</span> to 0. Hit the Key button.</strong>
+				                </p>
+								<p>
+				                	<strong>Set translateY to -1. Select <span class="closed">Closed</span> and change the value to 1. Hit the Key
+				                	button</strong>. You setting should follow example below. If all goes well, then you are now ready to start animating
+				                	your head for visime based animation. Say Cheese!
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/SDKed_Blend_Shapes/figure10.gif" id="figure10" class="imgThumbnail" title="figure10" data-toggle="modal" data-target=".figure10"/>
+				            </div>
+				        </div>
+					</section>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		<!-- automated modal image storage-->
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+	</body>
+	<script src="../../js/getYear.js"></script>
+	<script src="../../js/modal-images.js"></script>
+	<script src="../../js/auto-number.js"></script>
+</html>

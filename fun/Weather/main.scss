@@ -1,0 +1,118 @@
+body {
+  font-family: arial;
+  font-weight: bold;
+  margin: 0; // fix for custom.css
+}
+.outer {
+  background: #cccccc;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+.myContainer {
+	background:  url(img/background-generic.jpg) no-repeat center top;
+	height: 10em;
+	padding: 40px;
+	margin: 0 auto;
+}
+#main {
+  background: rgba(255,255,255,0.47);
+  margin: 0 auto;
+  text-align: center;
+  padding: 40px;
+}
+#submit {
+  cursor: pointer;
+}
+.topPush {
+  padding: 40px 0 0 0;
+}
+.noWhite {
+  white-space: nowrap;
+}
+.inlineBlock {
+  display: inline-block;
+}
+
+form.topOffset40 div input {
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  height: 45px;
+  width: 45%;
+  border-top: thin solid #cccccc;
+  border-right: none;
+  border-bottom: thin solid #cccccc;
+  border-left: thin solid #cccccc;
+  margin: 0 -5px 0 0;
+  padding: 5px 0 5px 15px;
+  background: #efefef;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+form.topOffset40 div img {
+  -ms-transform: translateY(-2px); /* IE 9 */
+  -webkit-transform: translateY(-2px); /* Chrome, Safari, Opera */
+  transform: translateY(-2px);
+   @-moz-document url-prefix() {
+     transform: translateY(-3px);
+   }
+}
+
+.location {
+  padding: 15px 0 0 0;
+  font-size: 1.6em;
+  font-weight: normal;
+}
+#info .info-container {
+  padding: 20px 0 0 0;
+  margin: 0 auto;
+  width: 100%;
+}
+#info .info-container > div {
+  padding: 5px;
+  margin: 0 auto;
+}
+
+// warning message area
+#warning {
+	display: none;
+	font-weight: normal;
+}
+
+// detail sections' layout adjustments
+.paddingTop15 {
+  padding: 15px 0 0 0;
+}
+.bold {
+  font-weight: bold;
+  font-size: 1.4em;
+}
+.fontSmall {
+  font-size: 0.8em;
+  font-weight: normal;
+}
+
+// table layout
+.tble {
+  display: table;
+}
+.tr {
+  display: table-row;
+}
+.td {
+  display: table-cell;
+  padding: 5px 15px 0 15px;
+  width: 16.6%;
+}
+
+// data formating
+#temperatureDetailC, #windDirection { // ??????
+	font-weight: normal;
+}
+
+// footer stuff
+.credits {
+  text-align: center;
+  font-size: 0.6em;
+  padding: 50px 0 20px 0;
+}

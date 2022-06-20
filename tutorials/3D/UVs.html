@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="tutorial, basic, uv, map, texture, mapping, maya, UV Texture Editor">
+		<meta name="description" content="Basics of Creating UV Maps Tutorial">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>Basics of Creating UV Maps Tutorial</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer="defer" src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1>Basics of Creating UV Maps</h1>
+					<p class="about">
+						This tutorial covers the basics of generating UV projections, editing UV points, exporting UV maps to Photoshop, and bringing the
+						finished texture map back into Maya. This tutorial assumes that the user has a fundamental understanding of the Maya interface, has
+						some knowledge of polygonal modeling, and has experience with editing raster-based images in Photoshop. Note: Some of the steps and
+						proceeds may need adjusting if you are using version 6 and up.
+					</p>
+					<p class="about">
+						Written by Brian Immel
+					</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+            		<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Editing UVs</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Open the UV Texture Editor by going to <span class="strong">Windows &gt; UV Texture Editor</span>. This window will display all of
+				                	the UVs of a selected polygonal object. The main function of this window and the tools therein is to edit UV points. UV
+				                	points do not affect the geometry's makeup (position) but rather how the material maps wrap around the surface.
+				                </p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Default UV Layout</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	By default, when you create a polygonal object, the UVs go over the entire place. In other words, the UVs are a mess.
+				                	This image illustrates what the UV layout looks like when a model gets finished. As you model, Maya just throws the UV
+				                	points all over the <span class="strong">UV Grid</span>. By the end, <span class="strong">all the UV ponts will need to be placed within the
+				                	upper right corner of UV Grid</span>.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/UVs/fish-uvs-figure01.jpg" id="fish-uvs-figure01" class="imgThumbnail" title="figure01" data-toggle="modal" data-target=".fish-uvs-figure01"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Mapping Strategies</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	One quick way to get all the UVs back inside the upper right UV Grid, is to use the <span class="strong">Automatic Mapping function
+				                	found under Edit Polygons &gt; Texture &gt; Automatic Mapping</span>. Using this function will break the UVs down into
+				                	"chunks". Figure 4 illustrates these chunks with the default settings for Automatic Mapping.
+				                </p>
+				                <p>
+				                	Use other projection tools to map out areas that you wish to use in high detail areas. For our fish friend here, I want
+				                	to have detail areas of the body, fins, and mouth region. Start picking the larger areas first by selecting the polygonal
+				                	faces of the body.
+				                </p>
+				                <p>
+				                	Open up the tool options for Planar Projection (<span class="strong">Edit Polygons &gt; Texture &gt; Planar Projection &gt; Option
+				                	Box</span>). Select <span class="strong">Camera under Mapping Direction</span>. By selecting the Camera option, Maya will unwrap
+				                	UVs according to whichever window you have activate. In case of our fishy friend, I activated the side view by clicking
+				                	on the empty portion of the side viewport menu. <span class="strong">Activate viewports will have a blue outline</span> indicating
+				                	that this viewport is active. In the Polygon Planar Projection Options window, I hit the Project button to layout the
+				                	UVs of the body.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/UVs/fish-uvs-figure04.jpg" id="fish-uvs-figure04" class="imgThumbnail" title="figure04" data-toggle="modal" data-target=".fish-uvs-figure04"/>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/UVs/fish-uvs-figure05.jpg" id="fish-uvs-figure05" class="imgThumbnail" title="figure05" data-toggle="modal" data-target=".fish-uvs-figure05"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Overlapping UVs</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	This image shows that I only selected one side of the body (in this case the fish's left side). If I had chosen to select
+				                	both sides and created the projection as I just mentioned, I would have overlapping UVs. Some times, you will want to
+				                	overlap UVs to save UV layout space, texture memory and file size. Other times (more often than not), you should keep your
+				                	UVs sets separate from one another.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/UVs/fish-uvs-figure07.jpg" id="fish-uvs-figure07" class="imgThumbnail" title="figure07" data-toggle="modal" data-target=".fish-uvs-figure07"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Moving UVs</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Create as many UV projections as you see fit to get the areas of detail you need. One Automatic Projection won't be
+				                	enough and a bazillion projects will be too much (unless of course you have a bazillion faces).
+				                </p>
+				                <p>
+				                	Immediately after creating a projection with a selected set of faces, in the UV Texture Editor (UVTE) window, you will
+				                	notice that the selected faces will have a Manupilator-like tool selecting them. You can move, rotate and scale according.
+				                	At this point, it is strongly recommended that you move your selection to an unused area of this the UVTE window. This
+				                	will prevent overlapping UVs. Think of the UVTE window as a staging area where you can dump all your UV sets like puzzle
+				                	pieces on a tabletop. These pieces will sit there until you move them into their final resting place.
+				                </p>
+				                <p>
+				                	<span class="strong">To edit UVs, right-click hold and select UV(s). Select the Move, Rotate or Scale tool to manipulate the UV's
+				                	positions within the grid. No other tool will work in this window to move UVs.</span>
+				                </p>
+				                <p>
+				                	Be careful as you create new projections and move old selections around not to unintentionally stretch or pull UV sets.
+				                	Stretching UVs from their original projections will cause the texture map(s) assigned to this surface to stretch and/or
+				                	pull which will lead to bad looking textures.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/UVs/fish-uvs-figure08.jpg" id="fish-uvs-figure08" class="imgThumbnail" title="figure08" data-toggle="modal" data-target=".fish-uvs-figure08"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>What to Project?</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	When laying out your UVs of your character, you want to lay out sets of UVs that you will use to give areas of high
+				                	detail first. Example: Face, torso, hands, areas of accurate details. This image illustrates all the areas I wanted to
+				                	have particular UV sets for so that I can create a fairly detailed map for my character. All the pieces that still
+				                	remain in the UV Grid are areas of no detail meaning that they will just receive basic color.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/UVs/fish-uvs-figure09.jpg" id="fish-uvs-figure09" class="imgThumbnail" title="figure09" data-toggle="modal" data-target=".fish-uvs-figure09"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Back to Square One</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Once you have laid out all your projections, you need to put all these projections back into the upper right UV Grid
+				                	before we can export these UVs out to a texture file to be edited in Photoshop. This is where you must make the final
+				                	decision on what gets the most detail level and what gets secondary detail levels and so on. Chances are, you will have
+				                	to scale each UV set so that you fit all the UVs back into the upper right UV Grid. Pick the highest detail UV sets first
+				                	and move them into the upper right UV Grid and uniformly scale them to fit inside. In the case of my fish, I scale the
+				                	body down to near 50%, the lower fins to 25%, inner mouth cavity about 15%, face about 30%, and the other fins about 32%.
+				                	The no detail or low detail areas I scale down the most and tucked them away in a small opening. Figure 10 shows where I
+				                	laid everything out and how I prepared the UVs for export.
+				                </p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Exporting UV Maps</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	There comes a time in life when a polygonal character model wants to expand his horizons. Soil his oats. Get dirty and
+				                	use external texture maps that have customized just for him.
+				                </p>
+				                <ol>
+				                	<li><span class="strong">Select the polygonal surface</span>.</li>
+				                	<li>In the UV Texture Editor window, go to <span class="strong">Polygons &gt; UV Snapshot</span>.</li>
+				                	<li>
+				                		<span class="strong">Under File Name, hit the Browse button and choose a save location and a name for the image</span>. You may
+				                		want to add a suffix such as _UV_map to the image name to avoid any confusion later on.
+				                	</li>
+				                	<li>
+				                		 Select an image size in the <span class="strong">Size X</span> and <span class="strong">Size Y</span> areas. The larger the size, the more
+				                		 detail your maps can contain. Also keep in mind that larger maps will require a bit more time for rendering. I
+				                		 usually work with 512 x 512 unless I plan on the object having an extreme close-up in which case I will use 1024 x
+				                		 1024 resolution.
+				                	</li>
+				                	<li>Leave Color Value to white.</li>
+				                	<li>
+				                		In <span class="strong">Image Format</span>, select a format that will be compatible with your raster image editor (Photoshop).
+				                		I would recommend <span class="strong">Targa format</span> because it uses an alpha channel and can be read by almost any raster
+				                		image editor software.
+				                	</li>
+				                	<li><span class="strong">Hit OK to save the UV map image</span>.</li>
+				                </ol>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/UVs/fish-uvs-figure11.jpg" id="fish-uvs-figure11" class="imgThumbnail" title="figure11" data-toggle="modal" data-target=".fish-uvs-figure11"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Painting UVs in Photoshop</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				            	<ul>
+									<li>
+										Once you have the UV map in Photoshop, <span class="strong">create and paint on layers that do not contain the original UV
+										layout!</span> If anything, lock this layer so that you don't accidentally paint on it. You should also name this
+										layer UVs or UV map or something to remind you that this layer should not be touched.
+									</li>
+								  	<li>
+								  		Use many layers to generate the images you wish to use to texture the surface of your character. Figure 12 shows what
+								  		I did the UV map and the layers I used to create textures for the fish geometry. You may have noticed that the UV layer
+								  		is on top of everything in this figure. I like to keep the UV layer on top so I can see were my edges end and keep my
+								  		textures under better control.
+								  	</li>
+								  	<li>
+								  		Keep track of what UVs are continuous edges, connecting edges (if you wish to create a seamless detail) and color
+								  		safe choices.
+								  	</li>
+								  	<li>
+								  		You can use what every tools and techniques you like to generate your maps but try to avoid anything that is
+								  		unnecessarily random or has sloppy control over placement of pixels.
+								  	</li>
+								  	<li>
+								  		You can use the areas outside the UVs as notation areas for yourself or other people who might be working on this
+								  		project. Figure 13 tells me what UV sets are what.
+								  	</li>
+								  	<li>
+								  		When you are ready to take this texture map back to Maya, <span class="strong">turn off the UV layer before exporting</span> as
+								  		a <span class="strong">Targa file</span>. Otherwise, you will see the UV layout on top of your beautifully drawn textures.
+								  		<span class="strong">Save As with 24-bit resolution</span> (32-bit will add an alpha channel that we don't want to use).
+								  	</li>
+								  	<li>
+								  		You may notice that a few edges are not as perfectly seamed as you thought or some areas of detail don't meet up with
+								  		how you thought they would sit down on the surface. If this is the case, simply edit the texture map in Photoshop,
+								  		perform another Save As and update the file linked to the shader that is attached to our fishy friend.
+								  	</li>
+								</ul>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/UVs/fish-uvs-figure12.jpg" id="fish-uvs-figure12" class="imgThumbnail" title="figure12" data-toggle="modal" data-target=".fish-uvs-figure12"/>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/UVs/fish-uvs-figure13.jpg" id="fish-uvs-figure13" class="imgThumbnail" title="figure13" data-toggle="modal" data-target=".fish-uvs-figure13"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Bringing the Texture Map Back to Maya</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <ol>
+				                	<li>
+				                		Now that we are done editing the texture map (for now), its time to bring the texture back home. <span class="strong">Assign a
+				                		new shader to the geometry</span>.
+				                	</li>
+				                	<li>
+				                		In the <span class="strong">Color Attribute of this new shader, hit the checkbox</span> at the far end. This will open the
+				                		<span class="strong">Create Render Node window</span>.
+				                	</li>
+				                	<li>
+				                		<span class="strong">Select File from this window</span>. This will change the right side of Maya to display the
+				                		<span class="strong">Attribute Editor</span> and list an open file node.
+				                	</li>
+				                	<li>
+				                		<span class="strong">Click the folder icon</span> at the end and <span class="strong">select the texture map you just created</span>.
+				                	</li>
+				                	<li>
+				                		If you are updating a texture map from Photoshop, you do not need to build the link from Maya to this external file.
+				                		Simply hit the <span class="strong">Reload File Texture button</span> below the Image Name field. Figure 15 shows the file
+				                		version of our fishy friend after his textures have been updated, a few more UVs pulled around post-UV output and a
+				                		smooth proxy applied. Happy fishing!
+				                	</li>
+				                </ol>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/UVs/fish-uvs-figure14.jpg" id="fish-uvs-figure14" class="imgThumbnail" title="figure14" data-toggle="modal" data-target=".fish-uvs-figure14"/>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/UVs/fish-uvs-figure15.jpg" id="fish-uvs-figure15" class="imgThumbnail" title="figure15" data-toggle="modal" data-target=".fish-uvs-figure15"/>
+				            </div>
+				        </div>
+					</section>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		</div>
+		<!-- automated modal image storage-->
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+		<script src="../../js/getYear.js"></script>
+		<script src="../../js/modal-images.js"></script>
+		<script src="../../js/auto-number.js"></script>
+	</body>
+</html>

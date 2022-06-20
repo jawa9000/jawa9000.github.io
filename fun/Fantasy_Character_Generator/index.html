@@ -1,0 +1,371 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="description" content="Fantasy Character Generator" />
+		<meta name="keywords" content="player, roll, dice, character, fantasy, generator, race, bonus, gender, alignment, d&d, html, css, javascript, practice, for fun" />
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>Fantasy Character Generator</title>
+		<!--
+			Purpose of page: To help players roll characters with multiple dice rolling methods and see character race bonuses
+			Created by Brian Immel on 9/14/2014
+		-->
+		<link rel="stylesheet" type="text/css" href="css/Fantasy_Character_Generator2.css">
+		<link href='http://fonts.googleapis.com/css?family=Peralta' rel='stylesheet' type='text/css'>
+		<style>
+
+		</style>
+	</head>
+	<body>
+		<div class="main">
+			<div class="tableCharacterName" title="Character Name">
+				<div id="characterName" class="row">
+					<div class="cell characterName" title="Enter the name of your character">
+						<span>Name:</span>
+						<input type="text" class="characterName" name="characterName" placeholder="character name">
+					</div>
+				</div>
+			</div>
+			<div class="table">
+				<div id="characterProperties" class="row">
+					<nav id="CharacterRace" title="Character Race">
+						<ul>
+							<li>
+								<span id="raceDropDown">Race</span>
+									<span class="arrowDown"></span>
+								<ul>
+									<li id="dragonbornRace">Dragonborn</li>
+									<li id="dwarfRace">Dwarf</li>
+									<li id="eldarinRace">Eldarin</li>
+									<li id="elfRace">Elf</li>
+									<li id="halfElfRace">Half-Elf</li>
+									<li id="halflingRace">Halfling</li>
+									<li id="humanRace">Human</li>
+									<li id="tieflingRace">Tiefling</li>
+								</ul>
+							</li>
+						</ul>
+					</nav>
+					<nav id="CharacterClass" title="Character Class">
+						<ul>
+							<li>
+								<span id="classDropDown">Class</span>
+								<span class="arrowDown"></span>
+								<ul>
+									<li id="clericClass">Cleric</li>
+									<li id="fighterClass">Fighter</li>
+									<li id="paladinClass">Paladin</li>
+									<li id="rangerClass">Ranger</li>
+									<li id="rogueClass">Rogue</li>
+									<li id="warlockClass">Warlock</li>
+									<li id="warlordClass">Warlord</li>
+									<li id="wizardClass">Wizard</li>
+								</ul>
+							</li>
+						</ul>
+					</nav>
+					<nav id="CharacterGender" title="Character Gender">
+						<ul>
+							<li>
+								<span id="genderDropDown">Gender</span>
+								<span class="arrowDown"></span>
+								<ul>
+									<li id="femaleGender">Female</li>
+									<li id="maleGender">Male</li>
+								</ul>
+							</li>
+						</ul>
+					</nav>
+					<nav id="CharacterAlignment" title="Character Alignment">
+						<ul>
+							<li>
+								<span id="alignmentDropDown">Alignment</span>
+								<span class="arrowDown"></span>
+								<ul>
+									<li id="lawfulGoodAlignment">Lawful-good</li>
+									<li id="goodAlignment">Good</li>
+									<li id="unalignedAlignment">Unaligned</li>
+									<li id="evilAlignment">Evil</li>
+									<li id="chaoticEvilAlignment">Chaotic-evil</li>
+								</ul>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+			<div class="table">
+				<div id="abilityGeneratorButtons" class="row">
+					<div class="diceButton">
+						<div id="dice3d6" class="cell button">
+							<span>3d6</span>
+							<span class="arrowRight"></span>
+						</div>
+					</div>
+					<div class="diceButton">
+						<div id="dice4d6minus6" class="cell button">
+						<span>4d6-6</span>
+						<span class="arrowRight"></span>
+					</div>
+					</div>
+					<div class="diceButton">
+						<div id="dice4d6minuslow" class="cell button">
+							<span>4d6-lowest</span>
+							<span class="arrowRight"></span>
+						</div>
+					</div>
+					<div class="diceButton">
+						<div id="eighteenToEight" class="cell button">
+							<span>18-8</span>
+							<span class="arrowRight"></span>
+						</div>
+					</div>
+					<div class="diceButton">
+						<div id="twelvePoints" class="cell button">
+							<span>12 Points</span>
+							<span class="arrowRight"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="abilityTable" class="table">
+				<div class="row">
+					<div class="cell header">Ability</div>
+					<div class="cell header">Score</div>
+					<div class="cell header"></div>
+					<div class="cell header">Race</div>
+					<div class="cell header"></div>
+					<div class="cell header">Total</div>
+				</div>
+				<div id="Strength" class="row">
+					<div id="StrengthName" class="cell">Strength</div>
+					<div id="StrengthRolls" class="cell dice"></div>
+					<div id="StrengthButtons" class="cell">
+						<div class="table">
+							<div class="row">
+								<div class="subCell">
+									<div id="StrengthUp" class="modButton" title="Move Strength up">^</div>
+								</div>
+								<div class="subCell">
+									<div id="StrengthDown" class="modButton" title="Move Strength down">^</div>
+								</div>
+								<div class="subCell">
+									<div id="StrengthPlus" class="modButton" title="Add one to Strength">+</div>
+								</div>
+								<div class="subCell">
+									<div id="StrengthMinus" class="modButton" title="Subtract one from Strength">-</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="StrengthRace" class="cell"></div>
+					<div id="StrengthRaceButtons" class="cell">
+						<div class="table">
+							<div class="row">
+								<div class="subCell">
+									<div id="StrengthRacePlus" class="modButtonHidden">+</div>
+								</div>
+								<div class="subCell">
+									<div id="StrengthRaceMinus" class="modButtonHidden">-</div>
+								</div>
+							</div>
+						</div>
+
+
+					</div>
+					<div id="StrengthTotal" class="cell"></div>
+				</div>
+				<div id="Constitution" class="row">
+					<div id="ConstitutionName" class="cell">Constitution</div>
+					<div id="ConstitutionRolls" class="cell dice"></div>
+					<div id="ConstitutionButtons" class="cell">
+						<div class="table">
+							<div class="row">
+								<div class="subCell">
+									<div id="ConstitutionUp" class="modButton">^</div>
+								</div>
+								<div class="subCell">
+									<div id="ConstitutionDown" class="modButton">^</div>
+								</div>
+								<div class="subCell">
+									<div id="ConstitutionPlus" class="modButton">+</div>
+								</div>
+								<div class="subCell">
+									<div id="ConstitutionMinus" class="modButton">-</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="ConstitutionRace" class="cell"></div>
+					<div id="ConstitutionRaceButtons" class="cell">
+						<div class="table">
+							<div class="row">
+								<div class="subCell">
+									<div id="ConstitutionRacePlus" class="modButtonHidden">+</div>
+								</div>
+								<div class="subCell">
+									<div id="ConstitutionRaceMinus" class="modButtonHidden">-</div>
+								</div>
+							</div>
+						</div>
+
+
+					</div>
+					<div id="ConstitutionTotal" class="cell"></div>
+				</div>
+				<div id="Dexterity" class="row">
+					<div id="DexterityName" class="cell">Dexterity</div>
+					<div id="DexterityRolls" class="cell dice"></div>
+					<div id="DexterityButtons" class="cell">
+						<div class="table">
+							<div class="row">
+								<div class="subCell">
+									<div id="DexterityUp" class="modButton">^</div>
+								</div>
+								<div class="subCell">
+									<div id="DexterityDown" class="modButton">^</div>
+								</div>
+								<div class="subCell">
+									<div id="DexterityPlus" class="modButton">+</div>
+								</div>
+								<div class="subCell">
+									<div id="DexterityMinus" class="modButton">-</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="DexterityRace" class="cell"></div>
+					<div id="DexterityRaceButtons" class="cell">
+						<div class="table">
+							<div class="row">
+								<div class="subCell">
+									<div id="DexterityRacePlus" class="modButtonHidden">+</div>
+								</div>
+								<div class="subCell">
+									<div id="DexterityRaceMinus" class="modButtonHidden">-</div>
+								</div>
+							</div>
+						</div>
+
+
+					</div>
+					<div id="DexterityTotal" class="cell"></div>
+				</div>
+				<div id="Intelligence" class="row">
+					<div id="IntelligenceName" class="cell">Intelligence</div>
+					<div id="IntelligenceRolls" class="cell dice"></div>
+					<div id="IntelligenceButtons" class="cell">
+						<div class="table">
+							<div class="row">
+								<div class="subCell">
+									<div id="IntelligenceUp" class="modButton">^</div>
+								</div>
+								<div class="subCell">
+									<div id="IntelligenceDown" class="modButton">^</div>
+								</div>
+								<div class="subCell">
+									<div id="IntelligencePlus" class="modButton">+</div>
+								</div>
+								<div class="subCell">
+									<div id="IntelligenceMinus" class="modButton">-</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="IntelligenceRace" class="cell"></div>
+					<div id="IntelligenceRaceButtons" class="cell">
+						<div class="table">
+							<div class="row">
+								<div class="subCell">
+									<div id="IntelligenceRacePlus" class="modButtonHidden">+</div>
+								</div>
+								<div class="subCell">
+									<div id="IntelligenceRaceMinus" class="modButtonHidden">-</div>
+								</div>
+							</div>
+						</div>
+
+
+					</div>
+					<div id="IntelligenceTotal" class="cell"></div>
+				</div>
+				<div id="Wisdom" class="row">
+					<div id="WisdomName" class="cell">Wisdom</div>
+					<div id="WisdomRolls" class="cell dice"></div>
+					<div id="WisdomButtons" class="cell">
+						<div class="table">
+							<div class="row">
+								<div class="subCell">
+									<div id="WisdomUp" class="modButton">^</div>
+								</div>
+								<div class="subCell">
+									<div id="WisdomDown" class="modButton">^</div>
+								</div>
+								<div class="subCell">
+									<div id="WisdomPlus" class="modButton">+</div>
+								</div>
+								<div class="subCell">
+									<div id="WisdomMinus" class="modButton">-</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="WisdomRace" class="cell"></div>
+					<div id="WisdomRaceButtons" class="cell">
+						<div class="table">
+							<div class="row">
+								<div class="subCell">
+									<div id="WisdomRacePlus" class="modButtonHidden">+</div>
+								</div>
+								<div class="subCell">
+									<div id="WisdomRaceMinus" class="modButtonHidden">-</div>
+								</div>
+							</div>
+						</div>
+
+
+					</div>
+					<div id="WisdomTotal" class="cell"></div>
+				</div>
+				<div id="Charisma" class="row">
+					<div id="CharismaName" class="cell">Charisma</div>
+					<div id="CharismaRolls" class="cell dice"></div>
+					<div id="CharismaButtons" class="cell">
+						<div class="table">
+							<div class="row">
+								<div class="subCell">
+									<div id="CharismaUp" class="modButton">^</div>
+								</div>
+								<div class="subCell">
+									<div id="CharismaDown" class="modButton">^</div>
+								</div>
+								<div class="subCell">
+									<div id="CharismaPlus" class="modButton">+</div>
+								</div>
+								<div class="subCell">
+									<div id="CharismaMinus" class="modButton">-</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="CharismaRace" class="cell"></div>
+					<div id="CharismaRaceButtons" class="cell">
+						<div class="table">
+							<div class="row">
+								<div class="subCell">
+									<div id="CharismaRacePlus" class="modButtonHidden">+</div>
+								</div>
+								<div class="subCell">
+									<div id="CharismaRaceMinus" class="modButtonHidden">-</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="CharismaTotal" class="cell"></div>
+				</div>
+			</div>
+		<div id="outputMessage"></div>
+
+	</body>
+	<script src="js/main.js" type="text/javascript"></script>
+</html>

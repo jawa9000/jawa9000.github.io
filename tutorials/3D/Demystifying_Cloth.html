@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="Maya, Maya Cloth, Cloth, Maya tutorial">
+		<meta name="description" content="Demystifying Cloth in Maya">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>Demystifying Cloth in Maya (Tutorial)</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer="defer" src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1>Demystifying Cloth in Maya</h1>
+					<p class="lead">
+						This tutorial covers the basics of creating a shirt using Maya cloth. This tutorial requires Maya Unlimited version 5 through 8.5.
+					</p>
+					<p class="about">
+						Written by Brian Immel
+					</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+            		<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Outlining the Shirt</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	In one of the orthographic views, <span class="strong">create these curves</span> according to the image below.
+				                </p>
+				                <ul>
+								  	<li>It may help later on if you create these curves in a single direction (clockwise or counter-clockwise).</li>
+								  	<li>
+								  		These curves form a <span class="strong">closed loop</span>. They are not attached to each other but rather <span class="strong">where one
+								  		curve ends, another begins</span> (a little Zen philosophy for Maya). Figure 2 shows exactly how many curves you
+								  		need to create (twenty-six).
+								  	</li>
+								  	<li>If you created the curve end to end without any breaks, just insert a few knots here and there and detach them.</li>
+								  	<li>
+								  		If you're wondering about the cuts on the sides of the torso, don't worry. They are there for creating a dart in the
+								  		cloth.
+								  	</li>
+								  	<li>
+								  		Why there are so many curves? Its because we need to create seams later on and creating seams uses the curves the
+								  		cloth object is created with, not the cloth itself.
+								  	</li>
+								</ul>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Demystifying_Cloth/figure01.jpg" id="figure01" class="imgThumbnail" title="figure01" data-toggle="modal" data-target=".figure01"/>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Demystifying_Cloth/figure02.jpg" id="figure02" class="imgThumbnail" title="figure02" data-toggle="modal" data-target=".figure02"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Duplicate Curves</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	<span class="strong">Select all the curves and duplicate them</span>. With the new set of curves still selected, pull them forward
+				                	about 2 units (<span class="strong">Translate Z=2</span>). This set will be used to create the front of the
+				                	<span class="shirt">shirt</span>. <span class="strong">Add another curve to make the collar opening and delete the curves that cross
+				                	the collar</span>.
+				                </p>
+				                <p>
+				                	Select the <span class="backside">curves for the backside</span> and put them in a layer and hide them for now and name
+				                	the layer <span class="backside">backside_curves</span>. Select the <span class="frontside">front curves</span> and put them
+				                	in a layer called <span class="frontside">frontside_curves</span>.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Demystifying_Cloth/figure03.jpg" id="figure03" class="imgThumbnail" title="figure03" data-toggle="modal" data-target=".figure03"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Creating the Panels</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Next we're going to create the panels. Each panel must be created with a closed loop but cannot use the same curve twice.
+				                	Duplicate the curve between the sleeve and the armpit (Figure 4). <span class="strong">Select the four curves that make up the
+				                	sleeve</span> and in the <span class="strong">Cloth menu select Create Panel</span> (Figure 5).
+				                </p>
+				                <p>
+				                	After you create the panel, name it <span class="FRSleeve">panel_FR_sleeve</span>. The channel box lists only one
+				                	attribute called <span class="FRSleeve">Resolution Factor</span> for the <span class="FRSleeve">panel_FR_sleeve</span>.
+				                	Keep this guy in mind later on when we deal with cloth resolution issues.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Demystifying_Cloth/figure04.jpg" id="figure04" class="imgThumbnail" title="figure04" data-toggle="modal" data-target=".figure04"/>
+				            </div>
+				             <div class="images">
+				                <img src="../../images/tutorials/Demystifying_Cloth/figure05.jpg" id="figure05" class="imgThumbnail" title="figure05" data-toggle="modal" data-target=".figure05"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Create Rest of Panels</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Continue creating panels and naming each one. <span class="strong">Remember not to use a curve that was used previously for another
+				                	panel</span>. If you're not sure if a curve was already used, select it. If a panel turns pink, then that means that
+				                	curve is being used for that panel and you need to <span class="strong">duplicate the curve</span> (Figure 6). Once you have
+				                	finished creating all five panels (<span class="FRSleeve">panel_FR_sleeve, panel_FR_armpit, panel_F_torso, panel_FL_sleeve,
+				                	panel_FL_armpit</span>) you should have something that looks like Figure 7.
+				                </p>
+				                <ul>
+								  	<li>
+								  		If for some reason you need to change the shape of the curves, you'll need to disable the solver for all panels
+								  		(<span class="strong">Simulation &gt; Disable Solver</span>) and move around the <span class="strong">Control Vertices</span>.
+								  	</li>
+								  	<li>
+								  		When you're done adjusting the curves, be sure to enable the solver again (<span class="strong">Simulation &gt; Enable
+								  		Solver</span>).
+								  	</li>
+								</ul>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Demystifying_Cloth/figure06.jpg" id="figure06" class="imgThumbnail" title="figure06" data-toggle="modal" data-target=".figure06"/>
+				            </div>
+				             <div class="images">
+				                <img src="../../images/tutorials/Demystifying_Cloth/figure07.jpg" id="figure07" class="imgThumbnail" title="figure07" data-toggle="modal" data-target=".figure07"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Back Panels</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Select all the panels and put them in a layer called <span class="FRSleeve">panels</span> and hide it for now.
+				                </p>
+				                <p>
+				                	Unhide the <span class="backside">backside_curves</span> layer and hide the <span class="frontside">frontside_curves</span>
+				                	layer and repeat steps for creating panels. Name each panel with the
+				                	<span class="FRSleeve">panel_B... instead of panel_F...</span>. I use these naming conventions for back (B) and front (F).
+				                </p>
+				                <p>
+				                	Unhide the <span class="FRSleeve">panels</span> layer. So far we should have something that looks like Figure 8.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Demystifying_Cloth/figure08.jpg" id="figure08" class="imgThumbnail" title="figure08" data-toggle="modal" data-target=".figure08"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>From Panels to a Garment</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	<span class="strong">Select a panel and hit Create Garment</span>. Repeat this step until all panels have garments.
+				                </p>
+				                <ul>
+								  	<li>
+								  		If for some reason you need to move the garment(s) around, you'll need to disable the solver (<span class="strong">Simulation &gt;
+								  		Disable Solver</span>). <span class="strong">Select the curves, not the cloth object,</span> and move it to its new co-planar
+								  		location. When you're done moving the curves, enable solver again (<span class="strong">Simulation &gt; Enable Solver</span>).
+								  	</li>
+								  	<li>
+								  		You can also move the garment by selecting the <span class="strong">Cloth Mesh</span> (right-click the garment) and move as
+								  		needed. Once you have finished moving/sculpting the garment, hit <span class="strong">Simulation &gt; Save as Initial Cloth
+								  		State</span>. This second technique is very useful if you're trying to costume fit a round location (belly, breasts,
+								  		etc.).
+								  	</li>
+								</ul>
+								<p>
+									In Figure 9, you see that there are several INPUTS in the Channel Box called <span class="strong">cpSolver1, time1</span> and
+									<span class="strong">ten cpStitchers</span>.
+								</p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Demystifying_Cloth/figure09.jpg" id="figure09" class="imgThumbnail" title="figure09" data-toggle="modal" data-target=".figure09"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Creating Seams</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Our next task is to connect all these individual cloth objects into one piece. This is done by creating seams. Seams are
+				                	created by selecting the curves that are next to each other as I mentioned earlier in step 1. Select the two curves
+				                	(that are sitting on top of each other) between the <span class="FRSleeve">FR_sleeve and the FR_armpit</span> and hit
+				                	<span class="strong">Create Seam</span>. Name each seam as you create them (<span class="seams">seam_FR_sleeve, seam_FR_armpit,
+				                	seam_FL_sleeve, seam_FL_armpit</span>).
+				                </p>
+				                <ul>
+								  	<li>
+								  		If you run into problems with the seam causing the cloth to connect badly, you may have to go back and recreate the
+								  		panel from scratch. Try selecting each curve in a clockwise or counter-clockwise motion and recreate the panel,
+								  		garment and everything else normally.
+								  	</li>
+								  	<li>
+								  		Sometimes you may need to seam the garments together in different orders for the cloth to be completed seamed
+								  		together. Experiment with different seaming orders and note your results.
+								  	</li>
+								</ul>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Darts</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Now we should be ready to close up those darts. <span class="strong">Select the two curves that make up the "hole" and Create Seam.</span>
+				                </p>
+				                <p>
+				                	Next select each curve on the front and back sets and create seams between them to close off the cloth object. This step
+				                	will take a few tries depending on the order you seam it shut. Once completed, your
+				                	<span class="shirt">shirt</span> should look something like Figure 10. <span class="strong">Name the cloth object
+				                	<span class="shirt">Shirt</span></span>.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Demystifying_Cloth/figure10.jpg" id="figure10" class="imgThumbnail" title="figure10" data-toggle="modal" data-target=".figure10"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Creasing the Seams</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Next I should talk about creasing the seams. Each seam has two attributes: <span class="strong">Crease Angle</span> and
+				                	<span class="strong">Crease Stiffness</span>. Crease Angle creates the look of two pieces of cloth sewn together. The values to use
+				                	for Crease Angle should be between -180 and 180. Adjusting the Crease Angle lets you control more likes on the cloth
+				                	object like lapels. Crease Stiffness tells the seam how much to resist being pulled flat. <span class="strong">For the
+				                	<span class="darts">darts</span></span> on both front and back, I used a
+				                	<span class="darts">Crease Stiffness value of 0.5</span>.
+				                	<span class="sleeveSeams">For the sleeve seams</span> I used the
+				                	<span class="sleeveSeams">Crease Angle of 45</span> and <span class="sleeveSeams">Crease Stiffness of 1</span>.
+				                </p>
+				                <p>
+				                	Change the <span class="strong">cpStitcher's Base Resolution to 400</span>.
+				                </p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Collision Time!</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Next create a simple <span class="strong">poly body</span> to use a <span class="strong">collision object</span> for the
+				                	<span class="shirt">Shirt</span>. Refer to Figure 11. Name the polygonal object
+				                	<span class="collide">Cloth_collide</span>. With the <span class="collide">Cloth_collide</span> object still select,
+				                	go<span class="strong">Cloth &gt; Create Collision Object</span>. <span class="strong">Set the Collision offset to 0.15 and Collision Depth
+				                	to 0.4</span>.
+				                </p>
+				                <ul>
+								  	<li>
+								  		These numbers will vary from model to model but the general rule of thumb is that the <span class="strong">Collision Offset should
+								  		be half or less of what the value is for Collision Depth</span>.
+								  	</li>
+								  	<li>
+								  		<span class="strong">Collision Offset</span> is the distance the cloth must stay away from the collision object. Collision
+								  		Offset is affected by size of the model. So if you have a small character (10 units or so) youshould decrease the
+								  		default value (which is 1). Collision Offset is not affected by the <span class="strong">Solver Scale</span> however.
+								  	</li>
+								  	<li>
+								  		<span class="strong">Collision Depth</span> is the distance the cloth object can penetrate the collision object and still be
+								  		repelled but once its past this it won't try to repel the cloth object.
+								  	</li>
+								  	<li>
+								  		<span class="strong">Collision Priority</span> (use with multiple collision objects) determines which collision object takes
+								  		priority in simulations. So if you have a character with a long skirt attempting to sit in a chair, you can tell
+								  		the cloth which collision object has collision priority of which one not to penetrate.
+								  	</li>
+								  	<li>
+								  		Important note: The <span class="strong">surface normals</span> of the collision object should be <span class="strong">facing out</span>.
+								  		If any of the collision object normals are facing inwards, it will pull the cloth in.
+								  	</li>
+								</ul>
+								<p>
+									On the <span class="shirt">shirt</span>, there is an attribute called <span class="strong">cpSolver1</span>. In cpSolver1, change
+									the following attributes: <span class="strong">Solver Scale = 10 and Relax Frame Length = 1</span>. Relax Frame Length makes the
+									cloth act more rubber-like or gives it bounce.
+								</p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Demystifying_Cloth/figure11.jpg" id="figure11" class="imgThumbnail" title="figure11" data-toggle="modal" data-target=".figure11"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Simulation Time</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+									Now we're ready for the big simulation. Rip off the Simulation panel and leave it open as a floating menu because you'll
+									be going back and forth with testing and running simulation after simulation to get that
+									<span class="shirt">shirt</span> to fall just right. Go to Simulation and hit <span class="strong">Start Simulation</span>. This
+									will start the solver and drape the <span class="shirt">shirt</span> across the
+									<span class="collide">Cloth_collide</span> object. Once the <span class="shirt">shirt</span> has fallen to a position
+									that looks pretty good, hit <span class="strong">Stop Simulation</span>. From here on, you'll have to tweak the numbers to get the
+									desired results. Every time you make an adjustment to the <span class="shirt">Shirt</span> or
+									<span class="collide">Cloth_collide</span> object, you should delete your Cache (<span class="strong">Simulation &gt; Delete
+									Cache</span>). Once you find a simulation that drapes pretty well, hit the
+									<span class="strong">Save as Initial Cloth State</span>. This will keep the <span class="shirt">shirt</span> in the solved pose
+									from here on out.
+								</p>
+								<p>
+									Once you have the shirt simulated just the way you like, you should animate the
+									<span class="collide">Cloth_collide</span> object to test the <span class="shirt">shirt</span> completely. Animate
+									the <span class="collide">Cloth_collide</span> object forward, back, up, down and some twisting motions (in other words,
+									all the motions you body may do).
+								</p>
+								<p>
+									For a more thorough test of the <span class="shirt">shirt</span> and <span class="collide">Cloth_collide</span>
+									object, add more divisions to the <span class="collide">Cloth_collide</span> object, create a skeleton to act like
+									the spine and smooth bind the <span class="collide">Cloth_collide</span> object. Animate the
+									<span class="collide">Cloth_collide</span> object with torso twists, forward/backward spine bends and left/right spine
+									bends.
+								</p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Tips on Cloth Animations</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <ul>
+								  	<li>The curves used to create the panels should not to be connected.</li>
+								  	<li>
+								  		Closed loop curves does not mean attached. That simply means the end vertices are sitting on each other. Where one
+								  		ends, another begins.
+								  	</li>
+								  	<li>
+								  		Maya will not solve properly if you don't have your <span class="strong">playback speed set for every frame</span>. This is not
+								  		an issue if you just use <span class="strong">Start Simulation</span> instead of hitting the play button.
+								  	</li>
+								  	<li><span class="strong">Start out your Base Resolution low</span> (300 or so) and work your way up.</li>
+								  	<li>
+								  		If you have a few vertices that continue 'jump', it may be a resolution issue. Up the resolution 25-50 increments at
+								  		a time to see if that corrects the jumpy vertices. If not, <span class="strong">Disable Solver</span>, right-click the
+								  		<span class="shirt">shirt</span> and translate the vertices away from the area they are having issues with.
+								  		<span class="strong">Hit Update Cloth State</span>. <span class="strong">Enable Solver, Delete Cache and start another simulation</span>.
+								  	</li>
+								  	<li>
+								  		If you have a hard time locating the offending vertices, in the cpSolver attribute, turn on
+								  		<span class="strong">Output Statistics</span> and Maya will output the return values of each simulation in the
+								  		<span class="strong">Script Editor history</span>.
+								  	</li>
+								  	<li>
+								  		To reduce the vertices from popping, try adjusting the <span class="strong">Velocity Cutoff Min</span> attribute between 0 and
+								  		2. If necessary, you can keyframe this attribute during animation to help with the popping.
+								  	</li>
+								  	<li>
+								  		To set keyframes without scrubbing through the simulation, use the middle mouse button and click on the keyframe
+								  		where you want to key.
+								  	</li>
+								  	<li>
+								  		Another fun tool is the <span class="strong">Paint Cloth Properties Tool</span>. From this menu, you can paint a greyscale value
+								  		to almost every attribute available to cloth. I'm not going to cover those in this tutorial because there are so
+								  		many choices to choose from and combinations to get the exact feel that you want. Just remember, painting these
+								  		properties will add to your simulation time.
+								  	</li>
+								  	<li>
+										One attribute that I do paint is the <span class="strong">bendAngle</span> attribute with a weight between 0.1 and 0.23.
+										This will cause some interesting wrinkles. It takes a little practice (and a lot of patience) to learn how to
+										paint a wrinkle.
+									</li>
+								  	<li>Be sure to save your cloth cache also (<span class="strong">Attribute Editor &gt; cpSolver1</span>).</li>
+								  	<li>
+								  		You can also adjust the <span class="strong">Velocity Cutoff Min, Velocity Cutoff Max</span> and <span class="strong">Velocity
+								  		Dampening</span>. These three attributes tell the <span class="shirt">shirt</span> how fast to react to the
+								  		overall motion of the <span class="shirt">shirt</span>. Maya comes with a few samples of
+								  		<span class="shirt">shirt</span> setups (value settings for various cloth types) in extras/cloth/properties
+								  		directory.
+								  	</li>
+								</ul>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Demystifying_Cloth/figure12.jpg" id="figure12" class="imgThumbnail" title="figure12" data-toggle="modal" data-target=".figure12"/>
+				            </div>
+				        </div>
+					</section>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		<!-- automated modal image storage-->
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+	</body>
+	<script src="../../js/getYear.js"></script>
+	<script src="../../js/modal-images.js"></script>
+	<script src="../../js/auto-number.js"></script>
+</html>

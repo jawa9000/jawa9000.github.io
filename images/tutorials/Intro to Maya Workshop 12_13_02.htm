@@ -1,0 +1,416 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html><head><title>Intro to Maya Workshop 12/13/02</title>
+<meta http-equiv="Intro to Maya Workshop, Maya tutorials, Brian J. Immel, Brian Immel, 3D Character Artist" content="Intro to Maya Workshop, Maya tutorials, Brian J. Immel, Brian Immel, 3D Character Artist">
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<link href="Intro%20to%20Maya%20Workshop%2012_13_02_files/default.css" rel="stylesheet" type="text/css"></head>
+<body class="bg">
+<div class="top"></div>
+<div class="main">
+<a name="top"></a><h1 class="title">Intro to Maya Workshop</h1>
+<p align="center">By Brian J. Immel</p>
+<h2><a name="interfacenavigation"></a>Interface Navigation</h2>
+<p><img src="Intro%20to%20Maya%20Workshop%2012_13_02_files/toolbar.jpg" class="float_right" height="290" width="86"> </p>
+<p>Maya comes with some helpful movies that opens the first time you 
+  run Maya. They can also be found under.Help &gt; Learning Movies.</p>
+<h3>Tools</h3>
+<ol>
+  <li> Selection tool</li>
+  <li>Lasso tool</li>
+  <li> Move tool</li>
+  <li> Rotate tool</li>
+  <li>Scale tool</li>
+  <li> Manipulator tool</li>
+  <li> Special tools</li>
+  </ol>
+<p>&nbsp;</p>
+<h3>Menu Sets</h3>
+<p>Animation, Modeling, Dynamics and Rendering </p>
+<p><img src="Intro%20to%20Maya%20Workshop%2012_13_02_files/menu-sets.jpg" height="176" width="111"></p>
+<p align="center">&nbsp;</p>
+<h3>Common Keyboard Shortcuts</h3>
+<table mm_noconvert="TRUE" border="0" width="100%" cellpadding="2" cellspacing="2">
+  <tbody><tr>
+    <td bgcolor="#999999" width="5%"><div align="center">q</div></td>
+    <td bgcolor="#999999" width="20%">Selection tool</td>
+    <td bgcolor="#CCCCCC" width="9%"><div align="center">a</div></td>
+    <td bgcolor="#cccccc" width="22%">frame all in view</td>
+    <td bgcolor="#999999" width="5%"><div align="center">1</div></td>
+    <td bgcolor="#999999" width="39%">low quality display</td>
+  </tr>
+  <tr>
+    <td bgcolor="#cccccc"><div align="center">w</div></td>
+    <td bgcolor="#cccccc">move tool</td>
+    <td bgcolor="#999999"><div align="center">f</div></td>
+    <td bgcolor="#999999">focus in view (on selected object)</td>
+    <td bgcolor="#cccccc"><div align="center">2</div></td>
+    <td bgcolor="#cccccc">medium quality display</td>
+  </tr>
+  <tr>
+    <td bgcolor="#999999"><div align="center">e</div></td>
+    <td bgcolor="#999999">rotate tool</td>
+    <td bgcolor="#cccccc"><div align="center">g</div></td>
+    <td bgcolor="#cccccc">repeat last action</td>
+    <td bgcolor="#999999"><div align="center">3</div></td>
+    <td bgcolor="#999999">high quality display</td>
+  </tr>
+  <tr>
+    <td bgcolor="#cccccc"><div align="center">r</div></td>
+    <td bgcolor="#cccccc">scale tool</td>
+    <td bgcolor="#999999"><div align="center">x</div></td>
+    <td bgcolor="#999999">snap to grid</td>
+    <td bgcolor="#cccccc"><div align="center">4</div></td>
+    <td bgcolor="#cccccc">wireframe display</td>
+  </tr>
+  <tr>
+    <td bgcolor="#999999"><div align="center">t</div></td>
+    <td bgcolor="#999999">manipulator tool</td>
+    <td bgcolor="#cccccc"><div align="center">c</div></td>
+    <td bgcolor="#cccccc">snap to curve</td>
+    <td bgcolor="#999999"><div align="center">5</div></td>
+    <td bgcolor="#999999">display shaded</td>
+  </tr>
+  <tr>
+    <td bgcolor="#cccccc"><div align="center">y</div></td>
+    <td bgcolor="#cccccc">activate last tool</td>
+    <td bgcolor="#999999"><div align="center">v</div></td>
+    <td bgcolor="#999999">snap to point</td>
+    <td bgcolor="#cccccc"><div align="center">6</div></td>
+    <td bgcolor="#cccccc">view in textured mode</td>
+  </tr>
+  <tr>
+    <td bgcolor="#999999"><div align="center">s</div></td>
+    <td bgcolor="#999999">set keyframe all</td>
+    <td bgcolor="#cccccc"><div align="center">p</div></td>
+    <td bgcolor="#cccccc">parent</td>
+    <td bgcolor="#999999"><div align="center">7</div></td>
+    <td bgcolor="#999999">view in light mode</td>
+  </tr>
+  <tr>
+    <td bgcolor="#cccccc">crtl-a</td>
+    <td bgcolor="#cccccc">attribute editor</td>
+    <td bgcolor="#999999"><div align="center">shift-p</div></td>
+    <td bgcolor="#999999">unparent</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</tbody></table>
+<table mm_noconvert="TRUE" border="0" width="100%" cellpadding="2" cellspacing="2">
+  <tbody><tr>
+    <td bgcolor="#999999" width="10%">z / ctrl-z</td>
+    <td bgcolor="#999999" width="19%">undo</td>
+    <td bgcolor="#cccccc" width="17%">spacebar (tap)</td>
+    <td bgcolor="#cccccc" width="15%">change views</td>
+    <td bgcolor="#999999" width="29%">Alt + Left Mouse Button (LMB)</td>
+    <td bgcolor="#999999" width="10%">tumble</td>
+  </tr>
+  <tr>
+    <td bgcolor="#cccccc">shift-z </td>
+    <td bgcolor="#cccccc">redo</td>
+    <td bgcolor="#999999">spacebar (hold)</td>
+    <td bgcolor="#999999">hot box</td>
+    <td bgcolor="#cccccc">Alt + Middle Mouse Button (MMB)</td>
+    <td bgcolor="#cccccc">track</td>
+  </tr>
+  <tr>
+    <td bgcolor="#999999">insert key</td>
+    <td bgcolor="#999999">toggle center pivot mode on/off</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td bgcolor="#999999">Alt + Right Mouse Button (RMB)</td>
+    <td bgcolor="#999999">zoom</td>
+  </tr>
+</tbody></table>
+<p>More keyboard shortcuts can be found at Windows &gt; Setting/Preferences 
+    &gt; Hotkeys &gt; List All….</p>
+<p>All keyboard shortcuts are case sensitive!</p>
+<p><img src="Intro%20to%20Maya%20Workshop%2012_13_02_files/keyboard-shorcuts.jpg" height="450" width="450"></p>
+<h3>Channel Box</h3>
+<p> Displays information about the item you have selected. Shows areas 
+  of information: Transformers, Shapes, Inputs, etc. What is shown depends 
+  on what is selected.</p>
+<p><img src="Intro%20to%20Maya%20Workshop%2012_13_02_files/channel-box.jpg" height="631" width="423"></p>
+<h3>Views Windows and Interface</h3>
+<p><img src="Intro%20to%20Maya%20Workshop%2012_13_02_files/views.jpg" height="324" width="500"></p>
+<h3>Hotbox</h3>
+<ol>
+  <li> Hold Spacebar down to get the Hotbox.</li>
+  <li>Advanced interface.</li>
+  <li>Customizable.</li>
+</ol>
+<h3>Panel Menus per window</h3>
+<p> Window presets in Maya.</p>
+<h3>Marking Menus (Right-click object)</h3>
+<h3>  Component Selection Types</h3>
+<p> What component editing options you have depends on the object.</p>
+<p><img src="Intro%20to%20Maya%20Workshop%2012_13_02_files/hot-box.jpg" height="412" width="650"></p>
+<p><a href="#top">Top</a></p>
+<h2>User Settings</h2>
+<h3><strong>Window &gt; Settings/Preferences &gt; Preferences</strong></h3>
+<ol>
+  <li> Settings = Time NTSC (30 fps)</li>
+  <li> Files/Project settings = project default location</li>
+  <li> Timeline = Playback Speed depends. Play every frame for simulations, 
+    Real for animation. Set to Real.</li>
+  <li> Undo = Infinite. This will use more and more memory as your file grows</li>
+</ol>
+<p><img src="Intro%20to%20Maya%20Workshop%2012_13_02_files/preferences.jpg" height="286" width="400"></p>
+<p><a href="#top">Top</a></p>
+<h2>Personalizing Your Interface</h2>
+<h3>Shelf and Shelf Tabs</h3>
+<p><img src="Intro%20to%20Maya%20Workshop%2012_13_02_files/shelf-tabs.jpg" height="117" width="800"></p>
+<h3>Editing Shelf Tabs</h3>
+<ol>
+      <li> Place commonly used buttons in here by holding down Shift-Ctrl-Alt 
+        and click on the tool you want to appear in the Shelf from the drop down 
+        menus.</li>
+      <li> Move buttons around using the Middle Mouse Button (MMB).</li>
+      <li> Delete a button by dragging it to the trash can near the top right 
+        corner. Deleting a button does not delete that function from Maya permanently, 
+        just that shortcut button.</li>
+  </ol>
+    <h3>Adding/Removing interface components</h3>
+    <ol>
+      <li> Display &gt; Heads up Display</li>
+      <li> Display &gt; UI Elements &gt; ? </li>
+  </ol>
+    <h3>MEL buttons</h3>
+    <p> Every function completed in Maya can be echoed using a script. The 
+      Script Editor shows the MEL script of your last function.    </p>
+    <ul>
+      <li> Complete a function, highlight the script in the Script Editor 
+        and MMB it to the Shelf. </li>
+      <li>Go to the Shelf Editor and rename this button according to its function</li>
+  </ul>
+    <p><img src="Intro%20to%20Maya%20Workshop%2012_13_02_files/script-editor.jpg" height="279" width="600"></p>
+    <p><a href="#top">Top</a></p>
+    <p>&nbsp;</p>
+    <h2>Basic Modeling Menu </h2>
+    <h3>NURBS: Curve based geometry (Non-Uniform Rational B-Splines)</h3>
+    <ol>
+      <li> Understanding NURBS: NURBS objects can be thought of as a folded piece 
+        of paper. </li>
+      <li> Play with sweep of a ball in the Channel Box.</li>
+      <li> Play with vertices and “unwrap” a NURBS object using the 
+        Control Vertices.</li>
+  </ol>
+
+    <p><img src="Intro%20to%20Maya%20Workshop%2012_13_02_files/nurbs.jpg" height="434" width="274"></p>
+    <h3>Polygonal: Polygon based geometry</h3>
+    <p><img src="Intro%20to%20Maya%20Workshop%2012_13_02_files/polygons.jpg" height="434" width="274"></p>
+    <h3>SubDivision: Polygonal based geometry with curve edges</h3>
+    <p><img src="Intro%20to%20Maya%20Workshop%2012_13_02_files/subd.jpg" height="434" width="274"></p>
+    <h3> Model a simple fish using NURBS</h3>
+    <p><img src="Intro%20to%20Maya%20Workshop%2012_13_02_files/fish01.jpg" class="float_right" height="314" width="405"></p>
+    <p>1. Create a NURBS sphere and rotate Z 90 using the Channel Box.</p>
+    <p>2.  Make the spans 8.</p>
+    <p>3.  In vertex component mode, select the front of the sphere and form the 
+      mouth.</p>
+    <p>4.  Scale and translate the vertices until you get something like Figure 
+      13. </p>
+    <p>5.  Insert a few isoparms to help sculpt the lips.</p>
+    <p>5.  Add two spheres for eyes (Figure 14).</p>
+    <p>6.  Select the fish’s body and in the Channel Box, click on the line 
+      where it says nurbsSphere1 and give your fish a name. It’s a good 
+      idea to always name each item you create.</p>
+    <p><img src="Intro%20to%20Maya%20Workshop%2012_13_02_files/fish02.jpg" height="314" width="405"><br>
+    Finished fish model.</p>
+    <p><a href="#top">Top</a></p>
+    <p>&nbsp;</p>
+    <h2>Shaders for Beginners</h2>
+    <h3>Hypershade vs. Multilister</h3>
+    <ol>
+      <li> Hypershade can show the user one or more shader graph(s).</li>
+      <li>Hypershade has easy access to creating Materials, Textures and other 
+        shader related items in the library left of the Hypershade view windows</li>
+      <li> Multilister lists all shaders and textures in the scene.</li>
+    </ol>
+    <p><img src="Intro%20to%20Maya%20Workshop%2012_13_02_files/shaders.jpg" height="671" width="420"></p>
+    <h3>Assigning shaders</h3>
+    <p> In the Hypershade window (Window &gt; Rendering Editors&gt; Hypershade) 
+      create a new shader by middle-mouse dragging a blinn shader in the Create 
+      Materials &gt; Surface list to the Work Area in the bottom right of the 
+      Hypershade window. </p>
+    <h3>Using textures</h3>
+    <ol>
+      <li> Double click the blinn shader to open up the Attribute Editor.</li>
+      <li> Click the map button to assign textures to a particular attribute of 
+        the shader. Maps can be procedural (internal map information) or external 
+        file sources (TGAs, TIFFs, JPGs, image sequences, movie files, etc.).</li>
+      <li> Select a Ramp and edit it according to Figure 17. </li>
+  </ol>
+    <p><img src="Intro%20to%20Maya%20Workshop%2012_13_02_files/blinn01.jpg" height="650" width="428"></p>
+    <p><img src="Intro%20to%20Maya%20Workshop%2012_13_02_files/ramp.jpg" height="456" width="300"></p>
+    <h3> Mapping NURBS vs. polygons</h3>
+    <p><img src="Intro%20to%20Maya%20Workshop%2012_13_02_files/poly-texturing.jpg" class="float_right" height="150" width="249"></p>
+    <p>NURBS objects can receive maps automatically because they don’t 
+      need a projection assigned to them. A projection is how a 3D application 
+      applies the map to a surface. Think of a NURBS object as a piece of paper 
+      with the same face on either side.</p>
+    <p> Polygonal objects must be assigned a projection. There are several 
+      ways to assign mapping projections to a polygonal object.</p>
+    <h3>3D Paint Tool</h3>
+    <ol>
+      <li>Open up the 3D Paint Tool by going to Rendering &gt; Texturing &gt; 
+        3D Paint Tool Option box.</li>
+      <li> For more info on painting a 3D object within in Maya, refer to the 
+        help in the Painting &gt; 3D Paint Tool &gt; Painting Renderable Attributes 
+        on 3D Objects.</li>
+  </ol>
+    <p><img src="Intro%20to%20Maya%20Workshop%2012_13_02_files/3d-paint-tool.jpg" height="646" width="424"></p>
+    <p>Create a Phong shader with another Ramp for the color map and edit the 
+      Ramp according to Figure and apply this new shader to the fish’s eyes.</p>
+    <p><img src="Intro%20to%20Maya%20Workshop%2012_13_02_files/Ramp2.jpg" height="371" width="350"></p>
+    <p><a href="#top">Top</a></p>
+    <p>&nbsp;</p>
+    <h2>Simple Animation Techniques</h2>
+    <h3>Deformers</h3>
+    <ol>
+      <li>Animation &gt; Deform.</li>
+      <li> Lattices
+        <ul>
+            <li> Also a create tool for sculpting models.</li>
+        </ul>
+      </li>
+      <li> Non-linear deformers (Animation &gt; Non-Linear Deformers):
+        <ul>
+            <li>Bend</li>
+          <li>Flare</li>
+          <li>Sine</li>
+          <li>Squash</li>
+          <li>Twist</li>
+          <li>Wave</li>
+        </ul>
+      </li>
+  </ol>
+    <p><img src="Intro%20to%20Maya%20Workshop%2012_13_02_files/deformers.jpg" height="344" width="229"></p>
+    <h3>Skeletons</h3>
+    <ol>
+      <li> Forward Kinematics</li>
+      <li> Inverse Kinematics</li>
+  </ol>
+    <p><img src="Intro%20to%20Maya%20Workshop%2012_13_02_files/skeletons.jpg" height="379" width="336"></p>
+    <p>&nbsp;</p>
+    <h3>Setting keyframes</h3>
+    <p> Timeline</p>
+    <ul>
+      <li>Animation Preferences Button 
+        <ul>
+          <li>&gt; Settings &gt; Time = NTSC (30fps)</li>
+          <li>&gt; Timeline &gt; Playback Speed = Real-time (30 fps).</li>
+        </ul>
+      </li>
+    </ul>
+    <p>Animation Preferences Button</p>
+    <ul>
+      <li> Using the ‘s’ key, you can keyframe all the attributes 
+        of a selected object(s).</li>
+    </ul>
+    <p>Channel box</p>
+    <ul>
+      <li> Select the fish and right-click the attributes in the Channel Box 
+        to see an attribute list of options.</li>
+      <li> Select an attribute in the Channel Box and right-click on the selected 
+        attribute and select Key Selected. </li>
+  </ul>
+    <p><img src="Intro%20to%20Maya%20Workshop%2012_13_02_files/timeline.jpg" height="340" width="580"></p>
+    <h3>AutoKey</h3>
+    <p> Click the AutoKey option in the bottom right to activate (red).</p>
+    <p><strong>Other animation options: </strong>animation paths, set-driven 
+      controllers and procedure inputs (MEL scripts, expressions, etc.)</p>
+    <p><strong>Playback options:</strong> timeline, scrubbing with the playback 
+      head, and playblasts</p>
+    <h3>Animation Editors: Graph Editor and Dope Sheet</h3>
+    <ol>
+      <li> Window &gt; Animation Editors &gt; Graph Editor.</li>
+      <li> Window &gt; Animation Editors &gt; Dope Sheet.</li>
+  </ol>
+    <p><img src="Intro%20to%20Maya%20Workshop%2012_13_02_files/graph-editor.jpg" height="245" width="450"></p>
+    <p><img src="Intro%20to%20Maya%20Workshop%2012_13_02_files/dope-sheet.jpg" height="273" width="450"></p>
+    <h3>Setup and Animate the Fish</h3>
+    <ol>
+      <li> Select all the geometry and put it in a lattice 5x2x2 (Figure 26).</li>
+      <li> Keyframe the lattice –main motion.</li>
+      <li> Keyframe the lattice points for animation –secondary motion of 
+        tail.
+        <ol>
+            <li> Right-click on the lattice, select the lattice points around the 
+              tail and keyframe a wiggling motion.</li>
+        </ol>
+      </li>
+      <li> Keyframe the eyes –secondary motion.</li>
+      <li>Edit any stray keyframes using the Graph editor.</li>
+  </ol>
+    <p><img src="Intro%20to%20Maya%20Workshop%2012_13_02_files/fish-lattice.jpg" height="434" width="400"></p>
+    <p><a href="#top">Top</a></p>
+    <p>&nbsp;</p>
+    <h2>Rendering</h2>
+    <h3>Render global settings</h3>
+    <p><img src="Intro%20to%20Maya%20Workshop%2012_13_02_files/render-globals.jpg" class="float_right" height="183" width="288"></p>
+    <p>1. Render Current Frame will render the image according its location in 
+      the timeline.</p>
+    <p>2.  IPR stands for Interactive Photo-realistic Render. Use this only when 
+      you want to update a render as you work on modifying shaders.</p>
+    <p>3. Eender Globals is where the user defines the render parameters. Here 
+      a few tips on setting up the fish animation for rendering: </p>
+    <ul>
+              <li>Image File Output  </li>
+  </ul>
+            <ol>
+              <ul>
+                <li> File Name Prefix = fish</li>
+                <li> Frame/Animation Ext = name.#.ext.</li>
+                <li> Start Frame = 1</li>
+                <li> End Frame = 90</li>
+                <li> Frame Padding = 3</li>
+                <li> Image Format = Targa (tga)</li>
+              </ul>
+            </ol>
+            <ul>
+              <li> Resolution
+                <ul>
+                  <li> Width = 720</li>
+                  <li> Height = 480</li>
+                </ul>
+              </li>
+              <li> Anti-aliasing Quality 
+                <ul>
+                  <li> Preset = Production Quality</li>
+                </ul>
+              </li>
+              <li> Motion Blur
+                <ul>
+                  <li> Check Motion Blur box</li>
+                  <li> Motion Blur Type = 2D</li>
+                </ul>
+              </li>
+            </ul>
+          
+    
+    <img src="Intro%20to%20Maya%20Workshop%2012_13_02_files/playblast.jpg" class="float_right" height="356" width="532">
+    <h3>Saving playblasts</h3>
+    <p> 1. Rendering a playblast will render all frames that are currently available 
+      in the timeline. So if your animation is only 65 frames long, you may 
+      want to adjust the view of the timeline to reflect that otherwise you’ll 
+      be playblasting dead frames.</p>
+    <p>2. Right-click on the Timeline and go to Playblast Option box.</p>
+    <p>3. Select a compressor that will work for your needs.</p>
+    <p>4. Check Save to File.</p>
+    <p>5.  Click Browse to give the animation a location to save other than the 
+      default location.</p>
+    <p>6. Hit Playblast.</p>
+    <p>7. Hit the esc key to interrupt the playblast</p>
+  <p><a href="#top">Top</a></p>
+  
+</div>
+<div class="navi">
+<h2 class="tutorial">Tutorials</h2>
+<h3 class="tutorial">Workshop</h3>
+  <p><a href="http://jawa9000.com/index.html" title="Home" class="naviLink">Home</a></p>
+  <p><a href="http://jawa9000.com/gallery.htm" title="Gallery of CG work" class="naviLink">Gallery</a></p>
+  <p><a href="http://jawa9000.com/resume.htm" title="Unabridged professional resume" class="naviLink">Resume</a></p>
+  <p><a href="http://jawa9000.com/contact.htm" title="Contact information" class="naviLink">Contact</a></p>
+</div>
+
+
+</body></html>

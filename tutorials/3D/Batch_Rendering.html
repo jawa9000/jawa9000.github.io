@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keyboard" content="tutorial, maya, batch, rendering">
+		<meta name="description" content="Batch Rendering Multiple Maya Files Tutorial">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>Batch Rendering Multiple Maya Files Tutorial</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer="defer" src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1>Batch Rendering Multiple Maya Files</h1>
+					<p class="about">
+						Suppose you have animated your heart out and you are ready to render. The only problem is that you have sixteen million scenes with
+						three camera changes each. That's a lot of rendering especially if you don't have an render farm at your disposal! You could stay up
+						all night baby-sitting your machine but there is a easier way. Batch command rendering! In this tutorial, I give a few examples of
+						simple batch commands using a text editor such as Window's Notepad to write a series of instructions for rendering non-stop scene files.
+					</p>
+					<p class="about">
+						Written by Brian Immel
+					</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+            		<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Command Scripts</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	The first step is to finalize your render globals in your scene file. Refer to the image to the right for example. The
+				                	batch commands we are going to write will override these global settings. However, we want to set these regardless in case
+				                	we don't use all the flags/arguments in the batch commands.
+				                </p>
+				                <p>
+				                	<span class="strong">Note:</span> if you are moving files from one directory or machine to another, you'll may have to re-link
+				                	texture files unless you copy the exact same file/folder structure you have (i.e. copy the entire Maya directory). Example
+				                	if you have your texture files in a folder called "texutres", you'll need to copy your texture files to a folder called
+				                	"textures" in the new directory. It's important not to have any spaces in your folder names or Maya file names. The
+				                	render commands thinks that a space between words is a argument or action and will cancel that render.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Batch_Rendering/globals.jpg" id="globals" class="imgThumbnail" title="globals" data-toggle="modal" data-target=".globals"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Tip for Naming directories and scene files</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				            	<ul>
+									<li>Wrong: <span class="strong">D:\Maya folder</span></li>
+								 	<li>Wrong: <span class="strong">render Maya file.mb</span></li>
+								  	<li>Right: <span class="strong">D:\Maya_folder</span> or <span class="strong">D:\Maya-folder</span></li>
+								  	<li>Right: <span class="strong">render Maya_file.mb</span> or <span class="strong">render Maya-file.mb</span></li>
+								</ul>
+								<p>
+									<span class="strong">Note:</span> The number one issue why a batch command or file won't execute or errors out is due to spaces in the directory (folder) name
+									or in the filename itself.
+								</p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Text Editor</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Okay, now its on to the nitty-gritty. Lets open up Notepad and start writing our list of files to render.
+				                </p>
+				                <p>
+				                	Type in command line like you normally would in the command prompt/dos shell. In the example below, I wrote a one line
+				                	batch command that will render a maya scene file called mayafile.mb using all processors, start at frame 1 and end on
+				                	frame 30, rename the output image to new_image_name, change my render directory (d:\scene2\shot3).
+				                	<a href="#switches">Click here</a> to see list of standard command switches. For more switches, go to the command promt
+				                	and type: <span class="help">render -help</span>
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Batch_Rendering/batch_command_file.jpg" id="batch_command_file" class="imgThumbnail" title="batch_command_file" data-toggle="modal" data-target=".batch_command_file"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Multiple Files and Cameras</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Having just one command line will render just one file. Let's say you want to render the same file but with multiple
+				                	cameras that you set up in the Maya file. Copy the command line and paste it to the next line down. Then add the switch
+				                	<span class="help">-cam cameraname</span> replacing cameraname with the camera you wish to use. You can put switches
+				                	anywhere between the main command (<span class="help">render</span>) and the Maya file
+				                	(<span class="help">scene2.mb</span>). You can also batch render different Maya files also
+				                	(<span class="help">scene3.mb, scene4.mb</span> and so forth.)
+				                </p>
+				                <p>
+				                	Continue copy/pasting until you get all your cameras in that Maya file you want to render out.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Batch_Rendering/multiple_cameras.jpg" id="multiple_cameras" class="imgThumbnail" title="multiple_cameras" data-toggle="modal" data-target=".multiple_cameras"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name="File_Names"></a>File Names and Cameras</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	I like to change all the image names to reflect which camera they came from like that of example below. I change the
+				                	names so the files won't render over themselves. Instead using the -im switch, you can just render to another folder as
+				                	long as it exists (<span class="help">shot01, shot02, shot03</span>, etc.) to keep your image files from rendering
+				                	over each other.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Batch_Rendering/multiple_cameras-directorie.jpg" id="multiple_cameras-directorie" class="imgThumbnail" title="multiple_cameras-directories" data-toggle="modal" data-target=".multiple_cameras-directorie"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Save As</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	The next and a very important step is to save this text document into an executable file. <span class="help">Go to File
+				                	&gt; Save As...</span>, name the file whatever but <span class="strong">type in</span> the extention <span class="strong">.bat</span>. <span class="strong">Save as type</span> to
+				                	<span class="strong">All Files</span>. If you don't save this file with the .bat extension it won't be executable.
+				                </p>
+				                <p>
+				                	Make sure you save the batch file in the same directory as your Maya file. Otherwise, you will need to write in which
+				                	directory to find the scene fill in question.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Batch_Rendering/SaveAs.jpg" id="SaveAs" class="imgThumbnail" title="SaveAs" data-toggle="modal" data-target=".SaveAs"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Example</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				            	<p>
+				            		This particular set of batch commands can be executed from anywhere because we list the absolute path for the scene file.
+				            	</p>
+				            	<p>
+				            		<span class="help">render -n 0 D:\Maya\scenes\scene2.mb</span><br>
+      								<span class="help">render -n 0 D:\Maya\scenes\scene3.mb</span>
+				            	</p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>List of Commands and Moving Files</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Now the Maya rendering engine will render every command line in the order you typed it in until it runs out of commands.
+				                	As soon as it completes one rendering task, it go on to the next automatically. In the example given in the step called
+				                	<a href="#File_Names">File Names and Camera</a>, Maya's rendering engine will render all four commands and place each
+				                	shot in a different directory.
+				                </p>
+				                <p>
+				                	If you want to copy and move files automatically at the end of a render, add the following line to the end of each render:
+				                </p>
+				                <p>
+				                	<span class="help">xcopy &lt;render_drive&gt;:\&lt;render_directory&gt; &lt;new_drive&gt;:\&lt;new_directory&gt; /i /s /y</span>
+				                </p>
+				                <p>
+				                	This will copy all your images (and directories) to your new directory of choice. Replace
+				                	<span class="help">&lt;new_drive&gt;:\&lt;new_directory&gt;</span> with whatever folder structure you like.
+				                </p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>A Happy Batch File</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	A happy batch file will look something like this (assuming the scene files are in the same directory as the batch file):
+				                </p>
+				                <p>
+				                	<span class="help">
+					                	render -n 0 -s 1 -e 3 -im shot01 -rd D:\scene2\shot1 scene2.mb<br>
+									    render -n 0 -s 1 -e 30 -im shot2 -cam camera01 -rd D:\scene2\shot2 scene2.mb<br>
+									    render -n 0 -s 20 -e 30 -im shot3 -cam camera02 -rd D:\scene2\shot3 scene2.mb<br>
+									    render -n 0 -s 45 -e 100 -im shot4 -cam camera1 -rd D:\scene2\shot4 scene2.mb<br>
+									    render -n 0 -s 200 -e 300 -im shot5 -cam camera3 -rd D:\scene2\shot5 scene2.mb
+								    </span>
+				                </p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Final Thoughts</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Another advantage to using the command line to render, you are not using Maya's interface to render with. This means more
+				                	computing power to your renders and less wasted time.
+				                </p>
+				                <p>
+				                	Never ever ever render to a movie file (.avi, .mov, etc.). If your render fails, you will have to start all over again
+				                	with the entire render. Plus, you will be giving up all sorts of control over image quality (rendering in layers, render
+				                	passes, alpha channels, z-depth, etc.) by rendering to a movie file. In most cases, Maya will render faster if you are
+				                	rendering in frames (such as .tga, .tiff, .iff) and composite/edit your frames back together in composition software like
+				                	After Effects.
+				                </p>
+				                <p>
+				                	I strongly encourage you to use all available (-n 0) processors regardless of how many processors your machine has. By
+				                	using this flag, Maya will know to use whatever resources Windows is willing to give up to the render engine and maintain
+				                	stability within your system. However, if you tell the render engine to use just one processor (-n 1) and your machine has
+				                	only one processor, Maya will eventually use up all your system's resources and crash taking with your last rendered frame
+				                	with it.
+				                </p>
+				                <p>Happy rendering!</p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>FAQS</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <ol>
+									<li>If one of your Maya files doesn't render, check to see if there is a one of the following problems: </li>
+								  	<ul>
+								    	<li>Typo in the command line (extra spaces, misspelled switches, file names, etc.)</li>
+								    	<li>Non-renderable cameras</li>
+								    	<li>Non-existant directories</li>
+								  	</ul>
+								  	<li>
+								  		"I double click my batch file to render and the command prompt opens but instead of rendering, the screen rolls with
+								  		text."
+								  	</li>
+								  	<ul>
+								    	<li>
+								    		<span class="strong">Answer:</span> This means that something in you scene file is corrupt and most likely, its the camera
+								    		you're trying to render through. Solution: Open up that scene file, make a new camera, copy/paste the old
+								    		camera's info onto the new camera and delete the old one. Rename the new camera to the old camera's name
+								    		(if named). Save the scene file.
+								    	</li>
+								  	</ul>
+								  	<li>"I double click the batch file to render and Notepad opens up the file."</li>
+						            	<ul>
+						                	<li>
+						                		<span class="strong">Answer:</span> The batch file was not saved with the .bat extension. The .bat extension makes the
+						                		file executable.
+						                	</li>
+						           		</ul>
+								</ol>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name="switches"></a>Common Render Switches</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	<table class="alternating">
+				                		<tbody>
+				                			<tr>
+				                				<th>
+				                					Switch
+				                				</th>
+				                				<th>
+				                					Argument/Command
+				                				</th>
+				                			</tr>
+				                			<tr>
+				                				<td>
+				                					<code class="inline">-s &lt;#&gt;</code>
+				                				</td>
+				                				<td>
+				                					Start rendering at frame (replace # with a number): <code class="inline">-s 15</code>
+				                				</td>
+				                			</tr>
+				                			<tr>
+				                				<td>
+				                					<code class="inline">-e &lt;#&gt;</code>
+				                				</td>
+				                				<td>
+				                					End rendering at frame (replace # with a number); <code class="inline">-e 45</code>
+				                				</td>
+				                			</tr>
+				                			<tr>
+				                				<td>
+				                					<code class="inline">-n 0</code>
+				                				</td>
+				                				<td>
+				                					Use all available processors for rendering; <code class="inline">-n 0</code>
+				                				</td>
+			                				</tr>
+			                				<tr>
+			                					<td>
+			                						<code class="inline">-cam &lt;cameraname&gt;</code>
+			                					</td>
+			                					<td>
+			                						Render from camera; <code class="inline">-cam camera1</code>
+			                					</td>
+			                				</tr>
+			                				<tr>
+			                					<td>
+			                						<code class="inline">-rd &lt;drive&gt;:\&lt;foldername&gt;</code>
+			                					</td>
+			                					<td>
+			                						Render to directory; <code class="inline">-rd c:\maya\project\images</code>
+			                					</td>
+			                				</tr>
+			                				<tr>
+			                					<td>
+			                						<code class="inline">-im &lt;new_image_name&gt;</code>
+			                					</td>
+			                					<td>
+			                						Rename image name (this won't affect the file extension); <code class="inline">-im newRender</code>
+			                					</td>
+			                				</tr>
+			                				<tr>
+			                					<td>
+			                						<code class="inline">-log &lt;log filename&gt;</code>
+			                					</td>
+			                					<td>
+			                						Saves output information into a log file (log.txt works nicely)
+			                					</td>
+			                				</tr>
+			                				<tr>
+			                					<td>
+			                						<code class="inline">-r &lt;render type&gt;</code>
+			                					</td>
+			                					<td>
+			                						Specify which type of renderer to use
+			                					</td>
+			                				</tr>
+			                			</tbody>
+			                		</table>
+				                </p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Notes on Mental Ray</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	If you are attempting to render with Mental Ray, you will need to add the following line to your command: <code class="inline">-r mr</code>
+				                </p>
+				                <p>
+				                	This flag, <code class="inline">-r</code>, stands for renderer and <code class="inline">mr</code> is for Mental Ray. Even though you set the renderer
+				                	within the Maya file to Mental Ray, the command line renderer defaults to Software. Side note: Your batch render will
+				                	error out if the Mental Ray plug-in is not installed and enabled. You may have to add additional Mental Ray flags and
+				                	values to your batch file if the render doesn't turn out right in the first place. For reasons that are beyond me, not
+				                	all of the Mental Ray values (or even the basic render settings) are passed to command line for batch rendering.
+				                </p>
+				                <p>
+				                	For more information on using batch rendering with Mental Ray, open up a command line and type this: <code class="inline">render -help -r mr</code>
+				                </p>
+				            </article>
+				        </div>
+					</section>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		<!-- automated modal image storage-->
+		</div>
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+	</body>
+	<script src="../../js/getYear.js"></script>
+	<script src="../../js/modal-images.js"></script>
+	<script src="../../js/auto-number.js"></script>
+</html>

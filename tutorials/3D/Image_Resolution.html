@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="tutorial, 3d, image, resolution">
+		<meta name="description" content="Image Resolution Tutorial">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>Image Resolution Tutorial</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer="defer" src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1>Image Resolution</h1>
+					<p class="about">
+						Written by Brian Immel
+					</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+            		<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>How much resolution?</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <ol>
+				                	<li>
+				                		The first thing to keep in mind when working with images in Photoshop for 3D imaging is keep the DPI at 72 to start
+				                		with. There is no good reason to raise it any higher. If you want or need higher details in your map, up the image
+				                		size (width and height) also known as map resolution. If you know the map will be used in any close-up, you may want to
+				                		consider a higer resolution.
+				                	</li>
+				                	<li>
+				                		What is the goal of this map? Gaming? TV? Film? Knowing what the ultimate goal of this map will help you determine how
+				                		much resolution you will need.
+				                	</li>
+				                	<li>
+				                		Keep the maps square is resolution. Why? Because numbers like 2, 4, 8, 16, 32, 64, 128, 256, 512 and so on are square
+				                		numbers, these values render faster.
+				                	</li>
+				                	<li>
+				                		Game maps vary anywhere between 64x64 up to 512x512 currently. The next generation of game maps will be much heavier.
+				                	</li>
+				                	<li>
+				                		TV and film resolutions can be anything you like. Again, if you keep the image maps square, it will render faster. If
+				                		you have a character has a close-up, you might to consider a high resolution somewhere around 768x768, 1024x1024,
+				                		2048x2048 and so on. I have yet to use a map that has gone beyond 2048x2048. On the other hand, if an object in the
+				                		distant background that will be blurred out, you will not need that much resolution. In fact, I might consider using
+				                		a procedural shader with minimal color information.
+				                	</li>
+				                </ol>
+				            </article>
+				        </div>
+					</section>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		</div>
+		<!-- automated modal image storage-->
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+		<script src="../../js/getYear.js"></script>
+		<script src="../../js/modal-images.js"></script>
+		<script src="../../js/auto-number.js"></script>
+	</body>
+</html>

@@ -1,0 +1,379 @@
+@import "variables";
+
+.corner {
+    background: #06F;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-bottom: 4px solid white;
+    border-bottom-right-radius: 12px;
+    border-top-left-radius: 7px;
+    border-right: 4px solid white;
+    padding: 7px 14px;
+    @include fontSizeWeight();
+    display: table-cell;
+}
+.tutorialHeader {
+	@include fontSizeWeight();
+	padding-left: 65px;
+}
+.guideHeader {
+	@include fontSizeWeight();
+	padding-left: 10px;
+}
+.guideBox h2 {
+	font-size: 20px;
+    padding-left: 5px;
+    font-weight: bold;
+}
+.tutorialRow {
+    display: table-row;
+}
+.tutorialBox h2 {
+    padding-left: 75px;
+}
+
+.indent36 {
+    padding: 0 0 0 36px;
+}
+.indent72 {
+    padding: 0 0 0 72px;
+}
+.indent108 {
+    padding: 0 0 0 108px;
+}
+.indent144 {
+    padding: 0 0 0 144px;
+}
+.indent180 {
+    padding: 0 0 0 180px;
+}
+
+/* tutorial content: thumbnail images */
+.tutorialContent, .thumbnail, .guideContent {
+    display: table-cell;
+}
+.images {
+	text-align: center;
+}
+
+/* tutorial content */
+.tutorialContent, .guideContent {
+	vertical-align: top;
+	padding: 10px 5px 5px;
+}
+.tutorialContent p, .guideContent p {
+    padding: 5px;
+    @include fontSizeWeight(1em,none);
+}
+.tutorialContent code, .guideContent code {
+  padding: 5px;
+  @include fontSizeWeight(0.9em,none);
+}
+/*
+.tutorialContent span code, .guideContent span code {
+}
+*/
+.tutorialContent li, .guideContent li {
+	padding-top: 5px;
+	margin-left: -10px;
+	@include fontSizeWeight(1em,none);
+}
+.tutorialContent p:first-child:first-letter, .guideContent p:first-child:first-letter {
+	@include fontSizeWeight(1.5em,none);
+	text-transform: uppercase;
+}
+.tutorialBox, .guideBox {
+    background: rgba(0,0,0,0.1);
+    display: table;
+    position: relative;
+    padding: 5px;
+    margin: 5px 0;
+    border-radius: 7px;
+    width: 100%;
+}
+.tutorialBox:nth-child(odd), .guideBox:nth-child(odd) {
+	background: rgba(0,0,0,0.2);
+}
+
+/* tables */
+table, th, td {
+	padding: 5px;
+	border: solid thin black;
+	text-align: center;
+}
+table {
+	margin: 0 auto;
+}
+/*td:first-child {text-align: left;}*/ /* took out because I don't know why I did this */
+.noBorder {
+  border-width: 0;
+}
+table.alternating th {
+	background: rgba(0,0,0,0.3);
+}
+table.alternating tr:nth-child(even) {
+	background: rgba(0, 0, 0, 0.2);
+}
+table.table tbody th {
+  border-top: thin solid black;
+}
+table .alignLeft {
+  text-align: left;
+}
+table.table tbody tr td.vaMiddle {
+  vertical-align: middle;
+}
+
+table.example {
+	background: $evenRow;
+	border-collapse: collapse;
+	border: none;
+	text-align: left;
+	width: 100%;
+	margin: 0 0 5px 0;
+}
+table.example tr:nth-child(odd) {
+	background: $secondaryColor;
+}
+table.example tr:hover, table.example tr:first-child {
+	background: $oddRow;
+}
+table.example td, table.example th {
+	border: none;
+}
+table.example td {
+	text-align: left;
+}
+/*
+table {
+		
+	}
+	td {
+		padding: 5px 10px;
+	}
+	tr:nth-child(odd) {
+		
+	}
+	tr.hover:hover, tr:first-child {
+		
+	}
+*/
+/* individual coloring classes used on a various pages */
+.yellowOrange {
+	@include colorBold(#CC9C00);
+}
+.brightBlue {
+	@include colorBold(#005EFF);
+}
+.midGreen {
+	@include colorBold(#258F01);
+}
+.pink {
+	@include colorBold(#B06D8F);
+}
+.brown {
+	@include colorBold(#757102);
+}
+.orange {
+	@include colorBold(#ff3300);
+}
+.blueGreen {
+	@include colorBold(#006666);
+}
+.green {
+	@include colorBold(#006600);
+}
+.orangeBrown {
+	@include colorBold(#cc6600);
+}
+.deepBlue {
+	@include colorBold(#0000cc);
+}
+.orangeRed {
+	@include colorBold(#FF1E00);
+}
+.brightGreen {
+	@include colorBold(#009933);
+}
+.yellow {
+	@include colorBold(#e3ff75);
+}
+.red {
+	@include colorBold(#ff9d80);
+}
+.blue {
+	@include colorBold(#8282ff);
+}
+.strong {
+	font-weight: bold;
+}
+.figure {
+	@include fontSizeWeight(0.8em,none);
+	font-style: italic;
+}
+.smallFont {
+	@include fontSizeWeight(small,none);
+}
+
+/* override for custom.css's img */
+img {
+  max-width: none;
+}
+
+/* floats */
+.floatRight {
+  float: right;
+}
+.floatLeft {
+  float: left;
+}
+
+/* header overrides from Bootstrap */
+article.tutorialContent h1, article.tutorialContent h2, article.tutorialContent h3 {
+  margin-top: 0;
+}
+
+article.guideContent h1, article.guideContent h2, article.guideContent h3 {
+  margin-top: 10;
+}
+
+/* anchor link overrides from Bootstrap */
+.anchorLink, .anchorLink:hover {
+  color: #333;
+  text-decoration: none;
+  text-align: left;
+}
+.anchorLink { /* offset clicked anchor links so it doesn't sit under the navigation */
+  padding-top: 70px;
+  margin-top: -70px;
+  display: inline-block;
+}
+
+/* code examples */
+code.block {
+  border: solid thin rgba(0,0,25, 0.10);
+  background: rgba(45,89,178,0.1);
+  display: inline-block;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  white-space: normal;
+}
+code.block div {
+  padding: 2px 8px 3px 8px;
+  word-wrap: break-word;
+}
+code.block div:nth-child(odd) {
+  background: rgba(45,89,178,0.25);
+}
+code.block div:nth-child(even) {
+  background: rgba(45,89,178,0.1);
+}
+code.block div:first-child {
+  border-radius: 5px 5px 0 0;
+}
+code.block div strong {
+  padding: 0 3px 0 5px;
+}
+code.block div:last-child {
+  border-radius: 0 0 5px 5px;
+}
+code.block div:only-child {
+  border-radius: 5px;
+}
+code.inline { /* if the code element is inline to another element (p), remove bg */
+  background: none;
+  margin: 0;
+  padding: 0;
+}
+code {
+  color:#555555;
+  margin-left: 10px;
+}
+.comment {
+  color: #777777;
+}
+.variable {
+  color: #4F6680; //blue
+}
+.selector {
+  color: #4F8080; //green
+}
+.method {
+  color: #805D4F; //reddish
+}
+.attribute {
+  color: #80744F; //brown
+}
+.file {
+  color: #5A4F80; //purple
+}
+
+/* Notes, warnings, and other blocky elements */
+.note, .warning, .info, .question, .tip {
+  border: solid thin rgba(0,0,25, 0.10);
+  display: inline-block;
+  padding: 5px;
+  background: rgba(45,89,178,0.1);
+  margin: 10px;
+  border-radius: 5px;
+}
+.note p::before, .warning p::before, .info p::before, .question p::before, p.answer::before, .tip p::before {
+  font-weight: bold;
+  font-size: 1.15em;
+  color: black;
+}
+.note span, .warning span, .info span, .question span, .tip span {
+  float: left;
+  line-height: 36px;
+  vertical-align: middle;
+  height: 25px;
+  width: 25px;
+  color: black;
+}
+.note p::before {
+  content: "Note: " 
+}
+.warning p::before {
+  content: "Warning! ";
+}
+.info p::before {
+  content: "Info: ";
+}
+.question p::before {
+  content: "Question: ";
+}
+p.answer::before {
+  content: "Answer: ";
+}
+.tip p::before {
+  content: "Tip: ";
+}
+
+/* expandables */
+.expandableContainer {
+  border: solid thin rgba(0,0,25, 0.10);
+  border-radius: 5px;
+  display: inline-block;
+  padding: 0 5px 0 5px;
+  margin: 0 15px 0 0;
+}
+.expandableTitle {
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+  display: inline-block;
+  color: #36C;
+  &:hover {
+    color: white;
+  }
+}
+.expandableContent {
+  padding: 5px;
+}
+
+/* underscores for links */
+.underscore {
+	text-decoration: underline;
+}

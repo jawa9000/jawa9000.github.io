@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="guide, reference, git, fundamental">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<meta name="description" content="Git Fundamentals">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>Git Fundamentals: A Reference Guide</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+
+		<style>
+			.tutorialContent p:first-child:first-letter {
+				font-size: 1em;
+				text-transform: none;
+			}
+			.tutorialBox h2 {
+				padding-left: 0; /* override for tutorials.css */
+			}
+			.blackBg {
+				background: black;
+				color: #eee;
+    			padding: 5px;
+    			margin: 5px;
+			}
+			.gitBranchIndent {
+				padding-left: 14px;
+			}
+			.branchGreen {
+				color: #008000;
+			}
+		</style>
+		<!--
+			To do list:
+			* write up overview
+			*
+		-->
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer="defer" src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1></h1>
+					<p class="lead">Welcome to Git Fundamentals. This reference guide is meant to serve as a basic instructional document on what Git is and how to use some of it's basic
+						features.</p>
+					<p class="lead"><strong>Goals of this guide:</strong> By the end of this document, you should have a good understanding of how to create a repository, configure Git, use
+						basic commands, and to create and manage repositories and branches. This document will not cover workflows (based on personal experience, every individual and company
+						uses Git in a slightly different manner). Finally, this document will list a series of links for <a href="#Resources">further reading</a> on all these topics and more.</p>
+					<p class="lead">This document assumes you have already downloaded and installed Git on your machine. If you have not done this yet, please visit Git's
+						<a href="http://git-scm.com/downloads" title="Git Download" target="_blank">Git Download</a> page.</p>
+					<p class="about">
+						Written by Brian Immel
+					</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+            		<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <a name="WhatIsGit" class="anchorLink"><h1>What is Git?</h1></a>
+				                <div class="images floatRight">
+					                <img src="../../images/tutorials/Git_Fundamentals/Git-commits-over-time.png" id="gitCommitsOverTime" class="imgThumbnail" title="Git commits over time" data-toggle="modal" data-target=".gitCommitsOverTime"/>
+					            </div>
+					            <p><strong>Git</strong> is a <strong>version control system</strong> (VCS) that is data centric. While other VCSs (Subversion, CVS, and so on) keep information
+					            	as a set of files and changes made over time, Git thinks of the data as <strong>snapshots</strong> of a small filesystem. Every commit in Git is snapshot
+					            	what was changed and just stores those individual changes instead of making a snapshot of every file.</p>
+                            	<p>Using Git may seem odd for those users coming from other VCSs or for newcomers but the good news it that Git has both a <strong>GUI</strong> and a
+                            		<strong>command-line interface</strong>. With that being said, this reference guide will not cover the GUI. It's a good thing to know what's happening
+                            		&quot;under the hood&quot; before taking advantage of the GUI. This reference guide will provide you with some common commands that every good Git user
+                            		should know. </p>
+                            	<div class="note">
+                                	<span class="glyphicon glyphicon-file"></span>
+                                  	<p>This reference guide is by no means comprehensive. This guide just covers some of the basics. For a complete listing of all commands and other Git
+                                  		features, please refer to <a href="http://git-scm.com/doc" target="_blank" title="Git's Reference Manual">Git's Reference Manual</a>.</p>
+                                </div>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <a name="ShellCommands" class="anchorLink"><h1>Shell Commands</h1></a>
+								<p>In short, this reference guide won't cover any basic shell commands outside of Git's commands and assumes you have basic knowledge of Unix.  Also, this guide
+									assumes that you are using Git's Bash shell and all the content herein is written for this shell unless otherwise noted.
+									<a href="http://mally.stanford.edu/~sr/computing/basic-unix.html" target="_blank">Basic Unix commands</a> is a good place to find a short and simple list of what's
+									available in Unix.</p>
+								<div class="note">
+                                	<span class="glyphicon glyphicon-file"></span>
+                                  	<p>Windows users: some commands may not be available or may have different names. Please refer to
+                                  		<a href="http://www.typecastexception.com/post/2012/09/08/Basic-Git-Command-Line-Reference-for-Windows-Users.aspx" target="_blank">Basic Git Command Line Reference for
+                                  		Windows Users</a> for more details.</p>
+                                </div>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <a name="ConfigureGit" class="anchorLink"><h1>Configure Git</h1></a>
+                                <p>One of the first things you did was set up your name and e-mail address with your repository. You should set up your name and email for the repository so
+                                	you can see who committed what when working in a team environment.</p>
+                                <p><code class="inline">git config --global user.name "&lt;first lastname&gt;"</code> - set up the user name for the repository.</p>
+                                <p><code class="inline">git config --global user.email "&lt;youremail@yourdomain.com&gt;"</code> - set up the email address for the repository.</p>
+                              	<p>By default, Git uses whatever you&rsquo;ve set as your default text editor or else falls back to the Vi editor to create and edit your commit and tag
+                              		messages. To change that default to something else, you can modify the core.editor setting:</p>
+                                <p><code class="inline">git config --global core.editor "&lt;editor&gt;"</code></p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <a name="CreateARepository" class="anchorLink"><h1>Create a Repository</h1></a>
+                                <p>A <strong>repository</strong> is essentially a project. One can imagine a repository as a project's folder with all the related files inside of it. In fact,
+                                	that's what it will look like on your computer anyways. You tell Git what your project is and Git will start tracking all of the changes to that folder.
+                                	Files added or subtracted or even a single letter in a single file changed -- all of it's tracked and time stamped by Git. That's
+                                	<strong>version control</strong>.</p>
+                                <p>When you start a new project, you want to initialize your project using the <code class="inline">git init</code> command. This command will set up all the
+                                	necessary pieces to start version controlling your files.</p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <a name="BasicCommitCommands" class="anchorLink"><h1>Basic Commit Commands</h1></a>
+                                <p>In order to use version control, you need to add and commit files (a snapshot). You can rollback versions, split, and so on but we'll get to that later.</p>
+                                <p>To add a file to the repository, you use this command:</p>
+                                <code id="code-add" class="block">
+                                	<div>git add &lt;file name&gt;</div>
+                                </code>
+                                <p>Once you've made changes to a file, you'll need to commit the changes to the repository:</p>
+                                <code id="code-commit" class="block">
+                                	<div>git commit -m '&lt;message&gt;'</div>
+                                </code>
+                                <p>This commit command will commit a change to the file to the project with a message that you specify. It is very important to leave a meaningful message on
+                                	your commit. Other developers (and future you) can review what was committed, notes, next steps, or any other useful information that you want to communicate
+                                	with this commit.</p>
+                                <p>To see the status of your repository, that is, to see if you have any un-checked in files, use the status command: <code class="inline">git status</code>.</p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <a name="RepositoryStatus" class="anchorLink"><h1>Repository Status</h1></a>
+                                <p>Before the end of the day or merging branches, you should check to see the status of your repository. To do this, you use the
+                                	<code class="inline">git status</code> command. This command will give you a verbose report of which branch you're on, items not staged, and some commands
+                                	to help stage those files.</p>
+                                <p><code class="inline">git status -s</code> - shows a status next to the file(s). What's the status characters mean?</p>
+                                <ul>
+                                  <li>' ' = (no character) unmodified</li>
+                                  <li><strong>M</strong> = modified; You need to commit this file.</li>
+                                  <li><strong>A</strong> = added; File's content has been added to the repository but not committed yet.</li>
+                                  <li><strong>D</strong> = deleted; File has been removed from repository and from the directory. To remove a file but keep it in the filesystem (directory),
+                                  	use the <code class="inline">--cached</code> flag.</li>
+                                  <li><strong>R</strong> = renamed; File has been renamed.</li>
+                                </ul>
+                                <p>If you run this status command and the it comes back empty, then there is nothing staged (waiting) and the repository is "clean".</p>
+                                <div class="question">
+                                	<span class="glyphicon glyphicon-question-sign"></span>
+                                    <p>&quot;What does a clean repository mean to me?&quot;</p>
+                                    <span class="glyphicon glyphicon-book"></span>
+                                    <p class="answer">There is no file maintenance needed on your part. Take a break, have some coffee, or better yet, go home.</p>
+                                </div>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <a name="DiffAndLogCommands" class="anchorLink"><h1>Diff and Log Commands</h1></a>
+                                <p>Diff command helps you compare changes to files and find out what state the files are in.</p>
+                                <p><code class="inline">git diff</code> - shows which files were updated and what was changed.</p>
+                                <p><code class="inline">git diff --cached</code> - shows which files have been updated and added but not committed.</p>
+                                <p><code class="inline">git log</code> - shows chronological order of all your commits.</p>
+                                <p><code class="inline">git log &lt;file name&gt;</code> - show chronological order of &lt;file name&gt;'s commits.</p>
+                                <p><code class="inline">git log --pretty=oneline </code>- displays output of chronological order of all your commits</p>
+                                <p><code class="inline">git log -since=&lt;number&gt;.&lt;years|months|weeks|days|hours|minutes&gt;</code> - shows chronological order of all your commits
+                                	within a specific time range.</p>
+                                <p>Example: <code class="inline">git log -since=3.months</code> - shows log files within the last 3 months.</p>
+                                <p><code class="inline">git log --grep &lt;term&gt;</code> - search through log for &lt;term&gt;</p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <a name="RemovingFiles" class="anchorLink"><h1>Removing Files</h1></a>
+								<p>At times, it may be necessary to remove files from your repository. Using the <code class="inline">git rm</code> is the command used to remove files but it
+									may be better to use various flags if you want to remove it from the repository, directory, or both.</p>
+                                <p><code class="inline">git rm -f &lt;file name&gt;</code> - force removes &lt;file name&gt; from repository and directory. This flag is handy as it prevents you
+                                	from removing changed files that have not been committed yet. Be careful using this command with this flag as it will remove your file from disk as well.</p>
+                                <p><code class="inline">git rm --cached &lt;file name&gt; </code>- removes &lt;file name&gt; from repository (just removes from Git and keeps it on disk). Side
+                                	note: if you decide to add the file back into Git and you didn't change the name of the file, the history (log) will still be intact.</p>
+                                <p><code class="inline">git mv</code> - moves or renames a file. Works the same as the Unix command but file must first be added to Git.</p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <a name="StashCommand" class="anchorLink"><h1>Stash Command</h1></a>
+                                <p><code class="inline">Git stash</code> is used when you need to leave some code in a messy state to switch to another branch or project. Stash takes the dirty
+                                	state of your working directory and saves the unfinished changes so you can re-apply later.</p>
+                                <p><code class="inline">git stash list</code> - lists all stored stashes.</p>
+                                <p><code class="inline">git stash apply</code> - takes the stashed files out of the WIP (Work In Progress) status and puts them back into the "working state".</p>
+                                <p><code class="inline">git stash drop</code> - drops (removes) the current WIP files and allows you start from scratch (in the repository).</p>
+                                <div class="warning">
+                                	<span class="glyphicon glyphicon-warning-sign"></span>
+                                    <p>Don't stash individual files. Stashing individuals files will make it difficult to pull them out the dirty state.</p>
+                                </div>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <a name="HowToCreateBranches" class="anchorLink"><h1>How to Create Branches</h1></a>
+				                <div class="images floatRight">
+					                <img src="../../images/tutorials/Git_Fundamentals/Branching-example.png" id="branchingExample" class="imgThumbnail" title="Simple branch (master/development)" data-toggle="modal" data-target=".branchingExample"/>
+					            </div>
+                                <p>Git repositories use <strong>branches</strong> to isolate work when needed. It is a common practice when working on a project or with others to create a
+                                	branch to keep your changes in until they are ready. This way you can work in other branch(es) while the 'master' branch stays stable. When your branch is
+                                	ready, you merge it back into master.</p>
+                                <p>Branching means you diverge from the main line of development and continue to do work without messing with that main line. In many VCS tools, this is a
+                                	somewhat expensive process, often requiring you to create a new copy of your source code directory which can take a long time and excessive amounts of disk
+                                	space for large projects.</p>
+                                <div class="floatRight blackBg">
+                                	<span class="branchGreen">Brian@HOST /p/web/ (dev)</span><br/>
+                                	<span>$ git branch</span><br/>
+                                	<span>* <span class="branchGreen">dev</span></span><br/>
+                                	<span class="gitBranchIndent">master</span>
+					            </div>
+					            <p><code class="inline">git branch</code> - tells you where you are in the branch tree. The * and green colored name indicates which branch you're in. Plus, the
+					            	prompt tells you where you are as well.</p>
+                              	<p><code class="inline">git branch &lt;branch&gt;</code> - creates a new branch called &lt;branch&gt;.</p>
+                                <p><code class="inline">git checkout &lt;branch&gt;</code> - switches to &lt;branch&gt; branch.</p>
+                                <p><code class="inline">git checkout master</code> - switches to master branch. Technically, this is the same command as the preceding one. Every repository
+                                	starts  out with a branch called master. If you try to create another branch called master, you will get an error message stating that that branch already
+                                	exists.</p>
+                                <p><code class="inline">git checkout -b &lt;branch&gt;</code> - create and switch into the new branch using one command.</p>
+                                <p><code class="inline">git branch -d &lt;branch&gt;</code> - removes a branch called &lt;branch&gt;.</p>
+                                <div class="note">
+                                	<span class="glyphicon glyphicon-file"></span>
+                                    <p>You cannot delete a branch that you're in. You must move out (cd) of that directory and then delete the target branch.</p>
+                                </div>
+                       	  	  	<p>As mentioned before, never work in the master branch. If anything, the master branch is your published or "final" version of your code. You should initialize
+                       	  	  		your files on the master branch and then create and work in a separate development branch.</p>
+                                <p>For a great visualization on how branches work in a project, see this GitHub Guide
+                                	<a href="http://guides.github.com/overviews/flow/" target="_blank">guides.github.com/overviews/flow</a>. and Atlassian's wonderful documents on Git
+                       	  	  		branching methodologies called
+                       	  	  		<a href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow" title="Comparing Workflows" target="_blank">Comparing Workflows</a> and
+                       	  	  		<a href="https://www.atlassian.com/pt/git/workflows#!workflow-gitflow" title="Git Workflows" target="_blank">Git Workflows</a>.</p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <a name="MergeCommand" class="anchorLink"><h1>Merge Command</h1></a>
+                                <p>Git merge allows you to join two or more development branches, or histories, together. Merging integrates changes from the named commits (since the time
+                                	their histories diverged from the current branch) into the current branch. This command is used by <a href="http://git-scm.com/docs/git-pull" target="_blank">git pull</a>
+                                	to incorporate changes from another repository and can be used by hand to merge changes from one branch into another.</p>
+                                <p><code class="inline">git merge &lt;source&gt;</code> - merges &lt;source&gt; branch into current branch.</p>
+                                <div class="question">
+                                	<span class="glyphicon glyphicon-question-sign"></span>
+                                    <p>&quot;When would I use this?&quot;</p>
+                                    <span class="glyphicon glyphicon-book"></span>
+                                    <p class="answer">When you code is ready to be published, you would merge your development or other branch into the master branch.</p>
+                                </div>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <h1>Summary and Resources</h1>
+				                <p>In this guide, we reviewed what <a href="#WhatIsGit">Git</a> is, committed to <a href="#ConfigureGit">configuring Git</a>, checked out how to
+				                	<a href="#CreateARepository">create repositaries</a>, took a short inventory of <a href="#BasicCommitCommands">basic Git commands</a>, and stashed some
+				                	knowledge on how to manage files and <a href="#HowToCreateBranches">branches</a>.</p>
+				                <p>If you have any questions or comments, please contact Brian at
+				                	<a href="mailto:brian@jawa9000.com?Subject=General&#160;Request&#160;,&#160;Comment&#160;,&#160;or&#160;Question&#160;About&#160;Git" title="Email Brian">Brian@jawa9000.com</a>.</p>
+				                <a name="Resources" class="anchorLink"><h2>Resources</h2></a>
+                              	<ul>
+                              		<li><a href="http://git-scm.com/doc" target="_blank" title="Git Documentation">Git Documentation</a></li>
+                                	<li><a href="http://git-scm.com/book/en/Customizing-Git-Git-Configuration" target="_blank"  title="Configure Git">Configure Git</a></li>
+                                	<li><a href="http://git-scm.com/book/en/Getting-Started" target="_blank" title="Getting Started with Git">Getting Started with Git</a></li>
+                                	<li><a href="http://git-scm.com/book/en/Git-Basics" target="_blank" title="Git Basics">Git Basics</a></li>
+                                	<li><a href="http://git-scm.com/book/en/Git-Branching" target="_blank" title="Git Branching">Branching</a></li>
+                                	<li><a href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow" title="Comparing Workflows" target="_blank">Comparing Workflows</a></li>
+                       	  	  		<li><a href="https://www.atlassian.com/pt/git/workflows#!workflow-gitflow" title="Git Workflows" target="_blank">Git Workflows</a></li>
+                                	<li><a href="http://jlord.us/git-it/" target="_blank" title="A workshopper for learning Git and GitHub">git-it</a></li>
+                              	</ul>
+				            </article>
+				        </div>
+					</section>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		</div>
+		<!-- automated modal image storage-->
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+		<script src="../../js/getYear.js"></script>
+		<script src="../../js/modal-images.js"></script>
+		<script src="../../js/auto-number.js"></script>
+	</body>
+</html>

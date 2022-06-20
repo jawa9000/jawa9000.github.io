@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="Maya, tutorial, eye, blinking, cartoon, cartoony">
+		<meta name="description" content="Creating Eyes with Blinking Eyelids in Maya">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>Creating Eyes with Blinking Eyelids in Maya Tutorial (Cartoony Eyes)</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer="defer" src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1>Creating Eyes with Blinking Eyelids in Maya (Cartoony Eyes)</h1>
+					<p class="lead">
+						This tutorial assumes that the user has a basic understanding of how to create and assign shaders, creating blend shapes, basic
+						NURBS modeling, using layers, locking and hiding attributes, basics of using constraints, Hypergraph, and basic understanding of
+						Set Driven Keys.
+					</p>
+					<p class="about">
+						This tutorial works with Maya 4+. Enjoy!
+					</p>
+					<p class="about">
+						Written by Brian Immel
+					</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+            		<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Modeling the Eye</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Create a NURBS sphere and name it <span class="strong">Eyeball</span>. Position, rotate and scale the <span class="strong">Eyeball</span> so
+				                	that it fits into your character's eye socket.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Cartoon_Eyes/figure01.jpg" id="figure01" class="imgThumbnail" title="figure01" data-toggle="modal" data-target=".figure01"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Freeze Transforms</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Select the <span class="strong">Eyeball</span> and go to <span class="strong">Modify &gt; Freeze Transformations</span>. This will reset all
+				                	the attributes back to zero without resetting the geometry's location, rotation and size. This step is important when
+				                	we go to set up the constraint system later on.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Phong Shader</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Assign a phong shader to the <span class="strong">Eyeball</span> geometry and give the color attribute a near white color.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Create Pupli</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Duplicate the <span class="strong">Eyeball</span> geometry. Rename this new geometry to <span class="strong">Pupil</span>. Move and scale
+				                	the <span class="strong">Pupil</span> so that it sits in front off of the <span class="strong">Eyeball</span>. Since this is a cartoony
+				                	eye setup, we are allowed (artistic license) to make the <span class="strong">Pupil</span> geometry to penetrate the
+				                	<span class="strong">Eyeball</span> geometry as seen in Figure 2.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Cartoon_Eyes/figure02.jpg" id="figure02" class="imgThumbnail" title="figure02" data-toggle="modal" data-target=".figure02"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Lambert Shader</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Assign a lambert shader to the <span class="strong">Pupil</span> and turn the color attribute to near black.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Eyelid</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Duplicate the <span class="strong">Eyeball</span> again and pull it away from the eye temporarily. We're going to use this sphere
+				                	to create an eyelid.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Model Eyelid</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Right-click on the sphere and select the control vertex option. Using the translate and scale tools, model the eyelid
+				                	so it looks something like Figure 3. You shouldn't have to worry about the tessellation issues or the overlapping
+				                	geometry of the backside of the eyelids. This part of the eye will be inside the head anyway.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Cartoon_Eyes/figure03.jpg" id="figure03" class="imgThumbnail" title="figure03" data-toggle="modal" data-target=".figure03"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Lid_upper</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Rename it to <span class="upper">Lid_upper</span>. Assign your skin-colored shader.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Lid_lower</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Duplicate <span class="upper">Lid_upper</span> and rename it to <span class="lower">Lid_lower</span>. Rotate the
+				                	<span class="lower">Lid_lower</span> geometry until it looks like the position in Figure 4. Select everything,
+				                	duplicate and move it away or hide in a layer so you can set up the other eye later.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Cartoon_Eyes/figure04.jpg" id="figure04" class="imgThumbnail" title="figure04" data-toggle="modal" data-target=".figure04"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Setting up the Constraints</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Now lets build some relationships. Parent the <span class="strong">Pupil</span> to the <span class="strong">Eyeball</span> by selecting
+				                	the <span class="strong">Pupil</span>, shift selecting the <span class="strong">Eyeball</span>, and hitting the p key for parenting the
+				                	selected objects.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Cartoon_Eyes/figure05.jpg" id="figure05" class="imgThumbnail" title="figure05" data-toggle="modal" data-target=".figure05"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Control Object</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Use Maya's Create Text Tool (<span class="strong">Create &gt; Text &gt; option box</span>) to make the <span class="strong">E</span> NURBS
+				                	curve. I like using icons that look like or represent the object(s) it is meant to control. When you first create any
+				                	text shapes, Maya puts everything (even if it is one character or curve) in a group. Deselect and reselect just the
+				                	E shaped curve. Rename this curve to <span class="lookL">Look_L</span>. Position the
+				                	<span class="lookL">Look_L</span> curve in front of the eye. In this case for our CG friend Oscar, I put the
+				                	<span class="lookL">Look_L</span> curve 1 unit in front of the eye. At this point we should have something that looks
+				                	like Figure 5. Before we go any further, it would be a good idea to <span class="strong">Freeze Transformations</span> on
+				                	the <span class="lookL">Look_L</span>.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Constrain</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Select the <span class="lookL">Look_L</span> curve, shift-select the <span class="strong">Eyeball</span> and go to
+				                	<span class="strong">Animation &gt; Constrain &gt; Aim</span>. If the <span class="strong">Eyeball</span> happens to flip around when you
+				                	perform this function, try adjusting the options for Aim Constraints (Animation &gt; Constrain &gt; Aim &gt; option
+				                	box). In order to get the <span class="strong">Eyeball</span> to look at <span class="lookL">Look_L</span> properly, look at
+				                	the direction <span class="strong">Eyeball</span> is facing. In this case, the <span class="strong">Eyeball</span> is looking down the
+				                	X-axis. This is a good clue. Change the Aim Constraint so that the Aim Vector is set to 1, 0, 0 (X, Y, Z). If
+				                	your <span class="strong">Eyeball</span> were facing the Z-axis, then you would set the Aim Vector to 0, 0, 1. There are other
+				                	options to set up the Aim Constraint like go ahead and just constrain it and then adjust the offsets. This is fine,
+				                	but be warned! This may cause problems later on if you try set up multiple constraints.
+				                </p>
+				                <p>
+				                	Now our <span class="strong">Eyeball</span> and <span class="strong">Pupil</span> should follow <span class="lookL">Look_L's</span>
+				                	position (Figure 6).
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Cartoon_Eyes/figure06.gif" id="figure06" class="imgThumbnail" title="figure06" data-toggle="modal" data-target=".figure06"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Eyes_master</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Now lets set up a system that allows the eye to look and stare at objects in the world (world view) and to look as if
+				                	his eyes are focused on himself (local view) or move with the character. Make a <span class="strong">Locator</span> and place it
+				                	in the center of the character's face but away from the <span class="lookL">Look_L</span> curve. Rename the locator
+				                	to <span class="eyesMaster">Eyes_master</span>. By this point, your setup should look something like Figure 7.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Cartoon_Eyes/figure07.jpg" id="figure07" class="imgThumbnail" title="figure07" data-toggle="modal" data-target=".figure07"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Freeze Transforms</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Freeze Transformations (just translate and rotate) on <span class="eyesMaster">Eyes_master</span>. Freezing
+				                	Transformations on both the <span class="lookL">Look_L</span> (as we did earlier) and
+				                	<span class="eyesMaster">Eyes_master</span> allows the animator to know exactly where the reset position is
+				                	(translate 0,0,0, rotate 0,0,0).
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Duplicate Eyes_master</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Duplicate</span> and offset <span class="eyesMaster">Eyes_master</span> twice. We are going to use these duplicates to
+				                	set up a <span class="strong">world-view control </span>and a <span class="strong">local-view control</span> for where the eyes will be
+				                	focusing. Name one duplicate <span class="eyesLocal">Eyes_local</span> and the other
+				                	<span class="eyesWorldW1">Eyes_world</span>. Hopefully, you set up the locators to something like Figure 8.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Cartoon_Eyes/figure08.jpg" id="figure08" class="imgThumbnail" title="figure08" data-toggle="modal" data-target=".figure08"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Parent Look_L</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	<span class="strong">Parent</span> <span class="lookL">Look_L</span> to <span class="eyesMaster">Eyes_master</span>. By parenting
+				                	the <span class="lookL">Look_L</span> to the <span class="eyesMaster">Eyes_master</span>, we set up a system that will
+				                	allows us to keep both eyes (eventually) together or to separate as we need (going cross-eyed, one eye looking to the
+				                	left while the other stands still and other comical possibilities). With this setup, we can keep both eyes looking at
+				                	the same thing together or move each Look individual to allow for individual eye movement.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Point Constraint</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Now lets set up a Point Constraint between the local-view and world view locators. Select
+				                	<span class="eyesLocal">Eyes_local</span>, shift-select <span class="eyesWorldW1">Eyes_world</span>, shift-select
+				                	<span class="eyesMaster">Eyes_master</span> and go to <span class="strong">Constrain &gt; Point</span>. This procedure will set up
+				                	a 1-to-1 relationship for the <span class="eyesMaster">Eyes_master</span> to be perfected centered between the location
+				                	of <span class="eyesLocal">Eyes_local</span> and <span class="eyesWorldW1">Eyes_world</span>. Go ahead and play with both
+				                	local and world Eyes and note how the <span class="eyesMaster">Eyes_master</span> stays in between the two at all times.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Freeze Transforms</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Select the <span class="eyesLocal">Eyes_local</span> and <span class="eyesWorldW1">Eyes_world</span> locators and Freeze
+				                	Transformations to reset their positions to zero. Also, we should Freeze Transformations on the
+				                	<span class="lookL">Look_L</span> curve as well.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Lock and Hide Attributes</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Finally, we should lock and hide all the attributes of the <span class="eyesMaster">Eyes_master</span> so that we don't
+				                	accidentally keyframe any of these attributes. Locking attributes won't interfere with Constraints.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Adding Custom Attributes: Eye Blinking and Looking</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	As we start animating, you will more than likely want to keep the eyes in "local mode". Therefore, we are going to
+				                	set up the switching ability between local and world views on the <span class="lookL">Look_L</span> control. The
+				                	<span class="lookL">Look_L</span> control will be bouncing back and forth from local and world views so its only
+				                	logical to place the switch controls and blinking controls on this control object.
+				                </p>
+				                <p>
+				                	Lets hide the attributes we are not going to use and then add the ones we do want to use. Select all three locators.
+				                	In the Channel Box, select all the Rotates, Scales and Visibility attributes. <span class="strong">Lock them and hide</span>
+				                	them using the <span class="strong">Channel Box </span>and <span class="strong">Channel Control window</span>.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Repeat Last Step for Look_L</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Select the <span class="lookL">Look_L</span> curve and repeat the last step for locking and hiding attributes that
+				                	we are not going to use.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Add Attribute</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Next we need to create an attribute that will allow us to switch between local and world views by controlling the
+				                	Point Constraint weights. Select the <span class="lookL">Look_L</span> curve and go to <span class="strong">Modify &gt;
+				                	Add Attribute</span>.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Local_World</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	In Attribute Name type in <span class="upper">Local_World</span> and leave Date Type to Float and Attribute Type
+				                	to Scalar (the defaults).
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>NumberiC Attributes</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Under Numeric Attribute Properties, give Minimum a value of 0, Maximum of 1 and Default of 0. We are going to set
+				                	up the local view to be the default view (0) and the world view to 1 with this custom attribute. Hit the Add button.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Blink Attribute</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Now lets add one more attribute named <span class="blink">Blink</span>. Give the minimum a value of -5, maximum of
+				                	10 and a default of 0. I use the minimum of -5 because the eyelids normally don't open to the utmost rotation when a
+				                	person is surprised. Hit the OK button. Now we have two new attributes to use to control the left eye. On to the SDKs!
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>The Magic of Set Driven Keys (SDKs)</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Okay, maybe it's not magical. Perhaps it is done right tedious. But this is where we make a complex animation
+				                	possibility into a simple setup. Lets get the harder stuff out of the way by setting up the local to world view
+				                	setup. Right-click on <span class="upper">Local_World</span> attribute in the Channel Box and go to
+				                	<span class="strong">Set Driven Key</span>.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Load Driver</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Hit the <span class="Driver">Load Driver</span> button. Highlight the <span class="upper">Local_World</span>
+				                	attribute in the <span class="Driver">Driver</span> section.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Eyes_master</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Select the <span class="eyesMaster">Eyes_master</span> and in the <span class="strong">Hypergraph</span> select the
+				                	<span class="eyesMaster">Eyes_master_pointConstraint1</span> node.
+				                </p>
+				                <p>
+				                	In the SDK window, hit <span class="Driven">Load Driven</span>. At this point your SDK window should look like Figure 9.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Cartoon_Eyes/figure09.jpg" id="figure09" class="imgThumbnail" title="figure09" data-toggle="modal" data-target=".figure09"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Switching Between Local and World</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	We need to set up a switching of weights between local and world view so that there is no longer a equal pull between
+				                	both views. With the <span class="eyesMaster">Eyes_master_pointConstraint1</span> node still selected, type in 1 for
+				                	<span class="eyesLocal">Eyes_localWO</span> and 0 for <span class="eyesWorldW1">Eyes_world W1</span>. This is setting the
+				                	weights to act upon the local view locator.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Constrain Local</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Select both the <span class="eyesLocal">Eyes_localWO</span> and <span class="eyesWorldW1">Eyes_worldW1</span> attributes in
+				                	the <span class="Driven">Driven</span> section of the SDK window. Hit the <span class="strong">Key button in the SDK
+				                	window</span>. At this point the Eye_master locator is completely constrained to the local view.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Local_World</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	In the <span class="Driver">Driver</span> section, select the <span class="lookL">Look_L</span> curve. In the
+				                	Channel Box, type in 1 in the <span class="upper">Local_World</span> attribute.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Eyes_master_pointConstraint1</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	In the <span class="Driver">Driver</span> section select the <span class="eyesMaster">Eyes_master_pointConstraint1</span>
+				                	and re-highlight both <span class="eyesLocal">Eyes_localWO</span> and <span class="eyesWorldW1">Eyes_worldW1</span>
+				                	attributes. In the Channel Box, type in 0 for <span class="eyesLocal">Eye_localW0</span> and 1 for
+				                	<span class="eyesWorldW1">Eyes_world W1</span>. Hit the Key button in the SDK window. Now we have the ability to switch
+				                	from a local view to a world view via the attribute on the <span class="lookL">Look_L</span> curve. Figure 10
+				                	illustrates what we have accomplished so far.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Cartoon_Eyes/figure10.gif" id="figure10" class="imgThumbnail" title="figure10" data-toggle="modal" data-target=".figure10"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Blinking Eyelids</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Now it's onto setting up the blinking of the eyelids. Load <span class="lookL">Look_L</span> as the
+				                	<span class="Driver">Driver</span> and the both eyelids as the <span class="Driven">Driven</span>. Select the
+				                	<span class="blink">Blink</span> attribute of <span class="lookL">Look_L</span> and the Rotate Z on the lids and
+				                	hit the Key button (Figure 11). Before setting the base location for the eyelids and the
+				                	<span class="blink">Blink</span> attribute, make sure all the attributes involved are set to their original starting
+				                	values. In this case, since we froze transformations a while back, all involved parties should have been set to zero.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Cartoon_Eyes/figure11.jpg" id="figure11" class="imgThumbnail" title="figure11" data-toggle="modal" data-target=".figure11"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Look_L</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Select the <span class="lookL">Look_L</span> in the Set Driven Key window and then change the value of
+				                	<span class="blink">Blink</span> to 10 in the Channel Box.
+				                </p>
+				                <p>
+				                	Select the <span class="upper">Lid_upper</span> in the Set Driven Key window and then rotate the upper eyelid
+				                	geometry until it reaches about 80% of the closed position (in this case, about ~60 on Rotate Z).
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Lid_lower</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Select the <span class="lower">Lid_lower</span> in the Set Driven Key window and rotate the lower eyelid until it
+				                	meets the upper eyelid (which will be about 20 on Rotate Z). The main reason we want to tell the upper eyelid to do
+				                	most of the work is because as humans, our upper eyelids do the majority of rotating over the <span class="strong">Eyeball</span>.
+				                	If you wish to make the eyelids close more like a cartoon, then make both halves meet somewhere in the middle.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Closing Lids</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Select both the lids in the Set Driven Key window and hit the Key button. Now the <span class="blink">Blink</span>
+				                	attribute should drive the lids to close but not to open all the up.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Look_L</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Select the <span class="lookL">Look_L</span> in the Set Driven Key window and then change the value of
+				                	<span class="blink">Blink</span> to -5 in the Channel Box.
+				                </p>
+				                <p>
+				                	Rotate both eyelids so that they form a wide-open, surprised look.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Surprised Eye</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	In the <span class="Driven">Driven</span> section of the SDK window, select both the
+				                	<span class="upper">Lid_upper</span> and <span class="lower">Lid_lower</span> and then select RotateZ. Hit
+				                	the Key button. Now we have both a blinking eye and a wide and surprised eye.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>A Little More Character</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Select the <span class="strong">Eyeball</span>, <span class="upper">Lid_upper</span>, and <span class="lower">Lid_lower</span>
+				                	and put them in a <span class="strong">group (Ctrl-g)</span>. This will put all the elements of the left eye in a neat and tidy
+				                	package for us to use with lattices and blend shapes. Name this group <span class="eyeLeft">Eye_L</span>.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Eye_L Group</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Select the <span class="eyeLeft">Eye_L</span> group and go to <span class="strong">Deform &gt; Create Lattice &gt; option
+				                	box</span>. To keep things simple for us, use a 2 x 2 x 2 lattice. Click on Center Around Selection and hit
+				                	the Create button.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Rename Lattice</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Rename this lattice to <span class="eyeLLattice">Eye_L_lattice</span>.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Cartoon_Eyes/figure12.gif" id="figure12" class="imgThumbnail" title="figure12" data-toggle="modal" data-target=".figure12"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Test the Lattice</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	At this point, you can resculpt the eye to make any shape you want with it by right-clicking on the lattice an moving
+				                	the lattice points around. Notice how the eye will conform to the new shape of the lattice and still maintain its
+				                	functions within the lattice (looking around and blinking). Figure 12 shows what has happened so far. Before we
+				                	move on to the next step, be sure to undo all the experimenting we just did with the lattice points.
+				                </p>
+				                <p>
+				                	<span class="strong">Optional:</span> You can right-click on the lattice again, select all the points, hit <span class="strong">s</span>
+				                	(for key all), move to a different frame in the TimeSlider, move some of the lattice points around to make another
+				                	shape and key all the lattice points again.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Using Lattices for Making The Eye More Expressive</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	To further the emotion of the eye, we'll use the lattice to animate various emotional stages of the eye via blend
+				                	shapes. For this exercise, lets create a lattice that will express <span class="strong">anger, sadness</span> and <span class="strong">
+				                	surprise</span>. Select the lattice surrounding the <span class="eyeLeft">Eye_L</span> group and duplicate it as
+				                	many number times you want to create different expressions for the eye (in this case, three times). Make sure that
+				                	you offset each new lattice so that we don't overlap the original and confuse ourselves.
+				                </p>
+				                <p>
+				                	Model each lattice into the shape of each eye expression. See Figure 13 for some basic examples. As you finish
+				                	sculpting each new lattice, name each one according to the expression it represents.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Cartoon_Eyes/figure13.gif" id="figure13" class="imgThumbnail" title="figure13" data-toggle="modal" data-target=".figure13"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Blend Shape Lattices</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Select all the lattices your modeled and then your original lattice last. Go to <span class="strong"> Deform &gt; Create Blend
+				                	Shape</span>. In the Channel Box, under INPUTS, rename the blend shape node that was just created to expression_L.
+				                	From here, we should be able to animate the whole eye with several different emotions. Also, keep in mind that blend
+				                	shapes are additive and subtractive. Meaning, you can use two or more blend shapes at once to create multiple emotional
+				                	qualities.
+				                </p>
+				                <p>
+				                	<span class="strong">Note:</span> Using a simple lattice of 2 x 2 x 2 will cause your eye to 'float' from blend shape to blend
+				                	shape when keying between extreme values. Using a heavier lattice shouldn't have this problem. Try using a
+				                	lattice of 4 x 4 x 4 or more and don't move the center lattice points. Plus, with a heavier lattice, you can get a few
+				                	more animation possibilities.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>A Little Some Extra</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Now we should look into making the <span class="strong">Pupil</span> have a little character. Create an attribute on the
+				                	<span class="lookL">Look_L</span> curve called <span class="pupil">pupil</span> with a minimum of -10, a
+				                	maximum of 5 and default at 0.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Look_L</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Open up the Set Driven Key and set <span class="lookL">Look_L</span> as the <span class="Driver">Driver</span>
+				                	and the <span class="strong">Pupil</span> geometry as the <span class="Driven">Driven</span>.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Pupil</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Select the <span class="pupil">pupil</span> attribute of the <span class="lookL">Look_L</span> in the Set
+				                	Driven Key and select <span class="strong">Pupil</span> (the geometry) and everything but visibility of the
+				                	<span class="strong">Pupil's</span> attributes and hit Key button. Make sure all your attributes are at their default values
+				                	before keying (Pupil attribute at 0, scales at 0, etc.).
+				                </p>
+				                <p>
+				                	Select the <span class="pupil">pupil</span> attribute of the <span class="lookL">Look_L</span> in the Set Driven
+				                	Key window and set the value to 5 in the Channel Box.
+				                </p>
+				            </div>
+				             <div class="images">
+				                <img src="../../images/tutorials/Cartoon_Eyes/figure14.jpg" id="figure14" class="imgThumbnail" title="figure14" data-toggle="modal" data-target=".figure14"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Wide Pupil</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Select <span class="strong">Pupil</span> (the geometry) in the Set Driven Key window and transform the eye so it looks likes
+				                	it's surprised (similar to Figure 14). After you have transformed the geometry of the <span class="strong">Pupil</span>, hit
+				                	Key in the Set Driven Key window with all the attributes selected except for rotate and visibility. The values I used
+				                	are: Translate X=-0.048, Translate Z=-0.002, Scale XYZ=1.332. These values may not work, so you may have to customize
+				                	these attributes to fit your eye. Note: Don't make the <span class="strong">Pupil</span> too large. If you make it too big,
+				                	when you make the eyelids blinks, they won't be able to enclose the <span class="strong">Pupil</span> completely.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Tiny Pupil</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Select the <span class="strong">Pupil</span> attribute of the <span class="lookL">Look_L</span> in the Set Driven Key window
+				                	and set the value to -10 in the Channel Box.
+				                </p>
+				                <p>
+				                	Select <span class="strong">Pupil</span> (the geometry) in the Set Driven Key window and transform the eye so it  looks something
+				                	like Figure 15. After you have transformed the geometry of the <span class="strong">Pupil</span>, hit Key button in the Set
+				                	Driven Key window with all the attributes selected except for rotates and visibility. The values I used are:
+				                	Translate X=0.033, Scale XYZ=0.23. Now your eye should be able to get tiny and large to help emote your character's
+				                	feelings with the <span class="strong">Pupil</span>.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Cartoon_Eyes/figure15.jpg" id="figure15" class="imgThumbnail" title="figure15" data-toggle="modal" data-target=".figure15"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Attaching The Eye System to The Rest of The Character</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Select the <span class="eyeLLattice">Eye_L_lattice</span>.
+				                </p>
+				                <p>
+				                	Shift-select the nearest joint to this eye system (like the joint in the head as seen in Figure 16) and hit p for
+				                	parent (otherwise go to <span class="strong">Edit &gt; Parent</span>). Warning! Don't attach this setup to a joint that is
+				                	suppose to rotate, move or do anything else other than sit still! Otherwise, your eyes will bounce around like a
+				                	bunch of hot potatoes.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Cartoon_Eyes/figure16.jpg" id="figure16" class="imgThumbnail" title="figure16" data-toggle="modal" data-target=".figure16"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Parent Eyes_local</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Finally, we need to make the <span class="eyesLocal">Eyes_local</span> control object to be localized to the
+				                	character's motions. Select the <span class="eyesLocal">Eyes_local</span> and shift-select the character's root joint
+				                	or a non-moving joint and parent it. Now the local view will stay with the character and the world view will stay
+				                	where we place it in the world.
+				                </p>
+				                <p>
+				                	Here's looking at you!
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Cartoon_Eyes/figure17.gif" id="figure17" class="imgThumbnail" title="figure17" data-toggle="modal" data-target=".figure17"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Questions, Thoughts and Known Issues</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <ul>
+				                	<li>
+				                		If your eye or parts of your eye 'pops' when its moving, it may be due the geometry moving in and out of the
+				                		lattice around it. To solve this popping problem, select the lattice, open up the attribute editor and go to
+				                		it's base. Resize the base using the scale tool so that the base is slightly larger.
+				                	</li>
+				                	<li>"Why not parent the lattice to the head geometry?"</li>
+				                	<ul>
+				                		<li>
+				                			Answer: because we can set up the head geometry with all sorts of other deformers (lattices, blend shapes,
+				                			wrap deformers, etc.) that will cause the head to distort. This distortion will not affect the eye setup we
+				                			just created and therefore cause the eyes to float away or move into the head. Bad! Very bad. This is very bad.
+				                		</li>
+				                	</ul>
+				                	<li>
+				                		If you noticed, we only did one eye in this tutorial. This system can be set up with two eyes at once using one
+				                		lattice. However, you should use two Look curves (text curves) so that you can set up a constraint system for
+				                		each eyeball.
+				                	</li>
+				                </ul>
+				            </div>
+				        </div>
+					</section>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		<!-- automated modal image storage-->
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+	</body>
+	<script src="../../js/getYear.js"></script>
+	<script src="../../js/modal-images.js"></script>
+	<script src="../../js/auto-number.js"></script>
+</html>

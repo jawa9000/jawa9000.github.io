@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="tutorial, jQuery, cookie, expandable">
+		<meta name="description" content="Expandables With Rotating Indicators Tutorial">
+    <meta charset="UTF-8">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<link rel="shortcut icon" href="../../../../assets/ico/favicon.ico">
+		<title>Expandables With Rotating Indicators Tutorial</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+        <link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+
+		<!-- Cookie Library -->
+        <script src="../../js/cookie.js"></script>
+
+		<!-- Web tutorial javascript  -- cannot be used with this tutorial; code must be a one-off -->
+        <!--<script src="../../js/web-tutorials.js"></script>-->
+
+        <style>
+			/*
+			.expandableTitle {
+				color: #3366CC;
+				font-size: 1.1em;
+				font-weight: bold;
+				cursor: pointer;
+				display: inline-block;
+			}
+			.expandableTitle:hover {
+				color: #FFFFFF;
+			}
+			.expandableContainer {
+				display: inline-block;
+				border: solid thin rgba(0,0,25, 0.10);
+				border-radius: 5px;
+				padding: 0 5px 0 5px;
+				margin: 0 15px 0 0;
+			}
+			.expandableContent {
+				padding: 5px;
+			}
+			*/
+
+			.arrow {
+				position: relative;
+				display: block;
+				color: #4891dc;
+				font-size: 1.1em;
+				padding: 0 0 0 30px;
+			}
+			.arrow:before {
+				display: block;
+				content: '▶';
+				transform: rotate(0);
+				transition: 0.4s;
+				position: absolute;
+				left: 0px;
+				top: -2px;
+			}
+			.arrowOpen:before {
+				transform: rotate(90deg);
+			}
+		</style>
+
+
+        <!--
+        	To do list:
+            * finish writing
+            * adjust language
+            * spell check
+            * grammar check
+            * figure out cookie issue
+            ** Amend web-tutorials.js with this new code
+        -->
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1>Expandables with Rotating Indicators</h1>
+                    <p class="lead"></p>
+					<p>This instructive guide assumes the user has basic understanding of JavaScript, jQuery, and basic cookie manipulation.</p>
+					<p class="about">Written by Brian Immel</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+                	<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name="" class="anchorLink"></a>HTML Update: Define Character Set</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+                            	<p>Updated the header with this line:</p>
+                                <code class="block" id="code-meta">
+                                	<div>...</div>
+                                    <div>&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;</div>
+                                    <div>...</div>
+                                </code>
+                                <p>What does this do?</p>
+                                <p>&lt;meta charset="UTF-8"&gt; is used to set the characeter set on an HTML document. Without this character set, the arrow
+                                	character used in this tutorial ("▶") wouldn't show up properly. Setting the character set to "UTF-8" allows the browser
+                                    to read in CSS files as this format. The UTF-8 format allows for special character sets such as unicode and ASCII.</p>
+				            </article>
+				        </div>
+					</section>
+                     <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name="" class="anchorLink"></a>HTML Update: Span.arrow</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+                            	<p>With the character set to use special characters, the next thing that needs to be updated is the <code class="inline selector">
+                                span</code> element nested within the expandable's title element. This span element will receive the class of
+                                <code class="inline selector">arrow</code>.</p>
+                                <code class="block" id="code-spanArrowClass">
+                                	<div>...</div>
+                                    <div>&lt;span class=&quot;arrow&quot; title=&quot;Click to expand&quot;&gt;Expandable Title&lt;/span&gt;</div>
+                                    <div>...</div>
+                                </code>
+				            </article>
+				        </div>
+					</section>
+                    <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name="" class="anchorLink"></a>CSS Additions</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>Add three CSS rules: .arrow, .arrow:before, .arrowOpen:before</p>
+                               	<p>We need to add a class for the span element that will do the following:</p>
+                                <ul>
+                                	<li>set up a relative position for the arrow reside in</li>
+                                    <li>make the arrow slightly larger than it's default size</li>
+                                    <li>Make some space to the left of the content so the arrow doesn't overlap the expandable's title</li>
+                                </ul>
+                                <code class="block" id="code-cssArrow">
+                                    <div>.arrow {</div>
+                                    <div><span class="indent36">position: relative;</span></div>
+                                    <div><span class="indent36">display: block;</span></div>
+                                    <div><span class="indent36">color: #4891dc;</span></div>
+                                    <div><span class="indent36">font-size: 1.1em;</span></div>
+                                    <div><span class="indent36">padding: 0 0 0 30px;</span></div>
+                                    <div>}</div>
+                                </code>
+				            </article>
+				        </div>
+					</section>
+                    <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name="" class="anchorLink"></a>Arrow Defaults</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+                            	 <p>To create the rotating arrow, we are going to use the span.arrow's relative position to absolutely position the arrow
+	                                using the content property in a before psuedoclass. To get the animated effect, we set a transform (initially at zero)
+                                    with a transition value of 0.4 seconds. This transition doesn't do anything until a jQuery event is used to add/remove
+                                    the .arrowOpen class. This class rotates the arrow 90 degrees (pointing down). This would indicate that the expandable
+                                    has been opened. Otherwise, when its pointed to the right, its pointing to the content's location</p>
+                            	<code class="block" id="code-cssArrowBefore">
+                                    <div>.arrow:before {</div>
+                                    <div><span class="indent36">display: block;</span></div>
+                                    <div><span class="indent36">content: '▶';</span></div>
+                                    <div><span class="indent36">transform: rotate(0);</span></div>
+                                    <div><span class="indent36">transition: 0.4s;</span></div>
+                                    <div><span class="indent36">position: absolute;</span></div>
+                                    <div><span class="indent36">left: 0px;</span></div>
+                                    <div><span class="indent36">top: -2px;</span></div>
+                                    <div>}</div>
+                                </code>
+				            </article>
+				        </div>
+					</section>
+                    <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name="" class="anchorLink"></a>Rotating 90 Degrees</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+                            	<p>With the arrow's default behavior set, we need to create the transform effect when the user clicks on the span element. In
+	                                this case, the arrow will rotate 90 degrees (to point down).</p>
+                            	<code class="block" id="code-cssArrowOpen">
+                                    <div>.arrowOpen:before {</div>
+                                    <div><span class="indent36">transform: rotate(90deg);</span></div>
+                                    <div>}</div>
+                                </code>
+				            </article>
+				        </div>
+					</section>
+                    <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name="" class="anchorLink"></a>Hover Effect</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+                            	<p>On the final bit of CSS, we add a little hover effect that is similar to links: changing colors. In this case, since we have a transition in effect, the color change happens
+                                	gradually instead of the usual instant color change. If you don't like this effect, you can leave this rule out.</p>
+                            	<code class="block" id="code-cssArrowHover">
+                                   	<div>span.arrow:hover {</div>
+                                    <div><span class="indent36">color: white;</span></div>
+                                    <div>}</div>
+                                </code>
+				            </article>
+				        </div>
+					</section>
+                    <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name="" class="anchorLink"></a>Complete CSS Code</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+                            	<p>Complete CSS code with arrow rules.</p>
+                                <div class="expandableContainer">
+                                    <div class="expandableTitle" id="expandTitle-completeCSS" status="hidden">
+                                        <span class="arrow" title="Click to expand">
+                                            Complete CSS
+                                        </span>
+                                    </div>
+                                    <div class="expandableContent" id="expandContent-completeCSS">
+                                       	<code class="block" id="code-cssArrowComplete">
+                                            <div>.expandableContainer {</div>
+                                            <div><span class="indent36"> border: solid thin rgba(0,0,25, 0.10);</div>
+                                            <div><span class="indent36">border-radius: 5px;</span></div>
+                                            <div><span class="indent36">display: inline-block;</div>
+                                            <div><span class="indent36">padding: 0 5px 0 5px;</span></div>
+                                            <div><span class="indent36">margin: 0 15px 0 0;</span></div>
+                                            <div>}</div>
+                                            <div>.expandableTitle {</div>
+                                            <div><span class="indent36">font-size: 1.1em;</span></div>
+                                            <div><span class="indent36">font-weight: bold;</span></div>
+                                            <div><span class="indent36">cursor: pointer;</span></div>
+                                            <div><span class="indent36">display: inline-block;</span></div>
+                                            <div><span class="indent36">color: #36C;</span></div>
+                                            <div>}</div>
+                                            <div>.expandableContent {</div>
+                                            <div><span class="indent36">padding: 5px;</span></div>
+                                            <div>}</div>
+                                            <div>.arrow {</div>
+                                            <div><span class="indent36">position: relative;</span></div>
+                                            <div><span class="indent36">display: block;</span></div>
+                                            <div><span class="indent36">color: #4891dc;</span></div>
+                                            <div><span class="indent36">font-size: 1.1em;</span></div>
+                                            <div><span class="indent36">padding: 0 0 0 30px;</span></div>
+                                            <div>}</div>
+                                            <div>.arrow:before {</div>
+                                            <div><span class="indent36">display: block;</span></div>
+                                            <div><span class="indent36">content: '▶';</span></div>
+                                            <div><span class="indent36">transform: rotate(0);</span></div>
+                                            <div><span class="indent36">transition: 0.4s;</span></div>
+                                            <div><span class="indent36">position: absolute;</span></div>
+                                            <div><span class="indent36">left: 0px;</span></div>
+                                            <div><span class="indent36">top: -2px;</span></div>
+                                            <div>}</div>
+                                            <div>.arrowOpen:before {</div>
+                                            <div><span class="indent36">transform: rotate(90deg);</span></div>
+                                            <div>}</div>
+                                            <div>span.arrow:hover {</div>
+                                            <div><span class="indent36">color: white;</span></div>
+                                            <div>}</div>
+										</code>
+                                    </div>
+                                </div>
+				            </article>
+				        </div>
+					</section>
+                    <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name="" class="anchorLink"></a>jQuery Additions</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>Add two lines of jQuery in the click event for the expandable</p>
+                                <p>And now, to update the jQuery side of this feature, we just need to add two lines of code to trigger the rotation of this arrow
+									indicator when the user clicks the expandable's title element.</p>
+        						<code class="block" id="code-arrowOpen">
+                                    <div>...</div>
+                                    <div>$(&quot;#&quot; + titleId + &quot; span&quot;).addClass(&quot;arrowOpen&quot;);</div>
+                                    <div>...</div>
+                                </code>
+                                <code class="block" id="code-arrowRight">
+                                    <div>...</div>
+                                    <div>$(&quot;#&quot; + titleId + &quot; span&quot;).removeClass(&quot;arrowOpen&quot;);</div>
+                                    <div>...</div>
+                                </code>
+				            </article>
+				        </div>
+					</section>
+                     <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name="" class="anchorLink"></a>Complete jQuery</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+                            	<div class="expandableContainer">
+                                    <div class="expandableTitle" id="expandTitle-completejQuery" status="hidden">
+                                        <span class="arrow" title="Click to expand">
+                                            Complete jQuery
+                                        </span>
+                                    </div>
+                                    <div class="expandableContent" id="expandContent-completejQuery">
+                                       	<code class="block" id="code-completejQuery">
+                                            <div>$(document).ready(function() {</div>
+                                            <div><span class="indent36">$(&quot;div[id^='expandTitle']&quot;).click(function() {</span></div>
+                                            <div><span class="indent72">var titleId = $(this).attr(&quot;id&quot;);</span></div>
+                                            <div><span class="indent72">var siblingId = $(&quot;#&quot; + titleId + &quot; ~ div&quot;).attr(&quot;id&quot;);</span></div>
+                                            <div><span class="indent72">var status = $(this).attr(&quot;status&quot;); //open/hidden</span></div>
+                                            <div></div>
+                                            <div><span class="indent72">if (status == &quot;hidden&quot;) {</span></div>
+                                            <div><span class="indent108">if ($(&quot;#&quot; + titleId + &quot; span&quot;).hasClass(&quot;arrow&quot;)) {</span></div>
+                                            <div><span class="indent144">$(&quot;#&quot; + titleId + &quot; span&quot;).addClass(&quot;arrowOpen&quot;);</span></div>
+                                            <div><span class="indent108">}</span></div>
+                                            <div><span class="indent108">$(&quot;#&quot; + siblingId).slideDown(&quot;fast&quot;);</span></div>
+                                            <div><span class="indent108">$(this).attr(&quot;status&quot;,&quot;open&quot;);</span></div>
+                                            <div><span class="indent72">} else {</span></div>
+                                            <div><span class="indent108">if ($(&quot;#&quot; + titleId + &quot; span&quot;).hasClass(&quot;arrow&quot;)) {</span></div>
+                                            <div><span class="indent144">$(&quot;#&quot; + titleId + &quot; span&quot;).removeClass(&quot;arrowOpen&quot;);</span></div>
+                                            <div><span class="indent108">}</span></div>
+                                            <div><span class="indent108">$(&quot;#&quot; + siblingId).slideUp(&quot;fast&quot;);</span></div>
+                                            <div><span class="indent108">$(this).attr(&quot;status&quot;,&quot;hidden&quot;);</span></div>
+                                            <div><span class="indent72">}</span></div>
+                                            <div><span class="indent36">});</span></div>
+                                            <div>});</div>
+                                        </code>
+                                    </div>
+                                </div>
+				            </article>
+				        </div>
+					</section>
+                     <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name="" class="anchorLink"></a>Summary</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+                            	summary content goes here.
+				            </article>
+				        </div>
+					</section>
+                    <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name="" class="anchorLink"></a>Resources</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+			              <article class="tutorialContent">
+			                <p>list of resources</p>
+                              <ul>
+                               	  <li><a href="http://www.w3.org/TR/CSS2/syndata.html#charset" target="_blank">CSS style sheet representation</a></li>
+                                  <li><a href="http://stackoverflow.com/questions/2526033/why-specify-charset-utf-8-in-your-css-file" target="_blank">Why specify @charset “UTF-8” in your css file</a></li>
+                                  <li><a href="" target="_blank"></a></li>
+                                  <li><a href="" target="_blank"></a></li>
+                              </ul>
+                            </article>
+				        </div>
+					</section>
+				</div>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		<!-- automated modal image storage-->
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+		<script src="../../js/getYear.js"></script>
+		<script src="../../js/modal-images.js"></script>
+		<script src="../../js/auto-number.js"></script>
+		<script>
+			$(document).ready(function() {
+
+
+				$("div[id^='expandTitle']").click(function() {
+					var titleId = $(this).attr("id");
+					var siblingId = $("#" + titleId + " ~ div").attr("id");
+					var status = $(this).attr("status"); //open/hidden
+
+					if (status == "hidden") {
+						if ($("#" + titleId + " span").hasClass("arrow")) {
+							$("#" + titleId + " span").addClass("arrowOpen");
+						}
+						$("#" + siblingId).slideDown("fast");
+						$(this).attr("status","open");
+						Cookie.set(titleId,"open");
+					} else {
+						if ($("#" + titleId + " span").hasClass("arrow")) {
+							$("#" + titleId + " span").removeClass("arrowOpen");
+						}
+						$("#" + siblingId).slideUp("fast");
+						$(this).attr("status","hidden");
+						Cookie.set(titleId,"hidden");
+					}
+				});
+
+				// Code blocks: within each unique code block, count the number of elements and display that number in front of each element
+				var codeExamples = []; // array to hold all code block ids
+				var prefix = "";
+				for (var i = 0; i < $("code[id^='code']").length; i++) { // find all code block ids
+					var id = $("code[id*='code']")[i].id;
+					codeExamples.push(id);
+				}
+				for (i in codeExamples) { // loop through all code blocks
+					$("code#" + codeExamples[i] + " div").each(function(i) { // within each unique code block, loop through it's div elements
+						if (i >= 0 && i < 9) {
+							$(this).prepend("<strong>00" + (i + 1) + " </strong>"); // count the number of elements and display that number in front of it.
+						} else if (i >= 9 && i <= 99) {
+							$(this).prepend("<strong>0" + (i + 1) + " </strong>"); // count the number of elements and display that number in front of it.
+						}
+					});
+				}
+			});
+		  </script>
+	</body>
+</html>

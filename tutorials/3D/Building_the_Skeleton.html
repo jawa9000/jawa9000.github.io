@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keyboard" content="tutorial, skeleton, maya, bi-ped">
+		<meta name="description" content="Building the Skeleton Tutorial">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>Building the Skeleton Tutorial</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer="defer" src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1>Building the Skeleton</h1>
+					<p class="lead">
+						General rules about creating skeletons for biped characters
+					</p>
+					<p class="about">
+						Written by Brian Immel
+					</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+            		<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Root Joint</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Starting with the Root joint, create 3-4 joints for the belly region and one joint for the upper chest region
+				                </p>
+				                <p>
+				                	When creating these ellipsoidal joints, you want to start with the root location and work in an upward direction.
+				                </p>
+				                <p>
+				                	We use 3-4 joints for the belly region because the majority of the torso movement comes from this area due to the
+				                	physics of the rib cage and lack of bones in the lower torso region. Since the upper torso does not move all that
+				                	much (just skin pulling over the rib cage) we only really need one joint to skin these vertices.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Building_the_Skeleton/figure03.jpg" id="figure03" class="imgThumbnail" title="figure03" data-toggle="modal" data-target=".figure03"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Chest</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	You should add one more joint above the chest1 joint to serve as the shoulder and neck base joint.
+				                </p>
+				                <p>
+				                	Adding a "shoulder base" will help you later on when skinning the lower neck and inner shoulder regions.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Name the Joints</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Use a good naming convention for the torso joints such as belly1, belly2, belly3, and chest1. Figure 3 suggests where
+				                	and what you should name your joints.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Leg</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Start the joint creation process from the side view of the character. Place the joints of the legs according to Figure 4.
+				                	The main reason you want to work in the side view is to keep the joints in a start alignment. Angling (not straight up
+				                	and down or side to side) the joints is usually not a good idea. Alignment for the leg is important because the FK
+				                	joints will be connected by an IK system. We'll cover that later on in the section called IK Legs.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Building_the_Skeleton/figure04.jpg" id="figure04" class="imgThumbnail" title="figure04" data-toggle="modal" data-target=".figure04"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Hip</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	When creating the joints for the leg, start with the hip and work in a downward direction.
+				                </p>
+				                <ol>
+				                	<li>
+				                		First joint will be the hip. This ball joint should be placed in the center of the geometry where the leg
+				                		meets the lower groin region. This joint handles the major rotations of the entire leg.
+				                	</li>
+									<li>
+										Second joint is the knee. Place directly center of the geometry for the knee region. This hinge joint handles
+										the forward and backward rotations of the knee.
+									</li>
+									<li>
+										The third joint is the ankle. Place this hinge joint in the center of the geometry for the ankle region. This
+										joint should not be confused with the heel joint.
+									</li>
+									<li>
+										The fourth joint is the heel joint. This hinge joint is placed at the rear of the foot geometry. I use this
+										joint to handle the rotation of the foot when performing a heel pivoting motion. Some animators skip over this
+										joint and go straight from the ankle to the ball joint. This is fine as long you don't plan on using a more
+										complex system for animating the foot.
+									</li>
+									<li>
+										The fifth joint is the ball joint. Place this hinge joint in the center of the foot (exact averaged distance
+										from toe to heel). This joint is responsible for bending the foot upper when picking the foot up.
+									</li>
+									<li>
+										The final joint is the toe joint. Place this non-moving joint at the very tip of the foot where the toes are.
+										This joint has no bending responsibilities but it is useful in some situations for better skin weighting of
+										the foot.
+									</li>
+				                </ol>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Center Leg Joints</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	After you have created this joints, select the Hip joint and move it to the relative center of the leg geometry.
+				                	Its okay to move some of the joints to be center of the geometry but if you angle the joints too much, be warned that
+				                	this may cause problems later on.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Hip Center Joint</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	After you have created the leg from the hip down, create another joint directly below the Root joint. Name this
+				                	joint center or hip center or something like this idea. Although, as humans, we don't have a center hip joint, this
+				                	joint will serve as the center of rotation for the hips. Without this "central joint", your character will not be able
+				                	to swivel his/her hips.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Building_the_Skeleton/figure05.jpg" id="figure05" class="imgThumbnail" title="figure05" data-toggle="modal" data-target=".figure05"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Name Leg Joints</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Name your joints accordingly from the hip down:
+				                </p>
+				                <ol>
+				                	<li>Hip</li>
+									<li>Knee</li>
+									<li>Ankle</li>
+									<li>Ball</li>
+									<li>Toe</li>
+				                </ol>
+				                <p>
+				                	Keep in mind you will need to add the suffix left (_L) or right (_R) according to which side of the character you
+				                	are working with.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Central Joint</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Create the "central joint". Attach the Hip joint to the Central joint.
+				                </p>
+				                <p>
+				                	The Central joint is attached to the Root joint.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Mirror Leg Joints</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Instead of repeating all these steps to create the other leg, we can mirror what we have created and automatically
+				                	rename the joints with the proper suffix.
+				                </p>
+				                <ol>
+				                	<li>To mirror a set of joints, select the joint branch that you wish to mirror. In this case, select the hip joint.</li>
+									<li>Go to Skeleton &gt; Mirror Joint Option Box.</li>
+									<li>In the Mirror Across options, select YZ (if you have set up your character in the fore mentioned position).</li>
+									<li>Set Mirror Function to Behavior.</li>
+									<li>In the section Replacement names for duplicated joints: Search for: should list the suffix, which you used on
+										the current leg and Replace With: should list the suffix, which did not use on the leg we are about to create.</li>
+									<li>Hit the Mirror button and watch the magic.</li>
+				                </ol>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Arms</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	The arm branch is typically built out of five joints: clavicle, shoulder, elbow, forearm, and wrist. See Figure 6 for a
+				                	typical layout. This layout will easily support both FK and/or IK setups in any version of Maya.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Clavicle</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <ol>
+				                	<li>Start by placing the first joint of the arms near the base of the neck. This first joint will be the Clavicle
+				                		joint.</li>
+									<li>The clavicle helps the shoulder with motions that raise the arm, moving the arm forward and backward, and adds
+										the possibility of shrugging.</li>
+									<li>This ellipsoid joint should be place near the front of the geometry rather than the center of the inner shoulder
+										region. </li>
+				                </ol>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Shoulder</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <ol>
+				                	<li>The next joint will be the shoulder joint. Center this ball jointat the base of the geometry where the arm meets
+				                		the shoulder. </li>
+									<li> This joint has the primary responsibility of rotating the entire arm. This rotating motion is coupled with the
+										movements of the clavicle.</li>
+				                </ol>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Elbow</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <ol>
+				                	<li>Down from the shoulder joint is the elbow joint. This hinge joint has the primary responsibility of bending the
+				                		geometry around the elbow region. Place this joint in the center of the geometry.
+				                	</li>
+									<li>This joint will have limited movement because it acts a lot like a hinge. </li>
+									<li>
+										When drawing this joint, don't place it straight out from the shoulder. Place that so that there is a slight
+										bend backwards in the entire arm when you finish drawing the joints. This will help with usage of IK joints
+										later on.
+									</li>
+				                </ol>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Forearm</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				              	<ol>
+				              		<li>
+				              			Next is the forearm joint. Although we humans don't have a "Forearm" joint, we do have to bones that orbit one
+				              			another to give us the ability to rotate the forearm region. This joint is a pivot type joint.
+				              		</li>
+									<li>
+										Lock the rotations of all the axis of the forearm joint except for the axis that allows the twisting motion in
+										the forearm region. If you started creating your character in a standard position (Z front, X right/left, Y up),
+										then you will want to lock the Y and Z Rotate attributes of this joint. The main reason you want to lock these
+										rotation attributes to help control the joint from bending if you use an IK joint on the arms.
+									</li>
+				              	</ol>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Wrist</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <ol>
+				                	<li>
+				                		The next joint we need to create for the arm is the wrist joint. This joint has the primarily responsibility of
+				                		rotating the hand in every rotation except for a twisting motion (last time I checked, I couldn't twist my wrist).
+				                		The wrist joint is not a hinge or an ellipsoid joint but rather a double hinge type because it can rotate on two
+				                		axis only.
+				                	</li>
+									<li>
+										The wrist joint can move up, down, forward, and backward but with some limitations according to human anatomy.
+										Since our biped is based on human standard, you can either choose to ignore the wrist's limitations or use a
+										forward/backward rotational limitation of about 45 degrees.
+									</li>
+									<li>Use the Limit Information options under the Attribute Editor for the wrist joint to set the rotational limits.</li>
+									<li> The wrist joint should be placed in the center of the geometry where the palm meets the lower region of the arm.</li>
+				                </ol>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Hands</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	My typical handset consists of 16 joints: one palm joint and three joints for each finger (thumb, index, middle, ring,
+				                	and pinky). In Figure 7, I used a cartoon hand (four fingers instead of five) and added an extra joint for closing each
+				                	finger branch. I know this illustration is mixing reality, but the fingers have the right number of joints according to
+				                	our real anatomy.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Building_the_Skeleton/figure07.jpg" id="figure07" class="imgThumbnail" title="figure07" data-toggle="modal" data-target=".figure07"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Palm Joint</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	As human beings, we have a quite a few bones and muscles in the palm region of our hands. To simplify the process of
+				                	creating skeletons for our hands, we will use just one joint for the palm.
+				                </p>
+				                <p>
+				                	The palm joint is a non-moving joint. This joint has two purposes:
+				                </p>
+				                <ol>
+				                	<li>Help skin weight as needed for the wrist and knuckle joints.</li>
+				                	<li>Add an extra location for future IK solutions for arm controls.</li>
+				                </ol>
+				                <p>
+				                	The palm joint should be placed relatively center of the palm geometry.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Finger Joints</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	From the Palm joint, place joints according to the bend locations of the geometry for each finger. The following set
+				                	up uses only three joints instead of four, as we humans would normally have. Why not use four? More work to skin,
+				                	another joint to animate and the results would be the same (in this case) with three to close the fingers.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Ellipsoid Joints</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	All finger joints are ellipsoid joints. I usually set up my finger joints with the ability to rotate in (to close the
+				                	hand) and out (to open beyond the straight position). The reason the finger joints are ellipsoids is because you can
+				                	spread your knuckle joints in and out to widen or narrow the shape of the hand. However, you may not want to include
+				                	the spreading ability of your fingers because the animation does not call for this type of animation possibilities.
+				                	In which case, the finger joints will act like simple hinges.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Three Finger Joints</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Every finger branch we will create will have three joints: 1-knuckle, 2-middle, 3-tip.
+				                </p>
+				                <ul>
+									<li>
+										The knuckle joint is placed at the base of the finger where the palm meets the lower finger region. This joint is
+										responsible for the upper finger bends.
+									</li>
+									<li>
+										The middle joint is located in the middle of the finger geometry. This joint is responsible for the middle finger
+										bending.
+									</li>
+									<li>
+										The tip joint is placed at the very end of the finger geometry. This joint has to rotation responsibilities but it
+										does play a small roll in making skinning the finger a little easier.
+									</li>
+									<li>
+										Sometimes, you may have more than three joints for your fingers. Therefore, you will need to name that extra joint
+										accordingly. Again, use anatomy as a reference for where to place and what you should name these joints.
+									</li>
+								</ul>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Five vs. Four Fingers</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Under normal anatomical situations, we have five fingers: Thumb, Index, Middle, Ring, and Pinky. If you wish to follow
+				                	the rules of cartoons, then you should not use the Ring branch for the fingers.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Thumb</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	The thumb joint knuckle is an ellipsoid joint type. The thumb is sometimes a rather difficult joint to setup because
+				                	how it moves. It more or less has the motion of a ball joint but it cannot rotate completely backwards.
+				                </p>
+				                <p>
+				                	The thumb joint is placed on the inside of the body (points inward). When the hands are placed side-by-side flat on a
+				                	table, the thumbs will point towards each, not away from one another. See Figure 8.
+				                </p>
+				            </div>
+				             <div class="images">
+				                <img src="../../images/tutorials/Building_the_Skeleton/figure08.jpg" id="figure08" class="imgThumbnail" title="figure08" data-toggle="modal" data-target=".figure08"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Index Finger</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <ul>
+									<li>The index branch is also referred as the pointing finger.</li>
+									<li>This branch is the first set in on the palm.</li>
+									<li>This branch sits between the thumb and middle branches.</li>
+								</ul>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Middle Finger</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	This branch usually has the greatest distance between each joint due to the length of the middle finger geometry. This
+				                	branch is placed next to the index branch away from the thumb branch.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Ring Finger</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	This branch sits next to the middle branch away from the index branch.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Pinky Finger</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	This branch sits at the end of the palm next to the ring branch.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Mirror Joints</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Once we have the entire arm and hand completed, we can use the Mirror Joint tool save ourselves some time.
+				                </p>
+				                <p>
+				                	Select the Clavicle joint and hit Skeleton &gt; Mirror Joint. Use the same rules we did before for mirroring the legs
+				                	(suffix naming and mirroring options).
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Neck and Head</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	For Oscar Jr. as illustrated in Figure 9, I only created three joints to handle the motion of the head: Neck joint,
+				                	top of head joint, and a chin joint.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Building_the_Skeleton/figure09.jpg" id="figure09" class="imgThumbnail" title="figure09" data-toggle="modal" data-target=".figure09"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Neck Joints</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Create at least one joint for the neck. I like using two joint just to give the neck region a little more flexible but
+				                	that again depends on the length of the neck and intended range of motion.
+				                </p>
+								<p>Name these joints Neck1 and Neck2.</p>
+								<p>Neck1 and Neck2 joints are ellipsoid type joints.</p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Head Skinning Joint</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Place another joint next the top rear of the head. This "top head" joint serve as the major weighting joint for the
+				                	head geometry.
+				                </p>
+				                <p>
+				                	Note: this 3-4 joint system for the head does not support facial animation very well. If you want a system that supports
+				                	facial animation, you should consider what regions move and how they move and do some R&amp;D design work with the
+				                	skeleton system and weighting system for facial animation systems. There is so many ways to set this and it would take
+				                	forever to talk about but we are just concerned with creating a system that will allow us to animate the character
+				                	without facial animation at this point in this lesson.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Chin Joint</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Create another joint near the chin region. Some people may argue that this joint isn't necessary and they may be right
+				                	but I like having this joint there because I can weight the vertices of the chin region to give just a little extra
+				                	emotional reaction to the character by making it appear to drop his jaw when he/she is surprised or scared. This joint
+				                	is not 100% necessary in the grand scheme of the skeleton design.
+				                </p>
+				                <p>
+				                	The rest of the joints in the head are non-moving types of joints.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		<!-- automated modal image storage-->
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+	</body>
+	<script src="../../js/getYear.js"></script>
+	<script src="../../js/modal-images.js"></script>
+	<script src="../../js/auto-number.js"></script>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="description" content="word chopper" />
+		<meta name="keywords" content="javascript, word, chop, newb" />
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+    <title>Chopping letters</title>
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    <script src="js/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <h1>Word Chopper</h1>
+    <p>Inspired by a word puzzle my son and I recently discovered, you can enter in two words and chop off the first and last parts.</p>
+    <h2>Usage</h2>
+    <ol>
+      <li>Enter two words (one in each input field) that is longer than <strong><span>2</span></strong> letters.</li>
+      <li>Select the length of the lettering chopping (defaults to the first and last two characters).</li>
+      <li>Push <strong>Chop!</strong> button to collect the first few letters of the first word and the last few letters of the second word to create a new "word".</li>
+    </ol>
+
+    <input type="text" id="first" placeholder="first word">
+    <br/>
+    <input type="text" id="second" placeholder="second word">
+    <br/>
+    <br/>
+
+    <label for="chopLength">Chop length: <span>2</span></label>
+    <br/>
+    <input type="range" id="chopLength" name="chopLength" min="2" max="10" value="2"/>
+    <br/>
+
+    <button type="submit">Chop!</button>
+    <br/>
+
+    <div id="chopped"></div>
+  </body>
+  <script>
+    // Yeah, I know I don't really need to use jQuery here but since it's already provided by this site's navigation, I'll take the quick and easier route.
+    $('document').ready(function() {
+      var chopLength = 2; // default letter chop length
+      $('#chopLength').on('change', function() {
+        chopLength = $(this).val(); // get the length of the words to be chopped
+        $('span').text(chopLength); // update the chop length texts
+      });
+
+      $('button').on('click', function() {
+        $('#chopped').html(''); // clear message area
+        var first = $('#first').val(); // get the text of the first word
+        var second = $('#second').val(); // get the text of the second word
+
+        var message = ''; // requirement message
+
+        if (first.length < chopLength) { // if the length of the word is too short, let user know
+          message += 'The first word needs to be longer than ' + chopLength + ' letters.<br/>';
+        } else { // tally word length and generate the first chopped word
+          first = first.slice(0,chopLength);
+        }
+
+        if (second.length < chopLength) { // if the length of the word is too short, let user know
+          message += 'The second word needs to be longer than ' + chopLength + ' letters.<br/>';
+        } else { // tally word length and generate the second chopped word
+          second = second.slice(second.length - chopLength, second.length);
+        }
+
+        if (first.length >= chopLength && second.length >= chopLength) { // process words into a chopped 'word' and display it
+          $('#chopped').text(first + second);
+        } else { // display requirement message
+          $('#chopped').html(message);
+        }
+      });
+    });
+  </script>
+
+</html>

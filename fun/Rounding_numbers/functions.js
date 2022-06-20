@@ -1,0 +1,334 @@
+var totalSeconds = 0; // total time
+var timer = null;
+var started = false; // state for the initialization of the math problems
+var backgroundColorGreen = '#04c204';
+var backgroundColorRed = '#f05151';
+var localStorageId = ''; // localStorage id
+var negativeNumbers = false; // toggle to allow/disallow negative numbers in math problems and answers
+
+const ar = new Array(37, 38, 39, 40); // arrow key ids
+const disableArrowKeys = function(e) { // disable arrow keys
+    if ($.inArray(e.keyCode, ar) >= 0) {
+        e.preventDefault();
+    }
+}
+
+$(document).keydown(disableArrowKeys); // disable arrow keys so users cannot guess the answer by using these keys to increment the answer values
+
+$(document).on('change', 'input.input', function() { // provide feedback on right or wrong answers or if the quiz is complete
+    var id = $(this).attr('id'); // id of current input element
+    var answerLength = $(this).attr('answer').length; // length of correct answer
+    var givenAnswer = $('#' + id).val(); // length of user's answer
+
+    if ($('#' + id).attr('answer') == parseInt(givenAnswer)  && answerLength == givenAnswer.length) { // if the answer is correct and the length of the answer is correct (without leading zeros), the color accordingly
+        $('#' + id).css('backgroundColor', backgroundColorGreen);
+        $('#' + id).attr('answered', true);
+    } else { // if wrong answer is given, change bg color
+        if (givenAnswer.length == 0) { // if answer is empty, change bg back to default color
+            $('#' + id).css('backgroundColor','#8abcf7');
+        } else {
+            $('#' + id).css('backgroundColor', backgroundColorRed);
+        }
+
+        $('#' + id).attr('answered', false);
+    }
+
+    var correctTotal = 0; // total of correct answers
+    
+    $('input.input').each(function() { // Count the number of problems, count correct answers, and if they are equal, turn the page bg to green
+        if ($(this).attr('answered') == 'true') {
+            correctTotal++;
+        }
+
+        var inputCount = $('input#count').val() || $('input#count').attr('placeholder'); // grab the total number of math problems regardless if the user supplied a number or not
+
+        if (correctTotal == inputCount) {
+            if (timer) {
+                clearInterval(timer);
+                timer = null;
+            }
+
+            $('#stop').attr('disabled', true).removeClass('active');
+            $('#reset').attr('disabled', true).removeClass('active');
+
+            $('input').each(function() { // disable all input elements
+                $(this).attr('disabled', true).css('backgroundColor', backgroundColorGreen);
+            })
+
+            $('body').css('backgroundColor', backgroundColorGreen);
+            $('.table').css('backgroundColor', backgroundColorGreen);
+            $('.header').css('backgroundColor', backgroundColorGreen);
+
+            // Store problem type, problem count, and time spent in local storage
+            var localStorageObj = { // generate object to save in localStorage
+                time: $('#hour').text() + ":" + $('#minute').text() + ":" + $('#second').text(),
+                problemCount: inputCount,
+                mathType: operation
+            }
+
+            var negativeNumber = false;
+
+            if ($('input#negative').prop('checked')) { // determine if numbers can contain a negative value
+                negativeNumber = true;   
+            }
+
+            if (negativeNumber) { // generate localStorage id
+                localStorageId = operation + '-negative-' + inputCount;
+            } else {
+                localStorageId = operation + '-' + inputCount;
+            }
+
+            var completeMessage = '';
+            
+            if (localStorageId in localStorage) { // if local storage item exists, get it and compare completed time with current problem time
+                var best = JSON.parse(window.localStorage.getItem(localStorageId));
+
+                if (localStorageObj.time < best.time) { // user beat their best time
+                    setLocalStorage(localStorageId, localStorageObj);
+
+                    if (negativeNumber) {
+                        completeMessage = 'Congrats on your new best time for ' + localStorageObj.problemCount + ' ' + localStorageObj.mathType + ' math problems of ' + localStorageObj.time + ' mixed with negative numbers!';
+                    } else {
+                        completeMessage = 'Congrats on your new best time for ' + localStorageObj.problemCount + ' ' + localStorageObj.mathType + ' math problems of ' + localStorageObj.time + '!';
+                    }
+                } else { // user did not beat their best time
+                    if (negativeNumber) {
+                        completeMessage = 'Congrats on completing your math assignment of ' + localStorageObj.mathType + '! Your best time is ' + best.time + ' for completing ' + best.problemCount + ' ' + best.mathType + ' math problems with negative numbers.';
+                    } else {
+                        completeMessage = 'Congrats on completing your math assignment of ' + localStorageObj.mathType + '! Your best time is ' + best.time + ' for completing ' + best.problemCount + ' ' + best.mathType + ' math problems.';
+                    }
+                }
+            } else {
+                if (negativeNumber) {
+                    completeMessage = 'Congrats on your new best time for ' + localStorageObj.problemCount + ' ' + localStorageObj.mathType + ' math problems of ' + localStorageObj.time + ' mixed with negative numbers!';
+                } else {
+                    completeMessage = 'Congrats on your new best time for ' + localStorageObj.problemCount + ' ' + localStorageObj.mathType + ' math problems of ' + localStorageObj.time + '!';
+                }
+                
+                setLocalStorage(localStorageId, localStorageObj);
+            }
+
+            $('#completeMessage').html(completeMessage);
+        } else {
+            $('body').css('backgroundColor', 'rgb(238, 238, 238)');
+        }
+    });
+});
+
+$('#start').on('click', function() { // start timer and display math problems
+    if (!timer) {
+        timer = setInterval(setTime, 1000);
+    }
+
+    $('#reset')
+        .attr('disabled', false)
+        .addClass('active');
+    $('#start')
+        .attr('disabled', true)
+        .removeClass('active');
+    $('#stop')
+        .attr('disabled', false)
+        .addClass('active');
+
+    if ($('input#negative').prop('checked')) {
+        negativeNumbers = true;
+    }
+
+    // get operation
+    var operation = $('input[type=radio]').attr('id');
+    
+    // ** if negative == true, set math problem with possible negative numbers and answers
+
+    if (started == false) { // if starting the math problems for the first time, generate the math problems. Otherwise, display the existing math problems.
+        displayProblems(operation); // add new problems
+        started = true;
+    } else {
+        $('div.table').css('display', 'block');
+    }
+});
+
+$('#stop').on('click', function() { // stop timer and hide math problems
+    if (timer) {
+        clearInterval(timer);
+        timer = null;
+    }
+
+    $('#reset')
+        .attr('disabled', true)
+        .removeClass('active');
+    $('#start')
+        .attr('disabled', false)
+        .addClass('active');
+    $('#stop')
+        .attr('disabled', true)
+        .removeClass('active');
+    $('div.table').css('display', 'none');
+});
+
+$('#reset').on('click', function() { // reset timer and generate new math problems
+    if (timer) {
+        totalSeconds = 0;
+        stop();
+    }
+
+    displayProblems(); // generate new problems
+});
+
+function setLocalStorage(id, obj) { // set localStorage item and JSON object
+    window.localStorage.setItem(id, JSON.stringify(obj));
+}
+
+function setTime() { // display time elapsed
+    totalSeconds++;
+    $('#second').text(pad(totalSeconds % 60));
+    $('#minute').text(pad(parseInt(totalSeconds / 60)));
+    $('#hour').text(pad(parseInt(totalSeconds / 3600)));
+}
+
+function pad(val) { // add a leading zero to time in if the time is less than a double digit
+    var valString = val + '';
+
+    if (valString.length < 2) {
+        return '0' + valString;
+    } else {
+        return valString;
+    }
+}
+
+function displayProblems(operation) { // reset body bg and input.input colors, empty the div.table element from any previous math problems, and display a new set of math problems
+    $('input.input').each(function() {
+        $(this).css('backgroundColor', 'rgba(255, 255, 255, 1)');
+    });
+    $('div.table').empty(); // clear math problem element
+
+    var inputCount = $('input#count').val() || $('input#count').attr('placeholder'); // grab the total number of math problems regardless if the user supplied a number or not
+
+    generateProblems(parseInt(inputCount),parseInt($('input#largest').val()), operation, negativeNumbers);
+
+    const localStorageId = operation + '-' + inputCount;
+}
+
+function isInt(value) { // returns if a number is whole (true) or includes a fraction (false)
+    return !isNaN(value) && (function(x) { return (x | 0) === x; })(parseFloat(value))
+}
+
+function generateNumber(num, negative) { // generate random number with supplied upper limit and if it is negative or not
+    var number = Math.floor(Math.random() * num) + 1;
+
+    if (negative) {
+        if (Math.floor(Math.random() * 10) > 5) {
+            number = number * -1;
+        }
+    }
+
+    return number;
+}
+
+function generateProblems(num, largest, operation, negativeNumbers) { // generate a "table" of subtraction problems
+    if (!num) {
+        num = 20;
+    }
+
+    if (!largest) {
+        largest = 100;
+    }
+
+    var output = '';
+
+    for (var i = 0; i < num; i++) {
+        if (i % 2 == 0) {
+            output += '</div><div class="newGroup"><div class="block">';
+        } else {
+            output += '<div class="block">';
+        }
+
+        // decide if the number is a 2, 3, or 4 digit number
+        var numberLength = Math.floor(Math.random() * 4);
+
+        if (numberLength == 0) { // single digit
+            var single =  pickNumber(1);
+            var id = single.type + '-' + single.number + '-' + single.rounded;
+
+            output += '<div id="' + id + '">Round ' + single.number + ' ' + single.direction + ' to the nearest ' + single.roundToNumber  + '. <input class="input" id="input-' + id + '" answer="' + single.rounded + '" type="number"></div>';
+        } else if (numberLength == 1) { // double digit
+            var double = pickNumber(2);
+            var id = double.type + '-' + double.number + '-' + double.rounded;
+
+            output += '<div id="' + id + '">Round ' + double.number + ' ' + double.direction + ' to the nearest ' + double.roundToNumber  + '. <input class="input" id="input-' + id + '" answer="' + double.rounded + '" type="number"></div>';
+        } else if (numberLength == 2) { // triple digit
+            var triple = pickNumber(3);
+            var id = triple.type + '-' + triple.number + '-' + triple.rounded;
+
+            output += '<div id="' + id + '">Round ' + triple.number + ' ' + triple.direction + ' to the nearest ' + triple.roundToNumber  + '. <input class="input" id="input-' + id + '" answer="' + triple.rounded + '" type="number"></div>';
+        } else { // quadruple digit
+            var quadruple = pickNumber(4);
+            var id = quadruple.type + '-' + quadruple.number + '-' + quadruple.rounded;
+
+            output += '<div id="' + id + '">Round ' + quadruple.number + ' ' + quadruple.direction + ' to the nearest ' + quadruple.roundToNumber  + '. <input class="input" id="input-' + id + '" answer="' + quadruple.rounded + '" type="number"></div>';
+        }
+
+        output += '</div>';
+    }
+
+    $('div.table').html(output); // render math problems and input elements
+}
+
+function pickNumber(digit) {
+    var numbers = {};
+    numbers.number = 0;
+    
+    if (digit == 1) { // single digit number
+        numbers.type = 'single';
+        numbers.number = Math.floor(Math.random() * 10); // pick a number between 0 and 9
+        numbers.roundTo = [10];
+        
+    } else if (digit == 2) { // round up or down by two digit numbers
+        numbers.type = 'double';
+        numbers.roundTo = [10];
+
+        while (numbers.number < 10) {
+            numbers.number = Math.floor(Math.random() * 100);
+        }
+
+    } else if (digit == 3) { // round up or down by triple digit numbers
+        numbers.type = 'triple';
+        numbers.roundTo = [10, 100];
+
+        while (numbers.number < 100) {
+            numbers.number = Math.floor(Math.random() * 1000);
+        }
+    } else { // round up or down by quadruple digit numbers
+        numbers.type = 'quadruple';
+        numbers.roundTo = [10, 100, 1000];
+
+        while (numbers.number < 1000) {
+            numbers.number = Math.floor(Math.random() * 10000);
+        }
+    }
+
+    roundUpOrDown(numbers);
+   
+    return numbers;
+}
+
+function roundUpOrDown(numbers) {
+    var pickUpDown = Math.floor(Math.random() * 10); // decide if to round up or down
+
+    if (numbers.roundTo.length == 1) {
+        var roundToRnd = 0;
+    } else {
+        var roundToRnd = Math.floor(Math.random() * numbers.roundTo.length); // pick which level to round to
+    }
+
+    numbers.roundToNumber = numbers.roundTo[roundToRnd];
+
+    if (pickUpDown < 5) { // round up
+        numbers.rounded = Math.ceil(numbers.number / numbers.roundToNumber) * numbers.roundToNumber;
+        numbers.direction = 'up';
+    } else { // round down
+        numbers.rounded = Math.floor(numbers.number / numbers.roundToNumber) * numbers.roundToNumber;
+        numbers.direction = 'down';
+    }
+
+    return numbers;
+}

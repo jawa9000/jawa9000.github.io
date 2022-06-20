@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="tutorial, sdk, set driven key, smooth, binding, maya">
+		<meta name="description" content="Set Driven Skeleton Systems With Smooth Binding Tutorial">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>Set Driven Skeleton Systems With Smooth Binding Tutorial</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer="defer" src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1>Set Driven Skeleton Systems With Smooth Binding</h1>
+					<p class="about">
+						Written by Brian Immel
+					</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+            		<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Set Driven Skeleton Systems With Smooth Binding</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	The first thing we need to do is set up the positions for branching off the shoulder to simulate muscle movements below
+				                	the skin.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Shoulder_Binding/SDK-smooth-bind01.jpg" id="SDK-smooth-bind01" class="imgThumbnail" title="SDK-smooth-bind01" data-toggle="modal" data-target=".SDK-smooth-bind01"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Branching</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Set up a series of joints surrounding the shoulder joint. Four joints to build the basic branch:
+				                </p>
+				                <p>
+				                	Deltoid (top of shoulder). Keep in mind that the deltoid muscle is the primary mover of the shoulder when setting up the
+				                	SDK of the branched joints. This joint will have a very crucial roll in the displacement of the shoulder geometry.
+				                </p>
+				                <p>
+				                	Many muscle groups influence the armpit area but the majority of these groups are influenced mostly by the primary muscle
+				                	groups that surround the shoulder joint. Some of these groups include deltoid, pectoralis major and latissmus dorsi. Some
+				                	of the secondary muscle groups include the teres major and coracobrachialis. Because there are so many muscles influencing
+				                	the armpit, we'll generically name the joint assigned to handle that area simply put as armpit.
+				                </p>
+				                <p>
+				                	Pectoralis (front of shoulder)
+				                </p>
+				                <p>
+				                	Scapula (back of shoulder).
+				                </p>
+				                <p>
+				                	Figure32 illustrates the different areas of the shoulder that are influenced by muscles acting on the scapula and
+				                	shoulder joint.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Shoulder_Binding/shoulder-muscle-groups.jpg" id="shoulder-muscle-groups" class="imgThumbnail" title="shoulder-muscle-groups" data-toggle="modal" data-target=".shoulder-muscle-groups"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Set Driven Key the joints surrounding the shoulder joint</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Use a controller object to drive the branch joints. In this case, select the S curve named
+				                	<span class="strong">Shoulder_Control_L</span>.
+				                </p>
+				                <p>
+				                	Open up the <span class="strong">SDK window</span> and <span class="driver">load the Shoulder_Control_L as the
+				                	driver</span>. Select the attribute <span class="driver">Shoulder_UD</span>.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Shoulder_Binding/SDK-smooth-bind02.jpg" id="SDK-smooth-bind02" class="imgThumbnail" title="SDK-smooth-bind02" data-toggle="modal" data-target=".SDK-smooth-bind02"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Set the Deltoid Joint</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Select the <span class="armpit">deltoid joint</span> and <span class="armpit">load it as the driven</span>.
+				                </p>
+				                <p>
+				                	All the shoulder branches will be driven via their translate attributes. <span class="armpit">Select the
+				                	translate attributes of the deltoid joint</span>.
+				                </p>
+				                <p>
+				                	<span class="strong">Hit the Key button</span> to set the default zero position.
+				                </p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>SDKing the Deltoid</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	<span class="strong">Change the value of the attribute <span class="driver">Shoulder_UD</span></span> to somewhere between 1 and 9.
+				                </p>
+				                <p>
+				                	<span class="strong">Translate the <span class="armpit">deltoid joint</span></span> somewhere between the middle of the joint's
+				                	movement and <span class="strong">hit Key in the SDK window</span>.
+				                </p>
+				                <p>
+				                	<span class="strong">Repeat this step and the last one</span> a few times to set up a smooth transition between zero movement and
+				                	total movement of the <span class="armpit">deltoid joint</span>. I usually set up three in-between SD keys between the
+				                	values of 0 and 10.
+				                </p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Deltoid Bent Up</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	<span class="strong">Change the value of the attribute <span class="driver">Shoulder_UD</span> to 10.</span>
+				                </p>
+				                <p>
+				                	<span class="strong">Translate the <span class="armpit">deltoid joint</span></span> to accommodate the folds of a shoulder being
+				                	bent up.
+				                </p>
+				                <p>
+				                	<span class="strong">Select the translate attributes of the <span class="armpit">deltoid joint</span> in the SDK window and hit
+				                	Key.</span>
+				                </p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Shoulder Down</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	<span class="strong">Change the value of the attribute <span class="driver">Shoulder_UD</span></span> to somewhere between -1 to -9.
+				                </p>
+				                <p>
+				                	<span class="strong">Translate the <span class="armpit">deltoid joint</span></span> somewhere between the middle of the joint's
+				                	movement and <span class="strong">hit Key in the SDK window.</span>
+				                </p>
+				                <p>
+				                	<span class="strong">Repeat this step</span> a few times to set up a smooth transition between zero movement and total movement of
+				                	the <span class="armpit">deltoid joint</span>. I usually set up three in-between SD keys between the values of 0 and -10.
+				                </p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Deltoid Folds</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	<span class="strong">Change the value of <span class="driver">Shoulder_UD</span> to -10.</span>
+				                </p>
+				                <p>
+				                	<span class="strong">Translate the <span class="armpit">deltoid joint</span></span> to accommodate the folds and pulls of a
+				                	shoulder being folded down.
+				                </p>
+				                <p>
+				                	<span class="strong">Select the translate attributes of the <span class="armpit">deltoid joint</span> in the SDK window and hit
+				                	Key.</span>
+				                </p>
+				                <p>
+				                	<span class="strong">Select the <span class="armpit">armpit joint</span> and repeat steps 2-7 replacing
+				                	<span class="armpit">deltoid joint</span> with <span class="armpit">armpit joint</span></span>. Continue this steps
+				                	with all the <span class="armpit">branch joints</span> until they are all driven. Note: these SDKs are subject to be
+				                	tweaked once the geometry has been skinned. It may be desirable to skin the geometry first and then set up the SDK of
+				                	the branch joints.
+				                </p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Parting Notes</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	When it comes to painting weights, the majority of shoulder geometry weighed to the branches (if not all).
+				                </p>
+				                <p>
+				                	Branch end joints move (SDK) according to muscular movements of the shoulder. This may take some R&amp;D time to get the
+				                	movements you like. Setting up a SDK branch joint setup will require a certain amount of balance between the movements
+				                	of the joint ends and the weights applied to them.
+				                </p>
+				            </article>
+				        </div>
+					</section>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		<!-- automated modal image storage-->
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+	</body>
+	<script src="../../js/getYear.js"></script>
+	<script src="../../js/modal-images.js"></script>
+	<script src="../../js/auto-number.js"></script>
+</html>

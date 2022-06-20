@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="tutorial, rigid, binding, flexor, maya">
+		<meta name="description" content="Rigid Binding with Flexors Tutorial">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>Rigid Binding with Flexors Tutorial</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer="defer" src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1>Rigid Binding with Flexors</h1>
+					<p class="about">
+						Written by Brian Immel
+					</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+            		<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Shoulder Joint</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	To make a joint location to have better surface deformations, try using a flexor on that joint. Note: When a flexor is
+				                	created, it automatically becomes part of the hierarchy of the skeleton. There is no need to parent of constrain the
+				                	flexor (unless of course you want double-transformations).
+				                </p>
+				                <p>
+				                	Select the shoulder joint and go to <span class="strong">Skin</span> &gt; <span class="strong">Edit Rigid Skin</span> &gt;
+				                	<span class="strong">Create Flexor</span>
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Create Flexor</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	In the Create Flexor Dialogue box, make sure the following is set according to the following list:
+				                </p>
+				                <ul>
+								  	<li>
+								  		<span class="strong">Flexor Type = lattice</span>. Creates the flexor out a lattice. You can also choose Sculpt and jointCluster
+								  		as well.
+								  	</li>
+								  	<li>
+								  		<span class="strong">Joints = At Selected Joint(s)</span>. This will place the flexor at the selected joint
+								  	</li>
+								  	<li><span class="strong">Bones = nothing</span></li>
+								  	<li>
+								  		<span class="strong">S Divisions = 2</span> (depends on type of bending involved but this is Maya's default)
+								  	</li>
+								  	<li>
+								  		<span class="strong">T Divisions = 5</span> (depends on type of bending involved but this is Maya's default). This value is
+								  		important because it normally follows the longer length of the geometry. So if you have seven divisions in the
+								  		geometry that follows the YZ plane, you may want to make the number of divisions of the geometry with the number of
+								  		divisions in the flexor on the T Division.
+								  	</li>
+								  	<li>
+								  		<span class="strong">U Divisions = 2</span> (depends on type of bending involved but this is Maya's default). The S, T, and U
+								  		divisions can be thought of as values for creating a lattice.
+								  	</li>
+								  	<li>
+								  		<span class="strong">Turn on Position the Flexor</span> option. This will place and orientate the flexor according to the
+								  		selected joint.
+								  	</li>
+								</ul>
+								<p>
+									<span class="strong">Hit the Create</span> button and then close the Create Flexor window.
+								</p>
+								<p>
+				                	While the <span class="strong">flexor is still selected</span> after it has been created, you can <span class="strong">adjust the rotation,
+				                	position and scale without affecting the geometry</span>.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Shoulder_Binding/flexor-figure05.jpg" id="flexor-figure05" class="imgThumbnail" title="flexor-figure05" data-toggle="modal" data-target=".flexor-figure05"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Rescale Flexor</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	As soon as you drop the selection, the flexor will now influence the geometry. I normally rescale the flexor so that it
+				                	better fits the surface, as it needs to bend. For example, if a joint bends along the Z-axis, the geometry will need to
+				                	be able to flex better along the Z bend axis. So I would scale the flexor to make it cover more surface along the X-axis
+				                	of the flexor like in Figure 6.
+				                </p>
+				                <p>
+				                	Note: It is not normally a good idea to move the flexor from its original creation location around the selected joint.
+				                	Reason for this is that the bend of the flexor location will be different than that of the joint itself.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Shoulder_Binding/flexor-figure06.jpg" id="flexor-figure06" class="imgThumbnail" title="flexor-figure06" data-toggle="modal" data-target=".flexor-figure06"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Adjust Flexor Attributes</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Next try bending the joint to see how the flexor affects the surrounding vertices of the surface. If you find a trouble
+				                	area, leave the rotated joint were it is and select the flexor.
+				                </p>
+				                <p>
+				                	<span class="strong">Select the flexor and in the Channel Box</span>, adjust the <span class="strong">Creasing, Rounding, Length In, Length Out,
+				                	Width Left and Width Right</span> to make that troubled bend look smoother and to carry the displacement of the mass
+				                	better (Figure 7 &amp; Figure 8).
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Shoulder_Binding/flexor-figure07.jpg" id="flexor-figure07" class="imgThumbnail" title="flexor-figure07" data-toggle="modal" data-target=".flexor-figure07"/>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Shoulder_Binding/flexor-figure08.jpg" id="flexor-figure08" class="imgThumbnail" title="flexor-figure08" data-toggle="modal" data-target=".flexor-figure08"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Name The Flexor</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	After you have adjusted the attributes of <span class="style2">jointFlexor1</span>, select the
+				                	<span class="style2">shoulder joint</span> and rotate it back to the original position. You will notice that the flexor
+				                	will return to its normal shape, as the joint gets closer to its original bind position. Maya has sent up a Set Driven
+				                	Key lattice driven by all the rotations of the <span class="style2">shoulder joint</span> and blending between the
+				                	attributes (shapes) listed under jointFlexor1. Although this is a great feature, it has very little control over how
+				                	the surface is bent when the joint rotates.
+				                </p>
+				                <p>
+				                	You should name the flexor so that you won't confuse your self or your teammates when they work with it.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		<!-- automated modal image storage-->
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+	</body>
+	<script src="../../js/getYear.js"></script>
+	<script src="../../js/modal-images.js"></script>
+	<script src="../../js/auto-number.js"></script>
+</html>

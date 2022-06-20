@@ -1,0 +1,10 @@
+* Continue working on developing a good CSP ruleset
+* Create a new logo
+* add a cookie feature that remembers which tab was clicked last by user.
+* add icon to all pages (once I have one)
+
+Upload the following files:
+*
+
+optional
+* add more quotes to quotes.js as you find them.

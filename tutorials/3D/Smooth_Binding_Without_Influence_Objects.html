@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="tutorial, smooth, binding, vertice, weight, maya">
+		<meta name="description" content="Smooth Binding Without Influence Objects and Editing Vertice Weights Tutorial">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>Smooth Binding Without Influence Objects and Editing Vertice Weights Tutorial</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer="defer" src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1>Smooth Bindind Without Influence Objects and Editing Vertice Weights</h1>
+					<p class="about">
+						Written by Brian Immel
+					</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+            		<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Smooth Binding</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	<span class="strong">Select the geometry</span> and <span class="strong">shift-select the root joint</span>. Go to <span class="strong">Skin &gt; Bind
+				                	Skin &gt; Smooth Bind &gt; option box</span>. Make sure the following is set to Maya's default:
+				                </p>
+				                <ul>
+									<li>Bind to = Complete Skeleton. Or you can choose Selected Joints that does just as it says.</li>
+								  	<li>
+								  		Bind Method = Closest Joint. This option tells Maya to bind the vertices by proximity of the joint or distance from
+								  		each joint. The latter usually involves lots of painting weights later on.
+								  	</li>
+								  	<li>Max Influences = 5. The number of influence limits to how many joints can share the weight of any given vertex.</li>
+								  	<li>Dropoff Rate = 4.0. Dropoff rate tells Maya how much to decrease the influence of each vertex from each joint.</li>
+								</ul>
+								<p>
+									Click on <span class="strong">Bind Skin</span>.
+								</p>
+								<p>
+									Now that we have the geometry skinned, you need to test the rotation of each joint to see where we need to prune or edit
+									the vertex weights. Here are some tips for searching for identifying errant vertex weights.
+								</p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Shoulder_Binding/smooth-bind01-figure20.jpg" id="smooth-bind01-figure20" class="imgThumbnail" title="smooth-bind01-figure20" data-toggle="modal" data-target=".smooth-bind01-figure20"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Misbehaving Vertex Weights</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Misbehaving vertex weights can be anywhere on the geometry. Use <span class="strong">wireframe</span> view instead of shaded view to
+				                	see the through the geometry as you rotate the joints. You could also use X-Ray view as well.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Shoulder_Binding/smooth-bind01-figure21.jpg" id="smooth-bind01-figure21" class="imgThumbnail" title="smooth-bind01-figure21" data-toggle="modal" data-target=".smooth-bind01-figure21"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Name Your Joints!</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Rotate each and every joint! This sounds silly and can be time consuming but sometimes, Maya will put vertex weights in
+				                	the odds places (toe vertices get weighted to finger joints, etc.).
+				                </p>
+				                <p>
+				                	Name each joint. This will save a lot of headache and time later down the pipeline when you're pruning or painting the
+				                	weights.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Shoulder_Binding/smooth-bind01-figure22.jpg" id="smooth-bind01-figure22" class="imgThumbnail" title="smooth-bind01-figure22" data-toggle="modal" data-target=".smooth-bind01-figure22"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Component Editor Pruning</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	 Use the <span class="strong">Component Editor</span> to see if you need to prune any vertex weights away from needless joints.
+				                </p>
+				                <p>
+				                	<span class="strong">Select all the vertices of the geometry</span> and go to <span class="strong">Window &gt; General Editors &gt; Component
+				                	Editor</span>.
+				                </p>
+				                <p>
+				                	Select the <span class="strong">Smooth Skins tab</span> and scan the window for tiny weight on vertices. Chances are, those tiny
+				                	weights are on the wrong joint. I don't have any particular rule of thumb for how much weight is too little but I usually
+				                	prune anything that is below the value of 0.05.
+				                </p>
+				                <p>
+				                	You can remove/adjust these weights in the Component Editor by simply typing in a new value. Note: If you type if a value
+				                	of 0, Maya will average that weight to the next one or more joints near it that already has weight. It won't add weight
+				                	to any joint that does not have weight to that particular vertex. If you type in a value more than what was originally
+				                	there (lets say from 0.1 to 0.2), Maya will subtract an average weight from all the other joints listed under the
+				                	vertices under their influence. Example: If vertex 130 (vtx130) is weighted evenly between three joints (weight = 0.333)
+				                	and you want to take away all the weight from one joint, the remaining joints will equally share the removed value to
+				                	both the joints (weight now equals 0.5).
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Shoulder_Binding/smooth-bind01-figure23.jpg" id="smooth-bind01-figure23" class="imgThumbnail" title="smooth-bind01-figure23" data-toggle="modal" data-target=".smooth-bind01-figure23"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Pruning</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Pruning allows you to remove, and redistribute, weights under a specified value that you can set. <span class="strong">Select the
+				                	geometry</span> you have smooth bound.
+				                </p>
+				                <p>
+				                	Go to <span class="strong">Skin &gt; Edit Smooth Bind &gt; Prune Small Weights &gt; option box</span>. Type in the value you will
+				                	wish to prune. Again, you will have to determine what is a good value to trim.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Shoulder_Binding/smooth-bind01-figure24.jpg" id="smooth-bind01-figure24" class="imgThumbnail" title="smooth-bind01-figure24" data-toggle="modal" data-target=".smooth-bind01-figure24"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Painting Weights</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	The last and best way to edit vertex weights is to use the <span class="strong">Paint Skin Weight Tool</span>.
+				                </p>
+				                <p>
+				                	<span class="strong">Select the geometry</span> that has been smooth bound and go to <span class="strong">Skin &gt; Edit Smooth Bind &gt; Paint
+				                	Skin Weights Tools &gt; option box</span>.
+				                </p>
+				                <p>
+				                	In the <span class="strong">Tool Setting window</span> for <span class="strong">Paint Skin Weights</span>, change the <span class="strong">Paint Operation
+				                	to Add</span>. I use the technique of "painting away". Using this technique works best with a
+				                	<span class="strong">Wacom tablet</span> but works well with just a normal mouse. What I do with painting away is that I will add
+				                	more weight to a joint if I want to lessen weight from another joint. This is best done by lowering the
+				                	<span class="strong">Opacity to 0.1 to 0.25</span> and leave the <span class="strong">Paint Weights Value at 1</span>. Figure 26 illustrates
+				                	how weight is being added to the <span class="joint">Spine03 joint</span> while taking away from
+				                	<span class="shoulder">Shoulder_L joint</span>.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Shoulder_Binding/smooth-bind01-figure25.jpg" id="smooth-bind01-figure25" class="imgThumbnail" title="smooth-bind01-figure25" data-toggle="modal" data-target=".smooth-bind01-figure25"/>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Shoulder_Binding/smooth-bind01-figure26.jpg" id="smooth-bind01-figure26" class="imgThumbnail" title="smooth-bind01-figure26" data-toggle="modal" data-target=".smooth-bind01-figure26"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Test and Paint</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Go back to the <span class="strong">rotate tool</span> and rotate the joint in question until you see the offending vertices
+				                	popping/dropping.
+				                </p>
+				                <p>
+				                	Flip back to the<span class="strong"> Paint Weight Tool</span> and paint the vertices up/down until the surface is nice and
+				                	rounded again.
+				                </p>
+				                <p>
+				                	Repeat this step until you've covered the entire character. This could take some time. Figure 28 displays a
+				                	well-weighted armpit.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Shoulder_Binding/smooth-bind02-figure27.jpg" id="smooth-bind02-figure27" class="imgThumbnail" title="smooth-bind02-figure27" data-toggle="modal" data-target=".smooth-bind02-figure27"/>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Shoulder_Binding/smooth-bind02-figure28.jpg" id="smooth-bind02-figure28" class="imgThumbnail" title="smooth-bind02-figure28" data-toggle="modal" data-target=".smooth-bind02-figure28"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Some Notes to Consider</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	If you overpaint/add to much weight to a joint, simply select the joint you were taking weight away from and paint a
+				                	little weight back into it and/or switch the <span class="strong">Paint Operation to Smooth</span>.
+				                </p>
+				                <p>
+				                	Never paint a weight that is lower than the weight value that is already there (when in Replace mode). If you are in
+				                	Add mode, you cannot paint down to a lower value. Maya will seemingly randomly dissipate the removed weights when
+				                	painting with a lower weight value. This causes many first time smooth skinners many hours of headaches.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		<!-- automated modal image storage-->
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+	</body>
+	<script src="../../js/getYear.js"></script>
+	<script src="../../js/modal-images.js"></script>
+	<script src="../../js/auto-number.js"></script>
+</html>

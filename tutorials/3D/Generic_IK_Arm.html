@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="Generic IK Leg Setup, IK, Maya, tutorial">
+		<meta name="description" content="Generic IK Arms Tutorial">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>Generic IK Arms Tutorial</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer="defer" src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+					<article class="col-md-8">
+						<h1>Generic IK Arms</h1>
+						<p class="lead">
+							In this tutorial, you will set up a very generic IK system for controlling an arm setup.
+						</p>
+						<p class="about">
+							This tutorial assumes that the user has a basic understanding of IKs, how to use the Hypergraph, snapping, moving pivots, constraints,
+							and parenting.
+						</p>
+						<p class="about">
+							Written by Brian Immel
+						</p>
+					</article>
+				</div>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+            		<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>FK Joints</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	This setup works best if you have the following FK joint setup:
+				                </p>
+				                <ol>
+									<li>Shoulder</li>
+									<li>Elbow</li>
+									<li>Forearm</li>
+									<li>Wrist</li>
+									<li>Palm</li>
+								</ol>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/IK_Arms/figure01.jpg" id="figure01" class="imgThumbnail" title="figure01" data-toggle="modal" data-target=".figure01"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Two IKs</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+									This setup uses two IKs. Place the first starting on the Shoulder joint and ending on the Wrist joint (Figure 2).
+									Rename this IK to IK_shoulder. If the sticky option was not enabled when you created the IK, make sure it is enabled.
+									We'll need to have the sticky option enabled for the next IK as well.
+								</p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/IK_Arms/figure02.jpg" id="figure02" class="imgThumbnail" title="figure02" data-toggle="modal" data-target=".figure02"/>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/IK_Arms/figure03.jpg" id="figure03" class="imgThumbnail" title="figure03" data-toggle="modal" data-target=".figure03"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>IK Wrist</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	The seconds IK starts on the Palm joint and ends on the Wrist joint (Figure 3). Rename this IK to IK_wrist.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Arm Control</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Model a NURBS curve into an iconic shape for controlling the arm and snap-move it to rest over the Wrist joint.
+				                	Name this curve Arm_Control. This control object should have all your hand controls and arm movement attributes
+				                	(translate and rotate).
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Parent Items</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Select both IKs and parent them to the Arm_Control. Now the arm should follow the Arm_Control wherever you move and
+				                	rotate it. However, you may notice that the elbow and forearm may act up a little. We'll need to act a pole vector
+				                	to the elbow and lock some of the attributes of the Forearm joint.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Forearm Joint</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Select the Forearm joint and lock all the attributes except for the one that allows the forearm to orbit below the
+				                	elbow. Figure 4 shows Rotate X is the only attribute allowed to change. Usually, the X axis points to the next joint
+				                	and in this case, this is the attribute you want to use to orbit the forearm
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/IK_Arms/figure04.jpg" id="figure04" class="imgThumbnail" title="figure04" data-toggle="modal" data-target=".figure04"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Elbow Joint</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Next, lets create a control object to help manage the Elbow joint. Create a Locator and snap-move it to the Elbow joint.
+				                	Now, move the locator back behind the Elbow joint. In Figure 5, I moved the locator 2.5 units behind the Elbow joint.
+				                	Rename the locator to Elbow_vector.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/IK_Arms/figure05.jpg" id="figure05" class="imgThumbnail" title="figure05" data-toggle="modal" data-target=".figure05"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Constrain</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Select Elbow_vector and shift-select the IK_shoulder. Go to Constrain &gt; Pole Vector. Now we can translate the
+				                	Elbow_vector to control the orientation and position of the Elbow joint. Depending on how you want to set up your
+				                	animation motions, you can either parent the Elbow_vector to the Arm_Control or the root joint of your character rig.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Hide IKs</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Finally, we should hide the IKs so that we don't accidentally keyframe them. Select both the IKs and set the visibility
+				                	attribute to off.
+				                </p>
+				                <p>
+				                	Bye-bye!
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/IK_Arms/figure06.gif" id="figure06" class="imgThumbnail" title="figure06" data-toggle="modal" data-target=".figure06"/>
+				            </div>
+				        </div>
+					</section>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		<!-- automated modal image storage-->
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+	</body>
+	<script src="../../js/getYear.js"></script>
+	<script src="../../js/modal-images.js"></script>
+	<script src="../../js/auto-number.js"></script>
+</html>

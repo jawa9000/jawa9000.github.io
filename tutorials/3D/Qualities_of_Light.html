@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="tutorial, quality, light">
+		<meta name="description" content="Qualities of Light Tutorial">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>Qualities of Light Tutorial</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer="defer" src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1>Qualities of Light</h1>
+					<p class="about">
+						Written by Brian Immel
+					</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+            		<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Softness</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Softness of lights is hard to reproduce in CG. By default, CG lights emit hard-edged light sources. Soft light occurs
+				                	naturally in real life.
+				                </p>
+				                <ul>
+								  	<li>Hard lighting situations:</li>
+								    <ol>
+								      	<li>Restricted light bulb</li>
+								      	<li>Clear sunny day, high noon</li>
+								      	<li>Outer space scenes</li>
+								      	<li>Strong spot light</li>
+								      	<li>"Villain light"</li>
+								    </ol>
+								  	<li>Soft lighting situations:</li>
+								    <ol>
+								      	<li>Cloudy daylight</li>
+								      	<li>Reflected light (off a wall for example)</li>
+								      	<li>Light passing through translucent material</li>
+								      	<li>Inviting (comfortable or relaxing) environments</li>
+								      	<li>"Beauty shots" of a figure</li>
+								    </ol>
+								  	<li>Soft lighting can</li>
+								    <ol>
+								      	<li>Avoid tight specular highlights.</li>
+								      	<li>Help three-point lighting appear less hard-edged.</li>
+								      	<li>Adjust the falloff of fading lights.</li>
+								    </ol>
+								</ul>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/Qualities-of-light1.jpg" id="Qualities-of-light1" class="imgThumbnail" title="Qualities-of-light1" data-toggle="modal" data-target=".Qualities-of-light1"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Intensity</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Intensity is the brightness of the light, which is usually controlled through the RGB of the light.
+				                </p>
+				                <p>
+				                	Attenuation of light is controlled through the light's intensity. Attenuation is how far the light will spread out and
+				                	changes the exposure level as light travels away from the source. All of this is controlled by an attribute called
+				                	decay-rate of each light within Maya.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/Qualities-of-light2.jpg" id="Qualities-of-light2" class="imgThumbnail" title="Qualities-of-light2" data-toggle="modal" data-target=".Qualities-of-light2"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Color</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Lights are commonly mistaken to be thought of casting just white light. All lights have color whether it is just a tint of
+				                	color or full-blown hues of colors.
+				                </p>
+				                <p>
+				                	Color, as we know from psychology, sets a mood. Using cool colored lights in a softly lit living room will not be as
+				                	inviting as warm colored lights.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/Qualities-of-light3.jpg" id="Qualities-of-light3" class="imgThumbnail" title="Qualities-of-light3" data-toggle="modal" data-target=".Qualities-of-light3"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Throw</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Throw is the pattern or shape cast lights create on illuminated surfaces.
+				                </p>
+				                <p>A well place light can help break up boring surfaces by illuminating light and shadow patterns on the surface.</p>
+								<p>
+									A commonly used lighting item in film to achieve outdoor lighting of a forest in an indoor studio is to create a tree
+									branch gobo.
+								</p>
+								<ul>
+								  	<li>Gobos are specially design sheets cut to form the shadow shape of the desired object.</li>
+								  	<li>
+								  		This can be accomplished in 3D as well. Create a texture map of the shadow shape and link it to your light's
+								  		intensity attribute.
+								  	</li>
+								</ul>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/Qualities-of-light4.jpg" id="Qualities-of-light4" class="imgThumbnail" title="Qualities-of-light4" data-toggle="modal" data-target=".Qualities-of-light4"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Animation</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Many lights are known to exist only if they move. Candle flames, theatre billboard lights and pulsing emergency vehicle
+				                	lights to name a few.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/Qualities-of-light.gif" id="Qualities-of-light" class="imgThumbnail" title="Qualities-of-light" data-toggle="modal" data-target=".Qualities-of-light"/>
+				            </div>
+				        </div>
+					</section>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		</div>
+		<!-- automated modal image storage-->
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+		<script src="../../js/getYear.js"></script>
+		<script src="../../js/modal-images.js"></script>
+		<script src="../../js/auto-number.js"></script>
+	</body>
+</html>

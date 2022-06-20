@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="FK-IK arms, gimble lock, maya, tutorial, foward kinematic, inverse kinematic">
+		<meta name="description" content="Forward and Inverse Kinematics for Arm Skeletons Tutorial">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>Forward and Inverse Kinematics for Arm Skeletons Tutorial</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer="defer" src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1>Forward and Inverse Kinematics for Arm Skeletons with Gimble Lock Controls in Maya</h1>
+					<p class="lead">
+						This tutorial is only a guide to creating FK-IK arms.
+					</p>
+					<p class="about">
+						The ideas presented here are subject to customization for each character that you apply them to. This tutorial does not cover the
+						Parenting Contraint which makes a lot of these steps unnecessary. Look for that tutorial in the near future.
+					</p>
+					<p class="about">
+						<a href="Correcting_Gimble_Lock.html">Click here</a> to explore another method to correct Gimble Lock using SDKs.</p>
+					</p>
+					<p class="about">
+						Written by Brian Immel
+					</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+            		<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Joints</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Create four joints for the right arm (Figure 1).
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/FK_IK_Arm/figure01.jpg" id="figure01" class="imgThumbnail" title="figure01" data-toggle="modal" data-target=".figure01"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Rename Top Joints</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Rename the top joint to <span class="strong">armR1</span>. Move down the chain and rename it to <span class="strong">armR2</span>. Move down one last time and
+				                	rename this joint to <span class="strong">armR3</span>.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/FK_IK_Arm/figure02.jpg" id="figure02" class="imgThumbnail" title="figure02" data-toggle="modal" data-target=".figure02"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Create Layers</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Create three layers (Figure 2). Name and color each one as follows:
+				                </p>
+				                <ul>
+									<li><span class="yellow">Real_skel, yellow</span></li>
+									<li><span class="red">FK_skel, red</span></li>
+									<li><span class="blue">IK_skel, blue</span></li>
+								</ul>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Assign Joints to Layers</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Assign <span class="yellow">armR1</span> skeleton to <span class="yellow">Real_skel</span> layer and
+				                	turn off that layer. With the <span class="yellow">ArmR1</span> skeleton still selected, duplicate and assign
+				                	to <span class="red">FK_skel</span> layer. Duplicate again and assign it to the
+				                	<span class="blue">IK_skel</span> layer. We're creating all these layers to help you later keep from getting
+				                	confused about which skeleton you should be working with.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Forward Skeleton</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Select the <span class="red">FK_skel</span> and rename all of the joints to
+				                	<span class="red">armR_FK#</span> (<span class="red">armR_FK1, armR_FK2, armR_FK3</span>). This
+				                	skeleton will be used to drive the Forward Kinematics. You can use whatever naming conventions you like but I prefer
+				                	to name them as the function they will be serving (i.e. arm = arm joint, R = Right, FK = Forward Kinematics). Turn
+				                	this layer off when you are finished renaming all the joints.
+				                </p>
+				                <p>
+				                	Select the <span class="blue">IK_skel</span> and rename all of the joints to
+				                	<span class="blue">armR_IK#</span> (<span class="blue">armR_IK1, armR_IK2, armR_IK3</span>)
+				                	(Figure 3). This skeleton will be used to drive the Inverse Kinematics.
+				                </p>
+				                <p>
+				                	<span class="strong">Please note:</span> Figure 3 is just illustrating the naming conventions of the skeletons! The skeletons should all be
+				                	sitting on top of each other, not spaced apart as in the given figure.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/FK_IK_Arm/figure03.jpg" id="figure03" class="imgThumbnail" title="figure03" data-toggle="modal" data-target=".figure03"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Setting Limits</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Select the <span class="blue">armR_IK2</span> joint and disable the X and Z rotations in the attribute editor.
+				                	Limit the Y rotation to a maximum of -2. This ensures that this skeleton is always bent.
+				                	<span class="blue">ArmR_IK2</span> will act as the elbow of the IK skeleton. Try bending this joint at this
+				                	point to see if it bends forward or not. If it doesn't, try limiting the Y rotation to a minimum of -2. Setting the Y
+				                	rotation limits is dependant on the construction of the skeleton (the orientation of each joint in the chain).
+				                </p>
+				                <p>
+				                	Select the <span class="blue">armR_IK3</span> and limit rotation to only X. Turn off the
+				                	<span class="blue">IK_skel</span> layer. Limiting the rotation of this joint to only X will allow the arm to
+				                	have a more natural twisting motion between the lower arm and wrist and allow for the IK to work properly later on in
+				                	the tutorial.
+				                </p>
+				                <p>
+				                	Turn on the <span class="red">FK_skel</span> layer and select the <span class="red">armR_FK2</span>
+				                	joint and disable the X and Z rotations. Limit the Y rotation to a maximum of -2. This joint will act as the elbow for
+				                	the FK arm.
+				                </p>
+				                <p>
+				                	Select <span class="red">armR_FK3</span> and limit rotation to only X. Hide the
+				                	<span class="red">FK_skel</span> layer. Limiting the rotation of this joint to only X will allow the arm to
+				                	have a more natural twisting motion between the lower arm and wrist.
+				                </p>
+				                <p>
+				                	Turn on the <span class="blue">IK_skel</span> layer and set up the IK on the
+				                	<span class="blue">armR_IK</span> skeleton drawing the IK handle from the top to the very end (Figure 4).
+				                	Rename the ikHandle1 to <span class="blue">armR_IK</span>.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/FK_IK_Arm/figure04.jpg" id="figure04" class="imgThumbnail" title="figure04" data-toggle="modal" data-target=".figure04"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Controls</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Create a circle, rotate Z 90 degrees and freeze transform. The freeze transformation will prevent the circle from
+				                	rotating the wrong way when we constrain it. Snap to the end joint of the
+				                	<span class="blue">armR_IK skeleton</span> and point constrain the IK handle to the circle. Rename the circle
+				                	to <span class="strong">Right_Arm_IK</span> (Figure 5). Add the <span class="strong">Right_Arm_IK</span> to the <span class="blue">IK_skel</span> layer.
+				                	Delete the history of the circle. Lock your Rotations, Scales and Visibility attributes in the channel box. We won't
+				                	need to use these attributes at all.
+				                </p>
+				                <p>
+				                	This circle will control the IK portion of the arm once this tutorial is complete. At this point, you should test to see
+				                	if the constraint works. Select the circle and translate it. Rotating the circle won't do anything because we didn't put
+				                	an orient constrain on it nor do we need to. If the <span class="blue">ArmR_IK</span> and
+				                	<span class="blue"> armR_IK skeleton</span> move and bend properly then you're ready to go on the the next
+				                	step. If it doesn't bend right, check your Y rotations on <span class="blue">ArmR_IK2</span>. If the circle
+				                	doesn't move the skeleton, make sure you select the circle first then the IK handle.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/FK_IK_Arm/figure05.jpg" id="figure05" class="imgThumbnail" title="figure05" data-toggle="modal" data-target=".figure05"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Elbow Control</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Create a locator, snap it to the <span class="blue">armR_IK2</span> joint and pull it back behind the joint
+				                	by about 2 maya units (translate Z -2). This will determine the elbow's direction and help keep it aligned the wrist.
+				                	Rename the locator to <span class="strong">Right_arm_vector</span> and add it to the <span class="blue">IK_skel</span> layer.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/FK_IK_Arm/figure06.jpg" id="figure06" class="imgThumbnail" title="figure06" data-toggle="modal" data-target=".figure06"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Right_arm_vector</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Select <span class="blue">Right_arm_vector</span> locator and then the
+				                	<span class="blue">armR_IK</span> handle and use constrain &gt; pole vector (Figure 6). You can parent the
+				                	<span class="blue">Right_arm_vector</span> to the <span class="blue">Right_arm_IK</span> if you
+				                	like. It's not necessary to parent it but I prefer to because that way the vector is always following the arm.
+				                </p>
+				                <p>
+				                	At this point you should test to make sure you set up the pole vector correctly. Select the
+				                	<span class="blue">Right_arm_IK</span> and move it in a little bit to give the arm a slight bend. The select
+				                	the <span class="blue">Right_arm_vector</span> and translate it up and down. If the elbow orients towards the
+				                	locator, then everything is working properly. Remember to undo all you movements before you continue on.
+				                </p>
+				                <p>
+				                	Select the <span class="blue">armR_IK</span> handle, turn off visibility and lock all the attributes from
+				                	visibility and up. We don't need to animate these attributes because the skeleton is being driven by the
+				                	<span class="blue">Right_arm_IK</span> circle.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>ArmR_IK</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Translate the <span class="blue">armR_IK</span> skeleton away from the
+				                	<span class="yellow">armR</span> skeleton's original position.
+				                </p>
+				                <p>
+				                	Turn on the <span class="red">FK_skel</span> layer and rotate it so it to is away from the
+				                	<span class="yellow">armR</span> skeleton (Figure 7).
+				                </p>
+				                <p>
+				                	Binding will take place on the <span class="yellow">armR </span>skeleton but you don't to bind it until later
+				                	if you like. Its better to bind later than now so you don't get visually confused with your arm geometry in the way.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/FK_IK_Arm/figure07.jpg" id="figure07" class="imgThumbnail" title="figure07" data-toggle="modal" data-target=".figure07"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Constraints and SDKs</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	With all the layers visible, select <span class="blue">armR_IK1</span> first, Shift-select
+				                	<span class="red">armR_FK1</span> (second) and finally <span class="yellow">armR1</span>(third)
+				                	then Constrain &gt; Orient (Figure 8).
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/FK_IK_Arm/figure08.jpg" id="figure08" class="imgThumbnail" title="figure08" data-toggle="modal" data-target=".figure08"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Constrain armR_IK2, armR_FK2, armR2</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Select <span class="blue">armR_IK2</span>, shift-select<span class="red"> armR_FK2</span> and
+				                	finally <span class="yellow">armR2</span> then Constrain &gt; Orient. Now the
+				                	<span class="yellow">armR</span> skeleton is trying to orient between the <span class="blue">IK</span>
+				                	and <span class="red">FK</span> skeletons (Figure 9).
+				                </p>
+				                <p>
+				                	From here, you can translate the <span class="blue">Right_arm_IK</span> circle or any joint in the
+				                	<span class="red">FK</span> skeleton to see if the <span class="yellow">armR</span> skeleton is
+				                	orienting properly. The <span class="yellow">armR</span> skeleton should always try to stay directly in the
+				                	middle of the two skeletons because the orient constraint weights are currently equal (each has the value of 1). Shift
+				                	the orient constrain weight of <span class="yellow">armR1</span> and <span class="yellow">armR2</span>
+				                	from 1, 1 to 1, 0 or 0, 1 to see how each joint shifts its weight. Before you move on the next step, turn the weight
+				                	values back to the their original settings (1, 1).
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/FK_IK_Arm/figure09.jpg" id="figure09" class="imgThumbnail" title="figure09" data-toggle="modal" data-target=".figure09"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Influence The Skeleton's Orientation</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Next we need to create a control that influences which way the <span class="yellow">armR</span> skeleton is
+				                	going to orient. You can use either the <span class="blue">Right_arm_IK</span> circle or your character's
+				                	move node. For simplicity reasons, I used the <span class="blue">Right_arm_IK</span> circle in this tutorial.
+				                	Create an attribute using Modify &gt; Add attribute &gt; option box. Name the attribute <span class="strong">R_arm_IK_FK</span>. The minimum
+				                	value is 0, maximum is 10 and default is 0 (Figure 10). Hit ok.
+				                </p>
+				                <p>
+				                	Open up the Set Driven Key window and load the attribute we just created in step 21 as the
+				                	<span class="Driver">driver</span>.
+				                </p>
+				                <p>
+				                	From here, we are going to set up the <span class="strong">R_arm_IK_FK</span> attribute to handle the switch between IK and FK smoothly.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/FK_IK_Arm/figure10.jpg" id="figure10" class="imgThumbnail" title="figure10" data-toggle="modal" data-target=".figure10"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>ArmR1</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Select the <span class="yellow">armR1</span> joint in the perspective window, open the hypergraph and hit the
+				                	<span class="strong">f</span> key to focus on the skeleton's hierarchy. Select the
+				                	<span class="yellow">armR1_orientConstraint1</span> and the
+				                	<span class="yellow">armR1_orientConstraint1</span> nodes and load as them as the
+				                	<span class="Driven">driven</span> in the Set Driven Key window (Figure 11). Make sure that the value for R_Arm_IK_FK
+				                	is 0 in the channel box.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/FK_IK_Arm/figure11.jpg" id="figure11" class="imgThumbnail" title="figure11" data-toggle="modal" data-target=".figure11"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Influence of The Arm</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Select the <span class="yellow">armR1_orientConstraint1</span> in the Set Driven Key window and highlight
+				                	<span class="yellow">armR_IK1W0</span> and <span class="yellow">armR_FK1W1</span>. Change the
+				                	<span class="strong">Arm R_FK1 W1</span> value to <span class="strong">zero</span> in the channel box. Key it. Select the armR2_orientConstraint1 in the Set
+				                	Driven Key window and highlight armR_IK2W0 and armR_FK2W1. Change the Arm R_FK2 W1 value to zero in the channel box.
+				                	Key it (Figure 12). This influences the arm to act as an IK skeleton.
+				                </p>
+				               	<p>
+				               		To read what those long objects are (<span class="yellow">armR_IK1W0 </span>and
+				               		<span class="yellow">armR_FK1W1</span>): <span class="yellow">armR_IK1W0 </span>is the right arm IK
+				               		Weight number 0. <span class="yellow">armR_FK1W1</span> is the right arm FK Weight number 1. These are part of
+				               		values that handle the switching between IK and FK on <span class="yellow">armR1</span> joint.
+				               	</p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/FK_IK_Arm/figure12.jpg" id="figure12" class="imgThumbnail" title="figure12" data-toggle="modal" data-target=".figure12"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>FK and IK Switchable</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Select the<span class="strong"> R_arm_IK_FK</span> attribute and change the value to 10 in the channel box. Select the
+				                	<span class="yellow">armR1_orientConstraint1</span> and highlight the armR_IK1W0 and armR_FK1W1 in the Set
+				                	Driven Key window. Switch the <span class="strong">Arm R_FK1 W1</span> value 1 and the <span class="strong">Arm R_IK1 W0</span> value to 0 in the channel box and
+				                	key it. Select the<span class="yellow"> armR2_orientConstraint1</span> and highlight the armR_IK2W0 and
+				                	armR_FK2W1 in the Set Driven Key window. Switch the <span class="strong">Arm R_FK2 W1</span> value to 1 and the <span class="strong">Arm R_IK W0</span> value to
+				                	0 in the channel box and key it.
+				                </p>
+				                <p>
+				                	At this point, you can switch between FK and IK skeletons. Go ahead and play with switch between the kinematic modes and
+				                	move each skeleton. Note how when one skeleton it turned off, it doesn't affect the
+				                	<span class="yellow">armR</span> skeleton at all. When animating, unless you character's right arm is stuck to
+				                	something, you'll be using the FK skeleton to do the majority of your keyframing.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/FK_IK_Arm/figure13.jpg" id="figure13" class="imgThumbnail" title="figure13" data-toggle="modal" data-target=".figure13"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Display Handle Option</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	If you like, you can move your display handles up so they don't sit inside the geometry. Select the armR_FK1 joint, open
+				                	the attribute editor and go to Display option &gt; display handle option = checked (Figure 14).
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/FK_IK_Arm/figure14.jpg" id="figure14" class="imgThumbnail" title="figure14" data-toggle="modal" data-target=".figure14"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Repeat Steps for ArmR_FK2</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Repeat for armR_FK2. Hit f8 and right mouse click on the plus mark. Select the selection handles and offset them to sit
+				                	above the geometry (Figure 15).
+				                </p>
+				                <p>
+				                	Happy rigging!
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/FK_IK_Arm/figure15.jpg" id="figure15" class="imgThumbnail" title="figure15" data-toggle="modal" data-target=".figure15"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Known issues</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <ul>
+									<li>"My hand twists when I put it down in IK mode."</li>
+								    <ul>
+								    	<li>This tutorial doesn't have a joint for the palm but if it did (which you should have one for the hand anyway)
+								    		create a IK from the wrist joint (<span class="blue">armR_IK3</span>) to the palm joint (which would
+								    		be called <span class="blue">armR_IK4</span> in this tutorial) and parent it to the arm IK.
+								    		This will correct the twisting hand.
+								    	</li>
+								    </ul>
+								  	<li>
+								  		If your IK does work properly, it may be due to the orientation of the axis of the individual joints. You need to
+								  		make sure all the joints are facing the same direction (Y points to Y of the next joint, X points X of the next
+								  		joint or Z points to Z of the next joint). See Figure 16 for what a good and bad joint orientation should look like.
+								  	</li>
+								  	<li>
+								  		After you've orient constrained the skeletons and tried testing the constraint motion after step 20 using the
+								  		transform tool to move it, it won't work. Use the <span class="strong">rotation tool</span> on the FK or IK joints to see the armR joints
+								  		move accordingly.
+								  	</li>
+  									<li>"Why do I have to do IK/FK arms this way? It seems awfully complicated" </li>
+  									<ul>
+    									<li>
+    										It has been argued that you don't need to use this whole setup to create IK/FK arms but anybody with experience
+    										with this sort of setup knows that without the type of constructed skeleton system, the IK <span class="strong">jumps</span> back and
+    										forth from the FK when you switch you kinematic modes.
+    									</li>
+    									<li>
+											This setup has issues with using joint <span class="yellow">ArmR1</span> as a
+											<span class="orange1">gimble control</span>. Please note, gimble lock happens outside of this arm rig and is a
+											common problem to deal with on any type of arm/shoulder setup. Gimble lock occurs when one rotation axis is near
+											or is overlapping another axis. The solution can be found in the next section Gimble Lock Fix.
+										</li>
+									</ul>
+								</ul>
+							</div>
+				            <div class="images">
+				                <img src="../../images/tutorials/FK_IK_Arm/figure16.jpg" id="figure16" class="imgThumbnail" title="figure16" data-toggle="modal" data-target=".figure16"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Gimble Lock Fix</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Add another joint next to <span class="yellow">ArmR1</span> and name it
+				                	<span class="yellow">armR_Gimble</span> (Figure 17).
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/FK_IK_Arm/figure17.jpg" id="figure17" class="imgThumbnail" title="figure17" data-toggle="modal" data-target=".figure17"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>GimbleR Locator</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	In the hypergraph, middle mouse the <span class="blue">armR_IK1</span>,
+				                	<span class="yellow">armR1</span> and <span class="red">armR_FK1</span> joints under the
+				                	<span class="yellow">armR_Gimble</span> (Figure 18) so that your hierarchy looks something like Figure 19.
+				                </p>
+				                <p>
+				                	Create a locator, move it above the <span class="yellow">armR_Gimble</span> joint and call it
+				                	<span class="yellow">gimbleR</span>.
+				                </p>
+				                <p>
+				                	Move the pivot of <span class="yellow">gimbleR</span> locator to <span class="yellow">armR_Gimble</span>
+				                	joint.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/FK_IK_Arm/figure18.jpg" id="figure18" class="imgThumbnail" title="figure18" data-toggle="modal" data-target=".figure18"/>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/FK_IK_Arm/figure19.jpg" id="figure19" class="imgThumbnail" title="figure19" data-toggle="modal" data-target=".figure19"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>ArmR_Gimble</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Select the <span class="yellow">armR_Gimble</span> joint and lock all attributes except for Rotate X and Rotate
+				                	Y. Hide the locked attributes using the <span class="orange1">Channel Control</span> (Windows &gt; General Editos &gt;
+				                	Channel Control). See Figure 20. We will use this Locator to drive selected rotations of the
+				                	<span class="yellow">armR_Gible_group</span> and <span class="yellow">armR_Gimble</span> joint.
+				                </p>
+				                <p>
+				                	Group the <span class="yellow">armR_Gimble</span> joint and name it
+				                	<span class="yellow">armR_Gible_group</span>. Center the <span class="yellow">armR_Gible_group's</span>
+				                	pivot to the <span class="yellow">armR_Gimble</span> joint. The reason we are grouping this joint is to create
+				                	another rotation node. We'll use two rotation nodes to create an accurate rotating shoulder joint.
+				                </p>
+				                <p>
+				                	Lock and hide all attributes expect for Rotate Z of the <span class="yellow">armR_Gible_group</span>.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/FK_IK_Arm/figure20.jpg" id="figure20" class="imgThumbnail" title="figure20" data-toggle="modal" data-target=".figure20"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Lock Attributes for GimbleR</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	On the <span class="yellow">gimbleR</span> locator, lock and hide all attributes except for the
+				                	<span class="orange1">Rotations</span> (Figure 21).
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/FK_IK_Arm/figure21.jpg" id="figure21" class="imgThumbnail" title="figure21" data-toggle="modal" data-target=".figure21"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>ArmR_Gimble_group</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Open up the <span class="orange1">Connection Editor</span> (Window &gt; General Editors &gt; Connection Editor),
+				                	select the <span class="yellow">gimbleR</span> locator and hit the <span class="orange1">Load Left</span>
+				                	button (outputs) with this selection.
+				                </p>
+				                <p>
+				                	Select the <span class="yellow">armR_Gible_group</span> and hit the
+				                	<span class="orange1">Load Right</span> button (inputs) at the top of the window of the
+				                	<span class="orange1">Connection Editor</span> (Figure 22).
+				                </p>
+				                <p>
+				                	Scroll down on the left side (<span class="yellow">gimbleR</span>) until you find the <span class="strong">Rotate attribute</span>
+				                	and click on the <span class="strong">triangle</span> next to it. Do the same for the right side
+				                	(<span class="yellow">armR_Gible_group</span>).
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/FK_IK_Arm/figure22.jpg" id="figure22" class="imgThumbnail" title="figure22" data-toggle="modal" data-target=".figure22"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Connect Rotations</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Click on the <span class="orange1">left side</span> and <span class="orange1">right side's Rotate Z</span> (Figure 23).
+				                	Both attributes should be italized now meaning that the value of <span class="yellow">armR_Gible_group</span>
+				                	<span class="strong">Rotate Z</span> is equal that of <span class="yellow">gimbleR</span> <span class="strong">Rotate Z</span>. Example: if
+				                	<span class="yellow">gimbleR</span> <span class="strong">Rotate Z</span> equals 45, then
+				                	<span class="yellow">armR_Gible_group</span> <span class="strong">Rotate Z</span> will equal 45.
+				                </p>
+				                <p>
+				                	Highlight <span class="strong">Rotate X</span> of <span class="yellow">gimbleR</span> and link that output to the input of
+				                	<span class="yellow">armR_Gible_group</span> <span class="strong">Rotate X.</span>
+				                </p>
+				                <p>
+				                	Select the <span class="yellow">armR_Gimble</span> joint and hit the
+				                	<span class="orange1">Reload Right</span> button at the top of the <span class="orange1">Connection Editor</span>.
+				                	Scroll down on the right side until you find the Rotate attribute and click the triangle next to it.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/FK_IK_Arm/figure23.jpg" id="figure23" class="imgThumbnail" title="figure23" data-toggle="modal" data-target=".figure23"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a></div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Connect the <span class="strong">Rotate Y</span> of left side (<span class="yellow">gimbleR</span>) to the <span class="strong">Rotate Y</span> of the
+				                	right side (<span class="yellow">armR_Gible_group</span>). Your connections should look like Figure 24.
+				                </p>
+				                <p>
+				                	Select the <span class="yellow">armR_Gimble</span> joint and lock the remaining attributes. Do the same for
+				                	the <span class="yellow">armR_Gible_group</span>. We don't want to key these attributes just the
+				                	<span class="yellow">gimbleR</span> locator will be used for keying. If all has gone well, then you shouldn't
+				                	have anymore issues with gimble lock.
+				                </p>
+				                <p>
+				                	Special thanks to Greg, Andy, Karen and Erik for their input and suggestions.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/FK_IK_Arm/figure24.jpg" id="figure24" class="imgThumbnail" title="figure24" data-toggle="modal" data-target=".figure24"/>
+				            </div>
+				        </div>
+					</section>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		<!-- automated modal image storage-->
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+	</body>
+	<script src="../../js/getYear.js"></script>
+	<script src="../../js/modal-images.js"></script>
+	<script src="../../js/auto-number.js"></script>
+</html>

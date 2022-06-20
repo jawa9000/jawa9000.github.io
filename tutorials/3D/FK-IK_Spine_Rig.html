@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="maya, FK, IK, spine, rig, setup, FK-IK, tutorial">
+		<meta name="description" content="FK-IK Spline Rig Tutorial">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>FK-IK Spline Rig Tutorial</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer="defer" src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1>FK-IK Spline Rig</h1>
+					<p class="lead">
+						This tutorial will instruct you how to build a FK-IK Spine for character animation. This tutorial assumes that you know the basics of
+						Set Driven Keys, creating and modify IK spline handles, and using constraints.
+					</p>
+					<p class="about">
+						  This tutorial is broken down into six sections. You should follow these sections in sequental order. Creating the Spines talks about
+						  setting up the spine joints. Setting up the Controllers takes us through the process of setting up the controllers for the spine.
+						  Set Up the IK builds the IK spine. Constrain the Joints walks use through the &lt;sarcasm&gt;extremely fun&lt;/sarcasm&gt; process
+						  of constraining one set of joints between two other sets. SDK the FK Joints shows us the way to the promised land through 40 days
+						  and 40 nights of setting up  Set Driven Keys that control the FK spine. By Tying Up Loose Ends, we connect the all the control
+						  groups to the main controller.
+					</p>
+					<p class="about">
+						Written by Brian Immel
+					</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+
+			<!--
+			** Note all links to tutorial pages needs to be reviewed and/or revised! **
+
+			-->
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+            		<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name="Creating_the_Spines"></a>Creating the Spines</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                    Create the main spine too look like Figure 1. Starting from the bottom, name the joints in this spine: 1.
+				                    <span class="deforming">waist</span>, 2. <strong class="deforming">spine_base</strong>, 3.
+				                    <strong class="deforming">spine_lower</strong>, 4. <strong class="deforming">spine_mid</strong>, 5.
+				                    <strong class="deforming">spine_upper</strong>, and 6. <strong class="deforming">chest</strong>. These joints will be used
+				                    as the deforming joints. For organizational reasons, create a new layer, name it <span class="deforming">skeleton</span>,
+				                    and put these joints in it.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/FK-IK_Spine_Rig/Figure01.jpg" id="figure1" class="imgThumbnail" title="Figure 1" data-toggle="modal" data-target=".figure1"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader">Waist</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                    Select the waist joint and duplicate it. Rename all the joints with the prefix <span class="FK">FK_</span>. These joints
+				                    will handle the FK interactions of the spine rig. Select the <span class="FK">FK_waist joint</span>, group it, move the
+				                    pivot to sit on top of the joint called <span class="FK">FK_waist</span>. Rename this group to
+				                    <span class="FK">FK_spine_group</span>. For now, create a layer named <span class="FK">FK</span> and put these joints in
+				                    this new layer. You should color this layer differently than the previous layer.
+				                </p>
+				            </div>
+				            <div class="tutorailImg">
+				                <img src="../../images/tutorials/FK-IK_Spine_Rig/Figure02.jpg" id="figure2" class="imgThumbnail" title="Figure 2" data-toggle="modal" data-target=".figure2"/>
+				            </div>
+				        </div>
+				    </section>
+				    <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader">Waist</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                    Reselect the waist joint and duplicate it one last time. Rename all the joints with the prefix <span class="IK">IK_</span>.
+				                    Make one last layer called <span class="IK">IK</span> and put these joints in it. You should color this layer differental
+				                    that the previous layers. Reroot the IK_waist as the base for this spine. We will need the spine to have this order of the
+				                    hierarchy for the IK spline later.
+				                </p>
+				                <p>
+									These joints will handle the IK interaction of the spine rig. The purpose of these three joint hierarchies to set
+									up a system that allows us to switch between FK and IK controls and a blend in between.
+				                </p>
+				            </div>
+				            <div class="tutorailImg">
+				                <img src="../../images/tutorials/FK-IK_Spine_Rig/Figure03.jpg" id="figure3" class="imgThumbnail" title="Figure 3" data-toggle="modal" data-target=".figure3"/>
+				            </div>
+				        </div>
+				    </section>
+			        <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name="Setting_up_the_Controllers"></a>Setting up the Controllers</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	In this section, we are going to set up the controllers for all the spines. We will create three controllers
+				                	out of NURBS curves and add custom attributes to the main controller.
+				                </p>
+				                <p>
+				                	Create the first curve and point snap it to the waist joint. Name this curve <strong>IK_lowerSpine</strong>. Group and
+				                	center pivot on this curve. Rename this group to <span class="IK">IK_lowerSpine_group</span>.
+				                </p>
+				            </div>
+				            <div class="tutorailImg">
+				            	<img src="../../images/tutorials/FK-IK_Spine_Rig/Figure04.gif" id="figure4" class="imgThumbnail" title="Figure 4" data-toggle="modal" data-target=".figure4"/>
+				            </div>
+				        </div>
+				    </section>
+				    <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader">IK_upperSpine</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Create the second curve and point snap it to the chest joint. Name this curve <strong>IK_upperSpine</strong>. Group and
+				                	center pivot on this curve. Rename this group to <span class="IK">IK_upperSpine_group</span>. These groups will come in
+				                	handy later when we constrain them to follow the main controller.
+				                </p>
+				            </div>
+				        </div>
+				    </section>
+				    <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader">Torso_Controller</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Create the final curve and point snap it to the spine_base joint. Name this curve <strong>Torso_Controller</strong>.
+				                	Manipulate the Torso_Controller curve to look like the curve in Figure 4.
+				                </p>
+				                <p>
+				                	Put all of these curves in a new layer called Controllers.
+				                </p>
+				            </div>
+				        </div>
+				    </section>
+				    <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader">Freeze Transforms</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Scale these curves as necessary. Freeze transforms on all of these curves. It is very important to freeze the
+				                	transforms on these curves. These zero'd-out attributes will serve as our spine's reset positions.
+				                </p>
+				            </div>
+				        </div>
+				    </section>
+				    <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader">Lock and Hide</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Select all the curves and Lock and Hide (select attribute(s) and right-click on Lock and Hide Selected) the
+				                	Scale and Visibility attributes. This rig will not be using these attributes.
+				                </p>
+				            </div>
+				        </div>
+				    </section>
+				    <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader">Torso_Controller</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Select the <strong>Torso_Controller</strong> and add this attributes (<strong>Modify &gt; Add Attributes</strong>) with
+				                	their respective values:
+				                </p>
+								<table>
+									<tr>
+										<th>Attribute</th>
+										<th>Min</th>
+										<th>Max</th>
+										<th>Default</th>
+									</tr>
+									<tr>
+										<td>FK_IK_Spine</td>
+										<td>0</td>
+										<td>1</td>
+										<td>0</td>
+									</tr>
+									<tr>
+										<td>Spine Bend</td>
+										<td>-10</td>
+										<td>10</td>
+										<td>0</td>
+									</tr>
+									<tr>
+										<td>Spine Side</td>
+										<td>-10</td>
+										<td>10</td>
+										<td>0</td>
+									</tr>
+									<tr>
+										<td>Spine Twist</td>
+										<td>-10</td>
+										<td>10</td>
+										<td>0</td>
+									</tr>
+									<tr>
+										<td> Hip Bend</td>
+										<td>-10</td>
+										<td>10</td>
+										<td>0</td>
+									</tr>
+									<tr>
+										<td>Hip Side</td>
+										<td>-10</td>
+										<td>10</td>
+										<td>0</td>
+									</tr>
+									<tr>
+										<td>Hip Twist</td>
+										<td>-10</td>
+										<td>10</td>
+										<td>0</td>
+								  	</tr>
+								</table>
+								<span class="style2">Table 1: Torso_Controller custom attributes</span>
+								<p>
+									The controllers should be ready to go go go. At this point, you should save your file You know, like just in case
+									your superhero exgirlfriend decides to rip up your apartment.
+								</p>
+				            </div>
+				        </div>
+				    </section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name="Set_Up_the_IK"></a>Set Up the IK</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	This section sets up the IK joints with an IK Spline that will allow the spine rig to give a more fluid,
+				                	dance-like ability.
+				                </p>
+				                <p>
+				                	Go to <strong>Skeleton &gt; IK Spline Handle Tool option box</strong>. In here, <strong>disable Auto Parent Curve</strong>
+				                	and set the <strong>Number of Spans</strong> to <strong>2</strong>.
+				                </p>
+				            </div>
+				            <div class="tutorailImg">
+				            	<img src="../../images/tutorials/FK-IK_Spine_Rig/Figure05.jpg" id="figure5" class="imgThumbnail" title="Figure 5" data-toggle="modal" data-target=".figure5"/>
+				            </div>
+				        </div>
+				    </section>
+				    <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader">Rename IK handle</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Click on the <span class="IK">IK_waist joint</span> and then on the <span class="IK">IK_chest joint</span>. Rename this IK
+				                	handle to <strong>IK_spine</strong> and the curve it generated to <strong>IK_curve</strong>.
+				                </p>
+				            </div>
+				        </div>
+				    </section>
+				    <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader">Clusters</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Next we are going to set up the IK_curve with a series of clusters that we will use to control the IK spine. Select
+				                	the <strong>IK_curve</strong> and assign a cluster (<strong>Deform &gt; Create Cluster</strong>) to each CV. These clusters
+				                	should not be relative (<strong>Deform &gt; Create Cluster &gt; option box</strong>, <strong>Relative = disabled</strong>).
+				                </p>
+				            </div>
+				        </div>
+				    </section>
+				    <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader">Name the clusters</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Name these cluster <span class="IK">IK_cluster##</span> starting with 01 at the bottom of the chain and ending with
+				                	<span class="IK">IK_cluster05</span> at the top of the spine (Figure 5).
+				                </p>
+				            </div>
+				        </div>
+				    </section>
+				    <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader">Group clusters 1-3</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Select <span class="IK">IK_cluster01</span> through <span class="IK">IK_cluster03</span> and group them. Center the pivot
+				                	and rename this group to <span class="IK_group">IK_lowerCluster_group</span>.
+				                </p>
+				            </div>
+				        </div>
+				    </section>
+				    <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader">Group clusters 4-5</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Select <span class="IK">IK_cluster04</span> and<span class="IK"> IK_cluster05</span> and group them. Center the pivot and
+				                	rename this group to <span class="IK_group">IK_upperCluster_group</span>.</p>
+				                </p>
+				            </div>
+				        </div>
+				    </section>
+				    <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader">Parent constrain</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Parent Constrain (<strong>Constrain &gt; Parent with offsets enabled</strong>)
+				                	<span class="IK_group">IK_lowerCluster_group</span> to <strong class="IK">IK_lowerSpine</strong>.</p>
+				                </p>
+				            </div>
+				        </div>
+				    </section>
+				    <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader">Parent constrain (again)</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	<strong>Parent Constrain</strong> the <span class="IK_group">IK_upperCluster_group</span> to <span class="IK">IK_upperSpine</span>.
+				                </p>
+				            </div>
+				        </div>
+				    </section>
+				    <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader">Hide unused controls</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	<strong>Hide the IK_curve</strong>, <strong>IK_spine</strong>, and <strong>all the clusters</strong>. Hiding these objects will
+				                	help reduce visual clutter and reduce any chance of animating the wrong items. Part of the main idea of this rig it to be able
+				                	to animate everything from the control curves. In this case, the IK spine is being controlled by the
+				                	<strong class="IK">IK_lowerSpine</strong> and <span class="IK">IK_upperSpine</span>.
+				                </p>
+				            </div>
+				        </div>
+				    </section>
+				    <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader">Save!</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Save your file before a band of cursed pirates attack your hideaway.
+				                </p>
+				            </div>
+				        </div>
+				    </section>
+				    <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name="Constrain_the_Joints"></a>Constrain the Joints</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	In this section, we will set up the relationships between the deforming, IK, and FK joints.
+				                </p>
+				                <table>
+									<tbody>
+										<tr>
+											<th>First joint</th>
+											<th>Second joint</th>
+											<th>Last joint</th>
+										</tr>
+										<tr>
+											<td class="IK">IK_waist </td>
+											<td class="FK">FK_waist </td>
+											<td class="deforming">waist</td>
+										</tr>
+										<tr>
+											<td class="IK">IK_spine_base </td>
+											<td class="FK">FK_spine_base </td>
+											<td class="deforming">spine_base</td>
+										</tr>
+										<tr>
+											<td class="IK">IK_spine_lower </td>
+											<td class="FK">FK_spine_lower </td>
+											<td class="deforming">spine_lower</td>
+										</tr>
+										<tr>
+											<td class="IK">IK_spine_mid </td>
+											<td class="FK">FK_spine_mid </td>
+											<td class="deforming">spine_mid</td>
+										</tr>
+										<tr>
+											<td class="IK">IK_spine_upper</td>
+											<td class="FK">FK_spine_upper </td>
+											<td class="deforming">spine_upper</td>
+										</tr>
+										<tr>
+										<td class="IK">IK_chest</td>
+											<td class="FK"> FK_chest </td>
+											<td class="deforming">chest</td>
+										</tr>
+									</tbody>
+								</table>
+								<span class="style2">Table 2: Parent Constraints of the deforming joints </span>
+				            </div>
+				        </div>
+				    </section>
+				    <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader">Outliner</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	In the Outliner (<strong>Window &gt; Outliner</strong>), select the following joints in their respective selections and
+				                	parent constrain each set:
+				                </p>
+				                <p>After setting up the first Parent Constraint, use the "<strong>g</strong>" key to repeat the last action used to speed up the
+				                	parent constraining process a bit.
+				                </p>
+				            </div>
+				        </div>
+				    </section>
+				    <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader">Hypergraph</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	In the Hypergraph (<strong>Window &gt; Hypergraph</strong>), select the <span class="deforming">waist joint</span> and
+				                	then click on the <strong>Input and Output Connections</strong> button. Select the
+				                	<strong class="Driven">waist_parentConstraint1 node</strong>. Open up the Set Driven Key window (<strong>Animate &gt;
+				                		Set Driven Key &gt; Set option box</strong>). Next, select the <strong>Torso_Controller</strong> and click on
+				                		<span class="Driver">Load Driver</span> in the SDK window.
+				                </p>
+				            </div>
+				        </div>
+				    </section>
+				    <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader">Driver</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	In the <span class="Driver">Driver</span> section, select the <span class="Driver">FK_IKSpine</span> attribute.
+				                </p>
+				            </div>
+				        </div>
+				    </section>
+				    <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader">Blending the FK to IK</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	In the <span class="Driven">Driven</span> section, select the <span class="Driven">waist_parentConstraint1</span>.
+				                	Highlight the <span class="Driven">IK_waistW0</span> and <span class="Driven">FK_waistW1</span> attributes. In a nutshell,
+				                	we are wiring the <span class="Driver">FK_IK Spine</span> attribute to blend the <span class="Driven">weights of the parent
+				                	constraint</span> of the waist joint between the FK and IK joints with the same name. The default value of 0 in
+				                	<span class="Driver">FK_IK Spine</span> tells the rig to be in <span class="FK">FK</span> mode. When the value is set to 1,
+				                	the <span class="deforming">deformer spine</span> will follow the <span class="IK">IK spine</span>.
+				                </p>
+				            </div>
+				        </div>
+				    </section>
+				    <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader">Channel Box</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	In the <strong>Channel Box</strong>, change the value of the<span class="Driven"> IK_waist W0</span> to <strong>0</strong>.
+				                	<span class="Driven">FK_waistW1</span> should be left at <strong>1</strong>.  This step establishes the default behavior of
+				                	the spine to be in FK mode.
+				                </p>
+				                <p>
+				                	Click <strong>Key</strong> in the SDK window.
+				                </p>
+				            </div>
+				        </div>
+				    </section>
+				    <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader">Torso_Controller</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Select the <strong>Torso_Controller</strong> in the<span class="Driver"> Driver</span> section and change the attribute
+				                	value to <strong>1</strong> in the <strong>Channel Box</strong>. In the<span class="Driven"> Driven</span> section, select
+				                	the <span class="Driven">waist_parentConstraint1</span> attribute. Switch the values of<span class="Driven"> IK_waistW0</span>
+				                	to <strong>1</strong> and <span class="Driven">FK_waistW1</span> to <strong>0</strong> in the <strong>Channel Box</strong>.
+				                	This step establishes the spine behavior to follow the IK spine.
+				                </p>
+				                <p>
+				                	Click<strong> Key</strong> in the SDK window.
+				                </p>
+				            </div>
+				        </div>
+				    </section>
+				    <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader">SDK Remaining Joints</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Repeat steps 25 and 26 substituting <span class="deforming">waist</span> with <span class="deforming">spine_base</span>,
+				                	then <span class="deforming">spine_lower</span>, <span class="deforming">spine_mid</span>,
+				                	<span class="deforming">spine_upper</span>, and <span class="deforming">chest</span> until all the deformer joints'
+				                	constraints have been SDK'ed.
+				                </p>
+				            </div>
+				        </div>
+				    </section>
+				    <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader">Save!</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	 Now that the hard part is done, we can relax. Kick back and chill for a moment. Don't forget to save your file at this point.
+				                </p>
+				            </div>
+				        </div>
+				    </section>
+				    <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name="SDK_the_FK_Joints"></a>SDK the FK Joints</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	This section covers setting up the FK joints for automation via the <span class="Driver"><strong>Torso_Controller</strong></span>.
+				                </p>
+				                <p>
+				                	Select the <span class="FK">FK_spine_base</span>, <span class="FK">FK_spine_lower</span>, <span class="FK">FK_spine_mid</span>,
+				                	<span class="FK">FK_spine_upper</span>, and <span class="FK">FK_chest</span> joints. Right-click on the <strong>Rotate Z</strong>
+				                	attribute and select <strong>Set Driven Key</strong>.
+				                </p>
+				            </div>
+				        </div>
+				    </section>
+				    <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader">Torso_Controller</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Select the <strong>Torso_Controller</strong> and in the SDK window, click on <span class="Driver">Load Driver</span>.
+				                	Highlight <strong>SpineBend</strong> in the upper section. In the lower section, with all the joints selected, highlight
+				                	<strong>rotateZ</strong> (if it isn't selected already). <strong>Hit Key</strong>. We just established a connection between
+				                	the <span class="Driver">SpineBend</span> attribute and the <span class="Driven">RotateZ attribute of the selected joints</span>.
+				                </p>
+				            </div>
+				        </div>
+				    </section>
+				    <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader">Positive SpineBend and RotateZ</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Change the value of the <span class="Driver">SpineBend</span> to <strong>10</strong>.
+				                </p>
+				                <p>
+				                	Change the value of <span class="Driven">RotateZ of the selected joints</span> to <strong>-30</strong>.
+				                </p>
+				                <p>
+				                	<strong>Hit Key</strong> in the SDK window.
+				                </p>
+				            </div>
+				        </div>
+				    </section>
+				    <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader">Negative SpineBend and RotateZ</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Change the value of <span class="Driver">SpineBend</span> to <strong>-10</strong>.
+				                </p>
+				                <p>
+				                	Change the value of <span class="Driven">RotateZ of the selected joints</span> to <strong>30</strong>.
+				                </p>
+				                <p>
+				                	<strong>Hit Key</strong> in the SDK window.
+				                </p>
+				            </div>
+				        </div>
+				    </section>
+				    <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader">Reset SpineBend</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Reset the value of <span class="Driver">SpineBend</span> to <strong>0</strong>. We now given the
+				                	<span class="FK">FK spine</span> the ability to bend forward and backward.
+				                </p>
+				            </div>
+				        </div>
+				    </section>
+				    <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader">SpineTwist</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	In the Driver section, select <span class="Driver">SpineTwist</span>. In the Driven section, with all the
+				                	<span class="Driven">joints still selected</span>, highlight the attribute called <span class="Driven">rotateX</span>
+				                	and hit <strong>Key</strong>.
+				                </p>
+				            </div>
+				        </div>
+				    </section>
+				    <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader">Positive SpineTwist and RotateX</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Change the value of <span class="Driver">SpineTwist</span> to <strong>10</strong>.
+				                </p>
+				                <p>
+				                	Change the value of <span class="Driven">RotateX of the selected joints</span> to <strong>30</strong>.
+				                </p>
+				                <p>
+				                	<strong>Hit Key</strong> in the SDK window.
+				                </p>
+				            </div>
+				        </div>
+				    </section>
+				    <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader">Negative SpineTwist and RotateX</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Change the value of <span class="Driver">SpineTwist</span> to <strong>-10</strong>.
+				                </p>
+				                <p>
+				                	Change the value of <span class="Driven">RotateX of the selected joints</span> to <strong>-30</strong>.
+				                </p>
+				                <p>
+				                	<strong>Hit Key</strong> in the SDK window.
+				                </p>
+				            </div>
+				        </div>
+				    </section>
+				    <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader">Reset SpineTwist</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Reset the value of <span class="Driver">SpineTwist</span> to <strong>0</strong>. The <span class="FK">FK spine</span>
+				                	can now twist side to side a total of 150 degrees.
+				                </p>
+				            </div>
+				        </div>
+				    </section>
+				    <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader">SpineSide</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	In the Driver setion, select <span class="Driver">SpineSide</span>. In the Driven section, with all the
+				                	<span class="Driven">joints still selected</span>, hightlight the attribute called <span class="Driven">rotateY</span>
+				                	and hit <strong>Key</strong>.
+				                </p>
+				            </div>
+				        </div>
+				    </section>
+				    <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader">Positive SpineSide and RotateY</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Change the value of <span class="Driver">SpineSide</span> to <strong>10</strong>.
+				                </p>
+				                <p>
+				                	Change the value of <span class="Driven">RotateY of the selected joints</span> to <strong>30</strong>.
+				                </p>
+				                <p>
+				                	<strong>Hit Key</strong> in the SDK window.
+				                </p>
+				            </div>
+				        </div>
+				    </section>
+				    <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader">Negative SpineSide and RotateY</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Change the value of <span class="Driver">SpineSide</span> to <strong>-10</strong>.
+				                </p>
+				                <p>
+				                	Change the value of <span class="Driven">RotateY of the selected joints</span> to <strong>-30</strong>.
+				                </p>
+				                <p>
+				                	<strong>Hit Key</strong> in the SDK window.
+				                </p>
+				            </div>
+				        </div>
+				    </section>
+				    <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader">Reset SpineSide</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Reset the value of <span class="Driver">SpineSide</span> to <strong>0</strong>. The <span class="FK">FK spine</span>
+				                	can bend sideways.
+				                </p>
+				            </div>
+				        </div>
+				    </section>
+				    <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader">Hip Attributes</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Repeat steps 29-41 replacing <span class="Driven">all the joints</span> with <span class="Driven">FK_waist joint</span>
+				                	and the <span class="Driver">Spine</span> attributes with <span class="Driver">Hip</span> Attributes.
+				                </p>
+				            </div>
+				        </div>
+				    </section>
+				    <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader">Save!</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Save your work! Don't let it get flushed away!
+				                </p>
+				            </div>
+				        </div>
+				    </section>
+				    <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader">Wrap Up</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Finally, we need to connect the FK and IK spines to the Torso_Controller so that they will move with the main controller's
+				                	translate and rotation.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/FK-IK_Spine_Rig/Figure06.jpg" id="figure6" class="imgThumbnail" title="Figure 6" data-toggle="modal" data-target=".figure6"/>
+				            </div>
+				        </div>
+				    </section>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		<!-- automated modal image storage-->
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+	</body>
+	<script src="../../js/getYear.js"></script>
+	<script src="../../js/modal-images.js"></script>
+	<script src="../../js/auto-number.js"></script>
+</html>

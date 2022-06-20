@@ -1,0 +1,126 @@
+<!doctype html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+    <title>Reading Time Estimator</title>
+    <meta name='description' content='Provide an estimate of how long it takes to read a document'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta name="keywords" content="reading, time, estimate, javascript">
+    <meta name="author" content="Brian Immel">
+    <meta name="level" content="2">
+    <meta name="version" content="0.0.1">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+    <link href="../../css/normalize.css" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet"> -->
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../../css/custom.css" rel="stylesheet">
+    <link href="../../css/tutorials.css" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script src="../../js/jquery-2.1.0.min.js"></script>
+
+    <!-- Bootstrap main javascript -->
+    <script src="../../js/bootstrap.js"></script>
+
+    <style>
+        .wpm {
+            color: #fff;
+            background: #8abcf7;
+            margin: 10px 0 0 10px;
+            padding: 5px;
+            display: inline;
+            padding: .2em .6em .3em;
+            font-size: 75%;
+            font-weight: 700;
+            line-height: 1;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: baseline;
+            border-radius: .25em;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+    <script defer src="../../js/navigation.js"></script>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <article class="col-md-8">
+                <h1>Reading Time Estimator</h1>
+                <p>
+                    From time to time, I come across sites that provide an estimate of how long it will take to read an article. Some reading time estimators use this basic formula: count the number of words, divide it by an average words per minute (wpm) read, and round up the result in minutes. For web sites that include graphics in the article, images need to be accounted for as well.
+                </p>
+                <p>While useful, the reading time estimate can does have a few pros and cons.</p>
+                <h2>Pros</h2>
+                <ul>
+                    <li>Invites readers to continue with the article and this reduces bounce rates on your site</li>
+                    <li>Long articles may seem off putting to some but if the read time seems relatively low, the reader is more likely to finish the article (this is, in part, the <a href="https://en.wikipedia.org/wiki/The_Paradox_of_Choice">paradox of choice</a>)</li>
+                </ul>
+                <h2>Cons</h2>
+                <ul>
+                    <li>If the reader things the estimate is too high, they may skip the article all together</li>
+                    <li>The estimate is just an estimate. The estimate is based off an average reading speed (in this case, and US English reader). Your audience's reading speed will vary. Some say that the average US English reader reads at a 6th grade level (265 words per minute (wpm)). Others say that they read at a college level (300 wpm). You'll have to decide which benchmark to use for your reading time estimator.</li>
+                    <li>The estimate excludes the title of the document and navigation elements outside the article element</li>
+                    <li>I disagree with the estimate that the first image viewed takes 12 seconds, the second 11 seconds, and so on (subtracting one second per image thereafter until you reach the floor of 3 seconds). I believe the image may be information heavy and the read time can vary wildly. Plus, this image estimate doesn't take into account animated images.</li>
+                </ul>
+                <h2>Setting up the variables</h2>
+                <p>We'll set a variable called wpm to 265. You can change this variable to suit your audience needs. The next variable will be called wordCount and it will grab the text of the article element and perform some Regex magic to detect "words", and split this result into an array to be counted. The imgCount variable returns the number of img elements it finds within the article element. Finally, the tally variable will be used to keep track of the reading time (in seconds) of all the images found the article element.</p>
+                <code>var wpm = 265;</code><br/>
+                <code>var wordCount = $('article').text().replace( /[^\w ]/g, "" ).split( /\s+/ ).length;</code><br/>
+                <code>var imgCount = $('article img').length;</code><br/>
+                <code>var tally = 0;</code>
+                <p>Now we need to tally the images. A simple for loop event will tally the total number of images by using a reduction iteration method figure out if the reading time is above 3 seconds or not.</p>
+                <code>for (i = 0; i &lt; imgCount; i++) {</code><br/>
+                <code>&nbsp; if (imgCount - i &lt; 3) {&nbsp;</code><br/>
+                <code>&nbsp; &nbsp; tally += 3;</code><br/>
+                <code>&nbsp; } else {&nbsp;</code><br/>
+                <code>&nbsp; &nbsp; tally += 12 - i;</code><br/>
+                <code>&nbsp; }&nbsp;</code><br/>
+                <code>}&nbsp;</code>
+                <p>Finally, we prepend our calculations to the article element. We use the prepend method from jQuery to add a span element which as the calculation of the reading time estimate (in minutes) rounded up.</p>
+                <code>$('article').prepend(</code><br/>
+                <code>&nbsp; '&lt;span alt="reading time"&gt;~' +</code><br/>
+                <code>&nbsp; &nbsp; Math.round((wordCount + tally) / wpm) + ' minutes reading time&lt;/span&gt;</code><br/>
+                <code>&nbsp; ');</code>
+            </article>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+
+    <script>
+        var wpm = 265; // average reading speed (US English reader at 6th grade)
+        var wordCount = $('article').text().replace(/[^\w ]/g, "").split(/\s+/)
+        .length; // count the number of words in the article
+        var imgCount = $('article img').length; // number of image elements found within the article element
+        var tally = 0; // total reading time for all images
+
+        for (i = 0; i < imgCount; i++) { // tally the total number of images and tally by reduced iterations
+            if (imgCount - i < 3) {
+                tally += 3; // reading time for an image if there are more than 9 images
+            } else {
+                tally += 12 -
+                i; // reading time for each image (reducing from 12 (read time for init image) by one second)
+            }
+        }
+
+        var totalTime = Math.round((wordCount + tally) / wpm);
+
+        if (totalTime < 2) {
+            var message = 'Reading time estimate is about one minute.';
+        } else {
+            var message = 'Reading time estimate is ~' + totalTime + ' minutes.';
+        }
+
+        $('article').prepend('<p class="wpm" alt="' + message + '" title="' + message + '">' + message + '</p>');
+        $('article').append('<hr><p>Reading estimate: ' + (wordCount + tally) + ' (reading score) / ' + wpm + ' (wpm) = ' + ((wordCount + parseInt(tally)) / wpm).toFixed(2) + ' minutes or ' + totalTime + ' minutes rounded up.</p>');
+    </script>
+</body>
+
+</html>

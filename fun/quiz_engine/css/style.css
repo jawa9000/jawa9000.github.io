@@ -1,0 +1,42 @@
+h1 {
+    text-align: center;
+}
+
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 1.25em;
+    line-height: 1.6em;
+    background-color: #f4f4f4;
+}
+
+li {
+    list-style: none;
+    padding: 0 0 0 5px;
+}
+
+li:hover {
+    background-color: rgba(20,20,20,0.05);
+}
+
+.container {
+    width: 70%;
+    margin: 20px auto;
+    overflow: auto;
+}
+
+
+header, footer {
+    background-color: #1f88f4;
+    color: #fff;
+    padding: 5px 10px;
+    overflow: auto;
+    font-size: 1.1em;
+}
+
+span#correct {
+    float: right;
+}
+
+input[type=radio] {
+    margin: 0 10px 0 0;
+}

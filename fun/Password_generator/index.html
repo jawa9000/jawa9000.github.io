@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="description" content="Simple username and password strength checker" />
+		<meta name="keywords" content="javascript, password, strength, newb" />
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+
+    <title>Random Password Generator</title>
+
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<link href="../../css/normalize.css" rel="stylesheet">
+
+    <script src="js/jquery.min.js"></script>
+
+  </head>
+
+<body>
+  <h1>Password Generator</h1>
+  <p>This app creates a completely random password based on provided text and password length.</p>
+  <h2>Usage</h2>
+  <ol>
+    <li>Enter in a word, phrase, or a random assembly of characters into the <strong>Word</strong> field.</li>
+    <li>Set the <strong>Minimum</strong> and <strong>Maximum</strong> values for the length of the generated password.</li>
+    <li>Push the <strong>Generate</strong> button once you are ready.</li>
+  </ol>
+  <label>Word</label>
+  <br/>
+  <input type="text" id="word" placeholder="word">
+  <br/>
+  <label>Minimum</label>
+  <br/>
+  <input type="number" id="min" value="8">
+  <br/>
+  <label>Maximum</label>
+  <br/>
+  <input type="number" id="max" value="16">
+  <br/>
+  <button type="submit">Generate</button>
+  <br/>
+
+  <div id="generated"></div>
+</body>
+<script>
+  var specials = ['!','~','@','#','$','%','^','&','*','(',')','[',']','{','}','<','>','-','_','+','='];
+  var letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+  var vowels = ['a','e','i','o','u'];
+
+  $('document').ready(function() {
+    $('button').on('click', function() {
+      $('#generated').html(''); // clear message area
+
+      $('input#word').each(function() {
+        var word = $(this).val().toLowerCase();
+        var wordLength = word.length;
+        var min = $('#min').val();
+        var max = $('#max').val();
+
+        if (wordLength < min) { // throw warning message about improper length
+          $('#generated').text('Enter a word equal to or longer than ' + min + ' characters!')
+        } else {
+          word = word.replace(/\s/g,'').split(''); // remove all spaces and convert into an array
+
+          for (i in word) { // replace all vowels with a random number
+            if (word[i].match(/[aeiou]/)) {
+              word[i] = rndN(10);
+            }
+          }
+
+          word = word.join('');
+
+          word = removeOne(word); // randomonly remove one character
+
+          var rnd = rndN(4);
+          var base = 5;
+
+          if (wordLength > base + rnd + 4) {
+            word = removeOne(word);
+            word = rndChar(word, 'uppercase'); // convert one character to uppercase
+          }
+          if (wordLength > base + rnd + 2) {
+            word = removeOne(word);
+          }
+          if (wordLength > base + rnd) {
+            word = removeOne(word);
+            word = rndChar(word, 'uppercase'); // convert one character to uppercase
+          }
+          if (wordLength > base) {
+            word = removeOne(word);
+          }
+
+          word += specials[rndN(specials.length)]; // insert special character at end of word
+          word = rndChar(word, 'special'); // insert special character in a random location
+          word = rndChar(word, 'letter'); // insert random letter
+          word = rndChar(word, 'number'); // insert random number
+          word = rndChar(word, 'vowel'); // insert random vowel
+          word = rndChar(word, 'uppercase'); // convert one character to uppercase
+
+          // randomly pick to randomize another character
+          rnd = rndN(5);
+          for (var i = 0; i < rnd; i++) {
+            rnd2 = rndN(10);
+            if (rnd2 < 2) {
+              word = rndChar(word, 'special');
+            } else if (rnd2 == 2 && rnd2 < 4) {
+              word = rndChar(word, 'letter');
+            } else if (rnd2 == 4 && rnd2 < 6) {
+              word = rndChar(word, 'number');
+            } else if (rnd2 == 6 && rnd2 < 8) {
+              word = rndChar(word, 'vowel');
+            } else {
+              word = rndChar(word, 'uppercase');
+            }
+          }
+
+
+          if (wordLength > max) { // reduce the password length if it's longer than the desired maximum value
+            word = word.slice(0,max);
+          }
+          $('#generated').html('<div>Generated password:<br/><span>' + word + '</span></div>');
+        }
+      });
+    });
+  });
+
+  // Functions
+
+  function rndChar(word, type) { // insert a random character or convert one to uppercase
+    word = word.split('');
+    var rnd = rndN(word.length);
+
+    for (i in word) {
+      if (i == rnd) {
+        if (type == 'number') {
+          word[i] = word[i] + rndN(10);
+        } else if (type == 'letter') {
+          word[i] = word[i] + letters[rndN(letters.length)]; // add a letter
+        } else if (type == 'special') {
+          word[i] = word[i] + specials[rndN(specials.length)]; // add a special character
+        } else if (type == 'vowel') {
+          word[i] = word[i] + specials[rndN(vowels.length)]; // add a vowel
+        } else if (type == 'uppercase') {
+          word[i] = word[i].toUpperCase(); // convert to uppercase
+        }
+      }
+    }
+
+    return word.join('');
+  }
+
+  function rndN(number) { // pick a random number
+    return Math.floor(Math.random() * number);
+  }
+
+  function removeOne(word) { // remove one character from a given word
+    var location = rndN(word.length); // pick a random location
+    var temp = '';
+
+    word = word.split('');
+
+    for (var i = 0; i < word.length; i++) { // build the word without the randomly picked letter
+      if (i != location) {
+        temp += word[i];
+      }
+    }
+
+    return temp;
+  }
+</script>
+
+</html>

@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="tutorial, 3D, color, theory, maya, photoshop, lighting, shadows, texture mapping">
+		<meta name="description" content="Shader Basics Tutorial">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>Shader Basics Tutorial</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer="defer" src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1>Shader Basics</h1>
+					<p class="lead">Common Shader Types and Their Functions</p>
+					<p class="about">
+						Written by Brian Immel
+					</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+            		<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Antisotropic</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Stretches and rotates highlights according to position of the camera to the object with this shader.
+				                </p>
+				                <p>
+				                	Objects using this shader appear to have parallel micro-grooves as found in brushed metal objects.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/Antisotropic.jpg" id="Antisotropic" title="Antisotropic"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Blinn</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Calculates surfaces similar to Phong, but the shape of the specular highlights reflect better.
+				                </p>
+				                <p>
+				                	Excellent for use on objects that are metallic in nature with soft highlights.
+				                </p>
+				                <p>
+				                	With the right adjustments, it can also be used for flat plastic appearing surfaces.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/Blinn.jpg" id="Blinn" title="Blinn"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Lambert</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Renders a flat surface without highlights. This shader does not calculate surface reflectivity unlike almost every other
+				                	shader type.
+				                </p>
+				                <p>
+				                	This shader is good for creating surfaces that have a matte surface such as unglazed ceramics, chalk, unpolished stone and
+				                	wood.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/lambert.jpg" id="lambert" title="lambert"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Layered Shader</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Allows users to combine several shaders into one. Think of this shader like a Photoshop file with layers.
+				                </p>
+				                <p>
+				                	Transparency is very important when working with Layered Shader.
+				                </p>
+				                <ul>
+						        	<li>If several opacity shaders are used, only the one on top of the stack will be seen.</li>
+						        	<li>
+						        		You can have as many shaders in a Layered Shader but keep in mind that each shader that you add, also adds that much
+						        		more render time to your scene.
+						        	</li>
+						      	</ul>
+						      	<p>
+						      		When creating a Layered Shader, add the shaders you are going to use and remove the green shader. When Maya creates the
+						      		Layered Shader, by default it creates a green shader listing within it. The reason for this is that the Layered Shader
+						      		cannot exist without something in it.
+						      	</p>
+						      	<p>
+						      		This shader is great for creating very complex shaders for complex surfaces. One can create a planet complete with a
+						      		surface, atmosphere, and cloud layer. The possibilities are limitless when using masks and multiple shaders.
+						      	</p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/layered-shader.jpg" id="layered-shader" title="layered-shader" />
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Phong</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	This shader reflects light according to the surface curvature, intensity of the lights in the scene and the angle of the
+				                	camera to the applied surface to generate shadows and highlights.
+				                </p>
+				                <p>
+				                	This shader is a standard to start with for any material type (a good general purpose shader).
+				                </p>
+				                <p>
+				                	The highlight for this shader is very tight which is very excellent for polished surfaces.
+				                </p>
+				                <p>
+				                	Sometimes, the specular highlights of a Phong shader can flicker. If that is the case, try using a Blinn shader.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/Phong.jpg" id="Phong" title="Phong" />
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Phong E</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Very similar to Phong but renders slightly faster and has a softer highlight than Phong.
+				                </p>
+				                <p>
+				                	This shader is used most often for glass objects.
+				                </p>
+				                <p>
+				                	By default, Maya creates three shaders each time a new scene file is created: lambert1, particleCloud1, and shaderGlow1.
+				                	These three shaders should never be used for your geometries because Maya uses these three for base shader information.
+				                	All shaders in Maya draw their glow attribute from the shaderGlow1 shader. Any changes in this shader affect all the
+				                	shaders in the scene if they are using the glow attribute. Whenever you create a new surface, Maya automatically assigns
+				                	the surface the lambert1 shader. If you wish to make any changes to that surface's appearance, you should create a new
+				                	shader and apply it accordingly. The same applies to particleCloud1 as lambert1 when working with particles.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/PhongE.jpg" id="PhongE" title="Phong E"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Common Shader Attributes</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				            	<table class="noBorder">
+				            		<tbody>
+				            			<tr>
+				            				<td class="noBorder">Color</td>
+				            				<td class="noBorder"><img src="../../images/tutorials/Color-Theory/common-material-color.jpg"></td>
+				            			</tr>
+				            			<tr>
+          									<td class="noBorder">Transparency</td>
+          									<td class="noBorder"><img src="../../images/tutorials/Color-Theory/common-material-transp.jpg"></td>
+          								</tr>
+          								<tr>
+          									<td class="noBorder">Ambient color</td>
+          									<td class="noBorder"><img src="../../images/tutorials/Color-Theory/common-material-ambient.jpg"></td>
+          								</tr>
+          								<tr>
+          									<td class="noBorder">Incandescence</td>
+          									<td class="noBorder"><img src="../../images/tutorials/Color-Theory/common-material-incand.jpg"></td>
+          								</tr>
+          								<tr>
+          									<td class="noBorder">Bump Mapping</td>
+          									<td class="noBorder"><img src="../../images/tutorials/Color-Theory/common-material-bump.jpg"></td>
+          								</tr>
+          								<tr>
+          									<td class="noBorder">Translucence</td>
+          									<td class="noBorder"><img src="../../images/tutorials/Color-Theory/common-material-trans.jpg"></td>
+          								</tr>
+          							</tbody>
+          						</table>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Using the Hypershade</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	The hypershade is graphical layout that has many tools and functions for creating shaders, textures, utilities and so
+				                	forth all in one convenient interface.
+				                </p>
+				                <p>
+				                	To activate the hypershade window, go to Window &gt; Rendering Editors &gt; Hypershade.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/hypershade.jpg" id="hypershade" class="imgThumbnail" title="hypershade" data-toggle="modal" data-target=".hypershade"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Interface: Toggle Create Bar</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	This button toggles the Create Bar on and off. If you want more screen space for working with shaders, just leave it off.
+				                	All the items can still be accessed under the Create in the menu.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/create-bar.jpg" id="create-bar" title="create-bar"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Interface: Materials Tab</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>This is a library of all the shaders used in the scene file whether or not they are used on any geometry.</p>
+      							<p>This button toggles the Materials tab on and off.</p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/toggle-materials.jpg" id="toggle-materials" title="toggle-materials" />
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/materials-tab.jpg" id="materials-tab" class="imgThumbnail" title="materials-tab" data-toggle="modal" data-target=".materials-tab"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Interface: Toggle Work Area Tab</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	This area is used to show the networks of one or more shaders.
+				                </p>
+				                <p>
+				                	his button toggles the Work Area on and off.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/work-area-tab.jpg" id="work-area-tab" class="imgThumbnail" title="work-area-tab" data-toggle="modal" data-target=".work-area-tab"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Interface: Toggle Top and Bottom tabs</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	This button turns both views of the Materials Tab and Work Area Tab back on again.
+				                </p>
+				                <p>
+				                	Focusing on selected objects or all objects
+				                </p>
+				                <ul>
+							        <li>Right-click on a tab (or window) to activate it.</li>
+							        <li>Hit the <span class="strong">a</span> key to focus all.</li>
+							        <li>To focus on just one item, select an object, and hit the <span class="strong">f</span> key.</li>
+							        <li>
+							        	To focus on multiple objects, select the first object, shift-select all the other objects you wish to view at once,
+							        	and hit the <span class="strong">f</span> key.
+							        </li>
+							        <li>
+							        	To see a network of a shader from the Materials Tab, RMB-hold on the shader and select Graph Network. That select
+							        	shader will be graphed in the work area with all the nodes that are linked to it.
+							        </li>
+								</ul>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/toggle-materials-work.jpg" id="toggle-materials-work" title="toggle-materials-work" />
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Interface: Other Tabs</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	The other tabs in the Hypergraph interface include: Materials, Textures, Utilities, Lights, Cameras, Bake Sets, and Projects.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/hypershade-various-textures.jpg" id="hypershade-various-textures" class="imgThumbnail" title="hypershade-various-textures" data-toggle="modal" data-target=".hypershade-various-textures"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Textures: 2D Textures</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <ul>
+							        <li>Normal</li>
+							        <li>As projection</li>
+							        <li>As stencil</li>
+							    </ul>
+							    <p>
+							    	Maya comes with a good number of default textures. Instead of spending hours describing what each texture is for, it would
+							    	be better for you to experiment with each one. Below, I have listed a few that might be of particular use for beginners.
+							    </p>
+							    <ul>
+							    	<li>Checker</li>
+							    	<ul>
+							    		<li>
+							    			This texture map is useful for figuring out where your UVs lie on a surface.
+							    		</li>
+							    		<li>
+							    			Although this texture is useful, an external file with a numbered and colored checkerboard would be best for
+							    			figuring out the UVs.
+							    		</li>
+							    	</ul>
+							    	<li>File</li>
+							    	<ul>
+							    	 	<li>
+							    	 		The texture node known as File is used to link any shader attribute to an external file. When creating realistic
+							    	 		shaders, 9 times out of 10, you will use this texture node to link the shader to a file that was photographed,
+							    	 		manipulated in Photoshop and so forth.
+							    	 	</li>
+							    	</ul>
+							    </ul>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Textures: 3D, Env, and Other Textures</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				            	<ul>
+				            		<li>3D Textures</li>
+				            		<ul>
+				            			<li>List of default 3D textures with a wide variety of uses.</li>
+				            		</ul>
+				            		<li>Env Textures</li>
+				            		<ul>
+				            			<li>List of default textures for use of reflections maps.</li>
+				            		</ul>
+				            		<li>Other Textures</li>
+				            		<ul>
+				            			<li>Layered Texture</li>
+				            		</ul>
+				            	</ul>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Utilities</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	In General Utilities, there are several utilities that have a bazillion uses. Below, I have listed the more commonly
+				                	used nodes:
+				                </p>
+				                <ol>
+							        <li>Bump 2d</li>
+							        <li>Bump 3d</li>
+							        <li>2d Placement</li>
+							        <li>3d Placement</li>
+							        <li>Projection</li>
+							        <li>Color Utilities</li>
+								</ol>
+								<p>
+									Color Utilities nodes are used to create several effects such as creating a toon shader, adjusting contrasts, gamma
+									correction per shader and so forth.
+								</p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/hypershade-various-utilitie.jpg" id="hypershade-various-utilitie" class="imgThumbnail" title="hypershade-various-utilities" data-toggle="modal" data-target=".hypershade-various-utilitie"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Switch Utilities, Image Planes, and Glow</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Switch Utilities allow you to share shader information with several surfaces and their various inputs/outputs.
+				                </p>
+				                <p>
+				                	Image Plane is used to create just what it name suggests. Image planes are good for setting up an image to a camera for
+				                	use of outlining a character model and/or various other objects from scanned or photographic references.
+				                </p>
+				                <p>
+				                	Optical FX adds various optical effects that is applied to the Glow attribute of each shader. There are various effects
+				                	the Optical FX can accomplish.
+				                </p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Lights</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	This tab will list all the lights that are currently listed in your scene.
+				                </p>
+				                <p>
+				                	The Create Bar has the following items:
+				                </p>
+				                <ul>
+							        <li>Ambient Light</li>
+							        <li>Area Light</li>
+							        <li>Directional Light</li>
+							        <li>Point Light</li>
+							        <li>Spot Light</li>
+							        <li>Volume Light</li>
+								</ul>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/hypershade-various-lights.jpg" id="hypershade-various-lights" class="imgThumbnail" title="hypershade-various-lights" data-toggle="modal" data-target=".hypershade-various-lights"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Cameras</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	This tab will list all the cameras that a listed in the current scene.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/hypershade-cameras.jpg" id="hypershade-cameras" class="imgThumbnail" title="hypershade-cameras" data-toggle="modal" data-target=".hypershade-cameras"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Working with Shader Networks: Graphing shader networks</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	To display a shader network, you can either LMB-hold and select Graph Network or go to Graph &gt; Add Selected to Graph
+				                	in the Hypershade window.
+				                </p>
+				                <p>
+				                	Each node is connected to one another by a line or series of lines depending on the node it's connecting to and from.
+				                </p>
+				                <p>
+				                	To find out what each node is connected to, you can either hover the line connecting the nodes or in the Attribute Editor
+				                	of the shader, click on the Output Connections button to see what it connections to.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/hypershade-hover.jpg" id="hypershade-hover" class="imgThumbnail" title="hypershade-hover" data-toggle="modal" data-target=".hypershade-hover"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Working with Shader Networks: Connecting nodes to other nodes</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	You can use the same node more than once if you wish. Using the same node more than once cuts down on the need for
+				                	multiple nodes, which in turn reduce, render time.
+				                </p>
+				                <p>
+				                	To connect one node another to another, select the node, MMB-drag a node onto another. A dialogue will pop up asking for
+				                	which type of input to connection to.
+				                </p>
+				                <p>
+				                	Be warned! Not all nodes can be connected to one another. Nodes that cannot be connected will be grayed out when you
+				                	attempt to connect them. Input connections that are italicized mean they are already connected to another node. Connecting
+				                	nodes that are already italicized breaks the current connection and replaces with the new selection.
+				                </p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Working with Shader Networks: Breaking Connections</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	To break a connection between nodes, but not delete any nodes, simply select the connection between the two nodes and hit
+				                	the delete key.
+				                </p>
+				                <p>
+				                	Another way to break a connection between nodes but without deleting any nodes is through the Attribute Editor. RMB-hold
+				                	on the attribute with a connection to another node and select Break Connection.
+				                </p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Assigning Material to Selection</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	There are two quick ways to assign a shader to a surface:
+				                </p>
+				                <ul>
+				                	<li>
+				                		Select the surface(s), highlight the shader in the Hypershade, LMB-hold and select assign to Assign Material To
+				                		Selection.
+				                	</li>
+							        <li>
+							        	Select the shader, MMB-drag the shader to the surface from the Hypershade window. The cursor will include a plus sign
+							        	next to it indicating that the shader can be applied to the surface you are hovering over.
+							        </li>
+				                </ul>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Attribute Editor</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Another way to view your connections, but one at a time, is to use the Attribute Editor of the selected shader and click
+				                	the Upstream and Downstream Connections button.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/in-output-connections-butto.jpg" id="in-output-connections-butto" class="imgThumbnail" title="in-output-connections-button" data-toggle="modal" data-target=".in-output-connections-butto"/>
+				            </div>
+				        </div>
+					</section>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		</div>
+		<!-- automated modal image storage-->
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+		<script src="../../js/getYear.js"></script>
+		<script src="../../js/modal-images.js"></script>
+		<script src="../../js/auto-number.js"></script>
+	</body>
+</html>

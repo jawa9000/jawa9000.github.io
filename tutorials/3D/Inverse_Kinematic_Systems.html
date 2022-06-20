@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="tutorial, inverse, kinematic, ik, maya">
+		<meta name="description" content="Inverse Kinematic Systems Tutorial">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>Inverse Kinematic Systems Tutorial</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer="defer" src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1>Inverse Kinematic Systems</h1>
+					<p class="lead">
+						Inverse Kinematic Systems
+					</p>
+					<p class="about">
+						Written by Brian Immel
+					</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+            		<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>What is IK and Why Should I Use It?</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	IK (Inverse Kinematics) are used to control a series of FK joints via a end effect handle. By default, there are three
+				                	types of IK: IK RP solver, IK SC solver, and IK Spline Handle. IK Ideally, you want to use RP solvers to handle joint
+				                	chains such as arms and legs when you want these FK chains to stay put.
+				                </p>
+				                <p>
+				                	Why would you want to keep a skeleton chain to stay put? Making a skeleton system that keeps the ends of a skeleton
+				                	system on the ground while performing functions such as walk cycles. If you don't use an IK on a FK chain that is
+				                	being used for a leg system is that, your character will look like he's skating all the time instead of keeping his
+				                	feet planted firmly.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>How to Set up IKs</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Start/end locations
+				                </p>
+				                <ol>
+									<li>Activate the IK tool and select the first joint you wish to include in the chain of influence.</li>
+								  	<li>
+								  		Click on the last joint you want to include in the IK chain. Maya will create the IK handle at the location of the
+								  		last selected joint.
+								  	</li>
+									<li>If you do not have a slight bend in the FK joints, this will cause the IK solver not to function properly. Before
+										you start building an IK chain, you should bend at least one joint in the opposite direction you want the IK to
+										bend the FK chain.
+									</li>
+								</ol>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>IK handles</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	To move the IK chain of influence, select the IK handle and translate it. The IK handle tells all the FKs within the
+				                	selected chain to rotate according the translation.
+				                </p>
+				                <p>
+				                	Before you start clicking away on making your IK setup, make sure you enable the attribute called Sticky. This attribute
+				                	will make the IK chain stick to its current position and orientation. For whatever reason, this attribute is off by
+				                	default.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Naming IKs</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	<strong>Just to keep things organized when naming an IK chain, I use a suffix of _IK. Example: Ankle_IK, Elbow_IK.</strong>
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Example of Use</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				            	<ul>
+				            		<li>Legs</li>
+				            		<ul>
+				            			<li>
+											Use IK setups to keep legs in place (on the ground), to manage walk, jog, and run cycles better than FK systems
+											alone.
+				            			</li>
+				            		</ul>
+				            		<li>Arms</li>
+				            		<ul>
+				            			<li>
+				            				Use IK setups to place the arm according to one (or more) control(s) rather than painstaking laboring over
+				            				rotating each joint to place the arm in one pose.
+				            			</li>
+				            		</ul>
+				            	</ul>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Controlling IKs</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	IKs rotate the FK joints they are controlling. IKs are typically controlled by translating the handles in world space.
+				                	However, IK handles cannot rotate. For this reason, you may need to set up a control object to give the IK systems the
+				                	ability to rotate.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Setting up Control Objects for IKs</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	If you try rotating an IK handle, you will notice that it has no effect on the FK chain that it is suppose to be
+				                	influencing. To make the IK handle rotate, you will need to parent the IK handle to a control object (something like
+				                	an NURBS curves). From now on, only select the control object to move the entire FK/IK chain. You may want to turn
+				                	off the visibility of the IK handle so that you don't accidentally select it and move it out of the control object.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Legs</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	For a more in depth process of creating IKs for legs, please review the tutorials called
+				                	<a href="Generic_IK_Arm.html">Generic IK Leg Setup</a> and
+				                	<a href="Foot_Roll_Setup.html">Foot Rolls</a>.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Ankle IK</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Activate the IK tool and start with the Hip joint. Click on the Ankle Joint. Name this IK Ankle_IK.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Ball IK</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Re-activate the IK tool and start on the Ankle joint. Click the Ball joint. Name this IK Ball IK.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Toe IK</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Re-activate the IK tool one last time and start on the Toe joint. Click on the Ball joint. Name this IK Toe IK.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Parent Foot IKs</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Parent the Toe IK to the Ball IK and then parent the Ankle IK to the Ball IK.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Foot IK Controller</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Create a control object out of a NURBS curve and snap-move it to the center of the foot (usually centered around the
+				                	ball joint).
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Ball IK to Foot Controller</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Parent the Ball IK to the foot control object. By parenting all these IKs to a control object, you give the IK chain
+				                	the ability to move as one unit, rotate the entire IK chain and maintain the individual ability to move each IK
+				                	within this leg hierarchy.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Repeat for Other Leg</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Repeat this process for the other leg. Don't forget to use the proper suffix for naming the IKs and control objects
+				                	(_R and _L).
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Arms</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	For a more in depth process of creating IKs for arms, please review the tutorials called
+				                	<a href="Generic_IK_Arm.html">Generic IK Arm Setup</a>.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Arm IK</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Activate the IK tool and start on the Shoulder joint and end the IK on the Wrist joint.
+				                </p>
+				                <p>
+				                	Name this IK Arm_IK.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Wrist IK</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Create another IK from the Palm joint to the Wrist joint.
+				                </p>
+				                <p>
+				                	Name this IK Wrist_IK.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Parent IKs</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Parent the Wrist_IK to the Arm_IK. You want to do this because when you move the Arm_IK, it move the Wrist_IK with it
+				                	in controlled and predictable fashion. Otherwise, the Wrist_IK will stay behind and stretch and pull your geometry.
+				                </p>
+				                <p>
+				                	Don't forget to do the other arm!
+				                </p>
+				            </div>
+				        </div>
+					</section>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		<!-- automated modal image storage-->
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+	</body>
+	<script src="../../js/getYear.js"></script>
+	<script src="../../js/modal-images.js"></script>
+	<script src="../../js/auto-number.js"></script>
+</html>

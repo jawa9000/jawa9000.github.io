@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="tutorial, maya, 3d, light, linking">
+		<meta name="description" content="Light Linking Tutorial">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>Light Linking Tutorial</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer="defer" src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1>Light Linking</h1>
+					<p class="about">
+						Written by Brian Immel
+					</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+            		<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Light Linking</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Light linking allows the lighting artist to tell lights to illuminate selected objects instead of the default of
+				                	illuminating everything in the scene.
+				                </p>
+				                <p>
+				                	To open the Light linking window, go to Window &gt; Relationship Editors &gt; Link Linking &gt; choose either
+				                	Object-Centeric or Light-Centric. Depending on which one you open this window will display the objects and shaders on the
+				                	left side and the lights on the right side (Object-Centeric) or display the lights on the left side and the objects and
+				                	shaders on the right side (Light-Centric). Either way, it does the same thing.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/light-linking1.jpg" id="light-linking1" class="imgThumbnail" title="light-linking1" data-toggle="modal" data-target=".light-linking1"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Disconnect Light from Object</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	To disconnect a light from illuminating an object, select the light. All the objects it illuminates will be highlighted. To
+				                	break a light link, click on the object you wish not to receive light from the selected light source. The object becomes
+				                	unhighlighted.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/light-linking2.jpg" id="light-linking2" class="imgThumbnail" title="Disconnect Lights from Object" data-toggle="modal" data-target=".light-linking2"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Disconnect Light from Material or Shader</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	If you wish to disconnect a light from a material or shader, select the light, and then unhighlight the material/shader.
+				                	This will effectively not illuminate any object that is using this shader. If a shader is texturing four objects called
+				                	concrete1 and the light link is broken between the shader and the light, then the four objects using that shader will not
+				                	receive any light from the selected light.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/light-linking3.jpg" id="light-linking3" class="imgThumbnail" title="Disconnect Light from Material or Shader" data-toggle="modal" data-target=".light-linking3"/>
+				            </div>
+				        </div>
+					</section>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		</div>
+		<!-- automated modal image storage-->
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+		<script src="../../js/getYear.js"></script>
+		<script src="../../js/modal-images.js"></script>
+		<script src="../../js/auto-number.js"></script>
+	</body>
+</html>

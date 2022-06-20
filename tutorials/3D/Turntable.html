@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="character, model, Rendering, Batch Rendering, Turntable, Maya, tutorial">
+		<meta name="description" content="Rendering a Turntable for Character Model Display Tutorial">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>Rendering a Turntable for Character Model Display Tutorial</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer="defer" src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1>Rendering a Turntable for Character Model Display</h1>
+					<p class="lead">
+						In this tutorial, we will cover the basics of setting up Maya's Render Globals for outputing an image sequence, creating a camera for
+						pivoting around a character model, Batch Rendering within the Maya environment, and putting together the image sequence in a
+						non-linear software package. This tutorial assumes that the user has prior knowledge of After Effects and/or Premiere, how to set
+						up a 3 point lighting system and has built a character model.
+					</p>
+					<p class="about">
+						Written by Brian Immel
+					</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+            		<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Setting Up the Render Globals</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	The first thing we should do is set up the renderer with the proper settings. Go to <strong>Window &gt; Rendering
+				                	Editors &gt; Render Globals</strong>. This will open the Render Globals window.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Turntable/figures01.jpg" id="figures01" class="imgThumbnail" title="figures01" data-toggle="modal" data-target=".figures01"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Image File Output</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	In the <strong>Image File Output</strong> section, we want to change several items so that we can render an image
+				                	sequence, use a good naming convention, pick our image format, and set the length of the render (how many frames). Lets
+				                	look at these from the top down. The first item is <strong>File Name Prefix</strong>. This is where we name the image
+				                	sequence. I would suggest giving the File Name Prefix the same name as your character. In this example, I am going to
+				                	name my character Oscar. Near the top of the Render Globals window, you will see changes being made as you make changes
+				                	in several sections.
+				                </p>
+								<p>In the section labeled <strong>Frame/Animation Ext</strong>, you want to set the option for<strong> name.#.ext</strong>.
+									This option allows the renderer to name each frame according to the File Name Prefix, place a number behind it and finish
+									off the image file with a chosen format. Now, the File Name should read: Oscar.1.iff and To: should read Oscar.10.iff.
+									So far so good.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Turntable/figures02.jpg" id="figures02" class="imgThumbnail" title="figures02" data-toggle="modal" data-target=".figures02"/>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Turntable/figures03.jpg" id="figures03" class="imgThumbnail" title="figures03" data-toggle="modal" data-target=".figures03"/>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Turntable/figures04.jpg" id="figures04" class="imgThumbnail" title="figures04" data-toggle="modal" data-target=".figures04"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Image Format</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Under <strong>Image Format</strong>, you can pick which format you like to render to. If you are planning on using
+				                	<strong>alpha channels</strong>, then pick either Maya IFF (iff) or Targa (tga) format. Depending on which compositing
+				                	software you are using, I normally default to <strong>Maya IFF</strong> format because it has the same qualities of a
+				                	Targa format but smaller in size. <strong>Affect Effects</strong> will read Maya IFF format with no problem but
+				                	Premiere cannot. So chose wisely! Speaking of choosing wisely, never-ever render to a movie format (AVI)! Why?
+				                	Because if you are rendering a long sequence and the computer crashes, locks up, render errors appear or whatever else
+				                	that disrupts the rendering process, you will have to start all over again. If you are rendering an image sequence and
+				                	the render dies, simply look for the last rendered frame and start from there.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Start Frame</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Under <strong>Start Frame</strong>, set this number to 1. This tells the renderer to start rendering at frame 1. In
+				                	<strong>End Frame</strong>, set this number to 90. 90 frames should be long enough to get a good turn around your
+				                	character.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Turntable/figures05.jpg" id="figures05" class="imgThumbnail" title="figures05" data-toggle="modal" data-target=".figures05"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Frame Padding</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	In <strong>Frame Padding</strong>, set this number to 2. I chose 2 because our End Frame is a two digit number (90). If
+				                	I were to end on frame 1000, I would set the Frame Padding to 4. Frame Padding changes how many digits are written to
+				                	the file name. Some computer applications have issues reading image sequences without proper numbering conventions. Plus
+				                	this is just good file management. The next thing we want to change is Camera but right now we should leave this alone.
+				                	Eventually, you will want to set Camera to say turn_cam.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Turntable/figures06.jpg" id="figures06" class="imgThumbnail" title="figures06" data-toggle="modal" data-target=".figures06"/>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Turntable/figures07.jpg" id="figures07" class="imgThumbnail" title="figures07" data-toggle="modal" data-target=".figures07"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>RGB Channel</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	 Make sure that RGB Channel (Color) is enabled. Without this turned on, your render will be empty. If you are planning
+				                	 on using an alpha channel, check on <strong>Alpha Channel (Mask)</strong>. By default, it is turned on.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Resolution</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	The next section is resolution. Click on the tab called <strong>Resolution</strong>. This will expand the Render Globals
+				                	window to show the setting for our rendering resolution. <strong>Rendering to television settings from a PC</strong>,
+				                	you want to select <strong>CCIR 601/Quantel NTSC</strong> from the <strong>Presets</strong> section. This will set you
+				                	Width to 720, Height to 486, Device Aspect Ratio to 1.333, and Pixel Aspect Ratio to 0.900.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Turntable/figures08.jpg" id="figures08" class="imgThumbnail" title="figures08" data-toggle="modal" data-target=".figures08"/>
+				            </div>
+				             <div class="images">
+				                <img src="../../images/tutorials/Turntable/figures09.jpg" id="figures09" class="imgThumbnail" title="figures09" data-toggle="modal" data-target=".figures09"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Anti-aliasing Quality</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	The next (or last depending) section to adjust of the Render Globals is the <strong>Anti-aliasing Quality</strong>. By
+				                	default, Maya sets this to Preview Quality. We don't want this. We want to set Quality to the present labeled
+				                	<strong>Production Quality</strong>. Using this preset takes all the guess work out of all the values that is handled by
+				                	the Anti-aliasing Quality section (such as Number of Samples, Multi-pixel Filtering, and Contrast Threshold).
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Raytracing</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	If you are rendering with <strong>raytracing</strong>, you will need to enable the renderer to do so. Click on the arrow
+				                	next to <strong>Raytracing Quality</strong>. Enable the checkbox next to Raytracing. Maya's default value of 10 for
+				                	Reflections, Refractions and Shadows works just fine. And now its on to the camera.
+				                </p>
+				                <p>
+				                	Now would be a good time to save your Maya file.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Turntable/figures10.jpg" id="figures10" class="imgThumbnail" title="figures10" data-toggle="modal" data-target=".figures10"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Creating and Setting Up a Camera for the Turntable</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Create a new camera (<strong>Create &gt; Cameras &gt; Camera</strong>). This will create a new camera and name it
+				                	<strong>turn_cam</strong>.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Turntable/figures11.jpg" id="figures11" class="imgThumbnail" title="figures11" data-toggle="modal" data-target=".figures11"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>turn_cam</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Now would be a good time to go back to the Render Globals and tell the renderer to select turn_cam to render from. In
+				                	the <strong>Render Globals window</strong>, go to the section labeled <strong>Camera</strong> and set it to
+				                	<strong>turn_cam</strong>.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Persp Viewport</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	In the <strong>persp viewport</strong>, go to <strong>Panels &gt; Perspective &gt; turn_cam</strong>. This switches
+				                	the persp camera to look through turn_cam's view.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Position turn-cam</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Next we want to set up the camera's position and make sure that what we see will get rendered. In the turn_cam's
+				                	viewport, go to <strong>View &gt; Camera Settings &gt; Resolution Gate</strong>. This will make a box appear within
+				                	turn_cam's view. This tells us that anything that falls within this box, it will get rendered.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Turntable/figures12.jpg" id="figures12" class="imgThumbnail" title="figures12" data-toggle="modal" data-target=".figures12"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Views</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Switch views to the four view window.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Turntable/figures13.jpg" id="figures13" class="imgThumbnail" title="figures13" data-toggle="modal" data-target=".figures13"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Z Positioning</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	From the <strong>top view</strong>, select turn_cam and pull it away from the character on the Z axis. Continue to pull
+				                	turn_cam away until the entire character is visible within the Resolution Gate of the tun_cam viewport and has some
+				                	foot and head room. You may how to adjust the Translate Y a bit to better fit your character in turn_cam's viewport.
+				                	At any point during this step, you should not move the camera by Alt-clicking within turn_cam's viewport. We want to
+				                	keep the camera straight on with the front of our character.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Pivot Location</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Next we need to change turn_cam's pivot location. <strong>Select turn_cam</strong> and hit the
+				                	<strong>Insert key</strong> on your keyboard. <strong>Move the pivot to the center of the grid</strong> by holding down
+				                	the x key while you move the pivot . You want to move the pivot to the center of your character (in which case if you
+				                	followed a good modeling standard should be the center of the grid). Once you are done moving the pivot point,
+				                	<strong>hit the insert key again</strong> to turn off the pivot editing option.
+				                </p>
+				                <p>
+				                	Test this location by rotating turn_cam on the Y axis. If you character stays center and does not fall in or out of
+				                	the center of turn_cam's viewport, then everything is ready for keyframing. Be sure toreset turn_cam's RotateY
+				                	attribute back to 0 when you are done testing.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Turntable/figures14.jpg" id="figures14" class="imgThumbnail" title="figures14" data-toggle="modal" data-target=".figures14"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Parent Lights</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Next we should parent our lighting system to turn_cam. Select all the lights in the scene (we should be using a
+				                	<strong>3-point lighting system</strong> at the very least). Shift-select turn_cam last. Hit the <strong>p</strong>
+				                	key to parent all the lights to turn_cam. The reason you want to do this is because when we rotate around to the
+				                	backside of the character, you won't be in darkness. Creating a hierarchy like this will never allow the front side of
+				                	the viewport to ever be in darkness of the character. By keeping the lights with turn_cam as it rotates, this will
+				                	maximum the view and thus show off your modeling and texturing skills.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Turntable/figures15.jpg" id="figures15" class="imgThumbnail" title="figures15" data-toggle="modal" data-target=".figures15"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Key the Camera</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Now its time to set the camera to keyframes. <strong>Move the TimeSlider to frame 1</strong>. With <strong>turn_cam
+				                	still selected, hit the s key</strong>. The s key sets a keyframe on all keyable attributes of the selected object. We
+				                	have now set the start location of turn_cam's path.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Frame 90</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Next, move the <strong>TimeSlide to frame 90</strong>.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>356 Degrees</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	In the <strong>Channel Box</strong> under <strong>turn_cam</strong>, type in 356 for RotateY. Why not 360? Doesn't that
+				                	give us a full circle? It does but your animation won't be seemless. If you play this on a loop, you will see a short
+				                	motion 'hiccup'. The camera started out at 0 and is ending on zero again (360 degrees of rotation will put you right
+				                	back at the start location). By using the value 356, we leave a little room to jump to the start frame again. When
+				                	looped, this will appear to be seamless in motion.
+				                </p>
+				                <p>
+				                	<strong>Hit the s key again</strong>.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Motion Test</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Hit the play button to test your motion. You should see everything move smoothly. The character, if placed dead center
+				                	of turn_cam's pivot, will stay centered and never wobble. Figure 16 shows various stages of turn_cam's motion. Now its
+				                	render time!
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Turntable/figures16.gif" id="figures16" class="imgThumbnail" title="figures16" data-toggle="modal" data-target=".figures16"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Batch Rendering in Maya</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	First thing we need to tell Maya to do is utilize the processor(s) efficiently. Go to the <strong>Rendering Menu
+				                	Set</strong> and select <strong>Render &gt; Batch Render &gt; option box</strong>. This will open up the <strong>Batch
+				                	Render window</strong>. Check on the checkbox for <strong>Use all Available Processors</strong>. We want to do this for
+				                	two reasons:
+				                </p>
+								<ol>
+									<li>If you have a system that uses multiple processors, this will use all of them to their fullest capacity. </li>
+									<li>If you do not enable this function, Maya will try to utilize the processor until it reaches its maximum and may
+										cause Windows to crash</li>
+								</ol>
+								<p>
+									Now would be a good time to save your Maya file.
+								</p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Render</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	With Use all Available Processors enabled, its now time to <strong>hit the Batch Render button</strong>.
+				                </p>
+				                <p>
+				                	By default, Maya will render your files to the following location:
+				                	<i>C:\Documents and Settings\[Username]\My Documents\maya\projects\default\images</i>. Replace the name [Username]
+				                	with the login name you used to log into your computer.
+				                </p>
+				                <p>
+				                	Sit back and watch the render! If you like you can watch the progress of the render by opening up the Script Editor
+				                	(<strong>Window &gt; General Editors &gt; Script Editor</strong>).
+				                </p>
+				                <p>
+				                	Note: If you are not the "sit back and relax" type, you can save a little time by rendering your files outside of Maya.
+				                	Check out the tutorial entitled <a href="Batch_Rendering.html">Batch Rendering
+				                	Multiple Maya Files</a> for all the details.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>From Frames to Movie</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Once the render is finished, open up <strong>After Effects</strong> (if you rendered to IFF or Targa format) or
+				                	<strong>Premiere</strong> (if you rendered to Targa format only).
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Turntable/figures18.jpg" id="figures18" class="imgThumbnail" title="figures18" data-toggle="modal" data-target=".figures18"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Import Image Sequence</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	In either program, there will be an option when importing that allows you to select the entire image sequence and
+				                	import them as one file. It is important that you check on image sequence option. Otherwise, you will only import
+				                	one frame.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Save as Movie Format</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Drag the image sequence to the time line and save your footage as either a <strong>Microsoft DV format (AVI)</strong>
+				                	or <strong>QuickTime Sorensen (MOV)</strong>. Either one of these format types does a great job of compressing the
+				                	footage and perserving the image quality.
+				                </p>
+				                <p>
+				                	Optional step: Before you render your movie, you can always add your name, 3D info, or whatever to personalize the
+				                	rendered movie by using text effects or an icon you made using Photoshop.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		<!-- automated modal image storage-->
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+	</body>
+	<script src="../../js/getYear.js"></script>
+	<script src="../../js/modal-images.js"></script>
+	<script src="../../js/auto-number.js"></script>
+</html>

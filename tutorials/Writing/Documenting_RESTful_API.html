@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="guide,documentation,api,restful">
+		<meta name="author" content="Brian Immel">
+		<meta name="description" content="Documenting RESTful APIs">
+    <meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>Documenting RESTful APIs</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1>Documenting RESTful APIs</h1>
+					<p class="lead">Welcome to Documenting RESTful API guide. This document is meant to serve as an introduction to the technical writing world of documenting RESTful APIs.</p>
+                    <p>This guide includes the following topics:</p>
+                    <ul>
+                    	<li><a href="#WhatareAPIs">What are APIs?</a></li>
+                        <li><a href="#WhatisREST">What is REST?</a></li>
+                        <li><a href="#Requests">Requests</a></li>
+                        <li><a href="#Resources">Resources</a></li>
+                        <li><a href="#Methods">Methods</a></li>
+                        <li><a href="#QueryParameters">Query Parameters</a></li>
+                        <li><a href="#Headers">Headers</a></li>
+                        <li><a href="#AuthenticationandAuthorization">Authentication and Authorization</a></li>
+                        <li><a href="#RequestBodiesandResponses">Request Bodies and Responses</a></li>
+                        <li><a href="#WrappingUp">Wrapping Up</a></li>
+                        <li><a href="#SampleDocumentation">Sample Documentation</a></li>
+                        <li><a href="#RESTDocumentationTools">REST Documentation Tools</a>
+                  </ul>
+                    <p>In this guide, we will revisit our delivery robot API as mentioned in previous technical writing guides that I have written.</p>
+					<p class="about">
+						Written by Brian Immel
+					</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+                    <section class="guideBox">
+				        <div class="tutorialRow">
+				            <div class="guideHeader"><a name="WhatareAPIs" class="anchorLink"></a>What are APIs?</div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="guideContent">
+                            	<p>API stands for Application Programming Interface and they define how two different software packages talk to each other. In this document, we are going to focus on REST. Other types of web API include JSON and XML. If you haven't had a chance to view my guides on those, please visit <a href="Documenting_API-JSON.html" title="Documenting APIs Via JSON">Documenting APIs Via JSON</a> and <a href="Documenting_API-XML.html" title="Documenting APIs Via XML">Documenting APIs Via XML</a>.</p>
+                            	<p>If you don't have access to an API or know how to build one, <a href="http://www.programmableweb.com/" title="Programmable Web" target="_blank">Programmable Web</a> is a great resource to access many publich APIs.                                </p>
+                            	<p>REST stands for REpresentational State Transfer. REST relies on a stateless communication protocol. Lets say you are using a social media service on an electronic (client) device. When you open up that service, the application sends an API request to the social media's server to get the latest social media updates. The server then responses with some data that represents the state of your social media feed.</p>
+<p>Another important topic of API documentation is security. This is handled through the authentication and authorization aspects of the API itself. When a client device requests a feed update, the device must provide it's identity to the server to receive and/or modify data. Typically, authentication is handled by the user providing username and password information. Authorization makes use of a token and grants authority to make a request. In this document, we will cover OAuth which is a popular authorization platform.</p>
+				            </article>
+				        </div>
+					</section>
+                    <section class="guideBox">
+				        <div class="tutorialRow">
+				            <div class="guideHeader"><a name="WhatisREST" class="anchorLink"></a>What is REST?</div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="guideContent">
+                            	<h2>Design Pattern</h2>
+                            	<p>There are two pattern types to consider when transferring data: Design pattern and protocol pattern. A protocol is a pattern that you need to match exactly. One way to think of a protocol to compare it to a wall outlet and an electrical cord. These two only work together because of how they are designed to accommodate the shape, size, and configuration of the pins of the plug and outlet.</p>
+<p> A design pattern is a set of guidelines.  For example, in Lego, the bricks are designed to connect to one another because of their inter-lockable format. The bricks can be connected in a multitude of ways.</p>
+                            	<p>REST  uses the design pattern. That is, REST uses guidelines but they are not strict. Some APIs require that the guidelines followed more closely than others. Because REST uses a design pattern, the API often referred to as &quot;RESTful APIs&quot;. You will hear about both of these terms, so don't get too caught up in semantics.</p>
+                           	  <p>REST is a relatively new API. There are several other methods for transferring data back and forth but some of those tend to require more information to be transferred than what REST does. REST is a simpler and more flexible API and in its pure form is highly flexible. However, most REST APIs do not follow pure design patterns which makes them a little more difficult to use.</p>
+                           	  <h2>HTTP</h2>
+<p>REST uses standard web protocols like HTTP or HTTPS to send data. HTTP stands for HyperText Transfer Protocol. HTTPS is just the more secure version of HTTP. </p>
+<p>REST APIs send data to an HTTP address (URL) just like a regular web page. The HTTP protocol has select actions (methods) that can use when receiving or send data. Those actions include <a href="#OPTIONS">OPTIONS</a>, <a href="#GET">GET</a>, <a href="#HEAD">HEAD</a>, <a href="#POST">POST</a>, <a href="#PUT">PUT</a>, <a href="#DELETE">DELETE</a>, <a href="#TRACE">TRACE</a>, and <a href="#CONNECT">CONNECT</a> (as defined by <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html" title="HTTP/1.1 Methods" target="_blank">HTTP/1.1 methods</a>). The GET and HEAD methods do nothing but retrieve data and are considered &quot;safe&quot; because they do nothing but ask to receive data from the server. Methods like POST, PUT, and DELETE are considered &quot;unsafe&quot; because the actions they perform modifies the data on the server.                           	  </p>
+<h2>Resources</h2>
+                              <p>A resource is a data item that represents something. For example, if you are making a request about robot, then the URL should have the resource name <code class="inline">robot</code> in it like this one: </p>
+<div class="block">
+           	   <code class="block">
+               	   http://api.website.com/robot
+               </code>
+              </div>
+                                <p>This particular call will return information on all robots. However, if you wish to return data on just one robot, you can use IDs in your URL to filter this information.</p>
+                                <div class="block">
+                                 	<code class="block">
+                                 	  http://api.website.com/robot/9000
+                               	  </code>
+                                </div>
+                            	<h2>Format</h2>
+                            	<p>One thing that is nice about REST is that it is completely independent of format. The data that is sent and received can be any format with JSON and XML being the most popular formats. Sometimes, the media types that are transferred are images, videos, sound files, and so on.</p>
+                            	<h2>Stateless</h2>
+                              <div class="images floatRight">
+				                	<img src="../../images/tutorials/RESTful/inventory_request.png" id="inventory" class="imgThumbnail" title="Inventory Request and Updated List" alt="Inventory Request and Updated List" data-toggle="modal" data-target=".inventory"/>
+				            	</div>
+                            	<p>REST is stateless meaning that the server does not keep track of the state of the client device. For example, lets say you want to get an inventory list of what our robot is carrying. You load a web page and it displays the first five items in the robot's inventory. At the bottom of this list is a &quot;Load More&quot; button. When you click this button, it sends a request to the server asking for the next five items in the list. The server returns the data for the next five items. The server does not know how many items it has returned. The client device keeps track of how many items it has listed (via any number of methods) and when you request for the next set of items, the page then sends the correct request data to the server.</p>
+
+                            	<h2>Comparison to SOAP</h2>
+                            	<p>Before there was REST, there was SOAP: Simple Object Access Protocol. SOAP was not very easy to use because of it's strict nature and it only supported the XML format. Because this protocol is falling out of favor with developers, this document who go into any more details about it.</p>
+		                  </article>
+				        </div>
+					</section>
+                    <section class="guideBox">
+				        <div class="tutorialRow">
+				            <div class="guideHeader"><a name="Requests" class="anchorLink"></a>Requests</div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="guideContent">
+                            	<h2>What is an HTTP Request</h2>
+                           	  <p>Just a quick refresher, an API request is data being sent to the server and an API response is data being sent from the server. When data is sent to the server, that data is packaged up in an HTTP request. Various pieces of data are stored in different parts of the request depending on what type of data it is.</p>
+                            	<h2>Anatomy of a Request</h2>
+                            	<p>Here is a sample HTTP request:</p>
+                            	<div class="block">
+                                	<code class="block">
+                                    	POST http:/api.website.com/robot?source=android&amp;device=robot
+                                    </code>
+                                </div>
+                                <p>In this example, <code class="inline">POST</code> is a method or an action of the request. The URL (<code class="inline">http://api.website.com/robot</code>) is what the action is acting on. And <code class="inline">source=android&amp;device=robot</code> is the query parameters.</p>
+                                <p>Next up is an example of a header which is used to store information about the request:</p>
+                                <div class="block">
+                                	<code class="block">
+                                    	Accept: application/json<br>
+                                        Content-type: application/json
+                                    </code>
+                                </div>
+                                <p>And here we have the body which stores additional data that is typically used when creating or modify data objects.</p>
+                                <div class="block">
+                                	<code class="block">
+                                    	{<br>
+                                    	&nbsp;&nbsp;&quot;id&quot;: &quot;9000&quot;,<br>
+                                        &nbsp;&nbsp;&quot;status&quot;: &quot;active&quot;<br>
+                                        }
+                                  </code>
+                              </div>
+                            	<h2>Method</h2>
+                            	<p>Methods are the actions that you take (by requesting). These are standard HTTP requests like:</p>
+                           	  <ul>
+                                	<li>GET: returns data from server,</li>
+                                	<li>POST: Create a new resource on the server,</li>
+                                	<li>DELETE: Delete a resource from the server</li>
+                                </ul>
+                            	<h2>URL</h2>
+                            	<p>URL stands for Uniform Resource Locator. An URL is what one types in the address section of a browser and can start with HTTP or HTTPS. After the HTTP part of the URL, you have the server domain (<code class="inline">api.website.com</code>). Finally, you have the information on the resource (<code class="inline">/robot</code>). Here is a full URL:</p>
+                           	  <div class="block">
+                                	<code class="block">
+                                    	http://api.website.com/robot
+                                    </code>
+                              	</div>
+
+                            	<h2>Query Parameters</h2>
+                            	<p>Query parameters usually contains information about the data returned. The data is returned in key/value pairs like JSON. In our robot API, if it allows for searches, you will often see the query parameters in the URL. </p>
+                                <div class="block">
+                                	<code class="block">
+                                    	http://api.website.com/robot?sort=id&amp;location=ascend</code>
+                              	</div>
+                              <p>In this example, <code class="inline">sort</code> and <code class="inline">location</code> are the keys and <code class="inline">id</code> and <code class="inline">ascend</code> are the values. In this particular URL, the query parameters are asking for data on ids of every robot and return that list in ascending order.</p>
+                            	<h2>Headers</h2>
+                           	  <p>Headers are used for specific types of data. There are standard headers to use for HTTP and REST requests and other header formats used to handle a multitude of other requests. Headers commonly use data formats such as JSON and XML. Headers are also used for  authorization (security) but we will get into that later on.</p>
+                            	<h2>Body</h2>
+                            	<p>The body of a request is used to send significant amount of data to the server. The body can be any format but it's usually formatted as JSON or XML or can be any media file. Only POST and PUT request have bodies while GET and DELETE requests to not.</p>
+				            </article>
+				        </div>
+					</section>
+                    <section class="guideBox">
+				        <div class="tutorialRow">
+				            <div class="guideHeader"><a name="Resources" class="anchorLink"></a>Resources</div>
+				        </div>
+				        <div class="tutorialRow">
+			            	<article class="guideContent">
+                            	<h2>What is a Resource?</h2>
+                            	<p> A resource is an object with a type, associate data, possibly a relationship to other resources, and a set of methods that can operate on it. In our robot API, a resource can be the operator, designer, programming, and task. Basically, anything that is assignable.</p>
+                	            <p>The resource is defined in the URL. A standard convention for URLs is using singular nouns.</p>
+            	                <div class="block">
+        	                        	<code class="block">
+    	                                	http://api.website.com/operator<br/>
+	                                        http://api.website.com/programming/9000<br/>
+                                        	http://api.website.com/operator/0010/task
+                                    	</code>
+                              		</div>
+                                <p>In these three URLs, the first one uses the <code class="inline">operator</code> resource and the third one uses two resources (<code class="inline">operator</code> and <code class="inline">task</code>).</p>
+                                <p>Existing resource objects have an unique id. You use ids in the URL to specify a particular resource object.</p>
+                                <div class="block">
+                                      <code class="block">
+                                        http://api.website.com/operator<br/>
+                                      </code>
+                                    </div>
+                                <p>This particular URL doesn't have an id. So, it would return all <code class="inline">operators</code>. The following URL uses and id and the data returned would be just for that one particular object.</p>
+                                <div class="block">
+                                      <code class="block">
+                                        http://api.website.com/operator/0010<br/>
+                                      </code>
+                                    </div>
+                                <p>In the following example, we are assigning operator 0010 with the task of 0042 (whatever that is).</p>
+                                <div class="block">
+                                		<code class="block">
+                                        http://api.website.com/operator/0010/task/0042
+                                    	</code>
+                                    </div>
+                                <h2>Endpoints</h2>
+                                <p>An endpoint refers to an URL for a resource. The following URLs show ids used in a general way:</p>
+                                <div class="block">
+                                      <code class="block">
+                                        http://api.website.com/operator<br/>
+                                       http://api.website.com/programming/{programming-id}<br/>                                       http://api.website.com/operator/{operator-id}/task
+                                      </code>
+                                    </div>
+                                <p>For a given endpoint, you can use retrieve (GET), create (POST), update (PUT), or delete (DELETE) from one endpoint.</p>
+                                  	<h2>Resources Within Other Resources</h2>
+                                  	<p>Like most programming objects, you can have a resource nested within another resource. If we wanted to get data on all programming for modes of transportation, we would use this URL:</p>
+                                <div class="block">
+                                      <code class="block">
+                                        GET http://api.website.com/programming/1234/transportation_types
+                                    </code>
+                                  </div>
+                                <p>If we wanted to get information just for one particular type of mode of transportation, we would use this URL:</p>
+                                <div class="block">
+                                      <code class="block">
+                                        GET http://api.website.com/programming/1234/transportation_types/004
+                                    </code>
+                                  </div>
+			              </article>
+				        </div>
+					</section>
+                    <section class="guideBox">
+				        <div class="tutorialRow">
+				            <div class="guideHeader"><a name="Methods" class="anchorLink"></a>Methods</div>
+				        </div>
+				        <div class="tutorialRow">
+			              <article class="guideContent">
+                            	<h2>What is an HTTP Method</h2>
+                           	  	<p>As part of the HyperText Transfer Protocol, there are different types of requests (methods). The common Internet probably does not know this but they use the GET method every time they submit an address (URL) into the browser. If you're filling out a form on a web page to order new parts for your robot, you are using the POST method to send your data to a server. And when that same user updates their list of videos he has watched RoboTube, he's use a PUT method to modify which videos has watched or not on the RoboTube server.</p>
+                                <h2>CRUD</h2>
+                            <p>You can use resources to Create, Retrieve, Update, and Delete (CRUD). For each CRUD operation, there is a HTTP method associated with it:</p>
+                            <ul>
+                                	<li>Create - POST</li>
+                                	<li>Retrieve - GET</li>
+                                	<li>Update - PUT</li>
+                                	<li>Delete - DELETE</li>
+                       	    </ul>
+                            <p>Note: Not all requests fall nicely into this model. Some requests nothing to do with a resource. For example, you could turn off your robot remotely. In this case, this is not a CRUD operation.</p>
+<h2>GET</h2>
+								<p>The GET method retrieves data and do not use bodies in the request. GET methods allows for the use of ids in the URL to get a specific object.</p>
+								<p>To get data on all robots, your API request should look like this:</p>
+					  	    <div class="block">
+                            		<code class="block">
+                                    	GET http://api.website.com/robot
+                                	</code>
+                   		    </div>
+                                <p>To get data on a particular robot, put the id in the URL like  this:</p>
+                       	  	<div class="block">
+                            		<code class="block">
+                                    	GET http://api.website.com/robot/9000
+                                	</code>
+                   		    </div>
+                              	<h2>POST</h2>
+                              	<p>The POST method is used to create a new resource object. The data to create the new object is contained in the body of the request. To create a new robot object, we would use this request:</p>
+                                <div class="block">
+                            		<code class="block">
+                            			POST http://api.website.com/robot<br>                         		  		{<br>
+                                        &nbsp;&nbsp;...data for new object...<br>
+                                        }
+
+                          		  </code>
+                           	</div>
+                              	<h2>PUT</h2>
+                              	<p>The PUT method is used to modify an existing resource object. The data to modify an existing object is contained in the body of the request. You should use ids in the URL to specify which object to modify.</p>
+                           	<div class="block">
+                            		<code class="block">
+                            			PUT http://api.website.com/robot/9000<br>
+                            			                         		  		{<br>
+                                        &nbsp;&nbsp;...data for updated object...<br>
+                                        }
+                          		  </code>
+                       	    </div>
+                           	  <h2>DELETE</h2>
+                              	<p>The DELETE method is used to remove an existing resource object. DELETE methods do not use bodies and you must specify which object to delete by it's id in the URL.</p>
+                            	<div class="block">
+                       		  		<code class="block">
+                            			DELETE http://api.website.com/robot/9000
+                       		  		</code>
+                           	  	</div>
+                                <h2>Documentation in Action</h2>
+                            <p>Lets put all this knowledge we have learned so far to use. The following is an example of what a RESTful document may look like for our robot API. This robot has an inventory resource that needs to documented and it has the following methods: retrieving data about a particular item in it's inventory, creating new inventory objects, updating and deleting a particular inventory item,  getting a list of all inventory items, and finally a method to tell a particular robot to return to home.</p>
+                                <span class="strong">Retrieving Item</span><br>
+                                <p>Returns data about a specific item.</p>
+                                <div class="block">
+                                	<code class="block">
+                                    	GET http://api.website.com/robot/9000/inventory/{item id}
+                                    </code>
+                                </div>
+                                <span class="strong">Create New inventory</span><br>
+                                <p>Creates a new collection of inventory items</p>
+                            <div class="block">
+                                	<code class="block">
+                                    	POST http://api.website.com/robot/9000/inventory
+                                    </code>
+                            </div>
+                                <span class="strong">Update  Inventory Item</span><br>
+                                <p>Updates an existing inventory item.</p>
+                            <div class="block">
+                                	<code class="block">
+                                    	PUT http://api.website.com/robot/9000/inventory/{item id}
+                                    </code>
+                            </div>
+                                <span class="strong">Delete  Inventory Item</span><br>
+                                <p>Deletes an inventory item.</p>
+                                <div class="block">
+                                	<code class="block">
+                                    	DELETE http://api.website.com/robot/9000/inventory/{item id}
+                                    </code>
+                                </div>
+                                <span class="strong">Retrieve All Inventory Items</span><br>
+                                <p>Returns a list of all inventory items.</p>
+                                <div class="block">
+                                	<code class="block">
+                                    	GET http://api.website.com/robot/9000/inventory
+                                    </code>
+                                </div>
+                                <span class="strong">Return Home</span><br>
+                                <p>Instructs a particular robot to return to home base.</p>
+                                <div class="block">
+                                	<code class="block">
+                                    	POST http://api.website.com/robot/9000/home
+                                    </code>
+                                </div>
+		                  </article>
+				        </div>
+					</section>
+                     <section class="guideBox">
+				        <div class="tutorialRow">
+				            <div class="guideHeader"><a name="QueryParameters" class="anchorLink"></a>Query Parameters</div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="guideContent">
+                            	<h2>What Are Query Parameters</h2>
+                           	  <p>Query parameters are a way for the API request to provide additional information to the server. A common use of query parameters is modify or filter the data that is returned.</p>
+                            	<p>Some consider the query parameter as part of the URL. Query parameters comes after the URL which is followed by a question mark in a series of key/value pairs separated by an equals sign. If you wish to use more than one query parameter, you can use as many key/value pairs that are available to the API as long as you separate each key/value pair with an ampersand.</p>
+                            	<p>Here is a example of two query parameters in action that asks for information from robot #9000's inventory item called tire:</p>
+                                <div class="block">
+                                	<code class="block">
+                                    	http://api.website.com/robot?id=9000&amp;inventory=tire
+                                    </code>
+                            	</div>
+                                <h2>Pagination</h2>
+                                <p>One generic method used to speed up transfer of data is pagination. Pagination breaks up the data into several smaller pieces which allows for faster delivery. This method is used frequently when requesting data from a server. In the following example, we are going to ask for the first five items first and then the next five items later.</p>
+                                <div class="block">
+                                	<code class="block">
+                                    	GET http://api.website.com/robot?limit=5&amp;offset=0
+                                    </code>
+                            	</div>
+                                <p>Here, limit is set to 5 which will restrict the data returned to just five items and offset is the value used to indicate the start of returned values. In the next call, we want to pull down data for the next five items.</p>
+                                <div class="block">
+                                	<code class="block">
+                                    	GET http://api.website.com/robot?limit=5&amp;offset=5
+                                    </code>
+                            	</div>
+                                <p>Since this query could potentially return too much data, you can filter this returned data even further by using a <code class="inline">type</code> query.</p>
+                                <div class="block">
+                                	<code class="block">
+                                    	GET http://api.website.com/robot?limit=5&amp;offset=0&amp;type=roller
+                                    </code>
+                            	</div>
+                                <p>Data can be requested in a particular format via query parameters though this is not a common practice anymore. The format data type is usually specified in the header.</p>
+                                <div class="block">
+                                	<code class="block">
+                                    	GET http://api.website.com/robot?format=json
+                                    </code>
+                            	</div>
+                                <p>There is a third, and less common, way to specify the data format and that is using a suffix.</p>
+                                <div class="block">
+                                	<code class="block">
+                                    	GET http://api.website.com/robot.json
+                                    </code>
+                            	</div>
+                                <p>Sometimes, query parameters are used for authorization. This authorization comes in the form of a token or "apikey" which is usually a string of numbers and letters. It's more common to use headers to pass this information.</p>
+                                 <div class="block">
+                                	<code class="block">
+                                    	GET http://api.website.com/robot?toekn=234235fe23512a332
+                                    </code>
+                            	</div>
+                                <h2>How to Document Query Parameters</h2>
+                              <p>As noted above and in my previous guides on documenting <a href="Documenting_API-JSON.html" title="Documenting APIs Via JSON">JSON</a> and <a href="Documenting_API-XML.html" title="Documenting APIs Via XML">XML</a>, query parameters are key/value pairs. To document query parameters, you may want to consider using a table with at least the following columns:</p>
+                                <ul>
+                                	<li>Parameter</li>
+                                	<li>Description</li>
+                                	<li>Type</li>
+                                	<li>Required</li>
+                                	<li>Notes</li>
+                                </ul>
+                                <p>Quick note on query parameter types: all values are technically strings but you may want to specify your types regardless in your documentation using terms like Integer, Date, URL, and so on. If there is a limit on a set, put that information in the Notes column.</p>
+                                <table class="example">
+                                	<tbody>
+                                  		<tr>
+                                            <th>Parameter</th>
+                                            <th>Description</th>
+                                            <th>Type</th>
+                                            <th>Required</th>
+                                            <th>Notes</th>
+    	                                </tr>
+                                    	<tr>
+                                      		<td>date</td>
+                                            <td>Date which the robot left base.</td>
+                                            <td>Date</td>
+                                            <td>Required</td>
+                                            <td>Format is YYYY-MM-DD-HH-MM-SS</td>
+                                    	</tr>
+                                        <tr>
+                                      		<td>last_updated</td>
+                                            <td>Time elapsed since the robot last checked in.</td>
+                                            <td>Integer</td>
+                                            <td>Optional</td>
+                                            <td>Default is 0.00</td>
+                                    	</tr>
+                                        <tr>
+                                      		<td>id</td>
+                                            <td>Id of robot</td>
+                                            <td>Integer</td>
+                                            <td>Required</td>
+                                            <td></td>
+                                    	</tr>
+                                        <tr>
+                                      		<td>status</td>
+                                            <td>Activity status of robot</td>
+                                            <td>Boolean</td>
+                                            <td>Optional</td>
+                                            <td>active/inactive; Default is active.</td>
+                                    	</tr>
+                                  	</tbody>
+                                </table>
+		                  </article>
+				        </div>
+					</section>
+                     <section class="guideBox">
+				        <div class="tutorialRow">
+				            <div class="guideHeader"><a name="Headers" class="anchorLink"></a>Headers</div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="guideContent">
+                            	<h2>HTTP Headers</h2>
+                       	  	  <p>Headers are part of the HTTP protocol and uses key/value pairs. The key of a header is typically a standard HTTP header and are often used for specifying a format and/or authorization.</p>
+                                <h2>Formats</h2>
+                                <p>HTTP defines special headers to specify data formats. These formats can change depending on whether or not the data is being sent or received. The sending format refers to the data used in POST or PUT in the body which uses a header key of <code class="inline">Content-Type</code>. If you are sending JSON or XML, your header will include a header value of <code class="inline">application/json</code>or <code class="inline">application/xml</code> respectively. The header value can also specify formats for media like images, videos, and audio files.</p>
+                                <p>This is what a typical header might include:</p>
+                               	<div class="block">
+                               		<code class="block">
+                                    	Content-Type: application/json
+                                   </code>
+                            	</div>
+                              	<p>A difference between sending and receiving data is that the header key will use <code class="inline">Accept</code>.</p>
+                                <div class="block">
+                               		<code class="block">
+                                    	Accept: application/json
+                                   </code>
+                            	</div>
+                                <p>Some APIs not only specify which format to use but also the format of the resource. Below is an example of a resource being requested:</p>
+                              	<div class="block">
+                               		<code class="block">
+                                    	application/json;website.robot.json+v1
+                                   </code>
+                            	</div>
+                                <p>In this case, the request is expecting our website to return the robot resource in a JSON format (in particular, the first version of this JSON format).</p>
+                              <p>Headers will be similar for all API requests. GET and DELETE don't need <code class="inline">Content-Type</code> headers as they do not use bodies unless they use a different format type for each resource.</p>
+                           	  	<h2>Documenting Headers</h2>
+<p>Documenting a header is pretty straight forward. You should use a table with the following columns:</p>
+                   		  	  <ul>
+                              	<li>Header Name</li>
+                              	<li>Description</li>
+                              	<li>Values</li>
+                              </ul>
+                              <table class="example">
+                                	<tbody>
+                                  		<tr>
+                                            <th>Header Name</th>
+                                            <th>Description</th>
+                                            <th>Required</th>
+                                            <th>Values</th>
+    	                                </tr>
+                                    	<tr>
+                                      		<td>Bearer</td>
+                                            <td>Access token</td>
+                                            <td>Required</td>
+                                            <td>See <a href="#">Authorization</a> section</td>
+                                    	</tr>
+                                        <tr>
+                                      		<td>Content-Type</td>
+                                            <td>Format of request data</td>
+                                            <td>Optional</td>
+                                            <td>application/json, application/xml. Default is application/json</td>
+                                    	</tr>
+                                        <tr>
+                                      		<td>Accept</td>
+                                            <td>Format of response data</td>
+                                            <td>Optional</td>
+                                            <td>application/json, application/xml. Default is application/json</td>
+                                    	</tr>
+
+                                  	</tbody>
+                              </table>
+                              <p><span class="strong">Sample Request</span></p>
+                              <p>This request uploads and downloads information and accepts JSON data by default.</p>
+                              <div class="block">
+                               		<code class="block">
+                                    	POST http://api.website.com/robot/9000/inventory
+                                   </code>
+                            	</div>
+                                <div class="block">
+                               		<code class="block">
+                                    	Content-Type: application/json<br>
+										Accept: application/json
+                                   </code>
+                            	</div>
+                                <p>POST body is the data to update the robot's inventory.</p>
+                          </article>
+				        </div>
+					</section>
+                     <section class="guideBox">
+				        <div class="tutorialRow">
+				            <div class="guideHeader"><a name="AuthenticationandAuthorization" class="anchorLink"></a>Authentication and Authorization</div>
+				        </div>
+				        <div class="tutorialRow">
+			              <article class="guideContent">
+                            	<h2>Why is Security Important</h2>
+                            	<p>There are two general areas where security is important: APIs are only called by registered developers and the user data it works with.</p>
+                            	<p>Why is this important? Often companies have a business model that involves API access. Other times, API access may be limited to certain number of requester per time period. Also, APIs help companies collect important data on how their product is used.</p>
+                           	  <p>User data can be very sensitive and their data should only be accessible to those with the proper credentials. </p>
+                                <h2>Authentication Versus Authorization</h2>
+                                <p>Authentication is the process of a user providing a valid username and password. Sometimes this process may be augmented with other authenticating systems like Google Authenticator. This process usually results in an access token.</p>
+                                <p>Authorization means that when you make an API request, you pass the server the access token thus allowing you access. This token determines what API requests you can make.</p>
+                              <h2>App Keys</h2>
+                              <p>App key, also known as API keys, must be registered with the company's developer portal (website for developers). The portal then returns a temporary app key which is usually a string of numbers and characters. Sometimes, this key is sent to the server in exchange for the access token so that each API request is associated with the registered app. After some time, your app key will expire and you will need to refresh it.</p>
+                            <h2>OAuth</h2>
+                            <p><a href="http://oauth.net/" title="OAuth" target="_blank">OAuth</a> is a popular open protocol that is both very flexible and complex used for authentication and authorization systems. To better understand OAuth, we can use the metaphor of valet keys. Older cars use to come with two sets of keys: one that grants the driver access to all areas of the car (door, ignition system, trunk, etc.) and the valet key only grants the driver access to the door and ignition system. When you use a valet service at a restaurant, you would hand the parking attendant your valet key. Basically, this means that different users have different privileges.                            </p>
+                            <p>OAuth has several ways to handle authorization with the most common types being &quot;one-legged&quot; and &quot;three-legged&quot;. One-legged is when no sensitive data is involved. Three-legged is used when there is a need to protect user data.                </p>
+                            <p>Information flows differently depending on how authorization is granted thus the need for grant types. The two most common grant types are authorization code and implicit.</p>
+                            <p>Authorization code is used with server-side applications while implicit is used with mobile and web applications.</p>
+                            <p>An example of one-legged OAuth is data that can be accessed by anyone like social media feeds. A typical data flow might act like this when requesting a social media feed update: Your device sends an app key to the server and the server returns with an access token. Once your device has the access token, it sends an API request with the access token back to the server and the server responds with the requested API data.</p>
+                            <p>Three-legged OAuth is used when user data needs to be protected like updating a status on a social media feed. No one but the owner of that feed should be granted access to it. This type of authentication is called three-legged because there are three pathways of data involved: There are connections between the client device, an authentication server, and the API server.</p>
+                            <!--<p>Authentication server is usually different from the API server and may even live on a different company's service.</p>-->
+                            <h2>Headers and Access Tokens</h2>
+                            <p>As mentioned earlier, it is a more common practice to pass the access token via the header rather than an query parameter. Here is an example header line passing the key/value pair of <code class="inline">Bearer</code> and the value:</p>
+                           	<div class="block">
+                                <code class="block">
+                                    Bearer: 234234ea356793e32a3f33
+                               </code>
+                            </div>
+                            <h2>How to Document Authentication and Authorization</h2>
+                            <p>Documenting authentication and authorization various widely from application to application. You will need to write a section just for Authorization with a step by step process to get an access token, the URL of the authentication server, and how to get the access token from the server's redirect URL. Then, write up how to pass that token to the server, how often it expires, and how to get a new token. Also include how to use the token in an appropriate table or header or query parameter.</p>
+</article>
+				        </div>
+					</section>
+                     <section class="guideBox">
+				        <div class="tutorialRow">
+				            <div class="guideHeader"><a name="RequestBodiesandResponses" class="anchorLink"></a>Request Bodies and Responses</div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="guideContent">
+                            	<h2>Structured Data in REST</h2>
+                           	  <p>Structured data is data that is organized in objects and lists (like JSON and XML). Structured data is only found in request bodies (with methods such as POST and PUT) and response bodies. To document those structures, please review my guides on <a href="Documenting_API-JSON.html" title="Documenting APIs Via JSON">Documenting APIs Via JSON</a> and <a href="Documenting_API-XML.html" title="Documenting APIs Via XML">Documenting APIs Via XML</a>.</p>
+                           	  <p>Note: if a response has no body (like a DELETE request), you will not need to document this in a table. You can write the valid response code confirming that the action has been successfully executed and that the response has no body.</p>
+                           	  <p>Often, you will encounter an API request that returns the same type of data. You should create a document that lists all the objects that also contain their response bodies in a simple table with links to any other objects.</p>
+                              <h2>Documenting Errors</h2>
+<p>Errors are handled in one of two ways: HTTP status codes or elements in the response body. A status code is part of the HTTP protocol and is always returned with the response.</p>
+<p>As part of the HTTP protocol, each status code has a standardized code and description like these:</p>
+                              <ul>
+                              	<li>200 - OK</li>
+                              	<li>201 - Created</li>
+                              	<li>204 - No Content</li>
+                              	<li>206 - Partial Content</li>
+                              	<li>301 - Moved Permanently</li>
+                              	<li>401 - Unauthorized</li>
+                              	<li>404 - Not Found</li>
+                           	  </ul>
+                              <p>The 200 codes are successful returns with varying levels of data. 300s usually means that something else needs to happen to make the request successful. And 400s means there was an error on the client side. Here is a list of examples applied to APIs:</p>
+                              <ul>
+                              	<li>200 - OK: Successfully used GET, PUT, or DELETE</li>
+                              	<li>201 - Created: Successful POST</li>
+                              	<li>401 - Unauthorized: Bad access token</li>
+                              	<li>404 - Not Found: Bad URL</li>
+                           	  </ul>
+                              <p>Documenting HTTP status codes is pretty straight forward and only needs to be done once. Use a table with Code, Description, and Notes columns. However, sometimes you may need to create more than one table if the API has different requests. Here is an sample table you might find:</p>
+                              <table class="example">
+                                	<tbody>
+                                  		<tr>
+                                            <th>Code</th>
+                                            <th>Description</th>
+                                            <th>Notes</th>
+    	                                </tr>
+                                    	<tr>
+                                      		 <td>200</td>
+                                             <td>OK</td>
+                                             <td>API successful request</td>
+                                    	</tr>
+                                        <tr>
+                                      		 <td>201</td>
+                                             <td>Created</td>
+                                             <td>Successful POST</td>
+                                    	</tr>
+                                        <tr>
+                                   		  <td>401</td>
+                                          <td>Unauthorized</td>
+                                          <td>Invalid access token</td>
+                                    	</tr>
+                                  	</tbody>
+                              </table>
+                              <p>As mentioned earlier, error message can appear in bodies and will need to be documented just like response elements. You can generate a table similar to HTTP status codes.</p>
+                              <p>Sample error code in a body:</p>
+                              <div class="block">
+                                	<code class="block">
+                                	  {<br>
+                                	  &nbsp;&nbsp;&quot;errorCode&quot;: 02,<br>
+                                	  &nbsp;&nbsp;&quot;errorMessage&quot;: Inventory limit reached&quot;<br>
+
+                                	  }
+                              	  </code>
+                              </div>
+                          </article>
+				        </div>
+					</section>
+                    <section class="guideBox">
+				        <div class="tutorialRow">
+				            <div class="guideHeader"><a name="SampleDocumentation" class="anchorLink"></a>Sample Documentation</div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="guideContent">
+                                  <p>It's highly advised that you should create templates for each type of document that you will be producing and maintaining. You will creating multiple pages with the same layout and style of your API documentation and investing a little time in creating a template per type of document that you will be producing will save hours, if not days, of going back and forth with your documentation set making sure everything looks and reads the same throughout.</p>
+                                  <p>The following is a sample of getting the inventory of one of our robots out on a delivery run:</p>
+                                  <div class="block">
+                                        <code class="block">
+                                            GET http://api.website.com/robot?id=9000&amp;inventory=update&amp;status=update<br><br>
+                                            Bearer: 234234ea356793e32a3f33<br>
+                                            Accept: application/json
+                                    </code>
+                              </div>
+                                    <ul>
+                                        <li><code class="inline">id</code> is required</li>
+                                        <li><code class="inline">inventory</code> is required</li>
+                                        <li><code class="inline">status</code> is optional. Default is to return active.</li>
+                                        <li>You can get a list of <code class="inline">inventory</code> by GETting on the <code class="inline">/robot/{type}</code> call.</li>
+                                        <li>You can also use pagination. Use <code class="inline">offset</code> for the start index and <code class="inline">limit</code> is the number of items to return.</li>
+                                        <li>For <code class="inline">Accept</code>, you can have either <code class="inline">application/json</code> or <code class="inline">application/xml</code>. JSON is the default.</li>
+                                    </ul>
+                                  <p>Here is what a sample page could like:</p>
+                                  <p></p>
+                                  <p></p>
+                                  <h3>Retrieve inventory update for a robot</h3>
+                                  <p>Retrieves the inventory of a particular robot.</p>
+                                    <p><span class="strong">URL</span></p>
+                                    <div class="block">
+                                        <code class="block">
+                                            GET http://api.website.com/robot
+                                        </code>
+                                    </div>
+                                    <p><span class="strong">Query Parameters</span></p>
+                                    <table class="example">
+                                        <tr>
+                                            <th>Parameter</th>
+                                            <th>Description</th>
+                                            <th>Type</th>
+                                            <th>Required</th>
+                                            <th>Notes</th>
+                                        </tr>
+                                        <tr>
+                                          <td>id</td>
+                                            <td>Id of robot</td>
+                                          <td>Integer</td>
+                                          <td>Required</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td>index</td>
+                                            <td>Number of results to return</td>
+                                            <td>Integer</td>
+                                            <td>Optional</td>
+                                            <td>Defaults to 10</td>
+                                        </tr>
+                                        <tr>
+                                          <td>inventory</td>
+                                          <td>Returns a list of items in robot's hold</td>
+                                          <td>String</td>
+                                          <td>Optional</td>
+                                          <td>Defaults to a comma separated list. See <a href="#sampleNote" class="strong">Notes</a> below.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>offset</td>
+                                            <td>Index to start at</td>
+                                            <td>Integer</td>
+                                            <td>Optional</td>
+                                            <td>Defaults to 0</td>
+                                        </tr>
+                                        <tr>
+                                          <td>status</td>
+                                          <td>Returns the activity status</td>
+                                          <td>Boolean</td>
+                                          <td>Optional</td>
+                                          <td>active/inactive. Defaults to active.</td>
+                                        </tr>
+
+
+                                    </table>
+                       		  		<p><a name="sampleNote"></a>Note: To get a list of inventory items, make a <a href="#" title="inventory endpoint">inventory type</a> request.</p>
+                                    <p><span class="strong">Headers</span></p>
+                                    <table class="example">
+                                        <tr>
+                                          <th>Header Name</th>
+                                          <th>Description</th>
+                                          <th>Required</th>
+                                          <th>Values</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Bearer</td>
+                                          <td>Access token.</td>
+                                          <td>Required</td>
+                                          <td>See Authorization section.</td>
+                                        </tr>
+                                        <tr>
+                                          <td>Accept</td>
+                                          <td>Format of the data to be returned</td>
+                                          <td>Optional</td>
+                                            <td>application/json, application/xlm. Default is application/json.</td>
+                                        </tr>
+                                    </table>
+                              		<p><span class="strong">Sample Request</span></p>
+                                	<div class="block">
+                                		<code class="block">
+                                			GET http://api.website.com/robot?id=9000&amp;inventory=update&amp;status=update<br><br>
+                                        	Bearer: 234234ea356793e32a3f33<br>
+                                        	Accept: application/json
+                              	  		</code>
+                              		</div>
+                              <p><span class="strong">Response</span></p>
+                                  <table class="example">
+                                    <tr>
+                                        <th colspan="2">Element</th>
+                                        <th>Description</th>
+                                        <th>Type</th>
+                                        <th>Notes</th>
+                                    </tr>
+                                    <tr>
+                                      <td>id</td>
+                                      <td></td>
+                                        <td>Id of robot</td>
+                                        <td>Integer</td>
+                                        <td></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">inventory</td>
+                                        <td>Items in robot's hold</td>
+                                        <td>Array of item data</td>
+                                        <td>If <code class="inline">inventory</code> isn't specified, then there is no response with <code class="inline">inventory</code>.</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>name</td>
+                                        <td>Name of item</td>
+                                        <td>String</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>id</td>
+                                        <td>Id of item</td>
+                                        <td>Integer</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>quantity</td>
+                                        <td>Quantity of item in robot's hold</td>
+                                        <td>Integer</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>status</td>
+                                        <td></td>
+                                        <td>Returns the activity status</td>
+                                        <td>Boolean</td>
+                                        <td></td>
+
+                                    </tr>
+                                  </table>
+                              <p><span class="strong">Sample response:</span></p>
+                                  <div class="block">
+                                    <code class="block">
+                                      {<br>
+                                      &nbsp;&nbsp;&quot;id&quot;: &quot;9000&quot;<br>
+                                      &nbsp;&nbsp;inventory: [<br>
+                                      &nbsp;&nbsp;&nbsp;&nbsp;{<br>
+                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;name&quot;: &quot;tire&quot;,<br>
+                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;id&quot;: 00104,<br>
+                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;quantity&quot;: 4<br>
+                                      &nbsp;&nbsp;&nbsp;&nbsp;},<br>
+                                      &nbsp;&nbsp;&nbsp;&nbsp;{<br>
+                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;name&quot;: &quot;rim&quot;,<br>
+                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;id&quot;: 00105,<br>
+                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;quantity&quot;: 4<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                                    &nbsp;&nbsp;],<br>
+                                    &nbsp;&nbsp;&quot;status&quot;: &quot;active&quot;<br>
+                                    }
+                                    </code>
+                                </div>
+                              <p><span class="strong">Status Codes and Errors</span></p>
+                                <table class="example">
+                                    <tr>
+                                        <th>Code</th>
+                                        <th>Description</th>
+                                        <th>Notes</th>
+                                    </tr>
+                                    <tr>
+                                        <td>200</td>
+                                        <td>OK</td>
+                                        <td>Success</td>
+                                    </tr>
+                                    <tr>
+                                        <td>401</td>
+                                        <td>Unauthorized</td>
+                                        <td>Invalid access token</td>
+                                    </tr>
+                                    <tr>
+                                        <td>404</td>
+                                        <td>Not found</td>
+                                        <td>Invalid inventory type</td>
+                                    </tr>
+                                </table>
+			              </article>
+				        </div>
+					</section>
+                    <section class="guideBox">
+				        <div class="tutorialRow">
+				            <div class="guideHeader"><a name="RESTDocumentationTools" class="anchorLink"></a>REST Documentation Tools</div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="guideContent">
+                            	<h2>Helpful tools</h2>
+                           	  <p>You want to choose a tool, or a few of tools, that makes it easy for all interested individuals to collaborate, generates web-based documentation, is easy to keep in sync with the constantly changing and updating API. There are several tools on the market that can help but because this documentation field is relatively new and every company has a different preference for what and how to document, this guide will not get into the particulars of this subject.</p>
+                                <h2>Single source tools</h2>
+                              <p>A single source tool is an application that you would use to write document and has the capability to generate several formats such as HTML, PDF, Word, and so on and have the feature set to create templates. I cannot stress how important it is to use a tool that allows for the creation of templates. These tools are typically used for end-user documentation which tends to have a nice appearance but when crunched for time, you don't want to worry too much about the appearance of the content but rather just getting the correct information out there.</p>
+                                <h2>Content management systems</h2>
+                                <p>Content management systems are web-based and are typically viewed, and edited, through a browser. Such systems may include wikis which can range in basic to very rich features sets. Wikis are also great for collaboration. Some of these wiki systems may include features that allow for each multi-page and/or scripting base updates as well as integration options into developer portals.</p>
+                                <h2>Auto-docs (auto-generated documentation)</h2>
+                              	<p>Auto-generated  documentation takes data files (such as JSON and XML) and automatically generate documentation from them. However, you cannot always generate REST documentation from code comments. In which case, you will need to work with your developer team to create a comment file which then can be parsed into the auto-generated documentation.</p>
+                                <h2>Markdown</h2>
+                              <p>Markdown is a simple mark-up language similar to HTML but without styling and has some limits. It is much easier to read than HTML and be learned very quickly if you already know HTML.</p>
+                                <h2>Tools for REST request</h2>
+                                <p>Part of your job as an API writer, it would be best if you were able to make REST requests on your own as well.  This ability will often give you answers without having to ask for questions and in some cases, troubleshoot errors or bugs in the responses. You can make these requests and view their responses using a REST client. Once such example is an add-on for Chrome called <a href="https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo?hl=en-US" title="Advanced REST Client for Chrome" target="_blank">Advanced REST Client</a>.</p>
+				            </article>
+				        </div>
+					</section>
+
+
+                    <!--
+
+                    ** re-enable the tutorial.css on line 16! **
+
+                    -->
+				</div>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		<!-- automated modal image storage-->
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+		<script src="../../js/getYear.js"></script>
+		<script src="../../js/modal-images.js"></script>
+		<script src="../../js/auto-number.js"></script>
+	</body>
+</html>

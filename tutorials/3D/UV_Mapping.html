@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="tutorial, maya, uv, mapping">
+		<meta name="description" content="UV Mapping Tutorial">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>UV Mapping Tutorial</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer="defer" src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1>UV Mapping</h1>
+					<p class="about">
+						Written by Brian Immel
+					</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+            		<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>UV Map Options</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	There are several ways to map the UV coordinates of a polygonal object: Planar Mapping, Cylindrical Mapping, Spherical
+				                	Mapping, Automatic Mapping and a combination of the previously mentioned.
+				                </p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Planar Mapping</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Polygonal objects can be mapped according to the X-axis, Y-axis, Z-axis and camera angle. Each angle will map the entire
+				                	object or selected faces according the axis or direction of the planar mapping selection.
+				                </p>
+				                <p>
+				                	Using Planar Mapping &gt; Camera probably of the most useful tools when trying to map selected areas.
+				                </p>
+				                <ul>
+							        <li>
+							        	To do this, select a few faces of a polygonal object, lets say the front side of a torso of a biped and angle the
+							        	perspective camera directly in front of it.
+							        </li>
+							        <li>Go to Edit Polygons &gt; Texture &gt; Planar Mapping &gt; Camera.</li>
+							        <li>
+							        	The selected faces will be mapped according to the angle of the camera to the selected faces, not the entire surface.
+							        	Repeat these steps again and again until the entire biped character is UV mapped.
+							        </li>
+							        <li>Keep in mind, when using this technical, you will several "regions" of UVs within the UV coordinate layout.</li>
+							        <li>
+							        	Also, if you do not move each UV set as you create them, you will have overlapping UV sets which can lead to a headache
+							        	down the road when you need to separate all the UV sets. So a word to the wise would be to move the UV set in UV
+							        	Texture Editor each time you create a set. See the section called Using the UV Texture Editor.
+							        </li>
+							 	</ul>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/projections1.jpg" id="projections1" class="imgThumbnail" title="projections1" data-toggle="modal" data-target=".projections1"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Cylindrical Mapping</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				        	<article class="tutorialContent">
+				                <p>
+
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/projections2.jpg" id="projections2" class="imgThumbnail" title="projections2" data-toggle="modal" data-target=".projections2"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Spherical Mapping</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/projections3.jpg" id="projections3" class="imgThumbnail" title="projections3" data-toggle="modal" data-target=".projections3"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Polygonal UV mapping strategies</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	There are no limits to how many UV maps, or projections, you can project onto a polygonal surface. Go nuts with them but
+				                	remember to delete your history before enveloping the geometry to the skeleton system.
+				                </p>
+							    <ul>
+							        <li>
+							        	Every time you create a new projection be sure to move them away from the existing projections to avoid confusion
+							        	selections and overlapping UVs later on. See the section called Moving UVs.
+							        </li>
+							        <li>
+							        	You can temporarily place/move new projections away from the original creation point. Just be sure to move, scale,
+							        	rotate all the UV points back into the top right corner of the grid in the UV Texture Editor Window.
+							        </li>
+							    </ul>
+							    <p>
+							    	Use some sort of texture area mapping (like a grid or numbering system) to lay out how the surface is UV mapped. Using
+							    	some sort of mapping system can help you figure out what areas are disconnected, which ones need connecting and how to
+							    	connect them in some cases.
+							    </p>
+							    <p>Try to map regions of the character to object.</p>
+							    <ul>
+							        <li>Plan out which areas need higher level of detail and which ones don't.</li>
+							        <li>Since the arms and legs are mostly cylindrical, try setting them up with a simple Cylindrical Map first.</li>
+							    </ul>
+							    <p>
+							    	When moving the UV sets around in the UV Texture Editor window, try to keep the UV sets near their home areas (arms near
+							    	the torso UV set, toe near the foot UV set, etc.).
+							    </p>
+							    <p>
+							    	Scaling UV sets can become a major issue if resolution settings are not up to spec. Ideally, all UV sets should be the
+							    	same scale but that is just an ideal. Texture artists usually leave areas of high detail larger than those of little
+							    	detail. You have to keep in mind what your goals are with this map. Do you need to see the dirt under the finger nails or
+							    	just the fact that the character has flesh tones on his hand?
+							    </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/projections4.jpg" id="projections4" class="imgThumbnail" title="projections4" data-toggle="modal" data-target=".projections4"/>
+				            </div>
+				        </div>
+					</section>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		</div>
+		<!-- automated modal image storage-->
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+		<script src="../../js/getYear.js"></script>
+		<script src="../../js/modal-images.js"></script>
+		<script src="../../js/auto-number.js"></script>
+	</body>
+</html>

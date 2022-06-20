@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="guide,documentation,api,json,xml">
+		<meta name="author" content="Brian Immel">
+		<meta name="description" content="Documenting APIs Via XML">
+    <meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>Documenting APIs Via XML</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1>Documenting APIs Via XML</h1>
+					<p class="lead">
+						Like JSON, XML is another popular (but older) format that allows for structured data to be easily written and ready by both humans and computers alike. This short guide will show you the basics of how to read and write XML files for API documentation.
+					</p>
+                    <p>This guide includes the following topics:</p>
+                    <ul>
+                    	<li><a href="#XML">XML</a></li>
+                        <li><a href="#DocumentingXML">Documenting XML</a></li>
+                        <li><a href="#ToolsforWritingStructuredDataDocumentation">Tools for Writing Structured Data Documentation</a></li>
+                        <li><a href="#UsingStructureDataforDocumentation">Using Structure Data for Documentation</a></li>
+                    </ul>
+					<p class="about">
+						Written by Brian Immel
+					</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+                    <section class="guideBox">
+				        <div class="tutorialRow">
+				            <div class="guideHeader"><a name="XML" class="anchorLink"></a>XML</div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="guideContent">
+                            	<p>In a previous guide, I wrote a short overview of how to <a href="Documenting_API-JSON.html">document JSON</a>. If you haven't read it yet, I highly recommend that you do so. The following content relies on previously listed information. For this guide, we will be revising our robot API.</p>
+                            	<p>Note: this guide makes references to HTML. You do not need to know HTML to continue with this guide but it does help to understand how HTML elements work.<br>
+                          	  </p>
+                              <p>In this guide, we will revisit our delivery robot API as mentioned in previous technical writing guides that I have written.</p>
+                              <hr>
+                              <p>XML stands for eXtensible Markup Language which is very much like HTML but meant to describe data. Unlike HTML, XML tags are not predefined and you can define your own tags as you see fit. Because of this customizable nature, XML can be used for any kind of structured data. Also, unlike JSON, XML has only one type: String</p>
+<p>With that, lets jump into structures of XML and learn a little about XML in general.</p>
+                              <h2>Structured Data</h2>
+                              <p>XML allows for the transfer of data via a structure format. Think of this structure as a tree: From the root, you have several branches. Each branch in turn has it's own branch and so on until you finally reach the end with a leaf.</p>
+                              <p>XML can contain a dictionary of lists, lists of dictionaries, and dictionary of dictionaries. A dictionary, in terms of XML, is similar in nature to JSON's key/value pair. But, unlike JSON, the first line of an XML file has to be used to declare a few things. This line is referred to as the header.</p>
+<p>This header information usually includes version, character encoding, and so forth. But from a API writer's standpoint, you can basically ignore it.</p>
+                                <p>Example of a declaration:</p>
+                                <div class="block">
+                                    <code class="block">&lt;?xml version=&quot;0.8&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot; ?&gt;</code>
+                                </div>
+                                <h2>Tags and Content</h2>
+                                <p>Tags works like HTML starting with angle brackets (<code class="inline">&lt; &gt;</code>). The start and end tags must match that can only contain letters, numbers, and underscores. All XML tags must start with a letter character.</p>
+                                <p>Example:</p>
+                                <div class="block">
+                                    <code class="block">&lt;type&gt;roller&lt;/type&gt;</code>
+                                </div>
+                                <p>Empty tags can use self-closing tags like this one:</p>
+                                <div class="block">
+                                    <code class="block">&lt;space_travel/&gt;</code>
+                                </div>
+                                <p>Content is what is found between the opening and closing tags. If the content has no tags, it's treated like a string. In the <code class="inline">type</code> (tag) example above, <code class="inline">roller</code> is the content.</p>
+                                <h2>Nesting</h2>
+                                <p>Just like JSON objects, nested data can sits inside a set of tags.</p>
+                                <p>Example of nested tags:</p>
+                                <div class="block">
+                                    <code class="block">
+                                        &lt;robot&gt;<br/>
+                                        &nbsp;&nbsp;&lt;type&gt;roller&lt;/type&gt;<br/>
+                                        &nbsp;&nbsp;&lt;weight&gt;20&lt;/weight&gt;<br/>
+                                        &nbsp;&nbsp;&lt;sensors&gt;optical&lt;/sensors&gt;<br/>
+                                        &lt;/robot&gt;
+                                    </code>
+                                </div>
+                                <p>In this example above, we have a <code class="inline">robot</code> tag with three nested tags within it (<code class="inline">type, weight,</code> and <code class="inline">sensors</code>).</p>
+                                <p>Here is an example of a full XML file as noted from a <code class="inline">robot</code> object with <code class="inline">type, weight,</code> and <code class="inline">sensors</code> data:
+                                <div class="block">
+                                    <code class="block">
+                                        &lt;?xml version=&quot;0.8&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot; ?&gt; <br/>
+                                        &lt;robot&gt;<br/>
+                                        &nbsp;&nbsp;&lt;type&gt;roller&lt;/type&gt;<br/>
+                                        &nbsp;&nbsp;&lt;weight&gt;2&lt;/weight&gt;<br/>
+                                        &nbsp;&nbsp;&lt;sensors&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;sensor&gt;optical&lt;/sensor&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;sensor&gt;distance&lt;/sensor&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;sensor&gt;vibration&lt;/sensor&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;sensor&gt;fuel&lt;/sensor&gt;<br>
+                                        &nbsp;&nbsp;&lt;sensors&gt;<br/>
+                                        &lt;robot&gt;<br/>
+                                    </code>
+                                </div>
+                                <h2>Attributes</h2>
+                                <p>In addition to content, tags can have attributes that contains simple data (such as a string or number). Attributes act like key/value pairs when accessing the data within it.</p>
+                                <p>The key is created as a string within the tag but you do not have to put quotes around it. The value should be in a set of quotation marks. Key names must start with a letter character and can use any combination of letters, numbers, and underscores. Spaces and punctuation characters are not allowed for the name of keys names.</p>
+                                <p>Most common designs with XML files is to use attributes as some sort of property about the data (such as metadata).</p>
+                                <p>Example of attributes:</p>
+                                <div class="block">
+                                    <code class="block">
+                                        &lt;robot&gt;<br/>
+                                        &nbsp;&nbsp;&lt;weight unit=&quot;kilograms&quot;&gt;20&lt;/weight&gt;<br>
+                                        &nbsp;&nbsp;&lt;velocity decimals=&quot;2&quot; unit=&quot;km/h&quot;&gt;32.22&lt;/velocity&gt;<br>
+                                        &nbsp;&nbsp;&lt;battery_life unit=&quot;hours&quot; active=&quot;true&quot;&gt;10&lt;/battery_life&gt;<br/>
+                                    &lt;/robot&gt;
+                                    </code>
+                                </div>
+                                <p>In this particular case, the robot has a weight of 20kg, is moving at 32.22km/h, and has 10 hours of active battery life left.</p>
+                                <p>Here is an example of attributes and an array:
+                                <div class="block">
+                                    <code class="block">
+                                    	&lt;robot type=&quot;roller&quot; weight=&quot;20&quot; weight_unit=&quot;kilograms&quot;&gt;<br/>
+                                        &nbsp;&nbsp;&lt;sensors&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;sensor name=&quot;optical&quot;/&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;sensor name=&quot;distance&quot;/&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;sensor name=&quot;vibration&quot;/&gt;<br>
+                                        &nbsp;&nbsp;&lt;sensors&gt;<br/>
+                                        &lt;robot&gt;<br/>
+                                    </code>
+                                </div>
+                                <p>From this example, we can tell that the robot is a roller type, weighs 20kg, and has three sensors including optical, distance, and vibration.</p>
+                                <h2>Comments</h2>
+                                <p>You can use comments in XML files just like HTML files by using the opening and closing comment tags of <code class="inline">&lt;!--</code> and <code class="inline">--&gt;</code>. Everything in between these comment tags will be ignored.</p>
+                                <p>Consider the following:</p>
+                                <div class="block">
+                                    <code class="block">
+                                        &lt;robot type=&quot;roller&quot; weight=&quot;20&quot; weight_unit=&quot;kilograms&quot;&gt;<br/>
+                                        &nbsp;&nbsp;&lt;sensors&gt;<br>
+                                        &nbsp;&nbsp;&lt;!-- This attribute needs at least one sensor to be listed in order to work properly. If this is empty, please review the source file. --&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;sensor name=&quot;optical&quot;/&gt;<br>
+                                        &nbsp;&nbsp;&lt;sensors&gt;<br/>
+                                        &lt;robot&gt;<br/>
+                                    </code>
+                                </div>
+                                <p>As noted, the comment nested in the <code class="inline">sensors</code> tag provides some information about the data but it won't be read or displayed by any parser or auto-documentation system.</p>
+                                <h2>Namespaces</h2>
+                                <p>Namespaces are commonly used in structured hierarchies, like XML documents, to allow the reuse of names but in different contexts. Namespaces are usually a prefix given to a tag name that is separated by a colon (:).</p>
+                                <p>For example, we have a tag called <code class="inline">wheels,</code> and another set called <code class="inline">front:wheels</code>. The obvious difference here is that one tag set handles data about wheels in a more general sense while <code class="inline">front:wheels</code> handles the specifics of wheels located on the front side.</p>
+                                <div class="block">
+	                                <code class="block">
+                                    	&lt;wheels&gt;<br/>
+                                        &nbsp;&nbsp;&lt;tire_count count=&quot;4&quot;/&gt;<br/>
+                                        &lt;/wheels&gt;<br/>
+                                    	&lt;front:wheels&gt;<br/>
+                                        &nbsp;&nbsp;&lt;tire_pressure_left unit=&quot;pounds&quot; value=&quot;20&quot;/&gt;<br/>
+                                        &nbsp;&nbsp;&lt;tire_pressure_right unit=&quot;pounds&quot; value=&quot;20&quot;/&gt;<br/>
+                                        &lt;/front:wheels&gt;<br/>
+                                	</code>
+                                </div>
+                                <h2>Indentation</h2>
+                                <p>Indentation is typically used to indicate nesting of information. Indentation is typically handled via &quot;White space&quot; which means spaces, new lines, and so on. You may have noticed the indentation in all the previously listed examples and didn't think much about it but each example used a very rigid spacing policy of two white spaces per level.</p>
+                                <p>While some think that spacing doesn't matter in a XML file unless it is inside a quotation mark, I tend to disagree. I believe that one should have clear and consistent usage of white spacing throughout the entire documentation set. Consistent spacing makes the XML document easier to read and just looks more professional.</p>
+                                <p>Properly formatted XML includes:</p>
+                                <ul>
+                                  <li>An indent for every new level of brackets
+                                    <ul>
+                                      <li>2 to 4 white spaces (depending on your team's/company's coding policy)</li>
+                                    </ul>
+                                  </li>
+                                  <li>Tags that do not contain other tags can have start and end tags on the same line.</li>
+                                  <li>Tags that are nested should be on their own lines.</li>
+                                </ul>
+                                <p>There is an ongoing argument about white spaces versus tabbed spaces. Depending on the options of your favorite XML editor, a tabbed space can be configured to use white spaces instead or use any other spacing configuration that the development team has blessed.</p>
+                            </article>
+				        </div>
+					</section>
+                    <section class="guideBox">
+				        <div class="tutorialRow">
+				            <div class="guideHeader"><a name="DocumentingXML" class="anchorLink"></a>Documenting XML</div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="guideContent">
+								<h2>Overall Approach to Documenting XML</h2>
+                                <p>Short caveat: There is no one perfect way to document XML files. You should review your company and/or team's policies on the particulars this subject.</p>
+                                <p>API requests often use either JSON and XML. The request may specify which format is used. Because of this request, it would work to your advantage to document both JSON and XML files using similar (if not the same) table columns. If the API is designed well, the key names in JSON and the tag names in XML should be identical. Also, the types should be identical.</p>
+                                <h2>Documenting Attributes</h2>
+                                <p>Both JSON and XML files can pretty much deliver the same data but there is a structural difference between the two. That is, XML has attributes and JSON does not. If an API uses both JSON and XML, often the XML does not make use of the attributes in it's tags.</p>
+                                <p>If XML has only a few attributes, you may want to document the attributes in the Notes column to your table. If the XML has many attributes, try adding an Attributes column to your table.</p>
+                                <h2>How to Document Types</h2>
+                                <p>There are two kinds of types in XML: simple and complex. Simple types are strings whereas complex contain other tags.</p>
+                                <p>Technically, all simple types are strings but the software parsing the data may convert the string into another type. Because of this, you will need to document the kind of type so the developers know what to use for both content and attribute values.</p>
+                                <p>Complex types are other elements with tags and you should list the element name in the Type column. If you are using multiple tables, then you should have a table for each element type. In this setup, you should make a link to the nested tags within the complex type to the other tables in the Type column.</p>
+                                <p>Consider the following tables:</p>
+                                <p>Object level of robot</p>
+                                <table class="example">
+                                    <tr>
+                                        <th>Element</th>
+                                        <th>Description</th>
+                                        <th>Type</th>
+                                  </tr>
+                                    <tr class="hover">
+                                        <td>id</td>
+                                        <td>Unique id of robot</td>
+                                        <td><a href="#" class="underscore">id</a> element</td>
+                                    </tr>
+                                </table>
+                                <p>Id: fields for robot's id.</p>
+                                <table class="example">
+                                    <tr>
+                                        <th>Element</th>
+                                        <th>Description</th>
+                                        <th>Type</th>
+                                  </tr>
+                                    <tr class="hover">
+                                        <td>id</td>
+                                        <td>Unique id of robot</td>
+                                        <td>number</td>
+                                    </tr>
+                                    <tr class="hover">
+                                        <td>init_date</td>
+                                        <td>Robot's initialization date</td>
+                                        <td>dateString</td>
+                                    </tr>
+                                  <tr class="hover">
+                                        <td>created_by</td>
+                                        <td>Name of person/machine who built this robot</td>
+                                        <td><a href="#" class="underscore">user</a> element</td>
+                                  </tr>
+                                </table>
+                                <p>User: fields for user's id.</p>
+                                <table class="example">
+                                    <tr>
+                                        <th>Element</th>
+                                        <th>Description</th>
+                                        <th>Type</th>
+                                  </tr>
+                                    <tr class="hover">
+                                        <td>id</td>
+                                        <td>Unique id of user</td>
+                                        <td>number</td>
+                                    </tr>
+                                    <tr class="hover">
+                                        <td>name</td>
+                                        <td>Name of person/machine</td>
+                                        <td>string</td>
+                                    </tr>
+                                  <tr class="hover">
+                                        <td>location</td>
+                                        <td>Location of user</td>
+                                        <td>number</td>
+                                  </tr>
+                                </table>
+                                <p>One additional note you should consider when creating these tables: Since the JSON and XML files are similar, your request and response will need to include a Required column. Again, follow the aforementioned format of &quot;Required&quot; or &quot;Optional&quot; with putting default values of the Optional in the Notes column as noted in the <a href="Documenting_API-JSON.html" title="Documenting API Via JSON">Documenting API Via JSON</a> guide.</p>
+				            </article>
+				        </div>
+					</section>
+                    <section class="guideBox">
+				        <div class="tutorialRow">
+				            <div class="guideHeader"><a name="ToolsforWritingStructuredDataDocumentation" class="anchorLink"></a>Tools for Writing Structured Data Documentation</div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="guideContent">
+								<p>There are wide variety of tools at your disposal for creating structured data documentation. Whichever you choose, you should make sure it has these bare minimum requirements:</p>
+                                <ul>
+                                    <li>The ability to create tables,</li>
+                                    <li>make links both internal and external to the document,</li>
+                                    <li>and assigning fonts like Monospace for code samples.</li>
+                                </ul>
+                                <p>Format control and creating templates are great to have but that would be a desire, not necessarily a requirement for your documentation.</p>
+                                <p>Some old-school tools that was used were programs like Microsoft Word (which is then saved out as a PDF for distribution on the web) but in my experiences, you get a lot more bang for your buck if you use a wiki based system like <a href="https://www.mediawiki.org/wiki/MediaWiki" title="MediaWiki" target="_blank">MediaWiki</a>, <a href="https://www.atlassian.com/software/confluence" title="Atlassian's Confluence" target="_blank">Atlassian's Confluence</a>, or <a href="http://www.mindtouch.com/" title="MindTouch" target="_blank">MindTouch</a>. One can go so far as to use a standard HTML editor and write the document using either HTML or Markdown but you would get bogged down in the finer details of consistent formatting. There are many many commercial tools that's up to the challenge of documenting your API such as <a href="http://www.madcapsoftware.com/products/flare/" title="Madcap Flare" target="_blank">Madcap Flare</a> and <a href="https://en.wikipedia.org/wiki/Adobe_RoboHelp" title="RoboHelp" target="_blank">Robohelp</a>. These great tools tend to provide you with more functionality when dealing with technical documentation but may fall short in features for general documentation.</p>
+                                <h2>Why Use Structured Data for Documentation</h2>
+                                <p>A key need in writing structure documentation properly is so that the document is readable by both humans and machine. This works to your advantage because it can be included in automated testing and interactive documentation. For example, check out <a href="http://petstore.swagger.io/#!/pet/addPet" title="Swagger's Pet Store" target="_blank">Swagger's Pet Store</a>. This site delivers a well formatted and interactive documentation base that is both easy to use and includes a great search function.</p>
+                                <p>I don't know about you but I use search and filter functions on documentation whenever it's available. And if I may stand on a soapbox for a moment, I'd like to say this: Please, please, please include a search feature! Technical documentation can get very long (and "wordy"). Wading through these documents can be painful but if the document includes a search filter, your quest for your API field can be cut down to seconds instead of minutes.</p>
+				            </article>
+				        </div>
+					</section>
+                    <section class="guideBox">
+				        <div class="tutorialRow">
+				            <div class="guideHeader"><a name="UsingStructureDataforDocumentation" class="anchorLink"></a>Using Structure Data for Documentation</div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="guideContent">
+                            	<h2>Schema</h2>
+                                <p>XSD files (XML Schema Definition) are used to describe the structure of XML files which is also known as the Schema. The schema file describes which tags, attributes, and type are used in the XML files.</p>
+                                <p>XSD files are written in XML markup. So if you know XML, you'll have no problem reading XSD files.</p>
+
+                                <h2>Using XML to Describe XML (XSD)</h2>
+                                <p>The following example lists all the valid types and values of sensors a robot may use in our documentation sample:</p>
+                                <div class="block">
+                                    <code class="block">
+                                        &lt;xs:simpleType name=sensors&gt;<br>
+                                        &nbsp;&nbsp;&lt;xs:annotation&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:documentation&gt;Types of sensors available for robots&lt;/xs:documentation&gt;<br>
+                                        &nbsp;&nbsp;&lt;xs:restriction base=&quot;xs:string&quot;&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;optical&quot;&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:annotation&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:documentation&gt;Visual sensor to detect light&lt;/xs:documentation&gt;<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:annotation&gt;<br>
+                                      	&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:enumeration&gt;<br>
+                                      	&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;distance&quot;&gt;<br>
+                                		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:annotation&gt;<br>
+                                		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:documentation&gt;Laser based sensor to detect distance of nearby objects&lt;/xs:documentation&gt;<br>
+                                		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:annotation&gt;<br>
+                                		&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:enumeration&gt;<br>
+                                		&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:enumeration value=&quot;vibration&quot;&gt;<br>
+                                		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:annotation&gt;<br>
+                                		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;xs:documentation&gt;Seismic based sensor to detect vibrations of payload and traveling surface&lt;/xs:documentation&gt;<br>
+                                		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:annotation&gt;<br>
+                                		&nbsp;&nbsp;&nbsp;&nbsp;&lt;/xs:enumeration&gt;<br>
+                                    	&nbsp;&nbsp;&lt;/xs:restriction&gt;<br>
+                                    	&nbsp;&nbsp;&lt;/xs:annotation&gt;<br>
+                                  		&lt;/xs:simpleType&gt;
+                                    </code>
+                                </div>
+                                <h2>Disadvantages</h2>
+                                <p>While XSD is pretty powerful, it does have a few shortcomings:</p>
+                                <ol>
+                                	<li>XSD can handle simple descriptions but if your descriptions get too wordy, the description could wrap oddly or just take up too much cell space in the table.</li>
+                                    <li>XSD can't use images (diagrams, screen-shots, and so forth would have to handled in another fashion).</li>
+                                    <li>Finally, XSD cannot use links.</li>
+                                </ol>
+				            </article>
+				        </div>
+					</section>
+				</div>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		<!-- automated modal image storage-->
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+		<script src="../../js/getYear.js"></script>
+		<script src="../../js/modal-images.js"></script>
+		<script src="../../js/auto-number.js"></script>
+	</body>
+</html>

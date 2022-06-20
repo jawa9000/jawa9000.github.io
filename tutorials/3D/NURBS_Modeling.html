@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="tutorial, maya, 3d, modeling, nurbs">
+		<meta name="description" content="NURBS Modeling Tutorial">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>NURBS Modeling Tutorial</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer="defer" src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1>NURBS Modeling</h1>
+					<p class="lead">
+						I will be talking about various methods for modeling with NURBS including creating NURBS curves, creating surfaces from curves and
+						modifying NURBS surfaces.
+					</p>
+					<p class="about">
+						Written by Brian Immel
+					</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+            		<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Overview</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	This workshop will cover all the basic functions and uses for NURBS modeling from using a simple curve to a highly
+				                	detailed surface.
+				                </p>
+				                <p>
+				                	NURBS objects can be thought of as pieces of paper folded to make the shape you want. The reason the comparison between
+				                	NURBS surfaces and paper is that a NURBS surface can be "wrapped" like paper.
+				                </p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Object History, Freezing Transformations and Centering Pivots</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <ul>
+								  	<li>
+								  		At some point in time when modeling or setting up for animation, it will become necessary to delete the history of
+								  		various objects for a wide variety of reasons.
+								  	</li>
+								    <ul>
+								        <li>Edit &gt; Delete by Type &gt; History</li>
+								      	<li>I use this function so often that I make it a shortcut on my Shelf.</li>
+								    </ul>
+								  	<li>
+								  		Freezing Transformations is helpful to both the modeler and animator. Sometimes you will need to 'reset' or modifiy a
+								  		transformation node.
+								  	</li>
+								    <ul>
+								        <li>Modify &gt; Freeze Transformation</li>
+								      	<li>Again, I use this function frequently so I make it a shortcut on my Shelf.</li>
+								    </ul>
+								  	<li>Centering Pivots, as the name suggests, centers the pivot of an object to its averaged center position.</li>
+								    <ul>
+								        <li>Modify &gt; Center Pivot</li>
+								      	<li>I also have this function in my Shelf because its so handy.</li>
+								    </ul>
+								</ul>
+				            </article>
+				        </div>
+					</section>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		</div>
+		<!-- automated modal image storage-->
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+		<script src="../../js/getYear.js"></script>
+		<script src="../../js/modal-images.js"></script>
+		<script src="../../js/auto-number.js"></script>
+	</body>
+</html>

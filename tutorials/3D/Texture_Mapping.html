@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="tutorial, maya, texture, mapping">
+		<meta name="description" content="Texture Mapping Tutorial">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>Texture Mapping Tutorial</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer="defer" src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1>Texture Mapping</h1>
+					<p class="about">
+						Written by Brian Immel
+					</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+            		<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>NURBS UVs</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	NURBS objects have their UVs assigned to them automatically when they are created since the surface type is by nature a two-dimensional surface.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Texture_Mapping/UVs-automapped-on-nurbs0.jpg" id="UVs-automapped-on-nurbs0" class="imgThumbnail" title="UVs-automapped-on-nurbs0" data-toggle="modal" data-target=".UVs-automapped-on-nurbs0"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Backfacing</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	If you apply a map and it appears backwards, that usually indicates that the Normals are facing the wrong direction. To correct this first see if all the
+				                	Normals are facing the right direction. If they aren't reverse the surface direction to fix it.
+				                </p>
+				                <ul>
+									<li>Display &gt; NURBS Components &gt; Normals (Shaded Mode).</li>
+									<li>Modeling &gt; Edit NURBS &gt; Reverse Surface Direction.</li>
+								</ul>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Texture_Mapping/UVs-automapped-on-nurbs1.jpg" id="UVs-automapped-on-nurbs1" class="imgThumbnail" title="UVs-automapped-on-nurbs1" data-toggle="modal" data-target=".UVs-automapped-on-nurbs1"/>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Texture_Mapping/UVs-automapped-on-nurbs2.jpg" id="UVs-automapped-on-nurbs2" class="imgThumbnail" title="UVs-automapped-on-nurbs2" data-toggle="modal" data-target=".UVs-automapped-on-nurbs2"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Texturing Polygons</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Once we have created out poly object we need to make sure its ready to receive a texture map. The first thing we should check is to see if the faces are
+				                	aiming in the right direction (out). We can do this by checking the display of the Normals through the Display > Polygon Components options.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Texture_Mapping/poly-displays1.jpg" id="poly-displays1" class="imgThumbnail" title="poly-displays1" data-toggle="modal" data-target=".poly-displays1"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Displaying Polygon components</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+						   		<ul>
+						    		<li>Face Centers - good for seeing if the face is on the inside or outside of the surface.</li>
+						      		<li>
+						      			UVs - good for making sure the UV points are where they are suppose to be (used for corrected UVs that may have been shifted around during the
+						      			creation of the UV map).
+						      		</li>
+						      		<li>Normals - the best display option to see if our faces are pointing outwards and in the direction they should be going.</li>
+						      		<li>
+						      			If the Normals are not facing out, we'll need to make them facing outward. Correcting this can be easy or painful depending on how the poly
+						      			surface was created.
+						      		</li>
+						        	<ul>
+						          		<li>Polygons &gt; Normals</li>
+						          		<li>Set Vertex Normal</li>
+						          		<li>Average Normals</li>
+						          		<li>Set to Face</li>
+							          	<li>Reverse</li>
+						          		<li>Conform</li>
+						        	</ul>
+								</ul>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Texture_Mapping/poly-displays2.jpg" id="poly-displays2" class="imgThumbnail" title="poly-displays2" data-toggle="modal" data-target=".poly-displays2"/>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Texture_Mapping/poly-displays3.jpg" id="poly-displays3" class="imgThumbnail" title="poly-displays3" data-toggle="modal" data-target=".poly-displays3"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Edit Polygons > Texture</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Polygons don't have their UVs automatically laid out like the default NURBS objects do. You need to create an UV map for each poly object. One of the great
+				                	things about mapping poly objects is that we can create as many maps as we like for the surface.
+				                </p>
+				                <p>
+				                	The first thing we should do is to create a new shader and apply it to the poly surface. Prior to mapping the surface, we should have some idea of what we
+				                	are going to put on it and where. If we are mapping the fenders of a car, does the surface show any dirt or scratches? If so, where? If we are mapping a face,
+				                	does the character have a scar under his left eye or any other noteworthy texture? Where does it sit exactly? This is where the sketches done on paper come in
+				                	very handy. Once we have all this information ready, we are ready to map the poly object.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Creating UV Maps from Projections</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				            	<p>
+									Mapping Direction
+								</p>
+								<ul>
+									<li>X Axis - projects a map of the entire object or select faces on the X plane.</li>
+									<li>Y Axis - projects a map of the entire object or select faces on the Y plane.</li>
+								  	<li>Z Axis - projects a map of the entire object  or select faces on the Z plane.</li>
+								  	<li>
+								  		Camera - projects a map of the entire object or select faces according to the angle of the camera to the surface. This type of Planar mapping works the
+								  		best and fastest because you define a number of maps of a round surface with a lot of control.
+								  	</li>
+								</ul>
+				            </div>
+     				         <div>
+     				         	<img src="../../images/tutorials/Texture_Mapping/poly-mapping01.jpg" id="poly-mapping01" class="imgThumbnail" title="poly-mapping01" data-toggle="modal" data-target=".poly-mapping01"/>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Texture_Mapping/poly-mapping02.jpg" id="poly-mapping02" class="imgThumbnail" title="poly-mapping02" data-toggle="modal" data-target=".poly-mapping02"/>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Texture_Mapping/poly-mapping03.jpg" id="poly-mapping03" class="imgThumbnail" title="poly-mapping03" data-toggle="modal" data-target=".poly-mapping03"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Face Components</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Select face components to generate separate projection maps.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Texture_Mapping/poly-mapping04.jpg" id="poly-mapping04" class="imgThumbnail" title="poly-mapping04" data-toggle="modal" data-target=".poly-mapping04"/>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Texture_Mapping/poly-mapping05.jpg" id="poly-mapping05" class="imgThumbnail" title="poly-mapping05" data-toggle="modal" data-target=".poly-mapping05"/>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Texture_Mapping/poly-mapping06.jpg" id="poly-mapping06" class="imgThumbnail" title="poly-mapping06" data-toggle="modal" data-target=".poly-mapping06"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Cylindrical Mapping</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Creates a cylindrical map around the surface. This works pretty well if the object is more like a tube in shape. But this doesn't work so well for faces
+				                	because shapes like the nose, mouth and ears break up that simple cylindrical shape.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Texture_Mapping/poly-mapping07.jpg" id="poly-mapping07" class="imgThumbnail" title="poly-mapping07" data-toggle="modal" data-target=".poly-mapping07"/>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Texture_Mapping/poly-mapping08.jpg" id="poly-mapping08" class="imgThumbnail" title="poly-mapping08" data-toggle="modal" data-target=".poly-mapping08"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Spherical Mapping </div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Creates a ball-shaped map around the selected faces. This only works well if the object is more or less a ball. Again, this won't work too well for faces.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Texture_Mapping/poly-mapping09.jpg" id="poly-mapping09" class="imgThumbnail" title="poly-mapping09" data-toggle="modal" data-target=".poly-mapping09"/>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Texture_Mapping/poly-mapping10.jpg" id="poly-mapping10" class="imgThumbnail" title="poly-mapping10" data-toggle="modal" data-target=".poly-mapping10"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Automatic Mapping</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Maya tries to break apart the surface best it figures.
+				                </p>
+				                <p>
+				                	Using the option box, we can tell it to Automatic Map using a limited range of Planes, Optimize for Less Distortion or Fewer Pieces, Layout either Along U or
+				                	Into Square, Scale either by None, Uniform or Stretch to Square and set Spacing Presets to name most of the options. Each one of these options will change the
+				                	layout of the Auto Mapping feature but because Maya doesn't know what kind of shape this object is, it can and will break the surface down to something that
+				                	we would have to be rebuild most of the UVs to get something usable out of it. I normally don't use this type of mapping option. I use Planar Mapping set to
+				                	the camera 95% of the time so I can control the UV creation better.
+				                </p>
+				                <p>
+									Each time we create a new UV map, we need to move it off the default creation location in the UV Texture Editor. Otherwise, every UV map we create will sit
+									on top of the previous map and make out mapping work all for nothing.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Texture_Mapping/poly-mapping11.jpg" id="poly-mapping11" class="imgThumbnail" title="poly-mapping11" data-toggle="modal" data-target=".poly-mapping11"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Basics of Editing UVs</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Window > UV Texture Editor
+				                </p>
+				                <ul>
+									<li>
+										Selection Types - can be moved with the Translate, Rotate and Scale Tools. To gain access to the following selection types in the UV Texture Editor
+										window, right-click in any where in the window.
+									</li>
+									<ul>
+										<li>
+											Edge - use this selection type to figure out where the shared edges are. Also used to merge edges if we need to connect UV maps to other UV maps.
+											Cannot be used to move the UV in the UV Texture Editor window.
+										</li>
+									    <li>Vertex - use this selection type to figure out where the shared vertices are. Cannot be used to move the UV in the UV Texture Editor window.</li>
+									    <li>
+									    	Face - use this selection type to figure out where the faces are sitting according to our selections of the object. Cannot be used to move the UV
+									    	in the UV Texture Editor window. You will need to select all the faces in the UV Texture Editor window in order to export the UV map to a 2D
+									    	pixel-editing program (i.e. Photoshop).
+									    </li>
+									    <li>UV - use this selection type to move UVs around.</li>
+									    <ul>
+									    	<li> Only way to move, align UV points in the mapping window.</li>
+									    </ul>
+									</ul>
+								</ul>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Texture_Mapping/poly-uv-layout01.jpg" id="poly-uv-layout01" class="imgThumbnail" title="poly-uv-layout01" data-toggle="modal" data-target=".poly-uv-layout01"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>UVs Tips</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Moving UVs tips and tricks in the UV Texture Editor
+				                </p>
+				                <ul>
+									<li>Move all mapped UVs together. Leaving a UV or two behind will make the UV stretch after we apply a new texture map to it.</li>
+								    <li>Scale selected UVs evenly. Try to map all your UVs at the same size. Again, this can cause major problems with stretched texture maps.</li>
+								    <li>When rotating UVs, rotate them in a way that best fits the surface and keeps them 'clean'.</li>
+								    <li>
+								    	When you creating your multiple maps, you can use the entire window to move the UV maps off the default creation location. You will have to move (and most
+								    	likely scale) them back to the top right grid of the UV Texture Editor window after you've finished creating all the maps.
+								    </li>
+								    <li>It is always best to define a system for placing UVs next toone another. Example, if I map my upper lips and lower lips separate, I would place the UVs
+								    	for them sitting above and below each other respectively. If I map my chin, I would try to place it below the lower lip UVs.
+								    </li>
+				                </ul>
+				                <p>
+				                	Note: if you do not map the other faces and apply a color map to the surface later on, the unmapped faces will not render. You should map all the face
+							    	regardless if you will use them or not.
+							    </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Texture_Mapping/poly-uv-layout02.jpg" id="poly-uv-layout02" class="imgThumbnail" title="poly-uv-layout02" data-toggle="modal" data-target=".poly-uv-layout02"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Merging multiple UVs maps</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				           		<ul>
+									<li>Select the edge you wish to move and merge together. By selecting one edge, the other shared edge will always highlight.</li>
+								    <li>
+								    	Move the edge(s) of the selected mapped UVs to the other's location. You might need to rotate (Edit Polygons &gt; Texture &gt; Rotate UVs), flip (Edit
+								    	Polygons &gt; Texture &gt; Flip UVs) or reshape the UVs in order to get them to sit close to each other.
+								    </li>
+								    <li>
+								    	Next you can either Sew UVs or Move and Sew UVs under the Edit Polygons &gt; Texture menu. Sew UVs will average the distance between the two edges and
+								    	merge them together. Using the Move and Sew UVs option box gives you more alternatives to how the edges will merge.
+								    </li>
+								</ul>
+				                <p>
+				                	There are several tools and techniques for mapping UVs. I have only scratched the surface of this huge portion of Maya. You'll find several handy tools in the
+				                	Edit Polygons &gt; Texture menu in addition to the ones I mentioned earlier.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Texture_Mapping/poly-uv-layout03.jpg" id="poly-uv-layout03" class="imgThumbnail" title="poly-uv-layout03" data-toggle="modal" data-target=".poly-uv-layout03"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Exporting the UV map</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				            	<ul>
+									<li>Select the Faces in the UV Texture Editor.</li>
+									<li>Go to Polygons (in the UV Texture Editor window) and select UV Snapshot….</li>
+								  	<li>Give it a file name and save location.</li>
+								  	<li>
+								  		Only use 512x512, 1024x1024, or 2048x2048 Size X and Size Y (resolution). By default, the UV Texture Editor window is square and these resolution options
+								  		are also (do the math!).
+								  	</li>
+								  	<li>
+								  		Use either Targa or Tiff format for the Image Format. I prefer the Targa format because you can save a layered version of it with the newer versions of
+								  		Photoshop.
+								  	</li>
+								  	<li>Hit OK.</li>
+								</ul>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Texture_Mapping/poly-uv-layout04.jpg" id="poly-uv-layout04" class="imgThumbnail" title="poly-uv-layout04" data-toggle="modal" data-target=".poly-uv-layout04"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Using Photoshop to Paint UV Maps</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Open the Targa we just created. The mapped UVs will be laid out as outlines of the polygonal faces in a layer called Layer 0.
+				                </p>
+				                <p>
+				                	Save the file as a PSD format.
+				                </p>
+				                <p>
+				                	Create another layer and move it under Layer 0. Flood layer 1 with the basic color of the map.
+				                </p>
+				                <p>
+				                	Make a new layer for each area you want to create a new color for.
+				                </p>
+				                <p>
+									Color will only be mapped according to the outlines of UV map. That means we can color outside the line and not get our hands hit by a ruler. Just be sure
+									that your color from one area doesn't spill into another unless that is what you intend to do. The UVs I laid out for this demo are going to be used to map
+									the areas of the face for animation.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Texture_Mapping/poly-facial-set1.jpg" id="poly-facial-set1" class="imgThumbnail" title="poly-facial-set1" data-toggle="modal" data-target=".poly-facial-set1"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Layer 0</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Once you are done paint the color map, delete or hide Layer 0. It is very important to remove this layer before exporting the color map back to Maya. This
+				                	layer can also act like an alpha matte and when it is applied to the surface, the only visible spots will be where the edges were drawn.
+				                </p>
+				                <p>
+									Optional step: Flatten layers and discard any hidden layers if you are not using PSD shaders in Maya.
+								</p>
+								<p>
+									Save file as with another name similar to the original one we put out from Maya.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Assign Map to Shader</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	 Back in Maya, select the shader we assigned to the surface and click the check box next to color in the Attribute Editor of that shader.
+				              	</p>
+				              	<p>
+									Create a File link to the Color attribute.
+								</p>
+								<p>
+									Select the new color map. This will update the color map of the polygon object automatically. Now, whenever we need to update the color map, we can go back
+									to Photoshop, flatten layers and save as a Targa again, and hit the Reload File Texture button. As long as the file names stay the same and folder
+									hierarchies do too, then this will work great.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Texture_Mapping/poly-facial-set2.jpg" id="poly-facial-set2" class="imgThumbnail" title="poly-facial-set2" data-toggle="modal" data-target=".poly-facial-set2"/>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Texture_Mapping/poly-facial-set3.jpg" id="poly-facial-set3" class="imgThumbnail" title="poly-facial-set3" data-toggle="modal" data-target=".poly-facial-set3"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>3D Paint Tool</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Apply a new shader to the surface (lambert).
+				                </p>
+				                <p>
+									Select the object to be painted.
+								</p>
+								<p>
+									Make sure the viewport is in Texture mode (shortcut key 6). Otherwise, we won't be able to see what we are about to do.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Unpaintable to Paintable Surface</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Go to Rendering > Texturing > 3D Paint Tool option box. When the tool first becomes active, you'll notice a big circle with an X through it. This is
+				                	Maya's way of telling you that there is painted map assigned to this surface attribute.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Texture_Mapping/3d-paint-tool1.jpg" id="3d-paint-tool1" class="imgThumbnail" title="3d-paint-tool1" data-toggle="modal" data-target=".3d-paint-tool1"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Paint to Color</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <ul>
+				                	<li>
+				                		Down towards the bottom is a section called File Textures. Set the Attribute to Paint to Color. Also choose Maya IFF (iff) for Image Format. You can
+				                		choose a wide variety of formats but IFF, Targa and TIFFs are the best for this job.
+				                	</li>
+				      				<li>Click the Assign Textures button</li>
+				        			<ul>
+				                    	<li>
+				                    		Upon clicking this button, a small window appears asking for the X and Y size of the Assigning File Texture. Choose at least 512x512 but I usually
+				                    		paint at 1024x1024.
+				                    	</li>
+				          				<li>
+				          					Hit the Assign Textures button. You'll notice a slight shift in the gray color of the surface and now you paint brush doesn't have the X through
+				          					it anymore. We have successfully assigned a new texture map and are ready to start painting color to the surface within Maya.
+				          				</li>
+				    				</ul>
+				    			</ul>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Texture_Mapping/3d-paint-tool2.jpg" id="3d-paint-tool2" class="imgThumbnail" title="3d-paint-tool2" data-toggle="modal" data-target=".3d-paint-tool2"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Brushes</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				            	<p>
+				            		Back towards the top we can choose to use a different type of brush under the Brush section by simply clicking on one of the icons in the Artisan section or
+				            		by going to Browse button to load something else other than Maya's default brush types. Also be sure that Rotate To Stroke is enabled. This will help you
+				            		paint in 3D better.
+				            	</p>
+				            	<p>
+				            		If you know how to create paintbrushes using older versions of Photoshop (versions 4 through 6) then you can create your own custom brush from any type of
+				            		grayscale image
+				            	</p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Color</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				            	<ul>
+				               		<li>Color is the color used for the brush.</li>
+				               		<li>Click the color chip to bring up the Color Chooser window.</li>
+				               		<li>Flood Color will flood the entire surface with whatever color that is in the color chip next to it.</li>
+				               		<li>Click the color chip to bring up the Color Chooser window.</li>
+				               		<li>Opacity is how opaque the brush color will be.</li>
+				               		<li>Flood All button will flood the entire surface with the color in the Flood Color.</li>
+				               		<li>Flood Selected will flood just selected portions of the surface (do this by selecting faces).</li>
+				               </ul>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Texture_Mapping/3d-paint-tool3.jpg" id="3d-paint-tool3" class="imgThumbnail" title="3d-paint-tool3" data-toggle="modal" data-target=".3d-paint-tool3"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Paint Operations</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				            	<ul>
+				            		<li>Artisan Paint (default color painting setting)</li>
+				            		<li>Artisan Erase</li>
+				            		<li>Artisan Clone</li>
+				            		<li>Paint Effects Paint (need to load a Paint Effects attribute into the Color1 Attribute)</li>
+				            		<li>Paint Effects Smear</li>
+				            		<li>Paint Effects Blur</li>
+				            		<li>Reset Brushes</li>
+				            		<li>Blend mode works the same as Photoshop's Brush tool modes.</li>
+				            		<ul>
+				            			<li>Default</li>
+				            			<li>Lighten</li>
+				            			<li>Darken</li>
+				            			<li>Multiple</li>
+				            			<li>Screen</li>
+				            			<li>Overlay</li>
+				            		</ul>
+				            	</ul>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Stroke</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				            	<p>You can paint both sides of the surface at the same time if you use Reflection X, Y, and/or Z</p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Mapping Problems</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				            	<p>
+				            		Broken or mismatched UV maps
+				            	</p>
+				            	<ul>
+				            		<li>
+				            			Sometimes the UV maps you create don't seam together well when you're painting them in Maya or Photoshop as the illustration shows. One way to fix this
+				            			is to redraw the UV map.
+				            		</li>
+				            	</ul>
+				            	<p>
+				            		Sometimes, even after you've applied a new UV map to a surface (NURBS or poly) and you being moving the object, the texture map will move or "swim" through
+				            		the surface. What happens is that a 2D projection map (the UVs) does not stick to a 3D surface as it animates, deforms and so on. To correct this do the
+				            		following:
+				            	</p>
+				            	<ul>
+				            		<li>
+				            			Create a reference object (Rendering menu > Texturing > Create Texture Reference Object). This will create a templated copy of the surface in question.
+				            			This reference object will tell the original object where to map the 2D map on the animated surface.
+				            		</li>
+				            	</ul>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Texture_Mapping/3d-paint-tool4.jpg" id="3d-paint-tool4" class="imgThumbnail" title="3d-paint-tool4" data-toggle="modal" data-target=".3d-paint-tool4"/>
+				            </div>
+				        </div>
+					</section>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		<!-- automated modal image storage-->
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+	</body>
+	<script src="../../js/getYear.js"></script>
+	<script src="../../js/modal-images.js"></script>
+	<script src="../../js/auto-number.js"></script>
+</html>

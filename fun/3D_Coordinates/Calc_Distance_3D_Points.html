@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="fun,javascript,3d,distance,calculate">
+		<meta name="description" content="Calculate distance between two objects in 3D space">
+		<meta name="author" content="Brian Immel">
+        <meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>Calculate Distance Between Two 3D Points</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+
+        <!-- custom CSS just for this page -->
+        <style>
+			input {
+				width: 100px;
+				padding: 3px;
+				margin: 3px;
+			}
+			.question {
+				margin-left: 5px;
+				padding: 5px 2px 4px 3px;
+				border-radius: 50px;
+				width: 32px;
+				line-height: 20px;
+				font-size: 1em;
+				text-align: center;
+				display: inline-block;
+				cursor: help;
+				background: #ffffff; /* Old browsers */
+				background: -moz-radial-gradient(center, ellipse cover, #ffffff 50%, #0000ff 55%, #0000ff 55%, #0000ff 60%, #ffffff 65%); /* FF3.6+ */
+				background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(50%,#ffffff), color-stop(55%,#0000ff), color-stop(55%,#0000ff), color-stop(60%,#0000ff), color-stop(65%,#ffffff)); /* Chrome,Safari4+ */
+				background: -webkit-radial-gradient(center, ellipse cover, #ffffff 50%,#0000ff 55%,#0000ff 55%,#0000ff 60%,#ffffff 65%); /* Chrome10+,Safari5.1+ */
+				background: -o-radial-gradient(center, ellipse cover, #ffffff 50%,#0000ff 55%,#0000ff 55%,#0000ff 60%,#ffffff 65%); /* Opera 12+ */
+				background: -ms-radial-gradient(center, ellipse cover, #ffffff 50%,#0000ff 55%,#0000ff 55%,#0000ff 60%,#ffffff 65%); /* IE10+ */
+				background: radial-gradient(ellipse at center, #ffffff 50%,#0000ff 55%,#0000ff 55%,#0000ff 60%,#ffffff 65%); /* W3C */
+			}
+		</style>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1>Calculate Distance Between Two 3D Points</h1>
+                    <div id="distance"></div>
+                    <div id="form"></div>
+                    <script>
+                        var coords = []; // array for random coordinates
+                        var axi = ["x1","y1","z1","x2","y2","z2"]; // array of xyz ids
+
+                        // generate random coordinates
+                        for (var i = 0; i < 6; i++) {
+                            var rndPos = Math.floor(Math.random() * 100);
+                            var coinFlip = Math.floor(Math.random() * 100)
+                            if (coinFlip >= 50) {
+                                rndPos = rndPos - 100;
+                            }
+                            coords.push(rndPos);
+                        }
+
+                        distance(coords); // display init coordinates and it's distance
+
+                        // build inputs
+                        var output = "<form>";
+                        for (var i = 0; i < axi.length; i++) {
+                            if (i == 3) {
+                                output += "<br/>" + axi[i] + ": <input type='number' id='" + axi[i] + "' value='" + coords[i] + "'>";
+                            } else {
+                                output += axi[i] + ": <input type='number' id='" + axi[i] + "' value='" + coords[i] + "'>";
+                            }
+                        }
+                        output += "</form><br/><button type='button'>Calculate</button><span class='question' title='distance = Math.sqrt((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1)+(z2-z1)*(z2-z1)) rounded to two decimal places.'>?</span>";
+                        $("#form").html(output);
+
+
+                        function distance(array) { // calculte 3D distance and display it
+                            var distance = Math.sqrt((array[3] - array[0]) * (array[3] - array[0]) + (array[4] - array[1]) * (array[4] - array[1]) + (array[5] - array[2]) * (array[5] - array[2])).toFixed(2);
+                            $("#distance").html("Distance: " + distance);
+                        }
+
+
+						$("button").click(function() { // update calculations on click of button
+							var inputValues = [];
+							for (i in axi) { // get all inputValues of inputs
+								inputValues.push($("input#" + axi[i]).val());
+							}
+							distance(inputValues);
+						});
+                    </script>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+	</body>
+</html>

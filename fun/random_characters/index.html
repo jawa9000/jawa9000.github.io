@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="HTML5 games for toddlers learning the English alphabet and numbers 0-9">
+    <meta name="keywords" content="learning,game,html5,toddler,english">
+	  <meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+    <meta name="dedication" content="Jimmy Immel">
+    <meta name="version" content="0.2.8">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+    <title>Toddler Learning Games: Alphabet and Numbers</title>
+    <link href="css/normalize.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/alphabet.css">
+  </head>
+
+<!-- For Jimmy -->
+
+<body>
+  <!-- Navigation -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <ul id="nav" class="nav nav-pills nav-justified">
+          <li role="presentation" class="active"><a href="#Alphabet">Alphabet</a></li>
+          <li role="presentation"><a href="#Numbers">Numbers</a></li>
+          <li role="presentation"><a href="#Both">Both</a></li>
+          <li role="presentation"><a href="#Options">Options</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- audio player -->
+  <!--
+  <audio id="voice">
+    <source src="audio/0-9_Male_Vocalized-Mike_Koenig-1919515312.mp3" type="audio/mp3">
+    Your browser does not support the <code>audio</code> element.
+  </audio>
+  -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane fade in active" id="Alphabet">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div id="alphabet"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="Numbers">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div id="number"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="Both">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div id="both"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="Options">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <h1>Instructions</h1>
+            <p>Tap the character on the screen or on the keyboard. A correct tap will return a new character. If audio is enabled (default), the new character will be heard.</p>
+            <h1>Options</h1>
+            <!--
+            <p>To toggle the audio, click the audio icon.</p>
+            <span id="audio" class="glyphicon glyphicon-volume-up" title="Toggle audio"></span><span id="audioText"> Audio enabled</span>
+            -->
+            <p>To toggle random location of character, click the <strong>+</strong>/<strong>-</strong> icon.</p>
+            <span id="location" class="glyphicon glyphicon-plus"></span><span id="locationText"> Random location enabled</span>
+            <!--
+            <h1>Attribution</h1>
+            <p>Alphabet recorded by Mike Koenig: <a href="http://soundbible.com/2009-A-Z-Vocalized.html">http://soundbible.com/2009-A-Z-Vocalized.html</a></p>
+            <p>0-9 recorded by Mike Koenig: <a href="http://soundbible.com/2008-0-9-Male-Vocalized.html">http://soundbible.com/2008-0-9-Male-Vocalized.html</a></p>
+            -->
+            <h1>Credits</h1>
+            <p>Many thanks to Jimmy for countless hours of play testing and Shweta for design feedback and direction.</p>
+            <p>Conceived and developed by Brian Immel (April 2017).</p>
+            <p>Version: <span id="version"></span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!--
+    To-do list
+    * options
+    * mp3 preloader
+    * edit the mp3 files into individual files
+  -->
+
+
+  <script src="js/jquery-2.1.0.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/alphabet.js"></script>
+</body>
+</html>

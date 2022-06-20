@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="tutorial, rotoscope, 3d, animation">
+		<meta name="description" content="Rotoscoping Live-action Footage for 3D Animation">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>Rotoscoping Live-action Footage for 3D Animation: A Tutorial and Guide</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer="defer" src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1>Rotoscoping Live-action Footage for 3D Animation</h1>
+					<p class="about">
+						Note: this guide was never completed.
+					</p>
+					<p class="about">
+						In this tutorial, we will cover concepts used to rotoscoping animation from live-action footage. We will use a firewire-enable
+						camcorder, Adobe Premiere (version 5.5 or later) and Alias Maya (version 4.5 or later).
+					</p>
+					<p class="about">
+						Written by Brian Immel
+					</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+            		<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Preparing for the outdoor video shoot</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	What you will need:
+				                </p>
+				                <ol>
+									<li>Big open space</li>
+									<li>No visual distractions (highways in the background, tall grass, tree limbs, etc.)</li>
+									<li>Good weather conditions (if working outdoors). Preferably a good sunny or slightly overcast afternoon.</li>
+									<li>Steady tripod</li>
+									<li>DV Camcorder</li>
+									<ul>
+								    	<li>If you are working alone, use a camcorder that allows for a swivel screen</li>
+								  	</ul>
+									<li>Time-stamped blank DVcam tapes (2-3 tapes)</li>
+									<li>Masking tape</li>
+									<li>Storyboards for the shots you are going to perform and capture</li>
+									<li>Remote control for camcorder (if you are working alone)</li>
+									<li>Batteries (3-4 hours of batter life will work fine) for DV camcorder</li>
+								 	<li>Batteries for the remote</li>
+									<li>Firewire cable (4-6 pin or 4-4 pin depending on the firewire connection types of your computer)</li>
+									<li>Computer with the following minimum requirements</li>
+								  	<ul>
+								    	<li>256MB of RAM, 512 is better but 1GB of RAM is best</li>
+								    	<li>40GB+ 7200rpm Hard drive (120GB should do the job just fine)</li>
+								    	<li>CD or DVD burner to archive your motion clips</li>
+								    	<li>Firewire card</li>
+								    	<li>Video card that can handle 3D applications (anything from Nvidia will work great)</li>
+								    	<li>Adobe Premiere (version 5.5 or better)</li>
+								    	<li>3D application (in this case Maya)</li>
+								    </ul>
+								</ol>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Pre-shoot checklist</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				            	<ul>
+				            		<li>Time Stamped DV tapes</li>
+				            		<ol>
+				            			<li>
+				            				Before shooting, make sure your tape has been time stamped (blacked out). When capturing footage, it is very
+				            				important to have the tape time stamped. Premiere reads the time stamp in a linear fashion. If you have not
+				            				blacked out the tape, each time you remove the DV tape from the camcorder or shut it off, a new time stamp is
+				            				made when you start recording again. Premiere will get confused over which time stamp to follow when you are
+				            				capturing the footage. If you time stamped the entire tape, the camcorder will not rewrite the time stamp every
+				            				time you turn the camera on/off or remove the tape repeatedly.
+				            			</li>
+				            			<li>
+				            				To black out a tape, put the DV tape in the camera, leave the lens on, and disable the microphone. Hit the
+				            				record button and let the camcorder roll until the tape has recorded 60 minutes of complete black and silence.
+				            				Rewind the tape and mark it so that you know you time stamped this tape. I usually write TS in the corner of
+				            				the top label or make a little box and fill it in.
+				            			</li>
+				            		</ol>
+				            		<li>Acting Area (Stage)</li>
+				            		<ul>
+				            			<li>
+				            				Clear your area of any visual impairment. This includes foreground elements (things that get in between your
+				            				motion actor and the camera lens), excessively busy background elements (highway travel, extras (children in
+				            				the background), and middle ground elements (tall grass, big tree limbs, etc.). Keep the camera frame open so
+				            				we don't have to guess where to stop and need to do some unnecessary editing or lose a good take.
+				            			</li>
+				            			<li>
+				            				Place markers in your "acting area" to give you an idea of your stage. Look through the viewfinder and place
+				            				strips of tape or some sort of marker on the ground. You don't want to be acting outside your camera's visual
+				            				range. If possible and you are working outside, use a basketball or tennis court. These areas are usually
+				            				marked well and are great for shooting because they are clean, level and free of debris.
+				            			</li>
+				            			<li>
+				            				Shoot a placement shot to test the distance of the camera and mark the location with tape (indoors) or tree
+				            				limbs (outdoors) so you have a reference to where your shooting range will be.
+				            			</li>
+				            			<li>
+				            				Practice your motion(s) at least 2-3 times before shooting. Get an idea of what, when, and where things happen.
+				            				Do you need to hit a mark at a certain time? Where are your arms and legs in relation to the camera's lens?
+				            			</li>
+				            			<li>
+				            				Review your storyboards. What do they tell you to do? When do you need to complete an action? How do they tell
+				            				you to complete the action?
+				            			</li>
+				            		</ul>
+				            	</ul>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Shooting Video</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <ul>
+				                	<li>Camera angle(s)</li>
+				                	<ul>
+				                		<li>
+				                			Use straight-on angles. Try to avoid moving at an angle to the camera. This will
+				                			make the rotoscoping process difficult. If you must move at angle to the camera, shoot multiple takes of the
+				                			action with multiple angles.
+				                		</li>
+				                	</ul>
+				                	<li>And Action!</li>
+				                	<ul>
+				                		<li>
+				                			Tape pre-roll: Start recording and let the tape roll for a few seconds before you start your motions. Let the
+				                			pre-roll go for a minimum of 10 seconds if it's at the beginning of the tape, everything else can have a
+				                			pre-roll of 3 seconds. The reason we need this pre-roll is purely a digital reason. Adobe Premiere needs at
+				                			least a few seconds to cue up the tape to proper location to start capturing information. If we don't give it
+				                			enough pre-roll, you might cut off some of those precious moments we have been trying to capture. Don't worry
+				                			about the length of the pre-rolls eating up your tape time. You will burn up more tape with takes and retakes
+				                			more than anything else.
+				                		</li>
+				                		<li>
+				                			Shoot at least three takes of each motion. Sometimes, we know the motion we want to capture but don't know
+				                			quite how to act it out. Other times, we get a little self-conscious (even though no one is around) and this
+				                			will mess up your performance.
+				                		</li>
+				                		<li>
+				                			Tape post-roll: Let the tape roll a few seconds after you've finished your motions.
+				                		</li>
+				                		<li>
+				                			Review the footage on-site. Look for mistakes, cutting your head, legs, arms out the shot, missed cues,
+				                			good timing and placement. It is better now to look for mistakes than to try to sort them out on the computer
+				                			later when you don't have access to that open space again.
+				                		</li>
+				                	</ul>
+				                </ul>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Capturing/Editing Footage</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	The next step in this process is to set up your computer, camcorder and Adobe's Premiere for capturing the footage.
+				                	This step isn't as difficult as it may seem but problems may arise if your camcorder is not capable with Premiere's
+				                	DV Device Manager and/or your hard drive is slower than 7200rpm. The hard drive speed is important because there is
+				                	were the dropped frames problem comes from usually.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Connecting the camcorder to the Premiere</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				            	<ol>
+									<li>Connecting the camcorder to the Premiere</li>
+									<ul>
+										<li>Identifying the firewire cable needs</li>
+										<ul>
+											<li>4-6 pin</li>
+											<li>4-4 pin</li>
+										</ul>
+									</ul>
+									<li>Connect the firewire cable from the camcorder to the computer's firewire port.</li>
+									<li>
+										Power up the camcorder and turn it on to VCR or VRT mode (whichever is used to treat the camcorder as a VCR).
+										When we are in Premiere and everything is set up properly, we can control the camcorder remotely via Premiere.
+										At this point, you may want to use a power supply that is not battery dependant. Most camcorders have a built in
+										feature that turns off the camera or goes to sleep after a few minutes of being idle. This will disconnect the
+										communication between Premiere and the camcorder. But most camcorders that are powered by electrical outlet means
+										usually disable the sleep mode.
+									</li>
+									<li>Place DVcam tape in the camcorder.</li>
+									<li>
+										Start Premiere. The camcorder must be connected to the computer by the firewire, powered and in VCR mode before
+										starting Premiere. When Premiere starts, it looks for connected devices such as firewire-enabled camcorders. If you
+										don't follow these steps in order prior to starting the program, then Premiere won't detect the connected devices.
+									</li>
+									<li>
+										Configure Premiere to read the information from the DV device if necessary. Use the DV Device Manager Editor to
+										configure Premiere.
+									</li>
+								</ol>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Scrubbing The Footage</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <ol>
+									<li>File &gt; Capture &gt; Movie Capture. This will open the Movie Capture window.</li>
+									<li>
+										Hit the play button and use the scrub bar to move forward and backward through the footage. Scrub through the
+										footage a few times to get a good feel for what parts of the footage is usable and what is not. Review the tape to
+										a few seconds before the clip you want to capture.
+									</li>
+									<li>Hit the Set In button to mark the "In" location of the clip.</li>
+									<li>
+										Hit play and let the tape roll until a few seconds after the section you want to capture of the clip. Hit the Set
+										Out button to mark the "Out" location of the clip.
+									</li>
+									<li>
+										If you are only capturing a single clip, hit the Capture In/Out button. Premiere will automatically rewind the
+										tape and cue up the tape and record the footage defined between the In and Out marks. After Premiere is done
+										capturing the clip, the File Name window pops up asking you to name the clip and add any Log Comments. Name the
+										clip and hit Ok.
+									</li>
+									<li>
+										If you are capturing multiple clips, hit the Log In/Out button. The File Name window pops up asking you to name
+										the clip. After naming the clip and hitting Ok, The Batch Capture window pops up. Repeat this process until you
+										have logged all the In and Out points of all the clips you wish to capture. Once you have logged the clips, hit
+										the Record button (red button in the Batch Capture window). Premiere will automatically rewind and cue up the
+										tape to each clip and capture all logged clips. This may take a few moments depending on how many clips and the
+										length of the clips. Lunch break!
+									</li>
+								</ol>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Render Output Types</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	When exporting the movie, you may want to modify the output size if you are on a slower computer. Clip areas of the
+				                	footage that are not used. For example, if you motion actor never leaves the center of the frame, you can clip the
+				                	sides off and reduce the file size greatly.
+								</p>
+								<p>
+									Use only formats that are supported by the software you will be using this footage in Maya like uncompressed .AVIs,
+									image sequences (Targa, Tiff, Jpeg, Bitmaps). I don't use the latter two because they are a lossy format. You can
+									use image sequences, but I would not recommend it. Setting Maya up to receive image sequences is more complicated than
+									necessary in comparison to using a movie clip.
+								</p>
+								<p>
+									If you are not capturing facial animation or the clip you are going to animate is not sound dependant, disable the
+									audio export option as well.
+								</p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Preparing Maya for Rotoscoping</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <ol>
+									<li>
+										The first thing we want to do in Maya is make sure the program is set up for rotoscoping animation. Playback should
+										be set to 30fps and set the undo limits to Unlimited. To change your playback settings, go to Window &gt;
+										Settings/Preferences &gt; Preferences. Click on the Settings Category and make sure that Time says NTSC (30 fps).
+										While the Preferences window is still open, go to the Undo Category and set the Undo options to Undo = On and
+										Queue = Infinite. Setting the Queue to Infinite will require more memory but its better to have the option to back
+										out of something if necessary rather than having to restart the file again and again.
+									</li>
+									<li>Turn on Texture view in the persp viewport (keyboard shortcut 6).</li>
+									<li>
+										Create a NURBS plane with the portions of the footage. Since this is a PC and a DV format image file, the movie
+										file's dimensions should be 720 x 486 unless you modified the output size. The image plane should have the same
+										ratio as the movie clip. To make the image size more manageable in Maya, divide the width and height by 100.
+										Create a plane and set the ScaleX to the width of the clip divided by 100. Set the ScaleZ to the height of the clip
+										divided by 100. Don't worry about the size of the image plane in relation to the character just yet.
+									</li>
+									<li>Name this plane reference plane. Put this plane in a layer and name the layer Reference.</li>
+									<li>Rotate the reference plane so that it sits upright and parallel to your character.</li>
+								</ol>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Bring The Clip Into Maya</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <ol>
+									<li>Create and link a new Lambert shader to the reference plane.</li>
+									<li>Link the footage to the color attribute of the shader via a movie file.</li>
+									<li>Maya will create a node labeled movie1. Click the folder icon and select the clip and hit Open.</li>
+									<li>
+										We now see the first frame of the clip but if you scrub through the timeline at this point, you will not see the
+										footage update. We need to tell Maya to display each frame of the clip. Enable Use Frame Extension in the Attribute
+										Editor of the movie1 node.
+									</li>
+									<li>
+										Next we need to tell the Frame Extension to update every frame when we slide through the Time Range. We can either
+										set keyframes on the Frame Extension to mark the beginning and end of the clip or use a simple expression.
+										Right-click and hold on the attribute Frame Extension and go to Create New Expression.
+									</li>
+									<li>In the Expression window of the Expression Editor, type in the following expression: movie1.frameExtension=frame</li>
+									<li>Hit Create and close the Expression Editor. Replace movie1 with the name of movie file node if it is not named movie1.</li>
+									<li>
+										Rescale the surface uniformly to match the size of your character. For example, I'm 6' tall guy and my character is
+										about 3.4cm. The reference plane is a relative instrument that we can use to better suit the CG character. I guess
+										what I'm trying to say is that it is a lot easier to resize a single plane than an entire character rig and surface.
+									</li>
+									<li>Position the reference plane behind the character. Match up the angle you shot with on the camcorder.</li>
+									<li>
+										Turn the on the Reference mode for the Reference layer once you are done scaling and placing the reference plane.
+										Referencing this layer prevents you from accidentally selecting and moving the reference plane.
+									</li>
+								</ol>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Animating to Footage</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <ul>
+				                	<li>
+				                		Keep in mind the whole reason for shooting the footage was to have a reference for your animation, not a final
+				                		answer to how it should look and feel.
+				                	</li>
+									<li>
+										Apply the principles of animation where they are needed. Remember the twelve principles of animation your teacher
+										rammed down your throat when you were first learning animation? Well, use what you need, not all of them!
+									</li>
+									<li>
+										Find the major and minor poses in the footage and create key poses with your character to match. Don't worry about
+										the inbetweens just yet. Keyframe the body first, then the feet, arms, neck/head and the fingers last.
+									</li>
+									<li>
+										Use the Graph Editor to modify the animation curves to adjust the ease in and ease out of some of the motions
+									</li>
+									<li>
+										Adjust the timing of the animation once you have completed the sequence. Use the Dope Sheet for major changes in
+										timing but use the graph editor for minor changes.
+									</li>
+									<li>
+										Playblast everything after the major edits have been made. Depending on how fast your computer is, your playback
+										speed will not give you a true representation of the timing or speed of the motion. Remember you are translating
+										motion information for a 2D image that may have different portions from your virtual actor to the actual actor.
+									</li>
+									<li>
+										Animate beyond the second dimension! If you recall, this animation is based off of a 2D image plane and you will
+										not have some motion information because of the angle(s) of the character to your performer. You won't always
+										have the visual information of where the actor's opposite arm is sitting. You may remember but where but do you
+										remember the timing of where it was at and when?
+									</li>
+									<li>
+										Adlib a bit from time to time. Give your virtual actor a little more action than what the actual taped performance did.
+									</li>
+									<li>
+										The graph editor is your friend. Use it wisely and often! This is where the majority of the animation cleanup will
+										take place.
+									</li>
+				                </ul>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Beyond the stage</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Build yourself a library of motion. Videotape people walking, talking, animals running about and playing. DV tapes are
+				                	relatively cheap nowadays and hard drives are getting bigger and bigger all the time while the prices is dropping.
+				                	Building a library can save you some time and money in the long run.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		<!-- automated modal image storage-->
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+	</body>
+	<script src="../../js/getYear.js"></script>
+	<script src="../../js/modal-images.js"></script>
+	<script src="../../js/auto-number.js"></script>
+</html>

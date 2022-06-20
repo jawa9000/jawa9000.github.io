@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="Maya, modeling, tracing 3D, Blend Shapes, tutorial, geometry, mirror">
+		<meta name="description" content="Using the Reference Editor for Multiple Head Animations Tutorial">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>Using the Reference Editor for Multiple Head Animations Tutorial</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer="defer" src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1>Using the Reference Editor for Multiple Head Animations</h1>
+					<p class="lead">
+						This tutorial assumes that the user has prior knowledge of Maya's interface and file management. In this tutorial, you will be
+						exposed the basic functions and uses of the Reference Editor.
+					</p>
+					<p class="about">
+						Written by Brian Immel
+					</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+
+			<!--
+			** Note all links to tutorial pages needs to be reviewed and/or revised! **
+
+			-->
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+            		<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Open File</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Open up the file where you have all the controls, modeling and texturing completed. Before going any further, you
+				                	should have all controls working (whether you are using control objects, blend shapes, etc.), completed the modeling
+				                	and finished UVs and textures. We can tweak this later on but its better to work out any and all bugs before moving on.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Remove Lights and Animation</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	If there are any lights in your scene, delete them.
+				                </p>
+				                <p>
+				                	Delete all keyframe animation (if you have any leftover from a previous project).
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Reset Controls, Blend Shapes</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Reset all controls, blend shape attributes to their zero or default position.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Group All The Things</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Select all remaining items and group them. Name this group Fred (or the name of the first character). If for any reason,
+				                	one or more of your selected items "jump" when grouped, try grouping the jumping items be themselves and then group the
+				                	jump groups with the non-jumping items.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Name The File</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Go to File &gt; Save As. Name this file Fred (or the name of the first character).
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Textures</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Make any changes to the textures that you see fit to make the two heads different from one another.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Group and Rename</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Select the group again and rename it to George (or the name of the second character).
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Master File</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Next, we are going to make a file where we reference or "link" files to another. In this "master file", we will perform
+				                	the keyframe animation to files that have been linked to it. To make a new empty file, go to File &gt; New Scene. Save
+				                	this file as Master_Animation.mb or something similar to this name.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Dynamic Links</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Next, lets set up the dynamic links between the master file and linked files by using the Reference Editor
+				                	(File &gt; Reference Editor). Select the file you wish to link to the current file and hit Reference.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Referenced Hierarchy</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	The Reference Editor will show the name of the current file at the top of what looks like a hierarchy. To see the files
+				                	that have been linked to it, click on the triangle next to the master file name. Any changes that occur in any reference
+				                	file will be shown (updated) in the master file once the linked file has been saved and the master file updates it's
+				                	references (Reference Editor window &gt; Reference &gt; Load Reference).
+				                </p>
+				                <p>
+				                	As you are working on the animation, you will notice that the file size of the master file is relatively small in
+				                	comparison to the files you have referenced. That is because only the animation and referencing information is being
+				                	saved, not the modeled or anything else.
+				                </p>
+				            </div>
+				            <div class="image">
+				                <img src="../../images/tutorials/Duplicity/figure01.jpg" id="figure01" class="imgThumbnail" title="figure01" data-toggle="modal" data-target=".figure01"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Notes</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				            	<ul>
+									<li>
+										If you need to make changes to the model(s), you cannot do that in the master file. You will need to open up the
+										originating file and make the changes there. Also, you cannot group or rename anything that has been referenced.
+									</li>
+									<li>
+										Notice that the objects, controllers, layers and so forth have a prefix added to its regular name. This is one good
+										way Maya helps you keep track of what is what. The prefix follows the name of the file referenced, so name you files
+										well! Try avoiding files such as bigHead0021a or anything that is rather long in length. Refer to illustration to the
+										right for a good clean name.
+									</li>
+									<li>
+										In the Outliner, any object that has been referenced will have a little box with the letter "r" in it to signify that
+										this item has been referenced and generally cannot be modified.
+									</li>
+								</ul>
+				            </div>
+				            <div class="image">
+				                <img src="../../images/tutorials/Duplicity/figure02.jpg" id="figure02" class="imgThumbnail" title="figure02" data-toggle="modal" data-target=".figure02"/>
+				            </div>
+				        </div>
+					</section>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		<!-- automated modal image storage-->
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+	</body>
+	<script src="../../js/getYear.js"></script>
+	<script src="../../js/modal-images.js"></script>
+	<script src="../../js/auto-number.js"></script>
+</html>

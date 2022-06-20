@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="tutorial, glow, flicker, maya">
+		<meta name="description" content="Correcting Glow Flicker in Maya Tutorial">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>Correcting Glow Flicker in Maya Tutorial</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer="defer" src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1>Correcting Glow Flicker in Maya</h1>
+					<p class="about">
+						Written by Brian Immel
+					</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+            		<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Flickering glow (default settings)</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Using glows on your shaders can add wonderful effects to your animation. It looks real sharp once you dialed in the
+				                	values you want with your scene and render a single frame in Maya. But when you render out the sequence, it flickers.
+				                	This is due to <span class="exposure">auto exposure attribute on the shaderGlow</span>.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Maya_Glows/flicker.gif" id="flicker" class="imgThumbnail" title="flicker" data-toggle="modal" data-target=".flicker"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Auto Exposure</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Open the <span class="exposure">Multilister/Hypershader</span> and you'll find a default material called
+				                	<span class="glow">shaderGlow</span>. Double click it to bring up the attribute editor. <span class="glow">Turn
+				                	off the auto exposure</span>. Now your glows won't flicker but the intesity is completely blown out. You will need to
+				                	re-adjust the <span class="exposure">glow and halo intensities</span> also found in the attributes of the shaderGlow
+				                	material. It may look a little blown out in Maya but when it renders, it will look like fine.
+				                </p>
+				                <p>
+				                	Auto exposure correction: glow intensity at 0.1 and halo intensity at 0.1.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Maya_Glows/non-flicker.gif" id="non-flicker" class="imgThumbnail" title="non-flicker" data-toggle="modal" data-target=".non-flicker"/>
+				            </div>
+				        </div>
+					</section>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		</div>
+		<!-- automated modal image storage-->
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+		<script src="../../js/getYear.js"></script>
+		<script src="../../js/modal-images.js"></script>
+		<script src="../../js/auto-number.js"></script>
+	</body>
+</html>

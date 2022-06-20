@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="tutorial, rigid, binding, maya">
+		<meta name="description" content="Rigid Binding Without Flexors Tutorial">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>Rigid Binding Without Flexors Tutorial</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer="defer" src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1>Rigid Binding without Flexors</h1>
+					<p class="about">
+						Written by Brian Immel
+					</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+            		<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Rigid Bind</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Select the <strong>geometry</strong> and then the <strong>root joint</strong>.
+				                </p>
+				                <p>
+				                	Go to<strong> Skin</strong> &gt; <strong>Bind Skin</strong> &gt; <strong>Rigid Bind</strong>.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Shoulder_Binding/Rigid_Binding01-figure00.jpg" id="Rigid_Binding01-figure00" class="imgThumbnail" title="Rigid_Binding01-figure00" data-toggle="modal" data-target=".Rigid_Binding01-figure00"/>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Shoulder_Binding/Rigid_Binding01-figure01.jpg" id="Rigid_Binding01-figure01" class="imgThumbnail" title="Rigid_Binding01-figure01" data-toggle="modal" data-target=".Rigid_Binding01-figure01"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Before and After</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Before <strong>Editing Membership</strong> on the Rigid Bind.
+				                </p>
+				                <p>
+				                	After <strong>Editing Membership</strong> on the Rigid Bind.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Shoulder_Binding/Rigid_Binding01-figure02.jpg" id="Rigid_Binding01-figure02" class="imgThumbnail" title="Before" data-toggle="modal" data-target=".Rigid_Binding01-figure02"/>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Shoulder_Binding/Rigid_Binding01-figure03.jpg" id="Rigid_Binding01-figure03" class="imgThumbnail" title="After" data-toggle="modal" data-target=".Rigid_Binding01-figure03"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Modify Membership</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Go to <strong>Deform</strong> &gt; <strong>Edit Membership Tool</strong> to add/subtract vertices from the selected
+				                	joint to create a better bend.
+				                </p>
+				                <ul>
+							    	<li>Select the joint you want to add vertices to.</li>
+							    	<li>Holding down the Shift key, select the vertices to add them to that joint.</li>
+								    <li>
+								    	Hold down <strong>Ctrl button</strong> while selecting vertices to <strong>subtract from the membership</strong>.
+								    	Keep in mind; whenever you remove vertices from a membership of one joint, they have to be put back into another
+								    	membership of another joint. Otherwise, you're end up orphaning vertices and when the root joint or any joints in
+								    	that area moves, those orphaned vertices will stay behind.
+								    </li>
+								    <li>
+								    	By default, Rigid Binding does not flex the geometry. The vertices have an "all or nothing" relationship to the
+								    	nearest joint. Because of this type of binding, the surface cannot easily deform with fluid motions
+								    </li>
+								</ul>
+				            </div>
+				        </div>
+					</section>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		<!-- automated modal image storage-->
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+	</body>
+	<script src="../../js/getYear.js"></script>
+	<script src="../../js/modal-images.js"></script>
+	<script src="../../js/auto-number.js"></script>
+</html>

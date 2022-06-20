@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="tutorial, joint, orientation, maya">
+		<meta name="description" content="Joint Orientation Tutorial">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>Joint Orientation Tutorial</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer="defer" src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1>Joint Orientation</h1>
+					<p class="lead">
+						General rules about creating skeletons for biped characters: Joint Orientation
+					</p>
+					<p class="about">
+						Written by Brian Immel
+					</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+            		<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Why is Joint Orientation Important</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <ol>
+								<li>
+								    Makes it difficult to manage animation curves and set driven keys
+								</li>
+								<li>
+									May bend joints in unexpected ways
+								</li>
+								</ol>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Remember the Branches?</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Each branch can have its own direction unique to that branch.
+				                </p>
+				                <p>
+				                	It doesn't really matter too much if one branch has another orientation direction than another branch. Some purists
+				                	will stay that it is and to a point they are right. But for now, just remember the KISS rule (Keep It Simple, Stupid).
+				                </p>
+				                <p>
+				                	It is important to make all the joints of one branch have the same joint orientation!
+				                </p>
+				                <p>
+				                	Remember when we mirrored some branches? You might have noticed by now that the leg and arms branches are completely
+				                	opposite of one another.
+				                </p>
+				            </div>
+				             <div class="images">
+				                <img src="../../images/tutorials/Joint_Orientation/figure10.jpg" id="figure10" class="imgThumbnail" title="figure10" data-toggle="modal" data-target=".figure10"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>How to orientate joints</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Select the root joint and click the Select by Component Type button in the Status Line.
+				                </p>
+				                <p>
+				                	Turn on the selection mask called Miscellaneous (looks like the question mark). This will show every single joint's
+				                	orientation because we selected the root joint.
+				                </p>
+				            </div>
+				           <div class="images">
+				                <img src="../../images/tutorials/Joint_Orientation/figure11.jpg" id="figure11" class="imgThumbnail" title="figure11" data-toggle="modal" data-target=".figure11"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Joint Orientation</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Scan each branch and look to see which joints have what orientation. Look to see which direction the axis have the
+				                	majority of facing directions (i.e. Z forward, X to the right or X down, Y to the left, etc.). Refer to Figure 12 to
+				                	see an example of a Spine that is out of alignment and one that has good alignment.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Joint_Orientation/figure12.jpg" id="figure12" class="imgThumbnail" title="figure12" data-toggle="modal" data-target=".figure12"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Select Unaligned Joint</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Select the joint that is not facing with the crowd, and rotate in the direction in needs to face. But you will find
+				                	yourself a new problem. When you rotate this joint, you will notice that the rotation attributes in the Channel Box do
+				                	not update, nor will they. We are changing the component information of the selected axis.
+				                </p>
+				                <p>
+				                	"How do we rotate these joints to be in perfect alignment with the other joints of this branch?"
+				                </p>
+				                <p>
+				                	Keeping in mind that everything you perform in Maya is a scripted function or tool, you can see your commands being
+				                	echoed in the Script Editor.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Joint_Orientation/figure13.jpg" id="figure13" class="imgThumbnail" title="figure13" data-toggle="modal" data-target=".figure13"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Making orientating joints easier via MEL</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	The upper section of the Script Editor is the history section and the lower section in the Input Field.
+				                </p>
+				                <p>
+				                	Highlight and copy the script that looks something like this:
+				                </p>
+				                <code>Rotate -r -os -41.227934 0 0;</code>
+				                <p>
+				                	This script tells Maya to rotate the selected joint on the X axis -41.227934 degrees.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Joint_Orientation/figure14.jpg" id="figure14" class="imgThumbnail" title="figure14" data-toggle="modal" data-target=".figure14"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a></div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Lets analyze what is going on in this script
+				                </p>
+				                <ul>
+									<li>Rotate = the command to perform (rotation).</li>
+									<li><code>r</code> = make the joint center position relative to the joint's parent.</li>
+									<li><code>-os</code> = orientation float (<em>X Y Z</em>).
+									<li><code>-41.2279340</code> = what to rotate and how much. The first number is used to change the X rotation, the second number is
+										used to change the Y rotation and the last number is used to change the Z rotation.</li>
+									<li><code>;</code> = end of command (terminator symbol).</li>
+								</ul>
+								<p>
+									Now that we know what the script stands for, copy the script into the Input field below the history section.
+								</p>
+								<p>
+									 Change the orientation numbers to all zeros (0 0 0).
+								</p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Joint_Orientation/figure15.jpg" id="figure15" class="imgThumbnail" title="figure15" data-toggle="modal" data-target=".figure15"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Create Button: Orientation X</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Next we want to make buttons out this script in the Input Field and have the ability to rotate the orientation axis on
+				                	degree increments. Change the first 0 to 90. Highlight the entire script and MMB-drag this script to the open space
+				                	in the Shelf. We just created a button that will rotate the orientation axis of any selected joint 90 degrees on X.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Create Button: Orientation Y</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Change all the numbers back to 0 0 0.
+				                </p>
+				                <p>
+				                	Change the second zero to 90. Highlight the entire script and MMB-drag this script to the open space in the Shelf. This
+				                	button will rotate Y 90 degrees of the selected orientation axis.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Create Button: Orientation Z</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Change all the numbers back to 0 0 0.
+				                </p>
+				                <p>
+				                	Finally, change the third zero to 90. Highlight the entire script and MMB-drag this script to the open space in the
+				                	Shelf. This button will rotate the orientation axis 90 on Z.
+				                </p>
+				                <p>
+				                	Close the Script Editor.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Name Buttons</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Open up the Shelf Editor and name each of these new buttons with the following names:
+				                </p>
+				                <ul>
+									<li>RotX</li>
+									<li>RotY</li>
+									<li>RotZ</li>
+								</ul>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Joint_Orientation/figure16.jpg" id="figure16" class="imgThumbnail" title="figure16" data-toggle="modal" data-target=".figure16"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Icons for Buttons</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	I use short names because of the space allowed in the icon naming area. If you like, you can make custom icons for
+				                	these fellas.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Joint_Orientation/figure17.jpg" id="figure17" class="imgThumbnail" title="figure17" data-toggle="modal" data-target=".figure17"/>
+				            </div>
+				        </div>
+					</section>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		<!-- automated modal image storage-->
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+	</body>
+	<script src="../../js/getYear.js"></script>
+	<script src="../../js/modal-images.js"></script>
+	<script src="../../js/auto-number.js"></script>
+</html>

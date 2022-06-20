@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="tutorial, 3d, maya, shadow, light, property">
+		<meta name="description" content="Shadows and Light Properties Tutorial">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>Shadows and Light Properties Tutorial</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer="defer" src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1>Shadows and Light Properties</h1>
+					<p class="about">
+						Written by Brian Immel
+					</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+            		<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Attenuation</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/light-shadows1.jpg" id="light-shadows1" class="imgThumbnail" title="Attenuation" data-toggle="modal" data-target=".light-shadows1"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Shadow Color</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Use this attribute to change the default black color of the shadow to something in the shade of the color the light is illuminating.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/light-shadows2.jpg" id="light-shadows2" class="imgThumbnail" title="Shadow Color" data-toggle="modal" data-target=".light-shadows2"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Depth Map Shadow</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Depth Map Shadow determines the resolution of the light's shadow. If the Depth Map is too low, the shadow edges will looked
+				                	pixilated. Use binary numbers to render faster (16, 32, 64, 128, 256, 512, 1024, etc.). Default is 512 but I've been happy
+				                	with 1024.
+				                </p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Dmap Filter Size</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Dmap Filter Size "blurs" the edges of the shadow. The higher the Dmap Filter Size, the more blurred the shadow will
+				                	appear. Use this sparingly and keep in mind the time of day and the type of light that is being emulated.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/light-shadows3.jpg" id="light-shadows3" class="imgThumbnail" title="Dmap Filter Size" data-toggle="modal" data-target=".light-shadows3"/>
+				            </div>
+				             <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/light-shadows4.jpg" id="light-shadows4" class="imgThumbnail" title="Dmap Filter Size" data-toggle="modal" data-target=".light-shadows4"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Dmap Bias</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Dmap Bias is the offset from the light. Use this attribute if a shadow is not attached to the surface it is being generated
+				                	off of.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/light-shadows5.jpg" id="light-shadows5" class="imgThumbnail" title="Dmap Bias" data-toggle="modal" data-target=".light-shadows5"/>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/light-shadows6.jpg" id="light-shadows6" class="imgThumbnail" title="Dmap Bias" data-toggle="modal" data-target=".light-shadows6"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Raytraced shadows</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <ul>
+								  	<li>
+								  		Raytraced shadows are a time-intensive render process that calculates the individual light rays from the camera to the
+								  		source (light).
+								  	</li>
+								  	<li>Using Raytraced shadows renders a better shadow than Depth Map Shadows but at a terrible expense of time.</li>
+								  	<li>
+								  		Use Raytraced shadows if you want to projected color shadows from transparent shaders (think of the example of stain
+								  		glass windows).
+								  	</li>
+								</ul>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/light-shadows7.jpg" id="light-shadows7" class="imgThumbnail" title="Raytraced shadows" data-toggle="modal" data-target=".light-shadows7"/>
+				            </div>
+				        </div>
+					</section>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		</div>
+		<!-- automated modal image storage-->
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+		<script src="../../js/getYear.js"></script>
+		<script src="../../js/modal-images.js"></script>
+		<script src="../../js/auto-number.js"></script>
+	</body>
+</html>

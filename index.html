@@ -1,23 +1,150 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <meta name="description" content="Brian Immel's personal website">
+			<meta name="keywords" content="brian immel, tech writer, javascript, jquery, bootstrap, html5, css">
+	    <meta name="author" content="Brian Immel">
+			<meta http-equiv="Content-Security-Policy"
+			  content="default-src 'self';
+			  img-src 'self' http://farm2.staticflickr.com https://i0.wp.com https://i2.wp.com http://feed2js.org;
+			  media-src 'self';
+			  object-src 'none';
+			  style-src 'self' http://feed2js.org;
+			  font-src 'self' fonts.googleapis.com fonts.gstatic.com http://feed2js.org;
+			  script-src 'self' http://feed2js.org api.wunderground.com www.geoplugin.net;">
+			<meta name="level" content="top">
+	    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+	    <title>Home</title>
 
-<div class="home">
+	    <!-- Bootstrap core CSS -->
+	    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-  <h1 class="page-heading">Posts</h1>
+	    <!-- Custom styles for this template -->
+	    <link href="css/custom.css" rel="stylesheet">
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+	    <!-- jQuery -->
+	    <script src="js/jquery-2.1.0.min.js"></script>
 
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
-</div>
+	    <!-- Bootstrap main javascript -->
+	    <script src="js/bootstrap.js"></script>
+	</head>
+		<body>
+			<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+			<script defer="defer" src="js/navigation.js"></script>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-2"></div>
+					<div class="col-md-8">
+						<h1>About Brian</h1>
+						<p id="quote" class="lead"></p>
+						<p id="about" class="about"></p>
+					</div>
+					<div class="col-md-2"></div>
+				</div>
+				<div class="row">
+					<div class="col-md-2"></div>
+					<div class="col-md-8">
+						<div role="tabpanel">
+							<!-- Nav tabs -->
+						  	<ul id="tabs" class="nav nav-tabs" role="tablist">
+								<li id="WebFront-tab" role="presentation">
+									<a href="#WebFront" aria-controls="home" role="tab" data-toggle="tab">Web Front</a>
+								</li>
+								<li id="techwriter-tab" role="presentation">
+									<a href="#techwriter" aria-controls="profile" role="tab" data-toggle="tab">Tech Writing</a>
+								</li>
+								<li id="ForFun-tab" role="presentation">
+									<a href="#ForFun" aria-controls="messages" role="tab" data-toggle="tab">For Fun</a>
+								</li>
+								<li id="RecentMemories-tab" role="presentation">
+									<a href="#RecentMemories" aria-controls="settings" role="tab" data-toggle="tab">Recent Memories</a>
+								</li>
+						  	</ul>
+						  	<!-- Tab panes -->
+						  	<div class="tab-content">
+								<div role="tabpanel" class="tab-pane" id="WebFront">
+									<div class="panel panel-default">
+										<div class="panel-heading">
+											<h3>
+												<span class="glyphicon glyphicon-cloud"></span>
+												On The Web Front
+											</h3>
+										</div>
+										<div class="panel-body">
+											<script language="JavaScript" src="http://feed2js.org//feed2js.php?src=http%3A%2F%2Fbimmelwebdevelopment.blogspot.com%2Ffeeds%2Fposts%2Fdefault&num=3&date=y&utf=y&css=dev&html=a" charset="UTF-8" type="text/javascript"></script>
+											<noscript>
+												<a href="http://feed2js.org//feed2js.php?src=http%3A%2F%2Fbimmelwebdevelopment.blogspot.com%2Ffeeds%2Fposts%2Fdefault&num=3&date=y&utf=y&css=dev&html=y">View RSS feed</a>
+											</noscript>
+											<a class="readmore" href="http://bimmelwebdevelopment.blogspot.com/">Find more web tutorials, tips, and features</a>
+										</div>
+									</div>
+								</div>
+								<div role="tabpanel" class="tab-pane" id="techwriter">
+									<div class="panel panel-default">
+										<div class="panel-heading">
+											<h3>
+												<span class="glyphicon glyphicon-book"></span>
+												Tech Writing
+											</h3>
+										</div>
+										<div class="panel-body">
+											<script language="JavaScript" src="http://feed2js.org//feed2js.php?src=http%3A%2F%2Fcrudthedocs.blogspot.com%2Ffeeds%2Fposts%2Fdefault&num=2&date=y&utf=y&html=a"  charset="UTF-8" type="text/javascript"></script>
+											<noscript>
+												<a href="http://feed2js.org//feed2js.php?src=http%3A%2F%2Fcrudthedocs.blogspot.com%2Ffeeds%2Fposts%2Fdefault&num=2&date=y&utf=y&html=y">View RSS feed</a>
+											</noscript>
+											<a class="readmore" href="http://bimmelbrew.blogspot.com/">Technical writing notes, tips, tricks, and occasional reviews</a>
+										</div>
+									</div>
+								</div>
+								<div role="tabpanel" class="tab-pane" id="ForFun">
+									<div class="panel panel-default">
+										<div class="panel-heading">
+											<h3>
+												<span class="glyphicon glyphicon-tower"></span>
+												For Fun
+											</h3>
+										</div>
+										<div class="panel-body">
+											<script language="JavaScript" src="http://feed2js.org//feed2js.php?src=http%3A%2F%2Fbimmelsbrick.blogspot.com%2Ffeeds%2Fposts%2Fdefault&num=3&date=y&utf=y&css=lego&html=a"  charset="UTF-8" type="text/javascript"></script>
+											<noscript>
+												<a href="http://feed2js.org//feed2js.php?src=http%3A%2F%2Fbimmelsbrick.blogspot.com%2Ffeeds%2Fposts%2Fdefault&num=3&date=y&utf=y&css=lego&html=y">View RSS feed</a>
+											</noscript>
+											<a class="readmore" href="http://bimmelsbrick.blogspot.com/">Find more of my favorite Lego creations</a>
+										</div>
+									</div>
+								</div>
+								<div role="tabpanel" class="tab-pane" id="RecentMemories">
+									<div class="panel panel-default">
+										<div class="panel-heading">
+											<h3>
+												<span class="glyphicon glyphicon-camera"></span>
+												Recent Memories
+											</h3>
+										</div>
+										<div class="panel-body">
+											<script language="JavaScript" src="http://feed2js.org//feed2js.php?src=http%3A%2F%2Fwww.flickr.com%2Fservices%2Ffeeds%2Fphotos_public.gne%3Fid%3D33501847%40N03%26lang%3Den-us%26format%3Drss_200&num=3&date=y&utf=y&css=photo&html=a"  charset="UTF-8" type="text/javascript"></script>
+											<noscript>
+												<a href="http://feed2js.org//feed2js.php?src=http%3A%2F%2Fwww.flickr.com%2Fservices%2Ffeeds%2Fphotos_public.gne%3Fid%3D33501847%40N03%26lang%3Den-us%26format%3Drss_200&num=3&date=y&utf=y&css=photo&html=y">View RSS feed</a>
+											</noscript>
+											<!-- replace link to point to latest homebrewking post -->
+											<a class="readmore" href="https://www.flickr.com/photos/jawa9000/">Find more of my recent photographs</a>
+										</div>
+									</div>
+								</div>
+						  	</div>
+						</div>
+					</div>
+					<div class="col-md-2"></div>
+				</div>
+				</div>
+			</div>
+			<footer>
+				<div id="copyright"></div>
+			</footer>
+			<script src="js/index.js"></script>
+			<script src="js/getYear.js"></script>
+			<script src="js/quotes.js"></script>
+		</body>
+</html>

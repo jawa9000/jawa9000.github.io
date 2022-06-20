@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="tutorial, three, 3, point, lighting">
+		<meta name="description" content="Three Point Lighting Tutorial">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>Three Point Lighting Tutorial</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer="defer" src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1>Three Point Lighting</h1>
+					<p class="lead">
+
+					</p>
+					<p class="about">
+						Written by Brian Immel
+					</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+            		<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Key Light</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Used as the main illumination and defines the main angle of the lights. This light will have the highest intensity of the
+				                	three lights and casts the darkest shadows.
+				                </p>
+				                <p>
+				                	This light should never be centered on the object of focus. A better position would be to offset the light from the center
+				                	and raise it up above the head.
+				                </p>
+				                <p>Using a lower position, lower than the head, can create an unnatural appearance in illuminating the face.</p>
+								<p>
+									Using a high position, almost straight down, can create the appearance of sunken eyes or more commonly known as "raccoon
+									eyes".
+								</p>
+								<p>Positioning the key light behind the figure will highlight the profile which gives a heavier sense of the scene.</p>
+								<p>
+									The key light is typically positioned 15-45 degrees relative to the camera. If you are planning to create a profile of the
+									figure, the key light is usually 80-120 degrees center of the camera
+								</p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/3-point-lights01.jpg" id="3-point-lights01" class="imgThumbnail" title="3-point-lights01" data-toggle="modal" data-target=".3-point-lights01"/>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/3-point-lights02.jpg" id="3-point-lights02" class="imgThumbnail" title="3-point-lights02" data-toggle="modal" data-target=".3-point-lights02"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Fill Light</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Softens and extends the illumination of the key light. This light can also simulate the effect of reflected light from
+				                	other objects in the scene.
+				                </p>
+								<p>
+									The fill light is dimmer than the key light and usually in opposite position of the key light. This usually simulates
+									indirect illumination.
+								</p>
+								<p>
+									As a general loose guideline, the fill light should be 15-60 degrees left or right of the camera. With the same rule, the
+									fill light should be 0-30 degrees above the camera in "normal" lighting situations.
+								</p>
+								<p>
+									Another general loose guideline for placement of the fill light to direct it in the general direction of the bounce light
+									from the nearby wall.
+								</p>
+								<p>Third general guideline: when the key light is high, the fill light should be low.</p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/3-point-lights03.jpg" id="3-point-lights03" class="imgThumbnail" title="3-point-lights03" data-toggle="modal" data-target=".3-point-lights03"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Key-to-Fill Ratios</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	One of the important factors for using fill lights is to keep a proper ratio of fill to key light to maintain a good
+				                	tonal and contrast balance. Too much fill light can compete with the key light and too little fill will leave the dark
+				                	side undefined. Key-to-fill ratios measures are meant to maintain the scene's contrast level.
+				                </p>
+								<p>
+									Do not confuse high-key and low-key with key-to-fill terms. High-key and low-key describe the level of overall brightness
+									in the scene, not the intensities of the individual lights.
+								</p>
+								<p>
+									Key-to-fill ratios are expressed in numbers values as 3:1, 2:1, 10:1 as for example. The first number of the ratio divides
+									the intensity of the fill light. Example: if the ratio is 4:1, then the intensity of the key light is 100% and the fill
+									light intensity is 25%.
+								</p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/3-point-lights04.jpg" id="3-point-lights04" class="imgThumbnail" title="3-point-lights04" data-toggle="modal" data-target=".3-point-lights04"/>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/3-point-lights05.jpg" id="3-point-lights05" class="imgThumbnail" title="3-point-lights05" data-toggle="modal" data-target=".3-point-lights05"/>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/3-point-lights06.jpg" id="3-point-lights06" class="imgThumbnail" title="3-point-lights06" data-toggle="modal" data-target=".3-point-lights06"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Low Key-to-Fill</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>White highly reflective interiors naturally have a low key-to-fill ratio.</p>
+								<p>
+									Cloudy, overcast or any other lighting situation that blocks direct sunlight produces more scattered light which in turn
+									will create a very low key-to-fill ratio.
+								</p>
+								<p>
+									Using low key-to-fill ratios also help lighten the mood or make it appear happier.
+								</p>
+								<p>
+									If your output will end up in print or film, a low key-to-fill ration is preferred. Standard televisions have a harder
+									time displaying the full range of tones.
+								</p>
+								<p>
+									Don't allow the fill light to have a ratio lower than 2:1. At this point, the fill light will be competing for the main
+									point of light source.
+								</p>
+								<ul>
+			  						<li>
+			  							If you are using multiple fill lights, make sure the total of the fills don't upset the key-to-fill ratio balances.
+									</li>
+  								</ul>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>High Key-to-Fill</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	For more dramatic lighting situations, use higher key-to-fill ratios such as 8:1 or more. High key-to-fill ratios will
+				                	have a darker shadow and high contrast between light and dark areas.
+				                </p>
+								<p>
+									Nighttime have high key-to-fill ratios. Consider your light sources: either moon light or an artificial light but either
+									way, there won't be any fill light from the sky.
+								</p>
+								<p>Film noir use little or not fill light to obtain its dramatic and suspenseful scenes.</p>
+								<p>
+									When rendering for film, use a key-to-fill ratio of 8:1 to get a greater sense of brightness. If you are rendering for
+									television, use a ratio of 16:1.
+								</p>
+								<p>
+									Although high key-to-fill ratios are more attention grabbing, don't assume that this lighting scheme is better. Use your
+									artistic license to determine which lighting setup works best for your scene.
+								</p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Backlight</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>Backlight is also known as rim light because it is often used to highlight the rim of the surface it is illuminating.</p>
+								<p>This light defines the edge of the figure. Often, this light will be used to highlight the hair and shoulders.</p>
+								<p>
+									Don't confuse the backlight with background light. The background light is used to illuminate the background elements in
+									the scene.
+								</p>
+								<p>
+									Backlighting has its roots in black and white film. To draw the actors away from the gray backdrops, a light would be
+									placed behind the actors.
+								</p>
+								<p>Often, backlighting is unnecessary if you have low key-to-fill ratios.</p>
+								<p>
+									Sometimes, it is okay for your backlight to be brighter than the key light. Because this light is going to be used to
+									highlight the rim of the surface, the angle of the backlight will only illuminate a small portion of the surface that
+									will be visible to the camera.
+								</p>
+								<p>
+									The backlight is usually placed directly opposite of the camera. If you do place the backlight directly opposite of the
+									camera, be careful with the light's intensity. More often than not, this backlight position will have blocked lighting to
+									some or all the surface you are trying to backlight. To gain better control, offset the backlight's position so that it
+									doesn't sit exactly 180 degrees of the camera.
+								</p>
+								<p>
+									There is not specific formula to using backlighting. Use as many lights as you need to obtain the backlit look and
+									position as needed to illuminate the rim of the surface.
+								</p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/3-point-lights07.jpg" id="3-point-lights07" class="imgThumbnail" title="3-point-lights07" data-toggle="modal" data-target=".3-point-lights07"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>General Rules About CG Lighting</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>Symmetrical lighting positions tend to be unnatural.</p>
+								<p>Don't let your models lose visual value by being poorly lit. Model your surfaces with light!</p>
+								<p>Three-point lighting is a flexible guideline. Be ready to experiment!</p>
+				            </article>
+				        </div>
+					</section>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		</div>
+		<!-- automated modal image storage-->
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+		<script src="../../js/getYear.js"></script>
+		<script src="../../js/modal-images.js"></script>
+		<script src="../../js/auto-number.js"></script>
+	</body>
+</html>

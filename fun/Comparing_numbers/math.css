@@ -1,0 +1,66 @@
+body {
+    background-color: #eee;
+}
+div {
+    padding: 5px;
+}
+div, p {
+    font-size: 1.25em;
+}
+.block {
+    display: inline-block;
+    margin: 5px;
+    width: 75px;
+}
+.singleDigitBottom, .singleDigitTop, .answer, .top, .bottom {
+    text-align: right;
+    width: 75px;
+}
+.top, .bottom, .answer, input.input {
+    padding: 0 10px 0 0;
+}
+.answer {
+    height: 50px;
+    width: 75px;
+}
+input {
+    height: 50px;
+    width: 76px;
+    font-size: 1.25em;
+    border: hidden;
+    background-color: rgba(100,100,100,0.1);
+    text-align: center;
+}
+input.input {
+    font-size: 1em;
+    background-color: #8abcf7;
+    text-align: right;
+    border-top: solid 3px #333;
+}
+input[type=checkbox], input[type=radio] {
+    height: 20px;
+    width: 20px;
+}
+.table, .header {
+    text-align: center;
+    color: #333;
+    background-color: #eee;
+}
+.table {
+    margin: 390px 0 0 0;
+}
+.active {
+    background-color: #8abcf7;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

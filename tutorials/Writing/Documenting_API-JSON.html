@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="guide,documentation,api,json,xml">
+		<meta name="author" content="Brian Immel">
+		<meta name="description" content="Documenting APIs Via JSON">
+    <meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>Documenting APIs Via JSON</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1>Documenting APIs Via JSON</h1>
+					<p class="lead">
+						Welcome to my overview of Documenting APIs Via JSON. This guide will walk you through the basic principles, terms, and traditional usage of writing up documentation for JSON objects.
+					</p>
+                    <p>This document will cover the following topics:</p>
+                    <ul>
+                    	<li><a href="#DataTypesandStructuredData">Data Types and Structured Data</a></li>
+                        <li><a href="#WhatisJSON">What is JSON?</a></li>
+                        <li><a href="#DocumentingJSON">Documenting JSON</a></li>
+                        <li><a href="#WhatisaJSONObject">What is a JSON Object</a></li>
+                        <li><a href="#JSONRequestsandResponses">JSON Requests and Responses</a></li>
+                        <li><a href="#HandlingNestedData">Handling Nested Data</a></li>
+                    </ul>
+					<p class="about">
+						Written by Brian Immel
+					</p>
+                    <p>This guide is part of a three-part series on API documentation. For this series, we will be using a fictitious robot delivery service and how to access and document it's API through various techniques.</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+            		<section class="guideBox">
+				        <div class="tutorialRow">
+				            <div class="guideHeader"><a name="DataTypesandStructuredData" class="anchorLink">Data Types and Structured Data</a></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="guideContent">
+                            	<p>To begin, lets start out by discussing data types. A data type is the format in which a piece of information is stored in. The following is a list of common format types:</p>
+                                <ul>
+                                    <li><span class="strong">Numbers</span> (integer and decimal)</li>
+                                    <ul>
+                                    	<li>Can be any number (positive or negative) and can be listed with or without a decimal point.</li>
+                                    </ul>
+                                    <li><span class="strong">Text</span> (string)
+                                      <ul>
+                                        <li>Strings are a collect of text characters &quot;strung&quot; together</li>
+                                        <li>Can be enclosed in double or single quotation marks</li>
+                                        <li>Uses any combination of letters, numbers, punctuation, spaces, and so on</li>
+                                      </ul>
+                                    </li>
+                                    <li><span class="strong">Booleans</span>
+                                      <ul>
+                                        <li>Boolean values have only two values, typically true/false, but can be any value (like 0/1, yes/no, etc.)</li>
+                                    </ul>
+                                    </li>
+                                    <li><span class="strong">Dates</span>
+                                      <ul>
+                                        <li>Date value like month/day/year, hour/minutes, all the above, or any combination of a time variable</li>
+                                    </ul>
+                                    </li>
+                                    <li><span class="strong">Collections</span>: arrays and dictionaries
+                                      <ul>
+                                        <li>Arrays are a list of strings, other lists, objects, numbers, booleans, and so on.
+                                          <ul>
+                                            <li>Arrays have a size and order which is important for accessing the data found in the list</li>
+                                        </ul>
+                                        </li>
+                                        <li>Dictionaries are look up tables
+                                          <ul>
+                                            <li>List of data keys and values (just like a word in a dictionary)</li>
+                                          </ul>
+                                        </li>
+                                      </ul>
+                                    </li>
+                                    <li><span class="strong">Custom types</span>
+                                      <ul>
+                                        <li>Can be anything</li>
+                                        <li>This type is usually a proprietary format used by the software you are documenting</li>
+                                    </ul>
+                                    </li>
+                                </ul>
+                                <p>Now that we have an understanding of the basic data types, we need to discuss how this data is communicated between programs. The two most common formats today are JSON and XML.</p>
+                            <p>Regardless of which file type you end up using, your data will end up in a format like a &quot;tree structure&quot;.</p>
+				            </article>
+				        </div>
+					</section>
+                    <section class="guideBox">
+				        <div class="tutorialRow">
+				            <div class="guideHeader"><a name="WhatisJSON" class="anchorLink">What is JSON?</a></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="guideContent">
+                                <p>JSON stands for <span class="strong">JavaScript Object Notation</span>. JSON is based off the JavaScript language and was originally created to hold structured data to be used in JavaScript. Because of it's simplicity, it became popular and used in all sorts of applications including the most popular way to send data for web APIs.</p>
+                                <p>JSON has four basic types:</p>
+                                <ul>
+                                    <li>Number
+                                      <ul>
+                                        <li>Integer or decimal, positive or negative</li>
+                                    </ul>
+                                    </li>
+                                    <li>String
+                                      <ul>
+                                        <li>Enclosed with single or double quotation marks</li>
+                                    </ul>
+                                    </li>
+                                    <li>Boolean
+                                      <ul>
+                                        <li>True/false but used without any quotation marks</li>
+                                    </ul>
+                                    </li>
+                                    <li>null
+                                      <ul>
+                                        <li>Means &quot;nothing&quot;; no quotation marks</li>
+                                      </ul>
+                                    </li>
+                                </ul>
+                                <a name="WhatisaJSONObject" class="anchorLink">
+                                	<h2>What is a JSON Object</h2>
+                                </a>
+                                <p>Objects are JSON's dictionaries and are enclosed using curly brackets(<code class="inline">{}</code>). Objects are defined with a key/value pair. This pair is separated by a colon (<code class="inline">:</code>). Finally, pairs are separated by commas. Be sure to include commas and your closing brackets where necessary to ensure proper formatting. Otherwise, your JSON file will be rejected by the server it is being sent to.</p>
+                                <p>Example of an JSON object:</p>
+                                <div class="block">
+                                    <code class="block">
+                                    {"make": "Saturn", &quot;year&quot;: 2004, &quot;color&quot;: &quot;blue&quot;}
+                                    </code>
+                                </div>
+                                <h2>Nesting</h2>
+                                <p>Nesting can involve arrays and objects sitting inside each other. You can put arrays inside objects, objects inside arrays, arrays inside arrays, and so on. Sometimes, a JSON file is one big object with huge collection of objects and arrays found within it.</p>
+                                <h2>Indentation</h2>
+
+                                <p>&quot;White space&quot; refers to spaces, new lines, and so on. Spacing doesn't matter in a JSON file unless it is inside a quotation mark. With that being said, it's good to be consistent in how you use white space to ensure that content in the file is human readable.</p>
+                                <p>Properly formatted JSON includes</p>
+                                <ul>
+                                    <li>An indent for every new level of brackets
+                                      <ul>
+                                        <li>2-4 white spaces</li>
+                                      </ul>
+                                    </li>
+                                    <li>Commas on the end of every line unless it's the last line in the object</li>
+                                    <li>There are always exceptions to this depending on how the JSON file is used.</li>
+                                </ul>
+                                <p>Use JSON formatting tools like <a href="http://jslint.com/" title="jslint link" target="_blank">http://jslint.com/</a> and <a href="http://freeformatter.com/json-formatter.html" title="freeformatter link" target="_blank">freeformatter.com</a> to verify your formatting, find any missing commas, and improperly closed objects, lists, and so on.</p>
+                                <h2>JSON Object in Action</h2>
+                                <p>JSON objects start off with an opening curly bracket (<code class="inline">{</code>) and close with another (<code class="inline">}</code>) with the body of the object contained therein.</p>
+                                <div class="block">
+                                    <code class="block">
+                                        {<br/>
+                                        &nbsp;&nbsp;...<br/>
+                                        }<br/>
+                                    </code>
+                                </div>
+                                <p>This object has only one key/value pair. In this example, the key is <code class="inline">robot</code> and the value is another object.</p>
+                                <div class="block">
+                                    <code class="block">
+                                        {<br/>
+                                        "robot":<br/>
+                                        &nbsp;&nbsp;{<br/>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;...<br/>
+                                        &nbsp;&nbsp;}<br/>
+                                        }<br/>
+                                    </code>
+                                </div>
+                                <p>Inside this <code class="inline">robot</code> object, there are three key/value pairs: <code class="inline">type, weight, sensors</code></p>
+                                <div class="block">
+                                    <code class="block">
+                                      {<br/>
+                                      "robot":<br/>
+                                      &nbsp;&nbsp;{<br/>
+                                      &nbsp;&nbsp;&nbsp;&nbsp;&quot;type&quot;: &quot;roller&quot;,<br/>
+                                      &nbsp;&nbsp;&nbsp;&nbsp;&quot;weight&quot;: 20,<br/>
+                                      &nbsp;&nbsp;&nbsp;&nbsp;&quot;sensors&quot;:<br/>
+                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&quot;optical&quot;, &quot;distance&quot;, &quot;vibration&quot;, &quot;fuel&quot;]<br/>
+                                      &nbsp;&nbsp;}<br/>
+                                      }<br/>
+                                    </code>
+                                </div>
+                                <p>In this case, the <code class="inline">type</code> value is a string, <code class="inline">weight</code> is a number, and <code class="inline">sensors</code> is an array.</p>
+                                <p>In summary, the JSON example contains two objects (the <code class="inline">robot</code> object nested inside the main object), one array called <code class="inline">sensors</code>, four key/value pairs (<code class="inline">robot</code> object itself and it's value object, <code class="inline">type</code>, <code class="inline">weight</code>, and <code class="inline">sensors</code> pairs).</p>
+				            </article>
+				        </div>
+					</section>
+                    <section class="guideBox">
+				        <div class="tutorialRow">
+				            <div class="guideHeader"><a name="DocumentingJSON" class="anchorLink">Documenting JSON</a></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="guideContent">
+								<h2>Overall Approach</h2>
+                                <p>There is no overall standard for documenting JSON files. You should refer to your team and/or company's standards for the style of documentation. With that said, you should always start out describing the object with a one sentence description. Next, you can use a table to list the contents of the JSON object. A typical table will at least have the following items in each column:</p>
+                                <ul>
+                                    <li>Element name (key),</li>
+                                    <li>Description of the element; usually a sentence fragment,</li>
+                                    <li>What Type the element is (number, string, Boolean, etc.),</li>
+                                    <li>and any additional notes (often referred to as Notes or Comments column)</li>
+                                </ul>
+                                <p>The Notes field should contain any default values, limits to any values, and any other useful information about a particular field. That is, unless it has been decided to separate these values into their own respective columns.</p>
+                                <p>In the following example, the table also includes a <code class="inline">Sample</code> column that lists the possible values of the field.</p>
+                                <p>Attributes of a robot.</p>
+                                <table class="example">
+                                    <tr>
+                                      <th colspan="2">Element</th>
+                                        <th>Description</th>
+                                        <th>Type</th>
+                                        <th>Notes</th>
+                                        <th>Sample</th>
+                                    </tr>
+                                    <tr class="hover">
+                                      <td>robot</td>
+                                        <td></td>
+                                        <td>Top level of object</td>
+                                        <td>data object</td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr class="hover">
+                                        <td></td>
+                                        <td>type</td>
+                                        <td>Type of robot</td>
+                                        <td>string</td>
+                                        <td></td>
+                                        <td>roller</td>
+                                    </tr>
+                                    <tr class="hover">
+                                        <td></td>
+                                        <td>weight</td>
+                                        <td>Weight of robot (kilograms)</td>
+                                        <td>number</td>
+                                        <td>Unloaded weight</td>
+                                        <td>20</td>
+                                    </tr>
+                                    <tr class="hover">
+                                        <td></td>
+                                        <td>sensors</td>
+                                        <td>List of available sensors</td>
+                                        <td>array</td>
+                                        <td>Calling a disabled/unavailable sensor will shut down the robot. Bug has been filed: <a href="#">BUG-239</a></td>
+                                        <td>optical, distance, vibration</td>
+                                    </tr>
+                                </table>
+                                <p>Alternatively, the same information could be represented like the following tables:</p>
+                                <p>Topmost level of the robot object</p>
+                                <table class="example">
+                                  <tr>
+                                    <th>Element</th>
+                                    <th>Description</th>
+                                    <th>Type</th>
+                                  </tr>
+                                  <tr class="hover">
+                                    <td>robot</td>
+                                    <td>Top level of object</td>
+                                    <td>data object</td>
+                                  </tr>
+                                </table>
+                                <p>Note: since there were no notes or samples for this particular object, those columns were omitted. Here, one could make an argument to keep the columns in just for consistency’s sake.</p>
+                                <p>Attributes of the robot object.</p>
+                                <table class="example">
+                                  <tr>
+                                    <th>Element</th>
+                                    <th>Description</th>
+                                    <th>Type</th>
+                                    <th>Notes</th>
+                                    <th>Sample</th>
+                                  </tr>
+                                  <tr class="hover">
+                                    <td>type</td>
+                                    <td>Type of robot</td>
+                                    <td>string</td>
+                                    <td></td>
+                                    <td>roller</td>
+                                  </tr>
+                                  <tr class="hover">
+                                    <td>weight</td>
+                                    <td>Weight of robot (kilograms)</td>
+                                    <td>number</td>
+                                    <td>Unloaded weight</td>
+                                    <td>20</td>
+                                  </tr>
+                                  <tr class="hover">
+                                    <td>sensors</td>
+                                    <td>List of available sensors</td>
+                                    <td>array</td>
+                                    <td>Calling a disabled/unavailable sensor will shut down the robot. Bug has been filed: <a href="#">BUG-239</a></td>
+                                    <td>optical, distance, vibration</td>
+                                  </tr>
+                                </table>
+                                <a name="JSONRequestsandResponses" class="anchorLink">
+	                                <h2>JSON Requests and Responses</h2>
+                                </a>
+                                <p>JSON-based APIs use requests and responses to get data from the server (request) and a server will send back a response. Typically, both requests and responses are sent as JSON. For the most part, request and response JSON is documented in the same way. JSON responses typically have an element, description, type, and note data while response JSON will include all the previously listed columns and include a required column. This required column tells the user if a field is required or optional. The default value of the required field can be found in the notes field but sometimes, at least in my experiences, another field can be added to this table called <code class="inline">default</code> (value).</p>
+                                <p>Consider the following response table:</p>
+                                <table class="example">
+                                    <tr>
+                                        <th>Element</th>
+                                        <th>Description</th>
+                                        <th>Type</th>
+                                        <th>Required</th>
+                                        <th>Default</th>
+                                        <th>Notes</th>
+                                    </tr>
+                                    <tr class="hover">
+                                        <td>type</td>
+                                        <td>Type of robot</td>
+                                        <td>string</td>
+                                        <td>Required</td>
+                                      <td>"roller"</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr class="hover">
+                                        <td>weight</td>
+                                        <td>Weight of robot (kilograms)</td>
+                                        <td>number</td>
+                                        <td>Optional</td>
+                                      	<td>10</td>
+                                        <td>Unloaded weight</td>
+                                    </tr>
+                                    <tr class="hover">
+                                        <td>sensors</td>
+                                        <td>List of available sensors</td>
+                                        <td>array</td>
+                                        <td>Required</td>
+                                        <td>"distance"</td>
+                                        <td>Calling a disabled/unavailable sensor will shut down the robot. Bug has been filed: <a href="#">BUG-239</a></td>
+                                    </tr>
+                                </table>
+                                <p>The Notes field should contain any default value for a field is it listed as optional.</p>
+                                <a name="HandlingNestedData" class="anchorLink">
+	                                <h2>Handling Nested Data</h2>
+                                </a>
+                                <p>Documenting nested information can be tricky at times but with a little bit of patience and review of what goes where, you can handle the display of nested date with artistic style.</p>
+                                <p>There are two traditional ways to handle nested information:</p>
+                                <ol>
+                                    <li>Indentation
+                                      <ul>
+                                        <li>This is the best case when objects are not reused</li>
+                                        <li>This style takes up less space</li>
+                                      </ul>
+                                    </li>
+                                    <li>Table for each object type
+                                      <ul>
+                                        <li>Best style when objects are reused</li>
+                                        <li>However, this style takes up more space</li>
+                                      </ul>
+                                    </li>
+                                </ol>
+                                <p>As noted, these are traditional methods to document JSON objects. However, there has been a rise of acceptance of side-by-side formatting as presented in systems like <a href="https://stripe.com/docs/api#intro" title="Stripe API" target="_blank">Stripe API</a> and <a href="https://sample-threes.readme.io/v1.0/docs" title="Readme API samples" target="_blank">Readme.io Samples</a>. I love love to discuss that here but unfortunately it is beyond the scope of this guide.</p>
+				            </article>
+				        </div>
+					</section>
+				</div>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		<!-- automated modal image storage-->
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+		<script src="../../js/getYear.js"></script>
+		<script src="../../js/modal-images.js"></script>
+		<script src="../../js/auto-number.js"></script>
+	</body>
+</html>

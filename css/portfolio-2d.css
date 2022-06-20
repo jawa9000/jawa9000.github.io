@@ -1,0 +1,17 @@
+/* 2D art page */
+/* part of hover over image system */
+#MLPOriginal {
+    background-image: url(../images/2D/reconstructions/MLP-original01.jpg);
+    width: 720px;
+    height: 477px;
+}
+#MLPOriginal:hover {background-image: url(../images/2D/reconstructions/MLP-retouch01.jpg);}
+#factorsWalk {
+	background-image: url(../images/2D/reconstructions/factors-walk01.jpg);
+	width: 720px;
+	height: 309px;
+}
+#factorsWalk:hover {background-image: url(../images/2D/reconstructions/factors-walk02.jpg);}
+/* end hover over image system */
+/* image preloader */
+div.preload {display: none;}

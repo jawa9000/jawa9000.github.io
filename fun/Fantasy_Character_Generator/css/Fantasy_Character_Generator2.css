@@ -1,0 +1,354 @@
+
+/*
+ * Purpose of page: To help players roll characters with multiple dice rolling methods and see character race bonuses
+ * Created by Brian Immel on 9/14/2014
+ */
+
+/* fonts */
+@font-face {
+	font-family: gothic;
+	src: url(../fonts/GOTHIC.TTF);
+}
+@font-face {
+	font-family: gothicB;
+	src: url(../fonts/GOTHICB.TTF);
+}
+@font-face {
+	font-family: gothicBI;
+	src: url(../fonts/GOTHICBI.TTF);
+}
+@font-face {
+	font-family: gothicI;
+	src: url(../fonts/GOTHICI.TTF);
+}
+
+/* fonts */
+div#abilityTable, .button, nav ul, input.characterName, #outputMessage{
+	font-family: gothic;
+	color: #fff;
+}
+.cell, .subCell nav ul, .characterName, #outputMessage{
+	color: #fff;
+}
+
+/* main display setup */
+div.main, div.table {
+	display: table;
+	margin: 0 auto;
+}
+div.tableCharacterName {
+	display: table;
+	margin: 0;
+	width: 95%;
+}
+div#abilityTable {
+	margin: 0;
+	padding: 5px;
+}
+div.main {
+	background: none repeat scroll 0 0 #7A4100;
+    border-radius: 7px;
+   width: 760px;
+}
+div.row {
+	display: table-row;
+	height: 40px;
+}
+.cell {
+	display: table-cell;
+	padding: 5px;
+}
+.subCell {
+	padding: 5px;
+	display: table-cell;
+	width: 30px;
+	height: 30px;
+}
+
+/* ability score modifier buttons */
+div.modButton {
+	display: table-cell;
+	padding: 0 5px;
+	line-height: 30px;
+	width: 30px;
+}
+div.modButtonHidden {
+	display: none;
+	padding: 5px;
+	line-height: 30px;
+	width: 30px;
+}
+div[id$="Up"], div[id$="Down"], div[id$="Plus"], div[id$="Minus"] {
+	cursor: pointer;
+	background: none repeat scroll 0 0 #AD7B00;
+    border-radius: 5px;
+    font-family: gothicB;
+    line-height: 30px;
+    height: 30px;
+    width: 30px;
+	text-align: center;
+}
+div[id$="Up"]:hover, div[id$="Down"]:hover, div[id$="Plus"]:hover, div[id$="Minus"]:hover {
+	background: #4b545f;
+}
+div[id$="Buttons"] {
+	display:table-row;
+}
+.buttonSpace {
+	padding: 5px 5px 5px 0;
+	margin: 5px 5px 0 0;
+}
+
+/* dice setup */
+div.header {
+	font-size: 1.2em;
+	font-weight: bold;
+	font-family: gothicB;
+}
+.button {
+	background: none repeat scroll 0 0 #AD7B00;
+	color: white;
+	cursor: pointer;
+	border-radius: 7px;
+	line-height: 40px;
+	text-align: left;
+	height: 40px;
+	padding: 0px 0 0 7px;
+}
+.button:hover {
+	background: #4b545f;
+	border-radius: 7px;
+}
+.dice {
+	width: 345px;
+}
+.pipRow {
+    display: table-row;
+}
+.d0, .d1, .d2, .d3, .d4, .d5, .d6 {
+	background: none repeat scroll 0 0 #ad7b00;
+    border-radius: 5px;
+    text-align: center;
+    display: table-cell;
+	padding: 6px 5px;
+}
+.d0 {
+	background: none repeat scroll red;
+}
+.d6Special {
+	background: none repeat scroll blue;
+}
+.pip {
+    background-image: radial-gradient(ellipse farthest-corner at right bottom , #ffffff 0%, #e2c070 100%);
+}
+.empty, .pip {
+    border-radius: 50%;
+    display: table-cell;
+    padding: 5px;
+}
+.pipSpacer {
+    display: table-cell;
+    padding: 2px;
+}
+.red {
+	background: red;
+}
+.dieSpacer {
+	display: table-cell;
+	width: 5px;
+	padding: 1px;
+}
+
+/* drop down menus */
+nav {
+	display: table-cell;
+}
+nav ul {
+	background: none repeat scroll 0 0 #AD7B00;
+	border-radius: 7px;
+	list-style: none;
+	position: relative;
+	width: 140px;
+	padding: 0;
+	text-align: center;
+}
+nav ul li {
+	text-align: left;
+	cursor: pointer;
+	height: 40px;
+	line-height: 40px;
+}
+nav ul ul {
+	display: none;
+}
+nav ul li:hover > ul {
+	display: block;
+	cursor: pointer;
+}
+nav ul li:hover {
+	background: #4b545f;
+	border-radius: 7px;
+}
+nav ul ul {
+	padding: 0;
+	position: absolute;
+	z-index: 1;
+}
+nav ul ul li {
+	float: none;
+	position: relative;
+}
+nav ul ul li {
+	padding: 3px 3px 3px 8px;
+}
+#CharacterRace, #CharacterClass, #CharacterGender, #CharacterAlignment {
+	padding: 0 0 0 5px;
+}
+#CharacterAlignment {
+	padding-right: 5px;
+}
+#raceDropDown, #classDropDown, #genderDropDown, #alignmentDropDown {
+	display: table-cell;
+	padding-left: 8px;
+}
+
+/* arrows */
+.arrowDown, .arrowRight {
+	width: 0;
+    height: 0;
+    padding: 0;
+    float: right;
+}
+.subCell #StrengthDown {
+	transform: translateX(4px);
+}
+.arrowDown, .arrowUp {
+	width: 0;
+    height: 0;
+    padding: 0;
+ 	border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-top: 10px solid #fff;
+    margin: 0px 2px 0px 2px;
+    transform: translateY(10px);
+}
+.arrowUp {
+	transform: rotateX(180deg); ;
+}
+div span.arrowRight {
+	transform: translateY(7px);
+}
+li span.arrowDown {
+	transform: translateY(-23px) translateX(-5px);
+}
+.arrowRight {
+	border-left: 7px solid #fff;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-top: 7px solid transparent;
+    margin: 6px 0 0 10px;
+}
+@-moz-document url-prefix() { /* fix for firefox for right arrow */
+	.arrowRight {
+		margin: 5px 0 0 12px;
+	}
+}
+
+/* class ability highlighters */
+.primaryAbility {
+	background: #7A5E3D;
+	font-weight: bolder;
+}
+.secondaryAbility {
+	background: #7A7A7A;
+	font-weight: bold;
+}
+@-moz-document {
+	.secondaryAbility {
+		background: orange;
+	}
+}
+@-webkit-document {
+	.secondaryAbility {
+		background: blue;
+	}
+}
+.noHigh {
+	background: none;
+}
+
+/* ability score too low */
+.tooLow {
+	font-style: italic;
+}
+
+.showRacePlus, .showRaceMinus {
+	display: table-cell;
+	padding: 5px;
+}
+
+/* character name */
+.characterName {
+	width: 350px;
+}
+input.characterName {
+	background: none repeat scroll 0 0 #AD7B00;
+	border: 0;
+	padding: 5px;
+	border-radius: 7px;
+	cursor: pointer;
+	height: 40px;
+	font-size: 1.2em;
+}
+.characterName span {
+	font-family: gothicB;
+}
+
+/* output message area */
+#outputMessage {
+	height: 45px;
+	line-height: 25px;
+    padding: 5px 5px 5px 9px;
+}
+
+/* ability rows */
+#Strength, #Constitution, #Dexterity, #Intelligence, #Wisdom, #Charisma {
+	height: 60px;
+}
+div[id$="Name"],div[id$="Race"],div[id$="Total"] {
+	vertical-align: middle;
+}
+div[id$="Name"] {
+	width: 100px;
+	border-radius: 7px 0 0 7px;
+}
+#StrengthRolls, #ConstitutionRolls, #DexterityRolls, #IntelligenceRolls, #WisdomRolls, #CharismaRolls {
+	width: 280px;
+}
+div[id$="Up"], div[id$="Down"] {
+	width: 10px;
+}
+div#Strength:first-child, div#Constitution:first-child {
+	height: 50px;
+}
+#StrengthMinus, #ConstitutionMinus, #DexterityMinus, #IntelligenceMinus, #WisdomMinus, #CharismaMinus, #StrengthPlus, #ConstitutionPlus, #DexterityPlus, #IntelligencePlus, #WisdomPlus, #CharismaPlus, #StrengthRacePlus, #ConstitutionRacePlus, #DexterityRacePlus, #IntelligenceRacePlus, #WisdomRacePlus, #CharismaRacePlus, #StrengthRaceMinus, #ConstitutionRaceMinus, #DexterityRaceMinus, #IntelligenceRaceMinus, #WisdomRaceMinus, #CharismaRaceMinus {
+	width: 20px;
+	cursor: pointer;
+	font-size: 1.5em;
+}
+#StrengthRace, #ConstitutionRace, #DexterityRace, #IntelligenceRace, #WisdomRace, #CharismaRace {
+	width: 15px;
+	text-align: center;
+}
+div[id$="Total"] {
+	border-radius: 0 7px 7px 0;
+	width: 15px;
+	text-align: center;
+}
+
+/* */
+.diceButton {
+	display: table-cell;
+    padding: 3px;
+}

@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="tutorial, indirect, rigid, binding, maya">
+		<meta name="description" content="Indirect Rigid Binding Tutorial">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>Indirect Rigid Binding Tutorial</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer="defer" src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1>Indirect Rigid Binding</h1>
+					<p class="lead">
+						Character Rigging: Shoulders  are the Pits
+					</p>
+					<p class="about">
+						Written by Brian Immel
+					</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+            		<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Indirect Rigid Binding</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Better solution for bending the shoulder area with Rigid Skinned geometry is creating a custom Flexor. This technique
+				                	involves a set of vertices being driven by a lattice and the lattice itself is driven by the skeleton and all the
+				                	vertices outside the lattice driven by the skeleton. Using lattices to driven the motion of a set vertices is commonly
+				                	called Indirect Binding.
+				                </p>
+				                <p>
+				                	Advantages of using Indirect Binding: <span class="strong">Set Driven Blend shapes on Lattices</span>
+				                </p>
+				                <ul>
+									<li>Customize control over the area of geometry in question </li>
+								  	<li>Create as many controls (blend shapes) as needed to handle the bending area.</li>
+								</ul>
+								<p>
+									Disadvantages of using Indirect Binding:
+								</p>
+								<ul>
+								  	<li>Takes time to set up the SDKs.</li>
+								  	<li>Lattice editing to deform the surface properly can get messy.</li>
+								</ul>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Sets of Vertices</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+									The first thing we need to do is create <span class="strong">Sets</span> of vertices that envelope the shoulder area and another
+									set to contain all the rest of the vertices not included in the shoulder area.
+								</p>
+								<p>
+									<span class="strong">Hide the skeleton</span> or turn off the selection type for joints.
+								</p>
+								<p>
+									RMB over the geometry and <span class="strong">go to Vertex components mode</span>.
+								</p>
+								<p>
+									<span class="strong">Select the vertices you wish to include the shoulder area</span>.
+								</p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Shoulder_Binding/indirect_binding-figure09.jpg" id="indirect_binding-figure09" class="imgThumbnail" title="indirect_binding-figure09" data-toggle="modal" data-target=".indirect_binding-figure09"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Shoulder Set</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Go to <span class="strong">Create &gt; Sets &gt; Set option box</span>.
+				                </p>
+				                <p>
+				                	<span class="strong">Name the set <span class="shoulder">Shoulder</span></span> and <span class="strong">hit Apply</span> button. Do not close
+				                	the Create Set Options window just yet.
+				                </p>
+				                <p>
+				                	<span class="strong">Holding down the shift key, drag a marquee around all the other vertices</span> on the selected geometry.
+				                	This will make an inverse selection of the shoulder vertices.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Shoulder_Binding/indirect_binding-figure10.jpg" id="indirect_binding-figure10" class="imgThumbnail" title="indirect_binding-figure10" data-toggle="modal" data-target=".indirect_binding-figure10"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Everything Else</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Back in the Create Set Options window, <span class="strong">name this set <span class="everything">Everything_else</span></span>
+				                	and <span class="strong">hit Apply and Close</span> button. We should now have two sets. To view the sets go to
+				                	<span class="strong">Window &gt; Relationship Editors &gt; Sets</span>.
+				                </p>
+				                <p>
+				                	This opens the Relationship Editor to the Set Editing menus. On the left side window, you will find four sets, two
+				                	of which is the sets we just created. To select a set, <span class="strong">highlight a set and right-click hold and choose Select
+				                	Set Members</span>. Warning: Select Set Members adds to the selection you currently have selected (but not to the
+				                	membership of that set). It acts like the Paint Select Tool; it just keeps adding to the selection. If you wish to
+				                	just select one set at a time, make sure you have nothing selected prior to that set.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Shoulder_Binding/indirect_binding-figure11.jpg" id="indirect_binding-figure11" class="imgThumbnail" title="indirect_binding-figure11" data-toggle="modal" data-target=".indirect_binding-figure11"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Lattices and Binding</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Now that we have our set ready to go, we need to define the lattice that will indirectly bind the shoulder vertices.
+				                	If you haven't done so already, <span class="strong">select the set that contains the shoulder vertices</span> from the
+				                	Relationship Editor.
+				                </p>
+				                <p>
+				                	<span class="strong">Go to Deform &gt; Lattice option box.</span>
+				                </p>
+				                <p>
+				                	In the <span class="strong">Lattice Options window</span>, select <span class="strong">5 x 4 x 4 divisions</span> for character in Figure 12.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Shoulder_Binding/lattice-figure12.jpg" id="lattice-figure12" class="imgThumbnail" title="lattice-figure12" data-toggle="modal" data-target=".lattice-figure12"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Shoulder_lattice</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	The reason why I chose those divisions is because the shoulder vertices make five divisions along the X-axis, four
+				                	divisions along the Y-axis and four divisions along the Z-axis. Hit the Create button. <span class="strong">Name the lattice
+				                	<span class="lattice">shoulder_lattice</span></span>. You don't have to use these lattice divisions but these values
+				                	work best for this demonstration. If you use fewer divisions, Maya will average the weights of each vertice between each
+				                	lattice point.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Shoulder_Binding/lattice-figure13.jpg" id="lattice-figure13" class="imgThumbnail" title="lattice-figure13" data-toggle="modal" data-target=".lattice-figure13"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Duplicate Lattice</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	<span class="strong">Duplicate the lattice</span> and <span class="strong">offset it on the Z</span> so that its not overlapping
+				                	<span class="lattice">shoulder_lattice</span>. <span class="strong">Name the duplicated lattice
+				                	<span class="shoulderLB">shoulder_lattice_blendshape</span></span>.
+				                </p>
+				                <p>
+				                	<span class="strong">Select <span class="shoulderLB">shoulder_lattice_blendshape</span> then shift select
+				                	<span class="lattice">shoulder_lattice</span></span> and go to <span class="strong">Deform &gt; Create Blend Shape &gt; option
+				                	box</span>. <span class="strong">Name the blend shape <span class="shoulderBlend">Shoulder_blend</span></span>. In Maya, skinned
+				                	surfaces are evaluated before blend shapes are. So, we must first set up a temporary or base blend shape before we
+				                	skin the entire setup (vertices inside the lattice and those outside the lattice).
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Rigid Bind</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	<span class="strong">Select the lattice named <span class="lattice">shoulder_lattice</span></span>.
+				                </p>
+				                <p>
+				                	Go back to Relationship Editors &gt; Sets and <span class="strong">select <span class="everything">Everything_else</span></span>
+				                	<span class="strong">set</span>.
+				                </p>
+				                <p>
+				                	<span class="strong">Shift-select the root joint</span>.
+				                </p>
+				                <p>
+				                	Go to <span class="strong">Skin &gt; Bind Skin &gt; Rigid Bind</span>.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Shoulder_Binding/lattice-figure14.jpg" id="lattice-figure14" class="imgThumbnail" title="lattice-figure14" data-toggle="modal" data-target=".lattice-figure14"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Editing Blend Shapes</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	After everything has been skinned, we now need to test the shoulder bends. Select the shoulder joint and rotate is
+				                	around to see how the surface deformers. You may notice that some bends are quite bad and for this reason we are going
+				                	to set up <span class="strong">Set Driven Blend Shapes</span> but before we do that, we need to make sure all the lattice points
+				                	in <span class="lattice">shoulder_lattice</span> has the proper membership to skeleton.
+				                </p>
+				                <p>
+				                	<span class="strong">Select the shoulder joint</span> and go to <span class="strong">Deform &gt; Edit Membership</span>. Add/Subtract lattice
+				                	points as needed until the geometry bends better when the shoulder joint bends. This step may not be needed but
+				                	sometimes it is necessary so just be away before you start setting up SDK Blend Shapes for the lattices.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Shoulder_Binding/lattice-figure15.jpg" id="lattice-figure15" class="imgThumbnail" title="lattice-figure15" data-toggle="modal" data-target=".lattice-figure15"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Set Driven Blend shapes</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Now that we have the blend shape system set up, we can add and subtract blend shape objects (lattices in this case), as
+				                	we need to allow for better deformations in the shoulder. Select the
+				                	<span class="shoulderLB">shoulder_lattice_blendshape</span> lattice and duplicate as many times as we have bend directions.
+				                	We should have six blend shapes to handle the bending of the shoulder (forward, backward, up, down, twist forward and
+				                	twist backward). We do not need to make any extra blend shape lattices for in-between rotations before SDK setups
+				                	evaluate between two or more SDK values.
+				                </p>
+				                <p>
+				                	<span class="strong">Offset each lattice</span> so that they do not sit on top of each other. Note: It is very important that we
+				                	<span class="strong">do not freeze transformations or delete histories on these lattices</span>. That would cause the blend shape
+				                	function to work improperly (remember blend shapes work on the difference between the parent and child point locations).
+				                </p>
+				                <p>
+				                	<span class="strong">Name each lattice</span> according to their bend direction
+				                	(<span class="shoulderLD">shoulder_lattice_forward, shoulder_lattice_backward, shoulder_lattice_up, shoulder_lattice_down,
+				                	shoulder_lattice_twistF,</span> and <span class="shoulderLD">shoulder_lattice_twistB</span>).
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Shoulder_Binding/lattice-figure16.jpg" id="lattice-figure16" class="imgThumbnail" title="lattice-figure16" data-toggle="modal" data-target=".lattice-figure16"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Blend Shapes</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	We don't really need seven lattices (six axis plus <span class="shoulderLB">shoulder_lattice_blendshape</span>) so rename
+				                	<span class="shoulderLB">shoulder_lattice_blendshape</span> to one of the mentions lattices above. For argument sake,
+				                	<span class="strong">rename <span class="shoulderLB">shoulder_lattice_blendshape</span> to
+				                	<span class="shoulderLD">shoulder_lattice_forward</span></span>. You can make another lattice and use it to help deform
+				                	the surface using the translations of the shrugging motions.
+				                </p>
+				                <p>
+				                	<span class="strong">Select all the lattices except for <span class="lattice">shoulder_lattice</span></span>.
+				                </p>
+				                <p>
+				                	<span class="strong">Shift-select <span class="lattice">shoulder_lattice</span></span> and go
+				                	to <span class="strong">Deform &gt; Edit Blend Shapes &gt; Add &gt; option box</span>. <span class="strong">Check on Specify Node</span> and
+				                	select <span class="strong"><span class="shoulderBlend">Shoulder_blend</span> from the Blend Shape Node</span> line.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Shoulder_Binding/lattice-figure17.jpg" id="lattice-figure17" class="imgThumbnail" title="lattice-figure17" data-toggle="modal" data-target=".lattice-figure17"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>SDK</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Now lets set up a SDK for the shoulder joint to drive the blend shape lattice between lattices. Go to
+				                	<span class="strong">Animate &gt; Set Driven Key &gt; Set &gt; option box.</span>
+				                </p>
+				                <p>
+				                	<span class="strong">Select curve named Shoulder_Control_L</span> (big S near the shoulder) and hit <span class="strong">Load Driver in the Set
+				                	Driven Key window</span>.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Shoulder_Binding/lattice-figure18.jpg" id="lattice-figure18" class="imgThumbnail" title="lattice-figure18" data-toggle="modal" data-target=".lattice-figure18"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Shoulder UD</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	<span class="strong">Select <span class="shoulderBlend">Shoulder_blend</span></span> under the INPUTS in the Channel Box of
+				                	<span class="lattice">shoulder_lattice</span>. Hit <span class="strong">Load Driven in the Set Driven Key window</span>. Now we
+				                	have all the major players loaded and we're ready to start creating some SDKs to better blend each blend shape lattice.
+				                	Don't worry about the blend shapes of the lattices just yet. It is easier to work on one task at a time (SDK then blend
+				                	shapes) than to try to do everything at once (set a SDK value, edit the blend shape and test, reset, etc.).
+				                </p>
+				                <p>
+				                	<span class="strong">Select <span class="shoulderUD">Shoulder UD</span> in the <span class="driver">driver window</span></span>,
+				                	<span class="strong">select <span class="shoulderLD">shoulder_lattice_up</span> in the <span class="driven">driven window</span></span>
+				                	and hit <span class="strong">Key in the Set Driven Key window</span>. Before keying, make sure
+				                	<span class="shoulderUD">Shoulder UD's</span> value is 0 and the shoulder_lattice_up value is 0 as well.
+				                </p>
+				                <p>
+				                	<span class="strong">Select <span class="shoulderUD">Shoulder UD</span> in the <span class="driver">driver window</span></span>,
+				                	<span class="strong">set the value to 10</span>, <span class="strong">select the <span class="shoulderLD">shoulder_lattice_up</span> in the
+				                	<span class="driven">driven window</span></span>, change the
+				                	<span class="strong">value to 1</span> and hit <span class="strong">Key in the Set Driven Key window</span>.
+				                </p>
+				                <p>
+				                	<span class="strong">Reset <span class="shoulderUD">Shoulder UD's</span> value to 0</span>. <span class="strong">Select
+				                	<span class="shoulderLD">shoulder_lattice_down</span> in the <span class="driven">driven window</span></span> and hit
+				                	<span class="strong">Key in the Set Driven Key window</span>.
+				                </p>
+				                <p>
+				                	<span class="strong">Make <span class="shoulderUD">Shoulder UD's</span> value -10</span>. <span class="strong">Select
+				                	<span class="shoulderLD">shoulder_lattice_down</span> in the <span class="driven">driven window</span></span> and give it
+				                	a <span class="strong">value of 1</span>. Hit <span class="strong">Key in the Set Driven Key window.</span>
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Shoulder FB and Shoulder TW</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Repeat the last step with the following combinations:
+				                </p>
+				                <ul>
+								  	<li>
+								  		<span class="shoulderFB">Shoulder FB</span> <span class="strong">0</span> =
+								  		<span class="shoulderLD">shoulder_lattice_forward</span> <span class="strong">0</span> and
+								  		<span class="shoulderLD">shoulder_lattice_backward</span> <span class="strong">0</span>.
+								  	</li>
+								  	<li>
+								  		<span class="shoulderFB">Shoulder FB</span> <span class="strong">10</span> =
+								  		<span class="shoulderLD">shoulder_lattice_forward</span> <span class="strong">1</span>
+								  	</li>
+								  	<li>
+								  		<span class="shoulderFB">Shoulder FB</span> <span class="strong">-10</span> =
+								  		<span class="shoulderLD">shoulder_lattice_backward</span> <span class="strong">1</span>
+								  	</li>
+								  	<li>
+								  		<span class="shoulderFB">Shoulder TW</span> <span class="strong">0</span> =
+								  		<span class="shoulderLD">shoulder_lattice_twistF</span> <span class="strong">0</span> and
+								  		<span class="shoulderLD">shoulder_lattice_twistB</span> <span class="strong">0</span>.
+								  	</li>
+								  	<li>
+								  		<span class="shoulderFB">Shoulder TW</span> <span class="strong">10</span> =
+								  		<span class="shoulderLD">shoulder_lattice_twistF</span> <span class="strong">1</span>.
+								  	</li>
+								  	<li>
+								  		<span class="shoulderFB">Shoulder TW</span> <span class="strong">-10</span> =
+								  		<span class="shoulderLD">shoulder_lattice_twistB</span> <span class="strong">1</span>.
+								  	</li>
+								</ul>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Volume Manipulation</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	If this process hasn't been long enough, next comes the funstrating (fun + frustrating) part: <span class="strong">rotate the shoulder
+				                	joint to its extreme</span> and begin <span class="strong">editing lattice points</span> to help the surface geometry keep its
+				                	volume during rotations. Each lattice will have a unique set of shape (lattice point locations). See Figure 19 for
+				                	examples of the blend shape lattices shape for handling the up and down motions of the shoulder. Warning: these lattices
+				                	make get ugly looking by the time you're done but they will do the job. Here are some points to keep in mind when editing
+				                	lattices when the master blend shape lattice has been driven:
+				                </p>
+				                <ul>
+									<li>
+										Be aware of the orientation of the master lattice. Some clusters of lattice points will rotate and change their
+										orientation axis as you bend the shoulder. Editing the blend shaped lattice will not cause normal deformations, as
+										one would expect.
+									</li>
+								  	<li>
+								  		Move rows/columns of lattice points at a time then go back and refine individual lattice points as needed. Always
+								  		work from rough detail to specific details.
+								  	</li>
+								  	<li>
+								  		Although the ultimate goal is to keep the volume/mass of the shoulder constant throughout the bend, we must also
+								  		look for geometry folding in on itself.
+								  	</li>
+								</ul>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Shoulder_Binding/lattice-figure19.jpg" id="lattice-figure19" class="imgThumbnail" title="lattice-figure19" data-toggle="modal" data-target=".lattice-figure19"/>
+				            </div>
+				        </div>
+					</section>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		<!-- automated modal image storage-->
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+	</body>
+	<script src="../../js/getYear.js"></script>
+	<script src="../../js/modal-images.js"></script>
+	<script src="../../js/auto-number.js"></script>
+</html>

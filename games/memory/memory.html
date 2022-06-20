@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="javascript, jquery, bootstrap, memory, game">
+		<meta name="description" content="Simple memory game">
+		<meta name="author" content="Brian Immel">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>Memory Game</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="css/memory.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+	</head>
+	<body>
+		<!-- get rid of my custom navigation bar and the js that goes along with it.
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer="defer" src="js/navigation.js"></script>
+		-->
+
+		<!-- ** redo the entire layout of this page so things actually center or align as they should ** -->
+		<div class="container">
+			<div id="start">
+				<div class="row">
+					<div class="col-md-2"></div>
+					<div class="col-md-8">
+						<div id="message"></div>
+					</div>
+					<div class="col-md-2"></div>
+				</div>
+				<div class="row">
+					<div class="col-md-2"></div>
+					<div class="col-md-8">
+						<div class="btn-toolbar btn-group-lg center-block" role="toolbar" aria-label="fieldSize">
+							<button id="button2x2" buttonData="2" type="button" class="btn btn-default">2x2</button>
+							<button id="button3x3" buttonData="3" type="button" class="btn btn-default">3x3</button>
+							<button id="button4x4" buttonData="4" type="button" class="btn btn-default">4x4</button>
+							<!--<button id="button5x5" buttonData="5" type="button" class="btn btn-default">5x5</button>-->
+							<button id="button6x6" buttonData="6" type="button" class="btn btn-default">6x6</button>
+						</div>
+					</div>
+					<div class="col-md-2"></div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-4">
+					<div id="inGameMenu">Menu</div>
+				</div>
+				<div class="col-md-4">
+					<div id="score">
+						<div id="gameScore"></div>
+						<div id="sessionScore"></div>
+					</div>
+				</div>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row translateMinusY">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+					<div id="question">
+						<div id="questionContainer">
+							<p>Reset game or continue with current game?</p>
+							<div class="table">
+								<div class="row buttonRow">
+									<div class="btn-toolbar btn-group-lg" role="toolbar" aria-label="fieldSize">
+										<button id="menuReset" menuData="reset" type="button" class="btn btn-default">Reset</button>
+										<button id="menuContinue" menuData="continue" type="button" class="btn btn-default">Continue</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-2"></div>
+			</div>
+			<!-- finish cleaning up the display alignments -->
+			<div id="gameField" class="table">
+				<div class="row">
+					<!--<div class="col-md-1"></div>-->
+					<!--<div class="col-md-10">-->
+						<div id="field" class="center-block"></div>
+					<!--</div>-->
+					<!--<div class="col-md-1"></div>-->
+				</div>
+			</div>
+		</div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+	</body>
+	<script src="js/memory.js"></script>
+	<script src="../../js/getYear.js"></script>
+</html>

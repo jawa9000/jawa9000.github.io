@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="tutorial, maya, 3d, light, type">
+		<meta name="description" content="Types of Lights Tutorial">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>Types of Lights Tutorial</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer="defer" src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1>Types of Lights</h1>
+					<p class="about">
+						Written by Brian Immel
+					</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+            		<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Ambient</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <ul>
+								    <li>Can shine light everywhere uniformly.</li>
+								    <li>Good for filling the scene with overall light but do not over use.</li>
+								</ul>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/light-types1.jpg" id="light-types1" class="imgThumbnail" title="Ambient Light" data-toggle="modal" data-target=".light-types1"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Directional</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+								<ul>
+									<li>
+										Shines light in the direction of the arrow. Placement does not matter unlike all the other lights. Think of this light
+										as a ray of light from the sun.
+									</li>
+									<li>Good for directional fill lights in an outdoor scene.</li>
+									<li>Not very effective with indoor lighting with shadows turned on.</li>
+								</ul>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/light-types2.jpg" id="light-types2" class="imgThumbnail" title="Directional Light" data-toggle="modal" data-target=".light-types2"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Point</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <ul>
+								    <li>Shines light in all directions (much like the sun).</li>
+								    <li>Good for acting as a light from a light bulb or a candle.</li>
+								</ul>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/light-types3.jpg" id="light-types3" class="imgThumbnail" title="Point Light" data-toggle="modal" data-target=".light-types3"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Spot</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <ul>
+								    <li>Behaves just like a real-world spotlight.</li>
+								    <li> Good for imitating beams of headlights and focused lamps (lamps with shades).</li>
+								    <li>Cone angle</li>
+								    <li>Penumbra angle</li>
+								</ul>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/light-types4.jpg" id="light-types4" class="imgThumbnail" title="Spot Light" data-toggle="modal" data-target=".light-types4"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Area</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <ul>
+								    <li>Emits light from a rectangular are instead of a point source.</li>
+								    <li>Great for recreating light from rectangular shaped sources (ceiling lights, row lights, etc.).</li>
+								</ul>
+								<p>
+									Note: Size (scale) of this light affects how much intensity is given off. The larger the size, the more light it will give
+									off. Example: if an area light has a scale of 3x3 and the intensity of 1, it will give off three times the amount of light
+									compared to an areas light of 1x1 with an intensity of 1.
+								</p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/light-types6.jpg" id="light-types6" class="imgThumbnail" title="Area Light" data-toggle="modal" data-target=".light-types6"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Volume</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <ul>
+								    <li>Light is emitted according to a volume shape that falls off from the center to the boundary of the volume shape.</li>
+								    <li>Acts very much like a point light but is limited in the area it illuminates according to its volume shape.</li>
+								</ul>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/light-types7.jpg" id="light-types7" class="imgThumbnail" title="Volume Light" data-toggle="modal" data-target=".light-types7"/>
+				            </div>
+				        </div>
+					</section>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		</div>
+		<!-- automated modal image storage-->
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+		<script src="../../js/getYear.js"></script>
+		<script src="../../js/modal-images.js"></script>
+		<script src="../../js/auto-number.js"></script>
+	</body>
+</html>

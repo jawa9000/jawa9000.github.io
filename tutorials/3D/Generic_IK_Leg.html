@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="tutorial, maya, ik, leg, skeleton">
+		<meta name="description" content="Generic IK Leg Setup Tutorial">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>Generic IK Leg Setup Tutorial</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer="defer" src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1>Generic IK Leg Setup</h1>
+					<p class="lead">
+						This tutorial covers the three aspects of building a basic IK leg setup through IK joints, control objects, and constraints.
+					</p>
+					<p class="about">
+						Written by Brian Immel
+					</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+            		<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>IK Setup</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Activate the <span class="strong">IK Handle Tool</span>. Make sure the IK Handle Tool is set for <span class="strong">Sticky</span>. If it
+				                	is not, go to <span class="strong">Skeleton &gt; IK Handle Tool &gt; Option Box</span> and make sure the checkbox for Sticky is
+				                	enabled. If this is not enabled, all the IKs we create will be float around when we animate them instead of staying put
+				                	like we want them to.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Ankle IK</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Select the <span class="hip">Hip joint</span>.
+				                </p>
+				                <p>
+				                	Click on the <span class="ankle">Ankle joint</span> (Figure 1). This creates an Inverse Kinematic chain that controls
+				                	the rotations and translates of the hip, knee and <span class="ankle">Ankle joints</span>.
+				                </p>
+				                <p>
+				                	"Why do we do this?" Two reasons:
+				                </p>
+				                <ol>
+				                	<li>
+				                		When we move the characters, the legs are earthbound (meaning having to stay in contact with the ground). They must
+				                		stay put while the rest of the body has the freedom to move about freely (Forward kinematics).
+				                	</li>
+				                	<li>
+				                		Its easier to animate one IK handle instead of three FK joints.
+				                	</li>
+				                </ol>
+				                <p>
+				                	Name this IK <span class="ankleIK">Ankle_IK</span>.
+				                </p>
+				            </div>
+				             <div class="images">
+				                <img src="../../images/tutorials/Generic_IK_Leg/figure01.gif" id="figure01" class="imgThumbnail" title="figure01" data-toggle="modal" data-target=".figure01"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Toe Joint</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Activate the <span class="strong">IK Handle Tool</span> again.
+				                </p>
+				                <p>
+				                	Select the <span class="ankle">Toe joint</span> (unless you have a joint inbetween the toe joint
+				                	and the ankle which you would then select the inbetween joint).
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Ankle Joint</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Click on the <span class="ankle">Ankle joint</span> (Figure 2).
+				                </p>
+				                <p>
+				                	The reason we made a second IK handle is that when you pick up the <span class="ankleIK">Ankle_IK</span>, it causes the
+				                	<span class="ankle">Ankle joint</span> to rotate which causes the joints below to rotate in opposition. Basically,
+				                	when the <span class="ankleIK">Ankle_IK</span> is lifted up, the foot points down and that is a no-no.
+				                </p>
+				                <p>
+				                	Name this IK <span class="toeIK">Toe_IK</span>.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Generic_IK_Leg/figure02.jpg" id="figure02" class="imgThumbnail" title="figure02" data-toggle="modal" data-target=".figure02"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Parent Toe IK to Ankle IK</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Select the <span class="toeIK">Toe_IK</span>.
+				                </p>
+				                <p>
+				                	Shift-select the <span class="ankleIK">Ankle_IK</span>.
+				                </p>
+				                <p>
+				                	<span class="strong">Parent the <span class="toeIK">Toe_IK</span> to the <span class="ankleIK">Ankle_IK</span> (p key or Edit &gt; Parent)</span>.
+				                </p>
+				                <p>
+				                	We parent the <span class="toeIK">Toe_IK</span> to the <span class="ankleIK">Ankle_IK</span> because when we lift up
+				                	the <span class="ankleIK">Ankle_IK</span>, we want the entire foot to stay level. If you wish to make it unlevel,
+				                	simply move the <span class="toeIK">Toe_IK</span> as you see fit.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Using Pole Vector Constraint to Keep the Knee in Alignment of the Foot</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	<span class="strong">Create a locator and Snap/move the locator to the Knee joint</span> (activate the Move Tool and hold
+				                	down the v key).
+				                </p>
+				                <p>
+				                	Pull the locator in front of the Knee joint (2-3 units should work) (Figure 3).
+				                </p>
+				                <p>
+				                	We need the locator to sit in front of the Knee joint otherwise, the joint will act weird when we try to move the foot
+				                	about.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Generic_IK_Leg/figure03.gif" id="figure03" class="imgThumbnail" title="figure03" data-toggle="modal" data-target=".figure03"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Pole Vector</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Select the locator, if you do not have it currently selected and <span class="strong">Shift-select the
+				                	<span class="ankleIK">Ankle_IK</span></span>.
+				                </p>
+				                <p>
+				                	Go to <span class="strong">Constrain &gt; Pole Vector</span> (Figure 4). The Pole Vector helps the IK handle to orient
+				                	itself to the direction we want it to face. In this case, we want it to face forward (in front of the Knee joint) all
+				                	the time (Figure 7). Pole Vector Constraints are used to keep IKs in alignment to whatever we assign it to.
+				                </p>
+				                <p>
+				                	<span class="strong">Rename the locator to <span class="kneeVector">Knee_Vector</span></span>.
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Generic_IK_Leg/figure04.jpg" id="figure04" class="imgThumbnail" title="figure04" data-toggle="modal" data-target=".figure04"/>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Generic_IK_Leg/figure07.gif" id="figure07" class="imgThumbnail" title="figure07" data-toggle="modal" data-target=".figure07"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Wrapping Up the Foot Control</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	<span class="strong">Create a NURBS circle</span> and <span class="strong">snap it to the center of the foot</span>
+				                	(Figure 5).
+				                </p>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Generic_IK_Leg/figure05.jpg" id="figure05" class="imgThumbnail" title="figure05" data-toggle="modal" data-target=".figure05"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Foot Control</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Model this NURBS ciricle to any shape you like. (I like to pull the points to it looks something like a foot.)
+				                </p>
+				                <p>
+				                	Rename the NURBS circle to <span class="footControl">Foot_Control</span>.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Parent to Foot_Control</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Select the <span class="ankleIK">Ankle_IK</span>, shift-select the <span class="kneeVector">Knee_Vector</span>, and
+				                	shift-select the <span class="footControl">Foot_Control</span>.
+				                </p>
+				                <p>
+				                	Finally, parent all these together under the Foot_Control.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		<!-- automated modal image storage-->
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+	</body>
+	<script src="../../js/getYear.js"></script>
+	<script src="../../js/modal-images.js"></script>
+	<script src="../../js/auto-number.js"></script>
+</html>

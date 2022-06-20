@@ -1,0 +1,110 @@
+<!doctype html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+        <title>Pig Latin Converter</title>
+        <meta name='description' content='Convert a word or a phrase into pig latin'>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <meta name="keywords" content="pig latin, converter">
+        <meta name="author" content="Brian Immel">
+		    <meta name="level" content="2">
+        <meta name="version" content="0.0.1">
+        <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+        <link href="../../css/normalize.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+
+        <style>
+            body {
+                background-color: peachpuff;
+                font-family: 'Roboto Slab', serif, Arial;
+            }
+            .center {
+                text-align: center;
+                color: crimson;
+            }
+            h1 {
+                font-size: 3.5em;
+            }
+            h2 {
+                font-size: 2.5em;
+            }
+            p, #converted {
+                font-size: 1.5em;
+            }
+            input#text {
+                width: 30em;
+                height: 2em;
+                font-size: 1em;
+            }
+            input#submit {
+                font-size: x-large;
+                text-align: center;
+                color: crimson;
+            }
+            input#submit:hover {
+                color: black;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="center">
+          <h1>Pig Latin Converter</h1>
+          <h2>Convert English word(s) into pig latin</h2>
+          <p>Enter a word or phrase (English characters with without numbers nor special characters please).</p>
+          <form>
+              <input id='text' type='text' autofocus>
+              <input id='submit' type='submit' value='Convert'>
+          </form>
+          <div id='converted'></div>
+        </div>
+
+      <script src="../../js/jquery-2.1.0.min.js"></script>
+      <script>
+        $('input#submit').on('click',function(e) {
+            e.preventDefault();
+            var text = $('input#text').val();
+            if (text.length > 0) { // input must have at least 1 character
+                if (!/[0123456789~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/g.test(text)) { // text can't have any special characters or numbers
+                    if (text.indexOf(' ') > 0) { // if the entered text is a phrase
+                        var phrase = text.split(' '); // convert text into an array
+                        var temp = ''; // placeholder to receive each word in the phrase
+                        for (i in phrase) { // loop through each element and convert it into pig latin
+                            temp += convert(phrase[i]) + ' ';
+                        }
+                        $('#converted').text(temp); // display pig latin phrase
+                    } else { // entered text is a single word
+                        $('#converted').text(convert(text)); // dispplay pig latin word
+                    }
+                } else { // nothing entered into the input field
+                    $('#converted').text('Enter a valid word or phrase (no number, special characters, and must be longer than 1 character)');
+
+                }
+              }
+          });
+
+          function convert(text) {
+              var wordType = ''; // variable to determine if word starts with a vowel or consonant
+              var vowels = ['a','e','i','o','u'];
+              var first = text.toLowerCase()[0]; // get first letter of the word
+              for (i in vowels) { // figure out if the word starts with a vowel or a consonant
+                  if (first == vowels[i]) {
+                      wordType = 'vowel';
+                      break;
+                  } else {
+                      wordType = 'consonant';
+                  }
+              }
+
+              if (wordType == 'consonant') { // starts with a consonant
+                  var first = text[0]; // get the first letter of the word
+                  var firstRemoved = text.substr(1); // remove the first letter of the word
+                  text = firstRemoved + first + 'ay' // add the first letter to the end and add 'ay'
+              } else if (wordType == 'vowel') { // starts with a vowel
+                  text += 'way';
+              }
+
+              return text;
+          }
+      </script>
+    </body>
+</html>

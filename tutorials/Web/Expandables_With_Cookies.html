@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="tutorial, jQuery, cookie, expandable">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<meta name="description" content="Expandables With Cookies Tutorial">
+		<link rel="shortcut icon" href="../../../../assets/ico/favicon.ico">
+		<title>Expandables With Cookies Tutorial</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+
+		<!-- Cookie Library -->
+        <script src="../../js/cookie.js"></script>
+
+		<!-- Web tutorial javascript  -- cannot be used with this tutorial; code must be a one-off -->
+        <script src="../../js/web-tutorials.js"></script>
+
+        <!--
+        To-Do:
+        * consider creating a graphic that illustrates the cookie process
+        -->
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1></h1>
+					<p class="lead">Expandables with Cookies!</p>
+                    <p class="lead">This tutorial will expand on the <a href="Expandables.html">Expandable Sections</a> instructional document to
+                    	include a system where each expandable remembers its display state. This document won't cover how to build a cookie system
+                        but rather utilize an existing cookie library.</p>
+					<p>This instructive guide assumes the user has basic understanding of JavaScript, jQuery, and basic cookie manipulation.</p>
+					<p class="about">
+						Written by Brian Immel
+					</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+                	<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name="" class="anchorLink"></a>Cookie Flow Overview</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>A typical page that uses cookies will do something like this: page loads, cookies are read in or initialized if they don't exist. If the
+                                	page is using the cookie to manipulate the layout in some fashion, a script pulls information from the cookies and then another script does
+                                    something with that information to affect the page layout. If the script allows the user to interact with the cookie-informed page elements,
+                                    the cookies will be updated so the interactive display state has been "remembered".</p>
+                               	<p>With expandables, this process is very similar as illustrated in the right to the right.</p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Expandables/Cookie_flow.png" id="cookieFlow" class="imgThumbnail" title="Typical cookie flow with expandables" data-toggle="modal" data-target=".cookieFlow"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name="CookieLibrary" class="anchorLink"></a>Cookie Library</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				            	<p>The Expandable system used in this tutorial will use cookies to store the display state of each expandable on the page. This
+                                	document will walk through the steps to create individual cookies for each expandable. There are many ways to create, read,
+                                    and update cookies (like having just one cookie for the entire page with a long string of values) but this tutorial will
+                                    focus on cookie generation and manipulation on every instance of an expandable. With that said one could create a basic
+                                    cookie system from scratch or use an existing library. That would be topic worthy of a tutorial itself. Instead, this tutorial
+                                    will use a cookie library created by Maxime Haineault called
+				            		<a href="https://code.google.com/p/cookie-js/source/browse/trunk/cookie.js?r=4" target="_blank" >JavaScript Cookie Manipulation Class</a>.</p>
+				                <div class="expandableContainer">
+                                    <div class="expandableTitle" id="expandTitle-cookieLibrary" status="hidden">
+                                        <span class="expand" title="Click to expand">Cookie Library</span>
+                                    </div>
+                                    <div class="expandableContent" id="expandContent-cookieLibrary">
+                                      	<code class="block" id="code-cookieLibrary">
+                                        	<div>/**</div>
+                                            <div>* @author 	Maxime Haineault (max@centdessin.com)</div>
+                                            <div>* @version	0.3</div>
+                                            <div>* @desc 	JavaScript cookie manipulation class</div>
+                                            <div>*/</div>
+                                            <div>Cookie = {</div>
+                                            <div><span class="indent36">// Get a cookie's value</span></div>
+                                            <div><span class="indent36">get: function(key) {</span></div>
+                                            <div><span class="indent72">tmp =  document.cookie.match((new </span></div>
+                                            <div><span class="indent108">RegExp(key +'=[a-zA-Z0-9.()=|%/]+($|;)','g')));</span></div>
+                                            <div><span class="indent72">if(!tmp || !tmp[0]) {</span></div>
+                                            <div><span class="indent108">return null;</span></div>
+                                            <div><span class="indent72">} else {</span></div>
+                                            <div><span class="indent108">return unescape(tmp[0].</span></div>
+                                            <div><span class="indent144">substring(key.length+1,tmp[0].length).</span></div>
+                                            <div><span class="indent144">replace(';','')) || null;</span></div>
+                                            <div><span class="indent108">}</span></div>
+                                            <div><span class="indent36">},</span></div>
+                                            <div><span class="indent36">// Set a cookie</span></div>
+                                            <div><span class="indent36">set: function(key, value, ttl, path, domain, secure) {</span></div>
+                                            <div><span class="indent72">cookie = [key+'='+    escape(value),</span></div>
+                                            <div><span class="indent108">'path='+    ((!path   || path=='')  ? '/' : path),</span></div>
+                                            <div><span class="indent108">'domain='+  ((!domain || domain=='')?</span></div>
+                                            <div><span class="indent144">window.location.hostname : domain)];</span></div>
+                                            <div><span class="indent72">if (ttl)         cookie.push(Cookie.hoursToExpireDate(ttl));</span></div>
+                                            <div><span class="indent72">if (secure)      cookie.push('secure');</span></div>
+                                            <div><span class="indent72">return document.cookie = cookie.join('; ');</span></div>
+                                            <div><span class="indent36">},</span></div>
+                                            <div><span class="indent36">// Return GTM date string of &quot;now&quot; + time to live</span></div>
+                                            <div><span class="indent36">hoursToExpireDate: function(ttl) {</span></div>
+                                            <div><span class="indent72">if (parseInt(ttl) == 'NaN' ) return '';</span></div>
+                                            <div><span class="indent72">else {</span></div>
+                                            <div><span class="indent108">now = new Date();</span></div>
+                                            <div><span class="indent108">now.setTime(now.getTime() + </span></div>
+                                            <div><span class="indent144">(parseInt(ttl) * 60 * 60 * 1000));</span></div>
+                                            <div><span class="indent108">return now.toGMTString();</span></div>
+                                            <div><span class="indent72">}</span></div>
+                                            <div><span class="indent36">}</span></div>
+                                            <div>}</div>
+                                    	</code>
+                                    </div>
+                                </div>
+                                <p>This code makes short work of handling cookies for the purpose of this tutorial. Since this tutorial will only be using part of
+                                	this cookie library, some of its features have been stripped out to keep the file sizes down a bit.</p>
+                                <p>Save this code in a JavaScript file called <code class="inline file">cookie.js</code> in the same directory as your
+                                	JavaScript files.</p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name="CookieInitialization" class="anchorLink"></a>Cookie Initialization</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				            	<p>With the cookie library ready to go, the first thing that needs to happen on page load is the initialization of cookies
+				            		(creating and/or reading). The <code class="inline file">cookie.js</code> file will include some code to complete the
+				            		following tasks:</p>
+				            	<ol>
+				            		<li>Get ids of every expandable and store them in an array</li>
+				            		<li>Use the values of the array as key names for the cookies</li>
+				            		<li>Loop through id array to read in any cookies.</li>
+				            		<ul>
+				            			<li>If an cookie doesn't exist for an id, create a new cookie</li>
+				            			<li>If the cookie's key name exists, update its value</li>
+				            		</ul>
+				            		<li>Set or update cookie values based on display status of expandable.</li>
+				            	</ol>
+				            	<p>Amend the following code below the cookie library:</p>
+				                <code class="block" id="code-cookieVariableInitialized">
+				                	<div>$(document).ready(function() {</div>
+				                	<div><span class="indent36">var cookieStatus;</span></div>
+								    <div><span class="indent36">var idArray = [];</span></div>
+				                	<div><span class="indent36">...</span></div>
+				                </code>
+				                <p>The <code class="inline">cookieStatus</code> variable will temporarily hold the status value of each individual expandable
+				                	before updating the cookies.</p>
+				                <p>The <code class="inline">idArray</code> will be an array to contain all the ids of the expandables. We'll use this to loop
+				                	through all the expandables and update all the display status based on the cookie's values.</p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name="ExpandablesAuto-hideMovestoCookiejs" class="anchorLink"></a>Expandables Auto-hide Moves to Cookie.js</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				            	<p>Because the order of JavaScript files has changed, the default behavior of hiding all expandable's contents needs to move as
+				            		well. Insert the following code after the variables in <code class="inline file">cookie.js</code> and remove the same line
+				            		from <code class="inline file">main.js</code>.</p>
+				            	<code class="block" id="code-hideAll">
+				            		<div>...</div>
+				            		<div>$(&quot;div[id^='expandContent']&quot;).slideUp(0);</div>
+				            		<div>...</div>
+				            	</code>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name="AddCookiejstoHead" class="anchorLink"></a>Add Cookie.js to Head</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				            	<p>With the <code class="inline file">cookie.js</code> ready for use, it needs to be added to the head of the page.</p>
+				                <code class="block" id="code-head">
+				                	<div>...</div>
+				                	<div>&lt;script src=&quot;../js/cookie.js&quot;&gt;&lt;/script&gt;</div>
+				                	<div>&lt;script src=&quot;../js/main.js&quot;&gt;&lt;/script&gt;</div>
+				                	<div>...</div>
+				                </code>
+				                <p><code class="inline file">Cookie.js</code> must come before <code class="inline file">main.js</code> in order for the page
+				                	to have the capabilities to get and set cookies before the page's main features are called into play.</p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name="GrabbingIdsforTheCookies" class="anchorLink"></a>Grabbing Ids for The Cookies</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				            	<p>With the expandables hidden by default, the next thing the script needs to do is get the ids so it can loop through and match
+				            		them to a cookie. The script will use the variable <code class="inline variable">idArray</code> to store all the ids in an
+				            		array.</p>
+				            	<code class="block" id="code-cookieIds">
+				            		<div>...</div>
+									<div>$(&quot;div[id^='expandTitle']&quot;).each(function() {</div>
+									<div><span class="indent36">idArray.push(this.id);</span></div>
+									<div>});</div>
+				            	</code>
+				            	<p>Here, the <code class="inline selector">div[id^='expandTitle']</code> selector grabs every expandable that has an id that
+				            		starts with expandTitle. This id will be used as the key for the cookie of each expandable. To push the id into the array,
+				            		the <code class="inline method">each</code> function is used to loop through selected id.</p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name="LoopingThroughidArray" class="anchorLink"></a>Looping Through idArray</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				            	<p>With the idArray populated, the script should now grab the ids and sibling ids of all the expandables. The values are
+				            		temporarily stored in the variables <code class="inline variable">title</code> and
+				            		<code class="inline variable">sibling</code> respectively.</p>
+				            	<p>The title variable will be use to set the status attribute later on while the sibling is the expandable's content element
+				            		and receive the change in display as needed.</p>
+				                <code class="block" id="code-grabIds">
+				                	<div>for (i in idArray) {</div>
+								    <div><span class="indent36">var title = $(&quot;#&quot; + idArray[i]).attr(&quot;id&quot;);</span></div>
+								    <div><span class="indent36">var sibling = $(&quot;#&quot; + idArray[i] + &quot; ~ div&quot;).attr(&quot;id&quot;);</span></div>
+								    <div><span class="indent36">...</span></div>
+								    <div>}</div>
+				                </code>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name="NoCookieExists" class="anchorLink"></a>No Cookie Exists</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				            	<p>Now for the fun stuff! The script needs to check a cookie with the name of the id found in the
+				            		<code class="inline variable">idArray</code> array. If the cookie doesn't exist, hide the selected expandable and set the
+				            		<code class="inline variable">cookieStatus</code> variable to "hidden". This variable will be processed at the end of the
+				            		loop as it applies to each id in the array.</p>
+				                <code class="block" id="code-cookieLoop">
+				                	<div>if (Cookie.get(idArray[i]) == null) {</div>
+				                	<div><span class="indent36">$(&quot;#&quot; + sibling).slideUp(0);</span></div>
+								    <div><span class="indent36">cookieStatus = &quot;hidden&quot;;</span></div>
+				                	<div><span class="indent36">...</span></div>
+				                	<div>}</div>
+				                </code>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name="CookieExistsandisOpen" class="anchorLink"></a>Cookie Exists and is Open</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				            	<p>If the cookie <code class="inline method">get</code> method matches an id and the value of the cookie is set to "open",
+				            		then that expandable's content should be set to visible and the <code class="inline variable">cookieStatus</code>
+				            		variable set to "open".</p>
+				                <code class="block" id="code-cookieOpen">
+				                	<div>} else if (Cookie.get(idArray[i]) == &quot;open&quot;) {</div>
+								    <div><span class="indent36">$(&quot;#&quot; + sibling).slideDown(0);</span></div>
+								    <div><span class="indent36">cookieStatus = &quot;open&quot;;</span></div>
+								    <div>...</div>
+				                </code>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name="CookieExistsandisHidden" class="anchorLink"></a>Cookie Exists and is Hidden</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				            	<p>The final part of detecting cookies is finding a cookie that does exist but its value is set to "hidden". With this
+				            		value, the sibling element should be hidden and the <code class="inline variable">cookieStatus</code> set to hidden
+				            		as well.</p>
+				                <code class="block" id="code-cookieHidden">
+				                	<div>} else if (Cookie.get(idArray[i]) == &quot;hidden&quot;) {</div>
+									<div><span class="indent36">$(&quot;#&quot; + sibling).slideUp(0);</span></div>
+								    <div><span class="indent36">cookieStatus = &quot;hidden&quot;;</span></div>
+								    <div>}</div>
+				                </code>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name="UpdateAllCookies" class="anchorLink"></a>Update All Cookies</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				            	<p>With all the expandables shown or not and the cookies updated, the last step in this cookie handling script is to update
+				            		the <code class="inline attribute">status</code> attribute for each expandable and update the cookies.</p>
+				                <p>Update the cookies</p>
+				                <code class="block" id="code-updateCookieArray">
+				                	<div>$(&quot;#&quot; + title).attr(&quot;status&quot;,cookieStatus);</div>
+								    <div>Cookie.set(idArray[i],cookieStatus);</div>
+				                </code>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name="UpdateIfElseblockforStatus" class="anchorLink"></a>Update If/Else block for Status</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+                            	<p>In the <code class="inline file">main.js</code> file, the if/else status update block needs to be updated to include cookie
+	                                setters. For status value of "hidden", the cookie <code class="inline method">set</code> method should update the cookie's
+                                    value in addition to the rest of the event previously defined. In this case, the cookie will receive the "open" value for
+                                    the id passed to it.</p>
+				                <code class="block" id="code-statusHidden">
+				                	<div>...</div>
+				                	<div>Cookie.set(titleId,&quot;open&quot;);</div>
+			                	</code>
+			                	<p>And this line of code if status is open:</p>
+			                	<code class="block" id="code-statusOpen">
+			                		<div>...</div>
+			                		<div>Cookie.set(titleId,&quot;hidden&quot;);</div>
+			                	</code>
+			                	<p>The whole if/else status block should look like this now:</p>
+			                	<code class="block" id="code-statusBlock">
+			                		<div>...</div>
+			                		<div>if (status == &quot;hidden&quot;) {</div>
+									<div><span class="indent36">$(&quot;#&quot; + siblingId).slideDown(&quot;fast&quot;);</span></div>
+									<div><span class="indent36">$(&quot;#&quot; + titleId).attr(&quot;status&quot;,&quot;open&quot;);</span></div>
+									<div><span class="indent36">Cookie.set(titleId,&quot;open&quot;);</span></div>
+									<div> else {</div>
+									<div><span class="indent36">$(&quot;#&quot; + siblingId).slideUp(&quot;fast&quot;);</span></div>
+									<div><span class="indent36">$(&quot;#&quot; + titleId).attr(&quot;status&quot;,&quot;hidden&quot;);</span></div>
+									<div><span class="indent36">Cookie.set(titleId,&quot;hidden&quot;);</span></div>
+									<div>}</div>
+			                		<div>...</div>
+			                	</code>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name="CookieCodeReview" class="anchorLink"></a>Cookie Code Review</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+                            	<p>That's it! With less than 90 lines of JavaScript and jQuery, the expandables now have a memory system in place. The final
+                                	code should look like this in the <code class="inline file">cookie.js</code> file:</p>
+				                <div class="expandableContainer">
+                                    <div class="expandableTitle" id="expandTitle-cookieHandler" status="hidden">
+                                        <span class="expand" title="Click to expand">Cookie Handler Bits</span>
+                                    </div>
+                                    <div class="expandableContent" id="expandContent-cookieHandler">
+                                        <code class="block" id="code-cookieHandler-bits">
+                                        	<div>/**</div>
+                                            <div>* @author 	Maxime Haineault (max@centdessin.com)</div>
+                                            <div>* @version	0.3</div>
+                                            <div>* @desc 	JavaScript cookie manipulation class</div>
+                                            <div>*/</div>
+                                            <div>Cookie = {</div>
+                                            <div><span class="indent36">// Get a cookie's value</span></div>
+                                            <div><span class="indent36">get: function(key) {</span></div>
+                                            <div><span class="indent72">tmp =  document.cookie.match((new </span></div>
+                                            <div><span class="indent108">RegExp(key +'=[a-zA-Z0-9.()=|%/]+($|;)','g')));</span></div>
+                                            <div><span class="indent72">if(!tmp || !tmp[0]) {</span></div>
+                                            <div><span class="indent108">return null;</span></div>
+                                            <div><span class="indent72">} else {</span></div>
+                                            <div><span class="indent108">return unescape(tmp[0].</span></div>
+                                            <div><span class="indent144">substring(key.length+1,tmp[0].length).</span></div>
+                                            <div><span class="indent144">replace(';','')) || null;</span></div>
+                                            <div><span class="indent108">}</span></div>
+                                            <div><span class="indent36">},</span></div>
+                                            <div><span class="indent36">// Set a cookie</span></div>
+                                            <div><span class="indent36">set: function(key, value, ttl, path, domain, secure) {</span></div>
+                                            <div><span class="indent72">cookie = [key+'='+    escape(value),</span></div>
+                                            <div><span class="indent108">'path='+    ((!path   || path=='')  ? '/' : path),</span></div>
+                                            <div><span class="indent108">'domain='+  ((!domain || domain=='')?</span></div>
+                                            <div><span class="indent144">window.location.hostname : domain)];</span></div>
+                                            <div><span class="indent72">if (ttl)         cookie.push(Cookie.hoursToExpireDate(ttl));</span></div>
+                                            <div><span class="indent72">if (secure)      cookie.push('secure');</span></div>
+                                            <div><span class="indent72">return document.cookie = cookie.join('; ');</span></div>
+                                            <div><span class="indent36">},</span></div>
+                                            <div><span class="indent36">// Return GTM date string of &quot;now&quot; + time to live</span></div>
+                                            <div><span class="indent36">hoursToExpireDate: function(ttl) {</span></div>
+                                            <div><span class="indent72">if (parseInt(ttl) == 'NaN' ) return '';</span></div>
+                                            <div><span class="indent72">else {</span></div>
+                                            <div><span class="indent108">now = new Date();</span></div>
+                                            <div><span class="indent108">now.setTime(now.getTime() + </span></div>
+                                            <div><span class="indent144">(parseInt(ttl) * 60 * 60 * 1000));</span></div>
+                                            <div><span class="indent108">return now.toGMTString();</span></div>
+                                            <div><span class="indent72">}</span></div>
+                                            <div><span class="indent36">}</span></div>
+                                            <div>}</div>
+                                            <div></div>
+										    <div>$(document).ready(function() {</div>
+										    <div><span class="indent36">var cookieStatus;</span></div>
+										    <div><span class="indent36">var cookieStatusArray = [];</span></div>
+										    <div><span class="indent36">var idArray = [];</span></div>
+										    <div></div>
+											<div><span class="indent36">$(&quot;div[id^='expandContent']&quot;).slideUp(0);</span></div>
+											<div></div>
+										    <div><span class="indent36">$(&quot;div[id^='expandTitle']&quot;).each(function() {</span></div>
+										    <div><span class="indent72">idArray.push(this.id);</span></div>
+										    <div><span class="indent36">});</span></div>
+										    <div></div>
+										    <div><span class="indent36">for (i in idArray) {</span></div>
+										    <div><span class="indent72">var title = $(&quot;#&quot; + idArray[i]).attr(&quot;id&quot;);</span></div>
+										    <div><span class="indent72">var sibling = $(&quot;#&quot; + idArray[i] + &quot; ~ div&quot;).attr(&quot;id&quot;);</span></div>
+										    <div></div>
+										    <div><span class="indent72">if (Cookie.get(idArray[i]) == null) {</span></div>
+										    <div><span class="indent108">$(&quot;#&quot; + sibling).slideUp(0);</span></div>
+										    <div><span class="indent108">cookieStatus = &quot;hidden&quot;;</span></div>
+										    <div><span class="indent72">} else if (Cookie.get(idArray[i]) == &quot;open&quot;) {</span></div>
+										    <div><span class="indent108">$(&quot;#&quot; + sibling).slideDown(0);</span></div>
+										    <div><span class="indent108">cookieStatus = &quot;open&quot;;</span></div>
+										    <div><span class="indent72">} else if (Cookie.get(idArray[i]) == &quot;hidden&quot;) {</span></div>
+										    <div><span class="indent108">$(&quot;#&quot; + sibling).slideUp(0);</span></div>
+										    <div><span class="indent108">cookieStatus = &quot;hidden&quot;;</span></div>
+										    <div><span class="indent72">}</span></div>
+										    <div><span class="indent72">$(&quot;#&quot; + title).attr(&quot;status&quot;,cookieStatus);</span></div>
+										    <div><span class="indent72">Cookie.set(idArray[i],cookieStatus); </span></div>
+										    <div><span class="indent36">}</span></div>
+										    <div>});</div>
+										</code>
+                                    </div>
+                                </div>
+                                <p>In the <code class="inline file">main.js</code> file, this code should have replaced the click event of any expandable's
+                                	title section:</p>
+                                <div class="expandableContainer">
+                                	<div class="expandableTitle" id="expandTitle-cookieEventHandler" status="hidden">
+                                		<span class="expand" title="Click to expand">Expandable Event Handler</span>
+                                	</div>
+                                	<div class="expandableContent" id="expandContent-cookieEventHandler">
+                                		<code class="block" id="code-expandableEventHandler">
+                                			<div>$(document).ready(function() {</div>
+                                			<div><span class="indent36">$(&quot;div[id^='expandTitle']&quot;).click(function() {</span></div>
+										    <div><span class="indent72">var titleId = $(this).attr(&quot;id&quot;);</span></div>
+										    <div><span class="indent72">var siblingId = $(&quot;#&quot; + titleId + &quot; ~ div&quot;).attr(&quot;id&quot;);</span></div>
+										    <div><span class="indent72">var status = $(this).attr(&quot;status&quot;); //open/hidden</span></div>
+										    <div></div>
+										    <div><span class="indent72">if (status == &quot;hidden&quot;) {</span></div>
+										    <div><span class="indent108">$(&quot;#&quot; + siblingId).slideDown(&quot;fast&quot;);</span></div>
+										    <div><span class="indent108">$(&quot;#&quot; + titleId).attr(&quot;status&quot;,&quot;open&quot;);</span></div>
+										    <div><span class="indent108">Cookie.set(titleId,&quot;open&quot;);</span></div>
+										    <div><span class="indent72">} else {</span></div>
+										    <div><span class="indent108">$(&quot;#&quot; + siblingId).slideUp(&quot;fast&quot;);</span></div>
+										    <div><span class="indent108">$(&quot;#&quot; + titleId).attr(&quot;status&quot;,&quot;hidden&quot;);</span></div>
+										    <div><span class="indent108">Cookie.set(titleId,&quot;hidden&quot;);</span></div>
+										    <div><span class="indent72">}</span></div>
+										    <div><span class="indent36">});</span></div>
+										    <div>});</div>
+                                		</code>
+                                	</div>
+                                </div>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name="Summary" class="anchorLink"></a>Summary</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>In review, this tutorial covered all the pieces necessary to add a memory system to toggle the display of every expandable on a page.</p>
+				                <ol>
+				                	<li>Reviewed Maxime Haineault's <a href="#CookieLibrary">Cookie Library</a> and used select features</li>
+				                	<li><a href="#CookieInitialization">Initialized cookies</a> on page load</li>
+                                    <li>Moved the <a href="#ExpandablesAuto-hideMovestoCookiejs">auto-hide feature</a> of all expandables into the <code class="inline file">cookie.js</code> file</li>
+                                    <li><a href="#AddCookiejstoHead">Added <code class="inline file">cookie.js</code> to the head</a> of the HTML page</li>
+                                    <li><a href="#GrabbingIdsforTheCookies">Grabbed all the ids</a> of the expandables on the page and stored them in an array</li>
+                                    <li><a href="#LoopingThroughidArray">Looped through the id array</a> and set up some temporary variables to find cookie ids and sibling elements of the expandable's title section</li>
+                                    <li>Set up display and cookie updating features for the following conditions</li>
+                                    <ul>
+                                    	<li><a href="#NoCookieExists">No cookie exists</a> with given id</li>
+                                        <li><a href="#CookieExistsandisOpen">Cookie exists and value is set to "open"</a></li>
+                                        <li><a href="#CookieExistsandisHidden">Cookie exists and value is set to "hidden"</a></li>
+                                    </ul>
+                                    <li><a href="#UpdateAllCookies">Update all the cookies</a></li>
+                                    <li>Updated the <a href="#UpdateIfElseblockforStatus">if/else block for the click event</a> of expandable</li>
+                                    <li>And finally, reviewed the <a href="#CookieCodeReview">complete code</a> for all files</li>
+				                </ol>
+                                <p>The next tutorial in this miniseries is how to add an indicator arrow that rotates when the content of an expandable is revealed. Stay tuned for that exciting tutorial.</p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+                        <div class="tutorialRow">
+                            <div class="tutorialHeader"><a name="Resources" class="anchorLink"></a>Resources</div>
+                            <div class="corner"></div>
+                        </div>
+                        <div class="tutorialRow">
+                            <article class="tutorialContent">
+                            	<p>Resources referenced in this tutorial:</p>
+                            	<ul>
+                            		<li><a href="Expandables.html">Expandable Sections</a></li>
+                            		<li><a href="https://code.google.com/p/cookie-js/source/browse/trunk/cookie.js?r=4" target="_blank" >JavaScript Cookie Manipulation Class</a></li>
+                            	</ul>
+                            </article>
+                        </div>
+                	</section>
+				</div>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		<!-- automated modal image storage-->
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+		<script src="../../js/getYear.js"></script>
+		<script src="../../js/modal-images.js"></script>
+		<script src="../../js/auto-number.js"></script>
+        <script>
+		</script>
+	</body>
+</html>

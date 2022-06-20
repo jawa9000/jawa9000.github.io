@@ -1,0 +1,391 @@
+/* alternating table rows */
+.corner {
+  background: #06F;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-bottom: 4px solid white;
+  border-bottom-right-radius: 12px;
+  border-top-left-radius: 7px;
+  border-right: 4px solid white;
+  padding: 7px 14px;
+  font-size: 24px;
+  font-weight: bold;
+  display: table-cell; }
+
+.tutorialHeader {
+  font-size: 24px;
+  font-weight: bold;
+  padding-left: 65px; }
+
+.guideHeader {
+  font-size: 24px;
+  font-weight: bold;
+  padding-left: 10px; }
+
+.guideBox h2 {
+  font-size: 20px;
+  padding-left: 5px;
+  font-weight: bold; }
+
+.tutorialRow {
+  display: table-row; }
+
+.tutorialBox h2 {
+  padding-left: 75px; }
+
+.indent36 {
+  padding: 0 0 0 36px; }
+
+.indent72 {
+  padding: 0 0 0 72px; }
+
+.indent108 {
+  padding: 0 0 0 108px; }
+
+.indent144 {
+  padding: 0 0 0 144px; }
+
+.indent180 {
+  padding: 0 0 0 180px; }
+
+/* tutorial content: thumbnail images */
+.tutorialContent, .thumbnail, .guideContent {
+  display: table-cell; }
+
+.images {
+  text-align: center; }
+
+/* tutorial content */
+.tutorialContent, .guideContent {
+  vertical-align: top;
+  padding: 10px 5px 5px; }
+
+.tutorialContent p, .guideContent p {
+  padding: 5px;
+  font-size: 1em;
+  font-weight: none; }
+
+.tutorialContent code, .guideContent code {
+  padding: 5px;
+  font-size: 0.9em;
+  font-weight: none; }
+
+/*
+.tutorialContent span code, .guideContent span code {
+}
+*/
+.tutorialContent li, .guideContent li {
+  padding-top: 5px;
+  margin-left: -10px;
+  font-size: 1em;
+  font-weight: none; }
+
+.tutorialContent p:first-child:first-letter, .guideContent p:first-child:first-letter {
+  font-size: 1.5em;
+  font-weight: none;
+  text-transform: uppercase; }
+
+.tutorialBox, .guideBox {
+  background: rgba(0, 0, 0, 0.1);
+  display: table;
+  position: relative;
+  padding: 5px;
+  margin: 5px 0;
+  border-radius: 7px;
+  width: 100%; }
+
+.tutorialBox:nth-child(odd), .guideBox:nth-child(odd) {
+  background: rgba(0, 0, 0, 0.2); }
+
+/* tables */
+table, th, td {
+  padding: 5px;
+  border: solid thin black;
+  text-align: center; }
+
+table {
+  margin: 0 auto; }
+
+/*td:first-child {text-align: left;}*/
+/* took out because I don't know why I did this */
+.noBorder {
+  border-width: 0; }
+
+table.alternating th {
+  background: rgba(0, 0, 0, 0.3); }
+
+table.alternating tr:nth-child(even) {
+  background: rgba(0, 0, 0, 0.2); }
+
+table.table tbody th {
+  border-top: thin solid black; }
+
+table .alignLeft {
+  text-align: left; }
+
+table.table tbody tr td.vaMiddle {
+  vertical-align: middle; }
+
+table.example {
+  background: #aacef7;
+  border-collapse: collapse;
+  border: none;
+  text-align: left;
+  width: 100%;
+  margin: 0 0 5px 0; }
+
+table.example tr:nth-child(odd) {
+  background: #d5e5f8; }
+
+table.example tr:hover, table.example tr:first-child {
+  background: #8abcf7; }
+
+table.example td, table.example th {
+  border: none; }
+
+table.example td {
+  text-align: left; }
+
+/*
+table {
+		
+	}
+	td {
+		padding: 5px 10px;
+	}
+	tr:nth-child(odd) {
+		
+	}
+	tr.hover:hover, tr:first-child {
+		
+	}
+*/
+/* individual coloring classes used on a various pages */
+.yellowOrange {
+  color: #CC9C00;
+  font-weight: bold; }
+
+.brightBlue {
+  color: #005EFF;
+  font-weight: bold; }
+
+.midGreen {
+  color: #258F01;
+  font-weight: bold; }
+
+.pink {
+  color: #B06D8F;
+  font-weight: bold; }
+
+.brown {
+  color: #757102;
+  font-weight: bold; }
+
+.orange {
+  color: #ff3300;
+  font-weight: bold; }
+
+.blueGreen {
+  color: #006666;
+  font-weight: bold; }
+
+.green {
+  color: #006600;
+  font-weight: bold; }
+
+.orangeBrown {
+  color: #cc6600;
+  font-weight: bold; }
+
+.deepBlue {
+  color: #0000cc;
+  font-weight: bold; }
+
+.orangeRed {
+  color: #FF1E00;
+  font-weight: bold; }
+
+.brightGreen {
+  color: #009933;
+  font-weight: bold; }
+
+.yellow {
+  color: #e3ff75;
+  font-weight: bold; }
+
+.red {
+  color: #ff9d80;
+  font-weight: bold; }
+
+.blue {
+  color: #8282ff;
+  font-weight: bold; }
+
+.strong {
+  font-weight: bold; }
+
+.figure {
+  font-size: 0.8em;
+  font-weight: none;
+  font-style: italic; }
+
+.smallFont {
+  font-size: small;
+  font-weight: none; }
+
+/* override for custom.css's img */
+img {
+  max-width: none; }
+
+/* floats */
+.floatRight {
+  float: right; }
+
+.floatLeft {
+  float: left; }
+
+/* header overrides from Bootstrap */
+article.tutorialContent h1, article.tutorialContent h2, article.tutorialContent h3 {
+  margin-top: 0; }
+
+article.guideContent h1, article.guideContent h2, article.guideContent h3 {
+  margin-top: 10; }
+
+/* anchor link overrides from Bootstrap */
+.anchorLink, .anchorLink:hover {
+  color: #333;
+  text-decoration: none;
+  text-align: left; }
+
+.anchorLink {
+  /* offset clicked anchor links so it doesn't sit under the navigation */
+  padding-top: 70px;
+  margin-top: -70px;
+  display: inline-block; }
+
+/* code examples */
+code.block {
+  border: solid thin rgba(0, 0, 25, 0.1);
+  background: rgba(45, 89, 178, 0.1);
+  display: inline-block;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  white-space: normal; }
+
+code.block div {
+  padding: 2px 8px 3px 8px;
+  word-wrap: break-word; }
+
+code.block div:nth-child(odd) {
+  background: rgba(45, 89, 178, 0.25); }
+
+code.block div:nth-child(even) {
+  background: rgba(45, 89, 178, 0.1); }
+
+code.block div:first-child {
+  border-radius: 5px 5px 0 0; }
+
+code.block div strong {
+  padding: 0 3px 0 5px; }
+
+code.block div:last-child {
+  border-radius: 0 0 5px 5px; }
+
+code.block div:only-child {
+  border-radius: 5px; }
+
+code.inline {
+  /* if the code element is inline to another element (p), remove bg */
+  background: none;
+  margin: 0;
+  padding: 0; }
+
+code {
+  color: #555555;
+  margin-left: 10px; }
+
+.comment {
+  color: #777777; }
+
+.variable {
+  color: #4F6680; }
+
+.selector {
+  color: #4F8080; }
+
+.method {
+  color: #805D4F; }
+
+.attribute {
+  color: #80744F; }
+
+.file {
+  color: #5A4F80; }
+
+/* Notes, warnings, and other blocky elements */
+.note, .warning, .info, .question, .tip {
+  border: solid thin rgba(0, 0, 25, 0.1);
+  display: inline-block;
+  padding: 5px;
+  background: rgba(45, 89, 178, 0.1);
+  margin: 10px;
+  border-radius: 5px; }
+
+.note p::before, .warning p::before, .info p::before, .question p::before, p.answer::before, .tip p::before {
+  font-weight: bold;
+  font-size: 1.15em;
+  color: black; }
+
+.note span, .warning span, .info span, .question span, .tip span {
+  float: left;
+  line-height: 36px;
+  vertical-align: middle;
+  height: 25px;
+  width: 25px;
+  color: black; }
+
+.note p::before {
+  content: "Note: "; }
+
+.warning p::before {
+  content: "Warning! "; }
+
+.info p::before {
+  content: "Info: "; }
+
+.question p::before {
+  content: "Question: "; }
+
+p.answer::before {
+  content: "Answer: "; }
+
+.tip p::before {
+  content: "Tip: "; }
+
+/* expandables */
+.expandableContainer {
+  border: solid thin rgba(0, 0, 25, 0.1);
+  border-radius: 5px;
+  display: inline-block;
+  padding: 0 5px 0 5px;
+  margin: 0 15px 0 0; }
+
+.expandableTitle {
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+  display: inline-block;
+  color: #36C; }
+  .expandableTitle:hover {
+    color: white; }
+
+.expandableContent {
+  padding: 5px; }
+
+/* underscores for links */
+.underscore {
+  text-decoration: underline; }
+
+/*# sourceMappingURL=tutorials.css.map */

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="tutorial, maya, photoshop, painting, 3d, texture, mapping, lighting, shadows">
+		<meta name="description" content="Painting in 3D Tutorial">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>Painting in 3D Tutorial</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer="defer" src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1>Painting in 3D</h1>
+					<p class="about">
+						Written by Brian Immel
+					</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+            		<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Artisan Tools: 3D Paint Tool</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Create a polygon object and then activate the 3D Paint Tool by going to Rendering Menu set &gt; Texturing &gt; 3D Paint
+				                	Tool option box. Once the 3D Paint Tool is activated, you may notice that there is a big X through the brush. Maya is
+				                	telling you that this surface is not ready to receive any color maps yet.
+				                </p>
+				                <p>
+				                	Select the surface you wish to paint in Maya.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/3d-paint-tool-option-box.jpg" id="3d-paint-tool-option-box" class="imgThumbnail" title="3d-paint-tool-option-box" data-toggle="modal" data-target=".3d-paint-tool-option-box"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Texture Map</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Under File Textures, make sure Attribute to paint is selected for Color. Image Format isn't important at this point but
+				                	leaving it as a Maya IFF or selecting Targa (TGA) format will be fine.
+				                </p>
+				                <p>
+				                	Under File Textures click Assign Textures.
+				                </p>
+				                <p>
+				                	A window will pop up asking for Size X and Size Y. These setting will determine you texture map resolution. Maya's default
+				                	is 256 by 256. This value will be fine what this exercise. Click on Assign Textures. The shaded surface will lighten a bit
+				                	and the brush will now be free from the big X. You are now ready to paint on this surface. As you begin to paint you may
+				                	notice that your paint strokes are acting a bit odd. The reason for this is because we have not laid out the UVs of this
+				                	surface. We can quickly resolve this by going to the Modeling Menu set &gt; Edit Polygons &gt; Texture &gt; Automatic
+				                	Mapping. Now your surface won't act as funny when you paint on the surface.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/assign-files-textures.jpg" id="assign-files-textures" class="imgThumbnail" title="assign-files-textures" data-toggle="modal" data-target=".assign-files-textures"/>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/3d-paint-okay.jpg" id="3d-paint-okay" class="imgThumbnail" title="3d-paint-okay" data-toggle="modal" data-target=".3d-paint-okay"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>The 3D Paint Tool breakdown</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Function: The 3D Paint Tool allows Maya users to paint color and other image maps within the program.
+				                </p>
+				                <p>
+				                	There are two types of brushes Maya users can use:
+				                </p>
+				                <ul>
+						        	<li>A brush that paints color and other image maps.</li>
+						        	<li>
+						        		A brush that loads the Paint FX brushes that allows users to paint MEL scripts that is found in the Paint FX Tools
+						        		as 2D image maps.
+						        	</li>
+						    	</ul>
+						    	<p>Resizing the brush</p>
+							    <ul>
+							    	<li>Users can use the keyboard shortcut Ctrl-b + MMB to resize the brush.</li>
+							        <li>Radius U allows users to resize the brush with numeric inputs or moving the slider.</li>
+							        <li>Radius L limits the Radius U size to its value.</li>
+								</ul>
+								<p>Artisan brush types</p>
+								<ul>
+							        <li>
+							        	Each brush paints differently, just like a paintbrush one would load in Photoshop. If you click on the Browse button,
+							        	you can load specialized shapes into the brush type.
+							        </li>
+								</ul>
+								<p>Rotate To Stroke option</p>
+      							<ul>
+        							<li>Enabling this option will rotate the brush as you paint around the surface in 3D space.</li>
+      							</ul>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/3d-paint-brush.jpg" id="3d-paint-brush" class="imgThumbnail" title="3d-paint-brush" data-toggle="modal" data-target=".3d-paint-brush"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Color</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				            	<p>Color</p>
+							    <ul>
+							    	<li>Click on the color chip to select which color loads into the brush.</li>
+							    </ul>
+							    <p>Flood Color</p>
+							    <ul>
+							        <li>Click on the color chip to select which color loads into the flood options.</li>
+							    </ul>
+							    <p>Opacity</p>
+							    <ul>
+							        <li>As the name states, you can paint with less opacity if you change the value down from the default of 1.0000.</li>
+							    </ul>
+							    <p>Flood All</p>
+							    <ul>
+							        <li>Clicking on this button will cause the select surface to be completely filled with the color in the Flood Color option.</li>
+							    </ul>
+							    <p>Flood Selected</p>
+							    <ul>
+							        <li>
+							        	This option works best if you are working with polygonal objects and have one or more faces selected. This tool acts
+							        	as just like a Photoshop fill option with a marquee selection.
+							        </li>
+								</ul>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/3d-paint-color.jpg" id="3d-paint-color" class="imgThumbnail" title="3d-paint-color" data-toggle="modal" data-target=".3d-paint-color"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Paint Operations</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				            	<p>Artisan Paint</p>
+							    <ul>
+							        <li>Using this option (default) allows the user to simply paint.</li>
+							    </ul>
+							    <p>Artisan Erase</p>
+							    <ul>
+							        <li>As the name suggests, this option erases back to the default shader color.</li>
+							    </ul>
+							    <p>Artisan Clone</p>
+							    <ul>
+							        <li>Pick a region to clone from and paint away with the same surface the originally chosen area.</li>
+							    </ul>
+							    <p>Paint Effects Paint </p>
+							    <ul>
+							        <li>
+							        	This paint operation only works with the brush type used for Paint Effects tool. Click on the double brush icon to
+							        	open up the Visor window and select a MEL to be loaded into the brush.
+							        </li>
+							    </ul>
+							    <p>Paint Effects Smear</p>
+							    <ul>
+							        <li>As the name suggests, this brush smears the colors you have previously painted onto this surface.</li>
+							    </ul>
+							    <p>Paint Effects Blur</p>
+							    <ul>
+							        <li>As the name suggests, this brush will blur the colors on the areas you brush. </li>
+							    </ul>
+							    <p>Blend Mode</p>
+							    <ul>
+							        <li>The Artisan brushes allow for blend modes (just like Photoshop's blend modes).</li>
+							        <li>
+							        	3D Paint Tool users have the following options to choose from: Default (acts just like a regular brush), Lighten,
+							        	Darken, Multiple, Screen, and Overlay.
+							        </li>
+							    </ul>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/3d-paint-operations.jpg" id="3d-paint-operations" class="imgThumbnail" title="3d-paint-operations" data-toggle="modal" data-target=".3d-paint-operations"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>File Textures</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Before you can paint on a surface, you must load an attribute to paint onto and assign it to the shader the surface is
+				                	currently using.
+				                </p>
+				                <p>Attribute to Paint</p>
+							    <ul>
+							    	<li>
+							    		Users can paint to any attribute the shader uses. But, you cannot see any one of them but the Color attribute. If you
+							    		wish to paint to another attribute, I would suggest loading a Color attribute and painting it as if were the attribute
+							    		you want to paint anyway. Next disconnect the node and reconnect it to the location you originally wanted. In the
+							    		bigger picture of things, this cuts down on guesswork down the road.
+							    	</li>
+							    </ul>
+							    <p>Image Format</p>
+							    <ul>
+							        <li>
+							        	Users can choose a wide variety of Image Formats to paint to but I would recommend using one that Photoshop could read
+							        	(like Targa or Tiff). We can export this image map later and manipulate it in a 2D paint program.
+							        </li>
+							        <li>
+							        	I would recommend working with Maya IFF, Targa (TGA) or Tiff (TIF) formats. These formats are lossless which means
+							        	they do not compress on save and therefore do not lose any information over time.
+							        </li>
+							    </ul>
+							    <p>Assign Textures</p>
+							    <ul>
+							        <li>
+							        	As we have discovered earlier, this button assigns a texture map to the surface we are working with. If you have a big
+							        	X through your brush, you will need to assign a texture to it.
+							        </li>
+							    </ul>
+							    <p>Save Textures</p>
+							    <ul>
+							        <li>
+							        	Clicking on this button will save your texture map as a 2D file that any good paint program should be able to read
+							        	(as long as we chose the proper Image Format).
+							        </li>
+							        <li>
+							        	When you hit this button, Maya will automatically save it in a default location which would be something like the
+							        	following:
+							        </li>
+							        <ul>
+							            <li>C:/Documents and Settings/User/My Documents/maya/projects/default/3dPaintTextures/objectName_color.tga</li>
+							        </ul>
+							    </ul>
+							    <p>Reload File Textures</p>
+							    <ul>
+							        <li>If you export the map and want to reload it back into Maya, you can use this button to do so.</li>
+							    </ul>
+							    <p>Update on Stroke</p>
+							    <ul>
+							        <li>
+							        	Enabling this function allows users to see exactly what they are paint in real time. Only use this function if you
+							        	video card can handle it.
+							        </li>
+							    </ul>
+							    <p>Save Texture on Stroke</p>
+							    <ul>
+							        <li>
+							        	As the name says, it saves the texture map each time you create a stroke. I rarely enable this function because it
+							        	can eat up a lot of memory.
+							        </li>
+							    </ul>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/3d-paint-file.jpg" id="3d-paint-file" class="imgThumbnail" title="3d-paint-file" data-toggle="modal" data-target=".3d-paint-file"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Stroke</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>Screen Projection</p>
+							    <ul>
+							        <li>Enable this function it you wish to paint using a mirror-like function.</li>
+							    </ul>
+							    <p>Reflection</p>
+							    <ul>
+							        <li>Select which way for the brush to mirror.</li>
+							    </ul>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/3d-paint-stroke.jpg" id="3d-paint-stroke" class="imgThumbnail" title="3d-paint-stroke" data-toggle="modal" data-target=".3d-paint-stroke"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Stylus Pressure</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	One of the truly great options with the 3D Paint Tool is that you can use a Wacom tablet to paint you surfaces with. This
+				                	saves hours of work by using the opacity sensitivity of this great input device. I strongly urge you to use this tool
+				                	whenever possible. Maya can use this tool throughout the entire program!
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/3d-paint-stylus.jpg" id="3d-paint-stylus" class="imgThumbnail" title="3d-paint-stylus" data-toggle="modal" data-target=".3d-paint-stylus"/>
+				            </div>
+				        </div>
+					</section>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		</div>
+		<!-- automated modal image storage-->
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+		<script src="../../js/getYear.js"></script>
+		<script src="../../js/modal-images.js"></script>
+		<script src="../../js/auto-number.js"></script>
+	</body>
+</html>

@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="CSS Basics">
+		<meta name="keywords" content="guide, css, basic">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>Guide to CSS Basics</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+
+		<!-- Web tutorial javascript -->
+		<script src="../../js/web-tutorials.js"></script>
+
+		<!--
+        to-do list:
+        -->
+        <style>
+			/* in-document style only used on this page */
+			.red {color: red;}
+			div#menu {color: red;}
+			div#menu {color: blue;}
+			div#subMenu {color: red !important;}
+			div#subMenu {color: blue;}
+			.bg1 {
+				background: #999 !important;
+				padding: 8px 8px 1px 8px !important;
+			}
+			.bg2 {
+				background: #222 !important;
+				padding: 8px 8px 1px 8px !important;
+			}
+			.borderless {
+				border: none;
+				color: blue;
+			}
+			.tutorialContent p:first-child:first-letter {
+				font-size: 1em;
+				text-transform: none;
+			}
+			.tutorialBox h2 {
+				padding-left: 0; /* override for tutorials.css */
+			}
+        </style>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+                    <p class="lead">Welcome to CSS Basics! This reference guide will walk you through some of the central features of creating CSS rules.</p>
+                    <p class="lead"><strong>Goals of this guide:</strong> Upon completion of this document, you should have essential knowledge of what CSS is, how to use style sheets,
+                    	understand selectors and their syntax, discern how CSS's priority scheme is structured, how to add comments to your code, grasp how inheritance works, and finally
+                    	incorporate Chrome's Developer Tools for debugging purposes. Finally, this document will provide you with a list of additional resources to further your CSS development
+                    	skills.</p>
+                    <p class="lead">This document assumes you have a good working knowledge of HTML and a text editor to write HTML and CSS pages.</p>
+					<p class="about">
+						Written by Brian Immel
+					</p>
+			  </article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+                <section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <a name="WhatIsCss" class="anchorLink"><h1>What is CSS?</h1></a>
+                                <p>CSS stands for <strong>Cascading Style Sheets</strong> which is used for describing how a web page should look and formatted for various devices such as
+                                	desktops, mobile devices (large and small), and printers. The separation of CSS and HTML makes it easier for web developers to maintain sites, share style
+                                	sheets throughout an entire site, and make tweaks to pages on different display environments. This is referred to as separation of structure from content.
+                                	Style sheets consist of a list of rules or rule-sets that consist of one or more selectors and declaration blocks.</p>
+								<p>In this guide, we will cover the basics of style sheets, what and how to use selectors, priority scheme of CSS rules, inheritance, and finish off with some
+									thoughts on debugging your CSS rules. This guide assumes that you have a basic understanding of HTML elements, properties, and fundamental structure of a
+									web page. Take out a sheet of paper (digital or otherwise) and prepare yourself for some "rad" styling with style sheets!</p>
+				            </article>
+				        </div>
+					</section>
+            		<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <a name="InlineInternalExternalStyleSheets" class="anchorLink"><h1>Inline, Internal, or External Style Sheets</h1></a>
+                                <p><strong>Style sheets</strong> are a way to express <strong>CSS rules</strong> either internally to the HTML page or externally by including the
+                                	<strong>.css</strong> file via a link in the head of the page.</p>
+                                <p>One of the most basic ways to apply styling to an element is via an element's <strong>style property</strong>. However, this is not recommended if you plan
+                                	on maintaining an entire site. But if you must do so, here's what a inline-styled element might look like:</p>
+                                <code id="code-inline" class="block">
+                                	<div>&lt;span style=&quot;color:orange&quot;&gt;some orange text&lt;/span&gt;</div>
+                                </code>
+                                <p><strong>Internal style sheets</strong> should be discouraged if you plan on using the CSS rules across multiple pages. Internal style sheets are good for
+                                	testing out something on a single page or for unique rules to just that page. I personally don't like using internal style sheets as my personal work flow
+                                	rarely checks for CSS found within the HTML document itself.</p>
+                                <p>If you wish to use an internal style sheet, place the following code in the head of your page:</p>
+                                <code id="code-internal" class="block">
+                                	<div>&lt;head&gt;</div>
+                                	<div><span class="indent36">&lt;style&gt;</span></div>
+                                    <div><span class="indent72">&lt;your rules here&gt;</span></div>
+                                	<div><span class="indent108">...</span></div>
+                                	<div><span class="indent36">&lt;/style&gt;</span></div>
+                                	<div>&lt;/head&gt;</div>
+                                </code>
+								<p><strong>External style sheets</strong> allows you to control all CSS rules from one file that can affect all your HTML files on your site. To link an
+									 external style sheet to a page, use the following code:</p>
+                              	<code id="code-external" class="block">
+                                	<div>&lt;head&gt;</div>
+                                	<div><span class="indent36">&lt;style rel="stylesheet" type="text/css" href="style.css"&gt;</span></div>
+                                	<div>&lt;/head&gt;</div>
+                              	</code>
+                              	<div class="note">
+                              		<span class="glyphicon glyphicon-file"></span>
+                              		<p>One common practice is to have a handful of CSS files (one main file that lists commonly used rules throughout the site) and another CSS file for uncommon
+                              		rules (for one offs or specialized pages). </p>
+                              	</div>
+                              	<p>You can also create CSS files for different devices but that topic in itself could be another guide. We'll stick with our elected method for calling CSS
+                              		rules and move on to selecting elements.</p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+			              <article class="tutorialContent">
+				                <a name="Selectors" class="anchorLink"><h1>Selectors</h1></a>
+                            	<p>A <strong>selector</strong> is used to declare which part of the markup a rule applies to by matching tags and attributes. Selectors can be picked from</p>
+                            	<ul>
+                                	<li>Elements</li>
+                                    <li>Elements specified by an attribute</li>
+                                    <ul>
+                                    	<li>id: an unique identifier to the document</li>
+                                        <li>class: an group of elements that share the same identifier</li>
+                                    </ul>
+                                    <li>Element's location in the document tree</li>
+                                </ul>
+                                <p><strong>Pseudo-classes</strong> are special selectors that allow for formatting based on information that is not found in the document tree. These
+                                	pseudo-classes can be related to user events such as hovering over an element, visiting a link, and so forth. We'll cover more about this special selector
+                                	type later. For now, let's move onto selector's syntax.</p>
+                                <h2>Selected Selector Syntax</h2>
+                                <p>Here is a few examples of selectors in use:</p>
+                            <table class="table">
+                                	<tbody>
+			                         	<tr>
+                                            <th>Pattern</th>
+                                            <th>Matches</th>
+                                            <th>Example</th>
+                                        </tr>
+                                        <tr>
+                                            <td class="vaMiddle">element</td>
+                                            <td>Selects an element</td>
+                                            <td class="vaMiddle"><code>a {color: blue;}</code></td>
+                                        </tr>
+                                        <tr>
+                                          <td class="vaMiddle">element:hover</td>
+                                          <td>When user hovers over element, perform this rule</td>
+                                          <td class="vaMiddle"><code>a:hover {color: white;}</code></td>
+                                        </tr>
+                                        <tr>
+                                          <td class="vaMiddle">element.myRule</td>
+                                          <td>Apply a rule to all elements with the class 'myRule'</td>
+                                          <td class="vaMiddle"><code>a.myRule {padding: 5px;}</code></td>
+                                        </tr>
+                                        <tr>
+                                          <td class="vaMiddle">element#idRule</td>
+                                          <td>Elements with this unique id receive this rule</td>
+                                          <td class="vaMiddle"><code>a#special {border-color: red;}</code></td>
+                                        </tr>
+                                        <tr>
+                                          <td class="vaMiddle">element1 element2</td>
+                                          <td>The child element (element2) of the parent element (element1) receive this rule</td>
+                                          <td class="vaMiddle"><code>div a {background: aqua;}</code></td>
+                                        </tr>
+                                         <tr>
+                                           <td class="vaMiddle">element:first-child</td>
+                                           <td>Apply a rule to all element's first child element</td>
+                                           <td class="vaMiddle"><code>span:first-child {text-align: center;}</code></td>
+                                        </tr>
+                                         <tr>
+                                           <td class="vaMiddle">element[foo*='bar']</td>
+                                           <td>Find any element that contains the attribute substring of 'bar'</td>
+                                           <td class="vaMiddle"><code>div[id*='content'] {background: #002200;}</code></td>
+                                        </tr>
+                                         <tr>
+                                           <td class="vaMiddle">element1 ~ element2</td>
+                                           <td>Apply rule to element2 that is preceded by element1</td>
+                                           <td class="vaMiddle"><code>div ~ span {border: solid thin blue;}</code></td>
+                                        </tr>
+                                    </tbody>
+                              </table>
+                           	  <p>As stated above, this is a short list of selectors one can use. One of the greatness things about CSS is that you can combination this syntax in very
+                               		creative ways to select and manipulate the layout of your elements. For example, <code class="inline">div.foo a:first-child) {color: blue;}</code> would
+                               		create a slightly complex rule that applies only to the first link of div elements with the class of 'foo' and turn text color blue. For a more complete
+                               		list of selectors, you can visit <a href="http://en.wikipedia.org/wiki/Cascading_Style_Sheets#Selector" target="_blank">Wikipedia's Selector Notes</a> or
+                               		simply Google "CSS Selectors".</p>
+                              <p>Now that we understand how to select an element, let's decipher how declaration works on a selected element.</p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <a name="Declaration" class="anchorLink"><h1>Declaration</h1></a>
+                              	<p>CSS &quot;rules&quot; are defined by blocks of properties and values. Rules tell the browser what to select and how to modify its appearance. A rule is
+                              		initiated by a start curly bracket ({) and ends with another (end) bracket (}). Each property and value set is separated by a colon (:). To complete the
+                              		value, it must end with a semi-colon (;) to tell the browser that this rule's value is complete.</p>
+                              	<p>Let's take a look at  how to read this example:</p>
+                              	<code id="code-declaration" class="block">
+                              		<div>div {color: #9933cc;}</div>
+                              	</code>
+                           	 	<table class="table">
+                              		<tbody>
+                                   		<tr>
+                                            <th>Selector</th>
+                                            <th>Start block</th>
+                                            <th>Property</th>
+                                            <th>Colon</th>
+                                            <th>Value</th>
+                                            <th>Terminator</th>
+                                            <th>End block</th>
+                                        </tr>
+                                        <tr>
+                                            <td class="center"><code class="inline">div</code></td>
+                                            <td class="center"><code class="inline">{</code></td>
+                                            <td class="center"><code class="inline">color</code></td>
+                                            <td class="center"><code class="inline">:</code></td>
+                                            <td class="center"><code class="inline">#9933cc</code></td>
+                                            <td class="center"><code class="inline">;</code></td>
+                                            <td class="center"><code class="inline">}</code></td>
+                                        </tr>
+                                    </tbody>
+                              	</table>
+                                <p>Once a rule has been declared, one would think that is all one needs to do when creating a style or layout for a page. However, you will encounter issues
+                                	when one or more rules are at conflict with one another. CSS has system in place to deal with these crusading CSS commands.</p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <a name="CSSPriorityScheme" class="anchorLink"><h1>CSS Priority Scheme</h1></a>
+                              	<p>The following table shows how rules are applied and/or overridden. More often than not, you will have rules that are in direct conflict as a site grows in
+                              		complexity. It is important to understand how and when a rule &quot;wins&quot; the right to modify it's target element.</p>
+                                <table class="table">
+                                  <tbody>
+                                    <tr>
+                                      <th>High Priority</th>
+                                      <th>CSS Source Type</th>
+                                      <th>Description</th>
+                                    </tr>
+                                    <tr>
+                                      <td class="vaMiddle">1</td>
+                                      <td class="vaMiddle">Importance</td>
+                                      <td class="alignLeft">Highest priority: the &lsquo;!important&rsquo; annotation overwrites the previous priority types</td>
+                                    </tr>
+                                    <tr>
+                                      <td class="vaMiddle">2</td>
+                                      <td class="vaMiddle">Inline</td>
+                                      <td class="alignLeft">A style applied to an HTML element via HTML &lsquo;style&rsquo; attribute</td>
+                                    </tr>
+                                    <tr>
+                                      <td class="vaMiddle">3</td>
+                                      <td class="vaMiddle">Media Type</td>
+                                      <td class="alignLeft">A property definition applies to all media types, unless a media specific CSS defined</td>
+                                    </tr>
+                                    <tr>
+                                      <td class="vaMiddle">4</td>
+                                      <td class="vaMiddle">User defined</td>
+                                      <td class="alignLeft">Most browsers have the accessibility feature: a user defined CSS</td>
+                                    </tr>
+                                    <tr>
+                                      <td class="vaMiddle">5</td>
+                                      <td class="vaMiddle">Selector specificity</td>
+                                      <td class="alignLeft">A specific contextual selector (#heading p) overwrites generic definition</td>
+                                    </tr>
+                                    <tr>
+                                      <td class="vaMiddle">6</td>
+                                      <td class="vaMiddle">Rule order</td>
+                                      <td class="alignLeft">Last rule declaration has a higher priority</td>
+                                    </tr>
+                                    <tr>
+                                      <td class="vaMiddle">7</td>
+                                      <td class="vaMiddle">Parent inheritance</td>
+                                      <td class="alignLeft">If a property is not specified, it is inherited from a parent element</td>
+                                    </tr>
+                                    <tr>
+                                      <td class="vaMiddle">8</td>
+                                      <td class="vaMiddle">CSS property definition in HTML document</td>
+                                      <td class="alignLeft">CSS rule or CSS inline style overwrites a default browser value</td>
+                                    </tr>
+                                    <tr>
+                                      <td class="vaMiddle">9</td>
+                                      <td class="vaMiddle">Browser default</td>
+                                      <td class="alignLeft">The lowest priority: browser default value is determined by W3C initial value specifications</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                                <p>Let's look at the example of importance in action. Our CSS has the following conflict of how to affect the div element with the id of menu.</p>
+                                <code id="code-priority1" class="block">
+	                                <div>div#menu {color: red;}</div>
+    	                            <div><span class="indent36">...</span></div>
+                                	<div>div#menu {color: blue;}</div>
+                                </code>
+								<p>Example in action:</p>
+                                <code id="priority1" class="block">
+                                	<div id="menu">menu text</div>
+                                </code>
+                                <p>In this case, the last rule in the file wins out and the div element  get a blue text color. However, if we add the '!important' flag to the first rule, it
+                                	would win out.</p>
+                                <code id="code-priority2" class="block">
+	                                <div>div#subMenu {color: red !important;}</div>
+    	                            <div><span class="indent36">...</span></div>
+                                	<div>div#subMenu {color: blue;}</div>
+                                </code>
+								<p>Example in action:</p>
+                                <code id="priority2" class="block">
+                                	<div id="subMenu">menu text</div>
+                                </code>
+                                <p>This may see a little bit unruly so lets get things back in order by discussing rule order. An element can have more than one class assigned to it. For
+                                	example:</p>
+                                <code id="code-rule1" class="block">
+	                                <div>&lt;div class=&quot;red borderless&quot;&gt;Div element with two classes:<br/>red and borderless&lt;/div&gt;</div>
+                                </code>
+                                <p>An element can have as many classes as you see fit and here we have a div element with two classes ('red' and 'borderless').</p>
+                            	<code id="code-rule2" class="block">
+                                	<div>.red {color: red}</div>
+    	                            <div>.borderless {</div>
+                                    <div><span class="indent36">border: none;</span></div>
+                                    <div><span class="indent36">color: blue;</span></div>
+                                    <div>}</div>
+                            	</code>
+                                <p>In this example, the browser would render the red rule first and then override any conflicting rules found within the borderless rule based on it's order in
+                                	the style sheet. We can see from these two rules that there is conflict with the text color. Let's see how this plays out.
+                                </p>
+                                <code id="rule2" class="block">
+                                	<div class="red borderless">Div element with two classes: red and borderless</div>
+                                </code>
+                                <p>Not bad but not too pretty either when you look at the output (debugging mode) on the rendered page. Having clashing rules are common in CSS development.
+                                	There are times when you want one rule to override another and other times when you don't. Don't get frustrated when this happens. Yes, it can make keeping
+                                	track of rules and their purpose more difficult but it doesn't have to get too ugly. One thing that you can do to help yourself (and others) out is leaving
+                                	some notes behind about these rules.</p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <a name="Comments" class="anchorLink"><h1>Comments</h1></a>
+                                <p>A good web developer knows to leave comments in his/her code for several reasons: Other developers can read and understand the purpose of the rules,
+                                	disabling a rule or two for debugging purposes, and most importantly, to remind future you what you wrote and why. I look back some of the CSS rules I have
+                                	written years ago and scratch my head wondering why I did what I did back then. I'm sure I had a good reason but only if I had left a note or two to give
+                                	me a clue.</p>
+                                <p>To comment out a section of code, start with /*, then your code, and close off the section with */. For example:</p>
+                                <code id="code-comment1" class="block">
+                                	<div>div.menu {</div>
+                                    <div><span class="indent36 comment">/* background: #ffffff; */</span></div>
+                                    <div><span class="indent36">color: blue;</span></div>
+                                    <div>}</div>
+                                </code>
+                                <p>In this example, any div element with the class of menu won't have a defined background color (just a blue text).</p>
+                                <p>In addition to commenting out single lines of code, you can comment out entire blocks of CSS.</p>
+                                <code id="code-comment2" class="block">
+                                	<div>div {</div>
+                                    <div><span class="indent36 comment">/* background: #ffffff;</span></div>
+                                    <div><span class="indent36 comment">color: blue;</span></div>
+                                    <div><span class="indent36 comment">padding: 5px 0 0 0;</span></div>
+                                    <div><span class="indent36 comment">margin: 0; */</span></div>
+                                    <div><span class="indent36">text-align: center;</span></div>
+                                    <div>}</div>
+                                </code>
+                                <p>In this example, everything is prevented from modifying the div element except for the text-align rule.</p>
+                                <p>One last comment on comments: If the rule is a bit unclear by it's name or how it hooks into the page, leave a comment as to it's purpose.</p>
+                                 <code id="code-comment3" class="block">
+                                 	<div class="comment">/* Rules for menu items */</div>
+                                	<div>.menu {color: blue;}</div>
+                                    <div>.menu:hover {color: green;}</div>
+                                    <div>...</div>
+                                    <div><br/></div>
+                                    <div class="comment">/* Rules for ... */</div>
+                                    <div>...</div>
+                                </code>
+                                <p>Now that we are rich with the knowledge of comments, let's look at how a parent (element) passes along everything it has to it's children.</p>
+                            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <a name="Inheritance" class="anchorLink"><h1>Inheritance</h1></a>
+                             	<p>A key feature to CSS is it's ability to to rely on ancestor-descendant relationship. <strong>Inheritance</strong> can apply properties of the parent
+                             		element to its descendants via the document tree. Descendant elements may inherit text-related properties but not box-related properties. Some inherited
+                             		properties include color, font, line-height, text-align, and text-transform. Properties not inherited include background, border, display, height, width,
+                             		and padding.</p>
+                              	<h2>Example of Text-related Inheritance</h2>
+                             	<p>Consider the following styling:</p>
+                                <code id="code-inheritance1" class="block">
+                                	<div>div {color: red;}</div>
+                              	</code>
+                                <p>All span elements would have red text. To illustrate this, examine this code:</p>
+                                <code id="inheritance2" class="block">
+                                	<div>&lt;div&gt;This &lt;em&gt;illustrates&lt;/em&gt; how inheritance works&lt;/span&gt;</div>
+                           	  	</code>
+                                <p>Which would render this:</p>
+                                <code id="inheritance2-1" class="block">
+                                	<div class="red">This <em>illustrates</em> how inheritance works</div>
+                                </code>
+                                <p>The &lt;em&gt; element was not assigned any text color yet it inherited it from it's parent element. If you wish for nested elements to not inherit the
+                                	effects of it's parent, you would have to write a class to affect it as such. If the elements were a box within a box element type, the same would be true.</p>
+                                <h2>Example of Box-related Inheritance</h2>
+                                <p>This example of a test and box-relate property: CSS rules</p>
+                                <code id="code-inheritance3" class="block">
+                                	<div>.bg1 { <span class="comment">/* box-related property */</span></div>
+                                    <div><span class="indent36">background: #999999;</span></div>
+                                    <div><span class="indent36">padding: 5px;</span></div>
+                                    <div>}</div>
+                                	<div>.red {color: red;} <span class="comment">/* text-related property */</span></div>
+                                </code>
+                                <p>HTML elements that will receive the CSS rules:</p>
+                                <code id="code-inheritance4" class="block">
+                                	<div>&lt;div class=&quot;bg1&quot;&gt;</div>
+                                	<div><span class="indent36">&lt;p class=&quot;red&quot;&gt;</span></div>
+                                	<div><span class="indent72">Paragraph nested inside a div element</span></div>
+                                	<div><span class="indent36">&lt;/p&gt;</span></div>
+                                	<div>&lt;/div&gt;</div>
+                                </code>
+                                <p>These two rules applied to the two elements would render this:</p>
+                              	<code id="inheritance4" class="block">
+                                	<div class="bg1"><p class="red">Paragraph nested inside a div element</p></div>
+                                </code>
+                              	<p>In this example, it may look like the paragraph element has inherited the background from the span element but when we look at the next code example with the
+                              		paragraph element also declaring a background color, we'll see that in fact it did not inherited anything. The default property of background of the
+                              		paragraph element is set to none which allows for the parent element's property to pass through.</p>
+                                <code id="code-inheritance5" class="block">
+                                	<div>.bg1 {</div>
+                                    <div><span class="indent36">background: #999999;</span></div>
+                                    <div><span class="indent36">padding: 5px;</span></div>
+                                    <div>}</div>
+                                    <div>.bg2 {background: #222222;}</div>
+                                </code>
+                                <p>And now a slightly modified set of HTML elements:</p>
+                                <code id="code-inheritance6" class="block">
+                               		<div>&lt;div class=&quot;bg1&quot;&gt;</div>
+                               		<div><span class="indent36">&lt;p class=&quot;bg2 red&quot;&gt;</span></div>
+                               		<div><span class="indent72">Paragraph nested inside a div element</span></div>
+                               	    <div><span class="indent36">&lt;/p&gt;</span></div>
+                               	    <div>&lt;/div&gt;</div>
+                                </code>
+                                <code id="inheritance6" class="block">
+                                	<div class="bg1"><p class="bg2 red">Paragraph nested inside a div element</p></div>
+                                </code>
+                                <p>As you can see, the paragraph element (with the class of .bg2) has it's own background color now while the outer element (class of .bg1) has a background
+                                	that is different from it's child element.</p>
+                                <p>As you can see, inheritance is a powerful tool to use when designing your CSS rules.</p>
+                            	<div class="note">
+                                	<span class="glyphicon glyphicon-file"></span>
+                                    <p>Having problems with elements displaying in a way that you didn't expect? Chances are that your elements may have inherited something you didn't intend.
+                                    	You can either review potentially hundreds of lines of CSS code or use a browser to debug your code.</p>
+                            	</div>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+			              <article class="tutorialContent">
+				                <a name="Debugging" class="anchorLink"><h1>Debugging</h1></a>
+				                <div class="images floatRight">
+				                	<img src="../../images/tutorials/CSS_Basics/debugger.jpg" id="debugger1" class="imgThumbnail" title="Chrome's debugger" data-toggle="modal" data-target=".debugger1"/>
+				                </div>
+				                <p>Finally, one skill that I think every CSS developer should have is the ability to debug or track down what went wrong with their code. You could be cruising
+				                	along writing beautiful CSS, you save your file, and test your page only to find that something has gone horribly wrong. A misplaced semi-colon, an unclosed
+				                	rule, or even a common typo can render any page visually dead. What do you do now? Would you: A- Turn out the lights and curl up in a ball. B- Consider a
+				                	different career. C- Use a debugging tool to find the source of the problem. D- All the above. If you guessed &quot;D&quot;, then you wouldn't be far off
+				                	the mark but for the sake of argument, let's say you simply want to debug your CSS.</p>
+                              	<p>Most modern browsers come with some sort of debugging tool. If one is not a part of the default package, you can always Google for an extension or plugin that
+                              		gives your browser the capability to debug your pages. To keep things simple, I'm going to refer to <a href="https://developer.chrome.com/devtools"><strong>Chrome's
+                              		Developer Tools</strong></a>.</p>
+                           	<div class="images floatRight">
+				                	<img src="../../images/tutorials/CSS_Basics/debugger_in_action.gif" id="debugger2" class="imgThumbnail" title="Debugger in action" data-toggle="modal" data-target=".debugger2"/>
+			                  </div>
+                           	  <p>Once you have your code saved, you should preview your page (in case) using Chrome. To enter the debugging tools, you can hit the F12 shortcut key to launch
+                              		the debugger. Once open, a split window will appear at the bottom of your browser. To see the rendered HTML and CSS, right-click on an element and select
+                           		  <strong>Inspect Element</strong>. The debugger will show your selected element's HTML code on the left side in the <strong>Elements</strong> section. On the
+                           		  right, you'll see the CSS code that is affecting the selected code in the <strong>Styles</strong> section. The selected element's CSS will be broken down any
+                           		  and all rules that affect it. Properties and values that are displayed with a strike-through means that this part of the rule is not being executed. You can
+                           		  toggle properties and values by checking and unchecking them by clicking the checkbox to the left of the property/value pair. You'll see the checkbox when you
+                           		  hover over the properties and values.</p>
+                              	<p>What's great here is that you can change the rules in the Styles section and see the rendered result immediately. To change a rule's value, simply click on
+                              		the property or value and type in a new property or value. You can also add new properties and values by clicking one of the properties, hitting the Enter
+                              		key a few times until you get a new empty line. From there, enter if your new property and value and see the results materialize on the page.</p>
+                              	<p>Chrome's Developer Tool also allows you to create a whole new rules on the selected element or by creating a new rule by clicking the New Style Rule button.
+                              		In the Styles section, when you have an element selected, you will see an empty rule at the top of the list of rules called <strong>element.style</strong>.
+                              		This selected element can receive whatever properties and values you wish to create for it but keep in mind that this new rule only affects the selected
+                              		element. If you wish to create a temporary rule, click the <strong>New Style Rule</strong> button, type in your selector and then your properties and values.
+                              		Once you're done debugging, or experimenting, be sure to copy and paste your tweaks back into your CSS file.</p>
+                              	<p>Chrome's Developer Tools is a power tool to use to debug and experiment when developing your pages. In addition to debugging CSS, you can also debug and
+                              		experiment with any other code elements on the page (HTML, JavaScript, etc.) as well as many other powerful features but that would be another topic for
+                              		another time.</p>
+                          </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <h1>Summary</h1>
+                              <p>This document covered a lot of basic topics of CSS but by no means did we get all of them. I believe this document has given you a good foundation to start
+                              	from and from the list of <a href="#Resources">Resources</a> listed below, you should be able to continue developing your CSS skills. In review,</p>
+                                <ul>
+                                	<li>we clarified what <a href="#WhatIsCss">CSS</a> is</li>
+                                	<li>learned the ins and outs of why it's good to use <a href="#InlineInternalExternalStyleSheets">external style sheets</a></li>
+                                	<li>sounded off on how <a href="#Selectors">selectors</a> work</li>
+                                	<li>refined our knowledge of how to <a href="#Declaration">build a rule</a></li>
+                                	<li> sorted out how <a href="#CSSPriorityScheme">CSS's priority scheme</a> works when a selector is in conflict</li>
+                                	<li>gained a rich insight about how <a href="#Inheritance">inheritance</a> can apply to descendant elements and </li>
+                                	<li>troubleshot buggy code by <a href="#Debugging">debugging</a> it using Chrome's Developer Tools</li>
+                                </ul>
+                                <p>If you have any questions or comments, please contact Brian at
+				                	<a href="mailto:brian@jawa9000.com?Subject=General&#160;Request&#160;,&#160;Comment&#160;,&#160;or&#160;Question&#160;About&#160;CSS&#160;Basics" title="Email Brian">Brian@jawa9000.com</a>.</p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <a name="Resources" class="anchorLink"><h1>Resources</h1></a>
+                              	<ol>
+                                	<li><a href="http://en.wikipedia.org/wiki/Cascading_Style_Sheets">http://en.wikipedia.org/wiki/Cascading_Style_Sheets</a></li>
+                                	<li><a href="http://www.w3.org/standards/webdesign/htmlcss">http://www.w3.org/standards/webdesign/htmlcss</a></li>
+                                	<li><a href="http://www.cssbasics.com/introduction-to-css/">http://www.cssbasics.com/introduction-to-css/</a></li>
+                              	</ol>
+				            </article>
+				        </div>
+					</section>
+                </div>
+            	<div class="col-md-2"></div>
+            </div>
+        </div>
+        <div id="modal-container"></div>
+        <footer>
+			<div id="copyright"></div>
+		</footer>
+		<script src="../../js/getYear.js"></script>
+		<script src="../../js/modal-images.js"></script>
+		<script src="../../js/auto-number.js"></script>
+    </body>
+</html>

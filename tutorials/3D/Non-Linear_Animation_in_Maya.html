@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="Non-linear Animation, trax editor, clips, Maya, tutorial">
+		<meta name="description" content="FK-IK Spline Rig Tutorial">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>FK-IK Spline Rig Tutorial</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer="defer" src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1>Non-Linear Animation: Animating with the Trax Editor in Maya 4.5 and 5</h1>
+					<p class="lead">
+						This tutorial assumes that the user has knowledge of Maya's interface and how to create keyframe animation
+						on both character rigs and simple objects. This tutorial will cover or touch all aspects of Maya's Trax Editor
+						and various techniques used to create non-linear animation.
+					</p>
+					<p class="about">
+						Disclaimer: The information covered here works for Maya version 4.5 and 5.0. There are significant upgrades to
+						Maya's Trax Editor in version 6 and beyond.
+					</p>
+					<p class="about">
+						Written by Brian Immel
+					</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+            		<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>What is Non-Linear Animation?</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	Non-linear animation is a technique used to re-use linear animation for retiming, looping and
+				                	other animation effects.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Why use Non-Linear Animation</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				            	<br/>
+				                <ol>
+									<li>To simplify the animator's job for long-term projects by creating animation libraries,</li>
+									<li>To create special effects using motions (over used example: Matrix's Bullet Time effect),</li>
+									<li>Can be used as another tool for creating complete animations.</li>
+								</ol>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>When not to use Non-Linear Animation</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				                <p>
+				                	If the animation cycle(s) were short and used just once, it would not be in your better interests
+				                	to spend the time to set up the NLA. You should only use NLA techniques if the motions you are
+				                	planning to build and use will be repeated in your current project or they can be adapted to
+				                	future projects.
+				                </p>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Build Your Animation First</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <div class="tutorialContent">
+				            	<span></span><!-- this span is used to remove the first capitalized of the first letter in the first paragraph -->
+				                <p>1. Planning your animation</p>
+				                <ul>
+									<li>Once you have decided what animation you will be using, you need to make sure the animation
+										that you will use can be looped or blended from one cycle to the next.
+									</li>
+								</ul>
+								<p>2. Planning the animation cycles</p>
+								<ul>
+									<li>
+										As you build you animation cycles, keep in mind that the cycles need to loop well if you plan
+										on using repetitively.
+									</li>
+								</ul>
+								<p>3. "How long should my cycle be?"</p>
+								<ul>
+									<li>
+										As long as it needs to be. A cycle that is very short (lets say 6-30 frames) repeats very quickly.
+										After a while, the viewer will start seeing the (re)cycling of animation and get bored with it.
+										If you make the cycle too long (more than 20 seconds) then the data used to make that cycle may
+										be inefficient use of memory and should be breakdown down into small cycles. A good animator knows
+										to break up the cycle a little bit to keep the animation from getting boring. A good example to
+										making a walk cycle more interesting would be adding a little skip or hop somewhere in the middle
+										of the cycle. Using NLA techniques, this can be very easy to accomplish.
+									</li>
+								</ul>
+								<p>4. Making a clean cycle</p>
+								<ul>
+									<li>
+										To start with, your cycle should start and end on the same stance or pose. However, if you
+										stop here, your cycle will have a short hesitation because the first and last frames are
+										exactly the same. To correct that, insert a new key a frame or two just before the last
+										keyframe and delete the last keyframe.
+									</li>
+								</ul>
+								<p>5. Return stances</p>
+								<p>What is a return stance or neutral stance?</p>
+						    	<ol>
+						        	<li>
+						        		In gaming, a return stance is a pose the character assumes when he/she is not in
+						        		motion. Usually, the pose is very neutral in positioning the legs, arms, hands and
+						        		head.
+					        		</li>
+						      		<li>
+						      			More often than not, this neutral pose is standing upright. The arms are comfortably
+						      			at your side. Your legs are placed next to each other and neither one is ahead of
+						      			the other. The hands return to the previous state (whether that was holding a weapon,
+						      			making a fist or being in a slightly closed position). The head should return to
+						      			looking forward and the chin level to the shoulders.
+					      			</li>
+						    	</ol>
+				            </div>
+				        </div>
+					</section>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		<!-- automated modal image storage-->
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+	</body>
+	<script src="../../js/getYear.js"></script>
+	<script src="../../js/modal-images.js"></script>
+	<script src="../../js/auto-number.js"></script>
+</html>

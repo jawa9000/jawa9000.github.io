@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    	<meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="keywords" content="tutorial,jquery,javascript,expandable">
+        <meta name="author" content="Brian Immel">
+				<meta name="level" content="2">
+				<meta name="description" content="Expandable Sections Tutorial">
+        <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+        <title>Expandable Sections Tutorial</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="../../css/custom.css" rel="stylesheet">
+        <link href="../../css/tutorials.css" rel="stylesheet">
+
+        <!-- jQuery -->
+        <script src="../../js/jquery-2.1.0.min.js"></script>
+
+        <!-- Bootstrap main javascript -->
+        <script src="../../js/bootstrap.js"></script>
+
+        <!-- Web tutorial javascript -->
+        <script src="../../js/web-tutorials.js"></script>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer src="../../js/navigation.js"></script>
+		<div class="container">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <article class="col-md-8">
+                    <h1>Expandable Sections</h1>
+                    <p class="lead">With a few lines of HTML, a few declarations of CSS, and a couple of jQuery methods, this tutorial will provide a simple system
+                    	to create expandable sections.</p>
+                    <p class="lead">This tutorial assumes the reader has basic knowledge of HTML5, CSS, jQuery, and basic page layout.</p>
+                    <p class="about">
+                    Written by Brian Immel
+                    </p>
+                </article>
+                <div class="col-md-2"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <section class="tutorialBox">
+                        <div class="tutorialRow">
+                            <div class="tutorialHeader"><a name="Expandableinaction"></a>Expandable in action</div>
+                            <div class="corner"></div>
+                        </div>
+                        <div class="tutorialRow">
+                            <article class="tutorialContent">
+                            	<p>This tutorial will create a few div elements (two nested in a parent element) with the <strong>title</strong> section that controls the display state of the <strong>content</strong> section.
+                            		This educational document refers to this system as the <strong>expandable</strong> system.</p>
+                                <p>Here is a preview of what will be built:</p>
+                                <div class="expandableContainer">
+                                    <div class="expandableTitle" id="expandTitle-first" status="hidden">
+                                        <span class="expand" title="Click to expand">Clickable Title</span>
+                                    </div>
+                                    <div class="expandableContent" id="expandContent-first">
+                                        <p>Expandable content can be anything.</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac enim vitae sapien consequat imperdiet. Vivamus sodales risus eget nisi lobortis
+                                        volutpat. Integer auctor augue vitae dapibus feugiat. Sed in molestie mauris. Morbi diam nulla, porttitor nec urna semper, sollicitudin condimentum
+                                        sapien. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce eu neque erat. Nam in vulputate tellus.
+                                        Sed blandit vehicula massa nec lacinia. In sit amet orci leo. Sed sit amet mi ligula. Integer tincidunt tortor enim, vel malesuada arcu pretium nec.</p>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </section>
+                    <section class="tutorialBox">
+                        <div class="tutorialRow">
+                            <div class="tutorialHeader"><a name="HeaderLinks"></a>Header Link and Scripts</div>
+                            <div class="corner"></div>
+                        </div>
+                        <div class="tutorialRow">
+                            <article class="tutorialContent">
+                                <p>Begin by including a CSS and two JavaScript files in the head of the page.</p>
+                                <code id="code-head" class="block">
+                                    <div>...</div>
+                                    <div><span class="indent36">&lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</span></div>
+                                    <div><span class="indent36">&lt;script src=&quot;../../js/jquery-2.1.0.min.js&quot;&gt;</span></div>
+                                    <div><span class="indent36">&lt;script src=&quot;main.js&quot;&gt;&lt;/script&gt;</span></div>
+                                    <div>...</div>
+                                </code>
+                                <p>The <code class="inline file">style.css</code> file will house all the CSS declarations for this tutorial. Next, <code class="inline file">jquery-2.1.0.min.js</code> is sourced so the methods and
+                                	functions can use jQuery version 2.1.0. The last sourced file is <code class="inline file">main.js</code> where all the functions for this tutorial will be stored.
+                            </article>
+                        </div>
+                    </section>
+                    <section class="tutorialBox">
+                        <div class="tutorialRow">
+                            <div class="tutorialHeader"><a name="HTMLComponents"></a>HTML Components</div>
+                            <div class="corner"></div>
+                        </div>
+                        <div class="tutorialRow">
+                            <article class="tutorialContent">
+                                <div class="images floatRight">
+                                    <img src="../../images/tutorials/Expandables/HTML_components.png" id="HTMLComponents" class="imgThumbnail" alt="HTML Components: clickable title and content area nested inside a container element" title="HTML Components: clickable title and content area nested inside a container element" data-toggle="modal" data-target=".HTMLComponents"/>
+                                </div>
+                                <p>In the HTML component of this tutorial makes use of just four elements with various classes, ids and one data attribute. The image to the right illustrates the layout of the HTML that will
+                                    be used in this document.</p>
+                                <p>The outer element is the container for the entire system, the title section will act as the section's caption and clickable area of the expandable, and finally, the content section which
+                                	contains other elements ultimately receives the show or hide behavior.</p>
+                                <p>As with any typical layout, this one starts off with a container. In this case, div element with the class of <code class="inline selector">expandableContainer</code>
+                                    that acts as the container for the it's child elements. The children elements are title and content sections.</p>
+                                <code id="code-HTML-container" class="block">
+                                    <div>&lt;div class=&quot;expandableContainer&quot;&gt;</div>
+                                    <div><span class="indent36">...</span></div>
+                                    <div>&lt;/div&gt;</div>
+                                </code>
+                                <p>With the container element ready, it's time to construct the children elements that will contain the title and content sections.</p>
+                            </article>
+                        </div>
+                    </section>
+                    <section class="tutorialBox">
+                        <div class="tutorialRow">
+                            <div class="tutorialHeader"><a name="ClickableTitle"></a>Clickable Title</div>
+                            <div class="corner"></div>
+                        </div>
+                        <div class="tutorialRow">
+                            <article class="tutorialContent">
+                                <p>The first nested div element of <code class="inline selector">div.expandableContainer</code> is the <code class="inline selector">div.expandableTitle</code>. This div
+                                    element handles the click event to either collapse or expand the <code class="inline selector">div.expandableContent</code> element. The visibility of the content element will be stored in a
+                                    custom attribute. A relatively new feature of HTML5 is the <strong>data attribute</strong>. Extensibility is a key feature of HTML5 and here, the code will take advantage of that by utilizing an attribute
+                                    called <code class="inline attribute">status</code>. This attribute will hold the value of either "open" or "hidden" to tell it's jQuery functions to display or collapse the content section.</p>
+                                <code id="code-html-expandabletitle" class="block">
+                                    <div>...</div>
+                                    <div><span class="indent36">&lt;div class=&quot;expandableTitle&quot; id=&quot;expandTitle-first&quot; status=&quot;hidden&quot;&gt;</span></div>
+                                    <div><span class="indent72">&lt;span title=&quot;Click to expand&quot;&gt;Expandable Title&lt;/span&gt;</span></div>
+                                    <div><span class="indent36">...</span></div>
+                                    <div><span class="indent36">&lt;/div&gt;</span></div>
+                                    <div>...</div>
+                                </code>
+                                <p>The id of this element, along with the content element, uses a specific naming standard. jQuery functions will look for ids that start with <code class="inline selector">expandTitle</code>. The second
+                                	part of the id (after the hyphen) is an unique name to this particular container of elements. For simplicity's sake, the unique name of <code class="inline selector">first</code> has been assigned to it.</p>
+                                <p>The final attribute of this element is it's class: <code class="inline selector">expandableTitle</code>. This class will handle the display and interactive behavior of this clickable title element.</p>
+                                <p>Nested inside the <code class="inline selector">expandTitle</code> element is a span element. While it is optional to use a span element to wrap around the text of the expandable's title,
+                                	it can be useful in the future if one wishes to write extra rules to handle the display of this text.</p>
+                                <div class="note">
+                                    <span class="glyphicon glyphicon-file"></span>
+                                    <p>In future uses of the expandable system, one would be advised to using a better and more descriptive identifier (last half of id).</p>
+                                </div>
+                            </article>
+                        </div>
+                    </section>
+                    <section class="tutorialBox">
+                        <div class="tutorialRow">
+                            <div class="tutorialHeader"><a name="ContentDiv"></a>Content Div</div>
+                            <div class="corner"></div>
+                        </div>
+                        <div class="tutorialRow">
+                            <article class="tutorialContent">
+                                <p>The content div element is pretty straight forward with the exception of the specific id naming scheme mentioned earlier. The id isn't necessary for the expandable to
+                                    work but it is a good habit to get into of providing ids to elements that jQuery work with on some level (now or in future updates of the feature set). The class
+                                    <code class="inline selector">expandContent</code> is used to handle the layout of the element which the display state will be toggled by the clickable title.</p>
+                                <code id="code-HTML-expandablecontent" class="block">
+                                    <div>...</div>
+                                    <div><span class="indent36">&lt;div class=&quot;expandableContent&quot; id=&quot;expandContent-first&quot;&gt;</span></div>
+                                    <div><span class="indent72">...Content...</span></div>
+                                    <div><span class="indent36">&lt;/div&gt;</span></div>
+                                    <div>...</div>
+                                </code>
+                            </article>
+                        </div>
+                    </section>
+                    <section class="tutorialBox">
+                        <div class="tutorialRow">
+                            <div class="tutorialHeader"><a name="CompleteHTML"></a>Complete HTML</div>
+                            <div class="corner"></div>
+                        </div>
+                        <div class="tutorialRow">
+                            <article class="tutorialContent">
+                                <p>Here is the complete HTML code:</p>
+                                <div class="expandableContainer">
+                                    <div class="expandableTitle" id="expandTitle-HTML" status="hidden">
+                                        <span class="expand" title="Click to expand">Complete HTML Code</span>
+                                    </div>
+                                    <div class="expandableContent" id="expandContent-HTML">
+                                        <code id="code-HTML" class="block">
+							            	<div>&lt;div class=&quot;expandableContainer&quot;&gt;</div>
+							            	<div><span class="indent36">&lt;div class=&quot;expandableTitle&quot; id=&quot;expandTitle-first&quot; status=&quot;hidden&quot;&gt;</span></div>
+							            	<div><span class="indent72">&lt;span title=&quot;Click to expand&quot;&gt;</span></div>
+							            	<div><span class="indent108">Expandable Title</span></div>
+							            	<div><span class="indent72">&lt;/span&gt;</span></div>
+							            	<div><span class="indent36">&lt;/div&gt;</span></div>
+							            	<div><span class="indent36">&lt;div class=&quot;expandableContent&quot; id=&quot;expandContent-first&quot;&gt;</span></div>
+							            	<div><span class="indent72">...Content...</span></div>
+							            	<div><span class="indent36">&lt;/div&gt;</span></div>
+							            	<div>&lt;/div&gt;</div>
+						            	</code>
+                                    </div>
+                                </div>
+                                <p>To have more than one expandable on a page, copy this block as many times as needed and replace the last part of the ids of the title and content sections with any unique name as necessary.</p>
+                                <p>At this point, it would be a good idea to save your HTML file.</p>
+                            </article>
+                        </div>
+                    </section>
+                    <section class="tutorialBox">
+                        <div class="tutorialRow">
+                            <div class="tutorialHeader"><a name="CSSComponentandContainerCSS"></a>CSS Component and Container CSS</div>
+                            <div class="corner"></div>
+                        </div>
+                        <div class="tutorialRow">
+                            <article class="tutorialContent">
+                                <p>Use the <code class="inline file">style.css</code> file add the following declarations for this tutorial.</p>
+                                <p>Most of the CSS declarations for the <code class="inline selector">div.expandableContainer</code> are cosmetic but there are a few declaration sprinkled in that address
+                                    layout. The only necessary attribute is the <code class="inline attribute">display</code> declaration. This <code class="inline attribute">inline-block</code>
+                                    declaration sets up the container element so that it will be flow with the surrounding content. The <code class="inline attribute">border</code> around the
+                                    entire containing element lets users know that the content herein is a separate entity from the rest of page. The remaining declarations address layout and design.</p>
+                                <code id="code-CSS-expandableContainer" class="block">
+                                    <div>.expandableContainer {</div>
+                                    <div><span class="indent36">display: inline-block;</span></div>
+                                    <div><span class="indent36">border: solid thin rgba(0,0,25, 0.10);</span></div>
+                                    <div><span class="indent36">border-radius: 5px;</span></div>
+                                    <div><span class="indent36">padding: 0 5px 0 5px;</span></div>
+                                    <div><span class="indent36">margin: 0 15px 0 0;</span></div>
+                                    <div>}</div>
+                                </code>
+                                <p>With the container element set, its time to set some declarations for it's children elements.</p>
+                            </article>
+                        </div>
+                    </section>
+                    <section class="tutorialBox">
+                        <div class="tutorialRow">
+                            <div class="tutorialHeader"><a name="TitleandContentSectionsCSS"></a>Title and Content Section's CSS</div>
+                            <div class="corner"></div>
+                        </div>
+                        <div class="tutorialRow">
+                            <article class="tutorialContent">
+                                <p>The <code class="inline selector">div.expandableTitle</code> element should have some simple styling rules even through they aren't 100% necessary. However, like
+                                    all good UX design, a clickable element should stand out from the rest of the page's content so the user knows that this particular line of text has some function
+                                    or purpose other than simple text on the screen.</p>
+                                <code id="code-CSS-expandableTitle" class="block">
+                                    <div>.expandableTitle {</div>
+                                    <div><span class="indent36">color: #3366CC;</span></div>
+                                    <div><span class="indent36">font-size: 1.1em;</span></div>
+                                    <div><span class="indent36">font-weight: bold;</span></div>
+                                    <div><span class="indent36">cursor: pointer;</span></div>
+                                    <div><span class="indent36">display: inline-block;</span></div>
+                                    <div>}</div>
+                                </code>
+                                <p>Color, font size and weight are purely cosmetic. The cursor declaration tells the browser to change the cursor to a point when the user hovers over the title section.
+                                    The display declaration is used to display the div element inline it's sibling element.</p>
+                                <p>To add a little more interactive, a pseudo-class is added in to change the color of the text when the user hovers over the title:</p>
+                                <code id="code-CSS-expandableTitleHover" class="block">
+                                    <div>.expandableTitle:hover {</div>
+                                    <div><span class="indent36">color: #FFFFFF;</span></div>
+                                    <div>}</div>
+                                </code>
+                                <p>The final bit of CSS code is some simple padding around the content of the expandable's content area. It's always a good thing to have your content pushed away from
+                                    the walls of it's containing element.</p>
+                                <code id="code-CSS-expandableContent" class="block">
+                                    <div>.expandableContent {</div>
+                                    <div><span class="indent36">padding: 5px;</span></div>
+                                    <div>}</div>
+                                </code>
+                                <p>One could add a few more declarations to affect the display of the content like font family and size, indenting, and so forth but it's not necessary at this time.</p>
+                            </article>
+                        </div>
+                    </section>
+                    <section class="tutorialBox">
+                        <div class="tutorialRow">
+                            <div class="tutorialHeader"><a name="FinalCSSCode"></a>Final CSS Code</div>
+                            <div class="corner"></div>
+                        </div>
+                        <div class="tutorialRow">
+                            <article class="tutorialContent">
+                                <p>Complete CSS code that has been written for this tutorial:</p>
+                                <div class="expandableContainer">
+                                    <div class="expandableTitle" id="expandTitle-CSS" status="hidden">
+                                        <span class="expand" title="Click to expand">Complete CSS Code</span>
+                                    </div>
+                                    <div class="expandableContent" id="expandContent-CSS">
+                                         <code id="code-CSS-complete" class="block">
+		                                    <div>.expandableTitle {</div>
+		                                    <div><span class="indent36">color: #3366CC;</span></div>
+		                                    <div><span class="indent36">font-size: 1.1em;</span></div>
+		                                    <div><span class="indent36">font-weight: bold;</span></div>
+		                                    <div><span class="indent36">cursor: pointer;</span></div>
+		                                    <div><span class="indent36">display: inline-block;</span></div>
+		                                    <div>}</div>
+		                                    <div>.expandableTitle:hover {</div>
+		                                    <div><span class="indent36">color: #FFFFFF;</span></div>
+		                                    <div>}</div>
+		                                    <div>.expandableContainer {</div>
+		                                    <div><span class="indent36">display: inline-block;</span></div>
+		                                    <div><span class="indent36">border: solid thin rgba(0,0,25, 0.10);</span></div>
+		                                    <div><span class="indent36">border-radius: 5px;</span></div>
+		                                    <div><span class="indent36">padding: 0 5px 0 5px;</span></div>
+		                                    <div><span class="indent36">margin: 0 15px 0 0;</span></div>
+		                                    <div>}</div>
+		                                    <div>.expandableContent {</div>
+		                                    <div><span class="indent36">padding: 5px;</span></div>
+		                                    <div>}</div>
+		                                </code>
+                                    </div>
+                                </div>
+                                <p>Now would be a good time to save the <code class="inline file">style.css</code> file. At this point, the page can be tested for visual layout and the hover interactivity but not the expanding
+                                	or collapsing behaviors. The next section on jQuery will add that functionality to this little system.</p>
+                            </article>
+                        </div>
+                    </section>
+                    <section class="tutorialBox">
+                        <div class="tutorialRow">
+                            <div class="tutorialHeader"><a name="jQueryComponentandClosingAllExpandablesByDefault"></a>jQuery Component and Closing All Expandables By Default</div>
+                            <div class="corner"></div>
+                        </div>
+                        <div class="tutorialRow">
+                            <article class="tutorialContent">
+                                <p>The final component of this tutorials ends with jQuery. The following steps show how to write a straightforward event handler that listens for a click on any div element that an id starting
+                                    with <code class="inline selector">expandTitle</code>. From there, the clicked element's id will look for it's sibling element, toggle it's display state, and set a value
+                                    to the custom attribute <code class="inline attribute">status</code>.</p>
+                                <p>Te begin, all expandables should be collapsed when the page is first opened. By applying a <code class="inline method">slideUp</code> method to all elements who's ids start
+                                    with <code class="inline class">expandContent</code>, every expandable will start off appearing collapsed.</p>
+                                <code id="code-jQuery-slideup" class="block">
+                                    <div>$(document).ready(function() {</div>
+                                    <div><span class="indent36">$(&quot;div[id^='expandContent']&quot;).slideUp(0);</span></div>
+                                    <div><span class="indent36">...</span></div>
+                                    <div>});</div>
+                                </code>
+                                <p>It should be noted that the value passed in the <code class="inline method">slideUp</code> method is set to zero. This is used to hide the content element instantly instead of animated effect
+                                	over a set period of time.</p>
+                                <div class="question">
+                                    <span class="glyphicon glyphicon-question-sign"> </span>
+                                    <p>One may wonder why CSS wasn't used to hide the content elements by default.</p>
+                                    <span class="glyphicon glyphicon-book"> </span>
+                                    <p class="answer">That is a valid question but using CSS to hide the content element wouldn't necessary have the same initial reveal and hide behavior that the jQuery function provides.
+                                    	Using jQuery to handle all visual appearances of the content element lends an uniform user experience.</p>
+                                </div>
+                            </article>
+                        </div>
+                    </section>
+                    <section class="tutorialBox">
+                        <div class="tutorialRow">
+                            <div class="tutorialHeader"><a name="ClickEventonExpandablesTitle"></a>Click Event on Expandable's Title</div>
+                            <div class="corner"></div>
+                        </div>
+                        <div class="tutorialRow">
+                            <article class="tutorialContent">
+                                <p>With all the expandables closed up, the next thing to work out is creating an event handler that looks for the user's click on the expandable's title section.</p>
+                                <p>As mentioned in the HTML component section, the title and content sections were given specific ids. The last part of the id (after the hyphen) is what made the
+                                    id unique while the first half will be used in a selector so jQuery can grab it. In this case, the method used to select these ids will look something like this:
+                                    <code class="inline selector">div[attribute^='value']</code>. Then we attach the <code class="inline method">click</code> method to that selector.</p>
+                                <code id="code-jQuery-clickEvent" class="block">
+                                    <div>...</div>
+                                    <div><span class="indent36">$(&quot;div[id^='expandTitle']&quot;).click(function() {</span></div>
+                                    <div><span class="indent36">...</span></div>
+                                    <div><span class="indent36">});</span></div>
+                                    <div>...</div>
+                                </code>
+                                <p>This bit of code looks for all div elements that have an id that starts with <code class="inline selector">expandTitle</code>. Once the user clicks an element with this id, the next thing that needs
+                                    to happen is the collection of it's id and status values.</p>
+                            </article>
+                        </div>
+                    </section>
+                    <section class="tutorialBox">
+                        <div class="tutorialRow">
+                            <div class="tutorialHeader"><a name="CollectingElementInformation"></a>Collecting Ids and Status Values</div>
+                            <div class="corner"></div>
+                        </div>
+                        <div class="tutorialRow">
+                            <article class="tutorialContent">
+                            	<p>When the title div element is clicked, a jQuery function needs to grab the clicked element's sibling id and status values. To get this information, the function could use the
+                            		<strong>preceded selector</strong> method: <code class="inline selector">element1 ~ element2</code>. The preceded selector method works something like this: Select element2 that is preceded by
+                            		element1. In the fore mentioned HTML code, the <code class="inline selector">expandTitle</code> element precedes the <code class="inline selector">expandContent</code> element. With that in mind,
+                            		here is what the code should look like:</p>
+                                <code id="code-jQuery-preceed" class="block">
+                                	<div>var titleId = $(this).attr(&quot;id&quot;);</div>
+                                    <div>var siblingId = $(&quot;#&quot; + titleId + &quot; ~ div&quot;).attr(&quot;id&quot;);</div>
+                                </code>
+                                <p>Breakdown of this variable: First, the id of the clicked element is collected and stored in the variable <code class="inline variable">titleId</code> via the
+                                	<code class="inline method">attribute</code> method. Then the id of the sibling element is obtained via the same method once it has figured out the id of it's sibling by way of the preceded
+                                	selector method of the <code class="inline selector">titleId + " ~ div"</code> selector.</p>
+                                <p>With the ids stored, the function should now find the value for attribute of status. The sibling element contains an attribute called <code class="inline attribute">status</code> which this
+                                	function need to grab it's value. This value will be used to make a decision with this value later on. To obtain this value, use the same method as before: <code class="inline method">attribute</code>
+                                	but point it at the <code class="inline attribute">status</code> attribute.</p>
+                                <code id="code-jQuery-status" class="block">
+                                    <div>var status = $(this).attr(&quot;status&quot;);</div>
+                                </code>
+                            </article>
+                        </div>
+                    </section>
+                    <section class="tutorialBox">
+                        <div class="tutorialRow">
+                            <div class="tutorialHeader"><a name="TogglingExpandablesContentSection"></a>Toggling Expandable's Content Section</div>
+                            <div class="corner"></div>
+                        </div>
+                        <div class="tutorialRow">
+                            <article class="tutorialContent">
+                                <p>The last thing this function needs to do is determine whether to show or hide the content element based on the value found in the <code class="inline attribute">status</code> attribute. The
+                                	function starts off by checking if the status is to hidden (by default it should be) or open and then issue a <code class="inline method">slideDown</code> or
+                                	<code class="inline method">slideUp</code> method on the expandable's content section and follow up with changing the status' value to the opposite to reflect the display state change.</p>
+                                <code id="code-jQuery-content" class="block">
+                                    <div>if (status == &quot;hidden&quot;) {</div>
+                                    <div><span class="indent36">$(&quot;#&quot; + siblingId).slideDown(&quot;fast&quot;);</span></div>
+                                    <div><span class="indent36">$(this).attr(&quot;status&quot;,&quot;open&quot;);</span></div>
+                                    <div>} else {</div>
+                                    <div><span class="indent36">$(&quot;#&quot; + siblingId).slideUp(&quot;fast&quot;);</span></div>
+                                    <div><span class="indent36">$(this).attr(&quot;status&quot;,&quot;hidden&quot;);</span></div>
+                                    <div>}</div>
+                                </code>
+                                <p>With this last bit of code, when the user clicks the title section, the content section will slide in and out of view depending on the value stored in
+                                    <code class="inline attribute">status</code>.</p>
+                                <div class="note">
+                                    <span class="glyphicon glyphicon-file"></span>
+                                    <p>Now the expandable will show or hide the content section whenever the user clicks on it. However, this feature doesn't remember which expandables were open from page visit to page visit.
+                                    	Another feature can be added to the expandable system to remember the status of each expandable via cookies. At this time, my next tutorial isn't complete yet. Please stay tuned!</p>
+
+                                    	<!--Check out
+                                    	<a href="Expandable_With_Cookies.html" title="Tutorial discussing this tutorial with cookies">Expandables With Cookies</a> for steps on how to add a cookie system to this one.</p>-->
+                                </div>
+                            </article>
+                        </div>
+                    </section>
+                    <section class="tutorialBox">
+                        <div class="tutorialRow">
+                            <div class="tutorialHeader"><a name="CompletejQueryCode"></a>Complete jQuery Code</div>
+                            <div class="corner"></div>
+                        </div>
+                        <div class="tutorialRow">
+                            <article class="tutorialContent">
+                            	<p>That's it! With a little more than a dozen lines of jQuery, the expandable system is complete! Here is the complete jQuery script for the expandable:</p>
+                            	<div class="expandableContainer">
+                                    <div class="expandableTitle" id="expandTitle-jQuery" status="hidden">
+                                        <span class="expand" title="Click to expand">Complete jQuery Code</span>
+                                    </div>
+                                    <div class="expandableContent" id="expandContent-jQuery">
+                                         <code id="code-jQuery-complete" class="block">
+		                                    <div>$(document).ready(function() {</div>
+		                                    <div><span class="indent36">$(&quot;div[id^='expandContent']&quot;).slideUp(0);</span></div>
+		                                    <div><br/></div>
+		                                    <div><span class="indent36">$(&quot;div[id^='expandTitle']&quot;).click(function() {</span></div>
+		                                    <div><span class="indent72">var titleId = $(this).attr(&quot;id&quot;);</span></div>
+		                                    <div><span class="indent72">var siblingId = $(&quot;#&quot; + titleId + &quot; ~ div&quot;).attr(&quot;id&quot;);</span></div>
+		                                    <div><span class="indent72">var status = $(this).attr(&quot;status&quot;);</span></div>
+		                                    <div><span class="indent72">if (status == &quot;hidden&quot;) {</span></div>
+		                                    <div><span class="indent108">$(&quot;#&quot; + siblingId).slideDown(&quot;fast&quot;);</span></div>
+		                                    <div><span class="indent108">$(this).attr(&quot;status&quot;,&quot;open&quot;);</span></div>
+		                                    <div><span class="indent72">} else {</span></div>
+		                                    <div><span class="indent108">$(&quot;#&quot; + siblingId).slideUp(&quot;fast&quot;);</span></div>
+		                                    <div><span class="indent108">$(this).attr(&quot;status&quot;,&quot;hidden&quot;);</span></div>
+		                                    <div><span class="indent72">}</span></div>
+		                                    <div><span class="indent36">});</span></div>
+		                                    <div>});</div>
+		                                </code>
+                                    </div>
+                                </div>
+                            	<p>Please save your JavaScript in the file called <code class="inline file">main.js</code> and test it out.</p>
+                            </article>
+                        </div>
+                    </section>
+                    <section class="tutorialBox">
+                        <div class="tutorialRow">
+                            <div class="tutorialHeader"><a name="Conclusion"></a>Conclusion</div>
+                            <div class="corner"></div>
+                        </div>
+                        <div class="tutorialRow">
+                            <article class="tutorialContent">
+                                <p>Congratulation! With the completion of these three components (a few lines of HTML, a handful of declarations of CSS, and four jQuery methods), the expandable system should work nicely.</p>
+                                <div class="expandableContainer">
+                                    <div class="expandableTitle" id="expandTitle-conclusion" status="hidden">
+                                        <span class="expand" title="Click to expand">One Last Expandable</span>
+                                    </div>
+                                    <div class="expandableContent" id="expandContent-conclusion">
+                                    	<p>Congrats! Stay tuned for the continuation of this mini-series!</p>
+                                        <!--<p>Congrats! Why not try adding a memory system to the expandables? <a href="Expandable_With_Cookies.html" title="Tutorial discussing this tutorial with cookies">Expandables With Cookies</a>?</p>-->
+                                        <p>Enjoy!</p>
+                                    </div>
+                                </div>
+                                <p>If you have any questions or comments, please contact me at
+                                    <a href="mailto:brian@jawa9000.com?Subject=General&#160;Request&#160;,&#160;Comment&#160;,&#160;or&#160;Question&#160;Expandables" title="Email Brian">Brian@jawa9000.com</a>.</p>
+                            </article>
+                        </div>
+                    </section>
+                    <section class="tutorialBox">
+                        <div class="tutorialRow">
+                            <div class="tutorialHeader"><a name="Resources"></a>Resources</div>
+                            <div class="corner"></div>
+                        </div>
+                        <div class="tutorialRow">
+                            <article class="tutorialContent">
+                                <ul>
+                                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_data_attributes" target="_blank" title="Using data attributes">Using data attributes</a></li>
+                                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display" target="_blank" title="Display">Display</a></li>
+                                    <li><a href="http://api.jquery.com/slideup/" target="_blank" title="jQuery's slideUp method">jQuery slideUp method</a></li>
+                                    <li><a href="http://api.jquery.com/slidedown/" target="_blank" title="jQuery's slideDown method">jQuery slideDown method</a></li>
+                                    <li><a href="http://api.jquery.com/attr/" target="_blank" title="jQuery's attribute method">jQuery attribute method</a></li>
+                                </ul>
+                            </article>
+                        </div>
+                	</section>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+		</div>
+        <!-- automated modal image storage-->
+        <div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+        <script src="../../js/getYear.js"></script>
+		<script src="../../js/modal-images.js"></script>
+		<script src="../../js/auto-number.js"></script>
+	</body>
+</html>

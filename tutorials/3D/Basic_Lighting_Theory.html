@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keyboard" content="tutorial, 3d, lighting, basic, theory">
+		<meta name="description" content="Basic Lighting Theory Tutorial">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>Basic Lighting Theory Tutorial</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer="defer" src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1>Basic Lighting Theory</h1>
+					<p class="about">
+						Written by Brian Immel
+					</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+            		<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a> Start with darkness!</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	When creating the lights for your scenes, don't throw all the lights in the scene right away. Build up your lighting
+				                	system, one light at a time if necessary.
+				                </p>
+				               	<p>
+					               	Try to avoid using ambient lights. Ambient lights usually fill the scene with flat, uniform light. A lot of people have
+					               	the bad habit of using ambient lights to add a global illumination effect. Many lighting artists will add their own fill
+					               	lights as they see it fit to provide the secondary light sources.
+				              	</p>
+				               	<p>
+				               		Test your lights with simpler objects before adding the lighting system to your complex scene.
+				               	</p>
+				               	<ul>
+				               		<li>
+				               			95% of your time creating lighting systems will be spent on revising and adjusting your values of the lights.
+				               		</li>
+				               		<li>
+				               			Using the IPR rendering output will work great for this testing stage. However, IPR doesn't work with raytraced
+				               			images (i.e. raytraced shadows).
+				               		</li>
+				               	</ul>
+				               	<p>
+				               		Save multiple versions of the lighting files.
+				               	</p>
+				            </article>
+				        </div>
+					</section>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		</div>
+		<!-- automated modal image storage-->
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+	</body>
+	<script src="../../js/getYear.js"></script>
+	<script src="../../js/modal-images.js"></script>
+	<script src="../../js/auto-number.js"></script>
+</html>

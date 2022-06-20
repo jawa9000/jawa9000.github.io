@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keyboard" content="tutorial, basic, texture, mapping, maya">
+		<meta name="description" content="Basics of Texture Mapping Tutorial">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>Basics of Texture Mapping Tutorial</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer="defer" src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1>Basics of Texture Mapping</h1>
+					<p class="about">
+						Written by Brian Immel
+					</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+            		<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Basics of texture mapping concepts</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Surfaces must have a coordinate system to determine where the image maps attach. This coordinate system is called UVs.
+				                	NURBS surfaces have their UVs automatically mapped when they are created. Polygonal surfaces do not.
+				                </p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Placing Texture maps: Mapping Coordinates</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Just like any other 3D application, Maya has a mapping system (known as UV coordinates) to tell the renderer how to apply
+				                	a two-dimensional texture on a three-dimensional surface.
+				                </p>
+				                <p>
+				                	How the UV coordinates are laid out depends on the type of surfaces the texture is being placed upon.
+				                </p>
+				                <ul>
+								    <li>
+								    	NURBS surfaces have their UVs maps built into the surface when they are created. The main for this is because a NURBS
+								    	surface is created parametrically and since UV maps work like a parametric layout, Maya automatically maps the UVs
+								    	out with any type of a NURBS surface.
+								    </li>
+								    <li>
+								    	Confused about parametric layouts and how NURBS surfaces work? Think of a NURBS surface a folded piece of paper to
+								    	form whatever shape you're going after. A NURBS surface has a defined beginning and ending edge. It may appear to be
+								    	seemless, but it really isn't. The beginning and ending edges (isoparms) sit directional on top of one another. Knowing
+								    	this, you can select the CVs of an edge and pull the shape apart until you have nothing left but a flat surface.
+								    </li>
+								    <li>
+								    	Polygonal surfaces (both polygon and subdivided) aren't so lucky. Because a polygonal surface is closed, they have to
+								    	have their UV coordinates assigned to them. There are several ways to assign UV coordinates to a polygonal surface but
+								    	we'll get into that a little later.
+								    </li>
+								</ul>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/NURBS-UV-layout.jpg" id="NURBS-UV-layout" class="imgThumbnail" title="NURBS-UV-layout" data-toggle="modal" data-target=".NURBS-UV-layout"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>What is 2D Texture Placement node?</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <ol>
+								    <li>Coverage</li>
+								    <li>Translate Frame</li>
+								    <li>Rotate Frame</li>
+								    <li>Mirror</li>
+								    <li>Stagger</li>
+								    <li>Wrap U</li>
+								    <li>Wrap V</li>
+								    <li>Repeat UV</li>
+								    <li>Offset</li>
+								    <li>Rotate UV</li>
+								    <li>Noise UV</li>
+								    <li>Fast</li>
+								</ol>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/NURBS-UV-placement.jpg" id="NURBS-UV-placement" class="imgThumbnail" title="NURBS-UV-placement" data-toggle="modal" data-target=".NURBS-UV-placement"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>What is 3D Texture Placement node?</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <ol>
+								    <li>Translate</li>
+								    <li>Rotate</li>
+								    <li>Scale</li>
+								    <li>Shear</li>
+								    <li>Rotate Order</li>
+								    <li>Rotate Axis</li>
+								    <li>Inherits Transforms</li>
+								</ol>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Interactive Placement</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Once the Interactive Placement Tools has been activated, use the MMB to move the texture placement node anywhere you like.
+				                	Click-drag on the U, V, or larger square dots (usually found at the top and bottom axis of the object) on the red outline
+				                	to change the total coverage values. To rate and translate the frame of the texture map, click-drag the smaller squares
+				                	(usually found in any corner of the texture placement node) on the red outline.
+				                </p>
+				                <p>Use this tool to place the textures on a NURBS object.</p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/Interactive-NURBS-UV.jpg" id="Interactive-NURBS-UV" class="imgThumbnail" title="Interactive-NURBS-UV" data-toggle="modal" data-target=".Interactive-NURBS-UV"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Texture Reference Object</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Sometimes, a surface may not like the UV maps you applied to it. One visual clue is when you animate your object through
+				                	space and the texture map(s) seem to "swim" over your surface. This is a simple fix and works with all types of geometry.
+				                </p>
+				                <ul>
+								    <li>Select the surface that seems to be swimming.</li>
+								    <li>In the Rendering menu set, go to Texturing &gt; Create Texture Reference Object.</li>
+								</ul>
+								<p>
+									This will create a duplicate of the selected geometry and set the geometry to a templated mode. Maya will draw upon this
+									templated surface(s) to the placement the texture map(s) regardless of where the geometry is in space or how it is bending.
+								</p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Color-Theory/texture-reference.jpg" id="texture-reference" class="imgThumbnail" title="texture-reference" data-toggle="modal" data-target=".texture-reference"/>
+				            </div>
+				        </div>
+					</section>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		<!-- automated modal image storage-->
+		</div>
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+	</body>
+	<script src="../../js/getYear.js"></script>
+	<script src="../../js/modal-images.js"></script>
+	<script src="../../js/auto-number.js"></script>
+</html>

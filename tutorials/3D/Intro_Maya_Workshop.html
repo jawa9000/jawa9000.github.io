@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="tutorial, maya, introduction, workshop, intro">
+		<meta name="description" content="Intro to Maya Workshop">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>Intro to Maya Workshop (Tutorial)</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer="defer" src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1>Intro to Maya Workshop</h1>
+					<p class="lead">
+						In this workshop, we will cover the basics of Interface Navigation, User Settings, Personalizing Your Interface, Basic Modeling,
+						Shaders for Beginners, Simple Animation Techniques and Rendering.
+					</p>
+					<p class="about">
+						Written by Brian Immel
+					</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+            		<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Interface Navigation</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Maya comes with some helpful movies that opens the first time you run Maya. They can also be found under Help &gt;
+				                	Learning Movies.
+				                </p>
+				                <p>
+				                	Tools:
+				                </p>
+				                <ol>
+								  	<li>Selection tool</li>
+								  	<li>Lasso tool</li>
+								  	<li>Move tool</li>
+								  	<li>Rotate tool</li>
+								  	<li>Scale tool</li>
+								  	<li>Manipulator tool</li>
+								  	<li>Special tools</li>
+								</ol>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Intro_Maya/toolbar.jpg" id="toolbar" class="imgThumbnail" title="toolbar" data-toggle="modal" data-target=".toolbar"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Menu Sets</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Animation, Modeling, Dynamics and Rendering
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Intro_Maya/menu-sets.jpg" id="menu-sets" class="imgThumbnail" title="Menu Sets" data-toggle="modal" data-target=".menu-sets"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Common Keyboard Shortcuts</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <table class="alternating">
+				                	<thead>
+				                		<th>Key</th>
+				                		<th>Function</th>
+				                	</thead>
+								 	<tbody>
+								 		<tr>
+										    <td>q</td>
+										    <td>Selection tool</td>
+										</tr>
+										<tr>
+										    <td>a</td>
+										    <td>frame all in view</td>
+										</tr>
+										<tr>
+										    <td>1</td>
+										    <td>low quality display</td>
+										</tr>
+										<tr>
+										    <td>w</td>
+										    <td>move tool</td>
+										</tr>
+										<tr>
+										    <td>f</td>
+										    <td>focus in view (on selected object)</td>
+										</tr>
+										<tr>
+										    <td>2</td>
+										    <td>medium quality display</td>
+										</tr>
+										<tr>
+										    <td>e</td>
+										    <td>rotate tool</td>
+										</tr>
+										<tr>
+										    <td>g</td>
+										    <td>repeat last action</td>
+										</tr>
+										<tr>
+										    <td>3</td>
+										    <td>high quality display</td>
+										</tr>
+										<tr>
+										    <td>r</td>
+										    <td>scale tool</td>
+										</tr>
+										<tr>
+										    <td>x</td>
+										    <td>snap to grid</td>
+										</tr>
+										<tr>
+										    <td>4</td>
+										    <td>wireframe display</td>
+										</tr>
+										<tr>
+										    <td>t</td>
+										    <td>manipulator tool</td>
+										</tr>
+										<tr>
+										    <td>c</td>
+										    <td>snap to curve</td>
+										</tr>
+										<tr>
+										    <td>5</td>
+										    <td>display shaded</td>
+										</tr>
+										<tr>
+										    <td>y</td>
+										    <td>activate last tool</td>
+										</tr>
+										<tr>
+										    <td>v</td>
+										    <td>snap to point</td>
+										</tr>
+										<tr>
+										    <td>6</td>
+										    <td>view in textured mode</td>
+										</tr>
+										<tr>
+										    <td>s</td>
+										    <td>set keyframe all</td>
+										</tr>
+										<tr>
+										    <td>p</td>
+										    <td>parent</td>
+										</tr>
+										<tr>
+										    <td>7</td>
+										    <td>view in light mode</td>
+										</tr>
+										<tr>
+										    <td>crtl-a</td>
+										    <td>attribute editor</td>
+										</tr>
+										<tr>
+										    <td>shift-p</td>
+										    <td>unparent</td>
+										</tr>
+									</tbody>
+								</table>
+								<br/>
+								<table class="alternating">
+									<thead>
+										<th>Key / Mouse Button</th>
+										<th>Function</th>
+									</thead>
+									<tbody>
+										<tr>
+										    <td>z / ctrl-z</td>
+										    <td>undo</td>
+										</tr>
+										<tr>
+										    <td>spacebar (tap)</td>
+										    <td>change views</td>
+										</tr>
+										<tr>
+										    <td>Alt + Left Mouse Button (LMB)</td>
+										    <td>tumble</td>
+										</tr>
+										<tr>
+										    <td>shift-z </td>
+										    <td>redo</td>
+										</tr>
+										<tr>
+										    <td>spacebar (hold)</td>
+										    <td>hot box</td>
+										</tr>
+										<tr>
+										    <td>Alt + Middle Mouse Button (MMB)</td>
+										    <td>track</td>
+										</tr>
+										<tr>
+										    <td>insert key</td>
+										    <td>toggle center pivot mode on/off</td>
+										</tr>
+										<tr>
+										    <td>Alt + Right Mouse Button (RMB)</td>
+										    <td>zoom</td>
+										</tr>
+									</tbody>
+								</table>
+								<p>More keyboard shortcuts can be found at Windows &gt; Setting/Preferences &gt; Hotkeys &gt; List All....</p>
+								<p>All keyboard shortcuts are case sensitive!</p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Intro_Maya/keyboard-shorcuts.jpg" id="keyboard-shorcuts" class="imgThumbnail" title="keyboard-shorcuts" data-toggle="modal" data-target=".keyboard-shorcuts"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Channel Box</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Displays information about the item you have selected. Shows areas of information: Transformers, Shapes, Inputs, etc.
+				                	What is shown depends on what is selected.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Intro_Maya/channel-box.jpg" id="channel-box" class="imgThumbnail" title="Channel Box" data-toggle="modal" data-target=".channel-box"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Views Windows and Interface</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Intro_Maya/views.jpg" id="views" class="imgThumbnail" title="Views Windows and Interface" data-toggle="modal" data-target=".views"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Hotbox</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <ol>
+								  	<li>Hold Spacebar down to get the Hotbox</li>
+								  	<li>Advanced interface</li>
+								  	<li>Customizable</li>
+								</ol>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Panel Menus per window</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Window presets in Maya.
+				                </p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Component Selection Types</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	What component editing options you have depends on the object.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Intro_Maya/hot-box.jpg" id="hot-box" class="imgThumbnail" title="hot box" data-toggle="modal" data-target=".hot-box"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>User Settings</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	<span class="strong">Window &gt; Settings/Preferences &gt; Preferences</span>
+				                </p>
+				                <ol>
+								  	<li>Settings = Time NTSC (30 fps)</li>
+								  	<li>Files/Project settings = project default location</li>
+								  	<li>Timeline = Playback Speed depends. Play every frame for simulations, Real for animation. Set to Real.</li>
+								  	<li>Undo = Infinite. This will use more and more memory as your file grows</li>
+								</ol>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Intro_Maya/preferences.jpg" id="preferences" class="imgThumbnail" title="preferences" data-toggle="modal" data-target=".preferences"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Personalizing Your Interface</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Shelf and Shelf Tabs
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Intro_Maya/shelf-tabs.jpg" id="shelf-tabs" class="imgThumbnail" title="Shelf and Shelf Tabs" data-toggle="modal" data-target=".shelf-tabs"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Editing Shelf Tabs</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <ol>
+							      	<li>
+							      		Place commonly used buttons in here by holding down Shift-Ctrl-Alt and click on the tool you want to appear in the
+							      		Shelf from the drop down menus.
+							      	</li>
+							      	<li>Move buttons around using the Middle Mouse Button (MMB).</li>
+							      	<li>
+							      		Delete a button by dragging it to the trash can near the top right corner. Deleting a button does not delete that
+							      		function from Maya permanently, just that shortcut button.
+							      	</li>
+								</ol>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Adding/Removing interface components</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <ol>
+							     	<li>Display &gt; Heads up Display</li>
+							      	<li>Display &gt; UI Elements &gt; ?</li>
+								</ol>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>MEL buttons</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Every function completed in Maya can be echoed using a script. The Script Editor shows the MEL script of your last function.
+				                </p>
+				                <ul>
+							      	<li>Complete a function, highlight the script in the Script Editor and MMB it to the Shelf.</li>
+							      	<li>Go to the Shelf Editor and rename this button according to its function</li>
+								</ul>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Intro_Maya/script-editor.jpg" id="script-editor" class="imgThumbnail" title="script editor" data-toggle="modal" data-target=".script-editor"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Basic Modeling Menu</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	NURBS: Curve based geometry (Non-Uniform Rational B-Splines)
+				                </p>
+				                <ol>
+									<li>Understanding NURBS: NURBS objects can be thought of as a folded piece of paper.</li>
+								    <li>Play with sweep of a ball in the Channel Box.</li>
+								    <li>Play with vertices and "unwrap" a NURBS object using the Control Vertices.</li>
+								</ol>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Intro_Maya/nurbs.jpg" id="nurbs" class="imgThumbnail" title="nurbs" data-toggle="modal" data-target=".nurbs"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Polygons and SubD</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Polygonal: Polygon based geometry
+				                </p>
+				                <p>
+				                	SubDivision: Polygonal based geometry with curve edges
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Intro_Maya/polygons.jpg" id="polygons" class="imgThumbnail" title="polygons" data-toggle="modal" data-target=".polygons"/>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Intro_Maya/subd.jpg" id="subd" class="imgThumbnail" title="subd" data-toggle="modal" data-target=".subd"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Model a simple fish using NURBS</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				            	<ol>
+				            		<li>Create a NURBS sphere and rotate Z 90 using the Channel Box.</li>
+				            		<li>Make the spans 8.</li>
+				            		<li>In vertex component mode, select the front of the sphere and form the mouth.</li>
+				            		<li>Scale and translate the vertices until you get something like Figure 13.</li>
+				            		<li>Insert a few isoparms to help sculpt the lips.</li>
+				            		<li>Add two spheres for eyes (Figure 14).</li>
+				            		<li>
+				            			 Select the fish's body and in the Channel Box, click on the line where it says nurbsSphere1 and give your fish a
+				            			 name. It's a good idea to always name each item you create.
+				            		</li>
+				            	</ol>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Intro_Maya/fish01.jpg" id="fish01" class="imgThumbnail" title="fish01" data-toggle="modal" data-target=".fish01"/>
+				            </div>
+				            <div class="images">
+				                <img src="../../images/tutorials/Intro_Maya/fish02.jpg" id="fish02" class="imgThumbnail" title="Finished Model" data-toggle="modal" data-target=".fish02"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Shaders for Beginners</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Hypershade vs. Multilister:
+				                </p>
+				                <ol>
+							      	<li>Hypershade can show the user one or more shader graph(s).</li>
+							      	<li>
+							      		Hypershade has easy access to creating Materials, Textures and other shader related items in the library left of the
+							      		Hypershade view windows
+							      	</li>
+							     	<li>Multilister lists all shaders and textures in the scene.</li>
+							    </ol>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Intro_Maya/shaders.jpg" id="shaders" class="imgThumbnail" title="Hypershade vs. Multilister" data-toggle="modal" data-target=".shaders"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Assigning shaders</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	In the Hypershade window (Window &gt; Rendering Editors&gt; Hypershade) create a new shader by middle-mouse dragging a
+				                	blinn shader in the Create Materials &gt; Surface list to the Work Area in the bottom right of the Hypershade window.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Intro_Maya/blinn01.jpg" id="blinn01" class="imgThumbnail" title="blinn01" data-toggle="modal" data-target=".blinn01"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Using textures</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <ol>
+							      	<li>Double click the blinn shader to open up the Attribute Editor.</li>
+							      	<li>
+							      		Click the map button to assign textures to a particular attribute of the shader. Maps can be procedural (internal map
+							      		information) or external file sources (TGAs, TIFFs, JPGs, image sequences, movie files, etc.).
+							      	</li>
+							      	<li>Select a Ramp and edit it according to Figure 17.</li>
+								</ol>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Intro_Maya/ramp.jpg" id="ramp" class="imgThumbnail" title="ramp" data-toggle="modal" data-target=".ramp"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Mapping NURBS vs. polygons</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	NURBS objects can receive maps automatically because they don't need a projection assigned to them. A projection is how a
+				                	3D application applies the map to a surface. Think of a NURBS object as a piece of paper with the same face on either side.
+				                </p>
+    							<p>
+    								Polygonal objects must be assigned a projection. There are several ways to assign mapping projections to a polygonal object.
+    							</p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Intro_Maya/poly-texturing.jpg" id="poly-texturing" class="imgThumbnail" title="Mapping NURBS vs. polygons" data-toggle="modal" data-target=".poly-texturing"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>3D Paint Tool</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <ol>
+							      	<li>Open up the 3D Paint Tool by going to Rendering &gt; Texturing &gt; 3D Paint Tool Option box.</li>
+							      	<li>
+							      		For more info on painting a 3D object within in Maya, refer to the help in the Painting &gt; 3D Paint Tool &gt;
+							      		Painting Renderable Attributes on 3D Objects.
+							      	</li>
+							  	</ol>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Intro_Maya/3d-paint-tool.jpg" id="3d-paint-tool" class="imgThumbnail" title="3D Paint Tool" data-toggle="modal" data-target=".3d-paint-tool"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Fish Eyes</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Create a Phong shader with another Ramp for the color map and edit the Ramp according to Figure and apply this new shader
+				                	to the fish's eyes.
+				                </p>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Intro_Maya/Ramp2.jpg" id="Ramp2" class="imgThumbnail" title="fish eyes" data-toggle="modal" data-target=".Ramp2"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Simple Animation Techniques: Deformers</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <ol>
+							     	<li>Animation &gt; Deform.</li>
+							      	<li>Lattices</li>
+							        <ul>
+							            <li>Also a create tool for sculpting models.</li>
+							        </ul>
+							      	<li>Non-linear deformers (Animation &gt; Non-Linear Deformers):</li>
+							        <ul>
+							            <li>Bend</li>
+							          	<li>Flare</li>
+							          	<li>Sine</li>
+							          	<li>Squash</li>
+							          	<li>Twist</li>
+							          	<li>Wave</li>
+							        </ul>
+							  	</ol>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Intro_Maya/deformers.jpg" id="deformers" class="imgThumbnail" title="Deformers" data-toggle="modal" data-target=".deformers"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Skeletons</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <ul>
+							      	<li>Forward Kinematics</li>
+							      	<li>Inverse Kinematics</li>
+							  	</ul>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Intro_Maya/skeletons.jpg" id="skeletons" class="imgThumbnail" title="Skeletons" data-toggle="modal" data-target=".skeletons"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Setting keyframes</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>Timeline</p>
+							    <ul>
+							      	<li>Animation Preferences Button</li>
+							        <ul>
+							          	<li>&gt; Settings &gt; Time = NTSC (30fps)</li>
+							          	<li>&gt; Timeline &gt; Playback Speed = Real-time (30 fps).</li>
+							        </ul>
+							    </ul>
+							    <p>Animation Preferences Button</p>
+							    <ul>
+							      	<li>Using the "s" key, you can keyframe all the attributes of a selected object(s).</li>
+							    </ul>
+							    <p>Channel box</p>
+							    <ul>
+							      	<li>Select the fish and right-click the attributes in the Channel Box to see an attribute list of options.</li>
+							      	<li>Select an attribute in the Channel Box and right-click on the selected attribute and select Key Selected.</li>
+								</ul>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Intro_Maya/timeline.jpg" id="timeline" class="imgThumbnail" title="Setting keyframes" data-toggle="modal" data-target=".timeline"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>AutoKey</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>Click the AutoKey option in the bottom right to activate (red).</p>
+							    <p>
+							    	<span class="strong">Other animation options: </span>animation paths, set-driven controllers and procedure inputs (MEL scripts,
+							    	expressions, etc.)
+							    </p>
+							    <p><span class="strong">Playback options:</span> timeline, scrubbing with the playback head, and playblasts</p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Animation Editors: Graph Editor and Dope Sheet</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <ul>
+							      	<li>Window &gt; Animation Editors &gt; Graph Editor.</li>
+							      	<li>Window &gt; Animation Editors &gt; Dope Sheet.</li>
+							  	</ul>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Intro_Maya/graph-editor.jpg" id="graph-editor" class="imgThumbnail" title="Graph Editor" data-toggle="modal" data-target=".graph-editor"/>
+				            </div>
+				             <div class="images">
+				                <img src="../../images/tutorials/Intro_Maya/dope-sheet.jpg" id="dope-sheet" class="imgThumbnail" title="Dope Sheet" data-toggle="modal" data-target=".dope-sheet"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Setup and Animate the Fish</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <ol>
+							      	<li>Select all the geometry and put it in a lattice 5x2x2 (Figure 26).</li>
+							      	<li>Keyframe the lattice (main motion).</li>
+							      	<li>Keyframe the lattice points for animation (secondary motion) of tail.
+							        <ol>
+							            <li>Right-click on the lattice, select the lattice points around the tail and keyframe a wiggling motion.</li>
+							        </ol>
+							      	</li>
+							      	<li>Keyframe the eyes (secondary motion).</li>
+							      	<li>Edit any stray keyframes using the Graph editor.</li>
+							  	</ol>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Intro_Maya/fish-lattice.jpg" id="fish-lattice" class="imgThumbnail" title="Fish's Lattice" data-toggle="modal" data-target=".fish-lattice"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Rendering: Render global settings</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				            	<ol>
+				            		<li>Render Current Frame will render the image according its location in the timeline.</li>
+				            		<li>
+				            			IPR stands for Interactive Photo-realistic Render. Use this only when you want to update a render as you work on
+				            			modifying shaders.
+				            		</li>
+				            		<li>
+				            			Render Globals is where the user defines the render parameters. Here a few tips on setting up the fish animation for
+				            			rendering:
+				            		</li>
+				            		<ul>
+										<li>Image File Output</li>
+										<ol>
+							                <li>File Name Prefix = fish</li>
+							                <li>Frame/Animation Ext = name.#.ext.</li>
+							                <li>Start Frame = 1</li>
+							                <li>End Frame = 90</li>
+							                <li>Frame Padding = 3</li>
+							                <li>Image Format = Targa (tga)</li>
+							            </ol>
+							            <li>Resolution</li>
+							            <ul>
+						                  	<li>Width = 720</li>
+						                  	<li>Height = 480</li>
+						                </ul>
+						                <li>Anti-aliasing Quality</li>
+						                <ul>
+						                  	<li>Preset = Production Quality</li>
+						                </ul>
+						                <li>Motion Blur</li>
+						                <ul>
+						                  	<li>Check Motion Blur box</li>
+						                  	<li>Motion Blur Type = 2D</li>
+						                </ul>
+								  	</ul>
+				            	</ol>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Intro_Maya/render-globals.jpg" id="render-globals" class="imgThumbnail" title="Render global settings" data-toggle="modal" data-target=".render-globals"/>
+				            </div>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Saving playblasts</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				            	<ol>
+				            		<li>
+				            			Rendering a playblast will render all frames that are currently available in the timeline. So if your animation is
+				            			only 65 frames long, you may want to adjust the view of the timeline to reflect that otherwise you'll be playblasting
+				            			dead frames.
+				            		</li>
+				            		<li>Right-click on the Timeline and go to Playblast Option box.</li>
+				            		<li>Select a compressor that will work for your needs.</li>
+				            		<li>Check Save to File.</li>
+				            		<li>Click Browse to give the animation a location to save other than the default location.</li>
+				            		<li>Hit Playblast.</li>
+				            		<li>Hit the esc key to interrupt the playblast</li>
+				            	</ol>
+				            </article>
+				            <div class="images">
+				                <img src="../../images/tutorials/Intro_Maya/playblast.jpg" id="playblast" class="imgThumbnail" title="Saving playblasts" data-toggle="modal" data-target=".playblast"/>
+				            </div>
+				        </div>
+					</section>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		</div>
+		<!-- automated modal image storage-->
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+		<script src="../../js/getYear.js"></script>
+		<script src="../../js/modal-images.js"></script>
+		<script src="../../js/auto-number.js"></script>
+	</body>
+</html>

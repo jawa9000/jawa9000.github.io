@@ -1,0 +1,89 @@
+<!doctype html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+        <title>Rock, Paper, Scissors Game</title>
+        <meta name='description' content='Rock paper scissors game built using JavaScript without a random method'>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <meta name="keywords" content="rock paper scissors, game, javascript, random">
+        <meta name="author" content="Brian Immel">
+		    <meta name="level" content="2">
+        <meta name="version" content="0.0.1">
+        <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+        <link href="../../css/normalize.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+
+        <style>
+            .pick {
+                background: bisque;
+                width: 5em;
+                height: 1.5em;
+                border: solid 3px;
+                border-radius: 7px;
+                display: inline-block;
+                line-height: 1.5em;
+                text-align: center;
+                color: burlywood;
+                font-weight: bold;
+                font-size: 2em;
+                margin: 5px 15px;
+                border-color: burlywood;
+                cursor: pointer;
+            }
+            .pick:hover {
+                color: brown;
+                border-color: brown;
+            }
+            .center {
+                text-align: center;
+            }
+            p, #message {
+                font-size: 2.5em;
+            }
+            body {
+              font-family: 'Roboto Slab', serif, Arial;
+            }
+        </style>
+
+    </head>
+    <body>
+      <div class='center'>
+          <h1>Rock, Paper, Scissors Game</h1>
+          <div id="rock" class="pick">Rock</div>
+          <div id="paper" class="pick">Paper</div>
+          <div id="scissors" class="pick">Scissors</div>
+          <p>Computer picks <span>you to play rock, paper, scissors!</span></p>
+          <div id="message"></div>
+      </div>
+
+      <script src="../../js/jquery-2.1.0.min.js"></script>
+      <script>
+        var options = ['rock','paper','scissors','paper','rock','scissors','rock','paper','paper','scissors','rock','scissors','rock','paper','scissors','paper','scissors','rock','rock','scissors','rock','paper','scissors','paper','scissors','rock','paper','scissors','rock','paper','scissors','paper','rock','scissors','rock','paper','paper','scissors','rock','scissors','rock','paper','scissors','paper','scissors','rock','rock','scissors','rock','paper','scissors','paper','scissors','rock','paper','scissors','scissors','rock','paper','scissors','paper'];
+
+        $('.pick').on('click', function() { // when an option is clicked, have the "computer" pick one as well
+            var playerPick = $(this).attr('id'); // get the value of the button click
+            var seconds = new Date().getSeconds(); // get the seconds of the date
+            $('span').text(options[seconds]); // display the computer's "choice" based on the value of the seconds of the date from the array
+
+            var message = '';
+            if (options[seconds] == playerPick) { // determine who wins or not
+                message = 'Tie!';
+            } else if (options[seconds] == 'rock' && playerPick == 'scissors') {
+                message = 'rock beats scissors; computer wins!';
+            } else if (options[seconds] == 'paper' && playerPick == 'rock') {
+                message = 'paper beats rock; computer wins!';
+            } else if (options[seconds] == 'scissors' && playerPick == 'paper') {
+                message = 'scissors beats paper; computer wins!';
+            } else if (playerPick == 'rock' && options[seconds] == 'scissors') {
+                message = 'rock beats scissors; player wins!';
+            } else if (playerPick == 'paper' && options[seconds] == 'rock') {
+                message = 'paper beats rock; player wins!';
+            } else if (playerPick == 'scissors' && options[seconds] == 'paper') {
+                message = 'scissors beats paper; player wins!';
+            }
+
+            $('div#message').text(message); // display game message
+        });
+      </script>
+    </body>
+</html>

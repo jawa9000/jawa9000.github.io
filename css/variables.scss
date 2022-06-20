@@ -1,0 +1,31 @@
+$baseColor: #8abcf7;
+$secondaryColor: #d5e5f8;
+$tertiaryColor: #f79231;
+$baseText: #ffffff;
+$iconColor: #435b77;
+
+/* alternating table rows */
+$oddRow: $baseColor;
+$evenRow: #aacef7;
+
+%borderRadius {
+  border-radius: 5px; 
+}
+
+%baseText {
+  color: $baseText; 
+}
+
+%fontWeight {
+  font-weight: bold;
+}
+
+@mixin colorBold ($color) {
+	color: $color;
+	font-weight: bold;
+}
+
+@mixin fontSizeWeight ($size: 24px, $weight: bold) {
+	font-size: $size;
+	font-weight: $weight;
+}

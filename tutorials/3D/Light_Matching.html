@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="tutorial, light, matching, 3d">
+		<meta name="description" content="Light Matching Tutorial">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>Light Matching Tutorial</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer="defer" src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1>Light Matching</h1>
+					<p class="lead">
+						Questions to consider when recreating lighting scenarios for photo-realism (Light Matching)
+					</p>
+					<p class="about">
+						Here are some questions you have to ask yourself to obtain the information needed to light a photographic environment
+					</p>
+					<p class="about">
+						Written by Brian Immel
+					</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+            		<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>How bright is the scene? Is this brightness constant throughout the image?</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Some parts of an image may differ greatly in the brightness and generate the need to use many lights to recreate the
+				                	brightness levels.
+				                </p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Is the scene inside or outside?</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <ul>
+								    <li>Setting up lights differs greatly when trying to recreate indoor lighting from outdoors.</li>
+								    <li>
+								    	When trying to match indoor lighting, it is important to know what types of light bulbs are being used. Each type of
+								    	light bulb has a different temperature of operation and color pitch. Example: fluorescent light bulbs (long tubes)
+								    	typically have a greenish or yellowish balance. Halogen lights have a more balanced white source but some have a
+								    	bluish tint as well.
+								    </li>
+								</ul>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>What type of light is being used? Sunlight? Moonlight? Artificial lights?</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <ul>
+								    <li>
+								    	It is important to know what types of light are being used so that you can use this information as a point of
+								    	reference.
+								    </li>
+								    <li>
+								    	How much light does the moon give objects at nighttime? Is the effect you are going for photo-realistic or a
+								    	hyper-real version of reality? Which looks better on the screen: reality-based moon intensities or "adjusted"
+								    	nighttime lighting?
+								    </li>
+								</ul>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>How many light sources are in use in the scene? Do you have to use the same number of lights to obtain the same results?</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <ul>
+								    <li>
+								    	Don't confuse this question with bounce light. Yes, bounce light is a light source but it is not a main light source
+								    	in some cases.
+								    </li>
+								    <li>Changes are, you will use just as many, if not more, lights in your recreations as your source image refers to.</li>
+								</ul>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>What are the surfaces made of in this scene? Is one surface polished wood while another is rusty metal? Is the scene dominated by old brick or painted concrete?</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <ul>
+								    <li>
+								    	Knowing what type of material is in the scene helps figure out the need for lighting intensities and where and how much
+								    	bounce light you need to generate.
+								    </li>
+								    <li>
+								    	Enough though an old brick wall looks great and has lots of rich red colors in it, it may not cast off much light
+								    	because of how much light is being absorbed. Think about the material's ability to absorb light.
+								    </li>
+								</ul>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>How many bounce lights do I need to create?</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <ul>
+								    <li>
+								    	Unless you are using some sort of Global Illumination engine (such as Mental Ray), you will need to figure out how
+								    	many bounce lights you will need to set up.
+								    </li>
+								    <li>General rules about bounce lighting:</li>
+							      	<ul>
+							          	<li>Bounce light is never as intense as the source.</li>
+							        	<li>Bounce light takes on a color tint/shade of whatever material is suppose to be bouncing off of.</li>
+							        	<li>Bounce light fades in intensity as it goes further from the source.</li>
+							        	<li>Bounce light can, and often does, produce shadows. However, these shadows may be extremely faint and hard to make out.</li>
+							      	</ul>
+								</ul>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>What are the intensities of the lights used in the scene?</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Can you measure the intensities of light at the time you record the source image?
+				                </p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>What time of day is it?</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <ul>
+								    <li>This will help determine how bright some lighting scenarios will be.</li>
+								    <li>The time of day can also influence how warm or cool lighting scenarios.</li>
+								</ul>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Does weather play a factor in the lighting?</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	How does lighting scenarios vary from a sunny day to a cold wintry storm?
+				                </p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name=""></a>Is color balance needed?</div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+				                <p>
+				                	Do you need to color balance for video, gaming or web?
+				                </p>
+				            </article>
+				        </div>
+					</section>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		</div>
+		<!-- automated modal image storage-->
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+		<script src="../../js/getYear.js"></script>
+		<script src="../../js/modal-images.js"></script>
+		<script src="../../js/auto-number.js"></script>
+	</body>
+</html>
