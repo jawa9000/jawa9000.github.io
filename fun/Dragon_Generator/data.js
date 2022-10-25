@@ -380,29 +380,29 @@ var hoardMagicItems = {
         [1, 21, 'Common minor item (Magic Item Table A of DMG)'],
         [22, 49, 'Uncommon minor item (Magic Item Table B of DMG)'],
         [50, 64, 'Rare minor item (Magic Item Table C of DMG)'],
-        [65, 72, 'Very rare minor item (Magic Item Table D of DMG'],
+        [65, 72, 'Very rare minor item (Magic Item Table D of DMG)'],
         [73, 91, 'Uncommon major item (Magic Item Table F of DMG)'],
         [92, 97, 'Rare major item (Magic Item Table G of DMG)'],
-        [98, 100, 'Very rare major item (Magic Item Table H of DMG']
+        [98, 100, 'Very rare major item (Magic Item Table H of DMG)']
     ],
     Adult: [
         [1, 6, 'Common minor item (Magic Item Table A of DMG)'],
         [7, 18, 'Uncommon minor item (Magic Item Table B of DMG)'],
         [19, 41, 'Rare minor item (Magic Item Table C of DMG)'],
-        [42, 64, 'Very rare minor item (Magic Item Table D of DMG'],
-        [65, 69, 'Legendary minor item (Magic Item Table E of DMG'],
+        [42, 64, 'Very rare minor item (Magic Item Table D of DMG)'],
+        [65, 69, 'Legendary minor item (Magic Item Table E of DMG)'],
         [70, 72, 'Uncommon major item (Magic Item Table F of DMG)'],
         [73, 80, 'Rare major item (Magic Item Table G of DMG)'],
-        [81, 91, 'Very rare major item (Magic Item Table H of DMG'],
-        [92, 100, 'Legendary major item (Magic Item Table I of DMG']
+        [81, 91, 'Very rare major item (Magic Item Table E of DMG)'],
+        [92, 100, 'Legendary major item (Magic Item Table I of DMG)']
     ],
     Ancient: [
         [1, 12, 'Rare minor item (Magic Item Table C of DMG)'],
-        [13, 56, 'Very rare minor item (Magic Item Table D of DMG'],
-        [57, 67, 'Legendary minor item (Magic Item Table E of DMG'],
+        [13, 56, 'Very rare minor item (Magic Item Table D of DMG)'],
+        [57, 67, 'Legendary minor item (Magic Item Table E of DMG)'],
         [68, 73, 'Rare major item (Magic Item Table G of DMG)'],
-        [74, 82, 'Very rare major item (Magic Item Table H of DMG'],
-        [83, 100, 'Legendary major item (Magic Item Table I of DMG']
+        [74, 82, 'Very rare major item (Magic Item Table H of DMG)'],
+        [83, 100, 'Legendary major item (Magic Item Table I of DMG)']
     ]
 }
 
