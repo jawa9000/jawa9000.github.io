@@ -1,0 +1,7 @@
+h1, h2, h3#nicknames {
+    text-align: center;
+}
+
+h1#name::first-letter, h3#nicknames::first-letter {
+    text-transform: uppercase;
+}
