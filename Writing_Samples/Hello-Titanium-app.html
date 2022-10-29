@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hello Titanium App</title>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style type='text/css'>
+        p.note {
+            background: rgba(0, 0, 0, 0.1);
+            padding: 5px;
+            margin: 5px;
+            width: fit-content;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="page">
+        <div id="main">
+            <div id="main-header">
+                <h1 id="title-heading">Hello Titanium App</h1>
+            </div>
+            <p class="note">Archive note: all links and images have been disabled as their destinations and/or source
+                locations no longer exist.</p>
+            <div id="content">
+                <div>
+                    Created by Brian Immel on Jan 17, 2018
+                </div>
+                <div id="main-content">
+                    <p>
+                    <div>
+                        <ul>
+                            <li><a href='#HelloTitaniumapp-Createaproject'>Create a project</a></li>
+                            <li><a href='#HelloTitaniumapp-Runningtheapplication'>Running the application</a></li>
+                        </ul>
+                    </div>
+                    </p>
+                    <h2 id="HelloTitaniumapp-Createaproject">Create a project</h2>
+                    <p>The first step is to create a new Mobile App Project and select a starting template. The Titanium
+                        SDK supports two project types: Alloy and Classic. <a href="#" rel="nofollow">Alloy</a> is an
+                        MVC (<a href="#">Model–view–controller</a>)
+                        framework that lets you
+                        develop applications in less time and with less code than is possible in a Classic project. In
+                        general, it's recommended you use Alloy for your projects.</p>
+                    <p><strong>To create a new project:</strong></p>
+                    <ol>
+                        <li>In Studio, either: <br />
+                            <ol>
+                                <li>Press <strong>⌘ </strong>+<strong> N</strong> (Mac) or <strong>Ctrl
+                                    </strong>+<strong> N</strong> (Windows) to open the project wizard dialog.</li>
+                                <li>Or from the menu bar,
+                                    select <strong>File</strong> &gt; <strong>New</strong> &gt; <strong>Mobile App
+                                        Project</strong>.</li>
+                            </ol>
+                        </li>
+                        <li>Select <strong>Mobile App Project</strong> as the wizard type and
+                            click <strong>Next</strong>.
+                        </li>
+                        <li>On the <strong>Project Template</strong> page, select <strong>Default Alloy
+                                Project</strong> as the template type. Click <strong>Next</strong>.
+                        </li>
+                        <li>On the <strong>Project Location</strong> page, enter the following information:<br />
+                            <ul>
+                                <li>In the <strong>Project Name</strong> field, enter <strong>Hello</strong>.</li>
+                                <li>In the <strong>App ID</strong> field, enter <strong>com.example.hello</strong>. This
+                                    format is called reverse domain notation. You must use your own domain before
+                                    publishing your application to market, but for testing purposes a temporary domain
+                                    is fine.</li>
+                                <li>Select one or more <strong>Deployment Targets</strong>. By default, Studio selects
+                                    all available targets platforms that you have installed.</li>
+                                <li>Disable enable Axway Appcelerator Platform Services (defaults to enabled) as we
+                                    won't use this service for this app.
+                                </li>
+                            </ul>
+                        </li>
+                        <li>Click <strong>Finish</strong> to create the project. By default, the application's
+                            configuration file called <code>tiapp.xml</code> opens up in the <a href="#">TiApp
+                                Editor</a>. You can close
+                            that file.</li>
+                        <li>In the <strong>Project Explorer</strong> view, open <strong>index.xml</strong> located in
+                            the <strong>app/views</strong> folder.
+                            <p>When developing an app in Alloy, you create your UI declaratively using XML elements
+                                that, during compilations, are mapped to standard Titanium SDK objects. For instance,
+                                the default Alloy template includes a <code>&lt;Label&gt;</code> element that
+                                corresponds to a <a href="#" rel="nofollow">Label</a> object.</p>
+                        </li>
+                        <li>In <code>index.xml</code>, change the text inside the <code>&lt;Label&gt;</code> element
+                            from <code>Hello, World</code> to <code>Hello, Titanium</code>.</li>
+                        <li>Save your changes. Now we're ready to run the application.</li>
+                    </ol>
+                    <h2 id="HelloTitaniumapp-Runningtheapplication">Running the application</h2>
+                    <p>To run the application you select a target <a href="#">simulator</a>, <a href="#">emulator</a>,
+                        or <a href="#">device</a>, and
+                        click <strong>Run</strong>. The targets available for you to test with depends on which native
+                        SDKs you previously installed. For this example, it's assumed you've installed XCode and are
+                        targeting an iOS simulator. If you are targeting Android, select an appropriate simulator,
+                        emulator or device from the <strong>Target</strong> menu.</p>
+                    <ol>
+                        <li>Select the project in Project Explorer.</li>
+                        <li>Make sure <strong>Run </strong>is selected in the <strong>Launch Mode</strong> drop-down.
+                        </li>
+                        <li>From the <strong>Target </strong>drop-down, select an iOS simulator.
+                        </li>
+                        <li>Click <strong>Run</strong>. Your application will compile and launch in the iOS
+                            Simulator. Click the <strong>Hello, Titanium </strong>label text. An alert dialog
+                            appears.
+                            <p>If you run into problems running your application, see <a href="#" rel="nofollow">Studio
+                                    Troubleshooting</a>.</p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
