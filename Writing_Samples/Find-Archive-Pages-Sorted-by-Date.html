@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Find Archive Pages Sorted by Date</title>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style type='text/css'>
+        p.note {
+            background: rgba(0, 0, 0, 0.1);
+            padding: 5px;
+            margin: 5px;
+            width: fit-content;
+        }
+    </style>
+    <link href="../css/tutorials.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="page">
+        <div id="main">
+            <div id="main-header">
+                <h1 id="title-heading">Find Archive Pages Sorted by Date</h1>
+            </div>
+            <p class="note">Archive note: all links and images have been disabled as their destinations and/or source
+                locations no longer exist. Content marked with "[...]" have been removed or simplified.</p>
+            <div id="content">
+                <div>
+                    Created by Brian Immel on November 2022.
+                </div>
+                <div id="main-content">
+                    <p>This document will show entry-level programmers how to set up a query using the [database] database that generates a list of archived pages and sort them by their date stamp. This query is designed to exclude redirected and deleted pages. This query is part of a <a href="#">series</a> of queries designed to help you get started with SQL and create your own dashboard to report on your documentation health.</p>
+                    <h2>Overview</h2>
+                    <p>Every row includes a <code class="inline">page_title</code> and <code class="inline">ds</code>. The display_title is the active title on a page.</p>
+                    <p><strong>Working query</strong>: <a href="#">[url]</a></p>
+                    <p><strong>Namespace</strong>: <a href="#">[namespace]</a></p>
+                    <p><strong>Table</strong>: <a href="#">[table]</a></p>
+                    <p><strong>Use cases</strong>: Remove visible, archived pages from a doc set, or find archived pages to update and unarchive sorted by their last modified dates.</p>
+
+                    <h2>Find archived pages</h2>
+                    <p>The following query will return pages that are active and have not been redirected and do not have a deletion time.</p>
+                    <p>You can modify this query by tweaking the following filters:</p>
+                    <ul>
+                        <li><code class="inline">page_is_redirect = 0</code> filters for pages that have not been redirected</li>
+                        <li><code class="inline">deletion_time = 0</code> filters for pages that have not been deleted</li>
+                        <li><code class="inline">archive_time > 1</code> filters for pages that have been archived</li>
+                        <li><code class="inline">page_is_hidden = 0</code> filters pages that are visible from the Table of Contents tree. If <code class="inline">page_is_hidden = 1</code>, a page <i>is not</i> visible unless you or your wiki administrator exposes hidden pages.</li>
+                    </ul>
+                    <code id="code-head" class="block">
+                        SELECT<br/>
+                        <span class="indent36">ds,</span><br/>
+                        <span class="indent36">page_title</span><br/>
+                        FROM [table]<br/>
+                        WHERE<br/>
+                        <span class="indent36">page_title LIKE '%$top_page$%'</span><br/>
+                        <span class="indent36">AND page_is_redirect = 0</span><br/>
+                        <span class="indent36">AND deletion_time = 0</span><br/>
+                        <span class="indent36">AND archive_time > 1</span><br/>
+                        <span class="indent36">AND page_is_hidden = 0</span><br/>
+                        <span class="indent36">GROUP BY</span><br/>
+                        <span class="indent72">ds, page_title</span><br/>
+                    </code>
+                    <h2>Optional date filter</h2>
+                    <p>If you want to specific a specific date, add the following before <code class="inline">GROUP BY</code>:</p>
+                    <code class="block">
+                        AND ds = '2021-03-13'
+                    </code>
+                    <h2>How to modify path</h2>
+                    <p>In the variables panel, click on the UI for query variables. In the Add/Change panel, modify the $top_page$ macro to the desired value to your doc path.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
