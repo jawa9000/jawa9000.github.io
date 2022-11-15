@@ -79,6 +79,10 @@ a {
 p.about a, #quote a {
   color: #f79231; }
 
+a.underscore {
+  text-decoration: underline;
+}
+
 /* labels */
 .label-info {
   background: #8abcf7; }
