@@ -15,6 +15,20 @@
 
 	<!-- Custom styles for this template -->
 	<link href="../css/custom.css" rel="stylesheet">
+	<link href="../css/tutorials.css" rel="stylesheet">
+	<style>
+		.expandableTitle {
+			font-size: 1em;
+			font-weight: normal;
+			color: #435b77;
+		}
+		.expandableContainer {
+			border: none;
+		}
+		.paddingRight5 {
+			padding: 0 5px 0 0;
+		}
+	</style>
 
 	<!-- jQuery -->
 	<script src="../js/jquery-2.1.0.min.js"></script>
@@ -45,7 +59,20 @@
 				<!--
 					<div class="webNote">
 						<h3><a href="" target="blank"></a></h3>
-						<p></p>
+						<p>short description</p>
+						<div class="expandableContainer">
+							<div class="expandableTitle" id="expandTitle-uniqueId" status="hidden">
+								<span class="glyphicon glyphicon-circle-arrow-right paddingRight5"></span>
+								<span class="expand" title="Click to expand">Project details</span>
+							</div>
+							<div class="expandableContent" id="expandContent-uniqueId" style="display: block;">
+								<ul>
+									<li>Audience:</li>
+									<li>Project notes:</li>
+									<li>What would I change?</li>
+								</ul>
+							</div>
+						</div>
 					</div>
                     -->
 
@@ -57,22 +84,17 @@
 					<h3><a href="Document_Read_Time.html" target="blank">Document Read Time</a></h3>
 					<p>Short tutorial for novice JavaScript developers to create a estimate of reading time for a web
 						document based on typical reader's skill level.</p>
-					<p>A PDF version of this document is available via this <a href="Document_Read_Time.pdf"
-							target="_blank" class="underscore">link</a>.</p>
+					<p>A PDF version of this document is available via this <a href="Document_Read_Time.pdf" target="_blank" class="underscore">link</a>.</p>
 					<div class="expandableContainer">
 						<div class="expandableTitle" id="expandTitle-docReadTime" status="hidden">
-							<span class="expand" title="Click to expand">Project details</span>
+							<span class="glyphicon glyphicon-circle-arrow-right paddingRight5"></span><span class="expand" title="Click to expand">Project details</span>
 						</div>
 						<div class="expandableContent" id="expandContent-docReadTime" style="display: block;">
-							<p>Expandable content can be anything.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac enim vitae sapien
-								consequat imperdiet. Vivamus sodales risus eget nisi lobortis
-								volutpat. Integer auctor augue vitae dapibus feugiat. Sed in molestie mauris. Morbi diam
-								nulla, porttitor nec urna semper, sollicitudin condimentum
-								sapien. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
-								himenaeos. Fusce eu neque erat. Nam in vulputate tellus.
-								Sed blandit vehicula massa nec lacinia. In sit amet orci leo. Sed sit amet mi ligula.
-								Integer tincidunt tortor enim, vel malesuada arcu pretium nec.</p>
+							<ul>
+								<li>Audience: Entry-level JavaScript developers</li>
+								<li>Project notes: Wrote this script and documented it based on the needs to include a reading time estimator. Once published, I received some feedback and I incorporated it into the snippet as well as the documentation.</li>
+								<li>What would I change? I would add a few images illustrating the appearance of this feature and add links to reference materials and supporting materials for the reading time estimates.</li>
+							</ul>
 						</div>
 					</div>
 				</div>
@@ -86,18 +108,15 @@
 							class="underscore">link</a>.</p>
 							<div class="expandableContainer">
 						<div class="expandableTitle" id="expandTitle-nightmare" status="hidden">
+							<span class="glyphicon glyphicon-circle-arrow-right paddingRight5"></span>
 							<span class="expand" title="Click to expand">Project details</span>
 						</div>
 						<div class="expandableContent" id="expandContent-nightmare" style="display: block;">
-							<p>Expandable content can be anything.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac enim vitae sapien
-								consequat imperdiet. Vivamus sodales risus eget nisi lobortis
-								volutpat. Integer auctor augue vitae dapibus feugiat. Sed in molestie mauris. Morbi diam
-								nulla, porttitor nec urna semper, sollicitudin condimentum
-								sapien. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
-								himenaeos. Fusce eu neque erat. Nam in vulputate tellus.
-								Sed blandit vehicula massa nec lacinia. In sit amet orci leo. Sed sit amet mi ligula.
-								Integer tincidunt tortor enim, vel malesuada arcu pretium nec.</p>
+							<ul>
+								<li>Audience: Intermediate JavaScript developers and Confluence Administrators</li>
+								<li>Project notes: I wrote and documented this script as part of a large process to automate the extraction of content from Confluence. The script and process was put into production where it remained until the company closed (~3.5 years).</li>
+								<li>What would I change? Provide a complete code sample that can be copied and pasted.</li>
+							</ul>
 						</div>
 					</div>
 				</div>
@@ -108,6 +127,19 @@
 					<p>A PDF version of this document is available via this <a
 							href="Find_Archive_Pages_Sorted_by_Date.pdf" target="_blank" class="underscore">link</a>.
 					</p>
+					<!--
+					<div class="expandableTitle" id="expandTitle-findArchive" status="hidden">
+						<span class="glyphicon glyphicon-circle-arrow-right paddingRight5"></span>
+						<span class="expand" title="Click to expand">Project details</span>
+					</div>
+					<div class="expandableContent" id="expandContent-findArchive" style="display: block;">
+						<ul>
+							<li>Audience:</li>
+							<li>Project notes:</li>
+							<li>What would I change?</li>
+						</ul>
+					</div>
+					-->
 				</div>
 				<div class="webNote">
 					<h3><a href="https://crudthedocs.blogspot.com/" target="blank">CRUD the Docs</a></h3>
@@ -118,24 +150,70 @@
 				<div class="webNote">
 					<h3><a href="Creating-your-first-mobile-app.html" target="blank">Creating Your First Mobile App</a>
 					</h3>
-					<p>Entry level user tutorial on how to create a simple mobile app using Appcelerator platform.
-						Collaborated with two engineers to rewrite and test an outdated tutorial.</p>
+					<p>Entry level user tutorial on how to create a simple mobile app using Appcelerator platform. Collaborated with two engineers to rewrite and test an outdated tutorial.</p>
+					<!--
+					<div class="expandableTitle" id="expandTitle-firstApp" status="hidden">
+						<span class="glyphicon glyphicon-circle-arrow-right paddingRight5"></span>
+						<span class="expand" title="Click to expand">Project details</span>
+					</div>
+					<div class="expandableContent" id="expandContent-firstApp" style="display: block;">
+						<ul>
+							<li>Audience:</li>
+							<li>Project notes:</li>
+							<li>What would I change?</li>
+						</ul>
+					</div>
+					-->
 				</div>
 				<div class="webNote">
 					<h3><a href="Hello-Titanium-app.html" target="blank">Creating Your First Mobile App</a></h3>
-					<p>Another entry level user tutorial on how to create a simple mobile app using Appcelerator
-						platform. Collaborated with two engineers to rewrite and test an outdated tutorial.</p>
+					<p>Another entry level user tutorial on how to create a simple mobile app using Appcelerator platform. Collaborated with two engineers to rewrite and test an outdated tutorial.</p>
+					<!--
+					<div class="expandableTitle" id="expandTitle-hello" status="hidden">
+						<span class="glyphicon glyphicon-circle-arrow-right paddingRight5"></span>
+						<span class="expand" title="Click to expand">Project details</span>
+					</div>
+					<div class="expandableContent" id="expandContent-hello" style="display: block;">
+						<ul>
+							<li>Audience:</li>
+							<li>Project notes:</li>
+							<li>What would I change?</li>
+						</ul>
+					</div>
+					-->
 				</div>
 				<div class="webNote">
 					<h3><a href="Studio-5.3.0.RC-Release-Note.html" target="blank">Studio 5.3.0 RC release note</a></h3>
 					<p>Example of a end-user product release note I collaborated with the entire team.</p>
+					<!--
+					<div class="expandableTitle" id="expandTitle-releaseNote" status="hidden">
+						<span class="glyphicon glyphicon-circle-arrow-right paddingRight5"></span>
+						<span class="expand" title="Click to expand">Project details</span>
+					</div>
+					<div class="expandableContent" id="expandContent-releaseNote" style="display: block;">
+						<ul>
+							<li>Audience:</li>
+							<li>Project notes:</li>
+							<li>What would I change?</li>
+						</ul>
+					</div>
+					-->
 				</div>
 				<div class="webNote">
 					<h3><a href="Titanium.API.html" target="blank">Titanium API</a></h3>
-					<p>Example of an end-user API doc I collaborated on updating, revising, and testing content with
-						help from two engineers.</p>
-					<p>A PDF version of this document is available via this <a href="Titanium.API.pdf" target="_blank"
-							class="underscore">link</a>.</p>
+					<p>Example of an end-user API doc I collaborated on updating, revising, and testing content with help from two engineers.</p>
+					<p>A PDF version of this document is available via this <a href="Titanium.API.pdf" target="_blank" class="underscore">link</a>.</p>
+					<div class="expandableTitle" id="expandTitle-titaniumAPI" status="hidden">
+						<span class="glyphicon glyphicon-circle-arrow-right paddingRight5"></span>
+						<span class="expand" title="Click to expand">Project details</span>
+					</div>
+					<div class="expandableContent" id="expandContent-titaniumAPI" style="display: block;">
+						<ul>
+							<li>Audience: End user developers and internal testers</li>
+							<li>Project notes: I collaborated with two software engineers to regularly review and revise this document if there was a release made changes to this feature.</li>
+							<li>What would I change? Add code samples. As the engineers were short on time, one of the features of this document we sacrificed was code samples. Additionally, I’d like to have better definitions and explanations of each property, method, and function. While brevity is usually best, short descriptions don’t service new or novice users to the platform. Finally, I’d ensure there are links to overviews and tutorials (where available)</li>
+						</ul>
+					</div>
 				</div>
 				<!-- <div class="webNote">
 						<h3><a href="https://docs.axway.com/bundle/AMPLIFY_Appcelerator_Services_allOS_en/page/amplify_crash_analytics.html" target="blank">AMPLIFY Crash Analytics</a></h3>
