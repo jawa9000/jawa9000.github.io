@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Document Read Time</title>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="../css/tutorials.css" rel="stylesheet">
+</head>
+
+<body >
+    <div id="page">
+        <div id="main">
+            <div id="main-header">
+                <div id="breadcrumb-section">
+                    <h1 id="title-heading">Document Read Time</h1>
+                </div>
+
+                <div id="content">
+                    <div>Created by <span class='author'> Brian Immel</span>, last modified on Dec 14, 2019
+                    </div>
+                    <div id="main-content">
+                        <p>From time to time, I come across sites that provide an estimate of how long it will take to read an article. Reading time estimators use a basic formula like this one: count the number of words, divide it by an average word per minute (wpm) read, and round up the number in minutes. Images need to be accounted for as well (which use a base of 12 seconds and reduce the value per image down to three seconds). It should be noted that this article will not deal with videos as part of the estimated reading time. The reading time estimate can be useful however it has a few pros and cons that should be considered before applying to your articles.</p>
+                        <p>
+ 
+                        <h2>Pros</h2>
+                        <ul>
+                            <li>Invites readers to continue with the article and this reduces bounce rates on your site</li>
+                            <li>Long articles may seem off putting to some but if the read time seems relatively low, the reader is more likely to finish the article (this is, in part, the paradox of choice)</li>
+                        </ul>
+                        <h2>Cons</h2>
+                        <ul>
+                            <li>If the reader things the estimate is too high, they may skip the article all together</li>
+                            <li>The estimate is just an estimate. The estimate is based on an average reading speed (in this case, an US English reader). Your audience's reading speed will vary. Some say that the average US English reader reads at a 6th grade level (265 words per minute). Others say that they read at a college level (300 wpm). You'll have to decide which benchmark to use for your reading time estimator.</li>
+                            <li>The estimate excludes the title of the document and navigation elements outside the article element</li>
+                            <li>I disagree with the estimate that the first image viewed takes 12 seconds, the second 11 seconds, and so on (subtracting one second per image thereafter until you reach the floor of 3 seconds). I believe the image may be information heavy and the read time can vary wildly. Plus, this image estimate doesn't take into account static or animated images.</li>
+                        </ul>
+                        <p>In this document, we'll explore a simple JavaScript snippet that will scan an article element, count the number of words and images, and provide a crude reading time estimate.</p>
+                        <h2>Requirements</h2>
+                        <p>In order to complete the code below, you should be comfortable with JavaScript, jQuery, regular expressions, and HTML5.</p>
+                        <h2>Setting up the variables</h2>
+                        <p>We'll set a variable called wpm to 265. You can change this variable to suit your audience needs. The next variable will be called wordCount and it will grab the text of the article element and perform some Regex magic to detect "words", and split this result into an array to be counted. The imgCount variable returns the number of img elements it finds within the article element. Finally, the tally variable will be used to keep track of the reading time (in seconds) of all the images found in the article element.</p>
+                        <code id="code-head" class="block">
+                            var wpm = 265;<br/>
+                            var wordCount = $('article').text().replace( /[^\w ]/g, "" ).split( /\s+/).length;<br/>
+                            var imgCount = $('article img').length;<br/>
+                            var tally = 0;<br/>
+                        </code>
+                        <p>Now we need to tally the images. A simple for loop event will tally the total number of images by using a reduction iteration method to figure out if the reading time is above 3 seconds or not.</p>
+                        <code id="code-head" class="block">
+                            for (i = 0; i < imgCount; i++) {<br/>
+                            <span class="indent36">if (imgCount - i < 3) {</span><br/>
+                            <span class="indent72">tally += 3;</span><br/>
+                            <span class="indent36">} else {</span><br/>
+                            <span class="indent72">tally += 12 - i;</span><br/>
+                            <span class="indent36">}</span><br/>
+                            }
+                        </code>
+                        <p>Finally, we prepend our calculations to the article element. We use the prepend method from jQuery to add a span element which as the calculation of the reading time estimate (in minutes) rounded up.</p>
+                        <code id="code-head" class="block">
+                            $('article').prepend('<span alt="reading time">~' + Math.round((wordCount + tally) / wpm) + ' minutes reading time</span>');
+                        </code>
+                        <h2>Wrapping it up</h2>
+                        <p>There you have it. A simple reading time estimator in 12 lines of JavaScript. Just for kicks, you could use an info icon with hover text stating the metrics for this estimate to put the reader at ease with the provided estimate.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>
