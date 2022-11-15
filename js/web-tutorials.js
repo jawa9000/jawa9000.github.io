@@ -1,32 +1,42 @@
 $(document).ready(function() {
-	// expandable sections
-	
-	// on click of an expandable section, open/collapse it
-	$("div[id^='expandTitle']").click(function() {
+	$("div[id^='expandTitle']").each(function(i, obj) { // read the elements and determine if the block is expanded or hidden and take the initial action
+		var openClosed = $(this).attr('status');
+		if (openClosed == 'hidden') {
+			var titleId = $(this).attr("id");
+			var siblingId = $("#" + titleId + " ~ div").attr("id");
+
+			if ($("#" + titleId + " span").hasClass("arrow")) {
+				$("#" + titleId + " span").addClass("arrowOpen"); // handle the arrow's display
+			}
+
+			$("#" + siblingId).slideUp("fast");
+		}
+	}); 
+
+	$("div[id^='expandTitle']").click(function() { // on click of an expandable section, open/collapse it
 		var titleId = $(this).attr("id");
-		console.log(titleId);
 		var siblingId = $("#" + titleId + " ~ div").attr("id");
-		console.log(siblingId);
 		var status = $(this).attr("status");
-		console.log(status);
 		if (status == "hidden") {
 			if ($("#" + titleId + " span").hasClass("arrow")) {
 				$("#" + titleId + " span").addClass("arrowOpen"); // handle the arrow's display
 			}
+
 			$("#" + siblingId).slideDown("fast");
 			$(this).attr("status","open");
-			Cookie.set(titleId,"open");
+			// Cookie.set(titleId,"open");
 		} else {
 			if ($("#" + titleId + " span").hasClass("arrow")) {
 				$("#" + titleId + " span").removeClass("arrowOpen"); // handle the arrow's display
 			}
+
 			$("#" + siblingId).slideUp("fast");
 			$(this).attr("status","hidden");
-			Cookie.set(titleId,"hidden");
+			// Cookie.set(titleId,"hidden");
 		}
 	});
 	
-	
+	// ** Note: the cookie routine seems to be broken.
 	
 	// Code blocks: within each unique code block, count the number of elements and display that number in front of each element
 	var codeExamples = []; // array to hold all code block ids
