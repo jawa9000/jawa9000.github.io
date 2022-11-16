@@ -36,7 +36,7 @@
                         <div id="TOC">
                             <ul>
                                 <li>Remote Desktop <span class="alignRight">1</span></li>
-                                <li>Remote Desktop Connection Client Setup <span class="alignRight">1</span></li>
+                                <li>Remote Desktop Connection Client setup <span class="alignRight">1</span></li>
                                 <ul>
                                     <li>Windows 10 <span class="alignRight">2</span></li>
                                     <ul>
@@ -60,26 +60,47 @@
                                     </ul>
                                 </ul>
                             </ul>
-                            <h1>Remote Desktop Connection Client Setup</h1>
+                            <h2>Remote Desktop Connection Client setup</h2>
                             <p>To connect to another workstation, you need to identify the workstation’s name and connect to it using <a href="#">RDCC</a>. If you’re unsure of the workstation’s name, at this time, contact our <a href="#">Help Desk</a> and they will work with you to help get connected.</p>
-                            Windows 10
-                            <h2>Identify workstation name</h2>
+                            <h2>Windows 10</h2>
+                            <h3 id="Identify-workstation-name">Identify workstation name</h3>
                             <ol>
-                                <li>Click the Windows icon.</li>
-                                <li>In the search field, type “View your PC name”.</li>
-                                <li>Click on View your PC name.</li>
-                                <li>Under Device specifications, the name of your workstation will be located next to Device name. Save this information for launching the RDCC.</li>
+                                <li>Click the <strong>Windows icon</strong>.</li>
+                                <li>In the <strong>search field</strong>, type "<strong>View your PC name</strong>".</li>
+                                <li>Click on <strong>View your PC name</strong>.</li>
+                                <li>Under <strong>Device specifications</strong>, the name of your workstation will be located next to <strong>Device name</strong>. Save this information for launching the RDCC.</li>
                             </ol>
 
-                            Launching RDCC
-                            To launch RDCC,
-                            1. Click the Windows icon.
-                            2. In the search field, type “Remote Desktop Connection”.
-                            3. Click Remote Desktop Connection.
-                            4. In the RDC application, enter the name of the workstation you wish to connect to and
-                            click Connect. See Identify workstation name section above for identifying the name of a
-                            Windows 10 workstation.
-
+                            <h3>Launching RDCC</h3>
+                            <p>To launch RDCC,</p>
+                            <ol>
+                                <li>Click the <strong>Windows icon</strong>.</li>
+                                <li>In the <strong>search field</strong>, type "<strong>Remote Desktop Connection</strong>".</li>
+                                <li>Click <strong>Remote Desktop Connection</strong>.</li>
+                                <li>In the RDC application, enter the name of the workstation you wish to connect to and click <strong>Connect</strong>. See <a href="#Identify-workstation-name">Identify workstation name</a> section above for identifying the name of a Windows 10 workstation.</li>
+                            </ol>
+                            <p><strong>Tip</strong>: If you will be using this application frequently, you may want to pin it to the taskbar. In the taskbar, right-click on the RDC icon, and select Pin to taskbar.</p>
+                            
+                            <h2>Mac OS</h2>
+                            <h3 id="Install-Remote-Desktop-Connection-Client">Install Remote Desktop Connection Client</h3>
+                            <p><strong>Remote Desktop Connection Client</strong> is <i>not</i> installed on Mac workstations by default. You will need to download and install it via the <a href="#">App Store</a>.</p>
+                            <ol>
+                                <li>Launch the <a href="#">App Store</a> application.</li>
+                                <li>In the <strong>Search field</strong>, type "<strong>Microsoft Remote Desktop</strong>" and tap the enter key. Note: At the time of writing this document, there are two versions (8 and 10).</li>
+                                <li>Click the <strong>Install</strong> button.</li>
+                            </ol>
+                            <h3>Launch Remote Desktop Connection Client and connect</h3>
+                            <p>With the RDCC installed (see <a href="#Install-Remote-Desktop-Connection-Client">Install Remote Desktop Connection Client</a>), you will need to launch and connect to another workstation using the following steps:</p>
+                            <ol>
+                                <li>Launch the app by tapping the <strong>command</strong> + <strong>spacebar</strong> keys.</li>
+                                <li>In the <strong>Spotlight Search</strong> bar, type in <strong>Microsoft Remote Desktop</strong> and tap the enter key to launch the application.</li>
+                                <li>With RDCC open, you will need to configure a connection. To start, click the <strong>Add a desktop</strong> (plus sign) icon.</li>
+                                <li>In the <strong>PC name</strong> field, enter the name of your workstation, and click Add. The name of the workstation is required and will be the name of the icon for this connection by default. See Identify workstation name section above for identifying the name of a Windows 10 workstation.</li>
+                                <li>With the desktop configuration saved, <strong>double-click the icon</strong> to connect to the Windows 10 workstation.</li>
+                            </ol>
+                            <h2>Linux</h2>
+                            <p>Programs like <a href="http://www.rdesktop.org/" target="_blank">rdesktop</a> and <a href="https://en.wikipedia.org/wiki/Tsclient" target="_blank">tsclient</a> (Terminal Server Client) allow Linux users to connect to Windows workstations using Remote Desktop Connection protocols. For information on installing programs in Linux, consult our internal <a href="#">Linux help documentation</a> or <a href="#">Linux Users forums</a>.</p>
+                            <p>Note: [Company x]'s IT Department only officially supports Windows platforms. Please consult external technical support services if you have trouble with Mac or Linux applications.</p>
                         </div>
                     </div>
                 </div>
