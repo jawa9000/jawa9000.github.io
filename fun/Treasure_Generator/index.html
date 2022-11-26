@@ -1,0 +1,626 @@
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+    <title>Treasure Generator</title>
+    <meta name='description' content='Treasure Generator'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta name="keywords" content="treasure, javascript, random">
+    <meta name="author" content="Brian Immel">
+    <meta name="level" content="2">
+    <meta name="version" content="0.0.1">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+    <link href="../../css/normalize.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+
+    <style>
+        .hidden {
+            display: none;
+        }
+        .show {
+            display: block;
+        }
+        div ol li::first-letter {
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Treasure</h1>
+    <div id="controls">
+        <input type="radio" name="treasure_table" id="individual" value="individual" checked>
+        <label for="individual">Individual</label>
+        <input type="radio" name="treasure_table" id="hoard" value="hoard">
+        <label for="hoard">Hoard</label>
+        <br />
+        <br />
+        <label for="challenge">Challenge Level</label>
+        <select name="challenge" id="challenge">
+            <option value="0-4">0-4</option>
+            <option value="5-10">5-10</option>
+            <option value="11-16">11-16</option>
+            <option value="17">17+</option>
+        </select>
+        <br />
+        <br />
+        <button id="roll">Roll</button>
+    </div>
+    <div id="treasure">
+        <div id="gemstones">
+            <div id="gems"></div>
+        </div>
+        <div id="art_objects">
+            <div id="art"></div>
+        </div>
+        <div id="magic_items">
+            <div id="magic"></div>
+        </div>
+        <div id="coins" class="hidden">
+            <h2>Coins</h2>
+            <p id="cp"></p>
+            <p id="sp"></p>
+            <p id="ep"></p>
+            <p id="gp"></p>
+            <p id="pp"></p>
+        </div>
+    </div>
+</body>
+
+<script src="treasure.js"></script>
+<script src="../../js/jquery-2.1.0.min.js"></script>
+<script>
+    $('button#roll').on('click', function () {
+        
+        var treasure = {
+            coins: {
+                cp: 0,
+                sp: 0,
+                ep: 0,
+                gp: 0,
+                pp: 0
+            },
+            gems: [],
+            art: [],
+            magicItems: []
+        };
+        var treasureTable = $('input[name="treasure_table"]:checked').val();
+        var challenge = $('select#challenge').val();
+        var diceRoll = rndNum(100);
+
+        if (treasureTable == 'individual') { // pick coins
+            if (challenge == '0-4') {
+                if (diceRoll <= 30) {
+                    treasure.coins.cp = returnCoinCount(5, 6, 1);
+                    treasure.coins.sp = 0;
+                    treasure.coins.ep = 0;
+                    treasure.coins.gp = 0;
+                    treasure.coins.pp = 0;
+                } else if (diceRoll >= 31 && diceRoll <= 60) {
+                    treasure.coins.cp = 0;
+                    treasure.coins.sp = returnCoinCount(4, 6, 1);
+                    treasure.coins.ep = 0;
+                    treasure.coins.gp = 0;
+                    treasure.coins.pp = 0;
+                } else if (diceRoll >= 61 && diceRoll <= 70) {
+                    treasure.coins.cp = 0;
+                    treasure.coins.sp = 0;
+                    treasure.coins.ep = returnCoinCount(3, 6, 1);
+                    treasure.coins.gp = 0;
+                    treasure.coins.pp = 0;
+                } else if (diceRoll >= 71 && diceRoll <= 95) {
+                    treasure.coins.cp = 0;
+                    treasure.coins.sp = 0;
+                    treasure.coins.ep = 0;
+                    treasure.coins.gp = returnCoinCount(3, 6, 1);
+                    treasure.coins.pp = 0;
+                } else if (diceRoll >= 96) {
+                    treasure.coins.cp = 0;
+                    treasure.coins.sp = 0;
+                    treasure.coins.ep = 0;
+                    treasure.coins.gp = 0;
+                    treasure.coins.pp = returnCoinCount(1, 6, 1);
+                }
+            } else if (challenge == '5-10') {
+                if (diceRoll <= 30) {
+                    treasure.coins.cp = returnCoinCount(4, 6, 100);
+                    treasure.coins.sp = 0;
+                    treasure.coins.ep = returnCoinCount(1, 6, 35);
+                    treasure.coins.gp = 0;
+                    treasure.coins.pp = 0;
+                } else if (diceRoll >= 31 && diceRoll <= 60) {
+                    treasure.coins.cp = 0;
+                    treasure.coins.sp = returnCoinCount(6, 6, 10);
+                    treasure.coins.ep = 0;
+                    treasure.coins.gp = returnCoinCount(2, 6, 10);
+                    treasure.coins.pp = 0;
+                } else if (diceRoll >= 61 && diceRoll <= 70) {
+                    treasure.coins.cp = 0;
+                    treasure.coins.sp = 0;
+                    treasure.coins.ep = returnCoinCount(3, 6, 10);
+                    treasure.coins.gp = returnCoinCount(2, 6, 10);
+                    treasure.coins.pp = 0;
+                } else if (diceRoll >= 71 && diceRoll <= 95) {
+                    treasure.coins.gp = returnCoinCount(4, 6, 10);
+                } else if (diceRoll >= 96) {
+                    treasure.coins.cp = 0;
+                    treasure.coins.sp = 0;
+                    treasure.coins.ep = 0;
+                    treasure.coins.gp = returnCoinCount(2, 6, 10);
+                    treasure.coins.pp = returnCoinCount(3, 6, 1);
+                }
+            } else if (challenge == '11-16') {
+                if (diceRoll <= 20) {
+                    treasure.coins.cp = 0;
+                    treasure.coins.sp = returnCoinCount(4, 6, 100);
+                    treasure.coins.ep = 0;
+                    treasure.coins.gp = returnCoinCount(1, 6, 100);
+                    treasure.coins.pp = 0;
+                } else if (diceRoll >= 21 && diceRoll <= 35) {
+                    treasure.coins.cp = 0;
+                    treasure.coins.sp = returnCoinCount(1, 6, 100);
+                    treasure.coins.ep = 0;
+                    treasure.coins.gp = returnCoinCount(1, 6, 100);
+                    treasure.coins.pp = 0;
+                } else if (diceRoll >= 36 && diceRoll <= 75) {
+                    treasure.coins.cp = 0;
+                    treasure.coins.sp = 0;
+                    treasure.coins.ep = 0;
+                    treasure.coins.gp = returnCoinCount(2, 6, 100);
+                    treasure.coins.pp = returnCoinCount(1, 6, 10);
+                } else if (diceRoll >= 76) {
+                    treasure.coins.cp = 0;
+                    treasure.coins.sp = 0;
+                    treasure.coins.ep = 0;
+                    treasure.coins.gp = returnCoinCount(2, 6, 100);
+                    treasure.coins.pp = returnCoinCount(2, 6, 10);
+                }
+            } else if (challenge == '17') {
+                if (diceRoll <= 15) {
+                    treasure.coins.cp = 0;
+                    treasure.coins.sp = 0;
+                    treasure.coins.ep = returnCoinCount(4, 6, 1000);
+                    treasure.coins.gp = returnCoinCount(8, 6, 100);
+                    treasure.coins.pp = 0;
+                } else if (diceRoll >= 16 && diceRoll <= 55) {
+                    treasure.coins.cp = 0;
+                    treasure.coins.sp = 0;
+                    treasure.coins.ep = 0;
+                    treasure.coins.gp = returnCoinCount(1, 6, 1000);
+                    treasure.coins.pp = returnCoinCount(1, 6, 100);
+                } else if (diceRoll >= 56) {
+                    treasure.coins.cp = 0;
+                    treasure.coins.sp = 0;
+                    treasure.coins.ep = 0;
+                    treasure.coins.gp = returnCoinCount(1, 6, 1000);
+                    treasure.coins.pp = returnCoinCount(2, 6, 100);
+                }
+            }
+        } else if (treasureTable == 'hoard') {  // random pick for gems, art objects, and/or magic items
+            if (challenge == '0-4') {
+                treasure.coins.cp = returnCoinCount(6, 6, 100);
+                treasure.coins.sp = returnCoinCount(3, 6, 100);
+                treasure.coins.ep = 0;
+                treasure.coins.gp = returnCoinCount(2, 6, 10);
+                treasure.coins.pp = 0;
+
+                hoardTreasure(treasure, '0-4');
+            } else if (challenge == '5-10') {
+                treasure.coins.cp = returnCoinCount(2, 6, 100);
+                treasure.coins.sp = returnCoinCount(2, 6, 1000);
+                treasure.coins.ep = 0;
+                treasure.coins.gp = returnCoinCount(6, 6, 100);
+                treasure.coins.pp = returnCoinCount(3, 6, 10);
+
+                hoardTreasure(treasure, '5-10');
+            } else if (challenge == '11-16') {
+                treasure.coins.cp = 0;
+                treasure.coins.sp = 0;
+                treasure.coins.ep = 0;
+                treasure.coins.gp = returnCoinCount(4, 6, 1000);
+                treasure.coins.pp = returnCoinCount(5, 6, 100);
+
+                hoardTreasure(treasure, '11-16');
+
+            } else if (challenge == '17') {
+                treasure.coins.cp = 0;
+                treasure.coins.sp = 0;
+                treasure.coins.ep = 0;
+                treasure.coins.gp = returnCoinCount(12, 6, 1000);
+                treasure.coins.pp = returnCoinCount(8, 6, 1000);
+
+                hoardTreasure(treasure, '17');
+            }
+        }
+
+        // empty coin elements to prevent multiple uses of this app from showing previous results
+        $('div#coins p').each(function (i, elem) {
+            $(this).html('');
+        });
+
+        // display coins
+        for (i in coins) {
+            if (treasure.coins[coins[i]]) {
+                $('p#' + coins[i]).html(treasure.coins[coins[i]] + coins[i]);
+            }
+        }
+        $('div#coins').addClass('show').removeClass('hidden');
+
+        // display gems
+        if (treasure.gems.length > 0) {
+            var output = '<h2>Gems</h2><ol>';
+
+            for (i in treasure.gems) {
+                output += '<li>' + treasure.gems[i] + '</li>';
+            }
+
+            output += '</ol>';
+
+            $('div#gems').html(output);
+        } else {
+            $('div#gems').html('');
+        }
+
+        // display art objects
+        if (treasure.art.length > 0) {
+            var output = '<h2>Art Objects</h2><ol>';
+
+            for (i in treasure.art) {
+                output += '<li>' + treasure.art[i] + '</li>';
+            }
+
+            output += '</ol>';
+
+            $('div#art').html(output);
+        } else {
+            $('div#art').html('');
+        }
+        
+        // display magic items
+        if (treasure.magicItems.length > 0) {
+            var output = '<h2>Magic Items</h2><ol>';
+            for (i in treasure.magicItems) {
+                output += '<li>' + treasure.magicItems[i] + '</li>';
+            }
+
+            output += '</ol>';
+            $('div#magic').html(output);
+        } else {
+            $('div#magic').html('');
+        }
+    });
+
+    function hoardTreasure(treasure, challenge) {
+        var diceRoll = rndNum(100);
+
+        if (challenge == '0-4') {
+            for (i in hoardFirstChallenge0_4) {
+                if (diceRoll >= hoardFirstChallenge0_4[i] && diceRoll <= hoardSecondChallenge0_4[i]) {
+                    if (hoardGemsChallenge0_4[i]) {
+                        var times = hoardGemsChallenge0_4[i].split('d')[0];
+                        var die = hoardGemsChallenge0_4[i].split('d')[1];
+                        die = die.split('_')[0];
+                        var value = hoardGemsChallenge0_4[i].split('_')[1];
+
+                        treasure.gems = pickGems(value, times, die);
+                    }
+                    if (hoardArtChallenge0_4[i]) {
+                        var times = hoardArtChallenge0_4[i].split('d')[0];
+                        var die = hoardArtChallenge0_4[i].split('d')[1];
+                        die = die.split('_')[0];
+                        var value = hoardArtChallenge0_4[i].split('_')[1];
+
+                        treasure.art = pickArt(value, times, die);
+                    }
+                    if (hoardMagicChallenge0_4[i]) {
+                        var times = hoardMagicChallenge0_4[i].split('d')[0];
+                        var die = hoardMagicChallenge0_4[i].split('d')[1];
+                        die = die.split('_')[0];
+                        var tableType = hoardMagicChallenge0_4[i].split('_')[1];
+
+                        treasure.magicItems = pickMagicItems('MagicItemTable' + tableType, times, die);
+                    }
+                }
+            }
+        } else if (challenge == '5-10') {
+            for (i in hoardFirstChallenge5_10) {
+                if (diceRoll >= hoardFirstChallenge5_10[i] && diceRoll <= hoardSecondChallenge5_10[i]) {
+                    if (hoardGemsChallenge5_10[i]) {
+                        var times = hoardGemsChallenge5_10[i].split('d')[0];
+                        var die = hoardGemsChallenge5_10[i].split('d')[1];
+                        die = die.split('_')[0];
+                        var value = hoardGemsChallenge5_10[i].split('_')[1];
+
+                        treasure.gems = pickGems(value, times, die);
+                    }
+                    if (hoardArtChallenge5_10[i]) {
+                        var times = hoardArtChallenge5_10[i].split('d')[0];
+                        var die = hoardArtChallenge5_10[i].split('d')[1];
+                        die = die.split('_')[0];
+                        var value = hoardArtChallenge5_10[i].split('_')[1];
+
+                        treasure.art = pickArt(value, times, die);
+                    }
+                    if (hoardMagicChallenge5_10[i]) {
+                        var times = hoardMagicChallenge5_10[i].split('d')[0];
+                        var die = hoardMagicChallenge5_10[i].split('d')[1];
+                        die = die.split('_')[0];
+                        var tableType = hoardMagicChallenge5_10[i].split('_')[1];
+
+                        treasure.magicItems = pickMagicItems(tableType, times, die);
+                    }
+                }
+            }
+        } else if (challenge == '11-16') {
+            for (i in hoardFirstChallenge11_16) {
+                if (diceRoll >= hoardFirstChallenge11_16[i] && diceRoll <= hoardSecondChallenge11_16[i]) {
+                    if (hoardGemsChallenge11_16[i]) {
+                        var times = hoardGemsChallenge11_16[i].split('d')[0];
+                        var die = hoardGemsChallenge11_16[i].split('d')[1];
+                        die = die.split('_')[0];
+                        var value = hoardGemsChallenge11_16[i].split('_')[1];
+
+                        treasure.gems = pickGems(value, times, die);
+                    }
+                    if (hoardArtChallenge11_16[i]) {
+                        var times = hoardArtChallenge11_16[i].split('d')[0];
+                        var die = hoardArtChallenge11_16[i].split('d')[1];
+                        die = die.split('_')[0];
+                        var value = hoardArtChallenge11_16[i].split('_')[1];
+
+                        treasure.art = pickArt(value, times, die);
+                    }
+                    if (hoardMagicChallenge11_16[i]) {
+                        var times = hoardMagicChallenge11_16[i].split('d')[0];
+                        var die = hoardMagicChallenge11_16[i].split('d')[1];
+                        die = die.split('_')[0];
+
+                        var temp = hoardMagicChallenge11_16[i];
+
+                        if (hoardMagicChallenge11_16[i].indexOf(':') > 0) { // two magic tables
+                            var temp = hoardMagicChallenge11_16[i].split('d'); // '['1', '1_F:1', '4_G']'
+                            var firstTimes = temp[0];
+                            var firstDie = temp[1].split('_')[0];
+                            var firstTableType = temp[1].split('_')[1].split(':')[0];
+                            var secondTimes = temp[1].split(':')[1];
+                            var secondDie = temp[2].split('_')[0];
+                            var secondTableType = temp[2].split('_')[1];
+
+                            var tempArray = [];
+
+                            tempArray.push(pickMagicItems(firstTableType, firstTimes, firstDie));
+                            tempArray.push(pickMagicItems(secondTableType, secondTimes, secondDie));
+
+                            treasure.magicItems = tempArray[0].concat(tempArray[1]);
+                        } else {
+                            var tableType = hoardMagicChallenge11_16[i].split('_')[1];
+                            treasure.magicItems = pickMagicItems(tableType, times, die);
+                        }
+                    }
+                }
+            }
+        } else if (challenge == '17') {
+            for (i in hoardFirstChallenge17) {
+                if (diceRoll >= hoardFirstChallenge17[i] && diceRoll <= hoardSecondChallenge17[i]) {
+                    if (hoardGemsChallenge17[i]) {
+                        var times = hoardGemsChallenge17[i].split('d')[0];
+                        var die = hoardGemsChallenge17[i].split('d')[1];
+                        die = die.split('_')[0];
+                        var value = hoardGemsChallenge17[i].split('_')[1];
+
+                        treasure.gems = pickGems(value, times, die);
+                    }
+                    if (hoardArtChallenge17[i]) {
+                        var times = hoardArtChallenge17[i].split('d')[0];
+                        var die = hoardArtChallenge17[i].split('d')[1];
+                        die = die.split('_')[0];
+                        var value = hoardArtChallenge17[i].split('_')[1];
+
+                        treasure.art = pickArt(value, times, die);
+                    }
+                    if (hoardMagicChallenge17[i]) {
+                        var times = hoardMagicChallenge17[i].split('d')[0];
+                        var die = hoardMagicChallenge17[i].split('d')[1];
+                        die = die.split('_')[0];
+
+                        var temp = hoardMagicChallenge17[i]
+
+                        if (hoardMagicChallenge17[i].indexOf(':') > 0) { // two magic tables
+                            var temp = hoardMagicChallenge17[i].split('d'); // '['1', '1_F:1', '4_G']'
+                            var firstTimes = temp[0];
+                            var firstDie = temp[1].split('_')[0];
+                            var firstTableType = temp[1].split('_')[1].split(':')[0];
+                            var secondTimes = temp[1].split(':')[1];
+                            var secondDie = temp[2].split('_')[0];
+                            var secondTableType = temp[2].split('_')[1];
+
+                            var tempArray = [];
+
+                            tempArray.push(pickMagicItems(firstTableType, firstTimes, firstDie));
+                            tempArray.push(pickMagicItems(secondTableType, secondTimes, secondDie));
+
+                            treasure.magicItems = tempArray[0].concat(tempArray[1]);
+                        } else {
+                            var tableType = hoardMagicChallenge17[i].split('_')[1];
+                            treasure.magicItems = pickMagicItems(tableType, times, die);
+                        }
+                    }
+                }
+            }
+        }
+        
+        return treasure;
+    }
+
+    function pickMagicItems(tableType, times, die) {
+        var magicCount = 0;
+        var magicItems = [];
+
+        for (var i = 0; i < times; i++) {
+            magicCount += rndNum(die);
+        }
+
+        var magicTable = ''
+
+        switch (tableType) {
+            case 'A': // MagicItemTableA
+                magicTable = MagicItemTableA;
+                break;
+            case 'B': // MagicItemTableB
+                magicTable = MagicItemTableB;
+                break;
+            case 'C': // MagicItemTableC
+                magicTable = MagicItemTableC;
+                break;
+            case 'D': // MagicItemTableD
+                magicTable = MagicItemTableD;
+                break;
+            case 'E': // MagicItemTableE
+                magicTable = MagicItemTableE;
+                break;
+            case 'F': // MagicItemTableF
+                magicTable = MagicItemTableF;
+                break;
+            case 'G': // MagicItemTableG
+                magicTable = MagicItemTableG;
+                break;
+            case 'H': // MagicItemTableH
+                magicTable = MagicItemTableH;
+                break;
+            case 'I': // MagicItemTableI
+                magicTable = MagicItemTableI;
+                break;
+            default:
+                magicTable = MagicItemTableA;
+        }
+
+        for (j = 0; j < magicCount; j++) {
+            var diceRoll = rndNum(100);
+
+            for (i in magicTable) {
+                if (diceRoll >= magicTable[i][0] && diceRoll <= magicTable[i][1]) {
+                    var rndProperty = rndNum(8);
+
+                    if (rndProperty == 5) { // intention
+                        var specialRoll = rndNum(20);
+
+                        for (h in intention) {
+                            if (intention[h].first >= specialRoll && intention[h].second <= specialRoll) {
+                                magicItems.push(magicTable[i][2] + '. <strong>' + intention[h].name + ' intention</strong>: ' + intention[h].description);
+                            }
+                        }
+                    } else if (rndProperty == 6) { // history
+                        var specialRoll = rndNum(8);
+
+                        for (h in  historyDetail) {
+                            if (historyDetail[h].roll == specialRoll) {
+                                magicItems.push(magicTable[i][2] + '. <strong>' + historyDetail[h].name + ' history</strong>: ' + historyDetail[h].description);
+                            } 
+                        }
+                    } else if (rndProperty == 7) { // minor property
+                        var specialRoll = rndNum(20);
+
+                        if (specialRoll == 20) { // roll twice on the minor property table
+                            var breakOut = false;
+
+                            while (breakOut == false) {
+                                var specialRoll1 = rndNum(20);
+                                var specialRoll2 = rndNum(20);
+
+                                if (specialRoll1 != 20 && specialRoll2 != 20) {
+                                    var temp = '';
+
+                                    for (h in minorProperty) {
+                                        if (minorProperty[h].roll == specialRoll1) {
+                                            temp = '<strong>' + minorProperty[h].name + ' minor property</strong>: ' + minorProperty[h].description;
+                                        }
+                                        if (minorProperty[h].roll == specialRoll2) {
+                                            temp += ' ' + minorProperty[h].description;
+                                        }
+                                    }
+
+                                    breakOut = true;
+                                }
+                            }
+                        } else {
+                            for (h in minorProperty) {
+                                if (minorProperty[h].roll == specialRoll) {
+                                    magicItems.push(magicTable[i][2] + '. <strong>' + minorProperty[h].name + ' minor property</strong>: ' + minorProperty[h].description);
+                                }
+                            }
+                        }
+                    } else if (rndProperty == 8) { // quirk
+                        var specialRoll = rndNum(12);
+
+                        for (h in quirk) {
+                            if (quirk[h].roll == specialRoll) {
+                                magicItems.push(magicTable[i][2] + '. <strong>' + quirk[h].name + ' quirk</strong>: ' + quirk[h].description);
+                            }
+                        }
+                    } else {
+                        magicItems.push(magicTable[i][2]);
+                    }
+                }
+            }
+        }
+
+        return magicItems;
+    }
+
+    function pickArt(value, times, die) {
+        var art = [];
+        var artCount = 0;
+
+        for (var i = 0; i < times; i++) {
+            artCount += rndNum(die);
+        }
+
+        for (i in artTypes) {
+            if (i == value) { // roll and store the types of art in array
+                for (var j = 0; j < artCount; j++) {
+                    art.push(artTypes[i][Math.floor(Math.random() * artTypes[i].length)] + ' (' + value + 'gp)')
+                }
+            }
+        }
+
+        return art;
+    }
+
+    function pickGems(value, times, die) { // roll xDy times for x gp value of gems and descriptions
+        var gems = [];
+        var gemCount = 0;
+
+        for (var i = 0; i < times; i++) {
+            gemCount += rndNum(die);
+        }
+
+        for (i in gemTypes) {
+            if (i == value) { // roll and store the types of gems in array
+                for (var j = 0; j < gemCount; j++) {
+                    gems.push(gemTypes[i][Math.floor(Math.random() * gemTypes[i].length)] + '(' + value + 'gp)')
+                }
+            }
+        }
+
+        return gems;
+    }
+
+    function returnCoinCount(times, die, multiplier) {
+        var dieTotal = 0;
+
+        for (var i = 0; i < times; i++) {
+            dieTotal += rndNum(die);
+        }
+
+        dieTotal = dieTotal * multiplier;
+
+        return dieTotal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); 
+    }
+
+    function rndNum(x) {
+        return Math.floor(Math.random() * x) + 1;
+    }
+</script>
+
+</html>
