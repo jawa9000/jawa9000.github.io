@@ -5,3 +5,15 @@ h1, h2, h3#nicknames {
 h1#name::first-letter, h3#nicknames::first-letter {
     text-transform: uppercase;
 }
+
+::placeholder {
+    text-align: center; 
+ }
+
+#armorClass, #abilityScore_str, #abilityScore_dex, #abilityScore_con, #abilityScore_int, #abilityScore_wis, #abilityScore_cha {
+    width: 40px;
+}
+
+#hp, #hpDice, #speed {
+    width: 50px;
+}
