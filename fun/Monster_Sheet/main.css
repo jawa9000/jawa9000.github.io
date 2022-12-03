@@ -59,7 +59,7 @@ option {
 .characteristicTitle {
     width: 165px;
 }
-.characteristicDescription {
+.textareaDescription {
     height: 100px;
     line-height: 30px;
     width: 98%;
