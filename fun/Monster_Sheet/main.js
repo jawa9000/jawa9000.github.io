@@ -91,46 +91,68 @@ $('#addSkill').on('click', function() {
 // Persuasion
 
 $('#addSavingThrow').on('click', function() {
-    console.log('add saving throw clicked')
+    addElement('div#savingThrows', 'Saving Throw +#', 'removeSavingThrows');
+});
+$('div#savingThrows').delegate('button[id^="removeSavingThrows"]','click', function() { // deleted clicked parent element
+    $(this).closest('div').remove(); 
+
+    addHidden('div#savingThrows > div', 'div#savingThrows'); // rehide savingThrows parent element
 });
 $('#addVulnerability').on('click', function() {
-    console.log('add vulnerability clicked')
+    addElement('div#vulnerabilities','Vulnerability type', 'removeVulnerabilities');
+});
+$('div#vulnerabilities').delegate('button[id^="removeVulnerabilities"]','click', function() { // deleted clicked parent element
+    $(this).closest('div').remove(); 
+
+    addHidden('div#vulnerabilities > div', 'div#vulnerabilities'); // rehide vulnerabilities parent element
 });
 $('#addResistance').on('click', function() {
-    console.log('add resistance clicked')
+    addElement('div#resistances', 'Resistance type', 'removeResistances')
+});
+$('div#resistances').delegate('button[id^="removeResistances"]','click', function() { // deleted clicked parent element
+    $(this).closest('div').remove(); 
+
+    addHidden('div#resistances > div', 'div#resistances'); // rehide resistances parent element
 });
 $('#addImmunity').on('click', function() {
-    console.log('add immunity clicked')
+    addElement('div#damageImmunity','Damage immunity type', 'removeDamageImmunity');
+});
+$('div#damageImmunity').delegate('button[id^="removeDamageImmunity"]','click', function() { // deleted clicked parent element
+    $(this).closest('div').remove(); 
+
+    addHidden('div#damageImmunity > div', 'div#damageImmunity'); // rehide damageImmunity parent element
 });
 $('#addConditionImmunity').on('click', function() {
-    console.log('add condition immunity clicked')
+    addElement('div#conditionImmunity', 'Condition immunity type', 'removeConditionImmunity');
+});
+$('div#conditionImmunity').delegate('button[id^="removeConditionImmunity"]','click', function() { // deleted clicked parent element
+    $(this).closest('div').remove(); 
+
+    addHidden('div#conditionImmunity > div', 'div#conditionImmunity'); // rehide conditionImmunity parent element
 });
 $('#addSense').on('click', function() {
-    console.log('add sense clicked')
+    addElement('div#senses', 'sense', 'removeSense');
+});
+$('div#senses').delegate('button[id^="removeSense"]','click', function() { // deleted clicked parent element
+    $(this).closest('div').remove(); 
+
+    addHidden('div#senses > div', 'div#senses'); // rehide sense parent element
 });
 $('#addLanguage').on('click', function() {
-    removeHidden('div#languages');
-
-    var output = '<div class="thinBorder"><input type="text" placeholder="languages"><button id="removeLanguage">Remove</button></div>'
-
-    $('div#languages').append(output);
+    addElement('div#languages', 'languages', 'removeLanguage');
 });
-
 $('div#languages').delegate('button[id^="removeLanguage"]','click', function() { // delete clicked characteristic
     $(this).closest('div').remove(); 
 
     addHidden('div#languages > div', 'div#languages'); // rehide characteristic parent element
 });
-
 $('#addCharacteristic').on('click', function() { // add new characteristic elements
     removeHidden('div#characterists');
 
-    var next = $('div#characterists > div').length + 1; // unique id generator
-    var output = '<div class="thinBorder"><input type="text" class="standardSpacing characteristicTitle" placeholder="characteristic title"><br/><input type="text" class="standardSpacing characteristicDescription" placeholder="characteristic description"><br/><button id="removeCharacteristic' + next + '">Remove</button></div>'; // generate input fields and delete button
+    var output = '<div class="thinBorder"><input type="text" class="standardSpacing characteristicTitle" placeholder="characteristic title"><br/><input type="text" class="standardSpacing characteristicDescription" placeholder="characteristic description"><br/><button id="removeCharacteristic">Remove</button></div>'; // generate input fields and delete button
 
     $('div#characterists').append(output);
 });
-
 $('div#characterists').delegate('button[id^="removeCharacteristic"]','click', function() { // delete clicked characteristic
     $(this).closest('div').remove(); 
 
@@ -148,10 +170,21 @@ $('#addBonus').on('click', function() {
 });
 $('#addLegendary').on('click', function() {
     console.log('add legendary clicked')
+    // add an opening text input element
+    // add a singular title and description input elements
+    // each additional legendary action does not create another opening text input element
 });
 
 
 // functions
+
+function addElement(elemId, placeholder, removeId) { // creates an input element and deletion button for any type of sheet feature
+    removeHidden(elemId);
+
+    var output = '<div class="thinBorder"><input type="text" placeholder="' + placeholder + '"><button id="' + removeId + '">Remove</button></div>'
+
+    $(elemId).append(output);
+}
 
 function addHidden(id1, id2) { // add hidden class to second element (parent)
     if ($(id1).length == 0) {
