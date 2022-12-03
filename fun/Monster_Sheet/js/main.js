@@ -1,41 +1,44 @@
+// ** add routine to disable most input elements until a CR is selected
+
 $('input[id^="abilityScore_"]').on('change', function() {
     var ability = $(this).attr('id').split('_')[1];
     var abilityScoreValue = $(this).val();
-    // console.log(ability); 'str'
     
     if (abilityScoreValue == 1) {
-        $('#' + ability + 'PlusMinus').text('-5');
+        $('#' + ability + 'Modifier').text('-5');
     } else if (abilityScoreValue >= 2 && abilityScoreValue <= 3) {
-        $('#' + ability + 'PlusMinus').text('-4');
+        $('#' + ability + 'Modifier').text('-4');
     } else if (abilityScoreValue >= 4 && abilityScoreValue <= 5) {
-        $('#' + ability + 'PlusMinus').text('-3');
+        $('#' + ability + 'Modifier').text('-3');
     } else if (abilityScoreValue >= 6 && abilityScoreValue <=7) {
-        $('#' + ability + 'PlusMinus').text('-2');
+        $('#' + ability + 'Modifier').text('-2');
     } else if (abilityScoreValue >= 8 && abilityScoreValue <=9) {
-        $('#' + ability + 'PlusMinus').text('-1');
+        $('#' + ability + 'Modifier').text('-1');
     } else if (abilityScoreValue >= 10 && abilityScoreValue <=11) {
-        $('#' + ability + 'PlusMinus').text('0');
+        $('#' + ability + 'Modifier').text('0');
     } else if (abilityScoreValue >= 12 && abilityScoreValue <= 13) {
-        $('#' + ability + 'PlusMinus').text('+1');
+        $('#' + ability + 'Modifier').text('+1');
     } else if (abilityScoreValue >= 14 && abilityScoreValue <= 15) {
-        $('#' + ability + 'PlusMinus').text('+2');
+        $('#' + ability + 'Modifier').text('+2');
     } else if (abilityScoreValue >= 16 && abilityScoreValue <= 17) {
-        $('#' + ability + 'PlusMinus').text('+3');
+        $('#' + ability + 'Modifier').text('+3');
     } else if (abilityScoreValue >= 18 && abilityScoreValue <= 19) {
-        $('#' + ability + 'PlusMinus').text('+4');
+        $('#' + ability + 'Modifier').text('+4');
     } else if (abilityScoreValue >= 20 && abilityScoreValue <= 21) {
-        $('#' + ability + 'PlusMinus').text('+5');
+        $('#' + ability + 'Modifier').text('+5');
     } else if (abilityScoreValue >= 22 && abilityScoreValue <= 23) {
-        $('#' + ability + 'PlusMinus').text('+6');
+        $('#' + ability + 'Modifier').text('+6');
     } else if (abilityScoreValue >= 24 && abilityScoreValue <= 25) {
-        $('#' + ability + 'PlusMinus').text('+7');
+        $('#' + ability + 'Modifier').text('+7');
     } else if (abilityScoreValue >= 26 && abilityScoreValue <= 27) {
-        $('#' + ability + 'PlusMinus').text('+8');
+        $('#' + ability + 'Modifier').text('+8');
     } else if (abilityScoreValue >= 28 && abilityScoreValue <= 29) {
-        $('#' + ability + 'PlusMinus').text('+9');
+        $('#' + ability + 'Modifier').text('+9');
     } else if (abilityScoreValue == 30) {
-        $('#' + ability + 'PlusMinus').text('+10');
+        $('#' + ability + 'Modifier').text('+10');
     }
+
+    // ** add routine to update any skill mods that may have been added
 });
 
 // challenge rating selection options
@@ -85,31 +88,65 @@ output += '</table>';
 $('div#crTable').html(output);
 
 $('#addSkill').on('click', function() {
-    console.log('add skill clicked')
+    removeHidden('div#skills');
+
+    var next = $('div#skills > select').length + 1;
+    var output = '<div class="thinBorder"><select name="skill' + next + '" id="skill' + next + '">';
+
+    for (i in skills) {
+        for (j in skills[i]) {
+            output += '<option value="' + skills[i][j].simple + '">' + skills[i][j].name + '</option>';
+        }
+    }
+    
+    output += '</select><input type="number" id="skillBonus' + next + '" step="1" min="-5" max="10" value="">';
+    output += '<br/><button id="removeSkill">Remove</button></div>';
+    
+    $('div#skills').append(output);
 });
 
-// ** add skill
-// Athletics
-// Acrobatics
-// Sleight of Hand
-// Stealth
-// Arcana
-// History
-// Investigation
-// Nature
-// Religion
-// Animal Handling
-// Insight
-// Medicine
-// Perception
-// Survival
-// Deception
-// Intimidation
-// Performance
-// Persuasion
+$('div#skills').delegate('select[id^="skill"]','change', function() { // Add bonuses to added skill
+    var value = $(this).val();
+
+    $(this).next().attr('id', value); // change the id of the input element to match the skill that was selected
+     
+    for (i in skills) {
+        for (j in skills[i]) {
+            if (value == skills[i][j].simple) {
+                var selectedSkill = i;
+                break;
+            }
+        }
+    }
+
+    var abilitiyModifier = 0;
+
+    $('span[id$="Modifier"').each(function() {
+        var id = $(this).attr('id').split('Modifier')[0];
+
+        if (id == selectedSkill) {
+            abilitiyModifier = parseInt($(this).text());
+        }
+    });
+
+    var cr = $('select#challengeRating').val();
+
+    for (i in challengeRating) {
+        if (cr == i) {
+            $('input#' + value).val(abilitiyModifier + challengeRating[i].profBonus);
+            break;
+        }
+    }
+});
+$('div#skills').delegate('button[id^="removeSkill"]','click', function() { // deleted clicked parent element
+    $(this).closest('div').remove(); 
+
+    addHidden('div#skills > div', 'div#skills'); // rehide skills parent element
+});
 
 $('#addSavingThrow').on('click', function() {
     addSingularElement('div#savingThrows', 'Saving Throw +#', 'removeSavingThrows');
+    // ** redo this as it needs to have two fields: dropdown for ability and an input for modifier
 });
 $('div#savingThrows').delegate('button[id^="removeSavingThrows"]','click', function() { // deleted clicked parent element
     $(this).closest('div').remove(); 

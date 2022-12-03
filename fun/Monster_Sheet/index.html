@@ -34,7 +34,7 @@
             <button id="addReaction">Add Reaction</button>
             <button id="addBonus">Add Bonus Action</button>
             <button id="addLegendary">Add Legendary Action</button>
-            <a href="challenge_ratings.html">CR Ref</a>
+            <a href="challenge_ratings.html" target="_blank">CR Ref</a>
         </nav>
         <div id="navOffset"></div>
         <div class="container">
@@ -140,43 +140,43 @@
                         <div class="col-md-2">
                             <p>STR</p>
                             <span>
-                                <input type="number" id="abilityScore_str" min="1" max="30" step="1" value="1">
-                                (<span id="strPlusMinus">-5</span>)
+                                <input type="number" id="abilityScore_strength" min="1" max="30" step="1" value="1">
+                                (<span id="strengthModifier">-5</span>)
                             </span>
                         </div>
                         <div class="col-md-2">
                             <p>DEX</p>
                             <span>
-                                <input type="number" id="abilityScore_dex" min="1" max="30" step="1" value="1">
-                                (<span id="dexPlusMinus">-5</span>)
+                                <input type="number" id="abilityScore_dexterity" min="1" max="30" step="1" value="1">
+                                (<span id="dexterityModifier">-5</span>)
                             </span>
                         </div>
                         <div class="col-md-2">
                             <p>CON</p>
                             <span>
-                                <input type="number" id="abilityScore_con" min="1" max="30" step="1" value="1">
-                                (<span id="conPlusMinus">-5</span>)
+                                <input type="number" id="abilityScore_constitution" min="1" max="30" step="1" value="1">
+                                (<span id="constitutionModifier">-5</span>)
                             </span>
                         </div>
                         <div class="col-md-2">
                             <p>INT</p>
                             <span>
-                                <input type="number" id="abilityScore_int" min="1" max="30" step="1" value="1">
-                                (<span id="intPlusMinus">-5</span>)
+                                <input type="number" id="abilityScore_intelligence" min="1" max="30" step="1" value="1">
+                                (<span id="intelligenceModifier">-5</span>)
                             </span>
                         </div>
                         <div class="col-md-2">
                             <p>WIS</p>
                             <span>
-                                <input type="number" id="abilityScore_wis" min="1" max="30" step="1" value="1">
-                                (<span id="wisPlusMinus">-5</span>)
+                                <input type="number" id="abilityScore_wisdom" min="1" max="30" step="1" value="1">
+                                (<span id="wisdomModifier">-5</span>)
                             </span>
                         </div>
                         <div class="col-md-2">
                             <p>CHA</p>
                             <span>
-                                <input type="number" id="abilityScore_cha" min="1" max="30" step="1" value="1">
-                                (<span id="chaPlusMinus">-5</span>)
+                                <input type="number" id="abilityScore_charisma" min="1" max="30" step="1" value="1">
+                                (<span id="charismaModifier">-5</span>)
                             </span>
                         </div>
                     </div>
@@ -269,6 +269,7 @@
             </div>
         </div>
     </body>
-    <script type="text/javascript" src="challengeRating.js"></script>
-    <script src="main.js"></script>
+    <script src="js/challengeRating.js"></script>
+    <script src="js/skills.js"></script>
+    <script src="js/main.js"></script>
 </html>
