@@ -42,7 +42,7 @@ option {
     color: var(--main-color);
  }
 
-#armorClass, #abilityScore_str, #abilityScore_dex, #abilityScore_con, #abilityScore_int, #abilityScore_wis, #abilityScore_cha {
+#armorClass, #abilityScore_strength, #abilityScore_dexterity, #abilityScore_constitution, #abilityScore_intelligence, #abilityScore_wisdom, #abilityScore_charisma {
     width: 45px;
 }
 
@@ -91,7 +91,7 @@ tr:hover {
 }
 
 /* Link overrides */
-a {
+a, a:visited {
     color: var(--main-color);
 }
 a:hover {
