@@ -37,3 +37,130 @@ $('input[id^="abilityScore_"]').on('change', function() {
         $('#' + ability + 'PlusMinus').text('+10');
     }
 });
+
+// challenge rating selection options
+var output = '';
+
+for (i in challengeRating) {
+    output += '<option value="' + i + '">' + challengeRating[i].cr + '</option>';
+}
+
+$('select#challengeRating').append(output);
+
+// set input fields based on CR selection
+$('select#challengeRating').on('change', function() {
+    if ($('#crOverview').is(':checked')) { // if the Challenge Override checkbox is enabled, replace values in various locations
+        var crValue = $(this).val();
+        $('span#xp').text('(' + challengeRating[crValue].xp + ')'); // xp
+        $('#armorClass').val(challengeRating[crValue].ac); // ac
+
+        var hp = challengeRating[crValue].hp.split('-');
+        
+        hp = Math.round((parseInt(hp[0]) + parseInt(hp[1]))/2)
+        $('#hp').val(hp);
+
+        // ** attack bonus
+            // this should publish to a note for the attack section but not in the printed version
+        // save DC
+            // this should publish to a note for the attack section but not in the printed version
+    }
+});
+
+$('#addSkill').on('click', function() {
+    console.log('add skill clicked')
+});
+
+// ** add skill
+// Athletics
+// Acrobatics
+// Sleight of Hand
+// Stealth
+// Arcana
+// History
+// Investigation
+// Nature
+// Religion
+// Animal Handling
+// Insight
+// Medicine
+// Perception
+// Survival
+// Deception
+// Intimidation
+// Performance
+// Persuasion
+
+$('#addSavingThrow').on('click', function() {
+    console.log('add saving throw clicked')
+});
+$('#addVulnerability').on('click', function() {
+    console.log('add vulnerability clicked')
+});
+$('#addResistance').on('click', function() {
+    console.log('add resistance clicked')
+});
+$('#addImmunity').on('click', function() {
+    console.log('add immunity clicked')
+});
+$('#addConditionImmunity').on('click', function() {
+    console.log('add condition immunity clicked')
+});
+$('#addSense').on('click', function() {
+    console.log('add sense clicked')
+});
+$('#addLanguage').on('click', function() {
+    removeHidden('div#languages');
+
+    var next = $('div#languages > div').length + 1; // unique id generator
+    var output = '<div class="thinBorder"><input type="text" placeholder="languages"><button id="removeLanguage">Remove</button></div>'
+
+    $('div#languages').append(output);
+});
+
+$('div#languages').delegate('button[id^="removeLanguage"]','click', function() { // delete clicked characteristic
+    $(this).closest('div').remove(); 
+
+    if ($('div#languages > div').length == 0) { // rehide characteristic parent element
+        $('div#languages').addClass('hidden');
+    }
+});
+
+
+$('#addCharacteristic').on('click', function() { // add new characteristic elements
+    removeHidden('div#characterists');
+
+    var next = $('div#characterists > div').length + 1; // unique id generator
+    var output = '<div class="thinBorder"><input type="text" class="standardSpacing characteristicTitle" placeholder="characteristic title"><br/><input type="text" class="standardSpacing characteristicDescription" placeholder="characteristic description"><br/><button id="removeCharacteristic' + next + '">Remove</button></div>'; // generate input fields and delete button
+
+    $('div#characterists').append(output);
+});
+
+$('div#characterists').delegate('button[id^="removeCharacteristic"]','click', function() { // delete clicked characteristic
+    $(this).closest('div').remove(); 
+
+    if ($('div#characterists > div').length == 0) { // rehide characteristic parent element
+        $('div#characterists').addClass('hidden');
+    }
+});
+
+$('#addActions').on('click', function() {
+    console.log('add action clicked')
+});
+$('#addReaction').on('click', function() {
+    console.log('add reaction clicked')
+});
+$('#addBonus').on('click', function() {
+    console.log('add bonus clicked')
+});
+$('#addLegendary').on('click', function() {
+    console.log('add legendary clicked')
+});
+
+
+// functions
+
+function removeHidden(id) { // remove hidden classes
+    if ($(id).hasClass('hidden')) {
+        $(id).removeClass('hidden');
+    }
+}
