@@ -1,43 +1,45 @@
-h1, h2, h3#nicknames {
+:root {
+    --main-bg-color: goldenrod;
+    --secondary-bg-color: #b98c1b;
+    --alt-bg-color: #cf9d20;
+    --main-color: red;
+}
+
+
+h1, h2 {
     text-align: center;
 }
-
-h1#name::first-letter, h3#nicknames::first-letter {
-    text-transform: uppercase;
-}
-
 body {
-    background-color: goldenrod;
-    color:red;
+    background-color: var(--main-bg-color);
+    color: var(--main-color);
     font-size: 2em;
 }
 #navOffset {
     margin-top: 150px;
 }
 input, select, button, textarea {
-    background-color: #b98c1b;
+    background-color: var(--secondary-bg-color);
     border: none;
 }
 textarea#creatureDescription {
     resize: none;
-    width:100%;
+    width: 100%;
 }
 button {
     margin: 5px;
 }
 option {
-    background-color: #b98c1b;
-    color:red;
+    background-color: var(--secondary-bg-color);
+    color: var(--main-color);
 }
 .navbar-inverse {
-    background-color: goldenrod;
-    border-color: red;
+    background-color: var(--main-bg-color);
+    border-color: var(--main-color);
 }
 
 ::placeholder {
     text-align: center; 
-    /* color: #5c460f; */
-    color:red;
+    color: var(--main-color);
  }
 
 #armorClass, #abilityScore_str, #abilityScore_dex, #abilityScore_con, #abilityScore_int, #abilityScore_wis, #abilityScore_cha {
@@ -66,24 +68,32 @@ option {
     resize: none;
 }
 .thinBorder {
-    border: solid thin red;
+    border: solid thin var(--main-color);
     padding: 5px;
     margin: 5px 0;
 }
 
 /* table elements */
 table, th, td {
-    border: 1px solid red;
+    border: 1px solid var(--main-color);
     padding: 5px;
 }
 th {
     text-align: center;
-    background-color: #cf9d20;
+    background-color: var(--alt-bg-color);
 }
-tr:nth-child(odd){
-    background-color: #cf9d20;
+tr:nth-child(odd) {
+    background-color: var(--alt-bg-color);
 }
 
 tr:hover {
     background-color: #ebba3d;
+}
+
+/* Link overrides */
+a {
+    color: var(--main-color);
+}
+a:hover {
+    color: var(--secondary-bg-color);
 }
