@@ -51,7 +51,7 @@ $('select#challengeRating').append(output);
 $('select#challengeRating').on('change', function() {
     if ($('#crOverview').is(':checked')) { // if the Challenge Override checkbox is enabled, replace values in various locations
         var crValue = $(this).val();
-        $('span#xp').text('(' + challengeRating[crValue].xp + ')'); // xp
+        $('span#xp').text('(' + numberWithCommas(challengeRating[crValue].xp + ')')); // xp
         $('#armorClass').val(challengeRating[crValue].ac); // ac
 
         var hp = challengeRating[crValue].hp.split('-');
@@ -65,6 +65,24 @@ $('select#challengeRating').on('change', function() {
             // this should publish to a note for the attack section but not in the printed version
     }
 });
+
+// display challenge ratings for challenge_ratings.html
+var output = '<table><tr><th>CR</th><th>Prof Bonus</th><th>AC</th><th>HP</th><th>Attack Bonus</th><th>Damange/Round</th><th>Save DC</th><th>XP</th></tr>';
+
+for (i in challengeRating) {
+    output += '<tr><td>' + challengeRating[i].cr + '</td>';
+    output += '<td>' + challengeRating[i].profBonus + '</td>';
+    output += '<td>' + challengeRating[i].ac + '</td>';
+    output += '<td>' + challengeRating[i].hp + '</td>';
+    output += '<td>' + challengeRating[i].attackBonus + '</td>';
+    output += '<td>' + challengeRating[i].damageRound + '</td>';
+    output += '<td>' + challengeRating[i].saveDC + '</td>';
+    output += '<td>' + numberWithCommas(challengeRating[i].xp) + '</td></tr>';
+}
+
+output += '</table>';
+
+$('div#crTable').html(output);
 
 $('#addSkill').on('click', function() {
     console.log('add skill clicked')
@@ -192,6 +210,12 @@ $('div#legendaries').delegate('button[id^="removeLegendary"]','click', function(
 });
 
 // functions
+
+function numberWithCommas(x) {
+    var parts = x.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.join(".");
+}
 
 function addDoubleElement(elemId, name, placeholderTitle, placeholderDesc, removeId) { // creates an input,  textarea, and delete button elements for any feature type that requires a title and a description
     removeHidden(elemId);
