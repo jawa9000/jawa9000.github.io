@@ -267,7 +267,7 @@ var challengeRating = {
         "attackBonus": 11,
         "damageRound": "177-194",
         "saveDC": 20,
-        "xp": 62000
+        "xp": 50000
     },
     "twentyfour": {
         "cr": "24",
