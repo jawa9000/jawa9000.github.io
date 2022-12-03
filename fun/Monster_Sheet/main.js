@@ -111,7 +111,6 @@ $('#addSense').on('click', function() {
 $('#addLanguage').on('click', function() {
     removeHidden('div#languages');
 
-    var next = $('div#languages > div').length + 1; // unique id generator
     var output = '<div class="thinBorder"><input type="text" placeholder="languages"><button id="removeLanguage">Remove</button></div>'
 
     $('div#languages').append(output);
@@ -120,11 +119,8 @@ $('#addLanguage').on('click', function() {
 $('div#languages').delegate('button[id^="removeLanguage"]','click', function() { // delete clicked characteristic
     $(this).closest('div').remove(); 
 
-    if ($('div#languages > div').length == 0) { // rehide characteristic parent element
-        $('div#languages').addClass('hidden');
-    }
+    addHidden('div#languages > div', 'div#languages'); // rehide characteristic parent element
 });
-
 
 $('#addCharacteristic').on('click', function() { // add new characteristic elements
     removeHidden('div#characterists');
@@ -138,9 +134,7 @@ $('#addCharacteristic').on('click', function() { // add new characteristic eleme
 $('div#characterists').delegate('button[id^="removeCharacteristic"]','click', function() { // delete clicked characteristic
     $(this).closest('div').remove(); 
 
-    if ($('div#characterists > div').length == 0) { // rehide characteristic parent element
-        $('div#characterists').addClass('hidden');
-    }
+    addHidden('div#characterists > div', 'div#characterists'); // rehide characteristic parent element
 });
 
 $('#addActions').on('click', function() {
@@ -158,6 +152,12 @@ $('#addLegendary').on('click', function() {
 
 
 // functions
+
+function addHidden(id1, id2) { // add hidden class to second element (parent)
+    if ($(id1).length == 0) {
+        $(id2).addClass('hidden');
+    }
+}
 
 function removeHidden(id) { // remove hidden classes
     if ($(id).hasClass('hidden')) {
