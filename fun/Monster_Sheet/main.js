@@ -91,7 +91,7 @@ $('#addSkill').on('click', function() {
 // Persuasion
 
 $('#addSavingThrow').on('click', function() {
-    addElement('div#savingThrows', 'Saving Throw +#', 'removeSavingThrows');
+    addSingularElement('div#savingThrows', 'Saving Throw +#', 'removeSavingThrows');
 });
 $('div#savingThrows').delegate('button[id^="removeSavingThrows"]','click', function() { // deleted clicked parent element
     $(this).closest('div').remove(); 
@@ -99,7 +99,7 @@ $('div#savingThrows').delegate('button[id^="removeSavingThrows"]','click', funct
     addHidden('div#savingThrows > div', 'div#savingThrows'); // rehide savingThrows parent element
 });
 $('#addVulnerability').on('click', function() {
-    addElement('div#vulnerabilities','Vulnerability type', 'removeVulnerabilities');
+    addSingularElement('div#vulnerabilities','Vulnerability type', 'removeVulnerabilities');
 });
 $('div#vulnerabilities').delegate('button[id^="removeVulnerabilities"]','click', function() { // deleted clicked parent element
     $(this).closest('div').remove(); 
@@ -107,7 +107,7 @@ $('div#vulnerabilities').delegate('button[id^="removeVulnerabilities"]','click',
     addHidden('div#vulnerabilities > div', 'div#vulnerabilities'); // rehide vulnerabilities parent element
 });
 $('#addResistance').on('click', function() {
-    addElement('div#resistances', 'Resistance type', 'removeResistances')
+    addSingularElement('div#resistances', 'Resistance type', 'removeResistances')
 });
 $('div#resistances').delegate('button[id^="removeResistances"]','click', function() { // deleted clicked parent element
     $(this).closest('div').remove(); 
@@ -115,7 +115,7 @@ $('div#resistances').delegate('button[id^="removeResistances"]','click', functio
     addHidden('div#resistances > div', 'div#resistances'); // rehide resistances parent element
 });
 $('#addImmunity').on('click', function() {
-    addElement('div#damageImmunity','Damage immunity type', 'removeDamageImmunity');
+    addSingularElement('div#damageImmunity','Damage immunity type', 'removeDamageImmunity');
 });
 $('div#damageImmunity').delegate('button[id^="removeDamageImmunity"]','click', function() { // deleted clicked parent element
     $(this).closest('div').remove(); 
@@ -123,7 +123,7 @@ $('div#damageImmunity').delegate('button[id^="removeDamageImmunity"]','click', f
     addHidden('div#damageImmunity > div', 'div#damageImmunity'); // rehide damageImmunity parent element
 });
 $('#addConditionImmunity').on('click', function() {
-    addElement('div#conditionImmunity', 'Condition immunity type', 'removeConditionImmunity');
+    addSingularElement('div#conditionImmunity', 'Condition immunity type', 'removeConditionImmunity');
 });
 $('div#conditionImmunity').delegate('button[id^="removeConditionImmunity"]','click', function() { // deleted clicked parent element
     $(this).closest('div').remove(); 
@@ -131,7 +131,7 @@ $('div#conditionImmunity').delegate('button[id^="removeConditionImmunity"]','cli
     addHidden('div#conditionImmunity > div', 'div#conditionImmunity'); // rehide conditionImmunity parent element
 });
 $('#addSense').on('click', function() {
-    addElement('div#senses', 'sense', 'removeSense');
+    addSingularElement('div#senses', 'sense', 'removeSense');
 });
 $('div#senses').delegate('button[id^="removeSense"]','click', function() { // deleted clicked parent element
     $(this).closest('div').remove(); 
@@ -139,7 +139,7 @@ $('div#senses').delegate('button[id^="removeSense"]','click', function() { // de
     addHidden('div#senses > div', 'div#senses'); // rehide sense parent element
 });
 $('#addLanguage').on('click', function() {
-    addElement('div#languages', 'languages', 'removeLanguage');
+    addSingularElement('div#languages', 'languages', 'removeLanguage');
 });
 $('div#languages').delegate('button[id^="removeLanguage"]','click', function() { // delete clicked characteristic
     $(this).closest('div').remove(); 
@@ -147,26 +147,31 @@ $('div#languages').delegate('button[id^="removeLanguage"]','click', function() {
     addHidden('div#languages > div', 'div#languages'); // rehide characteristic parent element
 });
 $('#addCharacteristic').on('click', function() { // add new characteristic elements
-    removeHidden('div#characterists');
-    // generate input fields and delete button
-    var output = '<div class="thinBorder"><input type="text" class="standardSpacing characteristicTitle" placeholder="characteristic title"><br/>';
-    output +='<textarea name="characteristicDescription" class="standardSpacing characteristicDescription" placeholder="characteristic description"/><br/>';
-    output += '<button id="removeCharacteristic">Remove</button></div>'; 
-
-    $('div#characterists').append(output);
+    addDoubleElement('div#Characteristics', 'characteristicDescription', 'Characteristic title', 'Characteristic description', 'removeCharacteristic');
 });
-$('div#characterists').delegate('button[id^="removeCharacteristic"]','click', function() { // delete clicked characteristic
+$('div#Characteristics').delegate('button[id^="removeCharacteristic"]','click', function() { // delete clicked characteristic
     $(this).closest('div').remove(); 
 
-    addHidden('div#characterists > div', 'div#characterists'); // rehide characteristic parent element
+    addHidden('div#Characteristics > div', 'div#Characteristics'); // rehide characteristic parent element
+});
+$('#addActions').on('click', function() {
+    addDoubleElement('div#actions', 'actionDescription', 'Action title', 'Action description', 'removeAction');
+});
+$('div#actions').delegate('button[id^="removeAction"]','click', function() { // delete clicked action
+    $(this).closest('div').remove(); 
+
+    addHidden('div#actions > div', 'div#actions'); // rehide actions parent element
 });
 
-$('#addActions').on('click', function() {
-    
-});
 $('#addReaction').on('click', function() {
-    console.log('add reaction clicked')
+    addDoubleElement('div#reactions', 'reactionDescription', 'Reaction title', 'Reaction description', 'removeReaction');
 });
+('div#reactions').delegate('button[id^="removeReaction"]','click', function() { // delete clicked reaction
+    $(this).closest('div').remove(); 
+
+    addHidden('div#reactions > div', 'div#reactions'); // rehide reactions parent element
+});
+
 $('#addBonus').on('click', function() {
     console.log('add bonus clicked')
 });
@@ -180,7 +185,18 @@ $('#addLegendary').on('click', function() {
 
 // functions
 
-function addElement(elemId, placeholder, removeId) { // creates an input element and deletion button for any type of sheet feature
+function addDoubleElement(elemId, name, placeholderTitle, placeholderDesc, removeId) {
+    removeHidden(elemId);
+
+    // generate input fields and delete button
+    var output = '<div class="thinBorder"><input type="text" class="standardSpacing actionTitle" placeholder="' + placeholderTitle + '"><br/>';
+    output +='<textarea name="' + name + '" class="standardSpacing textareaDescription" placeholder="' + placeholderDesc + '"/><br/>';
+    output += '<button id="' + removeId + '">Remove</button></div>';
+
+    $(elemId).append(output);
+}
+
+function addSingularElement(elemId, placeholder, removeId) { // creates an input element and deletion button for any type of sheet feature
     removeHidden(elemId);
 
     var output = '<div class="thinBorder"><input type="text" placeholder="' + placeholder + '"><button id="' + removeId + '">Remove</button></div>'
