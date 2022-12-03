@@ -70,3 +70,20 @@ option {
     padding: 5px;
     margin: 5px 0;
 }
+
+/* table elements */
+table, th, td {
+    border: 1px solid red;
+    padding: 5px;
+}
+th {
+    text-align: center;
+    background-color: #cf9d20;
+}
+tr:nth-child(odd){
+    background-color: #cf9d20;
+}
+
+tr:hover {
+    background-color: #ebba3d;
+}
