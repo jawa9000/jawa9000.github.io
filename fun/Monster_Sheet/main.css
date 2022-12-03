@@ -7,14 +7,20 @@ h1#name::first-letter, h3#nicknames::first-letter {
 }
 
 body {
-    margin-top: 100px;
     background-color: goldenrod;
     color:red;
     font-size: 2em;
 }
-input, select, button {
+#navOffset {
+    margin-top: 150px;
+}
+input, select, button, textarea {
     background-color: #b98c1b;
     border: none;
+}
+textarea#creatureDescription {
+    resize: none;
+    width:100%;
 }
 button {
     margin: 5px;
@@ -54,9 +60,10 @@ option {
     width: 165px;
 }
 .characteristicDescription {
-    width: 500px;
     height: 100px;
-    line-height: 100px;
+    line-height: 30px;
+    width: 98%;
+    resize: none;
 }
 .thinBorder {
     border: solid thin red;

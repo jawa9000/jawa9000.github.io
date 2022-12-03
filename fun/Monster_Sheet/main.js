@@ -148,8 +148,10 @@ $('div#languages').delegate('button[id^="removeLanguage"]','click', function() {
 });
 $('#addCharacteristic').on('click', function() { // add new characteristic elements
     removeHidden('div#characterists');
-
-    var output = '<div class="thinBorder"><input type="text" class="standardSpacing characteristicTitle" placeholder="characteristic title"><br/><input type="text" class="standardSpacing characteristicDescription" placeholder="characteristic description"><br/><button id="removeCharacteristic">Remove</button></div>'; // generate input fields and delete button
+    // generate input fields and delete button
+    var output = '<div class="thinBorder"><input type="text" class="standardSpacing characteristicTitle" placeholder="characteristic title"><br/>';
+    output +='<textarea name="characteristicDescription" class="standardSpacing characteristicDescription" placeholder="characteristic description"/><br/>';
+    output += '<button id="removeCharacteristic">Remove</button></div>'; 
 
     $('div#characterists').append(output);
 });
@@ -160,7 +162,7 @@ $('div#characterists').delegate('button[id^="removeCharacteristic"]','click', fu
 });
 
 $('#addActions').on('click', function() {
-    console.log('add action clicked')
+    
 });
 $('#addReaction').on('click', function() {
     console.log('add reaction clicked')
