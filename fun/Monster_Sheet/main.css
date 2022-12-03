@@ -6,14 +6,60 @@ h1#name::first-letter, h3#nicknames::first-letter {
     text-transform: uppercase;
 }
 
+body {
+    margin-top: 100px;
+    background-color: goldenrod;
+    color:red;
+    font-size: 2em;
+}
+input, select, button {
+    background-color: #b98c1b;
+    border: none;
+}
+button {
+    margin: 5px;
+}
+option {
+    background-color: #b98c1b;
+    color:red;
+}
+.navbar-inverse {
+    background-color: goldenrod;
+    border-color: red;
+}
+
 ::placeholder {
     text-align: center; 
+    /* color: #5c460f; */
+    color:red;
  }
 
 #armorClass, #abilityScore_str, #abilityScore_dex, #abilityScore_con, #abilityScore_int, #abilityScore_wis, #abilityScore_cha {
-    width: 40px;
+    width: 45px;
 }
 
-#hp, #hpDice, #speed {
-    width: 50px;
+#hp, #speed {
+    width: 55px;
+}
+#hpDice {
+    width: 65px;
+}
+
+.standardSpacing {
+    margin: 5px;
+}
+
+/* characteristic elements */
+.characteristicTitle {
+    width: 165px;
+}
+.characteristicDescription {
+    width: 500px;
+    height: 100px;
+    line-height: 100px;
+}
+.thinBorder {
+    border: solid thin red;
+    padding: 5px;
+    margin: 5px 0;
 }
