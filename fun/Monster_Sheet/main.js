@@ -162,41 +162,49 @@ $('div#actions').delegate('button[id^="removeAction"]','click', function() { // 
 
     addHidden('div#actions > div', 'div#actions'); // rehide actions parent element
 });
-
 $('#addReaction').on('click', function() {
     addDoubleElement('div#reactions', 'reactionDescription', 'Reaction title', 'Reaction description', 'removeReaction');
 });
-('div#reactions').delegate('button[id^="removeReaction"]','click', function() { // delete clicked reaction
+$('div#reactions').delegate('button[id^="removeReaction"]','click', function() { // delete clicked reaction
     $(this).closest('div').remove(); 
 
     addHidden('div#reactions > div', 'div#reactions'); // rehide reactions parent element
 });
-
 $('#addBonus').on('click', function() {
-    console.log('add bonus clicked')
+    addDoubleElement('div#bonuses', 'bonusDescription', 'Bonus title', 'Bonus description', 'removeBonus');
+});
+$('div#bonuses').delegate('button[id^="removeBonus"]','click', function() { // delete clicked bonus
+    $(this).closest('div').remove(); 
+
+    addHidden('div#bonuses > div', 'div#bonuses'); // rehide bonus parent element
 });
 $('#addLegendary').on('click', function() {
-    console.log('add legendary clicked')
-    // add an opening text input element
-    // add a singular title and description input elements
-    // each additional legendary action does not create another opening text input element
-});
+    if ($('#legendaryMainDescription').length == 0) {
+        $('div#legendaries').append('<textarea id="legendaryMainDescription" name="legendaryMainDescription" class="standardSpacing textareaDescription" placeholder="Legendary description overview"/><br/>'); 
+    }
 
+    addDoubleElement('div#legendaries', 'legendaryDescriptin', 'Legendgary title', 'Legendary description', 'removeLegendary');
+});
+$('div#legendaries').delegate('button[id^="removeLegendary"]','click', function() { // delete clicked legendary
+    $(this).closest('div').remove(); 
+
+    addHidden('div#legendaries > div', 'div#legendaries'); // rehide bonus parent element
+});
 
 // functions
 
-function addDoubleElement(elemId, name, placeholderTitle, placeholderDesc, removeId) {
+function addDoubleElement(elemId, name, placeholderTitle, placeholderDesc, removeId) { // creates an input,  textarea, and delete button elements for any feature type that requires a title and a description
     removeHidden(elemId);
 
     // generate input fields and delete button
     var output = '<div class="thinBorder"><input type="text" class="standardSpacing actionTitle" placeholder="' + placeholderTitle + '"><br/>';
-    output +='<textarea name="' + name + '" class="standardSpacing textareaDescription" placeholder="' + placeholderDesc + '"/><br/>';
+    output += '<textarea name="' + name + '" class="standardSpacing textareaDescription" placeholder="' + placeholderDesc + '"/><br/>';
     output += '<button id="' + removeId + '">Remove</button></div>';
 
     $(elemId).append(output);
 }
 
-function addSingularElement(elemId, placeholder, removeId) { // creates an input element and deletion button for any type of sheet feature
+function addSingularElement(elemId, placeholder, removeId) { // creates an input element and deletion button for any feature type that requires only a description
     removeHidden(elemId);
 
     var output = '<div class="thinBorder"><input type="text" placeholder="' + placeholder + '"><button id="' + removeId + '">Remove</button></div>'
