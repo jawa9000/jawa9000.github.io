@@ -340,3 +340,123 @@ var challengeRating = {
         "xp": 155000
     }
 }
+
+var hitDice = {
+    "tiny": {
+        hitDie: "d4",
+        average: 2.5
+    },
+    "small": {
+        hitDie: "d6",
+        average: 3.5
+    },
+    "medium": {
+        hitDie: "d8",
+        average: 4.5
+    },
+    "large": {
+        hitDie: "d10",
+        average: 5.5
+    },
+    "huge": {
+        hitDie: "d12",
+        average: 6.5
+    },
+    "gargantuan": {
+        hitDie: "d20",
+        average: 10.5
+    }
+}
+
+var skills = {
+    none: {
+        none: {
+            name: "",
+            simple: ""
+        }
+    },
+    strength: {
+        athletics: {
+            name: "Athletics",
+            simple: "athletics"
+        }
+    },
+    dexterity: {
+        acrobatics: {
+            name: "Acrobatics",
+            simple: "acrobatics"    
+        },
+        sleightOfHand: {
+            name: "Sleight of Hand",
+            simple: "sleightOfHand"
+        },
+        stealth: {
+            name: "Stealth",
+            simple: "stealth"
+        },
+    },
+    intelligence: {
+        arcana: {
+            name: "Arcana",
+            simple: "arcana"
+        },
+        history: {
+            name: "History",
+            simple: "history"
+        },
+        investigation: {
+            name: "Investigation",
+            simple: "investigation"
+        },
+        nature: {
+            name: "Nature",
+            simple: "nature"
+        },
+        religion: {
+            name: "Religion",
+            simple: "religion"
+        }
+    },
+    wisdom: {
+        animalHandling: {
+            name: "Animal Handling",
+            simple: "animalHandling"
+        },
+        insight: {
+            name: "Insight",
+            simple: "insight"
+        },
+        medicine: {
+            name: "Medicine",
+            simple: "medicine"
+        },
+        perception: {
+            name: "Perception",
+            simple: "perception"
+        },
+        survival: {
+            name: "Survival",
+            simple: "survival"
+        }
+    }, 
+    charisma: {
+        deception: {
+            name: "Deception",
+            simple: "deception"
+        },
+        intimidation: {
+            name: "Intimidation",
+            simple: "intimidation"
+        },
+        performance: {
+            name: "Performance",
+            simple: "performance"
+        },
+        persuasion: {
+            name: "Persuasion",
+            simple: "persuasion"
+        }
+    }
+}
+
+var abilities = ['Strength', 'Dexterity', 'Intelligence', 'Wisdom', 'Charisma'];
