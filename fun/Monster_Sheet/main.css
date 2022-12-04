@@ -42,10 +42,17 @@ option {
     color: var(--main-color);
  }
 
-#armorClass, #abilityScore_strength, #abilityScore_dexterity, #abilityScore_constitution, #abilityScore_intelligence, #abilityScore_wisdom, #abilityScore_charisma {
-    width: 45px;
+ .standardSpacing {
+    margin: 5px;
+}
+ 
+.thinBorder {
+    border: solid thin var(--main-color);
+    padding: 5px;
+    margin: 5px 0;
 }
 
+/* hp, speed, and hit dice */
 #hp, #speed {
     width: 55px;
 }
@@ -53,8 +60,12 @@ option {
     width: 65px;
 }
 
-.standardSpacing {
-    margin: 5px;
+ /* ability score mods */
+ #armorClass, #abilityScore_strength, #abilityScore_dexterity, #abilityScore_constitution, #abilityScore_intelligence, #abilityScore_wisdom, #abilityScore_charisma {
+    width: 45px;
+}
+span.abilityModifier {
+    font-size: 0.8em;
 }
 
 /* characteristic elements */
@@ -66,11 +77,6 @@ option {
     line-height: 30px;
     width: 98%;
     resize: none;
-}
-.thinBorder {
-    border: solid thin var(--main-color);
-    padding: 5px;
-    margin: 5px 0;
 }
 
 /* table elements */
@@ -96,4 +102,14 @@ a, a:visited {
 }
 a:hover {
     color: var(--secondary-bg-color);
+}
+
+/* input */
+input.movementSpeed {
+    width: 60px;
+}
+*:disabled {
+    background-color: dimgrey;
+    color: rgb(103, 101, 99);
+    opacity: 1;
 }

@@ -1,5 +1,3 @@
-// ** add routine to disable most input elements until a CR is selected
-
 $('input[id^="abilityScore_"]').on('change', function() {
     var ability = $(this).attr('id').split('_')[1];
     var abilityScoreValue = $(this).val();
@@ -39,6 +37,19 @@ $('input[id^="abilityScore_"]').on('change', function() {
     }
 
     // ** add routine to update any skill mods that may have been added
+
+});
+
+$('input#crOverview').on('change', function() { // toggle disable parameter for the input elements for AC and HP to allow/disallow editing based on the selection of Challenge Rating
+    if ($(this).attr('checked') == 'checked') {
+        $(this).removeAttr('checked');
+        toggleACHP('enable');
+    } else {
+        $(this).attr('checked', 'checked');
+        if ($('#challengeRating').val() == 'none') {
+            toggleACHP('disable');
+        }
+    }
 });
 
 // challenge rating selection options
@@ -50,22 +61,25 @@ for (i in challengeRating) {
 
 $('select#challengeRating').append(output);
 
-// set input fields based on CR selection
-$('select#challengeRating').on('change', function() {
-    if ($('#crOverview').is(':checked')) { // if the Challenge Override checkbox is enabled, replace values in various locations
-        var crValue = $(this).val();
-        $('span#xp').text('(' + numberWithCommas(challengeRating[crValue].xp + ')')); // xp
-        $('#armorClass').val(challengeRating[crValue].ac); // ac
+$('select#challengeRating').on('change', function() { // set input fields based on CR selection
+    var crValue = $(this).val();
 
+    if (crValue == 'none') {
+        toggleACHP('disable');
+        $('span#xp').text('');
+        $('span#attackBonus').text('');
+        $('span#damageRound').text('');
+        $('span#saveDC').text('');
+    } else {
         var hp = challengeRating[crValue].hp.split('-');
         
-        hp = Math.round((parseInt(hp[0]) + parseInt(hp[1]))/2)
-        $('#hp').val(hp);
-
-        // ** attack bonus
-            // this should publish to a note for the attack section but not in the printed version
-        // save DC
-            // this should publish to a note for the attack section but not in the printed version
+        toggleACHP('enable');
+        $('#hp').val(Math.round((parseInt(hp[0]) + parseInt(hp[1]))/2));
+        $('span#xp').text('(' + numberWithCommas(challengeRating[crValue].xp + ')')); // xp
+        $('#armorClass').val(challengeRating[crValue].ac); // ac
+        $('span#attackBonus').text('Attack bonus: ' + challengeRating[crValue].attackBonus);
+        $('span#damageRound').text('Damage/round: ' + challengeRating[crValue].damageRound);
+        $('span#saveDC').text('Save DC: ' + challengeRating[crValue].saveDC);
     }
 });
 
@@ -201,13 +215,29 @@ $('div#languages').delegate('button[id^="removeLanguage"]','click', function() {
 
     addHidden('div#languages > div', 'div#languages'); // rehide characteristic parent element
 });
-$('#addCharacteristic').on('click', function() { // add new characteristic elements
-    addDoubleElement('div#Characteristics', 'characteristicDescription', 'Characteristic title', 'Characteristic description', 'removeCharacteristic');
+$('#addMovement').on('click', function() { // add new movement elements
+    removeHidden('div#movements');
+
+    var output = '<div class="thinBorder">';
+    output += '<input type="text" class="standardSpacing" placeholder="Movement type">';
+    output += '<input type="number" min="0" step="1" class="movementSpeed">'
+    
+    output += '<button id="removeMovement">Remove</button></div>';
+
+    $('div#movements').append(output);
 });
-$('div#Characteristics').delegate('button[id^="removeCharacteristic"]','click', function() { // delete clicked characteristic
+$('div#movements').delegate('button[id^="removeMovement"]','click', function() { // delete clicked movement
     $(this).closest('div').remove(); 
 
-    addHidden('div#Characteristics > div', 'div#Characteristics'); // rehide characteristic parent element
+    addHidden('div#movements > div', 'div#movements'); // rehide movement parent element
+});
+$('#addCharacteristic').on('click', function() { // add new characteristic elements
+    addDoubleElement('div#characteristics', 'characteristicDescription', 'Characteristic title', 'Characteristic description', 'removeCharacteristic');
+});
+$('div#characteristics').delegate('button[id^="removeCharacteristic"]','click', function() { // delete clicked characteristic
+    $(this).closest('div').remove(); 
+
+    addHidden('div#characteristics > div', 'div#characteristics'); // rehide characteristic parent element
 });
 $('#addActions').on('click', function() {
     addDoubleElement('div#actions', 'actionDescription', 'Action title', 'Action description', 'removeAction');
@@ -248,6 +278,24 @@ $('div#legendaries').delegate('button[id^="removeLegendary"]','click', function(
 
 // functions
 
+function toggleACHP(state) {
+    if (state == 'enable') {
+        $('input#armorClass')
+            .removeAttr('disabled')
+            .removeAttr('title');
+        $('input#hp')
+            .removeAttr('disabled')
+            .removeAttr('title');
+    } else {
+        $('input#armorClass')
+            .attr('disabled', 'disabled')
+            .attr('title', 'Disabled until CR has been set');
+        $('input#hp')
+            .attr('disabled', 'disabled')
+            .attr('title', 'Disabled until CR has been set');
+    }
+}
+
 function numberWithCommas(x) {
     var parts = x.toString().split(".");
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -257,7 +305,6 @@ function numberWithCommas(x) {
 function addDoubleElement(elemId, name, placeholderTitle, placeholderDesc, removeId) { // creates an input,  textarea, and delete button elements for any feature type that requires a title and a description
     removeHidden(elemId);
 
-    // generate input fields and delete button
     var output = '<div class="thinBorder"><input type="text" class="standardSpacing actionTitle" placeholder="' + placeholderTitle + '"><br/>';
     output += '<textarea name="' + name + '" class="standardSpacing textareaDescription" placeholder="' + placeholderDesc + '"/><br/>';
     output += '<button id="' + removeId + '">Remove</button></div>';

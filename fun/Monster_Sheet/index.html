@@ -21,6 +21,7 @@
         <nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <input type="checkbox" id="crOverview" name="crOverview" value="override" checked>
             <label for="crOverview">Challenge Override</label><br>
+            <button id="addMovement">Add Movement</button>
             <button id="addSavingThrow">Add Saving Throw</button>
             <button id="addSkill">Add Skill</button>
             <button id="addVulnerability">Add Vulnerability</button>
@@ -62,121 +63,129 @@
             </div>
             <div class="row">
                 <div class="col-md-2"></div>
-                <div class="col-md-8">
+                <div class="col-md-8 ">
                     <h1>
                         <input type="text" placeholder="Creature Name" id="creatureName">
                     </h1>
-                    <span>Size<span>
-                    <select name="size" id="size">
-                        <option value="blank"></option>
-                        <option value="tiny">Tiny</option>
-                        <option value="small">Small</option>
-                        <option value="medium">Medium</option>
-                        <option value="large">Large</option>
-                        <option value="huge">Huge</option>
-                        <option value="gargantuan">Gargantuan</option>
-                    </select>
-                    <span>Type<span>
-                    <select name="type" id="type">
-                        <option value="blank"></option>
-                        <option value="aberration">Aberration</option>
-                        <option value="beast">Beast</option>
-                        <option value="celestial">Celestial</option>
-                        <option value="construct">Construct</option>
-                        <option value="dragon">Dragon</option>
-                        <option value="elemental">Elemental</option>
-                        <option value="fey">Fey</option>
-                        <option value="fiend">Fiend</option>
-                        <option value="giant">Giant</option>
-                        <option value="humanoid">Humanoid</option>
-                        <option value="monstrosity">Monstrosity</option>
-                        <option value="ooze">Ooze</option>
-                        <option value="plant">Plant</option>
-                        <option value="undead">Undead</option>
-                    </select>
-
-                    <span>Alignment<span>
-                    <select name="alignment" id="alignment">
-                        <option value="blank"></option>
-                        <option value="lg">Lawful Good</option>
-                        <option value="ln">Lawful Neutral</option>
-                        <option value="le">Lawful Evil</option>
-                        <option value="ng">Neutral Good</option>
-                        <option value="neutral">Neutral</option>
-                        <option value="ne">Neutral Evil</option>
-                        <option value="cg">Chaotic Good</option>
-                        <option value="cn">Chaotic Neutral</option>
-                        <option value="ce">Chaotic Evil</option>
-                        <option value="unaligned">Unaligned</option>
-                        <option value="any">Any</option>
-                    </select>
+                    <div class="thinBorder">
+                        <span>Size<span>
+                        <select name="size" id="size">
+                            <option value="blank"></option>
+                            <option value="tiny">Tiny</option>
+                            <option value="small">Small</option>
+                            <option value="medium">Medium</option>
+                            <option value="large">Large</option>
+                            <option value="huge">Huge</option>
+                            <option value="gargantuan">Gargantuan</option>
+                        </select>
+                        <span>Type<span>
+                        <select name="type" id="type">
+                            <option value="blank"></option>
+                            <option value="aberration">Aberration</option>
+                            <option value="beast">Beast</option>
+                            <option value="celestial">Celestial</option>
+                            <option value="construct">Construct</option>
+                            <option value="dragon">Dragon</option>
+                            <option value="elemental">Elemental</option>
+                            <option value="fey">Fey</option>
+                            <option value="fiend">Fiend</option>
+                            <option value="giant">Giant</option>
+                            <option value="humanoid">Humanoid</option>
+                            <option value="monstrosity">Monstrosity</option>
+                            <option value="ooze">Ooze</option>
+                            <option value="plant">Plant</option>
+                            <option value="undead">Undead</option>
+                        </select>
+                        <span>Alignment<span>
+                        <select name="alignment" id="alignment">
+                            <option value="blank"></option>
+                            <option value="lg">Lawful Good</option>
+                            <option value="ln">Lawful Neutral</option>
+                            <option value="le">Lawful Evil</option>
+                            <option value="ng">Neutral Good</option>
+                            <option value="neutral">Neutral</option>
+                            <option value="ne">Neutral Evil</option>
+                            <option value="cg">Chaotic Good</option>
+                            <option value="cn">Chaotic Neutral</option>
+                            <option value="ce">Chaotic Evil</option>
+                            <option value="unaligned">Unaligned</option>
+                            <option value="any">Any</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="col-md-2"></div>
             </div>
             <div class="row">
                 <div class="col-md-2"></div>
-                <div class="col-md-8">
-                    <p>
+                <div class="col-md-3">
+                    <div class="thinBorder">
                         Armor Class
-                        <input type="number" id="armorClass" min="1" step="1" value="3" disabled>
-                    </p>
-                    <p>
+                        <input type="number" id="armorClass" min="1" step="1" value="3" disabled title="Disabled until CR has been set">
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="thinBorder">
                         Hit Points
-                        <input type="number" id="hp" min="1" step="1" value="1" disabled>
-                        (<input type="text" id="hpDice" min="1" step="1" value="#d#+#" disabled>)
-                    </p>
-                    <p>
-                        Speed
-                        <input type="number" id="speed" min="0" step="1" value="0">
-                    </p>
-                    
+                        <input type="number" id="hp" min="1" step="1" value="1" disabled title="Disabled until CR has been set">
+                        (<input type="text" id="hpDice" min="1" step="1" value="#d#+#" disabled title="Disabled until Size has been set">)
+                    </div>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <div id="Movements" class="hidden thinBorder">
+                        <p>Movement</p>
+                    </div>
                 </div>
                 <div class="col-md-2"></div>
             </div>
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
-                    <div class="row">
+                    <div class="row thinBorder">
                         <div class="col-md-2">
                             <p>STR</p>
                             <span>
                                 <input type="number" id="abilityScore_strength" min="1" max="30" step="1" value="1">
-                                (<span id="strengthModifier">-5</span>)
+                                (<span id="strengthModifier" class="abilityModifier">-5</span>)
                             </span>
                         </div>
                         <div class="col-md-2">
                             <p>DEX</p>
                             <span>
                                 <input type="number" id="abilityScore_dexterity" min="1" max="30" step="1" value="1">
-                                (<span id="dexterityModifier">-5</span>)
+                                (<span id="dexterityModifier" class="abilityModifier">-5</span>)
                             </span>
                         </div>
                         <div class="col-md-2">
                             <p>CON</p>
                             <span>
                                 <input type="number" id="abilityScore_constitution" min="1" max="30" step="1" value="1">
-                                (<span id="constitutionModifier">-5</span>)
+                                (<span id="constitutionModifier" class="abilityModifier">-5</span>)
                             </span>
                         </div>
                         <div class="col-md-2">
                             <p>INT</p>
                             <span>
                                 <input type="number" id="abilityScore_intelligence" min="1" max="30" step="1" value="1">
-                                (<span id="intelligenceModifier">-5</span>)
+                                (<span id="intelligenceModifier" class="abilityModifier">-5</span>)
                             </span>
                         </div>
                         <div class="col-md-2">
                             <p>WIS</p>
                             <span>
                                 <input type="number" id="abilityScore_wisdom" min="1" max="30" step="1" value="1">
-                                (<span id="wisdomModifier">-5</span>)
+                                (<span id="wisdomModifier" class="abilityModifier">-5</span>)
                             </span>
                         </div>
                         <div class="col-md-2">
                             <p>CHA</p>
                             <span>
                                 <input type="number" id="abilityScore_charisma" min="1" max="30" step="1" value="1">
-                                (<span id="charismaModifier">-5</span>)
+                                (<span id="charismaModifier" class="abilityModifier">-5</span>)
                             </span>
                         </div>
                     </div>
@@ -186,7 +195,7 @@
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
-                    <div id="challenge">
+                    <div id="challenge" class="thinBorder">
                         <span>
                             Challenge: 
                             <select name="challengeRating" id="challengeRating">
@@ -194,7 +203,15 @@
                             </select>
                             <span id="xp"></span>
                         </span>
+                        <span id="attackBonus"></span>
+                        <span id="damageRound"></span>
+                        <span id="saveDC"></span>
                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
                     <div id="savingThrows" class="hidden thinBorder">
                         <p>Saving Throws</p>
                     </div>
