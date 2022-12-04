@@ -57,7 +57,7 @@ option {
     width: 55px;
 }
 #hpDice {
-    width: 65px;
+    width: 95px;
 }
 
  /* ability score mods */
@@ -112,4 +112,8 @@ input.movementSpeed {
     background-color: dimgrey;
     color: rgb(103, 101, 99);
     opacity: 1;
+}
+input#hpPercentage {
+    accent-color: var(--secondary-bg-color);
+    background: transparent;
 }

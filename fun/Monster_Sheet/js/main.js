@@ -73,13 +73,15 @@ $('select#challengeRating').on('change', function() { // set input fields based 
     } else {
         var hp = challengeRating[crValue].hp.split('-');
         
-        toggleACHP('enable');
         $('#hp').val(Math.round((parseInt(hp[0]) + parseInt(hp[1]))/2));
         $('span#xp').text('(' + numberWithCommas(challengeRating[crValue].xp + ')')); // xp
         $('#armorClass').val(challengeRating[crValue].ac); // ac
         $('span#attackBonus').text('Attack bonus: ' + challengeRating[crValue].attackBonus);
         $('span#damageRound').text('Damage/round: ' + challengeRating[crValue].damageRound);
         $('span#saveDC').text('Save DC: ' + challengeRating[crValue].saveDC);
+
+        toggleACHP('enable');
+        calcHitDice();
     }
 });
 
@@ -100,6 +102,28 @@ for (i in challengeRating) {
 output += '</table>';
 
 $('div#crTable').html(output);
+
+$('select#size').on('change', function() { // apply hit dice based on selected size
+    if ($(this).val() == 'blank') {
+        $('input#hpDice')
+            .attr('disabled', 'disabled')
+            .attr('title', '#d#+#');
+    } else {
+        $('input#hpDice')
+            .removeAttr('disabled')
+            .removeAttr('title');
+
+        calcHitDice();
+    }
+});
+
+$('input#abilityScore_constitution').on('change', function() {
+    calcHitDice();
+});
+
+$('input#hpPercentage').on('change', function() {
+    calcHitDice();
+});
 
 $('#addSkill').on('click', function() {
     removeHidden('div#skills');
@@ -277,6 +301,35 @@ $('div#legendaries').delegate('button[id^="removeLegendary"]','click', function(
 });
 
 // functions
+
+function calcHitDice() { // calcualate which hit dice to use and how many to get to the average listed in the HP input field
+    if ($('select#size').val() != 'blank') {
+        for (i in hitDice) {
+            if ($('select#size').val() == i) {
+                var hitDie = parseInt(hitDice[i].hitDie.split('d')[1]);
+                var avgHP = hitDice[i].average;
+                break;
+            }
+        }
+    
+        var hpPercentage = $('input#hpPercentage').val() / 100;
+        var conModifier = parseInt($('#constitutionModifier').text());
+        var hp = parseInt($('input#hp').val());
+        var times = Math.round((hp / avgHP) * hpPercentage);
+    
+        if (times == 0) {
+            times = 1;
+        }
+    
+        if (conModifier < 0) {
+            $('input#hpDice').val(times + 'd' + hitDie + conModifier);
+        } else if (conModifier == 0) {
+            $('input#hpDice').val(times + 'd' + hitDie);
+        } else {
+            $('input#hpDice').val(times + 'd' + hitDie + '+' + conModifier);
+        }
+    }
+}
 
 function toggleACHP(state) {
     if (state == 'enable') {
