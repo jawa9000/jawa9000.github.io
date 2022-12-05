@@ -459,4 +459,4 @@ var skills = {
     }
 }
 
-var abilities = ['Strength', 'Dexterity', 'Intelligence', 'Wisdom', 'Charisma'];
+var abilities = ['Strength', 'Dexterity', 'Constitution', 'Intelligence', 'Wisdom', 'Charisma'];
