@@ -60,6 +60,35 @@ option {
     width: 95px;
 }
 
+/* input */
+input {
+    width: 60px;
+}
+input#creatureName {
+    width: 100%;
+}
+input.standardWidth {
+    width: 60px;
+}
+input.width200 {
+    width: 200px;
+}
+input.width250 {
+    width: 250px;
+}
+input.movementSpeed {
+    width: 60px;
+}
+*:disabled {
+    background-color: dimgrey;
+    color: rgb(103, 101, 99);
+    opacity: 1;
+}
+input#hpPercentage {
+    accent-color: var(--secondary-bg-color);
+    background: transparent;
+}
+
  /* ability score mods */
  #armorClass, #abilityScore_strength, #abilityScore_dexterity, #abilityScore_constitution, #abilityScore_intelligence, #abilityScore_wisdom, #abilityScore_charisma {
     width: 45px;
@@ -104,16 +133,3 @@ a:hover {
     color: var(--secondary-bg-color);
 }
 
-/* input */
-input.movementSpeed {
-    width: 60px;
-}
-*:disabled {
-    background-color: dimgrey;
-    color: rgb(103, 101, 99);
-    opacity: 1;
-}
-input#hpPercentage {
-    accent-color: var(--secondary-bg-color);
-    background: transparent;
-}
