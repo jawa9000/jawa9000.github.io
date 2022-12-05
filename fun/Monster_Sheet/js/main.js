@@ -36,7 +36,8 @@ $('input[id^="abilityScore_"]').on('change', function() {
         $('#' + ability + 'Modifier').text('+10');
     }
 
-    // ** add routine to update any skill mods that may have been added
+    multipleUpdateSavingThrows(); // update any saving throw mods that may have been added
+    multipleUpdateSkillModifier(); // update any skill mods that may have been added
 
 });
 
@@ -76,12 +77,17 @@ $('select#challengeRating').on('change', function() { // set input fields based 
         $('#hp').val(Math.round((parseInt(hp[0]) + parseInt(hp[1]))/2));
         $('span#xp').text('(' + numberWithCommas(challengeRating[crValue].xp + ')')); // xp
         $('#armorClass').val(challengeRating[crValue].ac); // ac
-        $('span#attackBonus').text('Attack bonus: ' + challengeRating[crValue].attackBonus);
-        $('span#damageRound').text('Damage/round: ' + challengeRating[crValue].damageRound);
+        $('span#profBonus').text('Prof bonus: ' + challengeRating[crValue].profBonus + ', ');
+        $('span#ac').text('AC: ' + challengeRating[crValue].ac + ', ');
+        $('span#hp').text('HP: ' + challengeRating[crValue].hp + ', ');
+        $('span#attackBonus').text('Attack bonus: ' + challengeRating[crValue].attackBonus + ', ');
+        $('span#damageRound').text('Damage/round: ' + challengeRating[crValue].damageRound + ', ');
         $('span#saveDC').text('Save DC: ' + challengeRating[crValue].saveDC);
 
         toggleACHP('enable');
         calcHitDice();
+        multipleUpdateSavingThrows();
+        multipleUpdateSkillModifier();
     }
 });
 
@@ -120,16 +126,14 @@ $('select#size').on('change', function() { // apply hit dice based on selected s
 $('input#abilityScore_constitution').on('change', function() {
     calcHitDice();
 });
-
 $('input#hpPercentage').on('change', function() {
     calcHitDice();
 });
-
 $('#addSkill').on('click', function() {
     removeHidden('div#skills');
 
     var next = $('div#skills > select').length + 1;
-    var output = '<div class="thinBorder"><select name="skill' + next + '" id="skill' + next + '">';
+    var output = '<div class="thinBorder"><select name="skill' + next + '" id="skill' + next + '" class="standardSpacing">';
 
     for (i in skills) {
         for (j in skills[i]) {
@@ -138,11 +142,10 @@ $('#addSkill').on('click', function() {
     }
     
     output += '</select><input type="number" id="skillBonus' + next + '" step="1" min="-5" max="10" value="">';
-    output += '<br/><button id="removeSkill">Remove</button></div>';
+    output += '<button id="removeSkill">Remove</button></div>';
     
     $('div#skills').append(output);
 });
-
 $('div#skills').delegate('select[id^="skill"]','change', function() { // Add bonuses to added skill
     var value = $(this).val();
 
@@ -157,25 +160,9 @@ $('div#skills').delegate('select[id^="skill"]','change', function() { // Add bon
         }
     }
 
-    var abilitiyModifier = 0;
-
-    $('span[id$="Modifier"').each(function() {
-        var id = $(this).attr('id').split('Modifier')[0];
-
-        if (id == selectedSkill) {
-            abilitiyModifier = parseInt($(this).text());
-        }
-    });
-
-    var cr = $('select#challengeRating').val();
-
-    for (i in challengeRating) {
-        if (cr == i) {
-            $('input#' + value).val(abilitiyModifier + challengeRating[i].profBonus);
-            break;
-        }
-    }
+    updateSkillModifier(value, selectedSkill)
 });
+
 $('div#skills').delegate('button[id^="removeSkill"]','click', function() { // deleted clicked parent element
     $(this).closest('div').remove(); 
 
@@ -183,16 +170,41 @@ $('div#skills').delegate('button[id^="removeSkill"]','click', function() { // de
 });
 
 $('#addSavingThrow').on('click', function() {
-    addSingularElement('div#savingThrows', 'Saving Throw +#', 'removeSavingThrows');
-    // ** redo this as it needs to have two fields: dropdown for ability and an input for modifier
+    removeHidden('div#savingThrows');
+
+    var next = $('select#savingAbility').length + 1;
+
+    var output = '<div class="thinBorder"><select name="savingAbility" id="savingAbility' + next + '"  class="standardSpacing"><option value="none"></option>';
+
+    for (i in abilities) {
+        output += '<option value="'  + abilities[i].toLowerCase() + '">'  + abilities[i] + '</option>';
+    }
+
+    output += '</select>';
+    output += '<input type="number" min="0" step="1" id="" class="standardWidth">';
+    output += '<button id="removeSavingThrows">Remove</button></div>'
+
+    $('div#savingThrows').append(output);
 });
+
+$('div#savingThrows').delegate('select[id^="savingAbility"]', 'change', function() {
+    var selected = $(this).val();
+    var inputId = selected.charAt(0).toUpperCase() + selected.slice(1);
+
+    $(this).next().attr('id', 'savingThrow' + inputId); // add id to newly created input as this input can be dynamically updated via ability score changes
+
+    updateSavingThrow(selected, inputId);
+
+    // var short = selected.charAt(0).toUpperCase() + selected.slice(1,3);
+});
+
 $('div#savingThrows').delegate('button[id^="removeSavingThrows"]','click', function() { // deleted clicked parent element
     $(this).closest('div').remove(); 
 
     addHidden('div#savingThrows > div', 'div#savingThrows'); // rehide savingThrows parent element
 });
 $('#addVulnerability').on('click', function() {
-    addSingularElement('div#vulnerabilities','Vulnerability type', 'removeVulnerabilities');
+    addSingularElement('div#vulnerabilities','Vulnerability type', 'removeVulnerabilities', 'width200');
 });
 $('div#vulnerabilities').delegate('button[id^="removeVulnerabilities"]','click', function() { // deleted clicked parent element
     $(this).closest('div').remove(); 
@@ -200,7 +212,7 @@ $('div#vulnerabilities').delegate('button[id^="removeVulnerabilities"]','click',
     addHidden('div#vulnerabilities > div', 'div#vulnerabilities'); // rehide vulnerabilities parent element
 });
 $('#addResistance').on('click', function() {
-    addSingularElement('div#resistances', 'Resistance type', 'removeResistances')
+    addSingularElement('div#resistances', 'Resistance type', 'removeResistances', 'width200')
 });
 $('div#resistances').delegate('button[id^="removeResistances"]','click', function() { // deleted clicked parent element
     $(this).closest('div').remove(); 
@@ -208,7 +220,7 @@ $('div#resistances').delegate('button[id^="removeResistances"]','click', functio
     addHidden('div#resistances > div', 'div#resistances'); // rehide resistances parent element
 });
 $('#addImmunity').on('click', function() {
-    addSingularElement('div#damageImmunity','Damage immunity type', 'removeDamageImmunity');
+    addSingularElement('div#damageImmunity','Damage immunity type', 'removeDamageImmunity', 'width250');
 });
 $('div#damageImmunity').delegate('button[id^="removeDamageImmunity"]','click', function() { // deleted clicked parent element
     $(this).closest('div').remove(); 
@@ -216,7 +228,7 @@ $('div#damageImmunity').delegate('button[id^="removeDamageImmunity"]','click', f
     addHidden('div#damageImmunity > div', 'div#damageImmunity'); // rehide damageImmunity parent element
 });
 $('#addConditionImmunity').on('click', function() {
-    addSingularElement('div#conditionImmunity', 'Condition immunity type', 'removeConditionImmunity');
+    addSingularElement('div#conditionImmunity', 'Condition immunity type', 'removeConditionImmunity', 'width250');
 });
 $('div#conditionImmunity').delegate('button[id^="removeConditionImmunity"]','click', function() { // deleted clicked parent element
     $(this).closest('div').remove(); 
@@ -224,7 +236,7 @@ $('div#conditionImmunity').delegate('button[id^="removeConditionImmunity"]','cli
     addHidden('div#conditionImmunity > div', 'div#conditionImmunity'); // rehide conditionImmunity parent element
 });
 $('#addSense').on('click', function() {
-    addSingularElement('div#senses', 'sense', 'removeSense');
+    addSingularElement('div#senses', 'Sense', 'removeSense', 'width200');
 });
 $('div#senses').delegate('button[id^="removeSense"]','click', function() { // deleted clicked parent element
     $(this).closest('div').remove(); 
@@ -232,7 +244,7 @@ $('div#senses').delegate('button[id^="removeSense"]','click', function() { // de
     addHidden('div#senses > div', 'div#senses'); // rehide sense parent element
 });
 $('#addLanguage').on('click', function() {
-    addSingularElement('div#languages', 'languages', 'removeLanguage');
+    addSingularElement('div#languages', 'Language', 'removeLanguage', 'width200');
 });
 $('div#languages').delegate('button[id^="removeLanguage"]','click', function() { // delete clicked characteristic
     $(this).closest('div').remove(); 
@@ -243,7 +255,7 @@ $('#addMovement').on('click', function() { // add new movement elements
     removeHidden('div#movements');
 
     var output = '<div class="thinBorder">';
-    output += '<input type="text" class="standardSpacing" placeholder="Movement type">';
+    output += '<input type="text" class="standardSpacing width200" placeholder="Movement type">';
     output += '<input type="number" min="0" step="1" class="movementSpeed">'
     
     output += '<button id="removeMovement">Remove</button></div>';
@@ -256,7 +268,7 @@ $('div#movements').delegate('button[id^="removeMovement"]','click', function() {
     addHidden('div#movements > div', 'div#movements'); // rehide movement parent element
 });
 $('#addCharacteristic').on('click', function() { // add new characteristic elements
-    addDoubleElement('div#characteristics', 'characteristicDescription', 'Characteristic title', 'Characteristic description', 'removeCharacteristic');
+    addDoubleElement('div#characteristics', 'characteristicDescription', 'Characteristic title', 'Characteristic description', 'removeCharacteristic', 'width250');
 });
 $('div#characteristics').delegate('button[id^="removeCharacteristic"]','click', function() { // delete clicked characteristic
     $(this).closest('div').remove(); 
@@ -264,7 +276,7 @@ $('div#characteristics').delegate('button[id^="removeCharacteristic"]','click', 
     addHidden('div#characteristics > div', 'div#characteristics'); // rehide characteristic parent element
 });
 $('#addActions').on('click', function() {
-    addDoubleElement('div#actions', 'actionDescription', 'Action title', 'Action description', 'removeAction');
+    addDoubleElement('div#actions', 'actionDescription', 'Action title', 'Action description', 'removeAction', 'width250');
 });
 $('div#actions').delegate('button[id^="removeAction"]','click', function() { // delete clicked action
     $(this).closest('div').remove(); 
@@ -272,7 +284,7 @@ $('div#actions').delegate('button[id^="removeAction"]','click', function() { // 
     addHidden('div#actions > div', 'div#actions'); // rehide actions parent element
 });
 $('#addReaction').on('click', function() {
-    addDoubleElement('div#reactions', 'reactionDescription', 'Reaction title', 'Reaction description', 'removeReaction');
+    addDoubleElement('div#reactions', 'reactionDescription', 'Reaction title', 'Reaction description', 'removeReaction', 'width250');
 });
 $('div#reactions').delegate('button[id^="removeReaction"]','click', function() { // delete clicked reaction
     $(this).closest('div').remove(); 
@@ -280,7 +292,7 @@ $('div#reactions').delegate('button[id^="removeReaction"]','click', function() {
     addHidden('div#reactions > div', 'div#reactions'); // rehide reactions parent element
 });
 $('#addBonus').on('click', function() {
-    addDoubleElement('div#bonuses', 'bonusDescription', 'Bonus title', 'Bonus description', 'removeBonus');
+    addDoubleElement('div#bonuses', 'bonusDescription', 'Bonus title', 'Bonus description', 'removeBonus', 'width250');
 });
 $('div#bonuses').delegate('button[id^="removeBonus"]','click', function() { // delete clicked bonus
     $(this).closest('div').remove(); 
@@ -292,7 +304,7 @@ $('#addLegendary').on('click', function() {
         $('div#legendaries').append('<textarea id="legendaryMainDescription" name="legendaryMainDescription" class="standardSpacing textareaDescription" placeholder="Legendary description overview"/><br/>'); 
     }
 
-    addDoubleElement('div#legendaries', 'legendaryDescriptin', 'Legendgary title', 'Legendary description', 'removeLegendary');
+    addDoubleElement('div#legendaries', 'legendaryDescriptin', 'Legendgary title', 'Legendary description', 'removeLegendary', 'width250');
 });
 $('div#legendaries').delegate('button[id^="removeLegendary"]','click', function() { // delete clicked legendary
     $(this).closest('div').remove(); 
@@ -300,7 +312,97 @@ $('div#legendaries').delegate('button[id^="removeLegendary"]','click', function(
     addHidden('div#legendaries > div', 'div#legendaries'); // rehide bonus parent element
 });
 
+// ** to-do list
+/*
+    add print functionality
+        grab every input element (and some spans) into an object
+        create a view that printer-friendly and has the correct formatting for a creature sheet
+        drop all data into sheet
+
+    add link to instructions
+    
+    future
+    * create a node.js version
+    * create a library of creature sheets
+    * list all creatures
+    * Use an existing creature as a template to create another (template)
+    * basic CRUD operations on creature sheets
+    * Export as JSON, image(?), and PDF
+*/
+
+
 // functions
+
+function multipleUpdateSkillModifier() {
+    if ($('#crOverview').attr('checked') == 'checked') {
+        $('select[id^="skill"]').each(function() {
+            var value = $(this).val();
+    
+            for (i in skills) {
+                for (j in skills[i]) {
+                    if (value == skills[i][j].simple) {
+                        var selectedSkill = i;
+                        break;
+                    }
+                }
+            }
+    
+            updateSkillModifier(value, selectedSkill);
+        });
+    }
+}
+
+function updateSkillModifier(value, selectedSkill) {
+    if ($('#crOverview').attr('checked') == 'checked') {
+        var abilitiyModifier = 0;
+
+        $('span[id$="Modifier"]').each(function() {
+            if ($(this).attr('id').split('Modifier')[0] == selectedSkill) {
+                abilitiyModifier = parseInt($(this).text());
+            }
+        });
+
+        var cr = $('select#challengeRating').val();
+
+        for (i in challengeRating) {
+            if (cr == i) {
+                $('input#' + value).val(abilitiyModifier + challengeRating[i].profBonus);
+                break;
+            }
+        }   
+    }
+}
+
+function multipleUpdateSavingThrows() {
+    if ($('#crOverview').attr('checked') == 'checked') {
+        $('select[id^="savingAbility"').each(function() {
+            var selected = $(this).val();
+            var inputId = selected.charAt(0).toUpperCase() + selected.slice(1);
+    
+            updateSavingThrow(selected, inputId);
+        });   
+    }
+}
+
+function updateSavingThrow(selected, inputId) { // update saving throw with revised values from profBonus and ability modifier
+    if ($('#crOverview').attr('checked') == 'checked') {
+        var cr = $('select#challengeRating').val(); // get the CR value; prof bonus (profBonus)
+
+        if (cr != 'none') {
+            var abilityModifier = parseInt($('#' + selected + 'Modifier').text());
+
+            for (i in challengeRating) {
+                if (cr == i) {
+                    var profBonus = challengeRating[i].profBonus;
+                    break;
+                }
+            }
+
+            $('input#savingThrow' + inputId).val(profBonus + abilityModifier);
+        }    
+    }
+    
+}
 
 function calcHitDice() { // calcualate which hit dice to use and how many to get to the average listed in the HP input field
     if ($('select#size').val() != 'blank') {
@@ -355,20 +457,20 @@ function numberWithCommas(x) {
     return parts.join(".");
 }
 
-function addDoubleElement(elemId, name, placeholderTitle, placeholderDesc, removeId) { // creates an input,  textarea, and delete button elements for any feature type that requires a title and a description
+function addDoubleElement(elemId, name, placeholderTitle, placeholderDesc, removeId, width) { // creates an input,  textarea, and delete button elements for any feature type that requires a title and a description
     removeHidden(elemId);
 
-    var output = '<div class="thinBorder"><input type="text" class="standardSpacing actionTitle" placeholder="' + placeholderTitle + '"><br/>';
+    var output = '<div class="thinBorder"><input type="text" class="standardSpacing actionTitle ' + width + '" placeholder="' + placeholderTitle + '"><br/>';
     output += '<textarea name="' + name + '" class="standardSpacing textareaDescription" placeholder="' + placeholderDesc + '"/><br/>';
     output += '<button id="' + removeId + '">Remove</button></div>';
 
     $(elemId).append(output);
 }
 
-function addSingularElement(elemId, placeholder, removeId) { // creates an input element and deletion button for any feature type that requires only a description
+function addSingularElement(elemId, placeholder, removeId, width) { // creates an input element and deletion button for any feature type that requires only a description
     removeHidden(elemId);
 
-    var output = '<div class="thinBorder"><input type="text" placeholder="' + placeholder + '"><button id="' + removeId + '">Remove</button></div>'
+    var output = '<div class="thinBorder"><input type="text" class="' + width + '" placeholder="' + placeholder + '"><button id="' + removeId + '">Remove</button></div>'
 
     $(elemId).append(output);
 }
