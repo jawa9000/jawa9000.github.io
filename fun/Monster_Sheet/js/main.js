@@ -355,9 +355,7 @@ $('div#legendaries').delegate('button[id^="removeLegendary"]','click', function(
     addHidden('div#legendaries > div', 'div#legendaries'); // rehide bonus parent element
 });
 
-var creatureObj = {}; // object to hold all data for print
-
-
+var creatureObj = {}; // object to hold all data for print ** remove this once I'm done testing
 
 $('button#print').on('click', function() {
     creatureObj = {}; // clear obj
@@ -385,10 +383,41 @@ $('button#print').on('click', function() {
             creatureObj.challengeRating = challengeRating[i].cr;
         }
     }
-    
-
 
     console.log(creatureObj)
+    
+    
+    $('div#print').removeClass('hidden'); // reveal the print version
+    $('p#returnNotice').delay(2000).fadeOut('slow'); // show notice on how to get back to editor
+    $('div#editor').addClass('hidden'); // hide editor content
+
+    $('h1#creatureName').text(creatureObj.creatureName);
+    
+    // display text and figure out which way to float the image (if any)
+    if (creatureObj.creatureImage) { // ** this doesn't detect properly. Rethink it!
+        console.log(creatureObj.creatureImage)
+        if (creatureObj.imageAlignment == 'right') {
+            var output = '<img src="creatureObj.creatureImage" style="float: right;"><p>' + creatureObj.creatureDescription + '</p>';
+        } else if (creatureObj.imageAlignment == 'left') {
+            var output = '<img src="creatureObj.creatureImage" style="float: left;"><p>' + creatureObj.creatureDescription + '</p>';
+        } else if (creatureObj.imageAlignment == 'top') {
+            var output = '<img src="creatureObj.creatureImage"><p>' + creatureObj.creatureDescription + '</p>';
+        } else if (creatureObj.imageAlignment == 'bottom') {
+            var output = '<p>' + creatureObj.creatureDescription + '</p><img src="creatureObj.creatureImage">';
+        }
+    } else { // no image
+        var output = '<p>' + creatureObj.creatureDescription + '</p><img src="creatureObj.creatureImage">';
+    }
+
+    $('div#descNImage').html(output);
+    
+});
+
+$(document).on('keydown', function(event) {
+    if (event.key == "Escape") {
+        $('div#editor').removeClass('hidden');
+        $('div#print').addClass('hidden');
+    }
 });
 
 
