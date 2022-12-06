@@ -74,9 +74,9 @@ $('select#challengeRating').on('change', function() { // set input fields based 
     } else {
         var hp = challengeRating[crValue].hp.split('-');
         
-        $('#hp').val(Math.round((parseInt(hp[0]) + parseInt(hp[1]))/2));
+        $('#hitPoints').val(Math.round((parseInt(hp[0]) + parseInt(hp[1]))/2));
         $('span#xp').text('(' + numberWithCommas(challengeRating[crValue].xp + ')')); // xp
-        $('#armorClass').val(challengeRating[crValue].ac); // ac
+        $('#armorClass').val(challengeRating[crValue].ac); // armor class
         $('span#profBonus').text('Prof bonus: ' + challengeRating[crValue].profBonus + ', ');
         $('span#ac').text('AC: ' + challengeRating[crValue].ac + ', ');
         $('span#hp').text('HP: ' + challengeRating[crValue].hp + ', ');
@@ -88,6 +88,14 @@ $('select#challengeRating').on('change', function() { // set input fields based 
         calcHitDice();
         multipleUpdateSavingThrows();
         multipleUpdateSkillModifier();
+
+        for (i in challengeRating) { // update the print version
+            if ($('#challengeRating').val() == i) {
+                $('#print span#xp').text('Challenge ' + challengeRating[i].cr + ' ('+ numberWithCommas(challengeRating[crValue].xp + ')'));
+                break;
+            }
+        }
+        
     }
 });
 
@@ -121,6 +129,8 @@ $('select#size').on('change', function() { // apply hit dice based on selected s
 
         calcHitDice();
     }
+
+    $('#print span#creatuerSize').text($(this).val()); // update print version for size
 });
 
 $('input#abilityScore_constitution').on('change', function() {
@@ -144,6 +154,10 @@ $('#addSkill').on('click', function() {
     output += '<button id="removeSkill">Remove</button></div>';
     
     $('div#skills').append(output);
+
+    // ** update print version
+    // get all skills and put that in an object (skill, mod)
+    // turn this into a function as it will be used multiple times
 });
 $('div#skills').delegate('select[id^="skill"]','change', function() { // Add bonuses to added skill
     var value = $(this).val();
@@ -161,13 +175,16 @@ $('div#skills').delegate('select[id^="skill"]','change', function() { // Add bon
         }
     }
 
-    updateSkillModifier(value, selectedSkill)
+    updateSkillModifier(value, selectedSkill);
+
+    // ** update print version
 });
 
 $('div#skills').delegate('button[id^="removeSkill"]','click', function() { // deleted clicked parent element
     $(this).closest('div').remove(); 
 
     addHidden('div#skills > div', 'div#skills'); // rehide skills parent element
+    // ** update print version
 });
 
 $('#addSavingThrow').on('click', function() {
@@ -186,6 +203,8 @@ $('#addSavingThrow').on('click', function() {
     output += '<button id="removeSavingThrows">Remove</button></div>'
 
     $('div#savingThrows').append(output);
+
+    // ** update print version
 });
 
 $('div#savingThrows').delegate('select[id^="savingAbility"]', 'change', function() { // assign proper id
@@ -199,78 +218,118 @@ $('div#savingThrows').delegate('select[id^="savingAbility"]', 'change', function
     updateSavingThrow(selected, inputId);
 
     // var short = selected.charAt(0).toUpperCase() + selected.slice(1,3);
+
+    // ** update print version
 });
 
 $('div#savingThrows').delegate('button[id^="removeSavingThrows"]','click', function() { // deleted clicked parent element
     $(this).closest('div').remove(); 
 
     addHidden('div#savingThrows > div', 'div#savingThrows'); // rehide savingThrows parent element
+
+    // ** update print version
 });
 $('#addVulnerability').on('click', function() {
     addSingularElement('div#vulnerabilities','Vulnerability type', 'removeVulnerabilities', 'width200', 'vulnerability');
+
+    // ** update print version
 });
 $('div#vulnerabilities').delegate('input', 'change', function() { // assign proper id
     assignIdSingular($(this), 'vulnerability_', $(this).val());
+
+    // ** update print version
 });
 $('div#vulnerabilities').delegate('button[id^="removeVulnerabilities"]','click', function() { // deleted clicked parent element
     $(this).closest('div').remove(); 
 
     addHidden('div#vulnerabilities > div', 'div#vulnerabilities'); // rehide vulnerabilities parent element
+
+    // ** update print version
 });
 $('#addResistance').on('click', function() {
     addSingularElement('div#resistances', 'Resistance type', 'removeResistances', 'width200', 'resistance')
+    
+    // ** update print version
 });
 $('div#resistances').delegate('input', 'change', function() { // assign proper id
     assignIdSingular($(this), 'resistance_', $(this).val());
+
+    // ** update print version
 });
 $('div#resistances').delegate('button[id^="removeResistances"]','click', function() { // deleted clicked parent element
     $(this).closest('div').remove(); 
 
     addHidden('div#resistances > div', 'div#resistances'); // rehide resistances parent element
+
+    // ** update print version
 });
 $('#addImmunity').on('click', function() {
     addSingularElement('div#damageImmunity','Damage immunity type', 'removeDamageImmunity', 'width250', 'damageImmunity');
+
+    // ** update print version
 });
 $('div#damageImmunity').delegate('input', 'change', function() { // assign proper id
     assignIdSingular($(this), 'damageImmunity_', $(this).val());
+
+    // ** update print version
 });
 $('div#damageImmunity').delegate('button[id^="removeDamageImmunity"]','click', function() { // deleted clicked parent element
     $(this).closest('div').remove(); 
 
     addHidden('div#damageImmunity > div', 'div#damageImmunity'); // rehide damageImmunity parent element
+
+    // ** update print version
 });
 $('#addConditionImmunity').on('click', function() {
     addSingularElement('div#conditionImmunity', 'Condition immunity type', 'removeConditionImmunity', 'width250', 'conditionImmunity');
+
+    // ** update print version
 });
 $('div#conditionImmunity').delegate('input', 'change', function() { // assign proper id
     assignIdSingular($(this), 'conditionImmunity_', $(this).val());
+
+    // ** update print version
 });
 $('div#conditionImmunity').delegate('button[id^="removeConditionImmunity"]','click', function() { // deleted clicked parent element
     $(this).closest('div').remove(); 
 
     addHidden('div#conditionImmunity > div', 'div#conditionImmunity'); // rehide conditionImmunity parent element
+
+    // ** update print version
 });
 $('#addSense').on('click', function() {
     addSingularElement('div#senses', 'Sense', 'removeSense', 'width200', 'sense');
+
+    // ** update print version
 });
 $('div#senses').delegate('input', 'change', function() { // assign proper id
     assignIdSingular($(this), 'sense_', $(this).val());
+
+    // ** update print version
 });
 $('div#senses').delegate('button[id^="removeSense"]','click', function() { // deleted clicked parent element
     $(this).closest('div').remove(); 
 
     addHidden('div#senses > div', 'div#senses'); // rehide sense parent element
+
+    // ** update print version
 });
 $('#addLanguage').on('click', function() {
     addSingularElement('div#languages', 'Language', 'removeLanguage', 'width200', 'language');
+
+    // ** update print version
 });
 $('div#languages').delegate('input', 'change', function() { // assign proper id
     assignIdSingular($(this), 'language_', $(this).val());
+
+    // ** update print version
 });
 $('div#languages').delegate('button[id^="removeLanguage"]','click', function() { // delete clicked characteristic
     $(this).closest('div').remove(); 
 
     addHidden('div#languages > div', 'div#languages'); // rehide characteristic parent element
+
+    // ** update print version
 });
 $('#addMovement').on('click', function() { // add new movement elements
     removeHidden('div#movements');
@@ -282,43 +341,63 @@ $('#addMovement').on('click', function() { // add new movement elements
     output += '<button id="removeMovement">Remove</button></div>';
 
     $('div#movements').append(output);
+
+    // ** update print version
 });
 $('div#movements').delegate('input[id^="movementType"]', 'change', function() { // get the value of the first input field and use that as an id for both inputs
     var value = $(this).val();
 
     $(this).attr('id', 'movementType_' + value);
     $(this).next().attr('id', 'movementSpeed_' + value);
+
+    // ** update print version
 });
 $('div#movements').delegate('button[id^="removeMovement"]','click', function() { // delete clicked movement
     $(this).closest('div').remove(); 
 
     addHidden('div#movements > div', 'div#movements'); // rehide movement parent element
+
+    // ** update print version
 });
 $('#addCharacteristic').on('click', function() { // add new characteristic elements
     addDoubleElement('div#characteristics', 'characteristicDescription', 'Characteristic title', 'Characteristic description', 'removeCharacteristic', 'width250', 'characteristic');
+
+    // ** update print version
 });
 $('div#characteristics').delegate('input', 'change', function() { // assign proper id
     assignIdDouble($(this), 'characteristicText_', 'characteristicTitle_', $(this).val());
+
+    // ** update print version
 });
 
 $('div#characteristics').delegate('button[id^="removeCharacteristic"]','click', function() { // delete clicked characteristic
     $(this).closest('div').remove(); 
 
     addHidden('div#characteristics > div', 'div#characteristics'); // rehide characteristic parent element
+
+    // ** update print version
 });
 $('#addActions').on('click', function() {
     addDoubleElement('div#actions', 'actionDescription', 'Action title', 'Action description', 'removeAction', 'width250', 'action');
+
+    // ** update print version
 });
 $('div#actions').delegate('input', 'change', function() { // assign proper id
     assignIdDouble($(this), 'actionText_', 'actionTitle_', $(this).val());
+
+    // ** update print version
 });
 $('div#actions').delegate('button[id^="removeAction"]','click', function() { // delete clicked action
     $(this).closest('div').remove(); 
 
     addHidden('div#actions > div', 'div#actions'); // rehide actions parent element
+
+    // ** update print version
 });
 $('#addReaction').on('click', function() {
     addDoubleElement('div#reactions', 'reactionDescription', 'Reaction title', 'Reaction description', 'removeReaction', 'width250', 'reaction');
+
+    // ** update print version
 });
 $('div#reactions').delegate('input', 'change', function() { // assign proper id
     assignIdDouble($(this), 'reactionText_', 'reactionTitle_', $(this).val());
@@ -327,17 +406,25 @@ $('div#reactions').delegate('button[id^="removeReaction"]','click', function() {
     $(this).closest('div').remove(); 
 
     addHidden('div#reactions > div', 'div#reactions'); // rehide reactions parent element
+
+    // ** update print version
 });
 $('#addBonus').on('click', function() {
     addDoubleElement('div#bonuses', 'bonusDescription', 'Bonus title', 'Bonus description', 'removeBonus', 'width250', 'bonus');
+
+    // ** update print version
 });
 $('div#bonuses').delegate('input', 'change', function() { // assign proper id
     assignIdDouble($(this), 'bonusText_', 'bonusTitle_', $(this).val());
+
+    // ** update print version
 });
 $('div#bonuses').delegate('button[id^="removeBonus"]','click', function() { // delete clicked bonus
     $(this).closest('div').remove(); 
 
     addHidden('div#bonuses > div', 'div#bonuses'); // rehide bonus parent element
+
+    // ** update print version
 });
 $('#addLegendary').on('click', function() {
     if ($('#legendaryMainDescription').length == 0) {
@@ -345,71 +432,96 @@ $('#addLegendary').on('click', function() {
     }
 
     addDoubleElement('div#legendaries', 'legendaryDescription', 'Legendgary title', 'Legendary description', 'removeLegendary', 'width250', 'legendary');
+
+    // ** update print version
 });
 $('div#legendaries').delegate('input', 'change', function() { // assign proper id
     assignIdDouble($(this), 'legendaryText_', 'legendaryTitle_', $(this).val());
+
+    // ** update print version
 });
 $('div#legendaries').delegate('button[id^="removeLegendary"]','click', function() { // delete clicked legendary
     $(this).closest('div').remove(); 
 
     addHidden('div#legendaries > div', 'div#legendaries'); // rehide bonus parent element
+
+    // ** update print version
 });
 
 var creatureObj = {}; // object to hold all data for print ** remove this once I'm done testing
 
 $('button#print').on('click', function() {
-    creatureObj = {}; // clear obj
+    // creatureObj = {}; // clear obj
 
-    $('input').each(function() { // grab all the values from input elements
-        getDataFields($(this).attr('id'), 'input#');
-    });
+    // $('div#editor input').each(function() { // grab all the values from input elements
+    //     // getDataFields($(this).attr('id'), 'input#');
+    //     // creatureObj[id] = $(elem + id).val();
+    //     // $('input#hp').val()
+    //     var id = $(this).attr('id');
+    //     var value = $(this).val()
 
-    $('span').each(function() { // grab all the text from span elements
-        getDataFields($(this).attr('id'), 'span#');
-    });
+    //     console.log(id, value)
+    //     creatureObj[id] = value;
+    // });
 
-    $('select').each(function() { // grab all values from select elements
-        getDataFields($(this).attr('id'), 'select#');
-    });
+    // $('div#editor span').each(function() { // grab all the text from span elements
+    //     getDataFields($(this).attr('id'), 'span#');
+    // });
 
-    $('textarea').each(function() { // grab all textarea element data
-        getDataFields($(this).attr('id'), 'textarea#');
-    });
+    // $('div#editor select').each(function() { // grab all values from select elements
+    //     getDataFields($(this).attr('id'), 'select#');
+    // });
 
-    creatureObj.xp = $('span#xp').text().replace('(','').replace(')',''); // fix xp value
+    // $('div#editor textarea').each(function() { // grab all textarea element data
+    //     getDataFields($(this).attr('id'), 'textarea#');
+    // });
 
-    for (i in challengeRating) { // fix challenge rating
-        if ($('select#challengeRating').val() == i) {
-            creatureObj.challengeRating = challengeRating[i].cr;
-        }
-    }
+    // creatureObj.xp = $('span#xp').text().replace('(','').replace(')',''); // fix xp value
+    // creatureObj.armorClass = $('input#armorClass').val();
 
-    console.log(creatureObj)
+    // for (i in challengeRating) { // fix challenge rating
+    //     if ($('select#challengeRating').val() == i) {
+    //         creatureObj.challengeRating = challengeRating[i].cr;
+    //     }
+    // }
+
+    // console.log(creatureObj)
     
     
     $('div#print').removeClass('hidden'); // reveal the print version
     $('p#returnNotice').delay(2000).fadeOut('slow'); // show notice on how to get back to editor
     $('div#editor').addClass('hidden'); // hide editor content
 
-    $('h1#creatureName').text(creatureObj.creatureName);
+    // $('h1#creatureName').text(creatureObj.creatureName);
+    // $('#print span#creatuerSize').text(creatureObj.size);
+    // $('#print span#creatureType').text(creatureObj.type);
+    // $('#print span#creatureAlignment').text(creatureObj.alignment); // 'lg'
     
-    // display text and figure out which way to float the image (if any)
-    if (creatureObj.creatureImage) { // ** this doesn't detect properly. Rethink it!
-        console.log(creatureObj.creatureImage)
-        if (creatureObj.imageAlignment == 'right') {
-            var output = '<img src="creatureObj.creatureImage" style="float: right;"><p>' + creatureObj.creatureDescription + '</p>';
-        } else if (creatureObj.imageAlignment == 'left') {
-            var output = '<img src="creatureObj.creatureImage" style="float: left;"><p>' + creatureObj.creatureDescription + '</p>';
-        } else if (creatureObj.imageAlignment == 'top') {
-            var output = '<img src="creatureObj.creatureImage"><p>' + creatureObj.creatureDescription + '</p>';
-        } else if (creatureObj.imageAlignment == 'bottom') {
-            var output = '<p>' + creatureObj.creatureDescription + '</p><img src="creatureObj.creatureImage">';
-        }
-    } else { // no image
-        var output = '<p>' + creatureObj.creatureDescription + '</p><img src="creatureObj.creatureImage">';
-    }
+    /* ** disable the print button if the following fields are blank and add a warning that these fields need to be updated
+        input#creatureName
+        select#size
+        select#type
+        select#alignment
+    */
 
-    $('div#descNImage').html(output);
+    
+    // if (creatureObj.creatureImage != '') { // display text and figure out which way to float the image (if any)
+    //     // console.log(creatureObj.creatureImage)
+    //     var path = creatureObj.creatureImage.split('\\')[2];
+    //     if (creatureObj.imageAlignment == 'right') {
+    //         var output = '<img src="' + path + '" style="float: right;"><p>' + creatureObj.creatureDescription + '</p>';
+    //     } else if (creatureObj.imageAlignment == 'left') {
+    //         var output = '<img src="' + path + '" style="float: left;"><p>' + creatureObj.creatureDescription + '</p>';
+    //     } else if (creatureObj.imageAlignment == 'top') {
+    //         var output = '<img src="' + path + '"><p>' + creatureObj.creatureDescription + '</p>';
+    //     } else if (creatureObj.imageAlignment == 'bottom') {
+    //         var output = '<p>' + creatureObj.creatureDescription + '</p><img src="' + path + '">';
+    //     }
+    // } else { // no image
+    //     var output = '<p>' + creatureObj.creatureDescription + '</p><img src="' + creatureObj.creatureImage + '">';
+    // }
+
+    // $('div#descNImage').html(output);
     
 });
 
@@ -443,7 +555,7 @@ $(document).on('keydown', function(event) {
 
 // functions
 
-function getDataFields(id, elem) { // grab all element data and put it in the creatureObj object
+function getDataFields(id, elem) { // grab all element data and put it in the creatureObj object)
     creatureObj[id] = $(elem + id).val();
 }
 
@@ -541,7 +653,7 @@ function calcHitDice() { // calcualate which hit dice to use and how many to get
     
         var hpPercentage = $('input#hpPercentage').val() / 100;
         var conModifier = parseInt($('#constitutionModifier').text());
-        var hp = parseInt($('input#hp').val());
+        var hp = parseInt($('input#hitPoints').val());
         var times = Math.round((hp / avgHP) * hpPercentage);
     
         if (times == 0) {
@@ -549,11 +661,14 @@ function calcHitDice() { // calcualate which hit dice to use and how many to get
         }
     
         if (conModifier < 0) {
-            $('input#hpDice').val(times + 'd' + hitDie + conModifier);
+            $('input#hpDice').val(times + 'd' + hitDie + conModifier); // update edit version
+            $('#print span#hitDice').text(times + 'd' + hitDie + conModifier); // update print version
         } else if (conModifier == 0) {
-            $('input#hpDice').val(times + 'd' + hitDie);
+            $('input#hpDice').val(times + 'd' + hitDie); // update edit version
+            $('#print span#hitDice').text(times + 'd' + hitDie); // update print version
         } else {
-            $('input#hpDice').val(times + 'd' + hitDie + '+' + conModifier);
+            $('input#hpDice').val(times + 'd' + hitDie + '+' + conModifier); // update edit version
+            $('#print span#hitDice').text(times + 'd' + hitDie + '+' + conModifier); // update print version
         }
     }
 }
@@ -563,14 +678,14 @@ function toggleACHP(state) {
         $('input#armorClass')
             .removeAttr('disabled')
             .removeAttr('title');
-        $('input#hp')
+        $('input#hitPoints')
             .removeAttr('disabled')
             .removeAttr('title');
     } else {
         $('input#armorClass')
             .attr('disabled', 'disabled')
             .attr('title', 'Disabled until CR has been set');
-        $('input#hp')
+        $('input#hitPoints')
             .attr('disabled', 'disabled')
             .attr('title', 'Disabled until CR has been set');
     }
