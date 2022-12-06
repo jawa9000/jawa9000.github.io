@@ -52,7 +52,7 @@
                 <div class="row">
                     <div class="col-md-2"></div>
                     <div class="col-md-8">
-                        <input type="url" placeholder="Link to creature image" id="creatureImage" class="width250">
+                        <input type="file" placeholder="Link to creature image" id="creatureImage" class="width250" accept="image/png, image/jpeg">
                         <span>Image alignment</span>
                         <select name="imageAlignment" id="imageAlignment">
                             <option value="right">Right</option>
@@ -101,15 +101,15 @@
                             <span>Alignment<span>
                             <select name="alignment" id="alignment">
                                 <option value="blank"></option>
-                                <option value="lg">Lawful Good</option>
-                                <option value="ln">Lawful Neutral</option>
-                                <option value="le">Lawful Evil</option>
-                                <option value="ng">Neutral Good</option>
+                                <option value="lawful good">Lawful Good</option>
+                                <option value="lawful neutral">Lawful Neutral</option>
+                                <option value="lawful evil">Lawful Evil</option>
+                                <option value="neutral good">Neutral Good</option>
                                 <option value="neutral">Neutral</option>
-                                <option value="ne">Neutral Evil</option>
-                                <option value="cg">Chaotic Good</option>
-                                <option value="cn">Chaotic Neutral</option>
-                                <option value="ce">Chaotic Evil</option>
+                                <option value="neutral evil">Neutral Evil</option>
+                                <option value="chaotic good">Chaotic Good</option>
+                                <option value="chaotic neutral">Chaotic Neutral</option>
+                                <option value="chaotic evil">Chaotic Evil</option>
                                 <option value="unaligned">Unaligned</option>
                                 <option value="any">Any</option>
                             </select>
@@ -128,7 +128,7 @@
                     <div class="col-md-5">
                         <div class="thinBorder">
                             Hit Points
-                            <input type="number" id="hp" min="1" step="1" value="1" disabled title="Disabled until CR has been set">
+                            <input type="number" id="hitPoints" min="1" step="1" value="1" disabled title="Disabled until CR has been set">
                             (<input type="text" id="hpDice" min="1" step="1" value="#d#+#" disabled title="Disabled until Size has been set">)
                             <input type="range" id="hpPercentage" name="hpPercentage" min="1" max="100" value="50" step="1" title="HP percentage adjustor">
                         </div>
@@ -207,7 +207,7 @@
                                 <span id="xp"></span>
                             </span>
                             <span id="ac"></span>
-                            <span id="hp"></span>
+                            <span id="hitPoints"></span>
                             <span id="profBonus"></span>
                             <span id="attackBonus"></span>
                             <span id="damageRound"></span>
@@ -294,7 +294,33 @@
         </div>
         <div id="print" class="hidden">
             <p id="returnNotice">Use the 'esc' key to return to editor.</p>
-            <h1 id="creatureName"></h1>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <h1 id="creatureName"></h1>
+                        <p>
+                            <span id="creatuerSize"></span>
+                            <span id="creatureType"></span>
+                            <span id="creatureAlignment"></span>
+                        </p>
+                        <div class="breakline"></div>
+                        <p>
+                            Armor Class
+                            <span id="armorClass"></span>
+                        </p>
+                        <p>
+                            Hit Points
+                            <span id="hitPoints"></span>
+                            (<span id="hitDice"></span>)
+                        </p>
+
+                        <span id="xp"></span>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+            </div>
+            
             <div id="descNImage"></div>
         </div>
     </body>
