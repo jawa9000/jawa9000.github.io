@@ -137,3 +137,10 @@ a:hover {
 p#returnNotice {
     text-align: center;
 }
+
+img {
+    padding: 15px;
+}
+h1#creatureName {
+    text-align: left;
+}
