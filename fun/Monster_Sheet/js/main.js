@@ -155,10 +155,9 @@ $('#addSkill').on('click', function() {
     
     $('div#skills').append(output);
 
-    // ** update print version
-    // get all skills and put that in an object (skill, mod)
-    // turn this into a function as it will be used multiple times
+    updatePrintSkills(); // update print version
 });
+
 $('div#skills').delegate('select[id^="skill"]','change', function() { // Add bonuses to added skill
     var value = $(this).val();
 
@@ -176,15 +175,18 @@ $('div#skills').delegate('select[id^="skill"]','change', function() { // Add bon
     }
 
     updateSkillModifier(value, selectedSkill);
+    updatePrintSkills();  // update print version
+});
 
-    // ** update print version
+$('div#skills').delegate('select[id^="skill"] + input', 'change', function() { // update the print output on change of the skill value
+    updatePrintSkills(); // update print version
 });
 
 $('div#skills').delegate('button[id^="removeSkill"]','click', function() { // deleted clicked parent element
     $(this).closest('div').remove(); 
 
     addHidden('div#skills > div', 'div#skills'); // rehide skills parent element
-    // ** update print version
+    updatePrintSkills();  // update print version
 });
 
 $('#addSavingThrow').on('click', function() {
@@ -450,78 +452,18 @@ $('div#legendaries').delegate('button[id^="removeLegendary"]','click', function(
 
 var creatureObj = {}; // object to hold all data for print ** remove this once I'm done testing
 
-$('button#print').on('click', function() {
-    // creatureObj = {}; // clear obj
-
-    // $('div#editor input').each(function() { // grab all the values from input elements
-    //     // getDataFields($(this).attr('id'), 'input#');
-    //     // creatureObj[id] = $(elem + id).val();
-    //     // $('input#hp').val()
-    //     var id = $(this).attr('id');
-    //     var value = $(this).val()
-
-    //     console.log(id, value)
-    //     creatureObj[id] = value;
-    // });
-
-    // $('div#editor span').each(function() { // grab all the text from span elements
-    //     getDataFields($(this).attr('id'), 'span#');
-    // });
-
-    // $('div#editor select').each(function() { // grab all values from select elements
-    //     getDataFields($(this).attr('id'), 'select#');
-    // });
-
-    // $('div#editor textarea').each(function() { // grab all textarea element data
-    //     getDataFields($(this).attr('id'), 'textarea#');
-    // });
-
-    // creatureObj.xp = $('span#xp').text().replace('(','').replace(')',''); // fix xp value
-    // creatureObj.armorClass = $('input#armorClass').val();
-
-    // for (i in challengeRating) { // fix challenge rating
-    //     if ($('select#challengeRating').val() == i) {
-    //         creatureObj.challengeRating = challengeRating[i].cr;
-    //     }
-    // }
-
-    // console.log(creatureObj)
-    
-    
+$('button#print').on('click', function() {    
     $('div#print').removeClass('hidden'); // reveal the print version
     $('p#returnNotice').delay(2000).fadeOut('slow'); // show notice on how to get back to editor
     $('div#editor').addClass('hidden'); // hide editor content
 
-    // $('h1#creatureName').text(creatureObj.creatureName);
-    // $('#print span#creatuerSize').text(creatureObj.size);
-    // $('#print span#creatureType').text(creatureObj.type);
-    // $('#print span#creatureAlignment').text(creatureObj.alignment); // 'lg'
-    
+
     /* ** disable the print button if the following fields are blank and add a warning that these fields need to be updated
         input#creatureName
         select#size
         select#type
         select#alignment
     */
-
-    
-    // if (creatureObj.creatureImage != '') { // display text and figure out which way to float the image (if any)
-    //     // console.log(creatureObj.creatureImage)
-    //     var path = creatureObj.creatureImage.split('\\')[2];
-    //     if (creatureObj.imageAlignment == 'right') {
-    //         var output = '<img src="' + path + '" style="float: right;"><p>' + creatureObj.creatureDescription + '</p>';
-    //     } else if (creatureObj.imageAlignment == 'left') {
-    //         var output = '<img src="' + path + '" style="float: left;"><p>' + creatureObj.creatureDescription + '</p>';
-    //     } else if (creatureObj.imageAlignment == 'top') {
-    //         var output = '<img src="' + path + '"><p>' + creatureObj.creatureDescription + '</p>';
-    //     } else if (creatureObj.imageAlignment == 'bottom') {
-    //         var output = '<p>' + creatureObj.creatureDescription + '</p><img src="' + path + '">';
-    //     }
-    // } else { // no image
-    //     var output = '<p>' + creatureObj.creatureDescription + '</p><img src="' + creatureObj.creatureImage + '">';
-    // }
-
-    // $('div#descNImage').html(output);
     
 });
 
@@ -554,6 +496,14 @@ $(document).on('keydown', function(event) {
 
 
 // functions
+
+function updatePrintSkills() { // update the print page section for skills
+    $('span#skillList').text(''); // clear the skill list element for the print page
+
+    $('select[id^="skill"]').each(function() {
+        $('span#skillList').append($(this).val() + ' ' + $(this).next().val() + ' ');
+    });
+}
 
 function getDataFields(id, elem) { // grab all element data and put it in the creatureObj object)
     creatureObj[id] = $(elem + id).val();
