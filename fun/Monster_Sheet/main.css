@@ -144,3 +144,9 @@ img {
 h1#creatureName {
     text-align: left;
 }
+.bold {
+    font-weight: bold;
+}
+.center {
+    text-align: center;
+}
