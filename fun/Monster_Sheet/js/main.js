@@ -367,13 +367,16 @@ $('div#movements').delegate('button[id^="removeMovement"]','click', function() {
 $('#addCharacteristic').on('click', function() { // add new characteristic elements
     addDoubleElement('div#characteristics', 'characteristicDescription', 'Characteristic title', 'Characteristic description', 'removeCharacteristic', 'width250', 'characteristic');
 
-    // ** update print version
-    // ** use a variation of updatePrintFromDoubleInput to process this content
+    updatePrintFromInputNTextarea('div#characteristics div', 'div#characteristicList'); // update print version
 });
+
 $('div#characteristics').delegate('input', 'change', function() { // assign proper id
     assignIdDouble($(this), 'characteristicText_', 'characteristicTitle_', $(this).val());
 
-    // ** update print version
+    updatePrintFromInputNTextarea('div#characteristics div', 'div#characteristicList'); // update print version
+});
+$('div#characteristics').delegate('textarea', 'change', function() {
+    updatePrintFromInputNTextarea('div#characteristics div', 'div#characteristicList'); // update print version
 });
 
 $('div#characteristics').delegate('button[id^="removeCharacteristic"]','click', function() { // delete clicked characteristic
@@ -381,56 +384,67 @@ $('div#characteristics').delegate('button[id^="removeCharacteristic"]','click', 
 
     addHidden('div#characteristics > div', 'div#characteristics'); // rehide characteristic parent element
 
-    // ** update print version
+    updatePrintFromInputNTextarea('div#characteristics div', 'div#characteristicList'); // update print version
 });
 $('#addActions').on('click', function() {
     addDoubleElement('div#actions', 'actionDescription', 'Action title', 'Action description', 'removeAction', 'width250', 'action');
 
-    // ** update print version
+    updatePrintFromInputNTextarea('div#actions div', 'div#actionList'); // update print version
 });
 $('div#actions').delegate('input', 'change', function() { // assign proper id
     assignIdDouble($(this), 'actionText_', 'actionTitle_', $(this).val());
 
-    // ** update print version
+    updatePrintFromInputNTextarea('div#actions div', 'div#actionList'); // update print version
+});
+$('div#actions').delegate('textarea', 'change', function() {
+    updatePrintFromInputNTextarea('div#actions div', 'div#actionList'); // update print version
 });
 $('div#actions').delegate('button[id^="removeAction"]','click', function() { // delete clicked action
     $(this).closest('div').remove(); 
 
     addHidden('div#actions > div', 'div#actions'); // rehide actions parent element
 
-    // ** update print version
+    updatePrintFromInputNTextarea('div#actions div', 'div#actionList'); // update print version
 });
 $('#addReaction').on('click', function() {
     addDoubleElement('div#reactions', 'reactionDescription', 'Reaction title', 'Reaction description', 'removeReaction', 'width250', 'reaction');
 
-    // ** update print version
+    updatePrintFromInputNTextarea('div#reactions div', 'div#reactionList'); // update print version
 });
 $('div#reactions').delegate('input', 'change', function() { // assign proper id
     assignIdDouble($(this), 'reactionText_', 'reactionTitle_', $(this).val());
+
+    updatePrintFromInputNTextarea('div#reactions div', 'div#reactionList'); // update print version
 });
 $('div#reactions').delegate('button[id^="removeReaction"]','click', function() { // delete clicked reaction
     $(this).closest('div').remove(); 
 
     addHidden('div#reactions > div', 'div#reactions'); // rehide reactions parent element
 
-    // ** update print version
+    updatePrintFromInputNTextarea('div#reactions div', 'div#reactionList'); // update print version
+});
+$('div#reactions').delegate('textarea', 'change', function() {
+    updatePrintFromInputNTextarea('div#reactions div', 'div#reactionList'); // update print version
 });
 $('#addBonus').on('click', function() {
     addDoubleElement('div#bonuses', 'bonusDescription', 'Bonus title', 'Bonus description', 'removeBonus', 'width250', 'bonus');
 
-    // ** update print version
+    updatePrintFromInputNTextarea('div#bonuses div', 'div#bonusActionList'); // update print version
 });
 $('div#bonuses').delegate('input', 'change', function() { // assign proper id
     assignIdDouble($(this), 'bonusText_', 'bonusTitle_', $(this).val());
 
-    // ** update print version
+    updatePrintFromInputNTextarea('div#bonuses div', 'div#bonusActionList'); // update print version
 });
 $('div#bonuses').delegate('button[id^="removeBonus"]','click', function() { // delete clicked bonus
     $(this).closest('div').remove(); 
 
     addHidden('div#bonuses > div', 'div#bonuses'); // rehide bonus parent element
 
-    // ** update print version
+    updatePrintFromInputNTextarea('div#bonuses div', 'div#bonusActionList'); // update print version
+});
+$('div#bonuses').delegate('textarea', 'change', function() {
+    updatePrintFromInputNTextarea('div#bonuses div', 'div#bonusActionList'); // update print version
 });
 $('#addLegendary').on('click', function() {
     if ($('#legendaryMainDescription').length == 0) {
@@ -439,19 +453,29 @@ $('#addLegendary').on('click', function() {
 
     addDoubleElement('div#legendaries', 'legendaryDescription', 'Legendgary title', 'Legendary description', 'removeLegendary', 'width250', 'legendary');
 
-    // ** update print version
+    updateLegendaryPrint(); // update print version
 });
+
 $('div#legendaries').delegate('input', 'change', function() { // assign proper id
     assignIdDouble($(this), 'legendaryText_', 'legendaryTitle_', $(this).val());
 
-    // ** update print version
+    updateLegendaryPrint(); // update print version
 });
+
 $('div#legendaries').delegate('button[id^="removeLegendary"]','click', function() { // delete clicked legendary
     $(this).closest('div').remove(); 
 
     addHidden('div#legendaries > div', 'div#legendaries'); // rehide bonus parent element
 
-    // ** update print version
+    updateLegendaryPrint(); // update print version
+    
+    if ($('div#legendaries div').length == 0) {
+        $('div#legendaryActionList').html(''); // update print version
+    }
+});
+
+$('div#legendaries').delegate('textarea', 'change', function() {
+    updateLegendaryPrint(); // update print version
 });
 
 var creatureObj = {}; // object to hold all data for print ** remove this once I'm done testing
@@ -500,6 +524,31 @@ $(document).on('keydown', function(event) {
 
 
 // functions
+function updateLegendaryPrint() {
+    $('div#legendaryActionList').html(''); // clear target area so previous content doesn't show up again
+
+    var output = '<h2>Legendary Actions</h2>';
+
+    output += $('textarea#legendaryMainDescription').val();
+
+    $('div#legendaries div').each(function() {
+        output += '<p><span class="bold">' + $(this).find('input').val() + '</span> ' + $(this).find('textarea').val() + '</p>';
+    });
+
+    $('div#legendaryActionList').append(output);
+}
+
+function updatePrintFromInputNTextarea(source, target) {
+    $(target).html(''); // clear target area so previous content doesn't show up again
+
+    var output = '';
+
+    $(source).each(function() {
+        output += '<p><span class="bold">' + $(this).find('input').val() + '</span> ' + $(this).find('textarea').val() + '</p>';
+    });
+
+    $(target).append(output);
+}
 
 function updatePrintFromDoubleInput(source, target) {
     var output = '';
