@@ -41,6 +41,18 @@ $('input[id^="abilityScore_"]').on('change', function() {
     updatePrintFromDoubleInput('select[id^="savingThrow"]', 'span#savingThrowList'); // update print version
 });
 
+$('div input[id^="abilityScore"]').on('change', function() { // loop through each ability score and update the print version
+    $('div#printAbilityScores:nth-child(2)').html(''); // clear all print version ability scores
+    
+    $('div input[id^="abilityScore"]').each(function() {
+        var id = $(this).attr('id').split('_')[1]; // get raw id for ability score
+    
+        id = 'creature' + id[0].toUpperCase() + id.substring(1).slice(0,2); // convert id string to match the element id for the print version
+
+        $('div#' + id).html($(this).val() + ' (' + $(this).next().text() + ')');
+    });    
+});
+
 $('input#crOverview').on('change', function() { // toggle disable parameter for the input elements for AC and HP to allow/disallow editing based on the selection of Challenge Rating
     if ($(this).attr('checked') == 'checked') {
         $(this).removeAttr('checked');
