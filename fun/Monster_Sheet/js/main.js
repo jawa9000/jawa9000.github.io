@@ -38,7 +38,7 @@ $('input[id^="abilityScore_"]').on('change', function() {
 
     multipleUpdateSavingThrows(); // update any saving throw mods that may have been added
     multipleUpdateSkillModifier(); // update any skill mods that may have been added
-
+    updatePrintFromDoubleInput('select[id^="savingThrow"]', 'span#savingThrowList'); // update print version
 });
 
 $('input#crOverview').on('change', function() { // toggle disable parameter for the input elements for AC and HP to allow/disallow editing based on the selection of Challenge Rating
@@ -89,6 +89,7 @@ $('select#challengeRating').on('change', function() { // set input fields based 
         calcHitDice();
         multipleUpdateSavingThrows();
         multipleUpdateSkillModifier();
+        updatePrintFromDoubleInput('select[id^="savingThrow"]', 'span#savingThrowList'); // update print version
 
         for (i in challengeRating) { // update the print version
             if ($('#challengeRating').val() == i) {
@@ -156,8 +157,7 @@ $('#addSkill').on('click', function() {
     
     $('div#skills').append(output);
 
-    // updatePrintSkills(); // update print version
-    updatePrintSingleElement('span#skillList', 'select[id^="skill"]');
+    updatePrintSingleElement('span#skillList', 'select[id^="skill"]'); // update print version
 });
 
 $('div#skills').delegate('select[id^="skill"]','change', function() { // Add bonuses to added skill
@@ -177,8 +177,7 @@ $('div#skills').delegate('select[id^="skill"]','change', function() { // Add bon
     }
 
     updateSkillModifier(value, selectedSkill);
-    // updatePrintSkills();  // update print version
-    updatePrintSingleElement('span#skillList', 'select[id^="skill"]');
+    updatePrintSingleElement('span#skillList', 'select[id^="skill"]'); // update print version
 });
 
 $('div#skills').delegate('select[id^="skill"] + input', 'change', function() { // update the print output on change of the skill value
@@ -209,8 +208,7 @@ $('#addSavingThrow').on('click', function() {
 
     $('div#savingThrows').append(output);
 
-    // ** update print version
-    updatePrintSingleElement('span#savingThrowList', 'select[id^="savingThrow"]');
+    updatePrintFromDoubleInput('select[id^="savingThrow"]', 'span#savingThrowList'); // update print version
 });
 
 $('div#savingThrows').delegate('select[id^="savingAbility"]', 'change', function() { // assign proper id
@@ -225,22 +223,22 @@ $('div#savingThrows').delegate('select[id^="savingAbility"]', 'change', function
 
     // var short = selected.charAt(0).toUpperCase() + selected.slice(1,3);
 
-    updatePrintSingleElement('span#savingThrowList', 'select[id^="savingAbility"]'); // update print version
+    updatePrintFromDoubleInput('select[id^="savingThrow"]', 'span#savingThrowList'); // update print version
 });
 
 $('div#savingThrows').delegate('button[id^="removeSavingThrows"]','click', function() { // deleted clicked parent element
     $(this).closest('div').remove(); 
 
     addHidden('div#savingThrows > div', 'div#savingThrows'); // rehide savingThrows parent element
-
-    updatePrintSingleElement('span#savingThrowList', 'select[id^="savingAbility"]'); // update print version
+    updatePrintFromDoubleInput('select[id^="savingThrow"]', 'span#savingThrowList'); // update print version
 });
 
 $('div#savingThrows').delegate('select[id^="savingThrows"] + input', 'change', function() { // update the print output on change of the value
+    updatePrintFromDoubleInput('select[id^="savingThrow"]', 'span#savingThrowList'); // update print version
+});
 
-    updatePrintSingleElement('span#savingThrowList', 'select[id^="savingThrow"]'); // update print version
-    // ** doesn't work. Fix it!
-    // savingThrowValue_Intelligence
+$('div#savingThrows').delegate('input[id^="savingThrowValue"]', 'change', function() { // update the print output on change of the value
+    updatePrintFromDoubleInput('select[id^="savingThrow"]', 'span#savingThrowList'); // update print version
 });
 
 $('#addVulnerability').on('click', function() {
@@ -351,10 +349,10 @@ $('div#movements').delegate('input[id^="movementType"]', 'change', function() { 
     $(this).attr('id', 'movementType' + value);
     $(this).next().attr('id', 'movementSpeed_' + value);
 
-    updatePrintFromDoubleInput('input[id^="movementType"]', 'span#creatureSpeedList'); // update print version
+    updatePrintForMovement('input[id^="movementType"]', 'span#creatureSpeedList'); // update print version
 });
 $('div#movements').delegate('input[id^="movementSpeed"]', 'change', function() {
-    updatePrintFromDoubleInput('input[id^="movementType"]', 'span#creatureSpeedList'); // update print version
+    updatePrintForMovement('input[id^="movementType"]', 'span#creatureSpeedList'); // update print version
 });
 
 $('div#movements').delegate('button[id^="removeMovement"]','click', function() { // delete clicked movement
@@ -362,7 +360,7 @@ $('div#movements').delegate('button[id^="removeMovement"]','click', function() {
 
     addHidden('div#movements > div', 'div#movements'); // rehide movement parent element
 
-    updatePrintFromDoubleInput('input[id^="movementType"]', 'span#creatureSpeedList'); // update print version
+    updatePrintForMovement('input[id^="movementType"]', 'span#creatureSpeedList'); // update print version
 });
 $('#addCharacteristic').on('click', function() { // add new characteristic elements
     addDoubleElement('div#characteristics', 'characteristicDescription', 'Characteristic title', 'Characteristic description', 'removeCharacteristic', 'width250', 'characteristic');
@@ -551,6 +549,22 @@ function updatePrintFromInputNTextarea(source, target) {
 }
 
 function updatePrintFromDoubleInput(source, target) {
+    $(target).html(''); // clear target area so previous content doesn't show up again
+
+    var output = '';
+
+    $(source).each(function() {
+        // ** add routine to update saving throws based on changes to other abilities scores, prof bonus, etc.
+        output += $(this).val() + ' ';
+        output += $(this).next().val() + ', ';
+    });
+
+    output = output.slice(0, -2);
+
+    $(target).html(output);
+}
+
+function updatePrintForMovement(source, target) {
     var output = '';
 
     $(source).each(function() {
@@ -651,10 +665,13 @@ function multipleUpdateSavingThrows() {
     
             updateSavingThrow(selected, inputId);
         });   
+
+        updatePrintFromDoubleInput('select[id^="savingThrow"]', 'span#savingThrowList'); // update print version
     }
 }
 
 function updateSavingThrow(selected, inputId) { // update saving throw with revised values from profBonus and ability modifier
+    // ** note: wherever this is called, you'll need to call updatePrintFromDoubleInput() as well. 
     if ($('#crOverview').attr('checked') == 'checked') {
         var cr = $('select#challengeRating').val(); // get the CR value; prof bonus (profBonus)
 
