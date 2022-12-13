@@ -170,6 +170,8 @@ $('#addSkill').on('click', function() {
     $('div#skills').append(output);
 
     updatePrintSingleElement('span#skillList', 'select[id^="skill"]'); // update print version
+
+    $('span#skillList').parent().removeClass('hidden'); // redisplay parent element for print version
 });
 
 $('div#skills').delegate('select[id^="skill"]','change', function() { // Add bonuses to added skill
@@ -190,10 +192,14 @@ $('div#skills').delegate('select[id^="skill"]','change', function() { // Add bon
 
     updateSkillModifier(value, selectedSkill);
     updatePrintSingleElement('span#skillList', 'select[id^="skill"]'); // update print version
+
+    $('span#skillList').parent().removeClass('hidden'); // redisplay parent element for print version
 });
 
 $('div#skills').delegate('select[id^="skill"] + input', 'change', function() { // update the print output on change of the skill value
     updatePrintSingleElement('span#skillList', 'select[id^="skill"]');
+
+    $('span#skillList').parent().removeClass('hidden'); // redisplay parent element for print version
 });
 
 $('div#skills').delegate('button[id^="removeSkill"]','click', function() { // deleted clicked parent element
@@ -201,6 +207,8 @@ $('div#skills').delegate('button[id^="removeSkill"]','click', function() { // de
 
     addHidden('div#skills > div', 'div#skills'); // rehide skills parent element
     updatePrintSingleElement('span#skillList', 'select[id^="skill"]'); // update print version
+
+    $('span#skillList').parent().addClass('hidden'); // hide print version container element
 });
 
 $('#addSavingThrow').on('click', function() {
@@ -221,6 +229,8 @@ $('#addSavingThrow').on('click', function() {
     $('div#savingThrows').append(output);
 
     updatePrintFromDoubleInput('select[id^="savingThrow"]', 'span#savingThrowList'); // update print version
+
+    $('span#savingThrowList').parent().removeClass('hidden'); // redisplay parent element for print version
 });
 
 $('div#savingThrows').delegate('select[id^="savingAbility"]', 'change', function() { // assign proper id
@@ -236,6 +246,8 @@ $('div#savingThrows').delegate('select[id^="savingAbility"]', 'change', function
     // var short = selected.charAt(0).toUpperCase() + selected.slice(1,3);
 
     updatePrintFromDoubleInput('select[id^="savingThrow"]', 'span#savingThrowList'); // update print version
+
+    $('span#savingThrowList').parent().removeClass('hidden'); // redisplay parent element for print version
 });
 
 $('div#savingThrows').delegate('button[id^="removeSavingThrows"]','click', function() { // deleted clicked parent element
@@ -243,23 +255,31 @@ $('div#savingThrows').delegate('button[id^="removeSavingThrows"]','click', funct
 
     addHidden('div#savingThrows > div', 'div#savingThrows'); // rehide savingThrows parent element
     updatePrintFromDoubleInput('select[id^="savingThrow"]', 'span#savingThrowList'); // update print version
+    $('span#savingThrowList').parent().addClass('hidden'); // hide print version container element
 });
 
 $('div#savingThrows').delegate('select[id^="savingThrows"] + input', 'change', function() { // update the print output on change of the value
     updatePrintFromDoubleInput('select[id^="savingThrow"]', 'span#savingThrowList'); // update print version
+
+    $('span#savingThrowList').parent().removeClass('hidden'); // redisplay parent element for print version
 });
 
 $('div#savingThrows').delegate('input[id^="savingThrowValue"]', 'change', function() { // update the print output on change of the value
     updatePrintFromDoubleInput('select[id^="savingThrow"]', 'span#savingThrowList'); // update print version
+
+    $('span#savingThrowList').parent().removeClass('hidden'); // redisplay parent element for print version
 });
 
 $('#addVulnerability').on('click', function() {
     addSingularElement('div#vulnerabilities','Vulnerability type', 'removeVulnerabilities', 'width200', 'vulnerability');
 });
+
 $('div#vulnerabilities').delegate('input', 'change', function() { // assign proper id
     assignIdSingular($(this), 'vulnerability_', $(this).val());
 
     updatePrintFromSingleInput('input[id^="vulnerability_"]', 'span#damageVulnerabilityList'); // update print version
+
+    $('span#damageVulnerabilityList').parent().removeClass('hidden'); // redisplay parent element for print version
 });
 
 $('div#vulnerabilities').delegate('button[id^="removeVulnerabilities"]','click', function() { // deleted clicked parent element
@@ -268,14 +288,20 @@ $('div#vulnerabilities').delegate('button[id^="removeVulnerabilities"]','click',
     addHidden('div#vulnerabilities > div', 'div#vulnerabilities'); // rehide vulnerabilities parent element
 
     updatePrintFromSingleInput('input[id^="vulnerability_"]', 'span#damageVulnerabilityList'); // update print version
+
+    $('span#damageVulnerabilityList').parent().addClass('hidden'); // hide print version container element
 });
+
 $('#addResistance').on('click', function() {
     addSingularElement('div#resistances', 'Resistance type', 'removeResistances', 'width200', 'resistance')
 });
+
 $('div#resistances').delegate('input', 'change', function() { // assign proper id
     assignIdSingular($(this), 'resistance_', $(this).val());
 
     updatePrintFromSingleInput('input[id^="resistance_"]', 'span#damageResistanceList'); // update print version
+
+    $('span#damageResistanceList').parent().removeClass('hidden'); // redisplay parent element for print version
 });
 $('div#resistances').delegate('button[id^="removeResistances"]','click', function() { // deleted clicked parent element
     $(this).closest('div').remove(); 
@@ -283,67 +309,98 @@ $('div#resistances').delegate('button[id^="removeResistances"]','click', functio
     addHidden('div#resistances > div', 'div#resistances'); // rehide resistances parent element
 
     updatePrintFromSingleInput('input[id^="resistance_"]', 'span#damageResistanceList'); // update print version
+
+    $('span#damageResistanceList').parent().addClass('hidden'); // hide print version container element
 });
+
 $('#addImmunity').on('click', function() {
     addSingularElement('div#damageImmunity','Damage immunity type', 'removeDamageImmunity', 'width250', 'damageImmunity');
 });
+
 $('div#damageImmunity').delegate('input', 'change', function() { // assign proper id
     assignIdSingular($(this), 'damageImmunity_', $(this).val());
 
     updatePrintFromSingleInput('input[id^="damageImmunity_"]', 'span#damageImmunityList'); // update print version
+
+    $('span#damageImmunityList').parent().removeClass('hidden'); // redisplay parent element for print version
 });
+
 $('div#damageImmunity').delegate('button[id^="removeDamageImmunity"]','click', function() { // deleted clicked parent element
     $(this).closest('div').remove(); 
 
     addHidden('div#damageImmunity > div', 'div#damageImmunity'); // rehide damageImmunity parent element
 
     updatePrintFromSingleInput('input[id^="damageImmunity_"]', 'span#damageImmunityList'); // update print version
+
+    $('span#damageImmunityList').parent().addClass('hidden'); // hide print version container element
 });
+
 $('#addConditionImmunity').on('click', function() {
     addSingularElement('div#conditionImmunity', 'Condition immunity type', 'removeConditionImmunity', 'width250', 'conditionImmunity');
 });
+
 $('div#conditionImmunity').delegate('input', 'change', function() { // assign proper id
     assignIdSingular($(this), 'conditionImmunity_', $(this).val());
 
     updatePrintFromSingleInput('input[id^="conditionImmunity_"]', 'span#conditionImmunityList'); // update print version
+
+    $('span#conditionImmunityList').parent().removeClass('hidden'); // redisplay parent element for print version
 });
+
 $('div#conditionImmunity').delegate('button[id^="removeConditionImmunity"]','click', function() { // deleted clicked parent element
     $(this).closest('div').remove(); 
 
     addHidden('div#conditionImmunity > div', 'div#conditionImmunity'); // rehide conditionImmunity parent element
 
     updatePrintFromSingleInput('input[id^="conditionImmunity_"]', 'span#conditionImmunityList'); // update print version
+
+    $('span#conditionImmunityList').parent().addClass('hidden'); // hide print version container element
 });
+
 $('#addSense').on('click', function() {
     addSingularElement('div#senses', 'Sense', 'removeSense', 'width200', 'sense');
 });
+
 $('div#senses').delegate('input', 'change', function() { // assign proper id
     assignIdSingular($(this), 'sense_', $(this).val());
 
     updatePrintFromSingleInput('input[id^="sense_"]', 'span#senseList'); // update print version
+
+    $('span#senseList').parent().removeClass('hidden'); // redisplay parent element for print version
 });
+
 $('div#senses').delegate('button[id^="removeSense"]','click', function() { // deleted clicked parent element
     $(this).closest('div').remove(); 
 
     addHidden('div#senses > div', 'div#senses'); // rehide sense parent element
 
     updatePrintFromSingleInput('input[id^="sense_"]', 'span#senseList'); // update print version
+
+    $('span#senseList').parent().addClass('hidden'); // hide print version container element
 });
+
 $('#addLanguage').on('click', function() {
     addSingularElement('div#languages', 'Language', 'removeLanguage', 'width200', 'language');
 });
+
 $('div#languages').delegate('input', 'change', function() { // assign proper id
     assignIdSingular($(this), 'language_', $(this).val());
 
     updatePrintFromSingleInput('input[id^="language_"]', 'span#languageList'); // update print version
+
+    $('span#languageList').parent().removeClass('hidden'); // redisplay parent element for print version
 });
+
 $('div#languages').delegate('button[id^="removeLanguage"]','click', function() { // delete clicked characteristic
     $(this).closest('div').remove(); 
 
     addHidden('div#languages > div', 'div#languages'); // rehide characteristic parent element
 
     updatePrintFromSingleInput('input[id^="language_"]', 'span#languageList'); // update print version
+
+    $('span#languageList').parent().addClass('hidden'); // hide print version container element
 });
+
 $('#addMovement').on('click', function() { // add new movement elements
     removeHidden('div#movements');
 
@@ -355,6 +412,7 @@ $('#addMovement').on('click', function() { // add new movement elements
 
     $('div#movements').append(output);
 });
+
 $('div#movements').delegate('input[id^="movementType"]', 'change', function() { // get the value of the first input field and use that as an id for both inputs
     var value = $(this).val();
 
@@ -362,9 +420,14 @@ $('div#movements').delegate('input[id^="movementType"]', 'change', function() { 
     $(this).next().attr('id', 'movementSpeed_' + value);
 
     updatePrintForMovement('input[id^="movementType"]', 'span#creatureSpeedList'); // update print version
+
+    $('span#creatureSpeedList').parent().removeClass('hidden'); // redisplay parent element for print version
 });
+
 $('div#movements').delegate('input[id^="movementSpeed"]', 'change', function() {
     updatePrintForMovement('input[id^="movementType"]', 'span#creatureSpeedList'); // update print version
+
+    $('span#creatureSpeedList').parent().removeClass('hidden'); // redisplay parent element for print version
 });
 
 $('div#movements').delegate('button[id^="removeMovement"]','click', function() { // delete clicked movement
@@ -373,6 +436,8 @@ $('div#movements').delegate('button[id^="removeMovement"]','click', function() {
     addHidden('div#movements > div', 'div#movements'); // rehide movement parent element
 
     updatePrintForMovement('input[id^="movementType"]', 'span#creatureSpeedList'); // update print version
+
+    $('span#creatureSpeedList').parent().addClass('hidden'); // hide print version container element
 });
 $('#addCharacteristic').on('click', function() { // add new characteristic elements
     addDoubleElement('div#characteristics', 'characteristicDescription', 'Characteristic title', 'Characteristic description', 'removeCharacteristic', 'width250', 'characteristic');
@@ -395,6 +460,8 @@ $('div#characteristics').delegate('button[id^="removeCharacteristic"]','click', 
     addHidden('div#characteristics > div', 'div#characteristics'); // rehide characteristic parent element
 
     updatePrintFromInputNTextarea('div#characteristics div', 'div#characteristicList'); // update print version
+
+    $('span#characteristicList').parent().addClass('hidden'); // hide print version container element
 });
 $('#addActions').on('click', function() {
     addDoubleElement('div#actions', 'actionDescription', 'Action title', 'Action description', 'removeAction', 'width250', 'action');
@@ -415,6 +482,8 @@ $('div#actions').delegate('button[id^="removeAction"]','click', function() { // 
     addHidden('div#actions > div', 'div#actions'); // rehide actions parent element
 
     updatePrintFromInputNTextarea('div#actions div', 'div#actionList'); // update print version
+
+    $('span#actionList').parent().addClass('hidden'); // hide print version container element
 });
 $('#addReaction').on('click', function() {
     addDoubleElement('div#reactions', 'reactionDescription', 'Reaction title', 'Reaction description', 'removeReaction', 'width250', 'reaction');
@@ -432,6 +501,8 @@ $('div#reactions').delegate('button[id^="removeReaction"]','click', function() {
     addHidden('div#reactions > div', 'div#reactions'); // rehide reactions parent element
 
     updatePrintFromInputNTextarea('div#reactions div', 'div#reactionList'); // update print version
+
+    $('span#reactionList').parent().addClass('hidden'); // hide print version container element
 });
 $('div#reactions').delegate('textarea', 'change', function() {
     updatePrintFromInputNTextarea('div#reactions div', 'div#reactionList'); // update print version
@@ -452,6 +523,8 @@ $('div#bonuses').delegate('button[id^="removeBonus"]','click', function() { // d
     addHidden('div#bonuses > div', 'div#bonuses'); // rehide bonus parent element
 
     updatePrintFromInputNTextarea('div#bonuses div', 'div#bonusActionList'); // update print version
+
+    $('span#bonusActionList').parent().addClass('hidden'); // hide print version container element
 });
 $('div#bonuses').delegate('textarea', 'change', function() {
     updatePrintFromInputNTextarea('div#bonuses div', 'div#bonusActionList'); // update print version
@@ -502,8 +575,11 @@ $('button#print').on('click', function() {
         select#type
         select#alignment
     */
-    
+
+    // ** Armor class, type, alignment, creature name, and creature description aren't coming through the print version    
 });
+
+
 
 $(document).on('keydown', function(event) {
     if (event.key == "Escape") {
