@@ -86,6 +86,16 @@ for (i in interests) { // display interests, organizations (current and past)
 
 $('#interests').append(output);
 
+var output = '<ul>';
+
+for (i in competencies) {
+    output += '<li>' + competencies[i] + '</li>';
+}
+
+output += '</ul>';
+
+$('#competencies').append(output);
+
 for (i in skills) {
     if (i == 'Web') { // display web skills
         displaySkillsObjects(skills, 'Web', 'skills-web');

@@ -2,7 +2,7 @@ let honors = {
     "Axway Special KUDOS Award": {
         "title": "Axway Special KUDOS Award",
         "date": "May 8, 2017",
-        "note": "<p>In recognization to going above and beyond expectations to meet the commitments for APIM+ 7.5.3 release and Tech Enablement.</p>"
+        "note": "<p>In recognition of going above and beyond expectations to meet the commitments for APIM+ 7.5.3 release and Tech Enablement.</p>"
     },
     "DreamWorks Education Department Award": {
         "title": "DreamWorks Education Department Award",

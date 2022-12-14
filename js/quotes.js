@@ -2,9 +2,7 @@
 var QUOTE = [
 	["Brian likes cheese."], //0
 	["Brian is a loving and caring father and husband."], //1
-	["Check out Brian's <a href='http://technoscribblesbybimmel.blogspot.com/'>technical writing blog</a>!"], //2
 	["Brian enjoys a good bicycle ride on the weekends."], //3
-	["Check out Brian's latest web dev find on his <a href='http://bimmelwebdevelopment.blogspot.com/'>web dev blog</a>."], //4
 	["Favorite quote: &quot;When you do things right, people won't be sure you you've done anything at all&quot; - God Entity to Bender"], //5
 	["&quot;Everything is awesome!&quot;"], //6
 	["<i>Click, click</i>"], //7
