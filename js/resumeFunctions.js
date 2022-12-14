@@ -97,8 +97,8 @@ output += '</ul>';
 $('#competencies').append(output);
 
 for (i in skills) {
-    if (i == 'Web') { // display web skills
-        displaySkillsObjects(skills, 'Web', 'skills-web');
+    if (i == 'Programming') { // display Programming skills
+        displaySkillsObjects(skills, 'Programming', 'skills-programming');
     } else if (i == 'Operating systems') {
         displaySkillsObjects(skills, 'Operating systems', 'skills-operatingSystems');
     } else if (i == 'Atlassian') {
@@ -177,6 +177,8 @@ function displaySkillsArray(array, title, target) {
 }
 
 function displaySkillsObjects(array, title, target) { // display skills
+    console.log(array, title, target)
+
     var output = '<h3>' + title + '</h3><ul>';
 
     for (k in array[i]) { // category of skill

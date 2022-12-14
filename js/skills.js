@@ -1,6 +1,7 @@
 let skills = {
-    "Web": {
-        "Languages": ['Bash', 'CSS', 'CSS3', 'HTML', 'HTML5', 'Java', 'JavaScript', 'jQuery', 'JSON', 'Markdown', 'Markup', 'MySQL', 'PHP', 'Python', 'Sass', 'XHTML', 'XML', 'Yaml'],
+    // ** update this based on the feedback I got on my resume
+    "Programming": {
+        "Languages": ['Bash', 'CSS', 'CSS3', 'HTML', 'HTML5', 'Java', 'JavaScript', 'jQuery', 'JSON', 'Markdown', 'Markup', 'MySQL', 'PHP', 'Python', 'Sass', 'SQL', 'XHTML', 'XML', 'Yaml'],
         "Frameworks": ['Bootstrap', 'Express', 'MongoDB', 'Node.js', 'React'],
         "Analytics": ['Google Analytics', 'Piwik'],
         "Indexing": ['Apache Solr'],
@@ -10,7 +11,7 @@ let skills = {
     "Operating systems": {
         "Windows": ['7.x', '8.x', '10.x'],
         "Linux": ['Redhat', 'Ubuntu'],
-        "Mac": ['Catalina', 'High Sierra', 'Mojave', 'Sierra'],
+        "Mac": ['Big Sur', 'Catalina', 'High Sierra', 'Monterey', 'Mojave', 'Sierra', 'Venture'],
         "Unix": "Unix"
     },
     "Atlassian": {
