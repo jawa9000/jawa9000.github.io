@@ -298,92 +298,88 @@
                 <div class="row">
                     <div class="col-md-2"></div>
                     <div class="col-md-8">
-                        <h1 id="creatureName"></h1>
-                        <p id="creatureDescription"></p>
+                        <h1 id="creatureName" class="margin-18">name</h1>
+                        <p id="creatureDescription" class="margin-18">desc</p>
+                        <div class="breakline">
+                            <span id="creatuerSize" class="margin-4">tiny</span>
+                            <span id="creatureType">type</span>
+                            <span id="creatureAlignment">alignment</span>
+                        </div>
                         <p>
-                            <span id="creatuerSize"></span>
-                            <span id="creatureType"></span>
-                            <span id="creatureAlignment"></span>
-                        </p>
-                        <div class="breakline"></div>
-                        <p>
-                            <span class="bold">Armor Class</span>
-                            <span id="armorClass"></span>
-                        </p>
-                        <p>
-                            <span class="bold">Hit Points</span>
-                            <span id="hitPoints"></span>
-                            (<span id="hitDice"></span>)
+                            <span class="bold margin-15">Armor Class</span>
+                            <span id="armorClass">15</span>
                         </p>
                         <p>
-                            <span class="bold">Speed</span>
-                            <span id="creatureSpeedList"></span>
+                            <span class="bold margin-15">Hit Points</span>
+                            <span id="hitPoints">20</span>
+                            (<span id="hitDice">4d5+0</span>)
                         </p>
-                        <div class="breakline"></div>
-                        <div class="row" id="printAbilityScores">
+                        <div class="breakline">
+                            <span class="bold margin-4">Speed</span>
+                            <span id="creatureSpeedList">15ft</span>
+                        </div>
+                        <div class="row breakline" id="printAbilityScores">
                             <div class="col-md-2">
                                 <div class="bold center">STR</div>
-                                <div id="creatureStr" class="center"></div>
+                                <div id="creatureStr" class="center">10</div>
                             </div>
                             <div class="col-md-2">
                                 <div class="bold center">DEX</div>
-                                <div id="creatureDex" class="center"></div>
+                                <div id="creatureDex" class="center">10</div>
                             </div>
                             <div class="col-md-2">
                                 <div class="bold center">CON</div>
-                                <div id="creatureCon" class="center"></div>
+                                <div id="creatureCon" class="center">10</div>
                             </div>
                             <div class="col-md-2">
                                 <div class="bold center">INT</div>
-                                <div id="creatureInt" class="center"></div>
+                                <div id="creatureInt" class="center">10</div>
                             </div>
                             <div class="col-md-2">
                                 <div class="bold center">WIS</div>
-                                <div id="creatureWis" class="center"></div>
+                                <div id="creatureWis" class="center">10</div>
                             </div>
                             <div class="col-md-2">
                                 <div class="bold center">CHA</div>
-                                <div id="creatureCha" class="center"></div>
+                                <div id="creatureCha" class="center">10</div>
                             </div>
                         </div>
-                        <div class="breakline"></div>
                         <p class="hidden">
-                            <span class="bold">Saving Throws</span>
+                            <span class="bold margin-15">Saving Throws</span>
                             <span id="savingThrowList"></span>
                         </p>
                         <p class="hidden">
-                            <span class="bold">Skills</span>
+                            <span class="bold margin-15">Skills</span>
                             <span id="skillList"></span>
                         </p>
                         <p class="hidden">
-                            <span class="bold">Damage Vulnerabilities</span>
+                            <span class="bold margin-15">Damage Vulnerabilities</span>
                             <span id="damageVulnerabilityList"></span>
                         </p>
                         <p class="hidden">
-                            <span class="bold">Damage Resistances</span>
+                            <span class="bold margin-15">Damage Resistances</span>
                             <span id="damageResistanceList"></span>
                         </p>
                         <p class="hidden">
-                            <span class="bold">Damage Immunity</span>
+                            <span class="bold margin-15">Damage Immunity</span>
                             <span id="damageImmunityList"></span>
                         </p>
                         <p class="hidden">
-                            <span class="bold">Condition Immunities</span>
+                            <span class="bold margin-15">Condition Immunities</span>
                             <span id="conditionImmunityList"></span>
                         </p>
                         <p class="hidden">
-                            <span class="bold">Senses</span>
+                            <span class="bold margin-15">Senses</span>
                             <span id="senseList"></span>
                         </p>
                         <p class="hidden">
-                            <span class="bold">Languages</span>
+                            <span class="bold margin-15">Languages</span>
                             <span id="languageList"></span>
                         </p>
-                        <p class="hidden">
-                            <span class="bold">Challenge</span>
-                            <span id="challengeRating"></span>
+                        <p class="breakline hidden">
+                            <span class="bold margin-4">Challenge</span>
+                            <span id="challengeRating">15 (13,000)</span>
                         </p>
-                        <div class="breakline"></div>
                         <div id="characteristicList"></div>
                         <div id="actionList"></div>
                         <div id="bonusActionList"></div>
