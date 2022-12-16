@@ -28,6 +28,13 @@ textarea#creatureDescription {
 button {
     margin: 5px;
 }
+input::file-selector-button {
+    background-color: var(--secondary-bg-color);
+    color: var(--main-color);
+}
+input:active {
+    border-color: var(--alt-bg-color);
+}
 option {
     background-color: var(--secondary-bg-color);
     color: var(--main-color);
@@ -151,7 +158,7 @@ h1#creatureName {
 }
 .breakline {
     padding: 3px;
-    border-image: linear-gradient(to right, red, goldenrod) 0.5;
+    border-image: linear-gradient(to right, red, white) 0.5;
     border-bottom-width: 6px;
     border-bottom-style: solid;
     margin-left: -15px;
