@@ -137,7 +137,6 @@ a:hover {
 p#returnNotice {
     text-align: center;
 }
-
 img {
     padding: 15px;
 }
@@ -149,4 +148,20 @@ h1#creatureName {
 }
 .center {
     text-align: center;
+}
+.breakline {
+    padding: 3px;
+    border-image: linear-gradient(to right, red, goldenrod) 0.5;
+    border-bottom-width: 6px;
+    border-bottom-style: solid;
+    margin-left: -15px;
+}
+.margin-15 {
+    margin-left: -15px;
+}
+.margin-4 {
+    margin-left: -4px;
+}
+.margin-18 {
+    margin-left: -18px;
 }
