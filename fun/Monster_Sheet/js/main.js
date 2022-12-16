@@ -144,7 +144,7 @@ $('select#size').on('change', function() { // apply hit dice based on selected s
         calcHitDice();
     }
 
-    $('#print span#creatuerSize').text($(this).val()); // update print version for size
+    $('#print span#creatuerSize').text($(this).val() + ' '); // update print version for size
 });
 
 $('input#abilityScore_constitution').on('change', function() {
@@ -570,6 +570,10 @@ $('button#print').on('click', function() {
     $('p#returnNotice').delay(2000).fadeOut('slow'); // show notice on how to get back to editor
     $('div#editor').addClass('hidden'); // hide editor content
 
+    $('body').css({
+        'background-color': 'white',
+        'color': 'black'
+    });
 
     /* ** disable the print button if the following fields are blank and add a warning that these fields need to be updated
         input#creatureName
@@ -578,13 +582,35 @@ $('button#print').on('click', function() {
         select#alignment
     */
 
-    // ** Armor class, type, alignment, creature name, and creature description aren't coming through the print version    
+    // ** Armor class, type, alignment aren't coming through the print version    
+});
+
+$('select#alignment').on('change', function() {
+    $('span#creatureAlignment').text($(this).val());
+});
+
+$('select#type').on('change', function() {
+    $('span#creatureType').text($(this).val() + ' ');
+});
+
+$('textarea#creatureDescription').on('change', function() { // update creature description for print version
+    $('p#creatureDescription').text($(this).val());
+})
+
+$('input#creatureName').on('change', function() { // add creature's name to print version
+    $('h1#creatureName').text($(this).val());
 });
 
 $(document).on('keydown', function(event) { // return to edit view from print view
     if (event.key == "Escape") {
         $('div#editor').removeClass('hidden');
         $('div#print').addClass('hidden');
+
+        // change background color
+        $('body').css({
+            'background-color': 'goldenrod',
+            'color': 'red'
+        });
     }
 });
 
