@@ -483,7 +483,7 @@ $('div#actions').delegate('button[id^="removeAction"]','click', function() { // 
 
     updatePrintFromInputNTextarea('div#actions div', 'div#actionList'); // update print version
 
-    $('span#actionList').parent().addClass('hidden'); // hide print version container element
+    $('div#actionList').html(''); // empty print element
 });
 $('#addReaction').on('click', function() {
     addDoubleElement('div#reactions', 'reactionDescription', 'Reaction title', 'Reaction description', 'removeReaction', 'width250', 'reaction');
@@ -502,7 +502,7 @@ $('div#reactions').delegate('button[id^="removeReaction"]','click', function() {
 
     updatePrintFromInputNTextarea('div#reactions div', 'div#reactionList'); // update print version
 
-    $('span#reactionList').parent().addClass('hidden'); // hide print version container element
+    $('div#reactionList').html(''); // empty print element
 });
 $('div#reactions').delegate('textarea', 'change', function() {
     updatePrintFromInputNTextarea('div#reactions div', 'div#reactionList'); // update print version
@@ -522,9 +522,11 @@ $('div#bonuses').delegate('button[id^="removeBonus"]','click', function() { // d
 
     addHidden('div#bonuses > div', 'div#bonuses'); // rehide bonus parent element
 
+    $('span#bonusActionList').parent().prev().remove();
+
     updatePrintFromInputNTextarea('div#bonuses div', 'div#bonusActionList'); // update print version
 
-    $('span#bonusActionList').parent().addClass('hidden'); // hide print version container element
+    $('div#bonusActionList').html(''); // empty print element
 });
 $('div#bonuses').delegate('textarea', 'change', function() {
     updatePrintFromInputNTextarea('div#bonuses div', 'div#bonusActionList'); // update print version
@@ -579,9 +581,7 @@ $('button#print').on('click', function() {
     // ** Armor class, type, alignment, creature name, and creature description aren't coming through the print version    
 });
 
-
-
-$(document).on('keydown', function(event) {
+$(document).on('keydown', function(event) { // return to edit view from print view
     if (event.key == "Escape") {
         $('div#editor').removeClass('hidden');
         $('div#print').addClass('hidden');
@@ -613,12 +613,12 @@ $(document).on('keydown', function(event) {
 function updateLegendaryPrint() {
     $('div#legendaryActionList').html(''); // clear target area so previous content doesn't show up again
 
-    var output = '<h2>Legendary Actions</h2>';
+    var output = '<h2 class="breakline">Legendary Actions</h2>';
 
-    output += $('textarea#legendaryMainDescription').val();
+    output += '<p class="margin-15">' + $('textarea#legendaryMainDescription').val() + '</p>';
 
     $('div#legendaries div').each(function() {
-        output += '<p><span class="bold">' + $(this).find('input').val() + '</span> ' + $(this).find('textarea').val() + '</p>';
+        output += '<p><span class="bold margin-15">' + $(this).find('input').val() + '</span> ' + $(this).find('textarea').val() + '</p>';
     });
 
     $('div#legendaryActionList').append(output);
@@ -627,10 +627,18 @@ function updateLegendaryPrint() {
 function updatePrintFromInputNTextarea(source, target) {
     $(target).html(''); // clear target area so previous content doesn't show up again
 
-    var output = '';
+    if (target == 'div#actionList') {
+        var output = '<h2 class="breakline">Actions</h2>';
+    } else if (target == 'div#reactionList') {
+        var output = '<h2 class="breakline">Reactions</h2>';
+    } else if (target == 'div#bonusActionList') {
+        var output = '<h2 class="breakline">Bonus Actions</h2>';
+    } else {
+        var output = '';
+    }
 
     $(source).each(function() {
-        output += '<p><span class="bold">' + $(this).find('input').val() + '</span> ' + $(this).find('textarea').val() + '</p>';
+        output += '<p><span class="bold margin-15">' + $(this).find('input').val() + '</span> ' + $(this).find('textarea').val() + '</p>';
     });
 
     $(target).append(output);
