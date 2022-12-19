@@ -107,7 +107,6 @@ $('select#challengeRating').on('change', function() { // set input fields based 
 
         for (i in challengeRating) { // update the print version        
             if ($('#challengeRating').val() == i) {
-                console.log(challengeRating[i].cr)
                 $('#print span#challengeRating').text(challengeRating[i].cr + ' ('+ numberWithCommas(challengeRating[i].xp + ')'));
                 break;
             }
@@ -627,6 +626,9 @@ $(document).on('keydown', function(event) { // return to edit view from print vi
 
 
 // ** to-do list
+
+// ** when printing the document to PDF, the abilty scores section stacks on top of each other instead of laying out side by side.
+
 /*
     add print functionality
         grab every input element (and some spans) into an object
@@ -728,8 +730,6 @@ function updatePrintSingleElement(elem, id) {
     $(elem).text('');
 
     $(id).each(function() { // loop through each element with this id
-        console.log(elem, id)
-
         $(elem).append($(this).val() + ' ' + $(this).next().val() + ' '); // append the text and the associated value to the print page
     });
 }
