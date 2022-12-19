@@ -103,14 +103,18 @@ $('select#challengeRating').on('change', function() { // set input fields based 
         multipleUpdateSkillModifier();
         updatePrintFromDoubleInput('select[id^="savingThrow"]', 'span#savingThrowList'); // update print version
 
-        for (i in challengeRating) { // update the print version
+        $('p#CRPrint').removeClass('hidden'); // show hidden element
+
+        for (i in challengeRating) { // update the print version        
             if ($('#challengeRating').val() == i) {
-                $('#print span#challengeRating').text(challengeRating[i].cr + ' ('+ numberWithCommas(challengeRating[crValue].xp + ')'));
+                console.log(challengeRating[i].cr)
+                $('#print span#challengeRating').text(challengeRating[i].cr + ' ('+ numberWithCommas(challengeRating[i].xp + ')'));
                 break;
             }
         }
-        
     }
+
+    $('span#armorClass').text($('input#armorClass').val()); // update AC for print version
 });
 
 // display challenge ratings for challenge_ratings.html
@@ -130,6 +134,18 @@ for (i in challengeRating) {
 output += '</table>';
 
 $('div#crTable').html(output);
+
+$('input#armorClass').on('change', function () {
+    $('span#armorClass').text($('input#armorClass').val()); // update AC for print version
+});
+
+$('input#hitPoints').on('change', function() {
+    updateHPNHitDiceForPrint(); // update print version
+});
+
+$('input#hpDice').on('change', function() {
+    updateHPNHitDiceForPrint(); // update print version
+});
 
 $('select#size').on('change', function() { // apply hit dice based on selected size
     if ($(this).val() == 'blank') {
@@ -563,7 +579,7 @@ $('div#legendaries').delegate('textarea', 'change', function() {
     updateLegendaryPrint(); // update print version
 });
 
-var creatureObj = {}; // object to hold all data for print ** remove this once I'm done testing
+// var creatureObj = {}; // object to hold all data for print ** remove this once I'm done testing
 
 $('button#print').on('click', function() {    
     $('div#print').removeClass('hidden'); // reveal the print version
@@ -576,13 +592,7 @@ $('button#print').on('click', function() {
     });
 
     /* ** disable the print button if the following fields are blank and add a warning that these fields need to be updated
-        input#creatureName
-        select#size
-        select#type
-        select#alignment
-    */
-
-    // ** Armor class, type, alignment aren't coming through the print version    
+    */  
 });
 
 $('select#alignment').on('change', function() {
@@ -724,9 +734,9 @@ function updatePrintSingleElement(elem, id) {
     });
 }
 
-function getDataFields(id, elem) { // grab all element data and put it in the creatureObj object)
-    creatureObj[id] = $(elem + id).val();
-}
+// function getDataFields(id, elem) { // grab all element data and put it in the creatureObj object)
+//     creatureObj[id] = $(elem + id).val();
+// }
 
 function assignIdDouble(elem, text, title, value) { // assign id by changing it to lowercase and remove any spaces for two elements
     value = value.toLowerCase().replace(/\s/g, '');
@@ -843,6 +853,13 @@ function calcHitDice() { // calcualate which hit dice to use and how many to get
             $('#print span#hitDice').text(times + 'd' + hitDie + '+' + conModifier); // update print version
         }
     }
+
+    updateHPNHitDiceForPrint(); // update print version
+}
+
+function updateHPNHitDiceForPrint() {
+    $('span#hitPoints').text($('input#hitPoints').val());
+    $('span#hitDice').text($('input#hpDice').val());
 }
 
 function toggleACHP(state) {
