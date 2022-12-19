@@ -172,3 +172,13 @@ h1#creatureName {
 .margin-18 {
     margin-left: -18px;
 }
+.printTable {
+    width: 100%;
+    border: none;
+}
+.printTable tr {
+    background-color: white;
+}
+.printTable th, .printTable td {
+    border: none;
+}
