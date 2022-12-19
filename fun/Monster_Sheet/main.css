@@ -1,19 +1,174 @@
-h1, h2, h3#nicknames {
-    text-align: center;
+:root {
+    --main-bg-color: goldenrod;
+    --secondary-bg-color: #b98c1b;
+    --alt-bg-color: #cf9d20;
+    --main-color: red;
 }
 
-h1#name::first-letter, h3#nicknames::first-letter {
-    text-transform: uppercase;
+
+h1, h2 {
+    text-align: center;
+}
+body {
+    background-color: var(--main-bg-color);
+    color: var(--main-color);
+    font-size: 2em;
+}
+#navOffset {
+    margin-top: 150px;
+}
+input, select, button, textarea {
+    background-color: var(--secondary-bg-color);
+    border: none;
+}
+textarea#creatureDescription {
+    resize: none;
+    width: 100%;
+}
+button {
+    margin: 5px;
+}
+input::file-selector-button {
+    background-color: var(--secondary-bg-color);
+    color: var(--main-color);
+}
+input:active {
+    border-color: var(--alt-bg-color);
+}
+option {
+    background-color: var(--secondary-bg-color);
+    color: var(--main-color);
+}
+.navbar-inverse {
+    background-color: var(--main-bg-color);
+    border-color: var(--main-color);
 }
 
 ::placeholder {
     text-align: center; 
+    color: var(--main-color);
  }
 
-#armorClass, #abilityScore_str, #abilityScore_dex, #abilityScore_con, #abilityScore_int, #abilityScore_wis, #abilityScore_cha {
-    width: 40px;
+ .standardSpacing {
+    margin: 5px;
+}
+ 
+.thinBorder {
+    border: solid thin var(--main-color);
+    padding: 5px;
+    margin: 5px 0;
 }
 
-#hp, #hpDice, #speed {
-    width: 50px;
+/* hp, speed, and hit dice */
+#hp, #speed {
+    width: 55px;
+}
+#hpDice {
+    width: 95px;
+}
+
+/* input */
+input {
+    width: 60px;
+}
+input#creatureName {
+    width: 100%;
+}
+input.standardWidth {
+    width: 60px;
+}
+input.width200 {
+    width: 200px;
+}
+input.width250 {
+    width: 250px;
+}
+input.movementSpeed {
+    width: 60px;
+}
+*:disabled {
+    background-color: dimgrey;
+    color: rgb(103, 101, 99);
+    opacity: 1;
+}
+input#hpPercentage {
+    accent-color: var(--secondary-bg-color);
+    background: transparent;
+}
+
+ /* ability score mods */
+ #armorClass, #abilityScore_strength, #abilityScore_dexterity, #abilityScore_constitution, #abilityScore_intelligence, #abilityScore_wisdom, #abilityScore_charisma {
+    width: 45px;
+}
+span.abilityModifier {
+    font-size: 0.8em;
+}
+
+/* characteristic elements */
+.characteristicTitle {
+    width: 165px;
+}
+.textareaDescription {
+    height: 100px;
+    line-height: 30px;
+    width: 98%;
+    resize: none;
+}
+
+/* table elements */
+table, th, td {
+    border: 1px solid var(--main-color);
+    padding: 5px;
+}
+th {
+    text-align: center;
+    background-color: var(--alt-bg-color);
+}
+tr:nth-child(odd) {
+    background-color: var(--alt-bg-color);
+}
+
+tr:hover {
+    background-color: #ebba3d;
+}
+
+/* Link overrides */
+a, a:visited {
+    color: var(--main-color);
+}
+a:hover {
+    color: var(--secondary-bg-color);
+}
+
+/* print sheet */
+p#returnNotice {
+    text-align: center;
+}
+img {
+    padding: 15px;
+}
+h1#creatureName {
+    text-align: left;
+}
+.bold {
+    font-weight: bold;
+}
+.center {
+    text-align: center;
+}
+.breakline {
+    padding: 3px;
+    border-image: linear-gradient(to right, red, white) 0.5;
+    border-bottom-width: 6px;
+    border-bottom-style: solid;
+    margin-left: -15px;
+}
+.margin-15 {
+    margin-left: -15px;
+}
+.margin-4 {
+    margin-left: -4px;
+}
+.margin-18 {
+    margin-left: -18px;
 }
