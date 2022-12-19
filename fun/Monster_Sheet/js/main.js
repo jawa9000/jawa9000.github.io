@@ -627,8 +627,6 @@ $(document).on('keydown', function(event) { // return to edit view from print vi
 
 // ** to-do list
 
-// ** when printing the document to PDF, the abilty scores section stacks on top of each other instead of laying out side by side.
-
 /*
     add print functionality
         grab every input element (and some spans) into an object
