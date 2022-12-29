@@ -628,6 +628,10 @@ $(document).on('keydown', function(event) { // return to edit view from print vi
 // ** to-do list
 
 /*
+
+    ** fix this: when you use the slider, the HP isn't recalculated.
+    ** Use https://coolors.co/palettes/trending to pick a new color scheme.
+
     add print functionality
         grab every input element (and some spans) into an object
         create a view that printer-friendly and has the correct formatting for a creature sheet
