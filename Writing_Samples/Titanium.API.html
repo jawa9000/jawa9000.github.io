@@ -4,6 +4,8 @@
 <head>
     <title>Titanium.API</title>
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="../css/tutorials.css" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css" type="text/css" />
     <style type='text/css'>
         div.background {
@@ -14,206 +16,187 @@
 </head>
 
 <body>
-    <h1>Titanium.API</h1>
-    <p class="note">Archive note: all links and images have been disabled as their destinations and/or source
-        locations no longer exist.</p>
-    <div>
-        <p>Created by Brian Immel, last modified on Oct 04, 2018</p>
-        <div>
-            <div>
-                <div>
-                    <div>
-                        <div>
-                            <div class="floatLeft">
-                                <ul>
-                                    <li><a href='#Titanium.API-Properties' title="Properties">Properties</a>
-                                        <ul>
-                                            <li><a href='#Titanium.API-apiName' title="apiName">apiName</a></li>
-                                            <li><a href='#Titanium.API-bubbleParent'
-                                                    title="bubbleParent">bubbleParent</a></li>
-                                            <li><a href='#Titanium.API-lifecycleContainer'
-                                                    title="lifecycleContainer">lifecycleContainer</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href='#Titanium.API-Methods' title="Methods">Methods</a>
-                                        <ul>
-                                            <li><a href='#Titanium.API-addEventListener'
-                                                    title="addEventListener">addEventListener</a></li>
-                                            <li><a href='#Titanium.API-applyProperties'
-                                                    title="applyProperties">applyProperties</a></li>
-                                            <li><a href='#Titanium.API-debug' title="debug">debug</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                            <p><a href="#" title="Link to Titanium.Proxy">Titanium.Proxy</a> &gt; <a
-                                    href="#Titanium.Module"
-                                    title="Link to Titanium.Module">Titanium.Module</a> &gt; <strong>Titanium.API</strong>
-                            </p>
-                            <p>The top-level API module, containing methods to output messages to the system
-                                log.</p>
-                        </div>
-                        <div>
-                            <p>Minimum platform requirements:</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Titanium.API</h1>
+                <p class="note">Archive note: all links and images have been disabled as their destinations and/or source locations no longer exist.</p>
+                <p>Created by Brian Immel, last modified on Oct 04, 2018</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="floatLeft">
+                    <ul>
+                        <li><a href="#Properties" title="Properties">Properties</a>
                             <ul>
-                                <li>Android 3.0.0</li>
-                                <li>iPhone 3.0.0</li>
-                                <li>iPad 3.0.0</li>
-                                <li>Windows Phone 4.1.0</li>
+                                <li><a href="#apiName" title="apiName">apiName</a></li>
+                                <li><a href="#bubbleParent" title="bubbleParent">bubbleParent</a></li>
+                                <li><a href="#lifecycleContainer" title="lifecycleContainer">lifecycleContainer</a></li>
                             </ul>
-                        </div>
-                    </div>
+                        </li>
+                        <li><a href="#Methods" title="Methods">Methods</a>
+                            <ul>
+                                <li><a href="#addEventListener" title="addEventListener">addEventListener</a></li>
+                                <li><a href="#applyProperties" title="applyProperties">applyProperties</a></li>
+                                <li><a href="#debug" title="debug">debug</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <p><a href="#" title="Link to Titanium.Proxy">Titanium.Proxy</a> &gt; <a href="#"
+                        title="Link to Titanium.Module">Titanium.Module</a> &gt; <strong>Titanium.API</strong>
+                </p>
+                <p>The top-level API module, containing methods to output messages to the system log.</p>
+                <p>Minimum platform requirements:</p>
+                <ul>
+                    <li>Android 3.0.0</li>
+                    <li>iPhone 3.0.0</li>
+                    <li>iPad 3.0.0</li>
+                    <li>Windows Phone 4.1.0</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h2 id="Properties">Properties</h2>
+                <h3 id="apiName">apiName</h3>
+                <div class="background">
+                    <div>apiName</div>
                     <div>
-                        <div>
-                            <br />
-                            <h2>Properties</h2>
-                            <h3>apiName
-                        </div>
-                        </h3>
-                        <div class="background">
-                            <div>
-                                <div>apiName</div>
-                            </div>
-                            <div>
-                                <p>apiName: String <strong>READONLY</strong></p>
-                                <p>Defined by <a href="#Titanium.Proxy"
-                                        title="Link to Titanium.Proxy">Titanium.Proxy</a>.</p>
-                                <p> The name of the API that this proxy corresponds to.</p>
-                                <p>The value of this property is the fully qualified name of the API. For
-                                    example, <a href="#Titanium.UI.Button"
-                                        title="Link to Button">Button</a> returns <code>Ti.UI.Button</code>.
-                                </p>
-                                <ul>
-                                    <li>Android 3.2.0</li>
-                                    <li>iPhone 3.2.0</li>
-                                    <li>iPad 3.2.0</li>
-                                    <li>Windows Phone 4.1.0</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <h3>bubbleParent</h3>
-                        <div class="background">
-                            <div>
-                                <span>bubbleParent</span>
-                            </div>
-                            <div>
-                                <p>bubbleParent: Boolean</p>
-                                <p>Defined by <a href="#Titanium.Proxy"
-                                        title="Link to Titanium.Proxy">Titanium.Proxy</a>.</p>
-                                <p>Indicates if the proxy will bubble an event to its parent.</p>
-                                <p>Some proxies (most commonly views) have a relationship to other proxies,
-                                    often established by the add() method. For example, for a button added
-                                    to a window, a click event on the button would bubble up to the window.
-                                    Other common parents are table sections to their rows, table views to
-                                    their sections, and scrollable views to their views. Set this property
-                                    to false to disable the bubbling to the proxy's parent.</p>
-                                <p>Default: true</p>
-                                <ul>
-                                    <li>Android 3.0.0</li>
-                                    <li>iPhone 3.0.0</li>
-                                    <li>iPad 3.0.0</li>
-                                    <li>Windows Phone 4.1.0</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <h3>lifecycleContainer</h3>
-                        <div class="background">
-                            <div>lifecycleContainer</div>
-                            <div>
-                                <p>lifecycleContainer: <a href="#Titanium.UI.Window"
-                                        title="Link to Titanium.UI.Window">Titanium.UI.Window</a>/<a
-                                        href="#Titanium.UI.TabGroup"
-                                        title="Link to Titanium.UI.TabGroup">Titanium.UI.TabGroup</a></p>
-                                <p>Defined by <a href="#Titanium.Proxy"
-                                        title="Link to Titanium.Proxy">Titanium.Proxy</a>.</p>
-                                <p>The Window or TabGroup whose Activity lifecycle should be triggered on
-                                    the proxy.</p>
-                                <p>If this property is set to a Window or TabGroup, then the corresponding
-                                    Activity lifecycle event callbacks will also be called on the proxy.
-                                    Proxies that require the activity lifecycle will need this property set
-                                    to the appropriate containing Window or TabGroup.</p>
-                                <ul>
-                                    <li>Android 3.6.0</li>
-                                    <li>Windows Phone 4.1.0</li>
-                                </ul>
-                            </div>
-                        </div>
+                        <p>apiName: String <strong>READONLY</strong></p>
+                        <p>Defined by <a href="#" title="Link to Titanium.Proxy">Titanium.Proxy</a>.
+                        </p>
+                        <p> The name of the API that this proxy corresponds to.</p>
+                        <p>The value of this property is the fully qualified name of the API. For
+                            example, <a href="#"
+                                title="Link to Button">Button</a> returns <code class="inline">Ti.UI.Button</code>.
+                        </p>
+                        <ul>
+                            <li>Android 3.2.0</li>
+                            <li>iPhone 3.2.0</li>
+                            <li>iPad 3.2.0</li>
+                            <li>Windows Phone 4.1.0</li>
+                        </ul>
                     </div>
                 </div>
-                <div>
+                <h3 id="bubbleParent">bubbleParent</h3>
+                <div class="background">
+                    <div>bubbleParent</div>
                     <div>
-                        <h2>Methods</h2>
-
-                        <h3>addEventListener</h3>
-                        <div class="background">
-                            <div>addEventListener</div>
-                            <div>
-                                <p>addEventListener (name, callback)</p>
-                                <p>Defined by <a href="#Titanium.Proxy"
-                                        title="Link to Titanium.Proxy">Titanium.Proxy</a>.</p>
-                                <p>Adds the specified callback as an event listener for the named event.</p>
-                                <p><strong>Parameters</strong></p>
-                                <ul>
-                                    <li>name: String<p>Name of the event.</p>
-                                    </li>
-                                    <li>callback: Callback&lt;Object&gt;<p>Callback function to invoke when
-                                            the event is fired.</p>
-                                    </li>
-                                </ul><strong>Returns</strong>
-                                <ul>
-                                    <li>void</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <h3><a href="#Titanium.Proxy-method-applyProperties"
-                                title="Link to applyProperties">applyProperties</a></h3>
-                        <div class="background">
-                            <div>addEventListener</div>
-                            <div>
-                                <p>applyProperties (<code>props</code>)</p>
-                                <p>Defined by <a href="#Titanium.Proxy"
-                                        title="Link to Titanium.Proxy">Titanium.Proxy</a>.</p>
-                                <p>Applies the properties to the proxy.</p>
-                                <p>Properties are supplied as a dictionary. Each key-value pair in the
-                                    object is applied to the proxy such that myproxy[key] = value.</p>
-                                <ul>
-                                    <li>Android 3.0.0</li>
-                                    <li>iPhone 3.0.0</li>
-                                    <li>iPad 3.0.0</li>
-                                    <li>Windows Phone 4.1.0</li>
-                                </ul>
-                                <p><strong>Parameters</strong></p>
-                                <ul>
-                                    <li><code>props</code>: <a href="#Dictionary"
-                                            title="Link to Dictionary">Dictionary</a> <br />A
-                                        dictionary of properties to apply.</li>
-                                </ul>
-                                <p><strong>Returns</strong></p>
-                                <ul>
-                                    <li><code>void</code></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <h3>debug</a></h3>
-                        <div class="background">
-                            <div>addEventListener</div>
-                            <div>
-                                <p>debug (<code>message</code>)</p>
-                                <p>Logs messages with a <code>debug</code> severity-level.</p>
-                                <p><strong>Parameters</strong></p>
-                                <ul>
-                                    <li><code>message</code>: Array&lt;String&gt;/String<br />Message to
-                                        log. Accepts an array on iOS only.</li>
-                                </ul>
-                                <p><strong>Returns</strong></p>
-                                <ul>
-                                    <li><code>void</code></li>
-                                </ul>
-                            </div>
-                        </div>
+                        <p>bubbleParent: Boolean</p>
+                        <p>Defined by <a href="#" title="Link to Titanium.Proxy">Titanium.Proxy</a>.
+                        </p>
+                        <p>Indicates if the proxy will bubble an event to its parent.</p>
+                        <p>Some proxies (most commonly views) have a relationship to other proxies,
+                            often established by the add() method. For example, for a button added
+                            to a window, a click event on the button would bubble up to the window.
+                            Other common parents are table sections to their rows, table views to
+                            their sections, and scrollable views to their views. Set this property
+                            to false to disable the bubbling to the proxy's parent.</p>
+                        <p>Default: true</p>
+                        <ul>
+                            <li>Android 3.0.0</li>
+                            <li>iPhone 3.0.0</li>
+                            <li>iPad 3.0.0</li>
+                            <li>Windows Phone 4.1.0</li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 id="lifecycleContainer">lifecycleContainer</h3>
+                <div class="background">
+                    <div>lifecycleContainer</div>
+                    <div>
+                        <p>lifecycleContainer: <a href="#"
+                                title="Link to Titanium.UI.Window">Titanium.UI.Window</a>/<a
+                                href="#"
+                                title="Link to Titanium.UI.TabGroup">Titanium.UI.TabGroup</a></p>
+                        <p>Defined by <a href="#" title="Link to Titanium.Proxy">Titanium.Proxy</a>.
+                        </p>
+                        <p>The Window or TabGroup whose Activity lifecycle should be triggered on
+                            the proxy.</p>
+                        <p>If this property is set to a Window or TabGroup, then the corresponding
+                            Activity lifecycle event callbacks will also be called on the proxy.
+                            Proxies that require the activity lifecycle will need this property set
+                            to the appropriate containing Window or TabGroup.</p>
+                        <ul>
+                            <li>Android 3.6.0</li>
+                            <li>Windows Phone 4.1.0</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h2 id="Methods">Methods</h2>
+                <h3 id="addEventListener">addEventListener</h3>
+                <div class="background">
+                    <div>addEventListener</div>
+                    <div>
+                        <p>addEventListener (name, callback)</p>
+                        <p>Defined by <a href="#"
+                                title="Link to Titanium.Proxy">Titanium.Proxy</a>.</p>
+                        <p>Adds the specified callback as an event listener for the named event.</p>
+                        <p><strong>Parameters</strong></p>
+                        <ul>
+                            <li>name: String<p>Name of the event.</p>
+                            </li>
+                            <li>callback: Callback&lt;Object&gt;<p>Callback function to invoke when
+                                    the event is fired.</p>
+                            </li>
+                        </ul><strong>Returns</strong>
+                        <ul>
+                            <li>void</li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 id="applyProperties">
+                <a href="#" title="Link to applyProperties">applyProperties</a></h3>
+                <div class="background">
+                    <div>addEventListener</div>
+                    <div>
+                        <p>applyProperties (<code class="inline">props</code>)</p>
+                        <p>Defined by <a href="#"
+                                title="Link to Titanium.Proxy">Titanium.Proxy</a>.</p>
+                        <p>Applies the properties to the proxy.</p>
+                        <p>Properties are supplied as a dictionary. Each key-value pair in the
+                            object is applied to the proxy such that myproxy[key] = value.</p>
+                        <ul>
+                            <li>Android 3.0.0</li>
+                            <li>iPhone 3.0.0</li>
+                            <li>iPad 3.0.0</li>
+                            <li>Windows Phone 4.1.0</li>
+                        </ul>
+                        <p><strong>Parameters</strong></p>
+                        <ul>
+                            <li><code class="inline">props</code>: <a href="#"
+                                    title="Link to Dictionary">Dictionary</a> <br />A
+                                dictionary of properties to apply.</li>
+                        </ul>
+                        <p><strong>Returns</strong></p>
+                        <ul>
+                            <li><code class="inline">void</code></li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 id="debug">debug</a></h3>
+                <div class="background">
+                    <div>addEventListener</div>
+                    <div>
+                        <p>debug (<code class="inline">message</code>)</p>
+                        <p>Logs messages with a <code class="inline">debug</code> severity-level.</p>
+                        <p><strong>Parameters</strong></p>
+                        <ul>
+                            <li><code class="inline">message</code>: Array&lt;String&gt;/String<br />Message to
+                                log. Accepts an array on iOS only.</li>
+                        </ul>
+                        <p><strong>Returns</strong></p>
+                        <ul>
+                            <li><code class="inline">void</code></li>
+                        </ul>
                     </div>
                 </div>
             </div>
