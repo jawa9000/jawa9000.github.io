@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Properties of a YAML File</title>
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="../css/tutorials.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css" type="text/css" />
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Properties of a YAML File</h1>
+                <p class="note">Archive note: all links and images have been disabled as their destinations and/or source locations no longer exist.</p>
+                <div>Created by Brian Immel, last modified on Sep 27, 2018</div>
+                <div class="floatLeft">
+                    <ul>
+                        <li><a href="#Top_level_properties">Top level properties</a></li>
+                        <li><a href="#Properties">Properties</a></li>
+                        <li><a href="#Methods">Methods</a></li>
+                        <li><a href="#Events">Events</a></li>
+                        <li><a href="#Examples">Examples</a></li>
+                        <li><a href="#Working_example">Working YAML Example</a></li>
+                        <li><a href="#Notes">Notes</a></li>
+                        <li><a href="#Other_considerations">Other considerations</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p>This document is designed to guide engineers and API documentation contributors to write properly formatted YAML files. Following this guide will cut down on broken documentation builds and reduce the time it takes to troubleshoot and fix YAML files.</p>
+                    <p>As a general rule, always run your YAML file through our <a href="#">doc linter (DLinter)</a> to confirm the format is correct and to fix any issues the linter may provide warnings or errors.</p>
+                    <p>If you have any questions about this document, need help formatting or starting a YAML doc, please reach out to <a href="#">Brian Immel</a>.</p>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <h2 id="Top_level_properties">Top level properties</h2>
+                <table>
+                    <tr>
+                        <th>Property</th>
+                        <th>Purpose</th>
+                        <th>Type</th>
+                        <th>Example</th>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">---</code></td>
+                        <td>The opening of the yaml file should include this "marker".</td>
+                        <td>n/a </td>
+                        <td><code class="inline">---</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">name</code></td>
+                        <td>Name of the module.</td>
+                        <td>String</td>
+                        <td><code class="inline">name: Titanium.Accelerometer</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">summary</code></td>
+                        <td>Summary of the module.</td>
+                        <td>String with mixed content.</td>
+                        <td><code class="inline">summary: |<br/>
+                            The top-level Accelerometer module...</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">description</code></td>
+                        <td>Description of the module.</td>
+                        <td>String with mixed content.</td>
+                        <td><code class="inline">description: |<br/>
+                            An accelerometer is a hardware unit...</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">extends</code></td>
+                        <td>Extends another module. This brings in content from another module.</td>
+                        <td>String with link to another module.</td>
+                        <td><code class="inline">extends: Titanium.Module</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">since</code></td>
+                        <td>Which release this module was introduced.</td>
+                        <td>String, number or object.</td>
+                        <td><code class="inline">since: 0.1</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">platforms</code></td>
+                        <td>List of platforms this module works with.</td>
+                        <td>String or array.</td>
+                        <td><code class="inline">platforms: [android, iphone, ipad] </code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">creatable</code></td>
+                        <td>If the module is creatable.</td>
+                        <td>Boolean (true/false).</td>
+                        <td><code class="inline">creatable: false</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">excludes</code></td>
+                        <td>Exclude select pieces of extended module.</td>
+                        <td>String or Object with nested array.</td>
+                        <td><code class="inline">excludes: { methods: [ addEventListener, applyProperties, fireEvent, removeEventListener ] }</code>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-12">
+                <h2 id="Properties">Properties</h2>
+                <table>
+                    <tr>
+                        <th>Property</th>
+                        <th>Purpose</th>
+                        <th>Type</th>
+                        <th>Example</th>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">properties</code></td>
+                        <td>Header for properties section.</td>
+                        <td>n/a</td>
+                        <td><code class="inline">properties:</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">name</code></td>
+                        <td>Property name.</td>
+                        <td>String</td>
+                        <td><code class="inline">name: lastEvent</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">summary</code></td>
+                        <td>Property summary.</td>
+                        <td>String with mixed content</td>
+                        <td><code class="inline">summary: JSON representation of the last Analytics event generated.</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">description</code></td>
+                        <td>Property description.</td>
+                        <td>String with mixed content</td>
+                        <td><code class="inline">description: |<br/>
+                            LastEvent is the JSON version...</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">type</code></td>
+                        <td>Property type.</td>
+                        <td>String or nested string</td>
+                        <td><code class="inline">type: String</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">platforms</code></td>
+                        <td>Property platforms.</td>
+                        <td>String or array</td>
+                        <td><code class="inline">platforms: [android, iphone, ipad]</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">permission</code></td>
+                        <td>Property permission.</td>
+                        <td>String with either 'read-only' or 'write-only' values</td>
+                        <td><code class="inline">permission: read-only</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">osver</code></td>
+                        <td>Property osver.</td>
+                        <td>Object with nested objects</td>
+                        <td><code class="inline">osver: {android: {max: "4.1"}}</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">accessors</code></td>
+                        <td>Property accessor.</td>
+                        <td>Boolean (true/false)</td>
+                        <td><code class="inline">accessors: false</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">availability</code></td>
+                        <td>Property availability.</td>
+                        <td>Only has one string value: 'creation'</td>
+                        <td><code class="inline">availability: creation</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">value</code></td>
+                        <td>Property value.</td>
+                        <td>String or number</td>
+                        <td><code class="inline">value: "public.text"</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">since</code></td>
+                        <td>Which release this property was introduced.</td>
+                        <td>Number or object</td>
+                        <td><code class="inline">since: 3.1.2</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">constants</code></td>
+                        <td>Property constant.</td>
+                        <td>String or array</td>
+                        <td><code class="inline">constants: Titanium.Android.SCREEN_ORIENTATION_*</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">deprecated</code></td>
+                        <td>Property deprecated object.</td>
+                        <td>Number</td>
+                        <td><code class="inline">deprecated:</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">(deprecated) since</code></td>
+                        <td>Which release this property was deprecated.</td>
+                        <td>Number or object</td>
+                        <td><code class="inline">since: 2.0.0</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">(deprecated) removed</code></td>
+                        <td>Which release this property was removed.</td>
+                        <td>Number</td>
+                        <td><code class="inline">removed: 3.3.0</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">(deprecated) notes</code></td>
+                        <td>Property deprecated summary.</td>
+                        <td>String with mixed content</td>
+                        <td><code class="inline">notes: Use Titanium.Android.Activity.onCreate instead.</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">default</code></td>
+                        <td>Property default.</td>
+                        <td>Simple string, NO mixed content</td>
+                        <td><code class="inline">default: null</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">examples</code></td>
+                        <td>Header for the examples section of a property.</td>
+                        <td>n/a</td>
+                        <td><code class="inline">examples:</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">title</code></td>
+                        <td>Example title (similar to event names) of a property.</td>
+                        <td>String</td>
+                        <td><code class="inline">title: Basic Accelerometer Event</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">example</code></td>
+                        <td>Example of the example (similar to event description) of a property.</td>
+                        <td>String with mixed content</td>
+                        <td><code class="inline">example: |<br/>
+                            Adds an accelerometer update event listener...</code></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-12">
+                <h2 id="Methods">Methods</h2>
+                <table>
+                    <tr>
+                        <th>Property</th>
+                        <th>Purpose</th>
+                        <th>Type</th>
+                        <th>Example</th>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">methods</code></td>
+                        <td>Header for the methods section.</td>
+                        <td>n/a</td>
+                        <td><code class="inline">methods:</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">name</code></td>
+                        <td>Method name.</td>
+                        <td>String</td>
+                        <td><code class="inline">name: addEvent</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">summary</code></td>
+                        <td>Method summary.</td>
+                        <td>String with mixed content</td>
+                        <td><code class="inline">summary: |<br/>
+                            Sends a generic event for...</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">description</code></td>
+                        <td>Method description.</td>
+                        <td>String with mixed content</td>
+                        <td><code class="inline">description: |<br/>
+                            LastEvent is the JSON version...</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">deprecated</code></td>
+                        <td>Method deprecated object.</td>
+                        <td>n/a</td>
+                        <td><code class="inline">deprecated:</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">(deprecated) since</code></td>
+                        <td>Method deprecated since. Which release this method was deprecated.</td>
+                        <td>Number, string, or object</td>
+                        <td><code class="inline">since: 2.0.0</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">(deprecated) removed</code></td>
+                        <td>Method deprecated removed. Which release this method was removed.</td>
+                        <td>Number or string</td>
+                        <td><code class="inline">removed: 3.3.0</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">(deprecated) notes</code></td>
+                        <td>Method deprecated summary.</td>
+                        <td>String with mixed content</td>
+                        <td><code class="inline">notes: Use Titanium.Android.Activity.onCreate instead.</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">returns</code></td>
+                        <td>Method return object.</td>
+                        <td>n/a</td>
+                        <td><code class="inline">returns:</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">(returns) type</code></td>
+                        <td>Method return type.</td>
+                        <td>String, nested string, link, or nested link</td>
+                        <td><code class="inline">type: Number</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">parameters</code></td>
+                        <td>Method parameters header.</td>
+                        <td>n/a</td>
+                        <td><code class="inline">parameters:</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">(parameters) name</code></td>
+                        <td>Method parameter name.</td>
+                        <td>String</td>
+                        <td><code class="inline">name: type</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">(parameters) summary</code></td>
+                        <td>Method parameter summary.</td>
+                        <td>String with mixed content</td>
+                        <td><code class="inline">summary: Event type.</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">(parameters) type</code></td>
+                        <td>Method parameter type.</td>
+                        <td>String or nested string</td>
+                        <td><code class="inline">type: String</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">(parameters) optional</code></td>
+                        <td>Method parameter optional.</td>
+                        <td>Boolean (true/false)</td>
+                        <td><code class="inline">optional: true</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">(parameters) default</code></td>
+                        <td>Method parameter default.</td>
+                        <td>String with mixed content/td>
+                        <td><code class="inline">default: null</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">platforms</code></td>
+                        <td>Method platforms.</td>
+                        <td>String or array</td>
+                        <td><code class="inline">platforms: [android, iphone, ipad]</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">since</code></td>
+                        <td>Method since. Which release this method was introduced.</td>
+                        <td>Number or object</td>
+                        <td><code class="inline">since: 4.1.0</code></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-12">
+                <h2 id="Events">Events</h2>
+                <table>
+                    <tr>
+                        <th>Property</th>
+                        <th>Purpose</th>
+                        <th>Type</th>
+                        <th>Example</th>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">events</code></td>
+                        <td>Header for the events section.</td>
+                        <td>n/a</td>
+                        <td><code class="inline">events:</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">name</code></td>
+                        <td>Event name.</td>
+                        <td>String</td>
+                        <td><code class="inline">name: update</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">summary</code></td>
+                        <td>Event summary.</td>
+                        <td>String with mixed content</td>
+                        <td><code class="inline">summary: Fired when the accelerometer changes.</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">properties</code></td>
+                        <td>Event properties header.</td>
+                        <td>n/a</td>
+                        <td><code class="inline">properties:</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">(properties) name</code></td>
+                        <td>Event property name.</td>
+                        <td>String</td>
+                        <td><code class="inline">name: timestamp</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">(properties) summary</code></td>
+                        <td>Event property summary.</td>
+                        <td>String with mixed content</td>
+                        <td><code class="inline">summary: |<br/>
+                            Reference timestamp since the previous...</code></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-12">
+                <h2 id="Examples">Examples</h2>
+                <table>
+                    <tr>
+                        <th>Property</th>
+                        <th>Purpose</th>
+                        <th>Type</th>
+                        <th>Example</th>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">examples</code></td>
+                        <td>Header for the examples section.</td>
+                        <td>n/a</td>
+                        <td><code class="inline">examples:</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">title</code></td>
+                        <td>Example title (similar to event names).</td>
+                        <td>String</td>
+                        <td><code class="inline">title: Basic Accelerometer Event</code></td>
+                    </tr>
+                    <tr>
+                        <td><code class="inline">example</code></td>
+                        <td>Example description.</td>
+                        <td>String with mixed content</td>
+                        <td><code class="inline">example: |<br/>
+                            Adds an accelerometer update event listener...</code></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-12">
+                <h2 id="Working_example">Working YAML Example</h2>
+                <p>The following code snippet represents an example of using the above information to generate an API document.</p>
+                <code id="code-head" class="block">
+                    ---<br/>
+                    name: Titanium.Accelerometer<br/>
+                    summary: The top-level API module, containing methods to output messages to the system log.<br/>
+                    since: 0.1.0<br/>
+                    platforms: [android, iphone, ipad]<br/>
+                    <br/>
+                    properties:<br/>
+                    name: lastEvent<br/>
+                    <span class="indent36">summary: JSON representation of the last Analytics event generated.</span><br/>
+                    <span class="indent36">type: String</span><br/>
+                    <span class="indent36">platforms: [android, iphone, ipad]</span><br/>
+                    <span class="indent36">default: null</span><br/>
+                    <span class="indent36">since: 0.1.0</span><br/>
+                    <br/>
+                    methods:<br/>
+                    name: addEvent<br/>
+                    <span class="indent36">summary: Send a generic event for ....</span><br/>
+                    <span class="indent36">since: 0.3.0</span><br/>
+                    <span class="indent36">parameters:</span><br/>
+                    <span class="indent72">name: type</span><br/>
+                    <span class="indent72">summary: Event type.</span><br/>
+                    <span class="indent72">type: String</span><br/>
+                    <span class="indent72">platforms: [android, iphone, ipad]</span><br/>
+                    name: addMultiEvent<br/>
+                    <span class="indent36">summary: Send multiple generic events for ....</span><br/>
+                    <span class="indent36">since: 0.2.0</span><br/>
+                    <span class="indent36">deprecated:</span><br/>
+                    <span class="indent72">since: 0.3.0</span><br/>
+                    <span class="indent72">notes: Use Titanium.Android.Activity.onCreate instead.</span><br/>
+                    <span class="indent72">platforms: [android]</span><br/>
+                    <span class="indent36">parameters:</span><br/>
+                    <span class="indent72">name: type</span><br/>
+                    <span class="indent72">summary: Event type.</span><br/>
+                    <span class="indent72">type: String</span><br/>
+                    <span class="indent72">platforms: [android, iphone, ipad]</span><br/>
+                    ---
+                </code>
+            </div>
+            <div class="col-md-12">
+                <h2 id="Notes">Notes</h2>
+                <p>If a property ends with "|", then the content of that property is found on the next line(s). These
+                    indicators are typically found in summaries, descriptions, and examples.</p>
+                <p>Platforms are typically an array but can be a single value as well. For example:
+                    <code class="inline">'[android, iphone, ipad]'</code> though sometimes the array contains a single value (i.e.
+                    <code class="inline">'[android]'</code>).</p>
+                <p><code class="inline">Since</code> is always be a number format as <code class="inline">"#.#.#"</code>, <code class="inline">'#.#.#'</code>, or
+                    <code class="inline">#.#.#</code>. The recommended format for a number is <code class="inline">#.#.#</code>. Sometimes, this value
+                    will be an object that lists the platform and then the version it was introduced in. For example:
+                    <code class="inline">'{android: "3.2.0", iphone: "3.1.0", ipad: "3.1.0"}'</code>.</p>
+                <p>Also, in some rare cases, some modules use since as an object with nested attributes. For example:
+                </p>
+                <code id="code-head" class="block">
+                    since:<br/>
+                    <span class="indent36">android: 5.4.0</span><br/>
+                    <span class="indent36">iphone: 5.4.0</span><br/>
+                    <span class="indent36">ipad: 5.4.0</span>
+                </code>
+
+                <p>Types values can be a string, string with a nested object, link to another module, or string with
+                    nested link to another module. Examples: <code class="inline">string: 'Array'</code>,
+                    <code class="inline">nested object: 'Array&lt;String&gt;'</code>,
+                    <code class="inline">link: 'Titanium.App.iOS.SearchableItemAttributeSet'</code>,
+                    <code class="inline">string with nested link: 'Array&lt;Titanium.App.iOS.UserNotificationAction&gt;'</code>.</p>
+
+                <p>Constants can be a string or array with a list of "constants" (typically pulled from other modules).
+                    Constant example: <code class="inline">string: 'constant'</code>. Constant arrays can list the constants as a hard
+                    list (<code class="inline">'[A,B,C]'</code>) or use a wildcard (<code class="inline">'[A*,B*,C*]'</code>) to pull in any other
+                    constant with similar name matches.</p>
+
+                <p>The osver property contains objects with one or more nested objects. The format typically looks like
+                    this: <code>{&lt;platform&gt;: {'min'/'max': "#.#"}}</code>. For example, a single nested object can
+                    look like this: <code>{android: {max: "4.1"}}</code></p>
+
+                <p>Objects with nested multiple objects: <code class="inline">{android: {min: "4.1"}, ios: {min: "5.0"}}</code></p>
+
+                <p>In some rare cases, some modules use <code class="inline">since</code> as an object with nested attributes. For
+                    example:</p>
+                <code id="code-head" class="block">
+                    osver:<br/>
+                    <span class="indent36">ios:</span><br/>
+                    <span class="indent72"></span>min: 4.3</span>
+                </code>
+
+                <p>Excludes can come in a few forms: object with nested array or nested object(s) with the following
+                    nested objects containing arrays: events, methods, properties.</p>
+                <p>Examples</p>
+                <ul>
+                    <li>nested array:
+                        <code>{ methods: [ addEventListener, applyProperties, fireEvent, removeEventListener ] }</code>
+                    </li>
+                    <li>nested objects</li>
+                    <ul>
+                        <li><code>properties: [bubbleParent]</code></li>
+                        <li><code>methods: [addEventListener, applyProperties]</code></li>
+                        <li><code>events: ['focus', 'pinch', 'longclick']</code></li>
+                    </ul>
+                </ul>
+            </div>
+            <div class="col-md-12">
+                <h2 id="Other_considerations">Other considerations</h2>
+                <p>Comments within the yaml document (lines that start with '#') are commented out from the HTML output. Only use comments if necessary.</p>
+                <p>Spaces before or after a &quot;:&quot; character in a property is handled gracefully by the interpreter. Sometimes, contributors put a space between the property and colon. While we should strictly enforce the no space policy between a property and colon, the interpreter can handle a single space character without breaking the output.</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
