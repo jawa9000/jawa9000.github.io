@@ -21,6 +21,8 @@
 			font-size: 1em;
 			font-weight: normal;
 			color: #435b77;
+			display: block;
+			padding: 5px;
 		}
 		.expandableContainer {
 			border: none;
@@ -30,6 +32,7 @@
 		}
 		.label {
 			margin: 10px;
+			display: table;
 		}
 		.glyphicon {
 			margin: 0 3px;
@@ -66,8 +69,8 @@
 					<div class="webNote">
 						<h3><a href="" target="blank"></a></h3>
 						<p>short description</p>
-						<span class="label label-default">label(s)</span>
 						<p>A PDF version of this document is available via this <a href="" target="_blank" class="underscore">link</a>.</p>
+						<div class="label label-default">label(s)</span>
 						<div class="expandableContainer">
 							<div class="expandableTitle" id="expandTitle-uniqueId" status="hidden">
 								<span class="glyphicon glyphicon-circle-arrow-right paddingRight5"></span>
@@ -87,13 +90,13 @@
 				<div class="webNote">
 					<h3><a href="../tutorials.html#writing" target="blank">Technical Writing Guides</a></h3>
 					<p>Collection of documents I wrote that deals with or is related to technical writing.</p>
-					<span class="margin10"><span class="label label-default">guides</span></span>
+					<div class="label label-default">guides</div>
 				</div>
 				<div class="webNote">
 					<h3><a href="Document_Read_Time.html" target="blank">Document Read Time</a></h3>
 					<p>Short tutorial for novice JavaScript developers to create a estimate of reading time for a web document based on typical reader's skill level.</p>
-					<span class="label label-default">tutorial, JavaScript, jQuery, HTML5, code sample</span>
 					<p>A PDF version of this document is available via this <a href="Document_Read_Time.pdf" target="_blank" class="underscore">link</a>.</p>
+					<div class="label label-default">tutorial, JavaScript, jQuery, HTML5, code sample</div>
 					<div class="expandableContainer">
 						<div class="expandableTitle" id="expandTitle-docReadTime" status="hidden">
 							<span class="glyphicon glyphicon-circle-arrow-right paddingRight5"></span><span class="expand" title="Click to expand">Project details</span>
@@ -108,13 +111,32 @@
 					</div>
 				</div>
 				<div class="webNote">
+					<h3><a href="Remote_And_Workstation_Access.html" target="blank">Remote and Workstation Access</a></h3>
+					<p>Brief guide instructing all user levels on how to remotely access their desktops.</p>
+					<p>A PDF version of this document is available via this <a href="Remote_And_Workstation_Access.pdf" target="_blank" class="underscore">link</a>.</p>
+					<div class="label label-default">guide, tutorial</div>
+					<!-- <div class="expandableContainer">
+						<div class="expandableTitle" id="expandTitle-uniqueId" status="hidden">
+							<span class="glyphicon glyphicon-circle-arrow-right paddingRight5"></span>
+							<span class="expand" title="Click to expand">Project details</span>
+						</div>
+						<div class="expandableContent" id="expandContent-uniqueId" style="display: block;">
+							<ul>
+								<li>Audience:</li>
+								<li>Project notes:</li>
+								<li>What would I change?</li>
+							</ul>
+						</div>
+					</div> -->
+				</div>
+				<div class="webNote">
 					<h3><a href="Using_Nightmare_to_Generate_a_Confluence_Sitemap.html" target="blank">Use Nightmare.js to Generate a Confluence Sitemap</a></h3>
 					<p>Document I researched, wrote the script, tested, and wrote documentation that explains how to use various Node.js modules to export a Confluence sitemap.</p>
-					<span class="label label-default">tutorial, JavaScript, Node.js, Confluence, code sample</span>
 					<p>A PDF version of this document is available via this <a
 							href="Use_Nightmare.js_to_Generate_a_Confluence_Sitemap.pdf" target="_blank"
 							class="underscore">link</a>.</p>
-							<div class="expandableContainer">
+					<div class="label label-default">tutorial, JavaScript, Node.js, Confluence, code sample</div>
+					<div class="expandableContainer">
 						<div class="expandableTitle" id="expandTitle-nightmare" status="hidden">
 							<span class="glyphicon glyphicon-circle-arrow-right paddingRight5"></span>
 							<span class="expand" title="Click to expand">Project details</span>
@@ -133,14 +155,33 @@
 					<p>Personal blog site I maintain on a semi-regular basis that captures documentation tooling,
 						documentation trends, and conference summaries. All posts are researched, tested, and written by
 						me.</p>
-					<span class="label label-default">tutorials, blog, guides</span>
+					<div class="label label-default">tutorials, blog, guides</div>
 				</div>
 				<div class="webNote">
-					<h3><a href="Creating-your-first-mobile-app.html" target="blank">Creating Your First Mobile App</a>
+					<h3><a href="AMPLIFY_CLI_Commands.html" target="blank">AMPLIFY CLI Commands</a></h3>
+					<p>Reference documentation for using the AMPLIFY CLI.</p>
+					<p>A PDF version of this document is available via this <a href="AMPLIFY_CLI_Commands.pdf" target="_blank" class="underscore">link</a>.</p>
+					<div class="label label-default">cli, reference</div>
+					<!-- <div class="expandableContainer">
+						<div class="expandableTitle" id="expandTitle-uniqueId" status="hidden">
+							<span class="glyphicon glyphicon-circle-arrow-right paddingRight5"></span>
+							<span class="expand" title="Click to expand">Project details</span>
+						</div>
+						<div class="expandableContent" id="expandContent-uniqueId" style="display: block;">
+							<ul>
+								<li>Audience:</li>
+								<li>Project notes:</li>
+								<li>What would I change?</li>
+							</ul>
+						</div>
+					</div> -->
+				</div>
+				<div class="webNote">
+					<h3><a href="Creating_your_first_mobile_app.html" target="blank">Creating Your First Mobile App</a>
 					</h3>
 					<p>Entry level user tutorial on how to create a simple mobile app using Appcelerator platform. Collaborated with two engineers to rewrite and test an outdated tutorial.</p>
-					<span class="label label-default">tutorial</span>
 					<p>A PDF version of this document is available via this <a href="Creating_Your_First_Mobile_App.pdf" target="_blank" class="underscore">link</a>.</p>
+					<div class="label label-default">tutorial</div>
 					<!--
 					<div class="expandableTitle" id="expandTitle-firstApp" status="hidden">
 						<span class="glyphicon glyphicon-circle-arrow-right paddingRight5"></span>
@@ -156,29 +197,27 @@
 					-->
 				</div>
 				<div class="webNote">
-					<h3><a href="Hello-Titanium-app.html" target="blank">Hello Titanium</a></h3>
+					<h3><a href="Hello_Titanium_app.html" target="blank">Hello Titanium</a></h3>
 					<p>Another entry level user tutorial on how to create a simple mobile app using Appcelerator platform. Collaborated with two engineers to rewrite and test an outdated tutorial.</p>
-					<span class="label label-default">tutorial</span>
 					<!-- <p>A PDF version of this document is available via this <a href="" target="_blank" class="underscore">link</a>.</p> -->
-					<!--
+					<div class="label label-default">tutorial</div>
 					<div class="expandableTitle" id="expandTitle-hello" status="hidden">
 						<span class="glyphicon glyphicon-circle-arrow-right paddingRight5"></span>
 						<span class="expand" title="Click to expand">Project details</span>
 					</div>
 					<div class="expandableContent" id="expandContent-hello" style="display: block;">
 						<ul>
-							<li>Audience:</li>
-							<li>Project notes:</li>
-							<li>What would I change?</li>
+							<li>Audience: Entry level developer</li>
+							<li>Project notes: Revised this document based on direct research and feedback I received from the Titanium team. I completely rewrote this document over the course of 5 days (total of 17 man-hours).</li>
+							<li>What would I change? Re-integrate screen shots.</li>
 						</ul>
 					</div>
-					-->
 				</div>
 				<div class="webNote">
-					<h3><a href="Studio-5.3.0.RC-Release-Note.html" target="blank">Studio 5.3.0 RC release note</a></h3>
+					<h3><a href="Studio_5.3.0.RC_Release_Note.html" target="blank">Studio 5.3.0 RC release note</a></h3>
 					<p>Example of a end-user product release note I collaborated with the entire team.</p>
-					<span class="label label-default">release note</span>
 					<!-- <p>A PDF version of this document is available via this <a href="" target="_blank" class="underscore">link</a>.</p> -->
+					<div class="label label-default">release note</div>
 					<!--
 					<div class="expandableTitle" id="expandTitle-releaseNote" status="hidden">
 						<span class="glyphicon glyphicon-circle-arrow-right paddingRight5"></span>
@@ -194,10 +233,29 @@
 					-->
 				</div>
 				<div class="webNote">
+					<h3><a href="Hyperloop_3.0.0_Release_Note.html" target="blank">Hyperloop 3.0.0 Release Note</a></h3>
+					<p>Release note for Appcelerator's Hyperloop 3.0.0.</p>
+					<p>A PDF version of this document is available via this <a href="Hyperloop_3.0.0_Release_Note.pdf" target="_blank" class="underscore">link</a>.</p>
+					<div class="label label-default">release note</div>
+					<!-- <div class="expandableContainer">
+						<div class="expandableTitle" id="expandTitle-uniqueId" status="hidden">
+							<span class="glyphicon glyphicon-circle-arrow-right paddingRight5"></span>
+							<span class="expand" title="Click to expand">Project details</span>
+						</div>
+						<div class="expandableContent" id="expandContent-uniqueId" style="display: block;">
+							<ul>
+								<li>Audience:</li>
+								<li>Project notes:</li>
+								<li>What would I change?</li>
+							</ul>
+						</div>
+					</div> -->
+				</div>
+				<div class="webNote">
 					<h3><a href="Titanium.API.html" target="blank">Titanium API</a></h3>
 					<p>Example of an end-user API doc I collaborated on updating, revising, and testing content with help from two engineers.</p>
-					<span class="label label-default">API</span>
 					<p>A PDF version of this document is available via this <a href="Titanium.API.pdf" target="_blank" class="underscore">link</a>.</p>
+					<div class="label label-default">API</div>
 					<div class="expandableTitle" id="expandTitle-titaniumAPI" status="hidden">
 						<span class="glyphicon glyphicon-circle-arrow-right paddingRight5"></span>
 						<span class="expand" title="Click to expand">Project details</span>
