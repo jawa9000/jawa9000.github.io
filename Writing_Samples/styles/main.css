@@ -21,9 +21,35 @@ p.note {
     padding: 0 50px 25px 0;
     background: rgba(0, 0, 0, 0.1);
 }
-ul {
-    overflow: hidden;
-}
+
 div {
     margin: 10px;
+}
+table {
+    margin: 0;
+    padding: 5px;
+    border-collapse: collapse;
+    border: solid thin black;
+}
+th {
+    background-color: rgb(200, 204, 211);
+}
+td {
+    padding: 5px;
+    text-align: left;
+}
+tr:nth-child(even) {
+    background-color: rgb(233, 233, 243);
+}
+tr:nth-child(odd) {
+    background-color: rgb(215, 215, 228);
+}
+ul {
+    overflow: hidden;
+    margin: 5px 0 10px 0;
+}
+
+/* Bootstrap overrides */
+.container {
+    width: 95%;
 }
