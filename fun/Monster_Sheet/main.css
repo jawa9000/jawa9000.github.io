@@ -1,8 +1,15 @@
 :root {
-    --main-bg-color: goldenrod;
-    --secondary-bg-color: #b98c1b;
+    /* --main-bg-color: goldenrod; */
+    --main-bg-color: rgb(236, 215, 161);
+    /* --secondary-bg-color: #b98c1b; */
+    --secondary-bg-color: #ece4cf;
     --alt-bg-color: #cf9d20;
-    --main-color: red;
+    /* --main-color: red; */
+    --main-color: rgb(124, 29, 29);
+    --tr-hover: #ebba3d;
+    --print-table-tr: white;
+    --disabled-color: rgb(103, 101, 99)
+    --disabled-bg: dimgrey;
 }
 
 
@@ -87,8 +94,8 @@ input.movementSpeed {
     width: 60px;
 }
 *:disabled {
-    background-color: dimgrey;
-    color: rgb(103, 101, 99);
+    background-color: var(--disabled-bg);
+    color: var(--disabled-color);
     opacity: 1;
 }
 input#hpPercentage {
@@ -129,7 +136,7 @@ tr:nth-child(odd) {
 }
 
 tr:hover {
-    background-color: #ebba3d;
+    background-color: var(--tr-hover);
 }
 
 /* Link overrides */
@@ -177,7 +184,7 @@ h1#creatureName {
     border: none;
 }
 .printTable tr {
-    background-color: white;
+    background-color: var(--print-table-tr);
 }
 .printTable th, .printTable td {
     border: none;
