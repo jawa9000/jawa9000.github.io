@@ -87,12 +87,12 @@ $('select#challengeRating').on('change', function() { // set input fields based 
     } else {
         var hp = challengeRating[crValue].hp.split('-');
         
-        $('#hitPoints').val(Math.round((parseInt(hp[0]) + parseInt(hp[1]))/2));
+        $('input#hitPoints').val(Math.round((parseInt(hp[0]) + parseInt(hp[1]))/2)); // hit points input element
         $('span#xp').text('(' + numberWithCommas(challengeRating[crValue].xp + ')')); // xp
-        $('#armorClass').val(challengeRating[crValue].ac); // armor class
+        $('#armorClass').val(challengeRating[crValue].ac); // armor class input element
         $('span#profBonus').text('Prof bonus: ' + challengeRating[crValue].profBonus + ', ');
         $('span#ac').text('AC: ' + challengeRating[crValue].ac + ', ');
-        $('span#hp').text('HP: ' + challengeRating[crValue].hp + ', ');
+        $('span#hitPoints').text('HP: ' + challengeRating[crValue].hp + ', ');
         $('span#attackBonus').text('Attack bonus: ' + challengeRating[crValue].attackBonus + ', ');
         $('span#damageRound').text('Damage/round: ' + challengeRating[crValue].damageRound + ', ');
         $('span#saveDC').text('Save DC: ' + challengeRating[crValue].saveDC);
@@ -617,8 +617,8 @@ $(document).on('keydown', function(event) { // return to edit view from print vi
 
         // change background color
         $('body').css({
-            'background-color': 'goldenrod',
-            'color': 'red'
+            'background-color': 'rgb(236, 215, 161)',
+            'color': 'rgb(124, 29, 29)'
         });
     }
 });
@@ -869,7 +869,7 @@ function calcHitDice() { // calcualate which hit dice to use and how many to get
 }
 
 function updateHPNHitDiceForPrint() {
-    $('span#hitPoints').text($('input#hitPoints').val());
+    $('span#hitPointsPrint').text($('input#hitPoints').val());
     $('span#hitDice').text($('input#hpDice').val());
 }
 
