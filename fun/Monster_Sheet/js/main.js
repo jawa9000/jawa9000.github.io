@@ -838,7 +838,16 @@ function calcHitDice() { // calcualate which hit dice to use and how many to get
         var hpPercentage = $('input#hpPercentage').val() / 100;
         var conModifier = parseInt($('#constitutionModifier').text());
         var hp = parseInt($('input#hitPoints').val());
+        var crValue = $('select#challengeRating').val();
+        var defaultHp = challengeRating[crValue].hp.split('-'); // get default HP value based on CR and use this as a basis for calculating total HP when using the slider
+
+        defaultHp = (parseInt(defaultHp[0]) + parseInt(defaultHp[1])) / 2; // average of low and high HP ranges
+        
         var times = Math.round((hp / avgHP) * hpPercentage);
+
+        hp = Math.round(defaultHp * hpPercentage);
+
+        $('input#hitPoints').val(hp);
     
         if (times == 0) {
             times = 1;
