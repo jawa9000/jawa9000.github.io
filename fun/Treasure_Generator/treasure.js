@@ -732,3 +732,4 @@ var quirk = {
     }
 }
 
+// ** add spell lists to this so the scroll can have different types from all schools of magic. Use http://dnd5e.wikidot.com/spells:wizard as a source to start from.
