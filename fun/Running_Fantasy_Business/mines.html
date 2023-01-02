@@ -1,0 +1,342 @@
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+    <title>Mine Output</title>
+    <meta name='description' content='mine output'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta name="keywords" content="javascript, random">
+    <meta name="author" content="Brian Immel">
+    <meta name="level" content="2">
+    <meta name="version" content="0.0.1">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+    <link href="../../css/normalize.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .center {
+            text-align: center;
+        }
+        input {
+            width: 60px;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        td, th {
+            padding: 5px;
+        }
+        /* table elements */
+        table, th, td {
+            border: 1px solid black;
+            padding: 5px;
+        }
+        th {
+            text-align: center;
+            background-color: rgb(101, 97, 148);
+            color: white;
+        }
+        tr:nth-child(odd) {
+            background-color: rgb(133, 127, 194);
+        }
+        tr:nth-child(even) {
+            background-color: rgb(169, 165, 209);
+        }
+        tr:hover {
+            background-color: rgb(195, 192, 231);
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1 class="center">Mine Output</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <label for="days">Days</label>
+                <input id="days" type="number" min="1" step="1" max="365" value="7">
+                <label for="minerCount"># of Miners</label>
+                <input id="minerCount" type="number" min="1" ste="1" value="1">
+                <label for="mineType">Mine Type</label>
+                <select name="mineType" id="mineType"></select>
+                <button>Run</button>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-5">
+                <div id="output"></div>
+            </div>
+            <div class="col-md-5">
+                <canvas id="balanceCanvas" width="550" height="450"></canvas>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+</body>
+
+    <script src="../../js/jquery-2.1.0.min.js"></script>
+    
+
+    <script>
+        let minedOutput = {
+            'granite': {
+                'name': 'Granite',
+                'gpOutput': [1,2,3,4,5,6,7,8,9,10,11,12]
+            },
+            'basalt': {
+                'name': 'Basalt',
+                'gpOutput': [2,4,6,8,10,12,14,16,20,22,24]
+            },
+            'marble': {
+                'name': 'Marble',
+                'gpOutput': [4,8,16,32,36,40,44,48,52,56,60,67]
+            },
+            'coal': {
+                'name': 'Coal',
+                'gpOutput': [2,4,6,8,10,12,14,16,18,20,22,24]
+            },
+            'radio-active': {
+                'name': 'Radio-active materails',
+                'gpOutput': [9,13,17,21,25,29,33,37,41,45,49,63]
+            },
+            'lead': {
+                'name': 'Lead',
+                'gpOutput': [1,2,3,4,5,6,7,8,9,10,11,12]
+            },
+            'zinc': {
+                'name': 'Zinc',
+                'gpOutput': [2,4,6,8,10,12,14,16,20,22,24]
+            },
+            'iron': {
+                'name': 'Iron',
+                'gpOutput': [4,7,10,13,16,19,22,25,28,31,34,37]
+            },
+            'tin': {
+                'name': 'Tin',
+                'gpOutput': [7,11,15,19,23,27,31,35,39,43,47,51]
+            },
+            'copper': {
+                'name': 'Copper',
+                'gpOutput': [10,15,20,25,30,35,40,45,50,55,60,65]
+            },
+            'silver': {
+                'name': 'Silver',
+                'gpOutput': [20,30,40,50,60,70,80,90,100,110,120,130]
+            },
+            'gold': {
+                'name': 'Gold',
+                'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
+            },
+            'platinum': {
+                'name': 'Platinum',
+                'gpOutput': [80,130,177,225,275,320,370,420,465,560,610,660]
+            },
+            'mithril': {
+                'name': 'Mithril',
+                'gpOutput': [150,210,280,340,410,480,550,620,690,770,830,910]
+            },
+            'adamantine': {
+                'name': 'Adamantine',
+                'gpOutput': [200,300,400,500,600,700,800,900,1000,1100,1200,1300]
+            },
+            'ulrye': {
+                'name': 'Ulrye crystal',
+                'gpOutput': [500,500,500,500,500,500,1000,1000,1000,2500]
+            }
+        }
+
+        /*
+            mining products
+            1-65: stone
+            66-83: metals
+            84-93: exotic materials
+            94-100: gemstones
+
+            https://angrygolem-games.com/dwarves-mining-4-dd-mining-guide-mining-output/
+*/
+        /*
+            stones
+            1-60: granite
+            61-90: basalt
+            91-00 marble
+*/
+        /*
+            granite byproducts
+            1-50: nothing
+            51-70: agate
+            71-72: bloodstone
+            73-75: canelian
+            76-78: citrine
+            79-81: jasper
+            82-84: moonstone
+            85-87: onyx
+            88-90: tourmaline
+            91-93: zircon
+            94-95: fluorite
+            96-100: roll twice
+*/
+        /*
+            basalt byproducts
+            1-50: nothing
+            51-62: agate
+            63-75: obsidian
+            76-85: quartz
+            86-90: amethyst
+            91-95: fluorite
+            96-100: roll twice
+*/
+        /*
+            marble byproducts
+            1-50: nothing
+            51-90: lapis lazuli
+            91-95: roll once on granite byproduct table
+            96-100: roll twice on granite byproduct table
+*/
+        /*
+            metal table
+            1-5: lead
+            6-10: zinc
+            11-60: iron + iron byproduct
+            61-70: tin
+            71-85: copper + copper byproduct
+            86-90: silver
+            91-95: gold
+            96-97: platinum
+            98-99: mithril
+            100: adamantine
+*/
+        /*
+            iron byproducts
+            1-50: nothing
+            51-71: hematite
+            72-87: rhodochrosite
+            88-90: bloodstone
+            91-93: carnelian
+            94-96: chrysopidate
+            97-98: alexandrite
+            99-100: jade
+*/
+        /*
+            copper byproducts
+            1-50: nothing
+            51-66: azurite
+            67-82: malachite
+            83-100: turquoise
+*/
+        /*
+            exotic materials
+            1-60: coal + 50% of either amber or jet
+            61-90: petroleum + 50% of blue calcite
+            91-100: radioactive materials
+        */
+        /*
+            gem table
+            1-15: aquamarine
+            16-30: blue spinel
+            31-45: peridot
+            46-60: topaz
+            61-68: garnet
+            69-76: jacinth
+            77-84: opal
+            85-91: red spinel
+            92-94: sapphire
+            95-96: emerald
+            97-98: ruby
+            99-100: diamond
+
+        */
+
+
+        var output = '';
+
+        for (i in minedOutput) {
+            output += '<option value="' + i + '">' + minedOutput[i].name + '</option>';
+        }
+
+        $('select').append(output);
+
+        $('button').on('click', function () {
+            $('div#output').html('');
+            var days = $('input#days').val(); // number of days to simulate
+            var metal = $('select').val();
+
+            if (days > 365) { // limit the amount of days to simulate. When testing, I found performance problems trying to simulate 10 years.
+                days = 365;
+                $('input#days').val(365);
+            }
+
+            var tally = 0;
+            var output = '';
+            var totals = [];
+
+            for (var i = 0; i < days; i++) {
+                for (j in minedOutput) {
+                    if (metal == j) {
+                        var worth = minedOutput[j].gpOutput[rndNum(minedOutput[j].gpOutput.length)];
+                        output += '<p>Day ' + (i + 1) + ' produced ' + numberWithCommas(worth) + 'gp worth of ' + metal + '.</p>';
+                        
+                        tally += worth;
+                        break;
+                    }
+                }
+                // totals.push(worth);
+            }
+            
+            // drawGraph(totals);
+
+            $('#output').append('<p>Your ' + metal + ' mine produced a total of ' + numberWithCommas(tally) + 'gp over ' + days + ' days.</p><br/>' + output);
+        });
+
+
+
+        function rndNum(x) {
+            return Math.floor(Math.random() * x);
+        }
+
+        function numberWithCommas(x) {
+            var parts = x.toString().split(".");
+            parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            return parts.join(".");
+        }
+
+        function drawGraph(dataArr) {  // borrowed from https://instructobit.com/tutorial/90/Creating-line-graphs-with-Javascript-using-an-HTML-canvas
+            var canvas = document.getElementById("balanceCanvas");  
+            var context = canvas.getContext("2d");  
+            var GRAPH_TOP = 25;  
+            var GRAPH_BOTTOM = 375;  
+            var GRAPH_LEFT = 25;  
+            var GRAPH_RIGHT = 475;  
+            var GRAPH_HEIGHT = 350;  
+            var GRAPH_WIDTH = 450;  
+            var largest = 0;  
+
+            for (var i = 0; i < dataArr.length; i++) {
+                if (dataArr[ i ] > largest) {
+                    largest = dataArr[i];
+                }  
+            }  
+        
+            context.clearRect(0, 0, 500, 400);
+            context.font = "12px Arial";  
+            context.beginPath();  
+            context.lineJoin = "round";  
+            context.strokeStyle = "black";  
+            context.moveTo(GRAPH_LEFT, (GRAPH_HEIGHT - dataArr[0] / largest * GRAPH_HEIGHT) + GRAPH_TOP);  
+            context.fillText("1", 15, GRAPH_BOTTOM + 25);
+
+            for (var i = 1; i < dataArr.length; i++) {  
+                context.lineTo(GRAPH_RIGHT / dataArr.length * i + GRAPH_LEFT, (GRAPH_HEIGHT - dataArr[i] / largest * GRAPH_HEIGHT) + GRAPH_TOP);
+                context.fillText((i + 1), GRAPH_RIGHT / dataArr.length * i, GRAPH_BOTTOM + 25);
+            }  
+
+            context.stroke();  
+        }
+
+    </script>
+</body>
+</html>
