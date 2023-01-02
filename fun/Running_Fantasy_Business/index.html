@@ -3,7 +3,7 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
-    <title>Treasure Generator</title>
+    <title>Running Fantasy Business</title>
     <meta name='description' content='Running Fantasy Business'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <meta name="keywords" content="javascript, random">
@@ -28,8 +28,8 @@
     <h1 class="center">Running a Fantasy Business</h1>
     <div class="container">
         <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-8">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
                 <label for="days">Days</label>
                 <input id="days" type="number" min="1" step="1" max="365" value="7">
                 <label for="dailyCosts">Daily Costs (gp)</label>
@@ -37,18 +37,19 @@
                 <label for="balance">Starting Balance (gp)</label>
                 <input id="balance" type="number" min="1" step="1" value="100">
                 <button>Run</button>
+                <a href="reference.html" title="Reference information for different types of businesses and construction costs and time." target="_blank">Reference</a>
             </div>
-            <div class="col-md-2"></div>
+            <div class="col-md-1"></div>
         </div>
         <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-4">
+            <div class="col-md-1"></div>
+            <div class="col-md-5">
                 <div id="output"></div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-5">
                 <canvas id="balanceCanvas" width="550" height="450"></canvas>
             </div>
-            <div class="col-md-2"></div>
+            <div class="col-md-1"></div>
         </div>
     </div>
 </body>
@@ -123,39 +124,12 @@
         var output = '';
         var totals = []; // daily results to be used in a chart
         var allDays = [];
-        
-        // ** consider adding a modifier for size of town, events (promoting the business, festival, blights, raids), staffing (good, neutral, and bad), and seasons (off season, season, peak)
+
+            
         /*
-            Reference https://www.thievesguild.cc/core/businesses as a potential resource
-            From https://blackcitadelrpg.com/running-a-business-5e/:
-
-            Stronghold	Construction Cost	Construction Time
-            Abbey	50,000 gp	400 days
-            Guildhall, town, or city	5,000 gp	60 days
-            Keep or small castle	50,000 gp	400 days
-            Noble estate with manor	25,000 gp	150 days
-            Outpost or fort	15,000 gp	100 days
-            Palace or large castle	500,000 gp	1,200 days
-            Temple	50,000 gp	400 days
-            Tower, fortified	15,000 gp	100 days
-            Trading post	5,000 gp	60 days
-
-            Property	Total Cost per Day	Skilled Hirelings	Untrained Hirelings
-            Abbey	    20 gp	            5	                25
-            Farm	    5 sp	            1	                2
-            Guildhall, town, or city	5 gp	5	3
-            Inn, rural roadside	10 gp	    5	                10
-            Inn, town or city	5 gp	    1	                5
-            Keep or small castle	100 gp	50	                50
-            Lodge, hunting	5 sp	        1	                -
-            Noble estate	10 gp	        3	                15
-            Outpost or fort	50 gp	        20	                40
-            Palace or large castle	400 gp	200	                100
-            Shop	    2 gp	            1	                -
-            Temple, large	25 gp	        10	                10
-            Temple, small	1 gp	        2	                -
-            Tower, fortified	25 gp	    10	                -
-            Trading post	10 gp	        4	                2
+            Mining output reference: https://angrygolem-games.com/dwarves-mining-4-dd-mining-guide-mining-output/
+            Wages reference: https://www.dandwiki.com/wiki/Wages_(DnD_Other)
+            Digging out a mountain reference: https://rpg.stackexchange.com/questions/145167/roughly-how-much-would-it-cost-to-hire-a-team-of-dwarves-to-build-a-home-into-a
         */
 
         for (var i = 0; i < days; i++) {        
