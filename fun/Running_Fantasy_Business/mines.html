@@ -12,7 +12,7 @@
     <meta name="version" content="0.0.1">
     <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
     <link href="../../css/normalize.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet"> -->
     <link href="../../css/bootstrap.min.css" rel="stylesheet">
     <style>
         .center {
@@ -83,6 +83,9 @@
     
 
     <script>
+        /*
+            https://angrygolem-games.com/dwarves-mining-4-dd-mining-guide-mining-output/
+        */
         let minedOutput = {
             'granite': {
                 'name': 'Granite',
@@ -150,21 +153,256 @@
             }
         }
 
-        /*
-            mining products
-            1-65: stone
-            66-83: metals
-            84-93: exotic materials
-            94-100: gemstones
+        let miningProducts = {
+            'stones': {
+                'name': 'stones',
+                'first': 0,
+                'second': 64
+            },
+            'metals': {
+                'name': 'metals',
+                'first': 65,
+                'second': 82
+            },
+            'exotics': {
+                'name': 'exotic materials',
+                'first': 83,
+                'second': 92
+            },
+            'gemstones': {
+                'name': 'gemstones',
+                'first': 93,
+                'second': 99
+            }
+        }
+        
+        let metals = {
+            'lead': {
+                'name': 'lead',
+                'first': 0,
+                'second': 4,
+                'gpOutput': [1,2,3,4,5,6,7,8,9,10,11,12]
+            },
+            'zinc': {
+                'name': 'zinc',
+                'first': 5,
+                'second': 9,
+                'gpOutput': [2,4,6,8,10,12,14,16,20,22,24]
+            },
+            'iron': {
+                'name': 'iron',
+                'first': 10,
+                'second': 59,
+                'byproduct': 'ironTable',
+                'gpOutput': [4,7,10,13,16,19,22,25,28,31,34,37]
+            },
+            'tin': {
+                'name': 'tin',
+                'first': 60,
+                'second': 69,
+                'gpOutput': [7,11,15,19,23,27,31,35,39,43,47,51]
+            },
+            'copper': {
+                'name': 'copper',
+                'first': 70,
+                'second': 84,
+                'byproduct': 'copperTable',
+                'gpOutput': [10,15,20,25,30,35,40,45,50,55,60,65]
+            },
+            'silver': {
+                'name': 'silver',
+                'first': 85,
+                'second': 89,
+                'gpOutput': [20,30,40,50,60,70,80,90,100,110,120,130]
+            },
+            'gold': {
+                'name': 'gold',
+                'first': 90,
+                'second': 94,
+                'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
+            },
+            'platinum': {
+                'name': 'platinum',
+                'first': 95,
+                'second': 96,
+                'gpOutput': [80,130,177,225,275,320,370,420,465,560,610,660]
+            },
+            'mithril': {
+                'name': 'mithril',
+                'first': 97,
+                'second': 98,
+                'gpOutput': [150,210,280,340,410,480,550,620,690,770,830,910]
+            },
+            'adamantine': {
+                'name': 'adamantine',
+                'first': 99,
+                'second': 100,
+                'gpOutput': [200,300,400,500,600,700,800,900,1000,1100,1200,1300]
+            }
+        }
 
-            https://angrygolem-games.com/dwarves-mining-4-dd-mining-guide-mining-output/
-*/
-        /*
-            stones
-            1-60: granite
-            61-90: basalt
-            91-00 marble
-*/
+        let stones = {
+            'granite': {
+                'name': 'granite',
+                'first': 0,
+                'second': 59,
+                'gpOutput': [1,2,3,4,5,6,7,8,9,10,11,12]
+            },
+            'basalt': {
+                'name': 'basalt',
+                'first': 60,
+                'second': 89,
+                'gpOutput': [2,4,6,8,10,12,14,16,20,22,24]
+            },
+            'marble': {
+                'name': 'marble',
+                'first': 90,
+                'second': 99,
+                'gpOutput': [4,8,16,32,36,40,44,48,52,56,60,67]
+            }
+        }
+
+        let exotics = {
+            'coal': {
+                'name': 'coal',
+                'first': 0,
+                'second': 59,
+                'byproduct': 'amber-jet',
+                'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
+            },
+            'petroleum': {
+                'name': 'petroleum',
+                'first': 60,
+                'second': 89,
+                'byproduct': 'blue calcite',
+                'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
+            },
+            'radioactive': {
+                'name': 'radioactive materials',
+                'first': 90,
+                'second': 99,
+                'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
+            }
+        }
+
+        let gemstones = {
+            'aquamarine': {
+                'name': 'aquamarine',
+                'first': 0,
+                'second': 14,
+                'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
+            },
+            'blueSpinel': {
+                'name': 'blue spinel',
+                'first': 15,
+                'second': 29,
+                'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
+            },
+            'peridot': {
+                'name': 'peridot',
+                'first': 30,
+                'second': 44,
+                'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
+            },
+            'topaz': {
+                'name': 'topaz',
+                'first': 45,
+                'second': 59,
+                'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
+            },
+            'garnet': {
+                'name': 'garnet',
+                'first': 60,
+                'second': 67,
+                'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
+            },
+            'jacinth': {
+                'name': 'jacinth',
+                'first': 68,
+                'second': 75,
+                'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
+            },
+            'opal': {
+                'name': 'opal',
+                'first': 76,
+                'second': 83,
+                'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
+            },
+            'redSpinel': {
+                'name': 'red spinel',
+                'first': 84,
+                'second': 90,
+                'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
+            },
+            'sapphire': {
+                'name': 'sapphire',
+                'first': 91,
+                'second': 93,
+                'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
+            },
+            'emerald': {
+                'name': 'emerald',
+                'first': 94,
+                'second': 95,
+                'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
+            },
+            'ruby': {
+                'name': 'ruby',
+                'first': 96,
+                'second': 97,
+                'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
+            },
+            'diamond': {
+                'name': 'diamond',
+                'first': 98,
+                'second': 99,
+                'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
+            }
+        }
+
+        var tally = 0;
+
+        for (var z = 0; z < 10; z++) {
+            var minedRnd = rndNum(100);
+            
+            for (i in miningProducts) {
+                if (miningProducts[i].first <= minedRnd && miningProducts[i].second >= minedRnd) {
+                    if (i == 'stones') { // randomly pick from stones object
+                        minedItems(stones);
+                        // ** add in mined stone byproducts routine
+                    } else if (i == 'metals') {
+                        minedItems(metals);
+                        // ** add routines for iron and copper byproducts
+                    } else if (i == 'exotics') {
+                        minedItems(exotics);
+                        // ** add routines for byproducts
+                    } else if (i == 'gemstones') {
+                        minedItems(gemstones)
+                    }
+
+                    break;
+                }
+            }
+        }
+        
+
+        function minedItems(obj) {
+            // console.log(obj)
+            var rndNumber = rndNum(100);
+
+            for (i in obj) {
+                if (rndNumber >= obj[i].first && rndNumber <= obj[i].second) {
+                    // ** replace this with a proper return function
+
+                    var worth = obj[i].gpOutput[rndNum(obj[i].gpOutput.length)]; // pick value of mined item
+
+                    tally += worth;
+
+                    console.log(obj[i].name, worth, tally);
+                }
+            }
+        }
+
         /*
             granite byproducts
             1-50: nothing
@@ -197,19 +435,7 @@
             91-95: roll once on granite byproduct table
             96-100: roll twice on granite byproduct table
 */
-        /*
-            metal table
-            1-5: lead
-            6-10: zinc
-            11-60: iron + iron byproduct
-            61-70: tin
-            71-85: copper + copper byproduct
-            86-90: silver
-            91-95: gold
-            96-97: platinum
-            98-99: mithril
-            100: adamantine
-*/
+ 
         /*
             iron byproducts
             1-50: nothing
@@ -228,28 +454,8 @@
             67-82: malachite
             83-100: turquoise
 */
-        /*
-            exotic materials
-            1-60: coal + 50% of either amber or jet
-            61-90: petroleum + 50% of blue calcite
-            91-100: radioactive materials
-        */
-        /*
-            gem table
-            1-15: aquamarine
-            16-30: blue spinel
-            31-45: peridot
-            46-60: topaz
-            61-68: garnet
-            69-76: jacinth
-            77-84: opal
-            85-91: red spinel
-            92-94: sapphire
-            95-96: emerald
-            97-98: ruby
-            99-100: diamond
-
-        */
+        
+        
 
 
         var output = '';
