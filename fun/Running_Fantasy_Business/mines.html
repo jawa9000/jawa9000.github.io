@@ -384,6 +384,8 @@
                 }
             }
         }
+
+        var totalMinedOutput = {};
         
 
         function minedItems(obj) {
@@ -399,9 +401,14 @@
                     tally += worth;
 
                     console.log(obj[i].name, worth, tally);
+
+                    // totalMinedOutput[obj[i].name].name = obj[i].name;
+                    // totalMinedOutput[obj[i].name].worth += worth
                 }
             }
         }
+
+        console.log(totalMinedOutput)
 
         /*
             granite byproducts
