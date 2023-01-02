@@ -1,8 +1,23 @@
 let buildingConstuctionCosts = {
+    'farm': {
+        'name': 'farm',
+        'cost': '1,250',
+        'time': 30
+    },
     'abbey': {
         'name': 'abbey',
         'cost': '50,000',
         'time': 60
+    },
+    'inn': {
+        'name': 'inn',
+        'cost': '25,000',
+        'time': 45
+    },
+    'shop': {
+        'name': 'shop',
+        'cost': '5,000',
+        'time': 45
     },
     'Guildhall': {
         'name': 'Guildhall, (town or city)',
