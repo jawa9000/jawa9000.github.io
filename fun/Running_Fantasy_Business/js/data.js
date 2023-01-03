@@ -1,21 +1,21 @@
 let buildingConstuctionCosts = {
     'farm': {
-        'name': 'farm',
+        'name': 'Farm',
         'cost': '1,250',
         'time': 30
     },
     'abbey': {
-        'name': 'abbey',
+        'name': 'Abbey',
         'cost': '50,000',
         'time': 60
     },
     'inn': {
-        'name': 'inn',
+        'name': 'Inn',
         'cost': '25,000',
         'time': 45
     },
     'shop': {
-        'name': 'shop',
+        'name': 'Shop',
         'cost': '5,000',
         'time': 45
     },
@@ -153,7 +153,7 @@ let businessCosts = {
         'untrained': 2
     },
     'furnace': {
-        'name': 'blast furnace',
+        'name': 'Blast furnace',
         'cost': '9gp',
         'skilled': 1,
         'untrained': 1
