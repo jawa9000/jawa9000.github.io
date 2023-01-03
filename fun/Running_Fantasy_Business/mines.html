@@ -56,31 +56,39 @@
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-10">
+                <label for="percentage_dragonTip">Dragon's cut (%)</label>
+                <input id="percentage_dragonTip" type="number" min="0" step="1" max="100" value="50">
+                <label for="percentage_minerTip">Miner's cut (%)</label>
+                <input id="percentage_minerTip" type="number" min="0" step="1" max="100" value="2">
+                <label for="percentage_mineUpkeep">Mine upkeep (%)</label>
+                <input id="percentage_mineUpkeep" type="number" min="0" step="1" max="100" value="12">
+                <label for="percentage_miscExpenses">Mine expenses (%)</label>
+                <input id="percentage_miscExpenses" type="number" min="0" step="1" max="100" value="6">
+                <label for="percentage_mineExpansion">Mine expansion (%)</label>
+                <input id="percentage_mineExpansion" type="number" min="0" step="1" max="100" value="10">
+                <br/>
                 <label for="days">Days</label>
-                <input id="days" type="number" min="1" step="1" max="365" value="7">
+                <input id="days" type="number" min="1" step="1" max="365" value="30">
                 <label for="minerCount"># of Miners</label>
-                <input id="minerCount" type="number" min="1" ste="1" value="1">
-                <label for="mineType">Mine Type</label>
-                <select name="mineType" id="mineType"></select>
+                <input id="minerCount" type="number" min="1" step="1" value="10">
                 <button>Run</button>
             </div>
             <div class="col-md-1"></div>
         </div>
         <div class="row">
             <div class="col-md-1"></div>
-            <div class="col-md-5">
-                <div id="output"></div>
+            <div class="col-md-6">
+                <div id="summary"></div>
             </div>
-            <div class="col-md-5">
-                <canvas id="balanceCanvas" width="550" height="450"></canvas>
+            <div class="col-md-4">
+                <div id="output"></div>
             </div>
             <div class="col-md-1"></div>
         </div>
     </div>
 </body>
 
-    <script src="../../js/jquery-2.1.0.min.js"></script>
-    
+    <script src="../../js/jquery-2.1.0.min.js"></script>    
 
     <script>
         /*
@@ -103,8 +111,116 @@
                 'name': 'Coal',
                 'gpOutput': [2,4,6,8,10,12,14,16,18,20,22,24]
             },
-            'radio-active': {
-                'name': 'Radio-active materails',
+            'petroleum': {
+                'name': 'Petroleum',
+                'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
+            },
+            'agate': {
+                'name': 'agate',
+                'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
+            },
+            'bloodstone': {
+                'name': 'bloodstone',
+                'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
+            },
+            'canelian': {
+                'name': 'canelian',
+                'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
+            },
+            'citrine': {
+                'name': 'citrine',
+                'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
+            },
+            'jasper': {
+                'name': 'jasper',
+                'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
+            },
+            'moonstone': {
+                'name': 'moonstone',
+                'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
+            },
+            'onyx': {
+                'name': 'onyx',
+                'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
+            },
+            'tourmaline': {
+                'name': 'tourmaline',
+                'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
+            },
+            'zircon': {
+                'name': 'zircon',
+                'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
+            },
+            'fluorite': {
+                'name': 'fluorite',
+                'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
+            },
+            'obsidian': {
+                'name': 'obsidian',
+                'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
+            },
+            'quartz': {
+                'name': 'quartz',
+                'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
+            },
+            'amethyst': {
+                'name': 'amethyst',
+                'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
+            },
+            'lapis lazuli': {
+                'name': 'lapis lazuli',
+                'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
+            },
+            'aquamarine': {
+                'name': 'aquamarine',
+                'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
+            },
+            'blueSpinel': {
+                'name': 'blue spinel',
+                'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
+            },
+            'peridot': {
+                'name': 'peridot',
+                'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
+            },
+            'topaz': {
+                'name': 'topaz',
+                'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
+            },
+            'garnet': {
+                'name': 'garnet',
+                'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
+            },
+            'jacinth': {
+                'name': 'jacinth',
+                'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
+            },
+            'opal': {
+                'name': 'opal',
+                'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
+            },
+            'redSpinel': {
+                'name': 'red spinel',
+                'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
+            },
+            'sapphire': {
+                'name': 'sapphire',
+                'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
+            },
+            'emerald': {
+                'name': 'emerald',
+                'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
+            },
+            'ruby': {
+                'name': 'ruby',
+                'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
+            },
+            'diamond': {
+                'name': 'diamond',
+                'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
+            },
+            'radioactive': {
+                'name': 'radioactive',
                 'gpOutput': [9,13,17,21,25,29,33,37,41,45,49,63]
             },
             'lead': {
@@ -146,10 +262,6 @@
             'adamantine': {
                 'name': 'Adamantine',
                 'gpOutput': [200,300,400,500,600,700,800,900,1000,1100,1200,1300]
-            },
-            'ulrye': {
-                'name': 'Ulrye crystal',
-                'gpOutput': [500,500,500,500,500,500,1000,1000,1000,2500]
             }
         }
 
@@ -165,7 +277,7 @@
                 'second': 82
             },
             'exotics': {
-                'name': 'exotic materials',
+                'name': 'exotics',
                 'first': 83,
                 'second': 92
             },
@@ -278,7 +390,7 @@
                 'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
             },
             'radioactive': {
-                'name': 'radioactive materials',
+                'name': 'radioactive',
                 'first': 90,
                 'second': 99,
                 'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
@@ -293,7 +405,7 @@
                 'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
             },
             'blueSpinel': {
-                'name': 'blue spinel',
+                'name': 'blueSpinel',
                 'first': 15,
                 'second': 29,
                 'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
@@ -329,7 +441,7 @@
                 'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
             },
             'redSpinel': {
-                'name': 'red spinel',
+                'name': 'redSpinel',
                 'first': 84,
                 'second': 90,
                 'gpOutput': [35,55,77,100,135,155,175,200,220,235,260]
@@ -360,88 +472,130 @@
             }
         }
 
-        var tally = 0;
-
-        for (var z = 0; z < 10; z++) {
-            var minedRnd = rndNum(100);
-            
-            for (i in miningProducts) {
-                if (miningProducts[i].first <= minedRnd && miningProducts[i].second >= minedRnd) {
-                    if (i == 'stones') { // randomly pick from stones object
-                        minedItems(stones);
-                        // ** add in mined stone byproducts routine
-                    } else if (i == 'metals') {
-                        minedItems(metals);
-                        // ** add routines for iron and copper byproducts
-                    } else if (i == 'exotics') {
-                        minedItems(exotics);
-                        // ** add routines for byproducts
-                    } else if (i == 'gemstones') {
-                        minedItems(gemstones)
-                    }
-
-                    break;
-                }
+        let graniteByProducts = {
+            'nothing': {
+                'name': 'nothing',
+                'first': 0,
+                'second': 49
+            },
+            'agate': {
+                'name': 'agate',
+                'first': 50,
+                'second': 69
+            },
+            'bloodstone': {
+                'name': 'bloodstone',
+                'first': 70,
+                'second': 71
+            },
+            'canelian': {
+                'name': 'canelian',
+                'first': 72,
+                'second': 74
+            },
+            'citrine': {
+                'name': 'citrine',
+                'first': 75,
+                'second': 77
+            },
+            'jasper': {
+                'name': 'jasper',
+                'first': 78,
+                'second': 80
+            },
+            'moonstone': {
+                'name': 'moonstone',
+                'first': 81,
+                'second': 83
+            },
+            'onyx': {
+                'name': 'onyx',
+                'first': 84,
+                'second': 86
+            },
+            'tourmaline': {
+                'name': 'tourmaline',
+                'first': 87,
+                'second': 89
+            },
+            'zircon': {
+                'name': 'zircon',
+                'first': 90,
+                'second': 92
+            },
+            'fluorite': {
+                'name': 'fluorite',
+                'first': 93,
+                'second': 94
+            },
+            'rollTwice': {
+                'name': 'rollTwice',
+                'first': 95,
+                'second': 99
             }
         }
 
-        var totalMinedOutput = {};
+        let basaltByProdcts = {
+            'nothing': {
+                'name': 'nothing',
+                'first': 0,
+                'second': 49
+            },
+            'agate': {
+                'name': 'agate',
+                'first': 50,
+                'second': 61
+            },
+            'obsidian': {
+                'name': 'obsidian',
+                'first': 62,
+                'second': 74
+            },
+            'quartz': {
+                'name': 'quartz',
+                'first': 75,
+                'second': 84
+            },
+            'amethyst': {
+                'name': 'amethyst',
+                'first': 85,
+                'second': 89
+            },
+            'fluorite': {
+                'name': 'fluorite',
+                'first': 90,
+                'second': 94
+            },
+            'rollTwice': {
+                'name': 'rollTwice',
+                'first': 95,
+                'second': 99
+            }
+        }
         
-
-        function minedItems(obj) {
-            // console.log(obj)
-            var rndNumber = rndNum(100);
-
-            for (i in obj) {
-                if (rndNumber >= obj[i].first && rndNumber <= obj[i].second) {
-                    // ** replace this with a proper return function
-
-                    var worth = obj[i].gpOutput[rndNum(obj[i].gpOutput.length)]; // pick value of mined item
-
-                    tally += worth;
-
-                    console.log(obj[i].name, worth, tally);
-
-                    // totalMinedOutput[obj[i].name].name = obj[i].name;
-                    // totalMinedOutput[obj[i].name].worth += worth
-                }
+        let marbelByProducts = {
+            'nothing': {
+                'name': 'nothing',
+                'first': 0,
+                'second': 49
+            },
+            'lapis lazuli': {
+                'name': 'lapis lazuli',
+                'first': 50,
+                'second': 89
+            },
+            'rollOnceGranite': {
+                'name': 'rollOnceGranite',
+                'first': 90,
+                'second': 94
+            },
+            'rollTwiceGranite': {
+                'name': 'rollTwiceGranite',
+                'first': 95,
+                'second': 99
             }
         }
 
-        console.log(totalMinedOutput)
-
-        /*
-            granite byproducts
-            1-50: nothing
-            51-70: agate
-            71-72: bloodstone
-            73-75: canelian
-            76-78: citrine
-            79-81: jasper
-            82-84: moonstone
-            85-87: onyx
-            88-90: tourmaline
-            91-93: zircon
-            94-95: fluorite
-            96-100: roll twice
-*/
-        /*
-            basalt byproducts
-            1-50: nothing
-            51-62: agate
-            63-75: obsidian
-            76-85: quartz
-            86-90: amethyst
-            91-95: fluorite
-            96-100: roll twice
-*/
-        /*
-            marble byproducts
-            1-50: nothing
-            51-90: lapis lazuli
-            91-95: roll once on granite byproduct table
-            96-100: roll twice on granite byproduct table
-*/
  
         /*
             iron byproducts
@@ -461,51 +615,223 @@
             67-82: malachite
             83-100: turquoise
 */
-        
-        
 
-
-        var output = '';
-
-        for (i in minedOutput) {
-            output += '<option value="' + i + '">' + minedOutput[i].name + '</option>';
-        }
-
-        $('select').append(output);
+        var tally = 0;
+        var minedOutputTotal = {};
 
         $('button').on('click', function () {
-            $('div#output').html('');
-            var days = $('input#days').val(); // number of days to simulate
-            var metal = $('select').val();
+            $('div#summary').html(''); // reset summary output
+            $('div#output').html(''); // reset html output
+            // $('input#days').attr('disabled', false); // enable day input
+            // $('input#minerCount').attr('disabled', false); // enable miner input
+            
+            var days = parseInt($('input#days').val()); // number of days to simulate
+            var minerCount = $('input#minerCount').val(); // number of miners
 
-            if (days > 365) { // limit the amount of days to simulate. When testing, I found performance problems trying to simulate 10 years.
+            if (days > 365) { // limit the amount of days to simulate. When testing, I found performance problems trying to simulate more than one year.
                 days = 365;
                 $('input#days').val(365);
             }
 
-            var tally = 0;
+            tally = 0;
+            minedOutputTotal = {};
             var output = '';
             var totals = [];
 
-            for (var i = 0; i < days; i++) {
-                for (j in minedOutput) {
-                    if (metal == j) {
-                        var worth = minedOutput[j].gpOutput[rndNum(minedOutput[j].gpOutput.length)];
-                        output += '<p>Day ' + (i + 1) + ' produced ' + numberWithCommas(worth) + 'gp worth of ' + metal + '.</p>';
-                        
-                        tally += worth;
-                        break;
+            for (i in minedOutput) { // set up the object to receive all material names and their worth
+                minedOutputTotal[i] = {};
+                minedOutputTotal[i].name = i;
+                minedOutputTotal[i].worth = [];
+            }
+
+            for (var h = 0; h < minerCount; h++) {
+                for (var i = 0; i < days; i++) {
+                    var minedRnd = rndNum(100);
+                    
+                    for (k in miningProducts) {
+                        if (miningProducts[k].first <= minedRnd && miningProducts[k].second >= minedRnd) {
+                            if (k == 'stones') { // randomly pick from stones object
+                                minedItems(stones);
+                                byproduct('stones');
+                            } else if (k == 'metals') {
+                                minedItems(metals);
+                                // ** add routines for iron and copper byproducts
+                                // ** pick up here by copying the routine for byproducts
+                            } else if (k == 'exotics') {
+                                minedItems(exotics);
+                                // ** add routines for byproducts
+                            } else if (k == 'gemstones') {
+                                // console.log(gemstones)
+                                minedItems(gemstones)
+                            }
+
+                            break;
+                        }
                     }
                 }
-                // totals.push(worth);
             }
             
-            // drawGraph(totals);
+            for (i in minedOutputTotal) {
+                if (minedOutputTotal[i].worth.length > 0) {
+                    var tally = 0;
 
-            $('#output').append('<p>Your ' + metal + ' mine produced a total of ' + numberWithCommas(tally) + 'gp over ' + days + ' days.</p><br/>' + output);
+                    for (k in minedOutputTotal[i].worth) {
+                        tally += minedOutputTotal[i].worth[k];
+                    }
+
+                    if (minedOutputTotal[i].name == 'blueSpinel') {
+                        output += '<p>blue spinel: ' + numberWithCommas(tally) + 'gp</p>';
+                    } else if (minedOutputTotal[i].name == 'redSpinel') {
+                        output += '<p>red spinel: ' + numberWithCommas(tally) + 'gp</p>';
+                    } else {
+                        output += '<p>' + minedOutputTotal[i].name + ': ' + numberWithCommas(tally) + 'gp</p>';
+                    }
+
+                    totals.push(tally)
+                }
+            }
+
+            var grandTotal = 0;
+
+            for (i in totals) {
+                grandTotal += totals[i];
+            }
+
+            $('div#summary').append('<p><strong>Your mine generated ' + numberWithCommas(grandTotal) + 'gp worth of materials from ' + days + ' days of labor from ' + minerCount + ' miners</strong>.</p>');
+
+            var dragonTipInput = parseInt($('input#percentage_dragonTip').val());
+            var minersTipInput = parseInt($('input#percentage_minerTip').val());
+            var mineUpkeepInput = parseInt($('input#percentage_mineUpkeep').val());
+            var miscExpensesInput = parseInt($('input#percentage_miscExpenses').val());
+            var mineExpansionInput = parseInt($('input#percentage_mineExpansion').val());
+
+            var partysCut = 100 - (dragonTipInput + minersTipInput + mineUpkeepInput + miscExpensesInput + mineExpansionInput);
+
+            var mineUpkeep = Math.round(grandTotal * (mineUpkeepInput /100)); // 10% for mine maintainence
+            var miscExpenses = Math.round(grandTotal * (miscExpensesInput / 100)); // 6% for mine misc expenses
+            var mineExpansion = Math.round(grandTotal * (mineExpansionInput / 100)); // 10% for mine expansion and facility upgrades
+            var partyProfit = Math.round(grandTotal * (partysCut / 100)); // 40% is what the party keeps
+            
+            $('div#summary').append('<p>The dragon get ' + numberWithCommas(Math.round(grandTotal * (dragonTipInput / 100))) + 'gp (' + dragonTipInput + '% tithe).</p>'); // defaults to 30% tithe to the dragon
+            $('div#summary').append('<p>The miners get ' + numberWithCommas(Math.round(grandTotal * (minersTipInput / 100))) + 'gp (' + minersTipInput + '% bonus).</p>'); // 4% tip to the miners
+            $('div#summary').append('<p>' + (mineUpkeepInput + miscExpensesInput) + '% goes to mine upkeep and misc expenses (' + numberWithCommas(mineUpkeep + miscExpenses) + 'gp).</p>');
+            $('div#summary').append('<p>' + mineExpansionInput + '% for mine expansion and facility upgrades (' + numberWithCommas(mineExpansion) + 'gp).</p>');
+            $('div#summary').append('<p><strong>The mine owners get '+ numberWithCommas(partyProfit) + 'gp</strong>.</p>');
+            $('div#output').append(output);
         });
 
+        $('input').on('change', function () {
+            $('div#summary').html('');
 
+            var days = parseInt($('input#days').val()); // number of days to simulate
+            var minerCount = $('input#minerCount').val(); // number of miners
+
+            // $('input#days').attr('disabled', true); // disable day input
+            // $('input#minerCount').attr('disabled', true); // disable miner input
+
+            var tally = [];
+            var output = '';
+
+            for (i in minedOutputTotal) {
+                if (minedOutputTotal[i].worth.length > 0) {
+                    tally.push(minedOutputTotal[i].worth);
+                }
+            }
+
+            var grandTotal = 0;
+
+            for (i in tally) {
+                for (j in tally[i]) {
+                    grandTotal += tally[i][j];
+                }
+            }
+
+            $('div#summary').append('<p><strong>Your mine generated ' + numberWithCommas(grandTotal) + 'gp worth of materials from ' + days + ' days of labor from ' + minerCount + ' miners</strong>.</p>');
+
+            var dragonTipInput = parseInt($('input#percentage_dragonTip').val());
+            var minersTipInput = parseInt($('input#percentage_minerTip').val());
+            var mineUpkeepInput = parseInt($('input#percentage_mineUpkeep').val());
+            var miscExpensesInput = parseInt($('input#percentage_miscExpenses').val());
+            var mineExpansionInput = parseInt($('input#percentage_mineExpansion').val());
+            var partysCut = 100 - (dragonTipInput + minersTipInput + mineUpkeepInput + miscExpensesInput + mineExpansionInput);
+            var mineUpkeep = Math.round(grandTotal * (mineUpkeepInput /100)); // 10% for mine maintainence
+            var miscExpenses = Math.round(grandTotal * (miscExpensesInput / 100)); // 6% for mine misc expenses
+            var mineExpansion = Math.round(grandTotal * (mineExpansionInput / 100)); // 10% for mine expansion and facility upgrades
+            var partyProfit = Math.round(grandTotal * (partysCut / 100)); // 40% is what the party keeps
+            
+            $('div#summary').append('<p>The dragon get ' + numberWithCommas(Math.round(grandTotal * (dragonTipInput / 100))) + 'gp (' + dragonTipInput + '% tithe).</p>'); // defaults to 30% tithe to the dragon
+            $('div#summary').append('<p>The miners get ' + numberWithCommas(Math.round(grandTotal * (minersTipInput / 100))) + 'gp (' + minersTipInput + '% bonus).</p>'); // 4% tip to the miners
+            $('div#summary').append('<p>' + (mineUpkeepInput + miscExpensesInput) + '% goes to mine upkeep and misc expenses (' + numberWithCommas(mineUpkeep + miscExpenses) + 'gp).</p>');
+            $('div#summary').append('<p>' + mineExpansionInput + '% for mine expansion and facility upgrades (' + numberWithCommas(mineExpansion) + 'gp).</p>');
+            $('div#summary').append('<p><strong>The mine owners get '+ numberWithCommas(partyProfit) + 'gp</strong>.</p>');
+            
+        });
+
+        function byproduct(material) {
+            if (material == 'stones') {
+                var stoneByProductTypes = [graniteByProducts, basaltByProdcts, marbelByProducts]
+                var rndStone = stoneByProductTypes[rndNum(stoneByProductTypes.length)];
+                var roll100 = rndNum(100);
+
+                for (i in rndStone) {
+                    if (rndStone[i].first <= roll100 && rndStone[i].second >= roll100) { // pick a random material
+                        if (rndStone[i].name == 'nothing') { // skip; do nothing
+                        } else if (rndStone[i].name == 'rollTwice') { // roll twice on rndStone object
+                            rndMaterial(rndStone);
+                            rndMaterial(rndStone);
+                        } else if (rndStone[i].name == 'rollOnceGranite') { // roll one granite table
+                            rollOnGraniteByProducts();
+                        } else if (rndStone[i].name == 'rollTwiceGranite') { // roll twice on granite table
+                            rollOnGraniteByProducts();
+                            rollOnGraniteByProducts();
+                        } else {
+                            rndMaterial(rndStone);
+                        }
+                    }
+                }
+            }
+        }
+
+        function rollOnGraniteByProducts() {
+            var rollGraniteByProducts = rndNum(100);
+
+            for (k in graniteByProducts) {
+                if (graniteByProducts[k].first <= rollGraniteByProducts && graniteByProducts[k].second >= rollGraniteByProducts) {
+                    if (graniteByProducts[k].name != 'nothing' || graniteByProducts[k].name != 'rollTwice') {
+                        for (l in minedOutput) {
+                            if (minedOutput[l].name == graniteByProducts[k].name) {
+                                minedOutputTotal[graniteByProducts[k].name].worth.push(minedOutput[j].gpOutput[rndNum(minedOutput[j].gpOutput.length)]);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        function rndMaterial(obj) {
+            for (j in minedOutput) {
+                if (minedOutput[j].name == obj[i].name) {
+                    var worth = minedOutput[j].gpOutput[rndNum(minedOutput[j].gpOutput.length)];
+
+                    minedOutputTotal[obj[i].name].worth.push(worth);
+
+                    break;
+                }
+            }
+        }
+        
+        function minedItems(obj) {
+            var rndNumber = rndNum(100);
+
+            for (i in obj) {
+                if (rndNumber >= obj[i].first && rndNumber <= obj[i].second) {
+                    var worth = obj[i].gpOutput[rndNum(obj[i].gpOutput.length)]; // pick value of mined item
+
+                    tally += worth;
+                    minedOutputTotal[obj[i].name].worth.push(worth);
+                }
+            }
+        }
 
         function rndNum(x) {
             return Math.floor(Math.random() * x);
@@ -517,39 +843,5 @@
             return parts.join(".");
         }
 
-        function drawGraph(dataArr) {  // borrowed from https://instructobit.com/tutorial/90/Creating-line-graphs-with-Javascript-using-an-HTML-canvas
-            var canvas = document.getElementById("balanceCanvas");  
-            var context = canvas.getContext("2d");  
-            var GRAPH_TOP = 25;  
-            var GRAPH_BOTTOM = 375;  
-            var GRAPH_LEFT = 25;  
-            var GRAPH_RIGHT = 475;  
-            var GRAPH_HEIGHT = 350;  
-            var GRAPH_WIDTH = 450;  
-            var largest = 0;  
-
-            for (var i = 0; i < dataArr.length; i++) {
-                if (dataArr[ i ] > largest) {
-                    largest = dataArr[i];
-                }  
-            }  
-        
-            context.clearRect(0, 0, 500, 400);
-            context.font = "12px Arial";  
-            context.beginPath();  
-            context.lineJoin = "round";  
-            context.strokeStyle = "black";  
-            context.moveTo(GRAPH_LEFT, (GRAPH_HEIGHT - dataArr[0] / largest * GRAPH_HEIGHT) + GRAPH_TOP);  
-            context.fillText("1", 15, GRAPH_BOTTOM + 25);
-
-            for (var i = 1; i < dataArr.length; i++) {  
-                context.lineTo(GRAPH_RIGHT / dataArr.length * i + GRAPH_LEFT, (GRAPH_HEIGHT - dataArr[i] / largest * GRAPH_HEIGHT) + GRAPH_TOP);
-                context.fillText((i + 1), GRAPH_RIGHT / dataArr.length * i, GRAPH_BOTTOM + 25);
-            }  
-
-            context.stroke();  
-        }
-
     </script>
-</body>
 </html>
