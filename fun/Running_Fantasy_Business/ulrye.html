@@ -116,17 +116,19 @@
             }
 
             var towersCut = 0;
-            var dragonsCut = 0; // 10% of totals
+            var dragonsCut = 0; // 30% of totals
+            var hamletCut = 0; // 50% of totals
 
             for (i in totals) {
-                dragonsCut += Math.round(totals[i] * 0.1);
-                towersCut += Math.round(totals[i] * 0.9);
+                dragonsCut += Math.round(totals[i] * 0.3); // dragon's tithe
+                hamletCut += Math.round(totals[i] * 0.5); // hamlet's cut
+                towersCut += Math.round(totals[i] * 0.2); // party's cut
             }
 
             towersCut = Math.round(towersCut / 2);
             var eachPlayersCut = Math.round(towersCut / 3);
 
-            $('#output').append('<p>The dragon\'s cut is ' + numberWithCommas(dragonsCut) + 'gp.</p><p>The tower\'s cut is ' + numberWithCommas(towersCut) + 'gp.</p><p>Each PC gets ' + numberWithCommas(eachPlayersCut) + 'gp.</p><br/>');
+            $('#output').append('<p>The dragon\'s cut is ' + numberWithCommas(dragonsCut) + 'gp.</p><p>The hamlet\'s cut is ' + numberWithCommas(hamletCut) + 'gp.</p><p>The tower\'s cut is ' + numberWithCommas(towersCut) + 'gp.</p><p>Each PC gets ' + numberWithCommas(eachPlayersCut) + 'gp.</p><br/>');
 
             $('#output').append(output);
             
