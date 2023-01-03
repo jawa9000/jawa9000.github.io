@@ -899,11 +899,9 @@
                     }
                 }
             } else if (material == 'exotic') {
-                console.log('exotic byproducts')
                 var exoticByProductTypes = ['amber', 'jet', 'blue calcite'];
-
                 var rndExotic = exoticByProductTypes[rndNum(exoticByProductTypes.length)];
-                console.log(rndExotic)
+                
                 for (i in minedOutput) {
                     if (minedOutput[i].name == rndExotic) {
                         var worth = minedOutput[i].gpOutput[rndNum(minedOutput[i].gpOutput.length)];
