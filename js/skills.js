@@ -1,12 +1,13 @@
 let skills = {
     // ** update this based on the feedback I got on my resume
     "Programming": {
-        "Languages": ['Bash', 'CSS', 'CSS3', 'HTML', 'HTML5', 'Java', 'JavaScript', 'jQuery', 'JSON', 'Markdown', 'Markup', 'MySQL', 'PHP', 'Python', 'Sass', 'SQL', 'XHTML', 'XML', 'Yaml'],
+        "Languages": ['Bash', 'CSS3', 'HTML5', 'Java', 'JavaScript', 'jQuery', 'JSON', 'Markdown', 'Markup', 'MySQL', 'PHP', 'Python', 'Sass', 'SQL', 'XHTML', 'XML', 'Yaml'],
         "Frameworks": ['Bootstrap', 'Express', 'MongoDB', 'Node.js', 'React'],
         "Analytics": ['Google Analytics', 'Piwik'],
         "Indexing": ['Apache Solr'],
         "Version Control": ['CVS', 'Git', 'Github'],
-        "Web services": ['WAMP', 'XAMPP']
+        "Web services": ['WAMP', 'XAMPP'],
+        "General": ['Database design','Front-end web development','Regular expressions','Responsive design','Web design','Web development']
     },
     "Operating systems": {
         "Windows": ['7.x', '8.x', '10.x'],
@@ -15,19 +16,23 @@ let skills = {
         "Unix": "Unix"
     },
     "Atlassian": {
-        "Confluence": ['Administration', 'Front-end Development', 'Theme Design', 'User Macro Development', 'Instructor'],
+        "Confluence": ['Administration', 'Front-end development', 'Theme design', 'Plugin management', 'User Macro development', 'Instructor'],
         "Jira": ['Project management', 'Workflows', 'Instructor']
     },
-    "Documentation types": ['API documentation', 'Application notes', 'Help manuals', 'Integration documentation', 'Online help systems', 'Reference manuals', 'Release notes', 'Training Guides', 'Tutorials', 'User guides'],
-    "Communication": ['Workplace', 'Flowdock', 'Google Hangouts', 'HipChat', 'Join.me', 'MS Teams', 'Slack', 'Skype', 'Webex'],
-    "General skills": ['3D modeling', '3D animation', 'API', 'Computer animation', 'Content management systems', 'Desktop recording', 'Digital Photography', 'Documentation', 'Front-end web developer', 'Front-end web development', 'Live classroom training', 'Photography', 'Proofreading', 'Regular expressions', 'Remote training', 'Responsive', 'Responsive Design', 'REST API', 'ReSTful', 'Software training', 'SDK', 'Teaching', 'Technical writing', 'Training', 'Verbal communication', 'Video editing', 'Video production', 'Video recording', 'Web Design', 'Web Development', 'Writing'],
+    "Technical writing skills": ['API', 'Confluence API', 'Content feedback integration', 'Content management systems','Content research','Documentation','Documentation analysis','Documentation at scale','Documentation automation','Documentation communication','Documentation publication automation','Documentation site design','information architecture','Live classroom training','program/project reports','Project manager','Proofreading','Remote training','REST API','ReSTful','SDK','Style guides','Technical writing','Writing'],
+    "Documentation types": ['Animated images','API documentation','Application note','Architecture guide','Diagrams','Glossary','Help manual','Illustration','Integration documentation','Landing page','Long-form video','Online help system','Overview','Reference','Reference manual','Release note','SDK reference','Short-form video','Static images','Training Guide','Tutorials','User guides'],
+    
+    "Photography and video": ['Desktop recording','Digital Photography','Photography','Video editing','Video production','Video recording'],
+    
+    "Communication": ['Flowdock', 'Google Chat', 'HipChat', 'Join.me', 'MS Teams', 'Slack', 'Skype', 'Webex','Workplace', 'Zoom'],
+    "General skills": ['3D animation','3D modeling','Analytics','Analytics dashboard designer','Asynchronous communication','Collaboration','Computer animation','Cross-functional team communication','Cross-functional team relationship development','Educator','Fluency in English','Interviewer','Mentor','Presenter','Program leader/manager','Social event organizer','Software training','Synchronous communication','Teaching','Trainer','Verbal communication','Written communication'],
     "Software": {
         "Adobe Suite": ['After Effects', 'FrameMaker', 'Illustrator', 'Lightroom', 'Photoshop', 'Premiere'],
         "FTP": ['FileZilla'],
-        "Google": ['Calendar', 'Docs', 'Drawings', 'Drive', 'Forms', 'Hangouts', 'Sheets', 'Sites', 'Slides'],
+        "Google": ['Calendar', 'Docs', 'Drawings', 'Drive', 'Forms', 'Gmail', 'Sheets', 'Sites', 'Slides'],
         "IDEs": ['Appcelerator Studio', 'Aptana', 'Atom', 'Dreamweaver', 'Eclipse', 'VS Code'],
-        "Wiki": ['MediaWiki','Confluence'],
-        "Misc graphics": ['Camtasia', 'Gimp', 'Lucidchart', 'Maya', 'Record My Desktop', 'Visio'],
+        "Wiki": ['Confluence','MediaWiki'],
+        "Misc graphics": ['Camtasia', 'Gimp', 'Lucidchart', 'Maya', 'Record My Desktop', 'SnagIt', 'Visio'],
         "Microsoft": ['Excel', 'Outlook', 'PowerPoint', 'Sharepoint', 'Word'],
         "Misc": ['ADP', 'Workday']
     }

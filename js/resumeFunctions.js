@@ -111,6 +111,10 @@ for (i in skills) {
         displaySkillsArray(skills, i, 'skills-general');
     } else if (i =='Software') {
         displaySkillsObjects(skills, i, 'skills-software');
+    } else if (i =='Photography and video') {
+        displaySkillsArray(skills, i, 'skills-PhotographyAndVideo');
+    } else if (i == 'Technical writing skills') {
+        displaySkillsArray(skills, i, 'skills-TechnicalWritingSkills');
     }
 }
 
@@ -164,7 +168,7 @@ $('#education').append(output);
 
 // functions
 
-function displaySkillsArray(array, title, target) {
+function displaySkillsArray(array, title, target) { // display skills that are listed from an array
     var output = '<h3>' + title + '</h3><ul>';
         
     for (k in array[i]) {
@@ -176,13 +180,12 @@ function displaySkillsArray(array, title, target) {
     $('#' + target).append(output);
 }
 
-function displaySkillsObjects(array, title, target) { // display skills
-    console.log(array, title, target)
-
+function displaySkillsObjects(array, title, target) { // display skills that listed from an object
     var output = '<h3>' + title + '</h3><ul>';
 
     for (k in array[i]) { // category of skill
         output += '<li>' + k + '</li><ul>';
+
         if (typeof(array[i][k]) != 'string') {
             for (j in array[i][k]) { // particular skill
                 output += '<li>' + array[i][k][j] + '</li>';
@@ -190,8 +193,7 @@ function displaySkillsObjects(array, title, target) { // display skills
         } else {
             if (k != array[i][k]) { // only display the top level li if the content is the same as the nested li
                 output += '<li>' + array[i][k] + '</li>';
-            }
-            
+            }   
         }
         
         output += '</ul>';
