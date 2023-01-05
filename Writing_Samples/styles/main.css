@@ -48,6 +48,10 @@ ul {
     overflow: hidden;
     margin: 5px 0 10px 0;
 }
+li.hiddenLi {
+    list-style-type: none;
+    background-image: none;
+}
 
 /* Bootstrap overrides */
 .container {
