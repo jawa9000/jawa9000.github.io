@@ -55,6 +55,27 @@
 .indent254 {
   padding: 0 0 0 254px; }
 
+.indent1 {
+  padding: 0 0 0 36px; }
+
+.indent2 {
+  padding: 0 0 0 72px; }
+
+.indent3 {
+  padding: 0 0 0 108px; }
+
+.indent4 {
+  padding: 0 0 0 144px; }
+
+.indent5 {
+  padding: 0 0 0 180px; }
+
+.indent6 {
+  padding: 0 0 0 216px; }
+
+.indent7 {
+  padding: 0 0 0 254px; }
+
 /* tutorial content: thumbnail images */
 .tutorialContent, .thumbnail, .guideContent {
   display: table-cell; }

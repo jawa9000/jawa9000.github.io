@@ -220,22 +220,22 @@
                         <p><strong>AndroidManifest.xml</strong></p>
                         <code class="block">
                             &lt;manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.appcelerator.sample"&gt;<br/>
-                            <span class="indent36">&lt;!-- Add these permissions to enable Analytics, Cloud and Performance --&gt;</span><br/>
-                            <span class="indent36">&lt;uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/&gt;</span><br/>
-                            <span class="indent36">&lt;uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/&gt;</span><br/>
-                            <span class="indent36">&lt;uses-permission android:name="android.permission.INTERNET"/&gt;</span><br/>
-                            <span class="indent36">&lt;uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/&gt;</span><br/>
-                            <span class="indent36">&lt;uses-permission android:name="android.permission.REAL_GET_TASKS" /&gt;</span><br/>
-                            <span class="indent36">&lt;uses-permission android:name="android.permission.READ_LOGS"/&gt;</span><br/>
-                            <span class="indent36">&lt;application&gt;</span><br/>
-                                <span class="indent72">&lt;activity&gt;</span><br/>
-                                    <span class="indent108"></span>...</span><br/>
-                                    <span class="indent72"></span>&lt;/activity&gt;</span><br/>
+                            <span class="indent1">&lt;!-- Add these permissions to enable Analytics, Cloud and Performance --&gt;</span><br/>
+                            <span class="indent1">&lt;uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/&gt;</span><br/>
+                            <span class="indent1">&lt;uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/&gt;</span><br/>
+                            <span class="indent1">&lt;uses-permission android:name="android.permission.INTERNET"/&gt;</span><br/>
+                            <span class="indent1">&lt;uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/&gt;</span><br/>
+                            <span class="indent1">&lt;uses-permission android:name="android.permission.REAL_GET_TASKS" /&gt;</span><br/>
+                            <span class="indent1">&lt;uses-permission android:name="android.permission.READ_LOGS"/&gt;</span><br/>
+                            <span class="indent1">&lt;application&gt;</span><br/>
+                                <span class="indent2">&lt;activity&gt;</span><br/>
+                                    <span class="indent3"></span>...</span><br/>
+                                    <span class="indent2"></span>&lt;/activity&gt;</span><br/>
                                     <br/>
-                                    <span class="indent72"></span>&lt;!-- Add this service to enable Analytics --&gt;</span><br/>
-                                    <span class="indent72"></span>&lt;service android:name="com.appcelerator.aps.APSAnalyticsService" android:exported="false" /&gt;</span><br/>
-                                <span class="indent36">&lt;/application&gt;</span><br/>
-                                <span class="indent36">&lt;/manifest&gt;</span><br/>
+                                    <span class="indent2"></span>&lt;!-- Add this service to enable Analytics --&gt;</span><br/>
+                                    <span class="indent2"></span>&lt;service android:name="com.appcelerator.aps.APSAnalyticsService" android:exported="false" /&gt;</span><br/>
+                                <span class="indent1">&lt;/application&gt;</span><br/>
+                                <span class="indent1">&lt;/manifest&gt;</span><br/>
                         </code>
                     </li>
                     <li>Add the following import statement to the project:</li>
@@ -297,63 +297,63 @@
                                 import com.appcelerator.aps.APSUsers;<br/>
                                 <br/>
                                 public class MainActivity extends ActionBarActivity {<br/>
-                                <span class="indent36">// Handle to current activity</span><br/>
-                                <span class="indent36">private static Activity currentActivity;</span><br/>
+                                <span class="indent1">// Handle to current activity</span><br/>
+                                <span class="indent1">private static Activity currentActivity;</span><br/>
                                 <br/>
-                                <span class="indent36">@Override</span><br/>
-                                <span class="indent36">protected void onCreate(Bundle savedInstanceState) {</span><br/>
-                                <span class="indent72">super.onCreate(savedInstanceState);</span><br/>
-                                <span class="indent72">setContentView(R.layout.activity_main);</span><br/>
+                                <span class="indent1">@Override</span><br/>
+                                <span class="indent1">protected void onCreate(Bundle savedInstanceState) {</span><br/>
+                                <span class="indent2">super.onCreate(savedInstanceState);</span><br/>
+                                <span class="indent2">setContentView(R.layout.activity_main);</span><br/>
                                 <br/>
-                                <span class="indent72">// Save the current activity</span><br/>
-                                <span class="indent72">currentActivity = this;</span><br/>
+                                <span class="indent2">// Save the current activity</span><br/>
+                                <span class="indent2">currentActivity = this;</span><br/>
                                 <br/>
-                                <span class="indent72">APSServiceManager.getInstance().enable(getApplicationContext(), &quot;APP_KEY&quot;);</span><br/>
+                                <span class="indent2">APSServiceManager.getInstance().enable(getApplicationContext(), &quot;APP_KEY&quot;);</span><br/>
                                 <br/>
-                                <span class="indent72">if (savedInstanceState == null) {</span><br/>
-                                <span class="indent108">getSupportFragmentManager().beginTransaction()</span><br/>
-                                <span class="indent108">.add(R.id.container, new PlaceholderFragment())</span><br/>
-                                <span class="indent108">.commit();</span><br/>
-                                <span class="indent72">}</span><br/>
-                                <span class="indent36">}</span><br/>
+                                <span class="indent2">if (savedInstanceState == null) {</span><br/>
+                                <span class="indent3">getSupportFragmentManager().beginTransaction()</span><br/>
+                                <span class="indent3">.add(R.id.container, new PlaceholderFragment())</span><br/>
+                                <span class="indent3">.commit();</span><br/>
+                                <span class="indent2">}</span><br/>
+                                <span class="indent1">}</span><br/>
                                 <br/>
-                                <span class="indent36">public static class PlaceholderFragment extends Fragment {</span>
+                                <span class="indent1">public static class PlaceholderFragment extends Fragment {</span>
                                 <br/>
-                                <span class="indent72">// Handle to Spinner and EditText widgets</span><br/>
-                                <span class="indent72">Spinner spinner;</span><br/>
-                                <span class="indent72">EditText textField;</span><br/>
+                                <span class="indent2">// Handle to Spinner and EditText widgets</span><br/>
+                                <span class="indent2">Spinner spinner;</span><br/>
+                                <span class="indent2">EditText textField;</span><br/>
                                 <br/>
-                                <span class="indent72">public PlaceholderFragment() {</span><br/>
-                                <span class="indent72">}</span><br/>
+                                <span class="indent2">public PlaceholderFragment() {</span><br/>
+                                <span class="indent2">}</span><br/>
                                 <br/>
-                                <span class="indent72">@Override</span><br/>
-                                <span class="indent72">public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {</span><br/>
-                                <span class="indent108">View rootView = inflater.inflate(R.layout.fragment_main, container, false);<br/>
+                                <span class="indent2">@Override</span><br/>
+                                <span class="indent2">public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {</span><br/>
+                                <span class="indent3">View rootView = inflater.inflate(R.layout.fragment_main, container, false);<br/>
                                 </span><br/>
-                                <span class="indent108">// Bind the Button do the doClick method</span><br/>
-                                <span class="indent108">Button button = (Button)rootView.findViewById(R.id.button1);</span><br/>
-                                <span class="indent108">button.setOnClickListener(new Button.OnClickListener() {</span><br/>
-                                <span class="indent144">@Override</span><br/>
-                                <span class="indent144">public void onClick(View v){</span><br/>
-                                <span class="indent180">doClick();</span><br/>
-                                <span class="indent144">}</span><br/>
-                                <span class="indent108">});</span><br/>
+                                <span class="indent3">// Bind the Button do the doClick method</span><br/>
+                                <span class="indent3">Button button = (Button)rootView.findViewById(R.id.button1);</span><br/>
+                                <span class="indent3">button.setOnClickListener(new Button.OnClickListener() {</span><br/>
+                                <span class="indent4">@Override</span><br/>
+                                <span class="indent4">public void onClick(View v){</span><br/>
+                                <span class="indent5">doClick();</span><br/>
+                                <span class="indent4">}</span><br/>
+                                <span class="indent3">});</span><br/>
                                 <br/>
-                                <span class="indent108">// Save the Spinner and EditText instances</span><br/>
-                                <span class="indent108">spinner = (Spinner)rootView.findViewById(R.id.spinner1);</span><br/>
-                                <span class="indent108">textField = (EditText)rootView.findViewById(R.id.editText1);</span><br/>
-                                <span class="indent108">// Place holder for the next tutorial steps</span><br/>
-                                <span class="indent108">populateSpinner();</span><br/>
-                                <span class="indent108">return rootView;</span><br/>
-                                <span class="indent72">}</span><br/>
+                                <span class="indent3">// Save the Spinner and EditText instances</span><br/>
+                                <span class="indent3">spinner = (Spinner)rootView.findViewById(R.id.spinner1);</span><br/>
+                                <span class="indent3">textField = (EditText)rootView.findViewById(R.id.editText1);</span><br/>
+                                <span class="indent3">// Place holder for the next tutorial steps</span><br/>
+                                <span class="indent3">populateSpinner();</span><br/>
+                                <span class="indent3">return rootView;</span><br/>
+                                <span class="indent2">}</span><br/>
                                 <br/>
-                                <span class="indent72">// Placeholder for next tutorial steps</span><br/>
-                                <span class="indent72">public void doClick() {</span><br/>
-                                <span class="indent72">}</span><br/>
+                                <span class="indent2">// Placeholder for next tutorial steps</span><br/>
+                                <span class="indent2">public void doClick() {</span><br/>
+                                <span class="indent2">}</span><br/>
                                 <br/>
-                                <span class="indent72">public void populateSpinner() {</span><br/>
-                                <span class="indent72">}</span><br/>
-                                <span class="indent36">}</span><br/>
+                                <span class="indent2">public void populateSpinner() {</span><br/>
+                                <span class="indent2">}</span><br/>
+                                <span class="indent1">}</span><br/>
                             }
                             </code>
                     </li>
@@ -372,17 +372,17 @@
                 <p><strong>Gradle</strong></p>
                 <code class="block">
                         dependencies {<br/>
-                            <span class="indent36">compile &#39;com.appcelerator: appcelerator-sdk-android:1.0.0&#39;</span><br/>
+                            <span class="indent1">compile &#39;com.appcelerator: appcelerator-sdk-android:1.0.0&#39;</span><br/>
                         }<br/>
                     </code>
                 <p><strong>Maven</strong></p>
                 <code class="block">
                         &lt;dependencies&gt;<br/>
-                        <span class="indent36">&lt;dependency&gt;</span><br/>
-                        <span class="indent72">&lt;groupId&gt;com.appcelerator&lt;/groupId&gt;</span><br/>
-                        <span class="indent72">&lt;artifactId&gt;appcelerator-sdk-android&lt;/artifactId&gt;</span><br/>
-                        <span class="indent72">&lt;version&gt;1.0.0&lt;/version&gt;</span><br/>
-                        <span class="indent36">&lt;/dependency&gt;</span><br/>
+                        <span class="indent1">&lt;dependency&gt;</span><br/>
+                        <span class="indent2">&lt;groupId&gt;com.appcelerator&lt;/groupId&gt;</span><br/>
+                        <span class="indent2">&lt;artifactId&gt;appcelerator-sdk-android&lt;/artifactId&gt;</span><br/>
+                        <span class="indent2">&lt;version&gt;1.0.0&lt;/version&gt;</span><br/>
+                        <span class="indent1">&lt;/dependency&gt;</span><br/>
                         &lt;/dependencies&gt;<br/>
                     </code>
                 <h3 id="Captureusersessionevents">Capture user session events</h3>
@@ -399,11 +399,11 @@
                 <code class="block">
                         @Override<br/>
                         protected void onCreate(Bundle savedInstanceState) {<br/>
-                        <span class="indent36">super.onCreate(savedInstanceState);</span><br/>
-                        <span class="indent36">setContentView(R.layout.activity_main);</span><br/>
-                        <span class="indent36">APSAnalytics.getInstance().sendAppEnrollEvent();</span><br/>
+                        <span class="indent1">super.onCreate(savedInstanceState);</span><br/>
+                        <span class="indent1">setContentView(R.layout.activity_main);</span><br/>
+                        <span class="indent1">APSAnalytics.getInstance().sendAppEnrollEvent();</span><br/>
                         <br/>
-                        <span class="indent36">// Other init calls...</span><br/>
+                        <span class="indent1">// Other init calls...</span><br/>
                         }
                     </code>
                 <p>Use <a href="#"><code class="inline">onPause()</code></a> and <a href="#"><code
@@ -415,14 +415,14 @@
                 <code class="block">
                         @Override<br/>
                         public void onPause() {<br/>
-                        <span class="indent36">super.onPause();</span><br/>
-                        <span class="indent36">APSAnalytics.getInstance().sendAppBackgroundEvent();</span><br/>
+                        <span class="indent1">super.onPause();</span><br/>
+                        <span class="indent1">APSAnalytics.getInstance().sendAppBackgroundEvent();</span><br/>
                         }<br/>
                         <br/>
                         @Override<br/>
                         public void onResume() {<br/>
-                        <span class="indent36">super.onResume();</span><br/>
-                        <span class="indent36">APSAnalytics.getInstance().sendAppForegroundEvent();</span><br/>
+                        <span class="indent1">super.onResume();</span><br/>
+                        <span class="indent1">APSAnalytics.getInstance().sendAppForegroundEvent();</span><br/>
                         }<br/>
                     </code>
                 <h3 id="SendanAnalyticsfeatureevent">Send an Analytics feature event</h3>
@@ -436,7 +436,7 @@
                 <p><strong>MainActivity.java</strong></p>
                 <code class="block">
                         public void doClick(View view) {<br/>
-                        <span class="indent36">APSAnalytics.getInstance().sendAppFeatureEvent(&quot;sample.feature.login&quot;, null);</span><br/>
+                        <span class="indent1">APSAnalytics.getInstance().sendAppFeatureEvent(&quot;sample.feature.login&quot;, null);</span><br/>
                         }; 
                     </code>
                 <h3 id="QueryCloudusers">Query Cloud users</h3>
@@ -450,38 +450,38 @@
                 <p><strong>MainActivity.java</strong></p>
                 <code class="block">
             public void populateSpinner() {<br/>
-                <span class="indent36">try {</span><br/>
-                <span class="indent72">APSUsers.query(null, new APSResponseHandler() {</span><br/>
-                <span class="indent108">@Override</span><br/>
-                <span class="indent108">public void onResponse(final APSResponse e) {</span><br/>
-                <span class="indent144">if (e.getSuccess()) {</span><br/>
-                <span class="indent180">try {</span><br/>
-                <span class="indent216">JSONArray payload = e.getResponse().getJSONArray(&quot;users&quot;);</span><br/>
-                <span class="indent216">String[] items = new String[payload.length()];</span><br/>
-                <span class="indent216">for (int i = 0; i &lt; payload.length(); i++) {</span><br/>
-                <span class="indent254">items[i] = payload.getJSONObject(i).getString(&quot;username&quot;);</span><br/>
-                <span class="indent216">}<br/>
-                <span class="indent216">ArrayAdapter spinnerArrayAdapter = new ArrayAdapter(currentActivity,</span><br/>
-                <span class="indent254">android.R.layout.simple_spinner_item, items);</span><br/>
-                <span class="indent254">spinner.setAdapter(spinnerArrayAdapter); </span><br/>
-                <span class="indent216">} catch (Exception ex) {</span><br/>
-                <span class="indent254">Log.e(&quot;ACSUsers&quot;, &quot;Error parsing JSON object: &quot; + ex.toString());</span><br/>
-                <span class="indent216">}</span><br/>
-                <span class="indent180">} else {</span><br/>
-                <span class="indent216">Toast.makeText(currentActivity, &quot;ERROR: Unable to get users.&quot;, Toast.LENGTH_SHORT).show();<br/>
-                <span class="indent216">Log.e(&quot;ACSUsers&quot;, e.getResponseString());<br/>
-                <span class="indent180">}<br/>
-                <span class="indent144">}<br/>
+                <span class="indent1">try {</span><br/>
+                <span class="indent2">APSUsers.query(null, new APSResponseHandler() {</span><br/>
+                <span class="indent3">@Override</span><br/>
+                <span class="indent3">public void onResponse(final APSResponse e) {</span><br/>
+                <span class="indent4">if (e.getSuccess()) {</span><br/>
+                <span class="indent5">try {</span><br/>
+                <span class="indent6">JSONArray payload = e.getResponse().getJSONArray(&quot;users&quot;);</span><br/>
+                <span class="indent6">String[] items = new String[payload.length()];</span><br/>
+                <span class="indent6">for (int i = 0; i &lt; payload.length(); i++) {</span><br/>
+                <span class="indent7">items[i] = payload.getJSONObject(i).getString(&quot;username&quot;);</span><br/>
+                <span class="indent6">}<br/>
+                <span class="indent6">ArrayAdapter spinnerArrayAdapter = new ArrayAdapter(currentActivity,</span><br/>
+                <span class="indent7">android.R.layout.simple_spinner_item, items);</span><br/>
+                <span class="indent7">spinner.setAdapter(spinnerArrayAdapter); </span><br/>
+                <span class="indent6">} catch (Exception ex) {</span><br/>
+                <span class="indent7">Log.e(&quot;ACSUsers&quot;, &quot;Error parsing JSON object: &quot; + ex.toString());</span><br/>
+                <span class="indent6">}</span><br/>
+                <span class="indent5">} else {</span><br/>
+                <span class="indent6">Toast.makeText(currentActivity, &quot;ERROR: Unable to get users.&quot;, Toast.LENGTH_SHORT).show();<br/>
+                <span class="indent6">Log.e(&quot;ACSUsers&quot;, e.getResponseString());<br/>
+                <span class="indent5">}<br/>
+                <span class="indent4">}<br/>
                 <br/>
-                <span class="indent144">@Override</span><br/>
-                <span class="indent144">public void onException(APSCloudException e) {</span><br/>
-                <span class="indent180">Log.e(&quot;ACSUsers&quot;, e.toString());</span><br/>
-                <span class="indent144">}</span><br/>
-                    <span class="indent108">});</span><br/>
-                <span class="indent72">} catch (APSCloudException e) {</span><br/>
-                <span class="indent108">Log.e(&quot;ACSUsers&quot;, e.toString());</span><br/>
-                <span class="indent72">}</span><br/>
-                <span class="indent36">}</span>
+                <span class="indent4">@Override</span><br/>
+                <span class="indent4">public void onException(APSCloudException e) {</span><br/>
+                <span class="indent5">Log.e(&quot;ACSUsers&quot;, e.toString());</span><br/>
+                <span class="indent4">}</span><br/>
+                    <span class="indent3">});</span><br/>
+                <span class="indent2">} catch (APSCloudException e) {</span><br/>
+                <span class="indent3">Log.e(&quot;ACSUsers&quot;, e.toString());</span><br/>
+                <span class="indent2">}</span><br/>
+                <span class="indent1">}</span>
                     </code>
                 <h3 id="LogintoaCloudaccount">Login to a Cloud account</h3>
                 <p>To login to a Cloud account, you need the username and password. Since the application was
@@ -492,37 +492,37 @@
                     account.</p>
                 <code class="block">
             public void doClick() {<br/>
-                <span class="indent36"></span>APSAnalytics.getInstance().sendAppFeatureEvent(&quot;sample.feature.login&quot;, null);<br/>
+                <span class="indent1"></span>APSAnalytics.getInstance().sendAppFeatureEvent(&quot;sample.feature.login&quot;, null);<br/>
                 <br/>
-                <span class="indent36"></span>// Get the current value of the Spinner and EditField widgets<br/>
-                <span class="indent36"></span>final String username = spinner.getSelectedItem().toString();<br/>
-                <span class="indent36"></span>String password = textField.getText().toString();<br/>
+                <span class="indent1"></span>// Get the current value of the Spinner and EditField widgets<br/>
+                <span class="indent1"></span>final String username = spinner.getSelectedItem().toString();<br/>
+                <span class="indent1"></span>String password = textField.getText().toString();<br/>
                 <br/>
-                <span class="indent36"></span>// Use a HashMap to send the method parameters for the request<br/>
-                <span class="indent36"></span>HashMap&lt;String, Object&gt; data = new HashMap&lt;String, Object&gt;();<br/>
-                <span class="indent36"></span>data.put(&quot;login&quot;, username);<br/>
-                <span class="indent36"></span>data.put(&quot;password&quot;, password);<br/>
+                <span class="indent1"></span>// Use a HashMap to send the method parameters for the request<br/>
+                <span class="indent1"></span>HashMap&lt;String, Object&gt; data = new HashMap&lt;String, Object&gt;();<br/>
+                <span class="indent1"></span>data.put(&quot;login&quot;, username);<br/>
+                <span class="indent1"></span>data.put(&quot;password&quot;, password);<br/>
                 <br/>
-                <span class="indent36"></span>try {<br/>
-                <span class="indent72">APSUsers.login(data, new APSResponseHandler() {</span><br/>
-                <span class="indent108">@Override</span><br/>
-                <span class="indent108">public void onResponse(final APSResponse e) {</span><br/>
-                <span class="indent144">if (e.getSuccess()) {</span><br/>
-                <span class="indent180">Log.i(&quot;ACSUsers&quot;, &quot;Successfully logged in as &quot; + username);</span><br/>
-                <span class="indent144">}</span><br/>
-                <span class="indent144">else {</span><br/>
-                <span class="indent180">Log.e(&quot;ACSUsers&quot;, e.getMessage());</span><br/>
-                <span class="indent144">}</span><br/>
-                <span class="indent108">}</span><br/>
+                <span class="indent1"></span>try {<br/>
+                <span class="indent2">APSUsers.login(data, new APSResponseHandler() {</span><br/>
+                <span class="indent3">@Override</span><br/>
+                <span class="indent3">public void onResponse(final APSResponse e) {</span><br/>
+                <span class="indent4">if (e.getSuccess()) {</span><br/>
+                <span class="indent5">Log.i(&quot;ACSUsers&quot;, &quot;Successfully logged in as &quot; + username);</span><br/>
+                <span class="indent4">}</span><br/>
+                <span class="indent4">else {</span><br/>
+                <span class="indent5">Log.e(&quot;ACSUsers&quot;, e.getMessage());</span><br/>
+                <span class="indent4">}</span><br/>
+                <span class="indent3">}</span><br/>
                 <br/>
-                <span class="indent108">@Override</span><br/>
-                <span class="indent108">public void onException(APSCloudException e) {</span><br/>
-                <span class="indent144">Log.e(&quot;ACSUsers&quot;, e.toString());<br/>
-                <span class="indent108">}<br/>
-                <span class="indent72">}</span><br/>
-                <span class="indent36">} catch (APSCloudException e) {<br/>
-                <span class="indent72">Log.e(&quot;ACSUsers&quot;, e.toString());</span><br/>
-                <span class="indent36">}</span><br/>
+                <span class="indent3">@Override</span><br/>
+                <span class="indent3">public void onException(APSCloudException e) {</span><br/>
+                <span class="indent4">Log.e(&quot;ACSUsers&quot;, e.toString());<br/>
+                <span class="indent3">}<br/>
+                <span class="indent2">}</span><br/>
+                <span class="indent1">} catch (APSCloudException e) {<br/>
+                <span class="indent2">Log.e(&quot;ACSUsers&quot;, e.toString());</span><br/>
+                <span class="indent1">}</span><br/>
             }
                     </code>
                 <h3 id="Logahandledexception">Log a handled exception</h3>
@@ -543,13 +543,13 @@
                 <p><strong>MainActivity.java</strong></p>
                 <code class="block">
                         public void doClick() {<br/>
-                        <span class="indent36">// Analytics call...</span><br/>
-                        <span class="indent36">// Cloud call...</span><br/>
-                        <span class="indent36">try {</span><br/>
-                        <span class="indent72">throw new Exception(&quot;Something happened...&quot;);</span><br/>
-                        <span class="indent36">} catch (Exception exception) {</span><br/>
-                        <span class="indent72">APSPerformance.getInstance().logHandledException(exception);</span><br/>
-                        <span class="indent36">}</span><br/>
+                        <span class="indent1">// Analytics call...</span><br/>
+                        <span class="indent1">// Cloud call...</span><br/>
+                        <span class="indent1">try {</span><br/>
+                        <span class="indent2">throw new Exception(&quot;Something happened...&quot;);</span><br/>
+                        <span class="indent1">} catch (Exception exception) {</span><br/>
+                        <span class="indent2">APSPerformance.getInstance().logHandledException(exception);</span><br/>
+                        <span class="indent1">}</span><br/>
                         }
                     </code>
 
@@ -560,17 +560,17 @@
                             class="inline">setUsername()</code></a>method.</p>
                 <code class="block">
             APSUsers.login(data, new APSResponseHandler() {<br/>
-            <span class="indent36"></span>@Override</span><br/>
-            <span class="indent36"></span>public void onResponse(final APSResponse e) {</span><br/>
-            <span class="indent72"></span>if (e.getSuccess()) {</span><br/>
-            <span class="indent108"></span>Log.i(&quot;ACSUsers&quot;, &quot;Successfully logged in as &quot; + username);</span><br/>
+            <span class="indent1"></span>@Override</span><br/>
+            <span class="indent1"></span>public void onResponse(final APSResponse e) {</span><br/>
+            <span class="indent2"></span>if (e.getSuccess()) {</span><br/>
+            <span class="indent3"></span>Log.i(&quot;ACSUsers&quot;, &quot;Successfully logged in as &quot; + username);</span><br/>
             <br/>
-            <span class="indent108"></span>// Add this method call</span><br/>
-            <span class="indent108"></span>APSPerformance.getInstance().setUsername(&quot;username&quot;);</span><br/>
-            <span class="indent108">} else {</span><br/>
-            <span class="indent144">Log.e(&quot;ACSUsers&quot;, e.getMessage());</span><br/>
-            <span class="indent108">}</span><br/>
-            <span class="indent36">}</span><br/>
+            <span class="indent3"></span>// Add this method call</span><br/>
+            <span class="indent3"></span>APSPerformance.getInstance().setUsername(&quot;username&quot;);</span><br/>
+            <span class="indent3">} else {</span><br/>
+            <span class="indent4">Log.e(&quot;ACSUsers&quot;, e.getMessage());</span><br/>
+            <span class="indent3">}</span><br/>
+            <span class="indent1">}</span><br/>
             });
         </code>
                 <h3 id="Testingthetutorialsample">Testing the tutorial sample</h3>
