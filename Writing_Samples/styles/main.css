@@ -4,6 +4,12 @@ p.note {
     margin: 5px;
     width: fit-content;
 }
+p.notice {
+    background: rgba(177, 248, 83, 0.1);
+    padding: 5px;
+    margin: 5px;
+    width: fit-content;
+}
 .error {
     background: rgba(100, 0, 0, 0.3);
     padding: 5px;
