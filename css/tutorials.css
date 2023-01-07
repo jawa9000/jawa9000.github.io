@@ -49,6 +49,12 @@
 .indent180 {
   padding: 0 0 0 180px; }
 
+.indent216 {
+  padding: 0 0 0 216px; }
+
+.indent254 {
+  padding: 0 0 0 254px; }
+
 /* tutorial content: thumbnail images */
 .tutorialContent, .thumbnail, .guideContent {
   display: table-cell; }
