@@ -50,7 +50,7 @@
                     <code id="code-head" class="block">
                     ....<br/>
                     const nightmare = Nightmare({<br/>
-                    <span class="indent1">show: true</span><br/>
+                    <span class="indent36">show: true</span><br/>
                     });<br/>
                     const confluenceSelector = '#main-content';<br/>
                     <br/>
@@ -63,14 +63,14 @@
                     <code id="code-head" class="block">
                         ...<br/>
                         program<br/>
-                        <span class="indent1">.version('0.0.1')</span><br/>
-                        <span class="indent1">.usage('-u <username> -p <password> -s <spacekey> -f <output.txt> -d <milliseconds>')</span><br/>
-                        <span class="indent1">.option('-u, --user', '*required* Username id')</span><br/>
-                        <span class="indent1">.option('-p, --password', '*required* User\'s password')</span><br/>
-                        <span class="indent1">.option('-s, --spacekey', '*required* Spacekey for the Confluence space')</span><br/>
-                        <span class="indent1">.option('-f --file', 'Text file to be used for tracking Confluence document names. Can be set to either true (defaults to the spacekey naming scheme) or a file name.')</span><br/>
-                        <span class="indent1">.option('-d, --delay', 'Delay (in milliseconds) to wait for server response')</span><br/>
-                        <span class="indent1">.parse(process.argv);</span><br/>
+                        <span class="indent36">.version('0.0.1')</span><br/>
+                        <span class="indent36">.usage('-u <username> -p <password> -s <spacekey> -f <output.txt> -d <milliseconds>')</span><br/>
+                        <span class="indent36">.option('-u, --user', '*required* Username id')</span><br/>
+                        <span class="indent36">.option('-p, --password', '*required* User\'s password')</span><br/>
+                        <span class="indent36">.option('-s, --spacekey', '*required* Spacekey for the Confluence space')</span><br/>
+                        <span class="indent36">.option('-f --file', 'Text file to be used for tracking Confluence document names. Can be set to either true (defaults to the spacekey naming scheme) or a file name.')</span><br/>
+                        <span class="indent36">.option('-d, --delay', 'Delay (in milliseconds) to wait for server response')</span><br/>
+                        <span class="indent36">.parse(process.argv);</span><br/>
                         ...
                     </code>
                     <p>With the flags set, we now need to parse them into an object that we'll use throughout the rest of the script. We loop through the program.rawArgs value provided by the commander module. In this loop, we are looking for specific flags so we can associate the flag with the value associated with it.</p>
@@ -80,21 +80,21 @@
                         var argument = {};<br/>
                         <br/>
                         for (var i = 0; i < program.rawArgs.length; i++) {<br/>
-                            <span class="indent1">if (program.rawArgs[i] == '--user' || program.rawArgs[i] == '-u') {</span><br/>
-                                <span class="indent2">arguments.user = program.rawArgs[i + 1];</span><br/>
-                            <span class="indent1">}</span><br/>
-                            <span class="indent1">if (program.rawArgs[i] == '--password' || program.rawArgs[i] == '-p') {</span><br/>
-                            <span class="indent2">arguments.pass = program.rawArgs[i + 1];</span><br/>
-                            <span class="indent1">}</span><br/>
-                            <span class="indent1">if (program.rawArgs[i] == '--spacekey' || program.rawArgs[i] == '-s') {</span><br/>
-                            <span class="indent2">arguments.spacekey = program.rawArgs[i + 1];</span><br/>
-                            <span class="indent1">}</span><br/>
-                            <span class="indent1">if (program.rawArgs[i] == '--delay' || program.rawArgs[i] == '-d') {</span><br/>
-                                <span class="indent2">arguments.delay = parseInt(program.rawArgs[i + 1]);</span><br/>
-                            <span class="indent1">}</span><br/>
-                            <span class="indent1">if (program.rawArgs[i] == '--file' || program.rawArgs[i] == '-f') {</span><br/>
-                            <span class="indent2">arguments.file = program.rawArgs[i + 1];</span><br/>
-                            <span class="indent1">}<br/>
+                            <span class="indent36">if (program.rawArgs[i] == '--user' || program.rawArgs[i] == '-u') {</span><br/>
+                                <span class="indent72">arguments.user = program.rawArgs[i + 1];</span><br/>
+                            <span class="indent36">}</span><br/>
+                            <span class="indent36">if (program.rawArgs[i] == '--password' || program.rawArgs[i] == '-p') {</span><br/>
+                            <span class="indent72">arguments.pass = program.rawArgs[i + 1];</span><br/>
+                            <span class="indent36">}</span><br/>
+                            <span class="indent36">if (program.rawArgs[i] == '--spacekey' || program.rawArgs[i] == '-s') {</span><br/>
+                            <span class="indent72">arguments.spacekey = program.rawArgs[i + 1];</span><br/>
+                            <span class="indent36">}</span><br/>
+                            <span class="indent36">if (program.rawArgs[i] == '--delay' || program.rawArgs[i] == '-d') {</span><br/>
+                                <span class="indent72">arguments.delay = parseInt(program.rawArgs[i + 1]);</span><br/>
+                            <span class="indent36">}</span><br/>
+                            <span class="indent36">if (program.rawArgs[i] == '--file' || program.rawArgs[i] == '-f') {</span><br/>
+                            <span class="indent72">arguments.file = program.rawArgs[i + 1];</span><br/>
+                            <span class="indent36">}<br/>
                         }<br/>
                         ...
                     </code>
@@ -104,8 +104,8 @@
                     <code id="code-head" class="block">
                         ...<br/>
                         if (!arguments.delay) {<br/>
-                            <span class="indent1">arguments.delay = 10000;</span><br/>
-                            <span class="indent1">console.log('Server response delay not set. Assuming ' + arguments.delay + ' millisecond delay.');</span><br/>
+                            <span class="indent36">arguments.delay = 10000;</span><br/>
+                            <span class="indent36">console.log('Server response delay not set. Assuming ' + arguments.delay + ' millisecond delay.');</span><br/>
                         }<br/>
                         <br/>
                         ...
@@ -114,13 +114,13 @@
                     <code id="code-head" class="block">
                         ...<br/>
                         if (arguments.file) {<br/>
-                            <span class="indent1">if (arguments.file.length > 5) {</span><br/>
-                            <span class="indent2">var confluenceSiteMap = arguments.file;</span><br/>
-                            <span class="indent1">} else {</span><br/>
-                            <span class="indent2">var confluenceSiteMap = arguments.spacekey + '-site_map.txt';</span><br/>
-                            <span class="indent1">}</span><br/>
+                            <span class="indent36">if (arguments.file.length > 5) {</span><br/>
+                            <span class="indent72">var confluenceSiteMap = arguments.file;</span><br/>
+                            <span class="indent36">} else {</span><br/>
+                            <span class="indent72">var confluenceSiteMap = arguments.spacekey + '-site_map.txt';</span><br/>
+                            <span class="indent36">}</span><br/>
                             } else {<br/>
-                                <span class="indent1">var confluenceSiteMap = confluenceSiteMap.txt;</span><br/>
+                                <span class="indent36">var confluenceSiteMap = confluenceSiteMap.txt;</span><br/>
                         }<br/>
                         ...
                     </code>
@@ -128,7 +128,7 @@
                     <code id="code-head" class="block">
                         ...<br/>
                         if (arguments.spacekey) {<br/>
-                            <span class="indent1">arguments.confluence = <base Confluence URL> + '/display/' + arguments.spacekey + '/Site+Map';</span><br/>
+                            <span class="indent36">arguments.confluence = <base Confluence URL> + '/display/' + arguments.spacekey + '/Site+Map';</span><br/>
                         }<br/>
                         ...
                     </code>
@@ -136,17 +136,17 @@
                     <code id="code-head" class="block">
                         ...<br/>
                         if (!arguments.user || !arguments.pass || !arguments.spacekey) {<br/>
-                        <span class="indent1">if (!arguments.user) { // user id is required</span><br/>
-                        <span class="indent2">console.log('Username is required.');</span><br/>
-                        <span class="indent1">}</span><br/>
-                        <span class="indent1">if (!arguments.pass) { // password is required</span><br/>
-                        <span class="indent2">console.log('Password is required.')</span><br/>
-                        <span class="indent1">}</span><br/>
-                        <span class="indent1">if (!arguments.spacekey) {</span><br/>
-                        <span class="indent2">console.log('Spacekey is required.')</span><br/>
-                        <span class="indent1">}</span><br/>
+                        <span class="indent36">if (!arguments.user) { // user id is required</span><br/>
+                        <span class="indent72">console.log('Username is required.');</span><br/>
+                        <span class="indent36">}</span><br/>
+                        <span class="indent36">if (!arguments.pass) { // password is required</span><br/>
+                        <span class="indent72">console.log('Password is required.')</span><br/>
+                        <span class="indent36">}</span><br/>
+                        <span class="indent36">if (!arguments.spacekey) {</span><br/>
+                        <span class="indent72">console.log('Spacekey is required.')</span><br/>
+                        <span class="indent36">}</span><br/>
                         <br/>
-                        <span class="indent1">process.exit(1);</span><br/>
+                        <span class="indent36">process.exit(1);</span><br/>
                         ...
                     </code>                        
 
@@ -154,21 +154,21 @@
                     <p>With the required flags set for the CLI side of the script, we can now request a document from Confluence using your credentials. This chunk of code starts the nightmare.js process by navigating the Electron browser to the site map page in Confluence. The process below assumes that a login is required when the target page is loaded, enters user supplied username and password in the appropriate fields (denoted by their element ids), click the login button (denoted by it's element id), wait for a period of time (hopefully long enough for the server to respond), grab the content from the predetermined CSS selector via the evaluate method, return the data for parsing later, and close the Electron browser.</p>
                     <code id="code-head" class="block">
                         ...<br/>
-                        <span class="indent1"></span>} else {<br/>
-                        <span class="indent2">console.log('Getting document link list from ' + arguments.confluence);<br/>
+                        <span class="indent36"></span>} else {<br/>
+                        <span class="indent72">console.log('Getting document link list from ' + arguments.confluence);<br/>
                         <br/>
-                        <span class="indent2">nightmare<br/>
-                        <span class="indent3">.goto(arguments.confluence)<br/>
-                        <span class="indent3">.type('#os_username', arguments.user)<br/>
-                        <span class="indent3"></span>.type('#os_password', arguments.pass)<br/>
-                        <span class="indent3"></span>.click('#loginButton')<br/>
-                        <span class="indent3"></span>.wait(arguments.delay)<br/>
-                        <span class="indent3"></span>.evaluate(confluenceSelector => {<br/>
-                        <span class="indent4">return {<br/>
-                        <span class="indent5">html: document.querySelector(confluenceSelector).innerHTML<br/>
-                        <span class="indent4">}<br/>
-                        <span class="indent3">}, confluenceSelector)<br/>
-                        <span class="indent3">.end()<br/>
+                        <span class="indent72">nightmare<br/>
+                        <span class="indent108">.goto(arguments.confluence)<br/>
+                        <span class="indent108">.type('#os_username', arguments.user)<br/>
+                        <span class="indent108"></span>.type('#os_password', arguments.pass)<br/>
+                        <span class="indent108"></span>.click('#loginButton')<br/>
+                        <span class="indent108"></span>.wait(arguments.delay)<br/>
+                        <span class="indent108"></span>.evaluate(confluenceSelector => {<br/>
+                        <span class="indent144">return {<br/>
+                        <span class="indent180">html: document.querySelector(confluenceSelector).innerHTML<br/>
+                        <span class="indent144">}<br/>
+                        <span class="indent108">}, confluenceSelector)<br/>
+                        <span class="indent108">.end()<br/>
                         ...
                     </code>
                     <h2>Parse content with Cheerio</h2>
@@ -176,29 +176,29 @@
                     <code id="code-head" class="block">
                         ...<br/>
                         .then(obj => {<br/>
-                            <span class="indent1">$ = cheerio.load(obj.html.toString());</span><br/>
+                            <span class="indent36">$ = cheerio.load(obj.html.toString());</span><br/>
                         <br/>
-                        <span class="indent1">var output = '';</span><br/>
+                        <span class="indent36">var output = '';</span><br/>
                         <br/>
-                        <span class="indent1">$('li span a').each(function() {</span><br/>
-                        <span class="indent2">output += $(this).html() + '\n';</span><br/>
-                        <span class="indent1">});</span><br/>
+                        <span class="indent36">$('li span a').each(function() {</span><br/>
+                        <span class="indent72">output += $(this).html() + '\n';</span><br/>
+                        <span class="indent36">});</span><br/>
                         ...
                     </code>
 
                     <p>Then, we write out the list of links we found in the Confluence document to our predetermined text file.</p>
                     <code id="code-head" class="block">
                         ...<br/>
-                        <span class="indent1">fs.writeFileSync(confluenceSiteMap, output, 'utf8');</span><br/>
+                        <span class="indent36">fs.writeFileSync(confluenceSiteMap, output, 'utf8');</span><br/>
                         })<br/>
                         ...
                     </code>
                     <p>Finally, we use the catch method to report back any errors.</p>
                     <code id="code-head" class="block">
                         ...<br/>
-                        <span class="indent1">.catch(error => {</span><br/>
-                            <span class="indent2">console.error(error);</span><br/>
-                            <span class="indent1">});</span><br/>
+                        <span class="indent36">.catch(error => {</span><br/>
+                            <span class="indent72">console.error(error);</span><br/>
+                            <span class="indent36">});</span><br/>
                         }
                     </code>
                     <h2>Wrapping up</h2>
