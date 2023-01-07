@@ -92,13 +92,13 @@
                                     </p>
                                     <code class="block">
                                 {<br/>
-                                    <span class="indent36">&quot;textColor&quot;: { // the name for your color</span><br/>
-                                    <span class="indent72">&quot;dark&quot;: {</span><br/>
-                                    <span class="indent108">&quot;color&quot;: &quot;#ff85e2&quot;, // hex color code to be set</span><br/>
-                                    <span class="indent108">&quot;alpha&quot;: &quot;50.0&quot; // can be set from a range of 0-100</span><br/>
-                                    <span class="indent72">},</span><br/>
-                                    <span class="indent72">&quot;light&quot;: &quot;#ff1f1f&quot;</span><br/>
-                                    <span class="indent36">}</span><br/>
+                                    <span class="indent1">&quot;textColor&quot;: { // the name for your color</span><br/>
+                                    <span class="indent2">&quot;dark&quot;: {</span><br/>
+                                    <span class="indent3">&quot;color&quot;: &quot;#ff85e2&quot;, // hex color code to be set</span><br/>
+                                    <span class="indent3">&quot;alpha&quot;: &quot;50.0&quot; // can be set from a range of 0-100</span><br/>
+                                    <span class="indent2">},</span><br/>
+                                    <span class="indent2">&quot;light&quot;: &quot;#ff1f1f&quot;</span><br/>
+                                    <span class="indent1">}</span><br/>
                                 }
                             </code>
                                 </li>
@@ -169,7 +169,7 @@
                                 <li class="hiddenLi">
                                     <code class="block">
                                 var win = Ti.UI.createWindow({<br/>
-                                <span class="indent36">backgroundColor: '#fff'</span><br/>
+                                <span class="indent1">backgroundColor: '#fff'</span><br/>
                                 });<br/>
                                 var triangle = Ti.UI.iOS.systemImage('drop.triangle.fill');<br/>
                                 var forward = Ti.UI.iOS.systemImage('forward');<br/>
@@ -177,23 +177,23 @@
                                 var folder = Ti.UI.iOS.systemImage('folder.fill');<br/>
                                 <br/>
                                 var imageView = Ti.UI.createImageView({<br/>
-                                <span class="indent36">width: '150',</span><br/>
-                                <span class="indent36">height: '150',</span><br/>
-                                <span class="indent36">image: triangle,</span><br/>
-                                <span class="indent36">tintColor: 'red'</span><br/>
+                                <span class="indent1">width: '150',</span><br/>
+                                <span class="indent1">height: '150',</span><br/>
+                                <span class="indent1">image: triangle,</span><br/>
+                                <span class="indent1">tintColor: 'red'</span><br/>
                                 });<br/>
                                 <br/>
                                 var button = Ti.UI.createButton({<br/>
-                                <span class="indent36">top: 60,</span><br/>
-                                <span class="indent36">width: 100,</span><br/>
-                                <span class="indent36">height: 50,</span><br/>
-                                <span class="indent36">image: folder</span><br/>
+                                <span class="indent1">top: 60,</span><br/>
+                                <span class="indent1">width: 100,</span><br/>
+                                <span class="indent1">height: 50,</span><br/>
+                                <span class="indent1">image: folder</span><br/>
                                 })<br/>
                                 <br/>
                                 var stepper = Ti.UI.iOS.createStepper({<br/>
-                                <span class="indent36">top: 150,</span><br/>
-                                <span class="indent36">incrementImage: forward,</span><br/>
-                                <span class="indent36">decrementImage: backward</span><br/>
+                                <span class="indent1">top: 150,</span><br/>
+                                <span class="indent1">incrementImage: forward,</span><br/>
+                                <span class="indent1">decrementImage: backward</span><br/>
                                 });<br/>
                                 <br/>
                                 win.add(button);<br/>
@@ -209,62 +209,62 @@
                                 <li class="hiddenLi">
                                     <code class="block">
                                 var win = Ti.UI.createWindow({<br/>
-                                <span class="indent36">backgroundColor: '#fff'</span><br/>
+                                <span class="indent1">backgroundColor: '#fff'</span><br/>
                                 });<br/>
                                 <br/>
                                 var nav = Ti.UI.createNavigationWindow({<br/>
-                                <span class="indent36">window: win,</span><br/>
+                                <span class="indent1">window: win,</span><br/>
                                 });<br/>
                                 <br/>
                                 var items = [];<br/>
                                 <br/>
                                 for (var i = 0; i &lt; 20; i++) {<br/>
-                                <span class="indent36">items.push({</span><br/>
-                                <span class="indent72">properties: {</span><br/>
-                                <span class="indent108">title: 'Item ' + i,</span><br/>
-                                <span class="indent108">canEdit: true,</span><br/>
-                                <span class="indent72">}</span><br/>
-                                <span class="indent36">});</span><br/>
+                                <span class="indent1">items.push({</span><br/>
+                                <span class="indent2">properties: {</span><br/>
+                                <span class="indent3">title: 'Item ' + i,</span><br/>
+                                <span class="indent3">canEdit: true,</span><br/>
+                                <span class="indent2">}</span><br/>
+                                <span class="indent1">});</span><br/>
                                 }<br/>
                                 <br/>
                                 var list = Ti.UI.createListView({<br/>
-                                <span class="indent36">allowsMultipleSelectionDuringEditing: true,</span><br/>
-                                <span class="indent36">allowsMultipleSelectionInteraction: true,</span><br/>
-                                <span class="indent36">sections: [Ti.UI.createListSection({</span><br/>
-                                <span class="indent72">items: items</span><br/>
-                                <span class="indent36">})]</span><br/>
+                                <span class="indent1">allowsMultipleSelectionDuringEditing: true,</span><br/>
+                                <span class="indent1">allowsMultipleSelectionInteraction: true,</span><br/>
+                                <span class="indent1">sections: [Ti.UI.createListSection({</span><br/>
+                                <span class="indent2">items: items</span><br/>
+                                <span class="indent1">})]</span><br/>
                                 });</span><br/>
                                 <br/>
                                 list.addEventListener('itemclick', function(e)) {<br/>
-                                <span class="indent36">Ti.API.info('click at index: ' + e.itemIndex);</span><br/>
+                                <span class="indent1">Ti.API.info('click at index: ' + e.itemIndex);</span><br/>
                                 });</span><br/>
                                 <br/>
                                 list.addEventListener(&quot;delete&quot;, function(e)) {<br/>
-                                <span class="indent36">Ti.API.info(&quot;Deleted Row Index is is: &quot; +e.itemIndex);</span><br/>
-                                <span class="indent36">Ti.API.info(&quot;Deleted Section Index is is: &quot; +e.sectionIndex);</span><br/>
+                                <span class="indent1">Ti.API.info(&quot;Deleted Row Index is is: &quot; +e.itemIndex);</span><br/>
+                                <span class="indent1">Ti.API.info(&quot;Deleted Section Index is is: &quot; +e.sectionIndex);</span><br/>
                                 });<br/>
                                 <br/>
                                 list.addEventListener(&quot;itemsselected&quot;, function(e)) {<br/>
-                                <span class="indent36">Ti.API.info(&quot;Selected  Item count is: &quot; + e.selectedItems.length);</span><br/>
+                                <span class="indent1">Ti.API.info(&quot;Selected  Item count is: &quot; + e.selectedItems.length);</span><br/>
                                 <br/>
-                                <span class="indent36">var dialog = Ti.UI.createAlertDialog({</span><br/>
-                                <span class="indent72">buttonNames: ['Change Color', 'Cancel'],</span><br/>
-                                <span class="indent72">message: 'Would you like to change title color of selected rows?',</span><br/>
-                                <span class="indent36">});</span><br/>
+                                <span class="indent1">var dialog = Ti.UI.createAlertDialog({</span><br/>
+                                <span class="indent2">buttonNames: ['Change Color', 'Cancel'],</span><br/>
+                                <span class="indent2">message: 'Would you like to change title color of selected rows?',</span><br/>
+                                <span class="indent1">});</span><br/>
                                 <br/>
-                                <span class="indent36">dialog.addEventListener('click', function(f) {</span><br/>
-                                <span class="indent72">if (f.index === 1) {</span><br/>
-                                <span class="indent72">list.editing = false;</span><br/>
-                                <span class="indent36">} else {</span><br/>
-                                <span class="indent72">for (var i = 0; i &lt; e.selectedItems.length; i++) { </span><br/>
-                                <span class="indent108">var rowObject = e.selectedItems[i];</span><br/>
-                                <span class="indent108">var item = rowObject.section.getItemAt(rowObject.itemIndex)</span><br/>
-                                <span class="indent108">item.properties.color = 'green';</span><br/>
-                                <span class="indent108">rowObject.section.updateItemAt(rowObject.itemIndex, item);</span><br/>
-                                <span class="indent72">}</span><br/>
+                                <span class="indent1">dialog.addEventListener('click', function(f) {</span><br/>
+                                <span class="indent2">if (f.index === 1) {</span><br/>
+                                <span class="indent2">list.editing = false;</span><br/>
+                                <span class="indent1">} else {</span><br/>
+                                <span class="indent2">for (var i = 0; i &lt; e.selectedItems.length; i++) { </span><br/>
+                                <span class="indent3">var rowObject = e.selectedItems[i];</span><br/>
+                                <span class="indent3">var item = rowObject.section.getItemAt(rowObject.itemIndex)</span><br/>
+                                <span class="indent3">item.properties.color = 'green';</span><br/>
+                                <span class="indent3">rowObject.section.updateItemAt(rowObject.itemIndex, item);</span><br/>
+                                <span class="indent2">}</span><br/>
                                 <br/>
-                                <span class="indent36">list.editing = false;</span><br/>
-                                <span class="indent36">}</span><br/>
+                                <span class="indent1">list.editing = false;</span><br/>
+                                <span class="indent1">}</span><br/>
                                 }</span><br/>
                                 <br/>
                                 dialog.show();</span><br/>
@@ -334,8 +334,8 @@
                                 <li class="hiddenLi">
                                     <code class="block">
                                 var window1 = Ti.UI.createWindow({<br/>
-                                <span class="indent36">title: &quot;Modal Window&quot;,</span><br/>
-                                <span class="indent36">backgroundColor: 'white'</span><br/>
+                                <span class="indent1">title: &quot;Modal Window&quot;,</span><br/>
+                                <span class="indent1">backgroundColor: 'white'</span><br/>
                                 });<br/>
                                 <br/>
                                 var win = Ti.UI.createNavigationWindow({ window: window1 });<br/>
@@ -350,14 +350,14 @@
                                 window2.add(button2);<br/>
                                 <br/>
                                 button1.addEventListener('click', function(e)) {<br/>
-                                <span class="indent36">window2.open({</span><br/>
-                                <span class="indent72">modal:true,</span><br/>
-                                <span class="indent72">forceModal: true</span><br/>
-                                <span class="indent36">});</span><br/>
+                                <span class="indent1">window2.open({</span><br/>
+                                <span class="indent2">modal:true,</span><br/>
+                                <span class="indent2">forceModal: true</span><br/>
+                                <span class="indent1">});</span><br/>
                                 });<br/>
                                 <br/>
                                 button2.addEventListener('click', function(e)) {<br/>
-                                <span class="indent36">window2.close();</span><br/>
+                                <span class="indent1">window2.close();</span><br/>
                                 });<br/>
                             </code>
                                 </li>
@@ -377,34 +377,34 @@
                                 var currentStyle = Ti.App.iOS.userInterfaceStyle;<br/>
                                 <br/>
                                 var win = Ti.UI.createWindow({<br/>
-                                <span class="indent36">backgroundColor: '#fff'</span><br/>
+                                <span class="indent1">backgroundColor: '#fff'</span><br/>
                                 });<br/>
                                 <br/>
                                 var btn = Ti.UI.createButton({<br/>
-                                <span class="indent36">title: 'Check User Interface Style'</span><br/>
+                                <span class="indent1">title: 'Check User Interface Style'</span><br/>
                                 });<br/>
                                 <br/>
                                 btn.addEventListener('click', function()) {<br/>
-                                    <span class="indent36">Ti.API.info('User Interface Style: ' + formattedUserInterfaceStyle(currentStyle));</span><br/>
+                                    <span class="indent1">Ti.API.info('User Interface Style: ' + formattedUserInterfaceStyle(currentStyle));</span><br/>
                                 });<br/>
                                 <br/>
                                 Ti.App.iOS.addEventListener('traitcollectionchange', function ()) {<br/>
-                                    <span class="indent36">if (currentStyle !== Ti.App.iOS.userInterfaceStyle) {</span><br/>
-                                        <span class="indent72">currentStyle = Ti.App.iOS.userInterfaceStyle;</span><br/>
-                                        <span class="indent72">Ti.API.info('User Interface Style changed: ' + formattedUserInterfaceStyle(currentStyle));</span><br/>
-                                        <span class="indent36">}</span><br/>
+                                    <span class="indent1">if (currentStyle !== Ti.App.iOS.userInterfaceStyle) {</span><br/>
+                                        <span class="indent2">currentStyle = Ti.App.iOS.userInterfaceStyle;</span><br/>
+                                        <span class="indent2">Ti.API.info('User Interface Style changed: ' + formattedUserInterfaceStyle(currentStyle));</span><br/>
+                                        <span class="indent1">}</span><br/>
                                 });<br/>
                                 <br/>
                                 win.add(btn);<br/>
                                 win.open();<br/>
                                 <br/>
                                 function formattedUserInterfaceStyle(style) {<br/>
-                                    <span class="indent36">eventswitch (style) {</span><br/>
-                                        <span class="indent72">case Ti.App.iOS.USER_INTERFACE_STYLE_LIGHT: return 'Light';</span><br/>
-                                <span class="indent72">case Ti.App.iOS.USER_INTERFACE_STYLE_DARK: return 'Dark';</span><br/>
-                                <span class="indent36">}</span><br/>
+                                    <span class="indent1">eventswitch (style) {</span><br/>
+                                        <span class="indent2">case Ti.App.iOS.USER_INTERFACE_STYLE_LIGHT: return 'Light';</span><br/>
+                                <span class="indent2">case Ti.App.iOS.USER_INTERFACE_STYLE_DARK: return 'Dark';</span><br/>
+                                <span class="indent1">}</span><br/>
                                 <br/>
-                                <span class="indent36">return 'Unspecified';</span><br/>
+                                <span class="indent1">return 'Unspecified';</span><br/>
                                 }
                             </code>
                                 </li>
@@ -416,15 +416,15 @@
                                 <li class="hiddenLi">
                                     <code class="block">
                                 var win = Ti.UI.createWindow({<br/>
-                                    <span class="indent36">backgroundColor: 'white',</span><br/>
-                                    <span class="indent36">statusBarStyle: Ti.UI.iOS.StatusBar.DARK_CONTENT</span><br/>
+                                    <span class="indent1">backgroundColor: 'white',</span><br/>
+                                    <span class="indent1">statusBarStyle: Ti.UI.iOS.StatusBar.DARK_CONTENT</span><br/>
                                 });<br/>
                                 <br/>
                                 var btn = Ti.UI.createButton({ title: 'Trigger' });<br/>
                                 <br/>
                                 btn.addEventListener('click', function()) {<br/>
-                                    <span class="indent36">Ti.API.info('Hello world!');</span><br/>
-                                    <span class="indent36">Ti.API.info(Ti.UI.iOS.StatusBar.DARK_CONTENT);</span><br/>
+                                    <span class="indent1">Ti.API.info('Hello world!');</span><br/>
+                                    <span class="indent1">Ti.API.info(Ti.UI.iOS.StatusBar.DARK_CONTENT);</span><br/>
                                 });<br/>
                                 <br/>
                                 win.add(btn);<br/>

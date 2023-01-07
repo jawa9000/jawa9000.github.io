@@ -50,11 +50,11 @@
                         <p>Now we need to tally the images. A simple for loop event will tally the total number of images by using a reduction iteration method to figure out if the reading time is above 3 seconds or not.</p>
                         <code id="code-head" class="block">
                             for (i = 0; i < imgCount; i++) {<br/>
-                            <span class="indent36">if (imgCount - i < 3) {</span><br/>
-                            <span class="indent72">tally += 3;</span><br/>
-                            <span class="indent36">} else {</span><br/>
-                            <span class="indent72">tally += 12 - i;</span><br/>
-                            <span class="indent36">}</span><br/>
+                            <span class="indent1">if (imgCount - i < 3) {</span><br/>
+                            <span class="indent2">tally += 3;</span><br/>
+                            <span class="indent1">} else {</span><br/>
+                            <span class="indent2">tally += 12 - i;</span><br/>
+                            <span class="indent1">}</span><br/>
                             }
                         </code>
                         <p>Finally, we prepend our calculations to the article element. We use the prepend method from jQuery to add a span element which as the calculation of the reading time estimate (in minutes) rounded up.</p>
