@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Quick Start Guide for Android APS SDK</title>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="../css/tutorials.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css" type="text/css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Quick Start Guide for Android APS SDK</h1>
+                <p class="note">Archive note: all links and images have been disabled as their destinations and/or
+                    source locations no longer exist.</p>
+                <div>Created by Brian Immel, last modified on Apr 23, 2019</div>
+                <p class="notice">This AMPLIFY Appcelerator Services feature requires a <a href="#">Pro</a> or <a href="#">Enterprise Subscription</a>.
+                </p>
+                <ul>
+                    <li><a href='#Introduction'>Introduction</a></li>
+                    <li><a href='#Requirements'>Requirements</a></li>
+                    <li><a href='#Setup'>Setup</a>
+                        <ul>
+                            <li><a href='#RegisteranAPSSDKapplication'>Register an APS SDK application</a></li>
+                            <li><a href='#RegisteranAPIorMicroserviceapplication'>Register an API or Microservice
+                                    application</a></li>
+                            <li><a href='#RegisteraWebsiteorWebapplication'>Register a Website or Web application</a>
+                            </li>
+                            <li><a href='#RegisteraCustomapplication'>Register a Custom application</a></li>
+                        </ul>
+                    </li>
+                    <li><a href='#BasicAPStutorial'>Basic APS tutorial</a>
+                        <ul>
+                            <li><a href='#Modifytheapplication'>Modify the application</a></li>
+                            <li><a href='#Buildingtheapplication'>Building the application</a></li>
+                            <li><a href='#Captureusersessionevents'>Capture user session events</a></li>
+                            <li><a href='#SendanAnalyticsfeatureevent'>Send an Analytics feature event</a></li>
+                            <li><a href='#QueryCloudusers'>Query Cloud users</a></li>
+                            <li><a href='#LogintoaCloudaccount'>Login to a Cloud account</a></li>
+                            <li><a href='#Logahandledexception'>Log a handled exception</a></li>
+                            <li><a href='#Setausernameforcrashlogs'>Set a username for crash logs</a></li>
+                            <li><a href='#Testingthetutorialsample'>Testing the tutorial sample</a></li>
+                            <li><a href='#NextStepsforAppceleratorAnalyticsCloudandPerformance'>Next Steps for
+                                    Appcelerator Analytics, Cloud and Performance</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <h2 id="Introduction">Introduction</h2>
+                <p>This guide walks through the setup of the AMPLIFY Appcelerator Services for Android applications. The
+                    <a href="#">AMPLIFY
+                        Appcelerator Services SDK</a> gives you access to the <a href="#">Appcelerator Analytics</a>, <a
+                        href="#">Cloud</a>, and <a href="#">Performance</a> services.
+                </p>
+                <p>We also provide service and features for non-Android platforms in our <a href="#">AMPLIFY
+                        Appcelerator Services</a> documentation.</p>
+                <h2 id="Requirements">Requirements</h2>
+                <p>This document assumes you have an existing Android application and are familiar with the Android
+                    toolchain to
+                    create, build, and package Android applications. The following prerequisites are also needed:</p>
+                <ul>
+                    <li>Android SDK 2.3.x (API Level 10) or greater <strong>(used API 22 with Android Studio)</strong>
+                    </li>
+                    <li>Android NDK</li>
+                    <li>Android Studio (this guide uses version 3.1.2 or later)</li>
+                </ul>
+                <h2 id="Setup">Setup</h2>
+                <p>This section provides information on the prerequisites to useAppcelerator Services in your application.</p>
+                <p>Before you can use Appcelerator Services in your application, you need to:</p>
+                <ul>
+                    <li>Create an application in the <a href="#">Dashboard</a> (see <a href="#">Dashboard Basics</a> for more information.)</li>
+                    <li>Get the application keys by reviewing <a href="#">Setting Up Application Keys</a>.</li>
+                </ul>
+                <h3 id="RegisteranAPSSDKapplication">Register an APS SDK application</h3>
+                <p><a href="#">Appcelerator Platform Services (APS) SDK</a> for iOS and Android provides support for
+                    Appcelerator <a href="#">Analytics</a>, <a href="#">Cloud</a>, and <a href="#">Performance</a>
+                    services for your Android applications built with the native Android APIs and Java and iOS
+                    applications built with the native iOS APIs and Objective-C or Swift.</p>
+                <p>To register an APS SDK application for services:</p>
+                <ol>
+                    <li>Sign into the <a href="#">AMPLIFY Platform</a>.</li>
+                    <li>Click the <strong>Add menu</strong> (+) and select <strong>Register App for Services</strong> to
+                        open the <em>Register App</em> for Services form.</li>
+                    <li>Enter the <strong>Name</strong> of the application.</li>
+                    <li>Select <strong>APS SDK</strong> from the <em>Type</em> selection menu.</li>
+                    <li>Select a <strong>Platform</strong> (Andriod or iOS).</li>
+                    <li>Optional (but recommended), enter a unique <strong>Identifier</strong> for your application.
+                    </li>
+                    <li>Optional (but recommended), enter a <strong>Description</strong> for your application.</li>
+                    <li>Select <strong>Services</strong> for your application by selecting or deselecting the checkboxes
+                        for the following:
+                        <ul>
+                            <li><a href="#">Analytics</a></li>
+                            <li><a href="#">Provision Cloud Services (Mobile Backend Services)</a></li>
+                            <li><a href="#">Performance</a></li>
+                        </ul>
+                    </li>
+                    <li><strong>Add application team members</strong> from your organization by clicking the <strong>add
+                            (+)</strong> button in the App Team list.</li>
+                    <li>Click <strong>OK</strong> to finish registering your application.</li>
+                </ol>
+                <p>Appcelerator Dashboard displays the Services tab for your application. Follow the directions to add
+                    Platform Services to your application.</p>
+                <h3 id="RegisteranAPIorMicroserviceapplication">Register an API or microservice application</h3>
+                <p>To register an API or microservice application:</p>
+                <ol>
+                    <li>Sign into the <a href="#">AMPLIFY Platform</a>.</li>
+                    <li>Click the Add menu (+) and select Register App for Services to open the Register App for
+                        Services form.</li>
+                    <li>Enter the <strong>Name</strong> of the application.</li>
+                    <li>Select <strong>API/Microservice</strong> from the <em>Type</em> selection menu.</li>
+                    <li>Enter a <strong>Platform</strong> for your application.</li>
+                    <li>Optional (but recommended), enter a unique <strong>Identifier</strong> for your application.
+                    </li>
+                    <li>Optional (but recommended), enter a <strong>Description</strong> for your application.</li>
+                    <li>Select <strong>Services</strong> for your application by selecting or deselecting the checkboxes
+                        for the following:
+                        <ul>
+                            <li><a href="#">Analytics</a></li>
+                            <li><a href="#">Provision Cloud Services (Mobile Backend Services)</a></li>
+                            <li><a href="#">Performance</a></li>
+                        </ul>
+                    </li>
+                    <li><strong>Add application team members</strong> from your organization by clicking the <strong>add
+                            (+)</strong> button in the App Team list.</li>
+                    <li>Click <strong>OK</strong> to finish registering your API or microservice.</li>
+                </ol>
+                <h3 id="RegisteraWebsiteorWebapplication">Register a website or web application</h3>
+                <p>To register a Website or Web application:</p>
+                <ol>
+                    <li>Sign into the <a href="#">AMPLIFY Platform</a>.</li>
+                    <li>Click the Add menu (+) and select Register App for Services to open the Register App for
+                        Services form.</li>
+                    <li>Enter the <strong>Name</strong> of the application.</li>
+                    <li>Select <strong>Website/Web App</strong> from the <em>Type</em> selection menu.</li>
+                    <li>Enter a <strong>Platform</strong> for your application.</li>
+                    <li>Optional (but recommended), enter a unique <strong>Identifier</strong> for your application.
+                    </li>
+                    <li>Optional (but recommended), enter a <strong>Description</strong> for your application.</li>
+                    <li>Select <strong>Services</strong> for your application by selecting or deselecting the checkboxes
+                        for the following:
+                        <ul>
+                            <li><a href="#">Analytics</a></li>
+                            <li><a href="#">Provision Cloud Services (Mobile Backend Services)</a></li>
+                            <li><a href="#">Performance</a></li>
+                        </ul>
+                    </li>
+                    <li><strong>Add application team members</strong> from your organization by clicking the <strong>add
+                            (+)</strong> button in the App Team list.</li>
+                    <li>Click <strong>OK</strong> to finish registering your website or web application.</li>
+                </ol>
+
+                <h3 id="RegisteraCustomapplication">Register a Custom application</h3>
+                <p>To register a custom application (other than APS SDK, API/Microservice, or Website/Web applications):
+                </p>
+                <ol>
+                    <li>Sign into the <a href="#">AMPLIFY Platform</a>.</li>
+                    <li>Click the Add menu (+) and select Register App for Services to open the Register App for
+                        Services form.</li>
+                    <li>Enter the <strong>Name</strong> of the application.</li>
+                    <li>Select <strong>Other</strong> from the <em>Type</em> selection menu.</li>
+                    <li>Enter the <strong>Name</strong> of the application.</li>
+                    <li>Optional (but recommended), enter a unique <strong>Identifier</strong> for your application.
+                    </li>
+                    <li>Optional (but recommended), enter a <strong>Description</strong> for your application.</li>
+                    <li>Select <strong>Services</strong> for your application by selecting or deselecting the checkboxes
+                        for the following:
+                        <ul>
+                            <li><a href="#">Analytics</a></li>
+                            <li><a href="#">Provision Cloud Services (Mobile Backend Services)</a></li>
+                            <li><a href="#">Performance</a></li>
+                        </ul>
+                    </li>
+                    <li><strong>Add application team members</strong> from your organization by clicking the <strong>add
+                            (+)</strong> button in the App Team list.</li>
+                    <li>Click <strong>OK</strong> to finish registering your custom application.</li>
+                </ol>
+
+                <p>From here, you will need to download the APS SDK from either this <a href="#">link</a> or by navigating
+                via the Dashboard (Cloud/Performance/Analytics tab should be open by default).</p>
+
+                <p>For more information, refer to <a href="#">Managing Non-Titanium Client Applications</a> in the
+                Dashboard.</p>
+
+                <h2 id="BasicAPStutorial">Basic APS tutorial</h2>
+                <p>The following tutorial demonstrates basic setup and usage of <a href="#">Analytics</a>, <a
+                        href="#">Cloud</a>, and <a href="#">Performance</a> libraries in an <a href="#">Eclipse</a>
+                    project. To complete the tutorial, you will need your application key for the Cloud, Analytics, and
+                    Performance services. You can skip ahead and <a href="#">download</a> a complete version of the
+                    project.</p>
+
+                To create a basic application using APS:
+                <ol>
+                    <li>In <strong>Android Studio</strong>, go to <strong>File</strong> > <strong>New</strong> >
+                        <strong>New Project....</strong></li>
+                    <li>Enter <strong>&lt;name of app&gt;</strong> in the <strong>Application name</strong> field.</li>
+                    <li>Select <strong>Phone and Tablet</strong> from the list of options in the <strong>Select form
+                            factors and minimum SDK</strong> fields.</li>
+                    <li>Select <strong>API 22: Android 5.1 (Lollipop)</strong> and click on <strong>Next</strong>. Note:
+                        this API version was choosen at the time of writing this document. This tutorial was tested
+                        against this version and may not work with other versions.</li>
+                    <li>In <strong>Add an Activity to Mobile</strong>, select <strong>Empty Activity</strong> and click
+                        on <strong>Next</strong>.</li>
+                    <li>In the <strong>Configure Activity</strong>, leave the default names as is and click on
+                        <strong>Next</strong>. The Component Installer will start installing the requested components
+                        based on these selections. It may take a minute or two to complete this request. Once it's
+                        finish, click the <strong>Finish</strong> button.</li>
+                    <li><strong>Unpack the appcelerator-sdk-android-&lt;VERSION&gt;.zip</strong> file.</li>
+                    <li><strong>Copy the appcelerator-sdk-android-&lt;VERSION&gt;.jar</strong> file to the <code
+                            class="inlinr">/libs</code> folder of your Android project (if you wish to use Maven or
+                        Gradle, see "Building the application" below for setup instructions).</li>
+                    <li>Modify the project's app/manifests/AndroidManifest.xml file to include the ACCESS_NETWORK_STATE,
+                        ACCESS_WIFI_STATE, REAL_GET_TASKS, INTERNET, and READ_LOGS and WRITER_EXTERNAL_STORAGE user
+                        permissions and declare the com.appcelerator.aps.AnalyticsService as a Service class, which
+                        allows the APS library to send analytic events to the APS servers while the application is in
+                        the background:</li>
+                    <li class="hiddenLi">
+                        <p><strong>AndroidManifest.xml</strong></p>
+                        <code class="block">
+                            &lt;manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.appcelerator.sample"&gt;<br/>
+                            <span class="indent36">&lt;!-- Add these permissions to enable Analytics, Cloud and Performance --&gt;</span><br/>
+                            <span class="indent36">&lt;uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/&gt;</span><br/>
+                            <span class="indent36">&lt;uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/&gt;</span><br/>
+                            <span class="indent36">&lt;uses-permission android:name="android.permission.INTERNET"/&gt;</span><br/>
+                            <span class="indent36">&lt;uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/&gt;</span><br/>
+                            <span class="indent36">&lt;uses-permission android:name="android.permission.REAL_GET_TASKS" /&gt;</span><br/>
+                            <span class="indent36">&lt;uses-permission android:name="android.permission.READ_LOGS"/&gt;</span><br/>
+                            <span class="indent36">&lt;application&gt;</span><br/>
+                                <span class="indent72">&lt;activity&gt;</span><br/>
+                                    <span class="indent108"></span>...</span><br/>
+                                    <span class="indent72"></span>&lt;/activity&gt;</span><br/>
+                                    <br/>
+                                    <span class="indent72"></span>&lt;!-- Add this service to enable Analytics --&gt;</span><br/>
+                                    <span class="indent72"></span>&lt;service android:name="com.appcelerator.aps.APSAnalyticsService" android:exported="false" /&gt;</span><br/>
+                                <span class="indent36">&lt;/application&gt;</span><br/>
+                                <span class="indent36">&lt;/manifest&gt;</span><br/>
+                        </code>
+                    </li>
+                    <li>Add the following import statement to the project:</li>
+                    <li class="hiddenLi">
+                        <p><strong>MainActivity.java</strong></p>
+                        <code class="block">
+                            ...<br/>
+                            import com.appcelerator.aps.APSServiceManager;
+                        </code>
+                    </li>
+                    <li>In the MainActivity's <code class="inline">onCreate()</code> method, add the following method
+                        call to enable the APS services.</li>
+                    <li class="hiddenLi">
+                        <p><strong>MainActivity.java</strong></p>
+                        <code class="block">
+                            APSServiceManager.getInstance().enable(getApplicationContext(), "APP_KEY");            
+                        </code>
+                    </li>
+                </ol>
+                <p>The Android application is now ready to make method calls using the APS SDK APIs.</p>
+
+                <h3 id="Modifytheapplication">Modify the application</h3>
+                <p>Customize the application's UI to display a spinner, text field and button, and add some logic to
+                    respond to user interaction. The spinner will display a list of available user accounts. The user
+                    can enter
+                    their password in the text field, then click the button to log in.</p>
+                <ol>
+                    <li>Open the fragment layout XML file (<code class="inline">res/layout/fragment_main.xml</code>
+                        in the <a href="#">Graphical Layout</a> editor.</li>
+                    <li>Remove the &quot;Hello World!&quot; label.</li>
+                    <li>Drag a Spinner widget, EditText widget (password text field) and Button widget into the
+                        view.</li>
+                    <li>
+                        <p>In the <code class="inline">MainActivity.java</code> file, modify the code to save an
+                            instance of the current activity, Spinner and EditText widgets. Modify the application to
+                            bind a <code class="inline">doClick</code> method to the Button's <code
+                                class="inline">onClick</code> listener and create an empty function called <code
+                                class="inline">populateSpinner</code>. You need to also import additional packages. In
+                            the following sections, you will add code to these handlers that call the <a
+                                href="#">Cloud</a>, <a href="#">Analytics</a>, and <a href="#">Performance</a> services.
+                        </p>
+                        <p><strong>MainActivity.java</strong></p>
+                        <code class="block">
+                                // Import the following packages<br/>
+                                import android.app.Activity;<br/>
+                                import android.util.Log;<br/>
+                                import android.widget.ArrayAdapter;<br/>
+                                import android.widget.Button;<br/>
+                                import android.widget.EditText;<br/>
+                                import android.widget.Spinner;<br/>
+                                import java.util.HashMap;<br/>
+                                import org.json.JSONArray;<br/>
+                                import com.appcelerator.aps.APSAnalytics;<br/>
+                                import com.appcelerator.aps.APSCloudException;<br/>
+                                import com.appcelerator.aps.APSPerformance;<br/>
+                                import com.appcelerator.aps.APSResponse;<br/>
+                                import com.appcelerator.aps.APSResponseHandler;<br/>
+                                import com.appcelerator.aps.APSServiceManager;<br/>
+                                import com.appcelerator.aps.APSUsers;<br/>
+                                <br/>
+                                public class MainActivity extends ActionBarActivity {<br/>
+                                <span class="indent36">// Handle to current activity</span><br/>
+                                <span class="indent36">private static Activity currentActivity;</span><br/>
+                                <br/>
+                                <span class="indent36">@Override</span><br/>
+                                <span class="indent36">protected void onCreate(Bundle savedInstanceState) {</span><br/>
+                                <span class="indent72">super.onCreate(savedInstanceState);</span><br/>
+                                <span class="indent72">setContentView(R.layout.activity_main);</span><br/>
+                                <br/>
+                                <span class="indent72">// Save the current activity</span><br/>
+                                <span class="indent72">currentActivity = this;</span><br/>
+                                <br/>
+                                <span class="indent72">APSServiceManager.getInstance().enable(getApplicationContext(), &quot;APP_KEY&quot;);</span><br/>
+                                <br/>
+                                <span class="indent72">if (savedInstanceState == null) {</span><br/>
+                                <span class="indent108">getSupportFragmentManager().beginTransaction()</span><br/>
+                                <span class="indent108">.add(R.id.container, new PlaceholderFragment())</span><br/>
+                                <span class="indent108">.commit();</span><br/>
+                                <span class="indent72">}</span><br/>
+                                <span class="indent36">}</span><br/>
+                                <br/>
+                                <span class="indent36">public static class PlaceholderFragment extends Fragment {</span>
+                                <br/>
+                                <span class="indent72">// Handle to Spinner and EditText widgets</span><br/>
+                                <span class="indent72">Spinner spinner;</span><br/>
+                                <span class="indent72">EditText textField;</span><br/>
+                                <br/>
+                                <span class="indent72">public PlaceholderFragment() {</span><br/>
+                                <span class="indent72">}</span><br/>
+                                <br/>
+                                <span class="indent72">@Override</span><br/>
+                                <span class="indent72">public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {</span><br/>
+                                <span class="indent108">View rootView = inflater.inflate(R.layout.fragment_main, container, false);<br/>
+                                </span><br/>
+                                <span class="indent108">// Bind the Button do the doClick method</span><br/>
+                                <span class="indent108">Button button = (Button)rootView.findViewById(R.id.button1);</span><br/>
+                                <span class="indent108">button.setOnClickListener(new Button.OnClickListener() {</span><br/>
+                                <span class="indent144">@Override</span><br/>
+                                <span class="indent144">public void onClick(View v){</span><br/>
+                                <span class="indent180">doClick();</span><br/>
+                                <span class="indent144">}</span><br/>
+                                <span class="indent108">});</span><br/>
+                                <br/>
+                                <span class="indent108">// Save the Spinner and EditText instances</span><br/>
+                                <span class="indent108">spinner = (Spinner)rootView.findViewById(R.id.spinner1);</span><br/>
+                                <span class="indent108">textField = (EditText)rootView.findViewById(R.id.editText1);</span><br/>
+                                <span class="indent108">// Place holder for the next tutorial steps</span><br/>
+                                <span class="indent108">populateSpinner();</span><br/>
+                                <span class="indent108">return rootView;</span><br/>
+                                <span class="indent72">}</span><br/>
+                                <br/>
+                                <span class="indent72">// Placeholder for next tutorial steps</span><br/>
+                                <span class="indent72">public void doClick() {</span><br/>
+                                <span class="indent72">}</span><br/>
+                                <br/>
+                                <span class="indent72">public void populateSpinner() {</span><br/>
+                                <span class="indent72">}</span><br/>
+                                <span class="indent36">}</span><br/>
+                            }
+                            </code>
+                    </li>
+                </ol>
+                <h3 id="Buildingtheapplication">Building the application</h3>
+                <p>If you use <a href="#">Maven</a> or <a href="#">Gradle</a> as part of your build process, you
+                    will need to publish the APS SDK to your local Maven repository and add the APS SDK as a
+                    dependency to your project.</p>
+                <p>First, unzip the <a href="#">APS SDK</a> and install the dependencies into your local Maven
+                    repository:</p>
+                <code class="block">
+                        unzip appcelerator-sdk-android-1.0.0.zip<br/>
+                        mvn install:install-file -Dfile=appcelerator-sdk-android-1.0.0/appcelerator-sdk-android-1.0.0.jar -DgroupId=com.appcelerator -DartifactId=appcelerator-sdk-android -Dversion=1.0.0 -Dpackaging=jar<br/>
+                    </code>
+                <p>Next, add the following lines of code to your Maven or Gradle POMs:</p>
+                <p><strong>Gradle</strong></p>
+                <code class="block">
+                        dependencies {<br/>
+                            <span class="indent36">compile &#39;com.appcelerator: appcelerator-sdk-android:1.0.0&#39;</span><br/>
+                        }<br/>
+                    </code>
+                <p><strong>Maven</strong></p>
+                <code class="block">
+                        &lt;dependencies&gt;<br/>
+                        <span class="indent36">&lt;dependency&gt;</span><br/>
+                        <span class="indent72">&lt;groupId&gt;com.appcelerator&lt;/groupId&gt;</span><br/>
+                        <span class="indent72">&lt;artifactId&gt;appcelerator-sdk-android&lt;/artifactId&gt;</span><br/>
+                        <span class="indent72">&lt;version&gt;1.0.0&lt;/version&gt;</span><br/>
+                        <span class="indent36">&lt;/dependency&gt;</span><br/>
+                        &lt;/dependencies&gt;<br/>
+                    </code>
+                <h3 id="Captureusersessionevents">Capture user session events</h3>
+                <p>Unlike the <a href="#">iOS</a> and <a href="#">Titanium platforms</a>, you need to explicitly
+                    make analytic method calls in the application to send user session events to the Analytics
+                    service to capture user activity.</p>
+                <p>Use the Activity's lifetime events to track when the user is actively using your application.
+                    Call the APSAnalytics' <a href="#"><code class="inline">sendAppEnrollEvent()</code></a> method
+                    in the <a href="#"><code class="inline">onCreateMethod()</code></a>, which indicates the first
+                    installation or upgrade of the application.</p>
+                <p>Before calling API calls to the APSAnalytics class, you need to get a shared instance of the
+                    APSAnalytics class using the <a href="#"><code class="inline">getInstance()</code></a> method.
+                </p>
+                <code class="block">
+                        @Override<br/>
+                        protected void onCreate(Bundle savedInstanceState) {<br/>
+                        <span class="indent36">super.onCreate(savedInstanceState);</span><br/>
+                        <span class="indent36">setContentView(R.layout.activity_main);</span><br/>
+                        <span class="indent36">APSAnalytics.getInstance().sendAppEnrollEvent();</span><br/>
+                        <br/>
+                        <span class="indent36">// Other init calls...</span><br/>
+                        }
+                    </code>
+                <p>Use <a href="#"><code class="inline">onPause()</code></a> and <a href="#"><code
+                            class="inline">onResume()</code></a> to call the APSAnalytics' <a href="#"><code
+                            class="inline">sendAppBackgroundEvent()</code></a> and <a href="#"><code
+                            class="inline">sendAppForegroundEvent()</code></a>, respectively. These two APSAnalytics
+                    methods send user session events to the APS analytics servers to track how long a user engages
+                    with your application.</p>
+                <code class="block">
+                        @Override<br/>
+                        public void onPause() {<br/>
+                        <span class="indent36">super.onPause();</span><br/>
+                        <span class="indent36">APSAnalytics.getInstance().sendAppBackgroundEvent();</span><br/>
+                        }<br/>
+                        <br/>
+                        @Override<br/>
+                        public void onResume() {<br/>
+                        <span class="indent36">super.onResume();</span><br/>
+                        <span class="indent36">APSAnalytics.getInstance().sendAppForegroundEvent();</span><br/>
+                        }<br/>
+                    </code>
+                <h3 id="SendanAnalyticsfeatureevent">Send an Analytics feature event</h3>
+                <p>Besides user session events, you can also send custom analytics events, as shown in this example.
+                    There are two types of custom events: feature events and navigation events.</p>
+                <p>In the <code class="inline">doClick()</code> function, add a APSAnalytics' <code
+                        class="inline"><a href="#">sendAppFeatureEvent()</a></code> method call to send a feature
+                    event with the string <code class="inline">"sample.feature.login"</code>. The optional second
+                    parameter is set to null for this example, but you can send additional data as a JSON object
+                    with the event.
+                <p><strong>MainActivity.java</strong></p>
+                <code class="block">
+                        public void doClick(View view) {<br/>
+                        <span class="indent36">APSAnalytics.getInstance().sendAppFeatureEvent(&quot;sample.feature.login&quot;, null);</span><br/>
+                        }; 
+                    </code>
+                <h3 id="QueryCloudusers">Query Cloud users</h3>
+                <p>To use the <a href="#">APS Cloud</a> component, most of the methods require a user to be logged
+                    in. This sample uses the Spinner widget to select a Cloud user accounts. To populate the Spinner
+                    values, the application needs to retrieve a list of users. Use the <code
+                        class="inline">APSUsers.query()</code> method to retrieve a list of user accounts.
+                <p>Every APS Cloud method includes a handler parameter that specifies the callback to handle the
+                    server response. The callback is passed an APSResponse object that contains response metadata
+                    (such as success or failure) and the response payload.</p>
+                <p><strong>MainActivity.java</strong></p>
+                <code class="block">
+            public void populateSpinner() {<br/>
+                <span class="indent36">try {</span><br/>
+                <span class="indent72">APSUsers.query(null, new APSResponseHandler() {</span><br/>
+                <span class="indent108">@Override</span><br/>
+                <span class="indent108">public void onResponse(final APSResponse e) {</span><br/>
+                <span class="indent144">if (e.getSuccess()) {</span><br/>
+                <span class="indent180">try {</span><br/>
+                <span class="indent216">JSONArray payload = e.getResponse().getJSONArray(&quot;users&quot;);</span><br/>
+                <span class="indent216">String[] items = new String[payload.length()];</span><br/>
+                <span class="indent216">for (int i = 0; i &lt; payload.length(); i++) {</span><br/>
+                <span class="indent254">items[i] = payload.getJSONObject(i).getString(&quot;username&quot;);</span><br/>
+                <span class="indent216">}<br/>
+                <span class="indent216">ArrayAdapter spinnerArrayAdapter = new ArrayAdapter(currentActivity,</span><br/>
+                <span class="indent254">android.R.layout.simple_spinner_item, items);</span><br/>
+                <span class="indent254">spinner.setAdapter(spinnerArrayAdapter); </span><br/>
+                <span class="indent216">} catch (Exception ex) {</span><br/>
+                <span class="indent254">Log.e(&quot;ACSUsers&quot;, &quot;Error parsing JSON object: &quot; + ex.toString());</span><br/>
+                <span class="indent216">}</span><br/>
+                <span class="indent180">} else {</span><br/>
+                <span class="indent216">Toast.makeText(currentActivity, &quot;ERROR: Unable to get users.&quot;, Toast.LENGTH_SHORT).show();<br/>
+                <span class="indent216">Log.e(&quot;ACSUsers&quot;, e.getResponseString());<br/>
+                <span class="indent180">}<br/>
+                <span class="indent144">}<br/>
+                <br/>
+                <span class="indent144">@Override</span><br/>
+                <span class="indent144">public void onException(APSCloudException e) {</span><br/>
+                <span class="indent180">Log.e(&quot;ACSUsers&quot;, e.toString());</span><br/>
+                <span class="indent144">}</span><br/>
+                    <span class="indent108">});</span><br/>
+                <span class="indent72">} catch (APSCloudException e) {</span><br/>
+                <span class="indent108">Log.e(&quot;ACSUsers&quot;, e.toString());</span><br/>
+                <span class="indent72">}</span><br/>
+                <span class="indent36">}</span>
+                    </code>
+                <h3 id="LogintoaCloudaccount">Login to a Cloud account</h3>
+                <p>To login to a Cloud account, you need the username and password. Since the application was
+                    modified to get all available user accounts and populate the Spinner, the application needs to
+                    get the current value of the spinner and the text entered in the EditText widget. These values
+                    are passed to the <a href="#"><code class="inline">APSUsers.login()</code></a> method. Modify
+                    the <a href="#"><code class="inline">doClick()</code></a> method to login to a Cloud user
+                    account.</p>
+                <code class="block">
+            public void doClick() {<br/>
+                <span class="indent36"></span>APSAnalytics.getInstance().sendAppFeatureEvent(&quot;sample.feature.login&quot;, null);<br/>
+                <br/>
+                <span class="indent36"></span>// Get the current value of the Spinner and EditField widgets<br/>
+                <span class="indent36"></span>final String username = spinner.getSelectedItem().toString();<br/>
+                <span class="indent36"></span>String password = textField.getText().toString();<br/>
+                <br/>
+                <span class="indent36"></span>// Use a HashMap to send the method parameters for the request<br/>
+                <span class="indent36"></span>HashMap&lt;String, Object&gt; data = new HashMap&lt;String, Object&gt;();<br/>
+                <span class="indent36"></span>data.put(&quot;login&quot;, username);<br/>
+                <span class="indent36"></span>data.put(&quot;password&quot;, password);<br/>
+                <br/>
+                <span class="indent36"></span>try {<br/>
+                <span class="indent72">APSUsers.login(data, new APSResponseHandler() {</span><br/>
+                <span class="indent108">@Override</span><br/>
+                <span class="indent108">public void onResponse(final APSResponse e) {</span><br/>
+                <span class="indent144">if (e.getSuccess()) {</span><br/>
+                <span class="indent180">Log.i(&quot;ACSUsers&quot;, &quot;Successfully logged in as &quot; + username);</span><br/>
+                <span class="indent144">}</span><br/>
+                <span class="indent144">else {</span><br/>
+                <span class="indent180">Log.e(&quot;ACSUsers&quot;, e.getMessage());</span><br/>
+                <span class="indent144">}</span><br/>
+                <span class="indent108">}</span><br/>
+                <br/>
+                <span class="indent108">@Override</span><br/>
+                <span class="indent108">public void onException(APSCloudException e) {</span><br/>
+                <span class="indent144">Log.e(&quot;ACSUsers&quot;, e.toString());<br/>
+                <span class="indent108">}<br/>
+                <span class="indent72">}</span><br/>
+                <span class="indent36">} catch (APSCloudException e) {<br/>
+                <span class="indent72">Log.e(&quot;ACSUsers&quot;, e.toString());</span><br/>
+                <span class="indent36">}</span><br/>
+            }
+                    </code>
+                <h3 id="Logahandledexception">Log a handled exception</h3>
+                <p>The <a href="#">Performance library</a> automatically logs application crashes (unhandled
+                    exceptions) and handled exceptions to the backend Performance service. You can also leave
+                    breadcrumbs in your application, which are developer-defined text strings (up to 140 characters)
+                    that are analogous to log messages.</p>
+                <p>For example, you can replace the <code class="inline">Log</code> calls in the catch statements
+                    with the APSPerformance's <a href="#"><code class="inline">logHandledException()</code></a>
+                    calls. Instead, the application will generate a runtime exception, and then call the <a
+                        href="#"><code class="inline">logHandledException()</code></a> method to log that exception
+                    to the Performance backend.</p>
+
+                <p>Before making API calls to the APSPerformance class, you need to retrieve a shared instance of
+                    the class using the <a href="#"><code class="inline">getInstance()</code></a> method.</p>
+
+                <p>To the <code class="inline">doClick</code> method, add the following new code:</p>
+                <p><strong>MainActivity.java</strong></p>
+                <code class="block">
+                        public void doClick() {<br/>
+                        <span class="indent36">// Analytics call...</span><br/>
+                        <span class="indent36">// Cloud call...</span><br/>
+                        <span class="indent36">try {</span><br/>
+                        <span class="indent72">throw new Exception(&quot;Something happened...&quot;);</span><br/>
+                        <span class="indent36">} catch (Exception exception) {</span><br/>
+                        <span class="indent72">APSPerformance.getInstance().logHandledException(exception);</span><br/>
+                        <span class="indent36">}</span><br/>
+                        }
+                    </code>
+
+                <h3 id="Setausernameforcrashlogs">Set a username for crash logs</h3>
+                <p>To help differentiate crash logs, use the APSPerformance's <a href="#"><code
+                            class="inline">setUsername()</code></a> method. When the application successfully logs
+                    in to the Cloud user account, the application calls APSPerformance's <a href="#"><code
+                            class="inline">setUsername()</code></a>method.</p>
+                <code class="block">
+            APSUsers.login(data, new APSResponseHandler() {<br/>
+            <span class="indent36"></span>@Override</span><br/>
+            <span class="indent36"></span>public void onResponse(final APSResponse e) {</span><br/>
+            <span class="indent72"></span>if (e.getSuccess()) {</span><br/>
+            <span class="indent108"></span>Log.i(&quot;ACSUsers&quot;, &quot;Successfully logged in as &quot; + username);</span><br/>
+            <br/>
+            <span class="indent108"></span>// Add this method call</span><br/>
+            <span class="indent108"></span>APSPerformance.getInstance().setUsername(&quot;username&quot;);</span><br/>
+            <span class="indent108">} else {</span><br/>
+            <span class="indent144">Log.e(&quot;ACSUsers&quot;, e.getMessage());</span><br/>
+            <span class="indent108">}</span><br/>
+            <span class="indent36">}</span><br/>
+            });
+        </code>
+                <h3 id="Testingthetutorialsample">Testing the tutorial sample</h3>
+                <p>Before testing the sample, you need to create user accounts for the application to query. To
+                    create Cloud user accounts:</p>
+                <ol>
+                    <li>Log in to <a href="#"><strong>Appcelerator Dashboard</strong></a>.</li>
+                    <li>In Dashboard, select your application from the <strong>APIs menu</strong> in the upper-left
+                        corner.</li>
+                    <li>In the left navigation bar, click <strong>Manage Data</strong>.</li>
+                    <li>Click <strong>Users</strong>, then the <strong>Create User</strong> button.</li>
+                    <li>In the <strong>Username</strong> field enter the user's username.</li>
+                    <li>In the <strong>Password</strong> field enter the new user's password (four-character
+                        minimum).</li>
+                    <li>Click Save <strong>Changes</strong>.</li>
+                </ol>
+                <p>To create a <a href="#">Cloud user account</a>, you only need a username or e-mail address, and a
+                    password.</p>
+                <p>For more information about managing Cloud user accounts, see <a href="#">Managing
+                        Organizations</a>.</p>
+                <p>After you have created a few Cloud user accounts, build the sample and launch it on either a
+                    device or emulator. Once the application launches:</p>
+                <ol>
+                    <li>Click on the <strong>Picker/Spinner</strong>. You should see a list of all the Cloud user
+                        accounts you added.</li>
+                    <li>Select a <strong>user account</strong> from the Picker/Spinner and enter that user's
+                        password. Click the <strong>Next</strong> button. In the log output, you should see an info
+                        log that login command was successful or not.</li>
+                    <li>Go to the <a href="#"><strong>Appcelerator Dashboard</strong></a>.</li>
+                    <li>In Dashboard, select your application from the <strong>Apps</strong> menu in the upper-left
+                        corner.</li>
+                    <li>In the left navbar, click <strong>Performance</strong>, then <strong>Handled
+                            Exceptions</strong>. You should see the "Something happened..." exception in the list.
+                    </li>
+                    <li>In the left navbar, click <strong>Search by User</strong>. Enter the username of the account
+                        that successfully logged in. Click the username. You should see a crash report for the user.
+                    </li>
+                    <li>In the left navbar, select <strong>Analytics</strong>.</li>
+                    <li>In the <strong>Real Time</strong> view, you should see at least one active session.</li>
+                    <li>In the left navbar, click <strong>Events</strong>. You should see the <code
+                            class="inline">"sample.feature.login"</code> feature event.</li>
+                </ol>
+                <h3 id="NextStepsforAppceleratorAnalyticsCloudandPerformance">Next Steps for Appcelerator Analytics,
+                    Cloud and Performance</h3>
+                <p>This tutorial only covers a small portion of what the <a href="#">Analytics</a>, <a
+                        href="#">Cloud</a>, and <a href="#">Performance</a> services can provide. For more in-depth
+                    information about these features, see the following topics:</p>
+                <ul>
+                    <li><a href="#">APS Analytics for Android</a></li>
+                    <li><a href="#">AMPLIFY Appcelerator Platform Services SDK for Android Mobile Backend
+                            Services</a></li>
+                    <li><a href="#">APS Performance for Android</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
