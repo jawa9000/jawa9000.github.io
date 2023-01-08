@@ -133,14 +133,6 @@ message += '<li class="socialLinkedIn">';
 message += '<a href="http://www.linkedin.com/pub/brian-immel/2/914/b5b/" target="_blank">'; // linkedin link
 message += '<img src="' + tutorialSuffix + 'images/social/glyphicons_social/png/glyphicons_social_17_linked_in.png" title="Visit Brian&#39s LinkedIn page" alt="Visit Brian&#39s LinkedIn page">';
 message += '</a></li>';
-message += '<li class="socialTwitter">';
-message += '<a href="https://twitter.com/jawa9000" target="_blank">'; // Twitter link
-message += '<img src="' + tutorialSuffix + 'images/social/glyphicons_social/png/glyphicons_social_31_twitter.png" title="Visit Brian&#39s Twitter page" alt="Visit Brian&#39s Twitter page">';
-message += '</a></li>';
-message += '<li class="socialJSFiddle" >';
-message += '<a href="http://jsfiddle.net/user/jawa9000/fiddles/" target="_blank">'; // JSFiddle link
-message += '<img src="' + tutorialSuffix + 'images/social/glyphicons_social/png/jsfiddle.png" title="Visit Brian&#39s JSFiddle page" alt="Visit Brian&#39s JSFiddle page">';
-message += '</a></li>';
 message += '<li class="socialGithub" >';
 message += '<a href="https://github.com/jawa9000" target="_blank">'; // github link
 message += '<img src="' + tutorialSuffix + 'images/social/github.png" title="Visit Brian&#39s Github page" alt="Visit Brian&#39s Github page">';
