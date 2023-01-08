@@ -3,10 +3,8 @@
  */
 
 var pageName = $("title").text(); // get the name of the page
-console.log("page name: " + pageName);
 var url = document.URL;
 var meta = $('meta[name=level]').attr("content");
-console.log('meta: ' + meta);
 var message = ""; // variable that will render the navigation bar
 
 // ** will need to add other sub directory sniffers here **
@@ -42,7 +40,6 @@ if (meta) {
 		}
 	}
 }
-//console.log(tutorialSuffix);
 message += '<div class="container-fluid">'; // build main container for navigation
 
 // Brand and toggle get grouped for better mobile display
