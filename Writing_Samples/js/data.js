@@ -3,7 +3,7 @@ let samples = {
         title: 'Technical Writing Guides',
         htmlLink: '../tutorials.html#writing',
         description: 'Collection of documents I wrote that explores technical writing.',
-        labels: ['Guide']
+        labels: ['Guide', 'Tutorial']
     },
     'Document Read Time': {
         title: 'Document Read Time',
@@ -43,8 +43,7 @@ let samples = {
     },
     'CRUD the Docs': {
         title: 'CRUD the Docs',
-        htmlLink: '',
-        pdfLink: '',
+        htmlLink: 'https://crudthedocs.blogspot.com/',
         description: 'Personal blog site I maintain on a semi-regular basis that captures documentation tooling, documentation trends, and conference summaries. All posts are researched, tested, and written by me.',
         labels: ['Tutorial', 'Blog', 'Guide'],
     },
@@ -247,11 +246,16 @@ for (i in uniqueLabels) { // build the elements to house the writing samples
         for (k in samples[j].labels) {
             if (samples[j].labels[k].replace(/ /g, '_') == uniqueLabels[i]) {
                 output += '<div class="webNote">';
-                output += '<h3><a href="' + samples[j].htmlLink + '" target="blank">' + samples[j].title + '</a></h3>';
+                if (uniqueLabels[i] == 'Blog' || samples[j].title == 'Technical Writing Guides') { // deal with the blog or local website tutorials entry URL
+                    output += '<h3><a href="' + samples[j].htmlLink + '" target="blank">' + samples[j].title + '</a></h3>';
+                } else {
+                    output += '<h3><a href="content/' + samples[j].htmlLink + '" target="blank">' + samples[j].title + '</a></h3>';    
+                }
+
                 output += '<p>' + samples[j].description + '</p>';
                 
                 if (samples[j].pdfLink) {
-                    output += '<p><a href="' + samples[j].pdfLink + '">PDF version</a></p>';
+                    output += '<p><a href="content/' + samples[j].pdfLink + '">PDF version</a></p>';
                 }
 
                 output += '<div class="label label-default">';
