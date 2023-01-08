@@ -3,14 +3,14 @@ let samples = {
         title: 'Technical Writing Guides',
         htmlLink: '../tutorials.html#writing',
         description: 'Collection of documents I wrote that deals with or is related to technical writing.',
-        labels: ['guide']
+        labels: ['Guide']
     },
     'Document Read Time': {
         title: 'Document Read Time',
         htmlLink: 'Document_Read_Time.html',
         description: 'Short tutorial for novice JavaScript developers to create a estimate of reading time for a web document based on typical reader\'s skill level.',
         pdfLink: 'Document_Read_Time.pdf',
-        labels: ['tutorial', 'code sample'],
+        labels: ['Tutorial', 'Code sample'],
         projectDetails: {
             audience: 'Entry-level JavaScript developers',
             projectNotes: 'Wrote this script and documented it based on the needs to include a reading time estimator. Once published, I received some feedback and I incorporated it into the snippet as well as the documentation.',
@@ -22,7 +22,7 @@ let samples = {
         htmlLink: 'Remote_And_Workstation_Access.html',
         pdfLink: 'Remote_And_Workstation_Access.pdf',
         description: 'Brief guide instructing all user levels on how to remotely access their desktops.',
-        labels: ['guide', 'tutorial'],
+        labels: ['Guide', 'Tutorial'],
         projectDetails: {
             audience: 'Everyone who used VPN services (all skill levels, position, and tenure)',
             projectNotes: 'In my first month on the job, I was given a simple task of documenting the process of instructing all employees on how to use VPN services. I collaborated with the IT department to gather their notes and wrote a simple draft. I tested the steps myself, asked a few colleagues to try them as well and iterated on the document based on their feedback. Once published, I added a few more notes based on user feedback and integrated a separately written FAQ.',
@@ -34,7 +34,7 @@ let samples = {
         htmlLink: 'Use_Nightmare_to_Generate_a_Confluence_Sitemap.html',
         pdfLink: 'Use_Nightmare.js_to_Generate_a_Confluence_Sitemap.pdf',
         description: 'Document I researched, wrote the script, tested, and wrote documentation that explains how to use various Node.js modules to export a Confluence sitemap.',
-        labels: ['tutorial', 'code sample'],
+        labels: ['Tutorial', 'Code sample'],
         projectDetails: {
             audience: 'Intermediate JavaScript developers and Confluence Administrators',
             projectNotes: 'I wrote and documented this script as part of a large process to automate the extraction of content from Confluence. The script and process was put into production where it remained until the company closed (~3.5 years).',
@@ -46,14 +46,14 @@ let samples = {
         htmlLink: '',
         pdfLink: '',
         description: 'Personal blog site I maintain on a semi-regular basis that captures documentation tooling, documentation trends, and conference summaries. All posts are researched, tested, and written by me.',
-        labels: ['tutorial', 'blog', 'guide'],
+        labels: ['Tutorial', 'Blog', 'Guide'],
     },
     'AMPLIFY CLI Commands': {
         title: 'AMPLIFY CLI Commands',
         htmlLink: 'AMPLIFY_CLI_Commands.html',
         pdfLink: 'AMPLIFY_CLI_Commands.pdf',
         description: 'Reference documentation for using the AMPLIFY CLI.',
-        labels: ['cli', 'reference'],
+        labels: ['CLI', 'Reference'],
         projectDetails: {
             audience: 'developers, all levels',
             projectNotes: 'I collaborated with three engineers to gather and write the outdated CLI documentation. I added the auth switch options section and half the pm section content with the team\'s help.'
@@ -64,7 +64,7 @@ let samples = {
         htmlLink: 'Creating_your_first_mobile_app.html',
         pdfLink: 'Creating_Your_First_Mobile_App.pdf',
         description: 'Entry level user tutorial on how to create a simple mobile app using Appcelerator platform. Collaborated with two engineers to rewrite and test an outdated tutorial.',
-        labels: ['tutorial'],
+        labels: ['Tutorial'],
         projectDetails: {
             audience: 'entry level mobile app developers',
             projectNotes: 'Collaborated with engineers to rewrite the outdated tutorial over the course of three weeks. Rewrote the document from the ground up and tested and confirmed each step myself.',
@@ -76,7 +76,7 @@ let samples = {
         htmlLink: 'Hello_Titanium_app.html',
         pdfLink: 'Hello_Titanium_App.pdf',
         description: 'Another entry level user tutorial on how to create a simple mobile app using Appcelerator platform. Collaborated with two engineers to rewrite and test an outdated tutorial.',
-        labels: ['tutorial'],
+        labels: ['Tutorial'],
         projectDetails: {
             audience: 'Entry level developer',
             projectNotes: 'Revised this document based on direct research and feedback I received from the Titanium team. I completely rewrote this document over the course of 5 days (total of 17 man-hours).',
@@ -88,7 +88,7 @@ let samples = {
         htmlLink: 'Studio_5.3.0.RC_Release_Note.html',
         pdfLink: 'Studio_5.3.0.RC_Release_Note.pdf',
         description: 'Example of a end-user product release note I collaborated with the entire team.',
-        labels: ['release note'],
+        labels: ['Release note'],
         projectDetails: {
             audience: 'All Appcelerator users',
             projectNotes: 'Researched and wrote based on team meeting notes, team feedback, and change log differences every 2-6 weeks (or whenever the release went out).',
@@ -100,7 +100,7 @@ let samples = {
         htmlLink: 'Hyperloop_3.0.0_Release_Note.html',
         pdfLink: 'Hyperloop_3.0.0_Release_Note.pdf',
         description: 'Release note for Appcelerator\'s Hyperloop 3.0.0.',
-        labels: ['release note'],
+        labels: ['Release note'],
         projectDetails: {
             audience: 'All Appcelerator users',
             projectNotes: 'Researched and wrote based on team meeting notes, team feedback, and change log differences every 2-6 weeks (or whenever the release went out).',
@@ -124,7 +124,7 @@ let samples = {
         htmlLink: 'Properties_of_a_YAML_File.html',
         pdfLink: 'Properties_of_a_YAML_File.pdf',
         description: 'Reference guide for internal developers and API documentation contributors to write clean YAML files.',
-        labels: ['yaml', 'reference', 'guide'],
+        labels: ['Yaml', 'Reference', 'Guide'],
         projectDetails: {
             audience: 'Internal engineers and documentation contributors',
             projectNotes: 'Collaborated with an outgoing engineer to write this guide from scratch. I interviewed the engineer for a total of three hours, tested the contents of this document, and revised it with team feedback.',
@@ -149,22 +149,48 @@ let samples = {
 // ** add a few that shows only select document types based on their labels. Add a toggle to reshow all labels.
 
 // ** build tabs and put writing samples of each accordinging to their labels
-/*
-Use this to build each navigation tab
-<div class="tabbable">
-<!-- Only required for left/right tabs -->
-<ul class="nav nav-tabs">
-    <li class="active">
-        <a href="#experience" data-toggle="tab">Experience</a>
-    </li>
-*/
-/*
-Use this to build the containers for each of the writing samples based on their labels
-<div class="tab-content">
-    <div class="tab-pane active" id="experience">
-        <h2>Experience</h2>
-    </div>
-*/
+
+var labels = [];
+
+for (i in samples) {
+    for (j in samples[i].labels) {
+        labels.push(samples[i].labels[j]);
+    }
+}
+
+let uniqueLabels = [...new Set(labels)];
+
+uniqueLabels = uniqueLabels.sort();
+// console.log(uniqueLabels)
+var tabOutput = '<div class="tabbable"><ul class="nav nav-tabs">';
+var writingSamplesOutput = '';
+
+for (i in uniqueLabels) { 
+    // build the navigation tabs
+    if (i == 0) {
+        tabOutput += '<li class="active">';
+    } else {
+        tabOutput += '<li>';
+    }
+
+    tabOutput += '<a href="#' + uniqueLabels[i] + '" data-toggle="tabe">' + uniqueLabels[i] + '</a></li>';
+    
+    // build the elements to house the writing samples
+    if (i == 0) {
+        writingSamplesOutput += '<div class="tab-pane active" id="' + uniqueLabels[i] + '">';
+    } else {
+        writingSamplesOutput += '<div class="tab-pane" id="' + uniqueLabels[i] + '">';
+    }
+    
+    writingSamplesOutput += '<h2>' + uniqueLabels[i] + '</h2></div>';
+
+}
+
+tabOutput += '</ul></div>';
+
+$('#tabs').append(tabOutput);
+$('#writingSamples').append(writingSamplesOutput);
+
 
 // display function
 
