@@ -2,7 +2,7 @@ let samples = {
     'Technical Writing Guides': {
         title: 'Technical Writing Guides',
         htmlLink: '../tutorials.html#writing',
-        description: 'Collection of documents I wrote that deals with or is related to technical writing.',
+        description: 'Collection of documents I wrote that explores technical writing.',
         labels: ['Guide']
     },
     'Document Read Time': {
@@ -10,7 +10,7 @@ let samples = {
         htmlLink: 'Document_Read_Time.html',
         description: 'Short tutorial for novice JavaScript developers to create a estimate of reading time for a web document based on typical reader\'s skill level.',
         pdfLink: 'Document_Read_Time.pdf',
-        labels: ['Tutorial', 'Code sample'],
+        labels: ['Tutorial', 'Code Sample'],
         projectDetails: {
             audience: 'Entry-level JavaScript developers',
             projectNotes: 'Wrote this script and documented it based on the needs to include a reading time estimator. Once published, I received some feedback and I incorporated it into the snippet as well as the documentation.',
@@ -34,7 +34,7 @@ let samples = {
         htmlLink: 'Use_Nightmare_to_Generate_a_Confluence_Sitemap.html',
         pdfLink: 'Use_Nightmare.js_to_Generate_a_Confluence_Sitemap.pdf',
         description: 'Document I researched, wrote the script, tested, and wrote documentation that explains how to use various Node.js modules to export a Confluence sitemap.',
-        labels: ['Tutorial', 'Code sample'],
+        labels: ['Tutorial', 'Code Sample'],
         projectDetails: {
             audience: 'Intermediate JavaScript developers and Confluence Administrators',
             projectNotes: 'I wrote and documented this script as part of a large process to automate the extraction of content from Confluence. The script and process was put into production where it remained until the company closed (~3.5 years).',
@@ -88,7 +88,7 @@ let samples = {
         htmlLink: 'Studio_5.3.0.RC_Release_Note.html',
         pdfLink: 'Studio_5.3.0.RC_Release_Note.pdf',
         description: 'Example of a end-user product release note I collaborated with the entire team.',
-        labels: ['Release note'],
+        labels: ['Release Note'],
         projectDetails: {
             audience: 'All Appcelerator users',
             projectNotes: 'Researched and wrote based on team meeting notes, team feedback, and change log differences every 2-6 weeks (or whenever the release went out).',
@@ -100,7 +100,7 @@ let samples = {
         htmlLink: 'Hyperloop_3.0.0_Release_Note.html',
         pdfLink: 'Hyperloop_3.0.0_Release_Note.pdf',
         description: 'Release note for Appcelerator\'s Hyperloop 3.0.0.',
-        labels: ['Release note'],
+        labels: ['Release Note'],
         projectDetails: {
             audience: 'All Appcelerator users',
             projectNotes: 'Researched and wrote based on team meeting notes, team feedback, and change log differences every 2-6 weeks (or whenever the release went out).',
@@ -146,134 +146,98 @@ let samples = {
     // },
 }
 
-// ** add a few that shows only select document types based on their labels. Add a toggle to reshow all labels.
-
-// ** build tabs and put writing samples of each accordinging to their labels
-
-var labels = [];
+var labels = []; // gather all labels from (writing) samples
 
 for (i in samples) {
     for (j in samples[i].labels) {
-        labels.push(samples[i].labels[j]);
+        labels.push(samples[i].labels[j].replace(/ /g,'_'));
     }
 }
 
 let uniqueLabels = [...new Set(labels)];
 
 uniqueLabels = uniqueLabels.sort();
-// console.log(uniqueLabels)
-var tabOutput = '<div class="tabbable"><ul class="nav nav-tabs">';
-var writingSamplesOutput = '';
 
-for (i in uniqueLabels) { 
-    // build the navigation tabs
+var output = '<div class="tabbable"><ul class="nav nav-tabs">';
+
+for (i in uniqueLabels) { // build the navigation tabs
     if (i == 0) {
-        tabOutput += '<li class="active">';
+        output += '<li class="active">';
     } else {
-        tabOutput += '<li>';
+        output += '<li>';
     }
 
-    tabOutput += '<a href="#' + uniqueLabels[i] + '" data-toggle="tabe">' + uniqueLabels[i] + '</a></li>';
-    
-    // build the elements to house the writing samples
-    if (i == 0) {
-        writingSamplesOutput += '<div class="tab-pane active" id="' + uniqueLabels[i] + '">';
-    } else {
-        writingSamplesOutput += '<div class="tab-pane" id="' + uniqueLabels[i] + '">';
-    }
-    
-    writingSamplesOutput += '<h2>' + uniqueLabels[i] + '</h2></div>';
-
+    output += '<a href="#' + uniqueLabels[i] + '" data-toggle="tab">' + uniqueLabels[i].replace(/_/g, ' ') + '</a></li>';
 }
 
-tabOutput += '</ul></div>';
+output += '</ul></div>';
 
-$('#tabs').append(tabOutput);
-$('#writingSamples').append(writingSamplesOutput);
+$('#tabs').append(output);
 
+var output = '';
 
-// display function
+for (i in uniqueLabels) { // build the elements to house the writing samples
+    if (i == 0) {
+        output += '<div class="tab-pane active" id="' + uniqueLabels[i] + '">';
+    } else {
+        output += '<div class="tab-pane" id="' + uniqueLabels[i] + '">';
+    }
+    
+    output += '<h2>' + uniqueLabels[i].replace(/_/g, ' ') + '</h2>';
 
-// var output = '';
+    for (j in samples) {
+        for (k in samples[j].labels) {
+            if (samples[j].labels[k].replace(/ /g, '_') == uniqueLabels[i]) {
+                output += '<div class="webNote">';
+                output += '<h3><a href="' + samples[j].htmlLink + '" target="blank">' + samples[j].title + '</a></h3>';
+                output += '<p>' + samples[j].description + '</p>';
+                
+                if (samples[j].pdfLink) {
+                    output += '<p><a href="' + samples[j].pdfLink + '">PDF version</a></p>';
+                }
 
-// for (i in samples) {
-//     output += '<div class="webNote">';
-//     output += '<h3><a href="' + samples[i].htmlLink + '" target="blank">' + samples[i].title + '</a></h3>';
-//     output += '<p>' + samples[i].description + '</p>';
+                output += '<div class="label label-default">';
 
-//     if (samples[i].pdfLink) {
-//         output += '<p><a href="' + samples[i].pdfLink + '">PDF version</a></p>';
-//     }
+                var sampleLabels = '';
 
-//     output += '<div class="label label-default">';
+                for (k in samples[j].labels) {
+                    sampleLabels += samples[j].labels[k] + ', ';
+                }
 
-//     var labels = '';
+                sampleLabels = sampleLabels.replace(/, +$/, ''); // remove trailing comma
+                output += sampleLabels;
+                output += '</div>';
 
-//     for (j in samples[i].labels) {
-//         labels += samples[i].labels[j] + ', ';
-//     }
+                if (samples[j].projectDetails) {
+                    var uniqueTitle = samples[j].title.replace(/\s/g, '').replace(/\./g, ''); // generate an unique id from the title
 
-//     labels = labels.replace(/, +$/, ''); // remove trailing comma
+                    output += '<ul>';
 
-//     output += labels + '</div>';
+                    if (samples[j].projectDetails.audience) {
+                        output += '<li><strong>Audience</strong>: ' + samples[j].projectDetails.audience + '</li>';
+                    }
 
-//     if (samples[i].projectDetails) {
-//         var uniqueTitle = samples[i].title.replace(/\s/g, '').replace(/\./g, ''); // generate an unique id from the title
-//         output += '<div class="expandableContainer">';
-//         output += '<div class="expandableTitle" id="expandTitle-' + uniqueTitle + '" status="hidden">';
-//         output += '<span class="glyphicon glyphicon-circle-arrow-right paddingRight5"></span><span class="expand" title="Click to expand">Project details</span></div>';
-//         output += '<div class="expandableContent" id="expandContent-' + uniqueTitle + '" style="display: block;"><ul>'; // build elements for project details to land in that uses a collapsable system
+                    if (samples[j].projectDetails.projectNotes) {
+                        output += '<li><strong>Project notes</strong>: ' + samples[j].projectDetails.projectNotes + '</li>';
+                    }
 
-//         if (samples[i].projectDetails.audience) {
-//             output += '<li><strong>Audience</strong>: ' + samples[i].projectDetails.audience + '</li>';
-//         }
+                    if (samples[j].projectDetails.change) {
+                        output += '<li><strong>What would I change?</strong> ' + samples[j].projectDetails.change + '</li>';
+                    }
 
-//         if (samples[i].projectDetails.projectNotes) {
-//             output += '<li><strong>Project notes</strong>: ' + samples[i].projectDetails.projectNotes + '</li>';
-//         }
+                    if (samples[j].projectDetails.other) {
+                        output += '<li>' + samples[j].projectDetails.other + '</li>';
+                    }
 
-//         if (samples[i].projectDetails.change) {
-//             output += '<li><strong>What would I change?</strong> ' + samples[i].projectDetails.change + '</li>';
-//         }
+                    output += '</ul>';
+                }
 
-//         if (samples[i].projectDetails.other) {
-//             output += '<li>' + samples[i].projectDetails.other + '</li>';
-//         }
+                output += '</div>';
+            }
+        }
+    }
 
-//         output += '</ul></div></div>';
-//     }
+    output += '</div>';
+}
 
-//     output += '</div>';
-// }
-
-// $('content').append(output);
-
-
-// // generate labels and toggle display of content based on their assigned labels
-
-// var labels = [];
-
-// for (i in samples) {
-//     for (j in samples[i].labels) {
-//         labels.push(samples[i].labels[j]);
-//     }
-// }
-
-// let uniqueLabels = [...new Set(labels)];
-
-// uniqueLabels = uniqueLabels.sort();
-
-// var output = '';
-
-// for (i in uniqueLabels) {
-//     var id = uniqueLabels[i].replace(/\s/g, '_');
-
-//     output += '<span class="labels" id="' + id + '">' + uniqueLabels[i] + '</span>';
-// }
-
-// $('labels').append(output);
-
-// $('span.labels').on('click', function() {
-//     console.log($(this).attr('id')); // 'release_note'
-//     // ** explore options using Bootstrap's card system as noted in D:\website\protected\DO_NOT_UPLOAD\unabridged_resume.html
-// });
+$('#writingSamples').append(output);
