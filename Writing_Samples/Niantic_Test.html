@@ -6,6 +6,28 @@
         <link href="../css/tutorials.css" rel="stylesheet">
         <link rel="stylesheet" href="styles/main.css" type="text/css" />
         <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <style>
+            .indent1 {
+            padding: 0 0 0 36px; }
+
+            .indent2 {
+            padding: 0 0 0 72px; }
+
+            .indent3 {
+            padding: 0 0 0 108px; }
+
+            .indent4 {
+            padding: 0 0 0 144px; }
+
+            .indent5 {
+            padding: 0 0 0 180px; }
+
+            .indent6 {
+            padding: 0 0 0 216px; }
+
+            .indent7 {
+            padding: 0 0 0 254px; }
+        </style>
     </head>
 
 <body>
@@ -13,9 +35,10 @@
         <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-8">
-                <h1>applyBonus() Function</h1>
+                <h1 id="top">applyBonus() Function</h1>
                 <p>Written by Brian Immel on Jan 01, 2023</p>
-                <p>The <code class="inline">applyBonus</code> function allows you to apply in-game bonuses, with or without weather effects, of the player's current real-world location. The function interfaces with <a href="#IWeatherProvider">iWeatherProvider</a> and returns weather data within a 5 km radius. The <code class="inline">applyBonus</code> function can be used when an action has occurred during game play (e.g. attack, experience, etc.) and only accepts a float value (between 0 and 1).</p>
+                <p>The <code class="inline">applyBonus</code> function allows you to apply in-game bonuses. This function can accept real-world weather data that can be used to apply weather effects as an additional bonus. The function interfaces with <a href="#IWeatherProvider">iWeatherProvider</a> and returns weather data within a 5 km radius. The <code class="inline">applyBonus</code> function can be used when an action has occurred during game play (e.g. attack, experience, etc.) and only accepts a float value (between 0 and 1).</p>
+
                 <h2 id="IWeatherProvider">IWeatherProvider</h2>
                 <p>IWeatherProvider returns a read-only array (enum) describing the weather in the current location of the player that is approximately 5 square kilometers (well beyond the in-game viewport).</p>
 
@@ -34,9 +57,9 @@
                     <li>ErrorNotFound</li>
                 </ul>
                 
-                <p>The applyBonus function can be used with or without the data provided by IWeatherProvider.</p>
+                <p>The applyBonus function can be used with or without the data provided by <code class="inline">IWeatherProvider</code>.</p>
 
-                <h2>applyBonus() Without Weather</h2>
+                <h2 id="applyBonus_Without_Weather">applyBonus() without weather</h2>
                 <p>The <code class="inline">applyBonus</code> function applies (<a href="#"><code class="inline">getBonus</code></a>) and displays a bonus (<a href="#"><code class="inline">displayBonus</code></a>) based on the calculated value returned from the <a href="#"><code class="inline">getBonus</code></a> method. The <a href="#"><code class="inline">getBonus</code></a> method will return a value between 0 and 1 which is then passed to the <a href="#"><code class="inline">displayBonus</code></a> function to be displayed to notify the player of any applied bonus.</p>
                 <p>If you choose to skip the weather effect bonus, you can use the <code class="inline">applyBonus</code> function like this:</p>
                 <code class="block">
@@ -46,17 +69,54 @@
                         <span class="indent1">displayBonus(bonus);</span><br/>
                     }
                 </code>
-
+                <h3 id="Error_messages">Error messages</h3>
+                <p>If a non-floating-point number is passed to the <code class="inline">applyBonus</code> function, it will throw the following error: <code class="inline">“Invalid value (applyBonus)”</code>.</p>
+                <p>See our <a href="#">Error Messages</a> guide for other error messages.</p>
                 
-
-
-
+                <h2 id="applyBonus_with_weather">applyBonus() with weather</h2>
+                <p>Applying a location-based weather bonus using the <code class="inline">applyBonus</code> function accepts two values: <code class="inline">percentGood</code> (float) and <code class="inline">weatherProvider</code> (object). Using data from <a href="#IWeatherProvider"><code class="inline">IWeatherProvider</code></a>, the function can apply an additional weather-based bonus.</p>
+                
+                <p>For example, if you choose to apply a “boosting” bonus based on clear weather in the player's current location, you could use the applyBonus function like this:</p>
+                <code class="block">
+                    Void applyBonus (float percentGood, IWeatherProvider weatherProvider) {<br/>
+                    <span class="indent1">WeatherStatus status = weatherProvider.getCurrentWeather(getCurrentLocation());</span><br/>
+                    <br/>
+                    <span class="indent1">if (status == WeatherStatus.Clear) {</span><br/>
+                    <span class="indent2">percentGood += 0.2f;</span><br/>
+                    <span class="indent1">} else {</span><br/>
+                    <span class="indent2">percentGood -= 0.2f;</span><br/>
+                    <span class="indent1">}</span><br/>
+                    <br/>
+                    <span class="indent1">percentGood = Mathf.Clamp(percentGood, 0.0f, 1.0f);</span><br/>
+                    <span class="indent1">IBonus bonus = getBonus(percentGood);</span><br/>
+                    <br/>
+                    <span class="indent1">displayBonus(bonus);</span><br/>
+                    }    
+                </code>
+                
+                <p>In this example, the <code class="inline">applyBonus</code> function accepts a floating point number (0-1) and an object provided by <code class="inline">weatherProvider</code> that then returns the weather condition (see <a href="#status">WeatherSatus options</a> below for suggestions on how to handle the returned value). If the weather status is clear, a value of 0.2 will be applied to the <code class="inline">percentGood</code> value. Otherwise, a value of -0.2 will be applied to <code class="inline">percentGood</code>. The <code class="inline">percentGood</code> value is then limited between the values of 0 and 1 as the weather and action values may modify the value below or above that range. From there, the bonus is calculated using the <a href="#"><code class="inline">getBonus</code></a> function and displayed to the player via the <a href="#"><code class="inline">displayBonus</code></a> function.</p>
+                
+                <h2 id="WeatherSatus_options">WeatherSatus options</h2>
+                <p>Your <code class="inline">applyBonus</code> function should be able to handle the following values returned from the <code class="inline">WeatherStatus</code> variable such as and a suggestion how to apply it in your calculation:</p>
+                <ul>
+                    <li>Unset: WeatherStatus has no value (consider passing a value of 0)</li>
+                    <li>Clear: apply percentGood as you see fit</li>
+                    <li>Rainy: apply percentGood as you see fit</li>
+                    <li>Cloudy: apply percentGood as you see fit</li>
+                    <li>ErrorNotFound: WeatherStatus returned an error (consider passing a value of 0)</li>
+                </ul>
+                <h2 id="Finding_help">Finding help</h2>
+                <p>If you encounter issues, review our online developer communities:</p>
+                <ul>
+                    <li><a href="#">Niantic Dev Portal</a></li>
+                    <li><a href="#">StackOverflow</a></li>
+                    <li><a href="#">Reddit</a></li>
+                </ul>
+                <p>If you have a <a href="#">premier account</a>, please <a href="#">log</a> into our help center and <a href="#">file a request</a>. We’ll reply in 1-2 business days.</p>
             </div>
             <div class="col-md-2"></div>
         </div>
     </div>
-    
-    
 </body>
 
 </html>
