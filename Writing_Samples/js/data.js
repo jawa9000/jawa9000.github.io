@@ -188,6 +188,31 @@ let samples = {
             projectNotes: 'Collaborated with three different engineers to revise and maintain this document.',
         }
     },
+     // 'applyBonus Function': { // note to self: if I don't get the gig with Niantic, post this some time in April.
+    //     title: 'applyBonus Function',
+    //     htmlLink: 'applyBonus_function.html',
+    //     pdfLink: 'applyBonus_function.pdf',
+    //     description: 'Two page document explaining how to use a function that applies a modifier (bonus) based on player\'s weather (location).',
+    //     labels: ['Reference', 'Code Sample', 'Tutorial'],
+    //     projectDetails: {
+    //         audience: 'Entry level developers new to game development on Unity',
+    //         projectNotes: 'Documented this function from scratch in 2.5 hours with less than a page\'s worth of notes. Took another hour to review and revise before submitting to the team for review.',
+    //         change: '',
+    //         other: ''
+    //     }
+    // },
+    'Appcelerator Analytics': {
+        title: 'Appcelerator Analytics',
+        htmlLink: 'Appcelerator_Analytics.html',
+        pdfLink: 'Appcelerator_Analytics.pdf',
+        description: 'Overview and tutorial on how to use Appcelerator\'s analytics tool.',
+        labels: ['Overview', 'Tutorial'],
+        projectDetails: {
+            audience: 'Entry-level mobile app developers',
+            projectNotes: 'Collaborated with one product engineer and team lead to rewrite this document from top to bottom. Captured and modified the images myself. Researched and wrote the GDPR statement that was approved by team leadership and the legal department.'
+        }
+    },
+    // },
     // '': {
     //     title: '',
     //     htmlLink: '',
