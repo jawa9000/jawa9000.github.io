@@ -25,7 +25,7 @@ let samples = {
         labels: ['Guide', 'Tutorial'],
         projectDetails: {
             audience: 'Everyone who used VPN services (all skill levels, position, and tenure)',
-            projectNotes: 'In my first month on the job, I was given a simple task of documenting the process of instructing all employees on how to use VPN services. I collaborated with the IT department to gather their notes and wrote a simple draft. I tested the steps myself, asked a few colleagues to try them as well and iterated on the document based on their feedback. Once published, I added a few more notes based on user feedback and integrated a separately written FAQ.',
+            projectNotes: 'In my first month on the job, I was given a simple task of documenting the process of instructing all employees on how to use VPN services. I collaborated with the IT department to gather their notes and wrote a simple draft. I tested the steps myself, asked a few colleagues to try them as well and iterated on the document based on their feedback. Once published, I added a few more notes based on user feedback and integrated a separately written FAQ. Note: this document was originally requested for print only but was later adapted to web format as well.',
             change: 'Add more screen grabs for the Windows and Mac sections that illustrate what each section should look like as the audience for this document were mostly visually-based learners. I would also include contact information for the IT department and point any further questions to them as they were in charge of maintaining this service.'
         }
     },
