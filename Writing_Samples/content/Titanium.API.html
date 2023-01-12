@@ -7,6 +7,7 @@
     <link href="../../css/bootstrap.css" rel="stylesheet">
     <link href="../../css/tutorials.css" rel="stylesheet">
     <link rel="stylesheet" href="../styles/main.css" type="text/css" />
+    <script src="../../js/jquery-2.1.0.min.js"></script>
     <style type='text/css'>
         div.background {
             background: rgba(100, 100, 0, 0.1);
@@ -18,34 +19,12 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
                 <h1>Titanium.API</h1>
                 <p class="note">Archive note: all links and images have been disabled as their destinations and/or source locations no longer exist.</p>
                 <p>Created by Brian Immel, last modified on Oct 04, 2018</p>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="floatLeft">
-                    <ul>
-                        <li><a href="#Properties" title="Properties">Properties</a>
-                            <ul>
-                                <li><a href="#apiName" title="apiName">apiName</a></li>
-                                <li><a href="#bubbleParent" title="bubbleParent">bubbleParent</a></li>
-                                <li><a href="#lifecycleContainer" title="lifecycleContainer">lifecycleContainer</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#Methods" title="Methods">Methods</a>
-                            <ul>
-                                <li><a href="#addEventListener" title="addEventListener">addEventListener</a></li>
-                                <li><a href="#applyProperties" title="applyProperties">applyProperties</a></li>
-                                <li><a href="#debug" title="debug">debug</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+                <toc></toc>
                 <p><a href="#" title="Link to Titanium.Proxy">Titanium.Proxy</a> &gt; <a href="#"
                         title="Link to Titanium.Module">Titanium.Module</a> &gt; <strong>Titanium.API</strong>
                 </p>
@@ -57,10 +36,6 @@
                     <li>iPad 3.0.0</li>
                     <li>Windows Phone 4.1.0</li>
                 </ul>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
                 <h2 id="Properties">Properties</h2>
                 <h3 id="apiName">apiName</h3>
                 <div class="background">
@@ -127,10 +102,6 @@
                         </ul>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
                 <h2 id="Methods">Methods</h2>
                 <h3 id="addEventListener">addEventListener</h3>
                 <div class="background">
@@ -200,8 +171,9 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-1"></div>
         </div>
     </div>
 </body>
-
+<script src="../../js/toc_generator.js"></script>
 </html>

@@ -7,35 +7,28 @@
     <link href="../../css/tutorials.css" rel="stylesheet">
     <link rel="stylesheet" href="../styles/main.css" type="text/css" />
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="../../js/jquery-2.1.0.min.js"></script>
 </head>
 
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
                 <h1>Properties of a YAML File</h1>
                 <p class="note">Archive note: all links and images have been disabled as their destinations and/or source locations no longer exist.</p>
-                <div>Created by Brian Immel, last modified on Sep 27, 2018</div>
-                <div class="floatLeft">
-                    <ul>
-                        <li><a href="#Top_level_properties">Top level properties</a></li>
-                        <li><a href="#Properties">Properties</a></li>
-                        <li><a href="#Methods">Methods</a></li>
-                        <li><a href="#Events">Events</a></li>
-                        <li><a href="#Examples">Examples</a></li>
-                        <li><a href="#Working_example">Working YAML Example</a></li>
-                        <li><a href="#Notes">Notes</a></li>
-                        <li><a href="#Other_considerations">Other considerations</a></li>
-                    </ul>
-                </div>
-                <div>
+                <p>Created by Brian Immel, last modified on Sep 27, 2018</p>
+                <toc></toc>
                     <p>This document is designed to guide engineers and API documentation contributors to write properly formatted YAML files. Following this guide will cut down on broken documentation builds and reduce the time it takes to troubleshoot and fix YAML files.</p>
                     <p>As a general rule, always run your YAML file through our <a href="#">doc linter (DLinter)</a> to confirm the format is correct and to fix any issues the linter may provide warnings or errors.</p>
                     <p>If you have any questions about this document, need help formatting or starting a YAML doc, please reach out to <a href="#">Brian Immel</a>.</p>
-                </div>
             </div>
-            <div class="col-md-12">
-                <h2 id="Top_level_properties">Top level properties</h2>
+            <div class="col-md-1"></div>
+        </div>
+        <div class="row"></div>
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <h2>Top level properties</h2>
                 <table>
                     <tr>
                         <th>Property</th>
@@ -101,9 +94,7 @@
                         </td>
                     </tr>
                 </table>
-            </div>
-            <div class="col-md-12">
-                <h2 id="Properties">Properties</h2>
+                <h2>Properties</h2>
                 <table>
                     <tr>
                         <th>Property</th>
@@ -240,9 +231,7 @@
                             Adds an accelerometer update event listener...</code></td>
                     </tr>
                 </table>
-            </div>
-            <div class="col-md-12">
-                <h2 id="Methods">Methods</h2>
+                <h2>Methods</h2>
                 <table>
                     <tr>
                         <th>Property</th>
@@ -361,9 +350,7 @@
                         <td><code class="inline">since: 4.1.0</code></td>
                     </tr>
                 </table>
-            </div>
-            <div class="col-md-12">
-                <h2 id="Events">Events</h2>
+                <h2>Events</h2>
                 <table>
                     <tr>
                         <th>Property</th>
@@ -409,9 +396,7 @@
                             Reference timestamp since the previous...</code></td>
                     </tr>
                 </table>
-            </div>
-            <div class="col-md-12">
-                <h2 id="Examples">Examples</h2>
+                <h2>Examples</h2>
                 <table>
                     <tr>
                         <th>Property</th>
@@ -439,11 +424,9 @@
                             Adds an accelerometer update event listener...</code></td>
                     </tr>
                 </table>
-            </div>
-            <div class="col-md-12">
-                <h2 id="Working_example">Working YAML Example</h2>
+                <h2>Working YAML Example</h2>
                 <p>The following code snippet represents an example of using the above information to generate an API document.</p>
-                <code id="code-head" class="block">
+                <code class="block">
                     ---<br/>
                     name: Titanium.Accelerometer<br/>
                     summary: The top-level API module, containing methods to output messages to the system log.<br/>
@@ -481,9 +464,7 @@
                     <span class="indent2">platforms: [android, iphone, ipad]</span><br/>
                     ---
                 </code>
-            </div>
-            <div class="col-md-12">
-                <h2 id="Notes">Notes</h2>
+                <h2>Notes</h2>
                 <p>If a property ends with "|", then the content of that property is found on the next line(s). These
                     indicators are typically found in summaries, descriptions, and examples.</p>
                 <p>Platforms are typically an array but can be a single value as well. For example:
@@ -495,7 +476,7 @@
                     <code class="inline">'{android: "3.2.0", iphone: "3.1.0", ipad: "3.1.0"}'</code>.</p>
                 <p>Also, in some rare cases, some modules use since as an object with nested attributes. For example:
                 </p>
-                <code id="code-head" class="block">
+                <code class="block">
                     since:<br/>
                     <span class="indent1">android: 5.4.0</span><br/>
                     <span class="indent1">iphone: 5.4.0</span><br/>
@@ -514,14 +495,14 @@
                     constant with similar name matches.</p>
 
                 <p>The osver property contains objects with one or more nested objects. The format typically looks like
-                    this: <code>{&lt;platform&gt;: {'min'/'max': "#.#"}}</code>. For example, a single nested object can
-                    look like this: <code>{android: {max: "4.1"}}</code></p>
+                    this: <code class="inline">{&lt;platform&gt;: {'min'/'max': "#.#"}}</code>. For example, a single nested object can
+                    look like this: <code class="inline">{android: {max: "4.1"}}</code></p>
 
                 <p>Objects with nested multiple objects: <code class="inline">{android: {min: "4.1"}, ios: {min: "5.0"}}</code></p>
 
                 <p>In some rare cases, some modules use <code class="inline">since</code> as an object with nested attributes. For
                     example:</p>
-                <code id="code-head" class="block">
+                <code class="block">
                     osver:<br/>
                     <span class="indent1">ios:</span><br/>
                     <span class="indent2"></span>min: 4.3</span>
@@ -532,23 +513,21 @@
                 <p>Examples</p>
                 <ul>
                     <li>nested array:
-                        <code>{ methods: [ addEventListener, applyProperties, fireEvent, removeEventListener ] }</code>
+                        <code class="inline">{ methods: [ addEventListener, applyProperties, fireEvent, removeEventListener ] }</code>
                     </li>
                     <li>nested objects</li>
                     <ul>
-                        <li><code>properties: [bubbleParent]</code></li>
-                        <li><code>methods: [addEventListener, applyProperties]</code></li>
-                        <li><code>events: ['focus', 'pinch', 'longclick']</code></li>
+                        <li><code class="inline">properties: [bubbleParent]</code></li>
+                        <li><code class="inline">methods: [addEventListener, applyProperties]</code></li>
+                        <li><code class="inline">events: ['focus', 'pinch', 'longclick']</code></li>
                     </ul>
                 </ul>
-            </div>
-            <div class="col-md-12">
-                <h2 id="Other_considerations">Other considerations</h2>
+                <h2>Other considerations</h2>
                 <p>Comments within the yaml document (lines that start with '#') are commented out from the HTML output. Only use comments if necessary.</p>
                 <p>Spaces before or after a &quot;:&quot; character in a property is handled gracefully by the interpreter. Sometimes, contributors put a space between the property and colon. While we should strictly enforce the no space policy between a property and colon, the interpreter can handle a single space character without breaking the output.</p>
             </div>
         </div>
     </div>
 </body>
-
+<script src="../../js/toc_generator.js"></script>
 </html>

@@ -7,147 +7,134 @@
     <link href="../../css/bootstrap.css" rel="stylesheet">
     <link href="../../css/tutorials.css" rel="stylesheet">
     <link rel="stylesheet" href="../styles/main.css" type="text/css" />
+    <script src="../../js/jquery-2.1.0.min.js"></script>
 </head>
 
-<body >
-    <div id="page">
-        <div id="main">
-            <div id="main-header">
-                <div id="breadcrumb-section">
-                    <h1 id="title-heading">Creating Your First Mobile App</h1>
-                </div>
-                <p class="note">Archive note: all links and images have been disabled as their destinations and/or source
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <h1>Creating Your First Mobile App</h1>
+                <p class="note">Archive note: all links and images have been disabled as their destinations and/or
+                    source
                     locations no longer exist.</p>
 
-                <div id="content">
-                    <div>Created by <span class='author'> Brian Immel</span>, last modified on Jan
-                        19, 2018
-                    </div>
-                    <div id="main-content">
-                        <p>This guide will direct you through the steps of importing the <strong>Employee
-                                Directory</strong> sample project which demonstrates some basic components of the
-                            Appcelerator
-                            Platform.</p>
-                        <p>
-                        <div class='toc-macro rbtoc1569351752669'>
-                            <ul class='toc-indentation'>
-                                <li><a href='#Creatingyourfirstmobileapp-Importthesampleproject'>Import the sample
-                                        project</a></li>
-                                <li><a href='#Creatingyourfirstmobileapp-Runandtesttheclientapplication'>Run and test
-                                        the client application</a></li>
-                                <li><a href='#Creatingyourfirstmobileapp-ViewapplicationstatisticsinDashboard'>View
-                                        application statistics in Dashboard</a></li>
-                            </ul>
-                        </div>
-                        </p>
-                        <p>What you will learn in this tutorial:</p>
-                        <ul>
-                            <li>How to import a project from Github</li>
-                            <li>How to perform a simple virtual device test</li>
-                            <li>View app analytics</li>
-                        </ul>
-                        <h2 id="Creatingyourfirstmobileapp-Importthesampleproject">Import the sample project</h2>
-                        <p>To import the <strong>Employee Directory</strong> sample project:</p>
-                        <ol>
-                            <li>Open Axway Appcelerator Studio.</li>
-                            <li>In the global toolbar, click the <strong>Show Studio Dashboard</strong> icon to open the
-                                Appcelerator Studio Dashboard if it is not already open.</li>
-                            <li>In the <strong>Dashboard tab</strong>, click the <strong>Import an existing
-                                    project</strong> panel.</li>
-                            <li>In the Import window, expand the <strong>Git</strong> option, select <strong>Git
-                                    Repository as a new project</strong>, and click <strong>Next</strong>.</li>
-                            <li>Enter your <strong>Github Username</strong> and <strong>Password</strong> and
-                                click <strong>Validate</strong> to confirm your username and password.</li>
-                            <li>Enter <strong> <a href="#"
-                                        rel="nofollow">appcelerator-se/corporate-directory</a>
-                                </strong> in the <strong>URI</strong> field and click <strong>Finish</strong>.</li>
-                        </ol>
-                        <p>You should now see a new project in the Project Explorer panel called <strong>corporate
-                                directory</strong>.</p>
-                        <ol>
-                            <li>In the Appcelerator Studio Dashboard, locate the <strong>Employee
-                                    Directory</strong> project.</li>
-                            <li>Click the <strong>Import Project</strong> button.</li>
-                            <li>The <strong>New Sample Project</strong> wizard appears.  Use the default settings and
-                                click the <strong>Finish</strong> button to start importing the sample project.</li>
-                        </ol>
-                        <h2 id="Creatingyourfirstmobileapp-Runandtesttheclientapplication">Run and test the client
-                            application</h2>
-                        <p>After the project is imported, run it.</p>
-                        <ol>
-                            <li>In the <strong>Project Explorer</strong> view, verify your project is selected.</li>
-                            <li>
-                                <p>In the global toolbar, select <strong>Run </strong>from the <strong>Launch
-                                        Mode</strong> drop-down and select a target to deploy to from
-                                    the <strong>Target</strong> drop-down and click the <strong>Run</strong> button.</p>
-                                <p>Note: The application will not run on a <a href="#"">Genymotion emulator</a>
+
+                <p>Created by <span class='author'> Brian Immel</span>, last modified on Jan 19, 2018
+                <p>
+                <p>This guide will direct you through the steps of importing the <strong>Employee
+                        Directory</strong> sample project which demonstrates some basic components of the
+                    Appcelerator
+                    Platform.</p>
+                <toc></toc>
+                <p>What you will learn in this tutorial:</p>
+                <ul>
+                    <li>How to import a project from Github</li>
+                    <li>How to perform a simple virtual device test</li>
+                    <li>View app analytics</li>
+                </ul>
+                <h2>Import the sample project</h2>
+                <p>To import the <strong>Employee Directory</strong> sample project:</p>
+                <ol>
+                    <li>Open Axway Appcelerator Studio.</li>
+                    <li>In the global toolbar, click the <strong>Show Studio Dashboard</strong> icon to open the
+                        Appcelerator Studio Dashboard if it is not already open.</li>
+                    <li>In the <strong>Dashboard tab</strong>, click the <strong>Import an existing
+                            project</strong> panel.</li>
+                    <li>In the Import window, expand the <strong>Git</strong> option, select <strong>Git
+                            Repository as a new project</strong>, and click <strong>Next</strong>.</li>
+                    <li>Enter your <strong>Github Username</strong> and <strong>Password</strong> and
+                        click <strong>Validate</strong> to confirm your username and password.</li>
+                    <li>Enter <strong> <a href="#" rel="nofollow">appcelerator-se/corporate-directory</a>
+                        </strong> in the <strong>URI</strong> field and click <strong>Finish</strong>.</li>
+                </ol>
+                <p>You should now see a new project in the Project Explorer panel called <strong>corporate
+                        directory</strong>.</p>
+                <ol>
+                    <li>In the Appcelerator Studio Dashboard, locate the <strong>Employee
+                            Directory</strong> project.</li>
+                    <li>Click the <strong>Import Project</strong> button.</li>
+                    <li>The <strong>New Sample Project</strong> wizard appears.  Use the default settings and
+                        click the <strong>Finish</strong> button to start importing the sample project.</li>
+                </ol>
+                <h2>Run and test the client application</h2>
+                <p>After the project is imported, run it.</p>
+                <ol>
+                    <li>In the <strong>Project Explorer</strong> view, verify your project is selected.</li>
+                    <li>
+                        <p>In the global toolbar, select <strong>Run </strong>from the <strong>Launch
+                                Mode</strong> drop-down and select a target to deploy to from
+                            the <strong>Target</strong> drop-down and click the <strong>Run</strong> button.</p>
+                        <p>Note: The application will not run on a <a href="#"">Genymotion emulator</a>
                                     because it does not include the Google Play SDK required by
-                                    the <code class="inline">ti.map</code> module. Also, you may need to update
-                                    the <code class="inline">tiapp.xml</code> file by selecting a Build Property for the Titanium SDK
-                                    (in which case you should select the latest or a recent build and save the change to
-                                    this file).</p>
-                            </li>
-                            <li>
-                                <p>Once the application launches, click on profiles to view the detailed information
-                                    about the contact. Click on the Add to Bookmarks links and the icons below it.
-                                </p>
-                            </li>
-                        </ol>
-                        <p>If you open and look at
-                            the <code class="inline">app/controllers/profile.js</code> and <code class="inline">app/controllers/directory.js</code> files,
-                            you will notice there are several calls to <code class="inline">Ti.Analytics</code> methods. Your
-                            interaction with the application triggers calls to these methods, which sends data to the
-                            Appcelerator servers.</p>
-                        <h2 id=" Creatingyourfirstmobileapp-ViewapplicationstatisticsinDashboard">View application
-                                        statistics in Dashboard</h2>
-                                        <p>To view the data sent by the client application to the server:</p>
-                                        <ol>
-                                            <li>Go to the Appcelerator Dashboard. To get to the Amplify Platform
-                                                Dashboard, either:<ul>
-                                                    <li>Click the <strong>griffin icon</strong> in the global toolbar to
-                                                        open the
-                                                        Dashboard page.</li>
-                                                    <li>Go to <a href="#"
-                                                            rel="nofollow">#/dashboard</a>.</li>
-                                                </ul>
-                                            </li>
-                                            <li>If you're not already logged in, login with your Appcelerator Platform
-                                                credentials.</li>
-                                            <li>Click Dashboard from the main menu (griffin icon in the upper left
-                                                corner). Click on the
-                                                Apps drop down menu and type in &quot;Directory&quot; and select it.
-                                            </li>
-                                            <li>Click the <strong>Analytics</strong> link in the left menu to see
-                                                current real-time
-                                                usage of the client application. Click
-                                                on <strong>Users</strong>, <strong>Sessions</strong>,<strong> </strong>and <strong>Events</strong> to
-                                                view different data sets.</li>
-                                        </ol>
-                                        <p>Let's create an event funnel to track the user flow. To create an event
-                                            funnel:</p>
-                                        <ol>
-                                            <li>While the <strong>Analytics</strong> tab is selected,
-                                                click <strong>Event
-                                                    Funnels</strong>.</li>
-                                            <li>In the <strong>Enter a Name for your funnel</strong> text box, enter
-                                                &quot;Bookmarks&quot;.</li>
-                                            <li>Drag the <code class="inline">&lt;platform&gt;-profile-viewed</code> event to the
-                                                Funnel panel.</li>
-                                            <li>Drag the <code class="inline">&lt;platform&gt;-profile-addBookmark-clicked</code> event
-                                                below the
-                                                previous event.</li>
-                                            <li>Click <strong>Save</strong>. </li>
-                                        </ol>
-                                        <p>The dashboard will display your new event funnel displaying the percentage of
-                                            users that
-                                            click the bookmark link when they viewed a profile.</p>
-                                        <p>Interact with the client application and return to the Dashboard to see
-                                            updated statistics.  
-                                        </p>
-                    </div>
-                </div>
+                                    the <code class=" inline">ti.map</code> module. Also, you may need to update
+                                the <code class="inline">tiapp.xml</code> file by selecting a Build Property for the
+                                Titanium SDK
+                                (in which case you should select the latest or a recent build and save the change to
+                                this file).</p>
+                    </li>
+                    <li>
+                        <p>Once the application launches, click on profiles to view the detailed information
+                            about the contact. Click on the Add to Bookmarks links and the icons below it.
+                        </p>
+                    </li>
+                </ol>
+                <p>If you open and look at
+                    the <code class="inline">app/controllers/profile.js</code> and <code
+                        class="inline">app/controllers/directory.js</code> files,
+                    you will notice there are several calls to <code class="inline">Ti.Analytics</code> methods. Your
+                    interaction with the application triggers calls to these methods, which sends data to the
+                    Appcelerator servers.</p>
+                <h2>View application statistics in Dashboard</h2>
+                <p>To view the data sent by the client application to the server:</p>
+                <ol>
+                    <li>Go to the Appcelerator Dashboard. To get to the Amplify Platform
+                        Dashboard, either:<ul>
+                            <li>Click the <strong>griffin icon</strong> in the global toolbar to
+                                open the
+                                Dashboard page.</li>
+                            <li>Go to <a href="#" rel="nofollow">#/dashboard</a>.</li>
+                        </ul>
+                    </li>
+                    <li>If you're not already logged in, login with your Appcelerator Platform
+                        credentials.</li>
+                    <li>Click Dashboard from the main menu (griffin icon in the upper left
+                        corner). Click on the
+                        Apps drop down menu and type in &quot;Directory&quot; and select it.
+                    </li>
+                    <li>Click the <strong>Analytics</strong> link in the left menu to see
+                        current real-time
+                        usage of the client application. Click
+                        on <strong>Users</strong>, <strong>Sessions</strong>,<strong> </strong>and <strong>Events</strong> to
+                        view different data sets.</li>
+                </ol>
+                <p>Let's create an event funnel to track the user flow. To create an event
+                    funnel:</p>
+                <ol>
+                    <li>While the <strong>Analytics</strong> tab is selected,
+                        click <strong>Event
+                            Funnels</strong>.</li>
+                    <li>In the <strong>Enter a Name for your funnel</strong> text box, enter
+                        &quot;Bookmarks&quot;.</li>
+                    <li>Drag the <code class="inline">&lt;platform&gt;-profile-viewed</code> event to the
+                        Funnel panel.</li>
+                    <li>Drag the <code class="inline">&lt;platform&gt;-profile-addBookmark-clicked</code> event
+                        below the
+                        previous event.</li>
+                    <li>Click <strong>Save</strong>. </li>
+                </ol>
+                <p>The dashboard will display your new event funnel displaying the percentage of
+                    users that
+                    click the bookmark link when they viewed a profile.</p>
+                <p>Interact with the client application and return to the Dashboard to see
+                    updated statistics.  
+                </p>
+                <div class="col-md-1"></div>
             </div>
         </div>
+    </div>
 </body>
+<script src="../../js/toc_generator.js"></script>
 
 </html>

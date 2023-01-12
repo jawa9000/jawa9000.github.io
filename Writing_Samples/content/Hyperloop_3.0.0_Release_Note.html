@@ -7,46 +7,54 @@
     <link href="../../css/bootstrap.css" rel="stylesheet">
     <link href="../../css/tutorials.css" rel="stylesheet">
     <link rel="stylesheet" href="../styles/main.css" type="text/css" />
+    <script src="../../js/jquery-2.1.0.min.js"></script>
 </head>
 
 <body>
-    <div>
-        <h1>Hyperloop 3.0.0 Release Note</h1>
-    </div>
-    <p class="note">Archive note: all links and images have been disabled as their destinations and/or source
-        locations no longer exist.</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <h1>Hyperloop 3.0.0 Release Note</h1>
+                <p class="note">Archive note: all links and images have been disabled as their destinations and/or
+                    source
+                    locations no longer exist.</p>
+                <toc></toc>
 
-    <div>
-        <div>Created by Brian Immel, last modified on Nov 17, 2017</div>
-        <div>
-            <p>Hyperloop 3.0.0 is a major release that includes new features, improvements, and bug fixes.</p>
+                <p>Created by Brian Immel, last modified on Nov 17, 2017</p>
+                <div>
+                    <p>Hyperloop 3.0.0 is a major release that includes new features, improvements, and bug fixes.</p>
 
-            <h2>New features</h2>
-            <ul>
-                <li><a href="#">TIMOB-24657</a> - Hyperloop: Android - Support to catch native exceptions<ul>
-                        <li>Added feature that catches native exceptions</li>
+                    <h2>New features</h2>
+                    <ul>
+                        <li><a href="#">TIMOB-24657</a> - Hyperloop: Android - Support to catch native exceptions<ul>
+                                <li>Added feature that catches native exceptions</li>
+                            </ul>
+                        </li>
                     </ul>
-                </li>
-            </ul>
-            <h2>Improvements</h2>
-            <ul>
-                <li><a href="#">TIMOB-25340</a> - Hyperloop: Move to using auto-required 'hooks' folder, not
-                    plugin<ul>
-                        <li>As part of the integration of Hyperloop into SDK core, the <code>&lt;plugins&gt;</code> tag
-                            is no longer needed for Hyperloop</li>
+                    <h2>Improvements</h2>
+                    <ul>
+                        <li><a href="#">TIMOB-25340</a> - Hyperloop: Move to using auto-required 'hooks' folder, not
+                            plugin<ul>
+                                <li>As part of the integration of Hyperloop into SDK core,
+                                    the <code>&lt;plugins&gt;</code> tag
+                                    is no longer needed for Hyperloop</li>
+                            </ul>
+                        </li>
+                        <li><a href="#">TIMOB-25399</a> - Windows: Hyperloop to drop Windows 8.1 support<ul>
+                                <li>Removed support for Windows 8.1</li>
+                            </ul>
+                        </li>
                     </ul>
-                </li>
-                <li><a href="#">TIMOB-25399</a> - Windows: Hyperloop to drop Windows 8.1 support<ul>
-                        <li>Removed support for Windows 8.1</li>
+                    <h2>Fixed issues</h2>
+                    <ul>
+                        <li><a href="#">TIMOB-25079</a> - Use JavaScriptCore by default</li>
                     </ul>
-                </li>
-            </ul>
-            <h2>Fixed issues</h2>
-            <ul>
-                <li><a href="#">TIMOB-25079</a> - Use JavaScriptCore by default</li>
-            </ul>
+                    <div class="col-md-1"></div>
+                </div>
+            </div>
         </div>
-    </div>
 </body>
+<script src="../../js/toc_generator.js"></script>
 
 </html>

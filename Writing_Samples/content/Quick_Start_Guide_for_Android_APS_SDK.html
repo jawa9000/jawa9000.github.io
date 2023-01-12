@@ -7,50 +7,22 @@
     <link href="../../css/bootstrap.css" rel="stylesheet">
     <link href="../../css/tutorials.css" rel="stylesheet">
     <link rel="stylesheet" href="../styles/main.css" type="text/css" />
+    <script src="../../js/jquery-2.1.0.min.js"></script>
 </head>
 
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
                 <h1>Quick Start Guide for Android APS SDK</h1>
                 <p class="note">Archive note: all links and images have been disabled as their destinations and/or
                     source locations no longer exist.</p>
                 <div>Created by Brian Immel, last modified on Apr 23, 2019</div>
                 <p class="notice">This AMPLIFY Appcelerator Services feature requires a <a href="#">Pro</a> or <a href="#">Enterprise Subscription</a>.
                 </p>
-                <div class="floatLeft">
-                    <ul>
-                        <li><a href='#Introduction'>Introduction</a></li>
-                        <li><a href='#Requirements'>Requirements</a></li>
-                        <li><a href='#Setup'>Setup</a>
-                            <ul>
-                                <li><a href='#RegisteranAPSSDKapplication'>Register an APS SDK application</a></li>
-                                <li><a href='#RegisteranAPIorMicroserviceapplication'>Register an API or Microservice
-                                        application</a></li>
-                                <li><a href='#RegisteraWebsiteorWebapplication'>Register a Website or Web application</a>
-                                </li>
-                                <li><a href='#RegisteraCustomapplication'>Register a Custom application</a></li>
-                            </ul>
-                        </li>
-                        <li><a href='#BasicAPStutorial'>Basic APS tutorial</a>
-                            <ul>
-                                <li><a href='#Modifytheapplication'>Modify the application</a></li>
-                                <li><a href='#Buildingtheapplication'>Building the application</a></li>
-                                <li><a href='#Captureusersessionevents'>Capture user session events</a></li>
-                                <li><a href='#SendanAnalyticsfeatureevent'>Send an Analytics feature event</a></li>
-                                <li><a href='#QueryCloudusers'>Query Cloud users</a></li>
-                                <li><a href='#LogintoaCloudaccount'>Login to a Cloud account</a></li>
-                                <li><a href='#Logahandledexception'>Log a handled exception</a></li>
-                                <li><a href='#Setausernameforcrashlogs'>Set a username for crash logs</a></li>
-                                <li><a href='#Testingthetutorialsample'>Testing the tutorial sample</a></li>
-                                <li><a href='#NextStepsforAppceleratorAnalyticsCloudandPerformance'>Next Steps for
-                                        Appcelerator Analytics, Cloud and Performance</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                <h2 id="Introduction">Introduction</h2>
+                <toc></toc>
+                <h2>Introduction</h2>
                 <p>This guide walks through the setup of the AMPLIFY Appcelerator Services for Android applications. The
                     <a href="#">AMPLIFY
                         Appcelerator Services SDK</a> gives you access to the <a href="#">Appcelerator Analytics</a>, <a
@@ -58,7 +30,7 @@
                 </p>
                 <p>We also provide service and features for non-Android platforms in our <a href="#">AMPLIFY
                         Appcelerator Services</a> documentation.</p>
-                <h2 id="Requirements">Requirements</h2>
+                <h2>Requirements</h2>
                 <p>This document assumes you have an existing Android application and are familiar with the Android
                     toolchain to
                     create, build, and package Android applications. The following prerequisites are also needed:</p>
@@ -68,14 +40,14 @@
                     <li>Android NDK</li>
                     <li>Android Studio (this guide uses version 3.1.2 or later)</li>
                 </ul>
-                <h2 id="Setup">Setup</h2>
+                <h2>Setup</h2>
                 <p>This section provides information on the prerequisites to useAppcelerator Services in your application.</p>
                 <p>Before you can use Appcelerator Services in your application, you need to:</p>
                 <ul>
                     <li>Create an application in the <a href="#">Dashboard</a> (see <a href="#">Dashboard Basics</a> for more information.)</li>
                     <li>Get the application keys by reviewing <a href="#">Setting Up Application Keys</a>.</li>
                 </ul>
-                <h3 id="RegisteranAPSSDKapplication">Register an APS SDK application</h3>
+                <h3>Register an APS SDK application</h3>
                 <p><a href="#">Appcelerator Platform Services (APS) SDK</a> for iOS and Android provides support for
                     Appcelerator <a href="#">Analytics</a>, <a href="#">Cloud</a>, and <a href="#">Performance</a>
                     services for your Android applications built with the native Android APIs and Java and iOS
@@ -105,7 +77,7 @@
                 </ol>
                 <p>Appcelerator Dashboard displays the Services tab for your application. Follow the directions to add
                     Platform Services to your application.</p>
-                <h3 id="RegisteranAPIorMicroserviceapplication">Register an API or microservice application</h3>
+                <h3>Register an API or microservice application</h3>
                 <p>To register an API or microservice application:</p>
                 <ol>
                     <li>Sign into the <a href="#">AMPLIFY Platform</a>.</li>
@@ -129,7 +101,7 @@
                             (+)</strong> button in the App Team list.</li>
                     <li>Click <strong>OK</strong> to finish registering your API or microservice.</li>
                 </ol>
-                <h3 id="RegisteraWebsiteorWebapplication">Register a website or web application</h3>
+                <h3>Register a website or web application</h3>
                 <p>To register a Website or Web application:</p>
                 <ol>
                     <li>Sign into the <a href="#">AMPLIFY Platform</a>.</li>
@@ -154,7 +126,7 @@
                     <li>Click <strong>OK</strong> to finish registering your website or web application.</li>
                 </ol>
 
-                <h3 id="RegisteraCustomapplication">Register a Custom application</h3>
+                <h3>Register a Custom application</h3>
                 <p>To register a custom application (other than APS SDK, API/Microservice, or Website/Web applications):
                 </p>
                 <ol>
@@ -186,7 +158,7 @@
                 <p>For more information, refer to <a href="#">Managing Non-Titanium Client Applications</a> in the
                 Dashboard.</p>
 
-                <h2 id="BasicAPStutorial">Basic APS tutorial</h2>
+                <h2>Basic APS tutorial</h2>
                 <p>The following tutorial demonstrates basic setup and usage of <a href="#">Analytics</a>, <a
                         href="#">Cloud</a>, and <a href="#">Performance</a> libraries in an <a href="#">Eclipse</a>
                     project. To complete the tutorial, you will need your application key for the Cloud, Analytics, and
@@ -259,7 +231,7 @@
                 </ol>
                 <p>The Android application is now ready to make method calls using the APS SDK APIs.</p>
 
-                <h3 id="Modifytheapplication">Modify the application</h3>
+                <h3>Modify the application</h3>
                 <p>Customize the application's UI to display a spinner, text field and button, and add some logic to
                     respond to user interaction. The spinner will display a list of available user accounts. The user
                     can enter
@@ -360,7 +332,7 @@
                             </code>
                     </li>
                 </ol>
-                <h3 id="Buildingtheapplication">Building the application</h3>
+                <h3>Building the application</h3>
                 <p>If you use <a href="#">Maven</a> or <a href="#">Gradle</a> as part of your build process, you
                     will need to publish the APS SDK to your local Maven repository and add the APS SDK as a
                     dependency to your project.</p>
@@ -387,7 +359,7 @@
                         <span class="indent1">&lt;/dependency&gt;</span><br/>
                         &lt;/dependencies&gt;<br/>
                     </code>
-                <h3 id="Captureusersessionevents">Capture user session events</h3>
+                <h3>Capture user session events</h3>
                 <p>Unlike the <a href="#">iOS</a> and <a href="#">Titanium platforms</a>, you need to explicitly
                     make analytic method calls in the application to send user session events to the Analytics
                     service to capture user activity.</p>
@@ -427,7 +399,7 @@
                         <span class="indent1">APSAnalytics.getInstance().sendAppForegroundEvent();</span><br/>
                         }<br/>
                     </code>
-                <h3 id="SendanAnalyticsfeatureevent">Send an Analytics feature event</h3>
+                <h3>Send an Analytics feature event</h3>
                 <p>Besides user session events, you can also send custom analytics events, as shown in this example.
                     There are two types of custom events: feature events and navigation events.</p>
                 <p>In the <code class="inline">doClick()</code> function, add a APSAnalytics' <code
@@ -441,7 +413,7 @@
                         <span class="indent1">APSAnalytics.getInstance().sendAppFeatureEvent(&quot;sample.feature.login&quot;, null);</span><br/>
                         }; 
                     </code>
-                <h3 id="QueryCloudusers">Query Cloud users</h3>
+                <h3>Query Cloud users</h3>
                 <p>To use the <a href="#">APS Cloud</a> component, most of the methods require a user to be logged
                     in. This sample uses the Spinner widget to select a Cloud user accounts. To populate the Spinner
                     values, the application needs to retrieve a list of users. Use the <code
@@ -451,41 +423,41 @@
                     (such as success or failure) and the response payload.</p>
                 <p><strong>MainActivity.java</strong></p>
                 <code class="block">
-            public void populateSpinner() {<br/>
-                <span class="indent1">try {</span><br/>
-                <span class="indent2">APSUsers.query(null, new APSResponseHandler() {</span><br/>
-                <span class="indent3">@Override</span><br/>
-                <span class="indent3">public void onResponse(final APSResponse e) {</span><br/>
-                <span class="indent4">if (e.getSuccess()) {</span><br/>
-                <span class="indent5">try {</span><br/>
-                <span class="indent6">JSONArray payload = e.getResponse().getJSONArray(&quot;users&quot;);</span><br/>
-                <span class="indent6">String[] items = new String[payload.length()];</span><br/>
-                <span class="indent6">for (int i = 0; i &lt; payload.length(); i++) {</span><br/>
-                <span class="indent7">items[i] = payload.getJSONObject(i).getString(&quot;username&quot;);</span><br/>
-                <span class="indent6">}<br/>
-                <span class="indent6">ArrayAdapter spinnerArrayAdapter = new ArrayAdapter(currentActivity,</span><br/>
-                <span class="indent7">android.R.layout.simple_spinner_item, items);</span><br/>
-                <span class="indent7">spinner.setAdapter(spinnerArrayAdapter); </span><br/>
-                <span class="indent6">} catch (Exception ex) {</span><br/>
-                <span class="indent7">Log.e(&quot;ACSUsers&quot;, &quot;Error parsing JSON object: &quot; + ex.toString());</span><br/>
-                <span class="indent6">}</span><br/>
-                <span class="indent5">} else {</span><br/>
-                <span class="indent6">Toast.makeText(currentActivity, &quot;ERROR: Unable to get users.&quot;, Toast.LENGTH_SHORT).show();<br/>
-                <span class="indent6">Log.e(&quot;ACSUsers&quot;, e.getResponseString());<br/>
-                <span class="indent5">}<br/>
-                <span class="indent4">}<br/>
-                <br/>
-                <span class="indent4">@Override</span><br/>
-                <span class="indent4">public void onException(APSCloudException e) {</span><br/>
-                <span class="indent5">Log.e(&quot;ACSUsers&quot;, e.toString());</span><br/>
-                <span class="indent4">}</span><br/>
+                    public void populateSpinner() {<br/>
+                    <span class="indent1">try {</span><br/>
+                    <span class="indent2">APSUsers.query(null, new APSResponseHandler() {</span><br/>
+                    <span class="indent3">@Override</span><br/>
+                    <span class="indent3">public void onResponse(final APSResponse e) {</span><br/>
+                    <span class="indent4">if (e.getSuccess()) {</span><br/>
+                    <span class="indent5">try {</span><br/>
+                    <span class="indent6">JSONArray payload = e.getResponse().getJSONArray(&quot;users&quot;);</span><br/>
+                    <span class="indent6">String[] items = new String[payload.length()];</span><br/>
+                    <span class="indent6">for (int i = 0; i &lt; payload.length(); i++) {</span><br/>
+                    <span class="indent7">items[i] = payload.getJSONObject(i).getString(&quot;username&quot;);</span><br/>
+                    <span class="indent6">}<br/>
+                    <span class="indent6">ArrayAdapter spinnerArrayAdapter = new ArrayAdapter(currentActivity,</span><br/>
+                    <span class="indent7">android.R.layout.simple_spinner_item, items);</span><br/>
+                    <span class="indent7">spinner.setAdapter(spinnerArrayAdapter); </span><br/>
+                    <span class="indent6">} catch (Exception ex) {</span><br/>
+                    <span class="indent7">Log.e(&quot;ACSUsers&quot;, &quot;Error parsing JSON object: &quot; + ex.toString());</span><br/>
+                    <span class="indent6">}</span><br/>
+                    <span class="indent5">} else {</span><br/>
+                    <span class="indent6">Toast.makeText(currentActivity, &quot;ERROR: Unable to get users.&quot;, Toast.LENGTH_SHORT).show();<br/>
+                    <span class="indent6">Log.e(&quot;ACSUsers&quot;, e.getResponseString());<br/>
+                    <span class="indent5">}<br/>
+                    <span class="indent4">}<br/>
+                    <br/>
+                    <span class="indent4">@Override</span><br/>
+                    <span class="indent4">public void onException(APSCloudException e) {</span><br/>
+                    <span class="indent5">Log.e(&quot;ACSUsers&quot;, e.toString());</span><br/>
+                    <span class="indent4">}</span><br/>
                     <span class="indent3">});</span><br/>
-                <span class="indent2">} catch (APSCloudException e) {</span><br/>
-                <span class="indent3">Log.e(&quot;ACSUsers&quot;, e.toString());</span><br/>
-                <span class="indent2">}</span><br/>
-                <span class="indent1">}</span>
-                    </code>
-                <h3 id="LogintoaCloudaccount">Login to a Cloud account</h3>
+                    <span class="indent2">} catch (APSCloudException e) {</span><br/>
+                    <span class="indent3">Log.e(&quot;ACSUsers&quot;, e.toString());</span><br/>
+                    <span class="indent2">}</span><br/>
+                    <span class="indent1">}</span>
+                </code>
+                <h3>Login to a Cloud account</h3>
                 <p>To login to a Cloud account, you need the username and password. Since the application was
                     modified to get all available user accounts and populate the Spinner, the application needs to
                     get the current value of the spinner and the text entered in the EditText widget. These values
@@ -527,7 +499,7 @@
                 <span class="indent1">}</span><br/>
             }
                     </code>
-                <h3 id="Logahandledexception">Log a handled exception</h3>
+                <h3>Log a handled exception</h3>
                 <p>The <a href="#">Performance library</a> automatically logs application crashes (unhandled
                     exceptions) and handled exceptions to the backend Performance service. You can also leave
                     breadcrumbs in your application, which are developer-defined text strings (up to 140 characters)
@@ -554,28 +526,27 @@
                         <span class="indent1">}</span><br/>
                         }
                     </code>
-
-                <h3 id="Setausernameforcrashlogs">Set a username for crash logs</h3>
+                <h3>Set a username for crash logs</h3>
                 <p>To help differentiate crash logs, use the APSPerformance's <a href="#"><code
                             class="inline">setUsername()</code></a> method. When the application successfully logs
                     in to the Cloud user account, the application calls APSPerformance's <a href="#"><code
                             class="inline">setUsername()</code></a>method.</p>
                 <code class="block">
-            APSUsers.login(data, new APSResponseHandler() {<br/>
-            <span class="indent1"></span>@Override</span><br/>
-            <span class="indent1"></span>public void onResponse(final APSResponse e) {</span><br/>
-            <span class="indent2"></span>if (e.getSuccess()) {</span><br/>
-            <span class="indent3"></span>Log.i(&quot;ACSUsers&quot;, &quot;Successfully logged in as &quot; + username);</span><br/>
-            <br/>
-            <span class="indent3"></span>// Add this method call</span><br/>
-            <span class="indent3"></span>APSPerformance.getInstance().setUsername(&quot;username&quot;);</span><br/>
-            <span class="indent3">} else {</span><br/>
-            <span class="indent4">Log.e(&quot;ACSUsers&quot;, e.getMessage());</span><br/>
-            <span class="indent3">}</span><br/>
-            <span class="indent1">}</span><br/>
-            });
-        </code>
-                <h3 id="Testingthetutorialsample">Testing the tutorial sample</h3>
+                    APSUsers.login(data, new APSResponseHandler() {<br/>
+                    <span class="indent1"></span>@Override</span><br/>
+                    <span class="indent1"></span>public void onResponse(final APSResponse e) {</span><br/>
+                    <span class="indent2"></span>if (e.getSuccess()) {</span><br/>
+                    <span class="indent3"></span>Log.i(&quot;ACSUsers&quot;, &quot;Successfully logged in as &quot; + username);</span><br/>
+                    <br/>
+                    <span class="indent3"></span>// Add this method call</span><br/>
+                    <span class="indent3"></span>APSPerformance.getInstance().setUsername(&quot;username&quot;);</span><br/>
+                    <span class="indent3">} else {</span><br/>
+                    <span class="indent4">Log.e(&quot;ACSUsers&quot;, e.getMessage());</span><br/>
+                    <span class="indent3">}</span><br/>
+                    <span class="indent1">}</span><br/>
+                    });
+                </code>
+                <h3>Testing the tutorial sample</h3>
                 <p>Before testing the sample, you need to create user accounts for the application to query. To
                     create Cloud user accounts:</p>
                 <ol>
@@ -615,8 +586,7 @@
                     <li>In the left navbar, click <strong>Events</strong>. You should see the <code
                             class="inline">"sample.feature.login"</code> feature event.</li>
                 </ol>
-                <h3 id="NextStepsforAppceleratorAnalyticsCloudandPerformance">Next Steps for Appcelerator Analytics,
-                    Cloud and Performance</h3>
+                <h3>Next Steps for Appcelerator Analytics, Cloud and Performance</h3>
                 <p>This tutorial only covers a small portion of what the <a href="#">Analytics</a>, <a
                         href="#">Cloud</a>, and <a href="#">Performance</a> services can provide. For more in-depth
                     information about these features, see the following topics:</p>
@@ -626,9 +596,10 @@
                             Services</a></li>
                     <li><a href="#">APS Performance for Android</a></li>
                 </ul>
+                <div class="col-md-1"></div>
             </div>
         </div>
     </div>
 </body>
-
+<script src="../../js/toc_generator.js"></script>
 </html>

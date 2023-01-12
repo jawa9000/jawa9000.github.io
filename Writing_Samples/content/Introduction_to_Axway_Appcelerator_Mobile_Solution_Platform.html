@@ -5,6 +5,7 @@
 <link href="../../css/bootstrap.css" rel="stylesheet">
 <link href="../../css/tutorials.css" rel="stylesheet">
 <link rel="stylesheet" href="../styles/main.css" type="text/css" />
+<script src="../../js/jquery-2.1.0.min.js"></script>
 </head>
 
 <body>
@@ -15,27 +16,16 @@
                 <p class="note">Archive note: all links and images have been disabled as their destinations and/or
                     source locations no longer exist.</p>
                 <div>Created by Brian Immel, last modified on Dec 18, 2017</div>
-                <div class="floatLeft">
-                    <ul>
-                        <li><a href="#Introduction">Introduction</a></li>
-                        <li><a href="#TitaniumSDK">Titanium SDK</a></li>
-                        <li><a href="#AppceleratorStudio">Appcelerator Studio</a></li>
-                        <li><a href="#AppceleratorCLI">Appcelerator CLI</a></li>
-                        <li><a href="#Hyperloop">Hyperloop</a></li>
-                        <li><a href="#Alloy">Alloy</a></li>
-                        <li><a href="#AppceleratorDashboard">Appcelerator Dashboard</a></li>
-                        <li><a href="#APIBuilder">API Builder</a></li>
-                        <li><a href="#MobileBackendServices">Mobile Backend Services</a></li>
-                        <li><a href="#AppDesigner">App Designer</a></li>
-                        <li><a href="#AppPreview">App Preview</a></li>
-                        <li><a href="#MobileAnalytics">Mobile Analytics</a></li>
-                        <li><a href="#Titaniumat10000feet">Titanium at 10,000 feet</a></li>
-                    </ul>
-                </div>
-                <h2 id="Introduction">Introduction</h2>
-                <p><strong>Axway Appcelerator Mobile Solution Platform</strong> manages the entire <a href="#">lifecycle</a> of a mobile application from creation of
-                    cross-platform mobile apps to <a href="#">collecting analytics</a> and <a href="#">testing</a>, <a href="#">debugging</a>, <a href="#">deploying</a>, and <a href="#">crash monitoring</a> and more all using one language (JavaScript). Mobile applications built with this platform are run
-                    against a standalone JavaScript engine which invokes native APIs. As a developer, you are in fact writing a native application - it's just that you're using cross-platform JavaScript rather than non-portable Java or Objective-C.</p>
+                <toc></toc>
+                <h2>Introduction</h2>
+                <p><strong>Axway Appcelerator Mobile Solution Platform</strong> manages the entire <a
+                        href="#">lifecycle</a> of a mobile application from creation of
+                    cross-platform mobile apps to <a href="#">collecting analytics</a> and <a href="#">testing</a>, <a
+                        href="#">debugging</a>, <a href="#">deploying</a>, and <a href="#">crash monitoring</a> and more
+                    all using one language (JavaScript). Mobile applications built with this platform are run
+                    against a standalone JavaScript engine which invokes native APIs. As a developer, you are in fact
+                    writing a native application - it's just that you're using cross-platform JavaScript rather than
+                    non-portable Java or Objective-C.</p>
                 <p>At a high-level, this platform is the combination of:</p>
                 <ul>
                     <li><a href="#">Titanium SDK</a></li>
@@ -51,76 +41,91 @@
                     <li><a href="#">App Preview</a></li>
                     <li><a href="#">Mobile Analytics</a></li>
                 </ul>
-                <h2 id="TitaniumSDK">Titanium SDK</h2>
-                <p>The <a href="#">Titanium SDK tools</a> combine your JavaScript source code, a JavaScript interpreter, and your static
-                    assets into an <a href="#">application binary</a> that will be installed to an <a href="#">emulator</a> or <a href="#">mobile device</a>.
-                    Fortunately for you, <a href="#AppceleratorStudio">Appcelerator Studio</a> will manage almost every aspect of this build chain, leaving you to
+                <h2>Titanium SDK</h2>
+                <p>The <a href="#">Titanium SDK tools</a> combine your JavaScript source code, a JavaScript interpreter,
+                    and your static
+                    assets into an <a href="#">application binary</a> that will be installed to an <a
+                        href="#">emulator</a> or <a href="#">mobile device</a>.
+                    Fortunately for you, <a href="#AppceleratorStudio">Appcelerator Studio</a> will manage almost every
+                    aspect of this build chain, leaving you to
                     focus on building your apps.</p>
-                <h2 id="AppceleratorStudio">Appcelerator Studio</h2>
+                <h2>Appcelerator Studio</h2>
                 <p><strong><a href="#">Appcelerator Studio</a></strong> (Studio) is Appcelerator's free <a
-                    href="http://en.wikipedia.org/wiki/Integrated_development_environment"
-                   >IDE</a> (integrated development environment). You can use Studio to write, test,
-                and debug your mobile applications. Studio also has integrated templates and sample applications to
-                make it even easier to get started creating your own apps. In addition, Studio will help you manage
-                <a href="#">Titanium SDK updates</a> and <a href="#">module usage</a>.</p>
-                <h2 id="AppceleratorCLI">Appcelerator CLI</h2>
-                <p>The <strong><a href="#">Appcelerator CLI</a></strong> is a set of command-line tools to develop and deploy
+                        href="http://en.wikipedia.org/wiki/Integrated_development_environment">IDE</a> (integrated
+                    development environment). You can use Studio to write, test,
+                    and debug your mobile applications. Studio also has integrated templates and sample applications to
+                    make it even easier to get started creating your own apps. In addition, Studio will help you manage
+                    <a href="#">Titanium SDK updates</a> and <a href="#">module usage</a>.
+                </p>
+                <h2>Appcelerator CLI</h2>
+                <p>The <strong><a href="#">Appcelerator CLI</a></strong> is a set of command-line tools to develop and
+                    deploy
                     mobile and cloud applications. The Appcelerator CLI provides a unified interface for using the
-                    other Appcelerator command-line tools, such as the <a href="#">Titanium CLI</a>, <a href="#">Alloy CLI</a>, and <a href="#">API
-                    Runtime Services CLI</a>.</p>
-                <h2 id="Hyperloop">Hyperloop</h2>
-                <p><strong><a href="#">Hyperloop</a></strong> gives you direct access to the native APIs. Titanium SDK already
-                        covers plenty of the native APIs and makes them cross-platform addressing the most popular APIs.
-                        This technology was built for those developers who require access to even the most obscure APIs
-                        out there. Hyperloop is available on all Platform tiers and apps that are registered with the <a
-                            href="#">AMPLIFY Appcelerator Services</a>.</p>
-                <h2 id="Alloy">Alloy</h2>
+                    other Appcelerator command-line tools, such as the <a href="#">Titanium CLI</a>, <a href="#">Alloy
+                        CLI</a>, and <a href="#">API
+                        Runtime Services CLI</a>.</p>
+                <h2>Hyperloop</h2>
+                <p><strong><a href="#">Hyperloop</a></strong> gives you direct access to the native APIs. Titanium SDK
+                    already
+                    covers plenty of the native APIs and makes them cross-platform addressing the most popular APIs.
+                    This technology was built for those developers who require access to even the most obscure APIs
+                    out there. Hyperloop is available on all Platform tiers and apps that are registered with the <a
+                        href="#">AMPLIFY Appcelerator Services</a>.</p>
+                <h2>Alloy</h2>
                 <p>The <strong><a href="#">Alloy</a> framework</strong> is designed to rapidly develop quality Titanium
                     applications. Alloy is based on the model-view-controller architecture and contains built-in
-                        support for <a href="#">Backbone.js</a> and <a
-                        href="http://underscorejs.org/">Underscore.js</a>.</p>
-                <h2 id="AppceleratorDashboard">Appcelerator Dashboard</h2>
-                <p><strong><a href="#">Appcelerator Dashboard</a></strong> is a web application you use to manage all aspects of
-                        your AMPLIFY Appcelerator Services development. You can manage Titanium applications, as well as
-                        iOS and Android applications built with Objective-C (or Swift) and Java. It enables you to
-                        create, deliver, analyze, and manage your mobile apps.</p>
-                <h2 id="APIBuilder">API Builder</h2>
-                <p><strong><a href="#">Axway API Builder</a></strong> provides various backend services, including analytics, that are
-                    included in our list of Titanium components. <a href="#">Titanium analytics</a> provide basic usage-level
+                    support for <a href="#">Backbone.js</a> and <a href="http://underscorejs.org/">Underscore.js</a>.
+                </p>
+                <h2>Appcelerator Dashboard</h2>
+                <p><strong><a href="#">Appcelerator Dashboard</a></strong> is a web application you use to manage all
+                    aspects of
+                    your AMPLIFY Appcelerator Services development. You can manage Titanium applications, as well as
+                    iOS and Android applications built with Objective-C (or Swift) and Java. It enables you to
+                    create, deliver, analyze, and manage your mobile apps.</p>
+                <h2>API Builder</h2>
+                <p><strong><a href="#">Axway API Builder</a></strong> provides various backend services, including
+                    analytics, that are
+                    included in our list of Titanium components. <a href="#">Titanium analytics</a> provide basic
+                    usage-level
                     statistics, including how often your app is used and on which platforms. You can even log custom
                     analytics events so that you can track the use of specific features, like button clicks, data
                     access, or any other type of user interaction. These services are provided transparently to the
                     developer via the core API.</p>
-                <h2 id="MobileBackendServices">Mobile Backend Services</h2>
+                <h2>Mobile Backend Services</h2>
                 <p><strong><a href="#">Mobile Backend Services</a></strong> (MBS) provides pre-built,
                     automatically-scaled network services, and data objects for your client applications. MBS can be
                     integrated with your Titanium, Node.js, Android, or iOS application and also provide the ability to
                     send push notifications to Android and iOS devices subscribed to push channels.</p>
-                <h2 id="AppDesigner">App Designer</h2>
+                <h2>App Designer</h2>
                 <p>The <strong><a href="#">Appcelerator App Designer</a></strong> is an integrated WYSIWYG layout
-                        design tool for developing mobile applications using <a href="#">Appcelerator Titanium</a>. App Designer
-                        features two views: <strong>Design</strong> and <strong>XML</strong>.
-                        The Design view allows you to have an editor view for both your design and layout while the XML
-                        views allows you to view your code.</p>
-                <h2 id="AppPreview">App Preview</h2>
-                <p><strong><a href="#">App Preview</a></strong> is an Appcelerator Studio feature that allows you to distribute beta
+                    design tool for developing mobile applications using <a href="#">Appcelerator Titanium</a>. App
+                    Designer
+                    features two views: <strong>Design</strong> and <strong>XML</strong>.
+                    The Design view allows you to have an editor view for both your design and layout while the XML
+                    views allows you to view your code.</p>
+                <h2>App Preview</h2>
+                <p><strong><a href="#">App Preview</a></strong> is an Appcelerator Studio feature that allows you to
+                    distribute beta
                     versions of your apps to testers and stakeholders. Users should be able to upload their beta apps to
                     App Preview.</p>
-                <p>App Preview supports the <a href="#">Android and iOS platforms</a> and comes along with <a href="#">CLI hook</a> installed with the
+                <p>App Preview supports the <a href="#">Android and iOS platforms</a> and comes along with <a
+                        href="#">CLI hook</a> installed with the
                     App core.</p>
-                <h2 id="MobileAnalytics">Mobile Analytics</h2>
-                <p><strong><a href="#">Mobile Analytics</a></strong> collects and presents information in real time about how your
-                        application's user acquisition, engagement, and usage. By default, it provides the number of
-                        applications installs, the number of sessions, and the average application session length
-                        organized by application name, platform and geography. Your application can send
-                        custom analytic events, which are collected and logged, to learn how users use
-                        your application. You can also create <em>event funnels</em> - ordered sets of custom events
-                        that correspond to a business process or application flow you want to track as a whole.
+                <h2>Mobile Analytics</h2>
+                <p><strong><a href="#">Mobile Analytics</a></strong> collects and presents information in real time
+                    about how your
+                    application's user acquisition, engagement, and usage. By default, it provides the number of
+                    applications installs, the number of sessions, and the average application session length
+                    organized by application name, platform and geography. Your application can send
+                    custom analytic events, which are collected and logged, to learn how users use
+                    your application. You can also create <em>event funnels</em> - ordered sets of custom events
+                    that correspond to a business process or application flow you want to track as a whole.
                 </p>
-                <h2 id="Titaniumat10000feet">Titanium at 10,000 feet</h2>
+                <h2>Titanium at 10,000 feet</h2>
                 <p>Titanium exists as a bridge between the native operating system and your app's code.</p>
                 <p>At the bottom of the stack is the client operating system: iOS and Android. At the top is your app
-                    built JavaScript. In between, is the <a href="#">Titanium SDK</a> and the <a href="#">APIs</a> it exposes. You write your app in
+                    built JavaScript. In between, is the <a href="#">Titanium SDK</a> and the <a href="#">APIs</a> it
+                    exposes. You write your app in
                     JavaScript, calling on the Titanium APIs to take actions like drawing buttons, opening windows,
                     utlizing the camera, and so on. The Titanium bridge (part of the SDK) translates those calls into
                     their native equivalents. In other words, when you create a Titanium button, it's actually a proxy
@@ -131,5 +136,6 @@
         </div>
     </div>
 </body>
+<script src="../../js/toc_generator.js"></script>
 
 </html>

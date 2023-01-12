@@ -7,47 +7,58 @@
     <link href="../../css/bootstrap.css" rel="stylesheet">
     <link href="../../css/tutorials.css" rel="stylesheet">
     <link rel="stylesheet" href="../styles/main.css" type="text/css" />
+    <script src="../../js/jquery-2.1.0.min.js"></script>
 </head>
-
 <body>
-    <div id="page">
-        <div id="main">
-            <div id="main-header">
-                <h1 id="title-heading">Use Nightmare.js to Generate a Confluence Sitemap</h1>
-            </div>
-            <div id="content">
-                <div>
-                    Created by Brian Immel on May 2019.
-                </div>
-                <div id="main-content">
-                    <h2>Introduction</h2>
-                    <p>In a recent project, I had a task to generate a list of documents in a particular Confluence space for the purpose of exporting them later. I chose to explore my options using <a href="http://www.nightmarejs.org/">Nightmare.js</a>. Using this <a href="https://nodejs.org/en/">Node.js</a> (version 10.11.0) module, it allowed me to programmatically enter my credentials into Confluence, navigate to a specific document, and gather a list of documents (thanks to the target document using the Children Display macro that listed all the documents of the parent page of the target space). I also wanted this script to take arguments (flags) such as the username, password, spacekey, output file, and a delay value so that the process can be automated for a variety of reasons.</p>
-                    <p>Note: this document is part of a series of Confluence notes and tutorials that you can find in my personal blog called <a href="https://crudthedocs.blogspot.com/search/label/confluence">CRUD The Docs</a></p>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <h1>Use Nightmare.js to Generate a Confluence Sitemap</h1>
+                <p>Created by Brian Immel on May 2019.</p>
+                <toc></toc>
+                <h2>Introduction</h2>
+                <p>In a recent project, I had a task to generate a list of documents in a particular Confluence space
+                    for the purpose of exporting them later. I chose to explore my options using <a
+                        href="http://www.nightmarejs.org/">Nightmare.js</a>. Using this <a
+                        href="https://nodejs.org/en/">Node.js</a> (version 10.11.0) module, it allowed me to
+                    programmatically enter my credentials into Confluence, navigate to a specific document, and gather a
+                    list of documents (thanks to the target document using the Children Display macro that listed all
+                    the documents of the parent page of the target space). I also wanted this script to take arguments
+                    (flags) such as the username, password, spacekey, output file, and a delay value so that the process
+                    can be automated for a variety of reasons.</p>
+                <p>Note: this document is part of a series of Confluence notes and tutorials that you can find in my
+                    personal blog called <a href="https://crudthedocs.blogspot.com/search/label/confluence">CRUD The
+                        Docs</a></p>
 
-                    <h2>Required skills and npm packages</h2>
-                    <p>This tutorial requires a number of skills and/or npm modules to complete everything mentioned herein:</p>
-                    <ul>
-                        <li>Confluence (5.x): You should be comfortable with creating pages that utilize the Children Display macro</li>
-                        <li>Nightmare (3.0.1): have some familiarity with the basics of this module</li>
-                        <li>Commander (2.19.0): have some familiarity with the basics of this module</li>
-                        <li>Cheerio (1.0.0-rc.2): have some familiarity with the basics of this module</li>
-                        <li>CSS: basic knowledge of how to select elements</li>
-                        <li>JavaScript: fair knowledge of how to use JavaScript</li>
-                    </ul>
-                    <h2>Setting up requirements</h2>
-                    <p>First, we set off with requiring a number of modules in our base app.js file:</p>
-                    <code id="code-head" class="block">
-                        const Nightmare = require("nightmare");<br/>
-                        const cheerio = require('cheerio');<br/>
-                        const program = require('commander');<br/>
-                        const fs = require('fs');<br/>
-                        <br/>
-                        ....
-                    </code>
-
-                    <h2>Set up nightmare and flag options</h2>
-                    <p>The next two lines set up nightmare to display its process as it's going through the steps we'll program it to navigate and a selector to find the content we're looking for in our target document. The <code class="inline">confluenceSelector</code> is the CSS selector that will be used to find the desired content in the main body of the Confluence document.</p>
-                    <code id="code-head" class="block">
+                <h2>Required skills and npm packages</h2>
+                <p>This tutorial requires a number of skills and/or npm modules to complete everything mentioned herein:
+                </p>
+                <ul>
+                    <li>Confluence (5.x): You should be comfortable with creating pages that utilize the Children
+                        Display macro</li>
+                    <li>Nightmare (3.0.1): have some familiarity with the basics of this module</li>
+                    <li>Commander (2.19.0): have some familiarity with the basics of this module</li>
+                    <li>Cheerio (1.0.0-rc.2): have some familiarity with the basics of this module</li>
+                    <li>CSS: basic knowledge of how to select elements</li>
+                    <li>JavaScript: fair knowledge of how to use JavaScript</li>
+                </ul>
+                <h2>Setting up requirements</h2>
+                <p>First, we set off with requiring a number of modules in our base app.js file:</p>
+                <code class="block">
+                    const Nightmare = require("nightmare");<br/>
+                    const cheerio = require('cheerio');<br/>
+                    const program = require('commander');<br/>
+                    const fs = require('fs');<br/>
+                    <br/>
+                    ....
+                </code>
+                <h2>Set up nightmare and flag options</h2>
+                <p>The next two lines set up nightmare to display its process as it's going through the steps we'll
+                    program it to navigate and a selector to find the content we're looking for in our target document.
+                    The <code class="inline">confluenceSelector</code> is the CSS selector that will be used to find the
+                    desired content in the main body of the Confluence document.</p>
+                <code class="block">
                     ....<br/>
                     const nightmare = Nightmare({<br/>
                     <span class="indent1">show: true</span><br/>
@@ -55,159 +66,189 @@
                     const confluenceSelector = '#main-content';<br/>
                     <br/>
                     ....
-                    </code>
-                    <p>Note: you don't want to see an Electron window pop up and nightmare to do it's stuff, set show to <code class="inline">false</code>.</p>
+                </code>
+                <p>Note: you don't want to see an Electron window pop up and nightmare to do it's stuff, set show to
+                    <code class="inline">false</code>.
+                </p>
+                <p>Next, we set up the flags and their usage using commander module features:</p>
+                <code class="block">
+                    ...<br/>
+                    program<br/>
+                    <span class="indent1">.version('0.0.1')</span><br/>
+                    <span class="indent1">.usage('-u <username> -p <password> -s <spacekey> -f <output.txt> -d <milliseconds>')</span><br/>
+                    <span class="indent1">.option('-u, --user', '*required* Username id')</span><br/>
+                    <span class="indent1">.option('-p, --password', '*required* User\'s password')</span><br/>
+                    <span class="indent1">.option('-s, --spacekey', '*required* Spacekey for the Confluence space')</span><br/>
+                    <span class="indent1">.option('-f --file', 'Text file to be used for tracking Confluence document names. Can be set to either true (defaults to the spacekey naming scheme) or a file name.')</span><br/>
+                    <span class="indent1">.option('-d, --delay', 'Delay (in milliseconds) to wait for server response')</span><br/>
+                    <span class="indent1">.parse(process.argv);</span><br/>
+                    ...
+                </code>
+                <p>With the flags set, we now need to parse them into an object that we'll use throughout the rest of
+                    the script. We loop through the program.rawArgs value provided by the commander module. In this
+                    loop, we are looking for specific flags so we can associate the flag with the value associated with
+                    it.</p>
 
-                    <p>Next, we set up the flags and their usage using commander module features:</p>
-
-                    <code id="code-head" class="block">
-                        ...<br/>
-                        program<br/>
-                        <span class="indent1">.version('0.0.1')</span><br/>
-                        <span class="indent1">.usage('-u <username> -p <password> -s <spacekey> -f <output.txt> -d <milliseconds>')</span><br/>
-                        <span class="indent1">.option('-u, --user', '*required* Username id')</span><br/>
-                        <span class="indent1">.option('-p, --password', '*required* User\'s password')</span><br/>
-                        <span class="indent1">.option('-s, --spacekey', '*required* Spacekey for the Confluence space')</span><br/>
-                        <span class="indent1">.option('-f --file', 'Text file to be used for tracking Confluence document names. Can be set to either true (defaults to the spacekey naming scheme) or a file name.')</span><br/>
-                        <span class="indent1">.option('-d, --delay', 'Delay (in milliseconds) to wait for server response')</span><br/>
-                        <span class="indent1">.parse(process.argv);</span><br/>
-                        ...
-                    </code>
-                    <p>With the flags set, we now need to parse them into an object that we'll use throughout the rest of the script. We loop through the program.rawArgs value provided by the commander module. In this loop, we are looking for specific flags so we can associate the flag with the value associated with it.</p>
-
-                    <code id="code-head" class="block">
-                        ...<br/>
-                        var argument = {};<br/>
-                        <br/>
-                        for (var i = 0; i < program.rawArgs.length; i++) {<br/>
-                            <span class="indent1">if (program.rawArgs[i] == '--user' || program.rawArgs[i] == '-u') {</span><br/>
-                                <span class="indent2">arguments.user = program.rawArgs[i + 1];</span><br/>
-                            <span class="indent1">}</span><br/>
-                            <span class="indent1">if (program.rawArgs[i] == '--password' || program.rawArgs[i] == '-p') {</span><br/>
-                            <span class="indent2">arguments.pass = program.rawArgs[i + 1];</span><br/>
-                            <span class="indent1">}</span><br/>
-                            <span class="indent1">if (program.rawArgs[i] == '--spacekey' || program.rawArgs[i] == '-s') {</span><br/>
-                            <span class="indent2">arguments.spacekey = program.rawArgs[i + 1];</span><br/>
-                            <span class="indent1">}</span><br/>
-                            <span class="indent1">if (program.rawArgs[i] == '--delay' || program.rawArgs[i] == '-d') {</span><br/>
-                                <span class="indent2">arguments.delay = parseInt(program.rawArgs[i + 1]);</span><br/>
-                            <span class="indent1">}</span><br/>
-                            <span class="indent1">if (program.rawArgs[i] == '--file' || program.rawArgs[i] == '-f') {</span><br/>
-                            <span class="indent2">arguments.file = program.rawArgs[i + 1];</span><br/>
-                            <span class="indent1">}<br/>
-                        }<br/>
-                        ...
-                    </code>
-
-                    <p>Since the delay flag is optional, we should set up a fallback if the user doesn't supply one. In this case, we're setting the delay to 10 seconds though you can adjust this delay value to a number you're comfortable with your Confluence server responding to a login page request.</p>
-
-                    <code id="code-head" class="block">
-                        ...<br/>
-                        if (!arguments.delay) {<br/>
-                            <span class="indent1">arguments.delay = 10000;</span><br/>
-                            <span class="indent1">console.log('Server response delay not set. Assuming ' + arguments.delay + ' millisecond delay.');</span><br/>
-                        }<br/>
-                        <br/>
-                        ...
-                    </code>
-                    <p>Now we should set up the file path where we keep the site map information. If the user doesn't supply a file to output our data to, the script will use a fallback based on the submitted spacekey name.</p>
-                    <code id="code-head" class="block">
-                        ...<br/>
-                        if (arguments.file) {<br/>
-                            <span class="indent1">if (arguments.file.length > 5) {</span><br/>
-                            <span class="indent2">var confluenceSiteMap = arguments.file;</span><br/>
-                            <span class="indent1">} else {</span><br/>
-                            <span class="indent2">var confluenceSiteMap = arguments.spacekey + '-site_map.txt';</span><br/>
-                            <span class="indent1">}</span><br/>
-                            } else {<br/>
-                                <span class="indent1">var confluenceSiteMap = confluenceSiteMap.txt;</span><br/>
-                        }<br/>
-                        ...
-                    </code>
-                    <p>The next thing our script will need is the Confluence URL to the site map document. Using the Children Display macro in your target Confluence space, we can gather all the document links in a single space by scraping this one document. Note: you should set up this Confluence document accordingly before executing this script and ensure it's named Site Map. Otherwise, you'll need to change the values in <code class="inline">arguments.confluence</code>.</p>
-                    <code id="code-head" class="block">
-                        ...<br/>
-                        if (arguments.spacekey) {<br/>
-                            <span class="indent1">arguments.confluence = <base Confluence URL> + '/display/' + arguments.spacekey + '/Site+Map';</span><br/>
-                        }<br/>
-                        ...
-                    </code>
-                    <p>With the arguments parsed, we should check that the user supplied the required flags. If any of these flags weren't submitted, then the script should gracefully exit.</p>
-                    <code id="code-head" class="block">
-                        ...<br/>
-                        if (!arguments.user || !arguments.pass || !arguments.spacekey) {<br/>
-                        <span class="indent1">if (!arguments.user) { // user id is required</span><br/>
-                        <span class="indent2">console.log('Username is required.');</span><br/>
+                <code class="block">
+                    ...<br/>
+                    var argument = {};<br/>
+                    <br/>
+                    for (var i = 0; i < program.rawArgs.length; i++) {<br/>
+                        <span class="indent1">if (program.rawArgs[i] == '--user' || program.rawArgs[i] == '-u') {</span><br/>
+                        <span class="indent2">arguments.user = program.rawArgs[i + 1];</span><br/>
                         <span class="indent1">}</span><br/>
-                        <span class="indent1">if (!arguments.pass) { // password is required</span><br/>
-                        <span class="indent2">console.log('Password is required.')</span><br/>
+                        <span class="indent1">if (program.rawArgs[i] == '--password' || program.rawArgs[i] == '-p') {</span><br/>
+                        <span class="indent2">arguments.pass = program.rawArgs[i + 1];</span><br/>
                         <span class="indent1">}</span><br/>
-                        <span class="indent1">if (!arguments.spacekey) {</span><br/>
-                        <span class="indent2">console.log('Spacekey is required.')</span><br/>
+                        <span class="indent1">if (program.rawArgs[i] == '--spacekey' || program.rawArgs[i] == '-s') {</span><br/>
+                        <span class="indent2">arguments.spacekey = program.rawArgs[i + 1];</span><br/>
                         <span class="indent1">}</span><br/>
-                        <br/>
-                        <span class="indent1">process.exit(1);</span><br/>
-                        ...
-                    </code>                        
+                        <span class="indent1">if (program.rawArgs[i] == '--delay' || program.rawArgs[i] == '-d') {</span><br/>
+                        <span class="indent2">arguments.delay = parseInt(program.rawArgs[i + 1]);</span><br/>
+                        <span class="indent1">}</span><br/>
+                        <span class="indent1">if (program.rawArgs[i] == '--file' || program.rawArgs[i] == '-f') {</span><br/>
+                        <span class="indent2">arguments.file = program.rawArgs[i + 1];</span><br/>
+                        <span class="indent1">}<br/>
+                    }<br/>
+                    ...
+                </code>
 
-                    <h2>Pull content with nightmare</h2>
-                    <p>With the required flags set for the CLI side of the script, we can now request a document from Confluence using your credentials. This chunk of code starts the nightmare.js process by navigating the Electron browser to the site map page in Confluence. The process below assumes that a login is required when the target page is loaded, enters user supplied username and password in the appropriate fields (denoted by their element ids), click the login button (denoted by it's element id), wait for a period of time (hopefully long enough for the server to respond), grab the content from the predetermined CSS selector via the evaluate method, return the data for parsing later, and close the Electron browser.</p>
-                    <code id="code-head" class="block">
-                        ...<br/>
-                        <span class="indent1"></span>} else {<br/>
-                        <span class="indent2">console.log('Getting document link list from ' + arguments.confluence);<br/>
-                        <br/>
-                        <span class="indent2">nightmare<br/>
-                        <span class="indent3">.goto(arguments.confluence)<br/>
-                        <span class="indent3">.type('#os_username', arguments.user)<br/>
-                        <span class="indent3"></span>.type('#os_password', arguments.pass)<br/>
-                        <span class="indent3"></span>.click('#loginButton')<br/>
-                        <span class="indent3"></span>.wait(arguments.delay)<br/>
-                        <span class="indent3"></span>.evaluate(confluenceSelector => {<br/>
-                        <span class="indent4">return {<br/>
-                        <span class="indent5">html: document.querySelector(confluenceSelector).innerHTML<br/>
-                        <span class="indent4">}<br/>
-                        <span class="indent3">}, confluenceSelector)<br/>
-                        <span class="indent3">.end()<br/>
-                        ...
-                    </code>
-                    <h2>Parse content with Cheerio</h2>
-                    <p>Now that nightmare.js has retrieved the document in question, we use the then method to load the HTML content into cheerio.js to generate a list of links. Generally speaking, the links listed in a Confluence document usually follow the li span a selector pattern inside the body of the document. Here, we use the output variable to hold the list of links found in the retrieved data.</p>
-                    <code id="code-head" class="block">
-                        ...<br/>
-                        .then(obj => {<br/>
-                            <span class="indent1">$ = cheerio.load(obj.html.toString());</span><br/>
-                        <br/>
-                        <span class="indent1">var output = '';</span><br/>
-                        <br/>
-                        <span class="indent1">$('li span a').each(function() {</span><br/>
-                        <span class="indent2">output += $(this).html() + '\n';</span><br/>
+                <p>Since the delay flag is optional, we should set up a fallback if the user doesn't supply one. In this
+                    case, we're setting the delay to 10 seconds though you can adjust this delay value to a number
+                    you're comfortable with your Confluence server responding to a login page request.</p>
+
+                <code class="block">
+                    ...<br/>
+                    if (!arguments.delay) {<br/>
+                        <span class="indent1">arguments.delay = 10000;</span><br/>
+                        <span class="indent1">console.log('Server response delay not set. Assuming ' + arguments.delay + ' millisecond delay.');</span><br/>
+                    }<br/>
+                    <br/>
+                    ...
+                </code>
+                <p>Now we should set up the file path where we keep the site map information. If the user doesn't supply
+                    a file to output our data to, the script will use a fallback based on the submitted spacekey name.
+                </p>
+                <code class="block">
+                    ...<br/>
+                    if (arguments.file) {<br/>
+                        <span class="indent1">if (arguments.file.length > 5) {</span><br/>
+                        <span class="indent2">var confluenceSiteMap = arguments.file;</span><br/>
+                        <span class="indent1">} else {</span><br/>
+                        <span class="indent2">var confluenceSiteMap = arguments.spacekey + '-site_map.txt';</span><br/>
+                        <span class="indent1">}</span><br/>
+                        } else {<br/>
+                            <span class="indent1">var confluenceSiteMap = confluenceSiteMap.txt;</span><br/>
+                    }<br/>
+                    ...
+                </code>
+                <p>The next thing our script will need is the Confluence URL to the site map document. Using the
+                    Children Display macro in your target Confluence space, we can gather all the document links in a
+                    single space by scraping this one document. Note: you should set up this Confluence document
+                    accordingly before executing this script and ensure it's named Site Map. Otherwise, you'll need to
+                    change the values in <code class="inline">arguments.confluence</code>.</p>
+                <code class="block">
+                    ...<br/>
+                    if (arguments.spacekey) {<br/>
+                        <span class="indent1">arguments.confluence = <base Confluence URL> + '/display/' + arguments.spacekey + '/Site+Map';</span><br/>
+                    }<br/>
+                    ...
+                </code>
+                <p>With the arguments parsed, we should check that the user supplied the required flags. If any of these
+                    flags weren't submitted, then the script should gracefully exit.</p>
+                <code class="block">
+                    ...<br/>
+                    if (!arguments.user || !arguments.pass || !arguments.spacekey) {<br/>
+                    <span class="indent1">if (!arguments.user) { // user id is required</span><br/>
+                    <span class="indent2">console.log('Username is required.');</span><br/>
+                    <span class="indent1">}</span><br/>
+                    <span class="indent1">if (!arguments.pass) { // password is required</span><br/>
+                    <span class="indent2">console.log('Password is required.')</span><br/>
+                    <span class="indent1">}</span><br/>
+                    <span class="indent1">if (!arguments.spacekey) {</span><br/>
+                    <span class="indent2">console.log('Spacekey is required.')</span><br/>
+                    <span class="indent1">}</span><br/>
+                    <br/>
+                    <span class="indent1">process.exit(1);</span><br/>
+                    ...
+                </code>
+
+                <h2>Pull content with nightmare</h2>
+                <p>With the required flags set for the CLI side of the script, we can now request a document from
+                    Confluence using your credentials. This chunk of code starts the nightmare.js process by navigating
+                    the Electron browser to the site map page in Confluence. The process below assumes that a login is
+                    required when the target page is loaded, enters user supplied username and password in the
+                    appropriate fields (denoted by their element ids), click the login button (denoted by it's element
+                    id), wait for a period of time (hopefully long enough for the server to respond), grab the content
+                    from the predetermined CSS selector via the evaluate method, return the data for parsing later, and
+                    close the Electron browser.</p>
+                <code class="block">
+                    ...<br/>
+                    <span class="indent1"></span>} else {<br/>
+                    <span class="indent2">console.log('Getting document link list from ' + arguments.confluence);<br/>
+                    <br/>
+                    <span class="indent2">nightmare<br/>
+                    <span class="indent3">.goto(arguments.confluence)<br/>
+                    <span class="indent3">.type('#os_username', arguments.user)<br/>
+                    <span class="indent3"></span>.type('#os_password', arguments.pass)<br/>
+                    <span class="indent3"></span>.click('#loginButton')<br/>
+                    <span class="indent3"></span>.wait(arguments.delay)<br/>
+                    <span class="indent3"></span>.evaluate(confluenceSelector => {<br/>
+                    <span class="indent4">return {<br/>
+                    <span class="indent5">html: document.querySelector(confluenceSelector).innerHTML<br/>
+                    <span class="indent4">}<br/>
+                    <span class="indent3">}, confluenceSelector)<br/>
+                    <span class="indent3">.end()<br/>
+                    ...
+                </code>
+                <h2>Parse content with Cheerio</h2>
+                <p>Now that nightmare.js has retrieved the document in question, we use the then method to load the HTML
+                    content into cheerio.js to generate a list of links. Generally speaking, the links listed in a
+                    Confluence document usually follow the li span a selector pattern inside the body of the document.
+                    Here, we use the output variable to hold the list of links found in the retrieved data.</p>
+                <code class="block">
+                    ...<br/>
+                    .then(obj => {<br/>
+                        <span class="indent1">$ = cheerio.load(obj.html.toString());</span><br/>
+                    <br/>
+                    <span class="indent1">var output = '';</span><br/>
+                    <br/>
+                    <span class="indent1">$('li span a').each(function() {</span><br/>
+                    <span class="indent2">output += $(this).html() + '\n';</span><br/>
+                    <span class="indent1">});</span><br/>
+                    ...
+                </code>
+
+                <p>Then, we write out the list of links we found in the Confluence document to our predetermined text
+                    file.</p>
+                <code class="block">
+                    ...<br/>
+                    <span class="indent1">fs.writeFileSync(confluenceSiteMap, output, 'utf8');</span><br/>
+                    })<br/>
+                    ...
+                </code>
+                <p>Finally, we use the catch method to report back any errors.</p>
+                <code class="block">
+                    ...<br/>
+                    <span class="indent1">.catch(error => {</span><br/>
+                        <span class="indent2">console.error(error);</span><br/>
                         <span class="indent1">});</span><br/>
-                        ...
-                    </code>
-
-                    <p>Then, we write out the list of links we found in the Confluence document to our predetermined text file.</p>
-                    <code id="code-head" class="block">
-                        ...<br/>
-                        <span class="indent1">fs.writeFileSync(confluenceSiteMap, output, 'utf8');</span><br/>
-                        })<br/>
-                        ...
-                    </code>
-                    <p>Finally, we use the catch method to report back any errors.</p>
-                    <code id="code-head" class="block">
-                        ...<br/>
-                        <span class="indent1">.catch(error => {</span><br/>
-                            <span class="indent2">console.error(error);</span><br/>
-                            <span class="indent1">});</span><br/>
-                        }
-                    </code>
-                    <h2>Wrapping up</h2>
-                    <p>With the script complete, we should save it something like <code class="inline">confluenceSitemap.js</code> (or use the default name of <code class="inline">app.js</code>). From there, we can execute this command to generate our list of links text file: <code class="inline">node confluenceSitemap.js -u {username} -p {password} -s {spacekey} -f {links.txt}</code></p>
-                    <p>In a future version of this script, the error handling routine would include a process to handle error messaging instead of just dropping it in the console log of your browser.</p>
-                </div>
+                    }
+                </code>
+                <h2>Wrapping up</h2>
+                <p>With the script complete, we should save it something like <code
+                        class="inline">confluenceSitemap.js</code> (or use the default name of <code
+                        class="inline">app.js</code>). From there, we can execute this command to generate our list of
+                    links text file: <code
+                        class="inline">node confluenceSitemap.js -u {username} -p {password} -s {spacekey} -f {links.txt}</code>
+                </p>
+                <p>In a future version of this script, the error handling routine would include a process to handle
+                    error messaging instead of just dropping it in the console log of your browser.</p>
             </div>
         </div>
     </div>
+    </div>
 </body>
+<script src="../../js/toc_generator.js"></script>
 
 </html>

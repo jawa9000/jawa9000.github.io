@@ -7,228 +7,260 @@
     <link href="../../css/tutorials.css" rel="stylesheet">
     <link rel="stylesheet" href="../styles/main.css" type="text/css" />
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="../../js/jquery-2.1.0.min.js"></script>
 </head>
 
 <body>
-    <div>
-        <h1>AMPLIFY CLI Commands</h1>
-        <p class="note">Archive note: all links and images have been disabled as their destinations and/or
-            source
-            locations no longer exist.</p>
-        <div>Created by Brian Immel, last modified on Feb 08, 2019</div>
-    </div>
-    <div class="floatLeft">
-        <ul>
-            <li><a href='#Command_options'>Command options</a></li>
-            <li><a href='#auth'>auth</a>
-                <ul class='toc-indentation'>
-                    <li><a href='#auth_list_options'>auth list options</a></li>
-                    <li><a href='#auth_login_options'>auth login options</a></li>
-                    <li><a href='#auth_logout_options'>auth logout options</a></li>
-                    <li><a href='#auth_switch_options'>auth switch options</a></li>
-                </ul>
-            </li>
-            <li><a href='#config'>config</a></li>
-            <li><a href='#pm'>pm </a>
-                <ul class='toc-indentation'>
-                    <li><a href='#amplify_pm_install'>amplify pm install</a></li>
-                    <li><a href='#amplify_pm_list'>amplify pm list</a></li>
-                    <li><a href='#amplify_pm_purge'>amplify pm purge</a></li>
-                    <li><a href='#amplify_pm_search'>amplify pm search</a></li>
-                    <li><a href='#amplify_pm_uninstall'>amplify pm uninstall</a></li>
-                    <li><a href='#amplify_pm_update'>amplify pm update</a></li>
-                    <li><a href='#amplify_pm_use'>amplify pm use</a></li>
-                    <li><a href='#amplify_pm_view'>amplify pm view</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    <div>
-        <p>There are three basic commands for using <strong>AMPLIFY CLI (ACLI)</strong>:</p>
-    <ul>
-        <li><strong><code>auth</code></strong>: Authenticate machines with the <a href="#">Axway AMPLIFY platform</a></li>
-        <li><strong><code>config</code></strong>: get and set config options</li>
-        <li><strong><code>pm</code></strong>: <a href="#">Package manager</a> for <a href="#">Axway products</a></li>
-    </ul>
-    <h2 id="Command_options">Command options</h2>
-    <p>If you need to specify a particular environment, use this option: <code>--env={name}</code></p>
-    
-    <p>Outputting accounts as JSON is a common option between all ACLI commands. To use this option, use the <code>--json</code> flag.</p>
-    
-    <h2 id="auth">auth</h2>
-    <p>Authenticate machines with the <a href="#">Axway AMPLIFY platform</a>.</p>
-    <p><strong><code>amplify auth {command} [options]</code></strong> command will authenticate you machine with the <a href="#">Axway AMPLIFY platform</a>.</p>
-    <ul>
-        <li><code>list</code>: lists all authenticated accounts</li>
-        <li><code>login</code>: <a href="#">log in</a> to the <a href="#">Axway AMPLIFY platform</a></li>
-        <li><code>logout</code>: <a href="#">log out</a> all or specific accounts from the AMPLIFY platform</li>
-        <li><code>switch</code>: select default account and organization</li>
-    </ul>
-    
-    <h2 id="auth_list_options">auth list options</h2>
-    <p><strong><code>amplify auth list [options]</code></strong> command lists all authenticated accounts.</p>
-    
-    <h3 id="Auth_options">Auth options</h3>
-    <p><strong><code>--env={name}</code></strong>: the environment to use</p>
-    </ul>
-    <p class="notice"><strong>Note</strong>: There are no other options other than the ones mentioned above in <a href="#Command_options">Command options</a>.</p>
-    
-    <h3 id="auth_login_options">auth login options</h3>
-    <p><strong><code>amplify auth login [options]</code></strong> command logs one into the <a href="#">Axway AMPLIFY platform</a>.</p>
-    <ul>
-        <li><strong><code>-c</code></strong>, <strong><code>--client-secret={key}</code></strong>: a secret key used to authenticate</li>
-        <li><strong><code>--force</code></strong>: re-authenticate even if the account is already authenticated</li>
-        <li><strong><code>--no-launch-browser</code></strong>: display the authentication URL instead of opening it in the default web browser</li>
-        <li><strong><code>--org={id|name}</code></strong>: organization name or codename</li>
-        <li><strong><code>-p</code></strong>, <strong><code>--password={pass}</code></strong>: password to authenticate with</li>
-        <li><strong><code>-s</code></strong>, <strong><code>--secret-file={path}</code></strong>: path to the <a href="#">PEM key</a> used to authenticate</li>
-        <li><strong><code>-u</code></strong>, <strong><code>--username={user}</code></strong>: username to authenticate with</li>
-    </ul>
-    <p>The options mentioned in <a href="#Command_options">Command options</a> can be used with these commands.</p>
-    <p>There are several ways one can use the ACLI auth command to login:</p>
-    <ul>
-        <li>Interactive browser: <code>amplify auth login</code></li>
-        <li>Client secret: <code>amplify auth login --secret {key}</code></li>
-        <li><a href="#">Signed JWT</a>: <code>amplify auth login --secret-file {path_to_pem_file}</code></li>
-        <li>Username and password: <code>amplify auth login --username {user} --password {pass}</code></li>
-    </ul>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <h1>AMPLIFY CLI Commands</h1>
+                <p class="note">Archive note: all links and images have been disabled as their destinations and/or
+                    source
+                    locations no longer exist.</p>
+                <div>Created by Brian Immel, last modified on Feb 08, 2019</div>
 
-    <h3 id="auth_logout_options">auth logout options</h3>
-    <p><strong><code>amplify auth logout [options] [{accounts...}]</code></strong> command logs the user out all or specific accounts from the AMPLIFY platform.</p>
-    <ul>
-        <li><strong><code>-a</code></strong>, <strong><code>--all</code></strong>: revoke all credentials; supersedes list of accounts</li>
-    </ul>
-    
-    <p>The options mentioned in <a href="#Command_options">Command options</a> can be used with these commands.</p>
-    
-    <h3 id="auth_switch_options">auth switch options</h3>
-    <p><strong><code>amplify auth switch [options]</code></strong> command selects a default account and organization.</p>
-    <ul>
-        <li><strong><code>--account={name}</code></strong>: account to switch to</li>
-        <li><strong><code>--org={id|name}</code></strong>: organization to switch to</li>
-    </ul>
-    
-    <p>The options mentioned in <a href="#Command_options">Command options</a> can be used with these commands.</p>
-    
-    <h2 id="config">config</h2>
-    <p>Get and set config options.</p>
-    <p><strong><code>amplify config [options] {action} [{key}] [{value}]</code></strong> command will get and set config options.</p>
-    
-    <p>Config arguments:</p>
-    <ul>
-        <li>action</li>
-        <li>key</li>
-        <li>value</li>
-    </ul>
+                <toc></toc>
+                <div>
+                    <p>There are three basic commands for using <strong>AMPLIFY CLI (ACLI)</strong>:</p>
+                    <ul>
+                        <li><strong><code class="inline">auth</code></strong>: Authenticate machines with the <a href="#">Axway AMPLIFY
+                                platform</a></li>
+                        <li><strong><code class="inline">config</code></strong>: get and set config options</li>
+                        <li><strong><code class="inline">pm</code></strong>: <a href="#">Package manager</a> for <a href="#">Axway
+                                products</a></li>
+                    </ul>
+                    <h2>Command options</h2>
+                    <p>If you need to specify a particular environment, use this option: <code class="inline">--env={name}</code></p>
 
-    <p class="notice"><strong>Note</strong>: Config options only includes the <code>--json</code> flag as mentioned in <a href="#Command_options">Command options</a>.</p>
-    
-    <h2 id="pm">pm</h2>
-    <p>Package Manager (pm) used for all <a href="#">Axway products</a>.</p>
-    <p><strong><code>amplify pm {command} [options]</code></strong> command is the package manager for <a href="#">Axway products</a>.</p>
-    <ul>
-        <li><strong><code>install</code></strong>: installs the specified package</li>
-        <li><strong><code>list</code></strong>: lists all installed packages</li>
-        <li><strong><code>purge</code></strong>: purges all unused packages</li>
-        <li><strong><code>search</code></strong>: searches registry for packages</li>
-        <li><strong><code>uninstall</code></strong>: uninstalls the specified package</li>
-        <li><strong><code>update</code></strong>: download updates for installed packages</li>
-        <li><strong><code>use</code></strong>: activates a specific package version</li>
-        <li><strong><code>view</code></strong>: displays info for a specific package</li>
-    </ul>
-    
-    <p>The options mentioned in <a href="#Command_options">Command options</a> can be used with these commands.</p>
-    
-    <p>For examples on how to use <a href="#">amplify pm</a> command, see <a href="#">Using The Package Manager</a> section of <a href="#">AMPLIFY CLI Package Manager</a> document.</p>
-    
-    <h3 id="amplify_pm_install">amplify pm install</h3>
-    <p><strong><code>amplify pm install [options] {package}</code></strong> command installs a specified package.</p>
-    <ul>
-        <li><strong><code>{package}</code></strong>: the package name and version to install (file extension is not necessary). For example: <code>package_1_0_0</code></li>
-    </ul>
-    
-    <h3 id="Install_options">Install options</h3>
-    <ul>
-        <li><strong><code>--auth={account}</code></strong>: the authorization account to use</li>
-    </ul>
-    
-    <p>The options mentioned in <a href="#Command_options">Command options</a> can be used with these commands.</p>
-    
-    <h3 id="amplify_pm_list">amplify pm list</h3>
-    <p><strong><code>amplify pm list [options]</code></strong> command lists all installed packages.</p>
-    
-    <p>The options mentioned in <a href="#Command_options">Command options</a> can be used with these commands.</p>
-    
-    <h3 id="amplify_pm_purge">amplify pm purge</h3>
-    <p><strong><code>amplify pm purge [options] [{package}]</code></strong> command will purge all unused packages.</p>
-    <ul>
-        <li><strong><code>{package}</code></strong>: name of the package for purging old version (file extension is not necessary). For example: <code>package_0_9_0</code></li>
-    </ul>
-    
-    <p>The options mentioned in <a href="#Command_options">Command options</a> can be used with these commands.</p>
-    
-    <h3 id="amplify_pm_search">amplify pm search</h3>
-    <p><strong><code>amplify pm search [options] [{search}]</code></strong> command will search registry for packages.</p>
-    <ul>
-        <li><strong><code>{search}</code></strong>: the package name or keywords</li>
-    </ul>
-    
-    <h4>Search options</h4>
-    <ul>
-        <li><strong><code>--auth={account}</code></strong>: the authorization account to use</li>
-        <li><strong><code>--repository={repository}</code></strong>: repository to search</li>
-        <li><strong><code>--type={type}</code></strong>: type of component to search</li>
-    </ul>
-    
-    <p>The options mentioned in <a href="#Command_options">Command options</a> can be used with these commands.</p>
-    
-    <p>If you get the following error, execute this command to set an environment: <code>amplify config set env staging</code></p>
-    
-    <span class="error">404 - Error Cannot GET /api/packages/v1/-/search</span>
-    
-    <h3 id="amplify_pm_uninstall">amplify pm uninstall</h3>
-    <p><strong><code>amplify pm uninstall [options] {package}</code></strong> command will uninstall a specified package.</p>
-    <ul>
-        <li><strong><code>{package}</code></strong>: the package name and version to uninstall</li>
-    </ul>
-    
-    <p>The options mentioned in <a href="#Command_options">Command options</a> can be used with these commands.</p>
-    
-    <h3 id="amplify_pm_update">amplify pm update</h3>
-    <p><strong><code>amplify pm update [options] [{package}]</code></strong> command will download updates for installed packages.</p>
-    <ul>
-        <li><strong><code>{package}</code></strong>: the package name to update</li>
-    </ul>
-    
-    <h4>Update options</h4>
-    <ul>
-        <li><strong><code>--auth={account}</code></strong>: the authorization account to use</li>
-    </ul>
-    
-    <p>The options mentioned in <a href="#Command_options">Command options</a> can be used with these commands.</p>
-    
-    <h3 id="amplify_pm_use">amplify pm use</h3>
-    <p><strong><code>amplify pm use [options] {package}</code></strong> command will activate a specific package version.</p>
-    <ul>
-        <li><strong><code>{package}</code></strong>: the package version or latest to activate</li>
-    </ul>
-    
-    <p>The options mentioned in <a href="#Command_options">Command options</a> can be used with these commands.</p>
-    
-    <h3 id="amplify_pm_view">amplify pm view</h3>
-    <p><strong><code>amplify pm view [options] {package} [{filter}]</code></strong> command will display info for a specific package.</p>
-    <ul>
-        <li><strong><code>{package}</code></strong>: the package name and version to install</li>
-        <li><strong><code>{filter}</code></strong>: display specific package fields</li>
-    </ul>
-    
-    <h4>View options</h4>
-    <ul>
-        <li><strong><code>--type={name}</code></strong>: the package type</li>
-    </ul>
-    
-    <p>The options mentioned in <a href="#Command_options">Command options</a> can be used with these commands.</p>
+                    <p>Outputting accounts as JSON is a common option between all ACLI commands. To use this option, use
+                        the <code class="inline">--json</code> flag.</p>
+
+                    <h2>auth</h2>
+                    <p>Authenticate machines with the <a href="#">Axway AMPLIFY platform</a>.</p>
+                    <p><strong><code class="inline">amplify auth {command} [options]</code></strong> command will authenticate you
+                        machine with the <a href="#">Axway AMPLIFY platform</a>.</p>
+                    <ul>
+                        <li><code class="inline">list</code>: lists all authenticated accounts</li>
+                        <li><code class="inline">login</code>: <a href="#">log in</a> to the <a href="#">Axway AMPLIFY platform</a>
+                        </li>
+                        <li><code class="inline">logout</code>: <a href="#">log out</a> all or specific accounts from the AMPLIFY
+                            platform</li>
+                        <li><code class="inline">switch</code>: select default account and organization</li>
+                    </ul>
+
+                    <h2>auth list options</h2>
+                    <p><strong><code class="inline">amplify auth list [options]</code></strong> command lists all authenticated
+                        accounts.</p>
+
+                    <h3>Auth options</h3>
+                    <p><strong><code class="inline">--env={name}</code></strong>: the environment to use</p>
+                    </ul>
+                    <p class="notice"><strong>Note</strong>: There are no other options other than the ones mentioned
+                        above in <a href="#Command_options">Command options</a>.</p>
+
+                    <h3>auth login options</h3>
+                    <p><strong><code class="inline">amplify auth login [options]</code></strong> command logs one into the <a
+                            href="#">Axway AMPLIFY platform</a>.</p>
+                    <ul>
+                        <li><strong><code class="inline">-c</code></strong>, <strong><code class="inline">--client-secret={key}</code></strong>: a
+                            secret key used to authenticate</li>
+                        <li><strong><code class="inline">--force</code></strong>: re-authenticate even if the account is already
+                            authenticated</li>
+                        <li><strong><code class="inline">--no-launch-browser</code></strong>: display the authentication URL instead of
+                            opening it in the default web browser</li>
+                        <li><strong><code class="inline">--org={id|name}</code></strong>: organization name or codename</li>
+                        <li><strong><code class="inline">-p</code></strong>, <strong><code class="inline">--password={pass}</code></strong>: password
+                            to authenticate with</li>
+                        <li><strong><code class="inline">-s</code></strong>, <strong><code class="inline">--secret-file={path}</code></strong>: path
+                            to the <a href="#">PEM key</a> used to authenticate</li>
+                        <li><strong><code class="inline">-u</code></strong>, <strong><code class="inline">--username={user}</code></strong>: username
+                            to authenticate with</li>
+                    </ul>
+                    <p>The options mentioned in <a href="#Command_options">Command options</a> can be used with these
+                        commands.</p>
+                    <p>There are several ways one can use the ACLI auth command to login:</p>
+                    <ul>
+                        <li>Interactive browser: <code class="inline">amplify auth login</code></li>
+                        <li>Client secret: <code class="inline">amplify auth login --secret {key}</code></li>
+                        <li><a href="#">Signed JWT</a>: <code class="inline">amplify auth login --secret-file {path_to_pem_file}</code>
+                        </li>
+                        <li>Username and password: <code class="inline">amplify auth login --username {user} --password {pass}</code>
+                        </li>
+                    </ul>
+
+                    <h3>auth logout options</h3>
+                    <p><strong><code class="inline">amplify auth logout [options] [{accounts...}]</code></strong> command logs the user
+                        out all or specific accounts from the AMPLIFY platform.</p>
+                    <ul>
+                        <li><strong><code class="inline">-a</code></strong>, <strong><code class="inline">--all</code></strong>: revoke all
+                            credentials; supersedes list of accounts</li>
+                    </ul>
+
+                    <p>The options mentioned in <a href="#Command_options">Command options</a> can be used with these
+                        commands.</p>
+
+                    <h3>auth switch options</h3>
+                    <p><strong><code class="inline">amplify auth switch [options]</code></strong> command selects a default account and
+                        organization.</p>
+                    <ul>
+                        <li><strong><code class="inline">--account={name}</code></strong>: account to switch to</li>
+                        <li><strong><code class="inline">--org={id|name}</code></strong>: organization to switch to</li>
+                    </ul>
+
+                    <p>The options mentioned in <a href="#Command_options">Command options</a> can be used with these
+                        commands.</p>
+
+                    <h2>config</h2>
+                    <p>Get and set config options.</p>
+                    <p><strong><code class="inline">amplify config [options] {action} [{key}] [{value}]</code></strong> command will
+                        get and set config options.</p>
+
+                    <p>Config arguments:</p>
+                    <ul>
+                        <li>action</li>
+                        <li>key</li>
+                        <li>value</li>
+                    </ul>
+
+                    <p class="notice"><strong>Note</strong>: Config options only includes the <code class="inline">--json</code> flag
+                        as mentioned in <a href="#Command_options">Command options</a>.</p>
+
+                    <h2>pm</h2>
+                    <p>Package Manager (pm) used for all <a href="#">Axway products</a>.</p>
+                    <p><strong><code class="inline">amplify pm {command} [options]</code></strong> command is the package manager for
+                        <a href="#">Axway products</a>.
+                    </p>
+                    <ul>
+                        <li><strong><code class="inline">install</code></strong>: installs the specified package</li>
+                        <li><strong><code class="inline">list</code></strong>: lists all installed packages</li>
+                        <li><strong><code class="inline">purge</code></strong>: purges all unused packages</li>
+                        <li><strong><code class="inline">search</code></strong>: searches registry for packages</li>
+                        <li><strong><code class="inline">uninstall</code></strong>: uninstalls the specified package</li>
+                        <li><strong><code class="inline">update</code></strong>: download updates for installed packages</li>
+                        <li><strong><code class="inline">use</code></strong>: activates a specific package version</li>
+                        <li><strong><code class="inline">view</code></strong>: displays info for a specific package</li>
+                    </ul>
+
+                    <p>The options mentioned in <a href="#Command_options">Command options</a> can be used with these
+                        commands.</p>
+
+                    <p>For examples on how to use <a href="#">amplify pm</a> command, see <a href="#">Using The Package
+                            Manager</a> section of <a href="#">AMPLIFY CLI Package Manager</a> document.</p>
+
+                    <h3>amplify pm install</h3>
+                    <p><strong><code class="inline">amplify pm install [options] {package}</code></strong> command installs a specified
+                        package.</p>
+                    <ul>
+                        <li><strong><code class="inline">{package}</code></strong>: the package name and version to install (file
+                            extension is not necessary). For example: <code class="inline">package_1_0_0</code></li>
+                    </ul>
+
+                    <h3>Install options</h3>
+                    <ul>
+                        <li><strong><code class="inline">--auth={account}</code></strong>: the authorization account to use</li>
+                    </ul>
+
+                    <p>The options mentioned in <a href="#Command_options">Command options</a> can be used with these
+                        commands.</p>
+
+                    <h3>amplify pm list</h3>
+                    <p><strong><code class="inline">amplify pm list [options]</code></strong> command lists all installed packages.</p>
+
+                    <p>The options mentioned in <a href="#Command_options">Command options</a> can be used with these
+                        commands.</p>
+
+                    <h3>amplify pm purge</h3>
+                    <p><strong><code class="inline">amplify pm purge [options] [{package}]</code></strong> command will purge all
+                        unused packages.</p>
+                    <ul>
+                        <li><strong><code class="inline">{package}</code></strong>: name of the package for purging old version (file
+                            extension is not necessary). For example: <code class="inline">package_0_9_0</code></li>
+                    </ul>
+
+                    <p>The options mentioned in <a href="#Command_options">Command options</a> can be used with these
+                        commands.</p>
+
+                    <h3>amplify pm search</h3>
+                    <p><strong><code class="inline">amplify pm search [options] [{search}]</code></strong> command will search registry
+                        for packages.</p>
+                    <ul>
+                        <li><strong><code class="inline">{search}</code></strong>: the package name or keywords</li>
+                    </ul>
+
+                    <h4>Search options</h4>
+                    <ul>
+                        <li><strong><code class="inline">--auth={account}</code></strong>: the authorization account to use</li>
+                        <li><strong><code class="inline">--repository={repository}</code></strong>: repository to search</li>
+                        <li><strong><code class="inline">--type={type}</code></strong>: type of component to search</li>
+                    </ul>
+
+                    <p>The options mentioned in <a href="#Command_options">Command options</a> can be used with these
+                        commands.</p>
+
+                    <p>If you get the following error, execute this command to set an environment:
+                        <code class="inline">amplify config set env staging</code>
+                    </p>
+
+                    <span class="error">404 - Error Cannot GET /api/packages/v1/-/search</span>
+
+                    <h3>amplify pm uninstall</h3>
+                    <p><strong><code class="inline">amplify pm uninstall [options] {package}</code></strong> command will uninstall a
+                        specified package.</p>
+                    <ul>
+                        <li><strong><code class="inline">{package}</code></strong>: the package name and version to uninstall</li>
+                    </ul>
+
+                    <p>The options mentioned in <a href="#Command_options">Command options</a> can be used with these
+                        commands.</p>
+
+                    <h3>amplify pm update</h3>
+                    <p><strong><code class="inline">amplify pm update [options] [{package}]</code></strong> command will download
+                        updates for installed packages.</p>
+                    <ul>
+                        <li><strong><code class="inline">{package}</code></strong>: the package name to update</li>
+                    </ul>
+
+                    <h4>Update options</h4>
+                    <ul>
+                        <li><strong><code class="inline">--auth={account}</code></strong>: the authorization account to use</li>
+                    </ul>
+
+                    <p>The options mentioned in <a href="#Command_options">Command options</a> can be used with these
+                        commands.</p>
+
+                    <h3>amplify pm use</h3>
+                    <p><strong><code class="inline">amplify pm use [options] {package}</code></strong> command will activate a specific
+                        package version.</p>
+                    <ul>
+                        <li><strong><code class="inline">{package}</code></strong>: the package version or latest to activate</li>
+                    </ul>
+
+                    <p>The options mentioned in <a href="#Command_options">Command options</a> can be used with these
+                        commands.</p>
+
+                    <h3>amplify pm view</h3>
+                    <p><strong><code class="inline">amplify pm view [options] {package} [{filter}]</code></strong> command will display
+                        info for a specific package.</p>
+                    <ul>
+                        <li><strong><code class="inline">{package}</code></strong>: the package name and version to install</li>
+                        <li><strong><code class="inline">{filter}</code></strong>: display specific package fields</li>
+                    </ul>
+
+                    <h4>View options</h4>
+                    <ul>
+                        <li><strong><code class="inline">--type={name}</code></strong>: the package type</li>
+                    </ul>
+
+                    <p>The options mentioned in <a href="#Command_options">Command options</a> can be used with these
+                        commands.</p>
+
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
     </div>
 </body>
-
+<script src="../../js/toc_generator.js"></script>
 </html>

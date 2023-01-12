@@ -2,11 +2,12 @@
 <html>
 
 <head>
-    <title>Appcelerator Analytics</title>
     <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Appcelerator Analytics</title>
     <link href="../../css/bootstrap.css" rel="stylesheet">
     <link href="../../css/tutorials.css" rel="stylesheet">
     <link rel="stylesheet" href="../styles/main.css" type="text/css" />
+    <script src="../../js/jquery-2.1.0.min.js"></script>
 </head>
 
 <body>
@@ -19,64 +20,55 @@
                     destinations and/or
                     source locations no longer exist.</p>
                 <div>Created by Brian Immel, last modified on Sep 05, 2019</div>
-                <div class="floatLeft">
-                    <ul>
-                        <li><a href="#Introduction">Introduction</a></li>
-                        <li><a href="#Terminology">Terminology</a></li>
-                        <li><a href="#GDPR">GDPR</a></li>
-                        <li><a href="#GettingstartedwithAnalytics">Getting started with Analytics</a></li>
-                        <li><a href="#Creatingcustomevents">Creating custom events</a>
-                            <ul>
-                                <li><a href="#Featureevents">Feature events</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#Creatingandviewingeventfunnels">Creating and viewing event funnels</a>
-                            <ul>
-                                <li><a href="#Creatinganeventfunnel">Creating an event funnel</a></li>
-                                <li><a href="#Viewingeventfunnels">Viewing event funnels</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+                <toc></toc>
                 <div>
-                    <h2 id="Introduction">Introduction</h2>
+                    <h2>Introduction</h2>
                     <p>Appcelerator Analytics collects real-time data about your application's usage which can then be
                         viewed in the <strong><a href="#">Analytics dashboard</a></strong>. By default, the Analytics
                         dashboard provides information about app installs, number of sessions, and average app session
-                        length (organized by app name, platform, and geography). Your app can also utilize custom analytic
+                        length (organized by app name, platform, and geography). Your app can also utilize custom
+                        analytic
                         events and event funnels.</p>
                     <p>This document provides an overview of the features provided by Analytics, and how
-                        to use them using the <a href="#">Titanium SDK</a>. <strong>If you are developing an iOS application
+                        to use them using the <a href="#">Titanium SDK</a>. <strong>If you are developing an iOS
+                            application
                             with Objective-C or Swift or an Android application with Java</strong>, see
-                        <a href="#">APS Analytics for iOS</a> or <a href="#">APS Analytics for Android</a> for details on using Analytics.</p>
+                        <a href="#">APS Analytics for iOS</a> or <a href="#">APS Analytics for Android</a> for details
+                        on using Analytics.
+                    </p>
 
-                    <p>For platform-specific details about how analytics captured, see <a href="#">Analytics Architecture</a></p>
+                    <p>For platform-specific details about how analytics captured, see <a href="#">Analytics
+                            Architecture</a></p>
                     <p>For information about viewing analytics data, see <a href="#">Managing Client Applications</a>
                     </p>
-                    <h2 id="Terminology">Terminology</h2>
+                    <h2>Terminology</h2>
                     <p><strong>Analytics</strong> refers to data about how your application has been used, as well as
                         information about how users interact with your application. Analytics data is transmitted in the
                         form of <em>events</em>.</p>
                     <p>Events are operational milestones in the application. Some events are generated
-                        automatically, such as those that mark ake sure your application is selected. installation, or the beginning and end of a
+                        automatically, such as those that mark ake sure your application is selected. installation, or
+                        the beginning and end of a
                         session. Others may be <strong>custom events</strong>, which have a meaning
                         specific to an application, such as tapping a specific button or opening a certain
                         window.</p>
                     <p><strong>A feature event represents an action</strong> a user could take in
                         an application, such as 'liking an item' or launching a video'. Applications
-                        use the <a href="#">Titanium</a> or <a href="#">APSAnalytics API</a> to create custom events.</p>
+                        use the <a href="#">Titanium</a> or <a href="#">APSAnalytics API</a> to create custom events.
+                    </p>
                     <p><strong>Event funnels</strong> let you define custom, ordered event sequences that let you
                         track a specific user process, such as finding a product and making a purchase.</p>
                     <p>The <strong>Analytics dashboard</strong> organizes, analyzes, and presents analytics data
                         captured for your applications. You also use the Analytics dashboard to create and view
                         event funnels.</p>
-                    <h2 id="GDPR">GDPR</h2>
+                    <h2>GDPR</h2>
                     <p>With the enactment of European Union's General Data Protection Regulation (GDPR), we've updated
-                        our Privacy Policy and the way the company collects and processes personal information. We welcome
+                        our Privacy Policy and the way the company collects and processes personal information. We
+                        welcome
                         this change and understand the importance of data privacy as a human right. We are taking this
                         opportunity to strengthen our global practices, expanding our robust data privacy practices, and
                         will continue to support data privacy compliance.
-                    <p>For more information, please refer to [company]'s<strong> <a href="#">Privacy compliance program</a></strong>.</p>
+                    <p>For more information, please refer to [company]'s<strong> <a href="#">Privacy compliance
+                                program</a></strong>.</p>
                     <p>You can contact the [company] Data Protection Office by sending an email to
                         <strong><a href="#">privacy@[company].com</a></strong>. If you'd like to contact
                         us in writing, see the following list of addresses that best applies to your location:
@@ -89,10 +81,11 @@
                     <p>Note for using <code class="inline"><a href="#">Titanium.Analytics</a></code> API: End users are
                         able to opt out of Analytics using the <code
                             class="inline"><a href="#">Titanium.Analytics.optedOut</a></code> property.</p>
-                    <h2 id="GettingstartedwithAnalytics">Getting started with Analytics</h2>
+                    <h2>Getting started with Analytics</h2>
                     <p>Enabling analytics is enabled by default when creating an project using <strong>Appcelerator
                             Studio</strong> (Studio). If for some reason it's not enabled, you can enable <strong>Axway
-                            Appcelerator Platform Services</strong> in the project's <code class="inline">tiapp.xml</code> and deploy
+                            Appcelerator Platform Services</strong> in the project's <code
+                            class="inline">tiapp.xml</code> and deploy
                         your application.</p>
                     <p><strong>To enable analytics in a new Appcelerator project</strong>:</p>
                     <ol>
@@ -117,10 +110,10 @@
                         other applications files. Do not modify these code changes as it may break your project.
                         See <a href="#">Platform Services</a> for details on what changes are made to your
                         code.</p>
-                    <h2 id="Creatingcustomevents">Creating custom events</h2>
+                    <h2>Creating custom events</h2>
                     <p>The <code class="inline"><a href="#">Titanium.Analytics</a></code> API can be used to send custom
                         events and data, called feature events.</p>
-                    <h3 id="Featureevents">Feature events</h3>
+                    <h3>Feature events</h3>
                     <p><code class="inline"><a href="#">Titanium.Analytics.featureEvent(name, data)</a></code> is used
                         to send a feature event. A feature event can be used to represent a user action, application
                         state or send a data payload.</p>
@@ -157,7 +150,7 @@
                         in their basket upon backgrounding the application.</p>
                     <p><img src="../images/60490189.png" width="750px">
                     </p>
-                    <h2 id="Creatingandviewingeventfunnels">Creating and viewing event funnels
+                    <h2>Creating and viewing event funnels
                     </h2>
                     <p>You use Dashboard to <a href="#">create</a> and <a href="#">view</a> event funnels. Using event
                         funnels involves the following basic steps:</p>
@@ -174,7 +167,7 @@
                         <li><strong>Creating the</strong> <strong>event funnel</strong> in Dashboard (see <a
                                 href="#">Creating an Event Funnel</a>).</li>
                     </ol>
-                    <h3 id="Creatinganeventfunnel">Creating an event funnel</h3>
+                    <h3>Creating an event funnel</h3>
                     <p>When you create an event funnel in Dashboard, you select the events you want to track, in the
                         order that defines the process you want to track and analyze. For instance, in the following
                         example, the user has created an event funnel named &quot;Product Purchase&quot; that tracks the
@@ -182,7 +175,7 @@
                         products, reviewing product information, making a purchase, and confirming the purchase.</p>
                     <p><img src="../images/60489999.png" width="750px"></p>
                     <p><strong>Note</strong>:An event funnel must contain at least two events</p>
-                    
+
                     <p><strong>To create an event funnel</strong></p>
                     <ol>
                         <li>In the <a href="#">Analytics dashboard</a>, make sure your application is selected.</li>
@@ -191,7 +184,10 @@
                             event funnels are displayed if any exist.</li>
                         <li>Click <strong>+</strong> (add) button to create a new event funnel.</li>
                         <li>Enter a <strong>name</strong> for your event funnel.</li>
-                        <li><strong>Drag two or more custom events</strong> from the left column to the right column. Enter the name of an event in the Custom Events text field to filter available events by name. To get custom events to appear on this list, you must build your application and trigger each event to ensure that the events are registered with the analytics engine.
+                        <li><strong>Drag two or more custom events</strong> from the left column to the right column.
+                            Enter the name of an event in the Custom Events text field to filter available events by
+                            name. To get custom events to appear on this list, you must build your application and
+                            trigger each event to ensure that the events are registered with the analytics engine.
                         </li>
                         <li>To re-order an event drag its reorder control up or down in the event list. Keep in mind
                             that the order of the events you include is significant in terms of how the event funnel
@@ -201,7 +197,7 @@
                         <li>Click <strong>Save</strong> to save the event funnel.
                         </li>
                     </ol>
-                    <h3 id="Viewingeventfunnels">Viewing event funnels</h3>
+                    <h3>Viewing event funnels</h3>
                     <p>Once you've created an event funnel, you can begin analyzing the funnel results. The screenshot
                         below shows the current results of the &quot;Product Purchase&quot; event funnel created above.
                         As you can see, of all visitors to the home page, 83% of those searched for products, 67% of
@@ -246,7 +242,8 @@
                         <li>Locate the event funnel you want to remove, then click its <strong>Pencil</strong> icon in
                             the top-right corner.</li>
                         <li>Click <strong>Remove</strong> to delete the event funnel.</li>
-                        <li>A dialog appears asking to confirm the deletion. Click <strong>Continue</strong> to complete the process for removing an event funnel.</li>
+                        <li>A dialog appears asking to confirm the deletion. Click <strong>Continue</strong> to complete
+                            the process for removing an event funnel.</li>
                     </ol>
                 </div>
             </div>
@@ -255,5 +252,6 @@
     </div>
     </div>
 </body>
+<script src="../../js/toc_generator.js"></script>
 
 </html>

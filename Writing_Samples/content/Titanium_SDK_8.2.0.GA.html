@@ -7,53 +7,21 @@
     <link href="../../css/bootstrap.css" rel="stylesheet">
     <link href="../../css/tutorials.css" rel="stylesheet">
     <link rel="stylesheet" href="../styles/main.css" type="text/css" />
+    <script src="../../js/jquery-2.1.0.min.js"></script>
 </head>
 
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
                 <h1>Titanium SDK 8.2.0.GA Release Note</h1>
                 <p class="note">Archive note: all links and images have been disabled as their destinations and/or
                     source locations no longer exist.</p>
                 <div>Created by Brian Immel, last modified on Sep 19, 2019</div>
-                <div class="floatLeft">
-                    <ul>
-                        <li><a href="#About_this_release">About this release</a></li>
-                        <li><a href="#Notice_of_feature_and_behavior_Changes">Notice of feature and behavior Changes</a>
-                            <ul>
-                                <li><a href="#behavior_Android_platform">Android platform</a></li>
-                                <li><a href="#behavior_iOS_platform">iOS platform</a></li>
-                                <li><a href="#behavior_Windows_platform">Windows platform</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#New_features">New features</a>
-                            <ul>
-                                <li><a href="#new_Android_platform">Android platform</a></li>
-                                <li><a href="#new_iOS_platform">iOS platform</a></li>
-                                <li><a href="#new_Windows_platform">Windows platform</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#Community_credits">Community credits</a></li>
-                        <li><a href="#Fixed_issues">Fixed issues</a></li>
-                        <li><a href="#Improvements">Improvements</a></li>
-                        <li><a href="#Known_issues">Known issues</a></li>
-                        <li><a href="#API_changes">API changes</a>
-                            <ul>
-                                <li><a href="#New_APIs">New APIs</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#SDK_modules_versions">SDK modules versions</a>
-                            <ul>
-                                <li><a href="#Android_and_iOS">Android and iOS</a></li>
-                                <li><a href="#CommonJS">CommonJS</a></li>
-                                <li><a href="#Hyperloop">Hyperloop</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+                <toc></toc>
                 <div>
-                    <h2 id="About_this_release">About this release</h2>
+                    <h2>About this release</h2>
                     <p>Titanium SDK 8.2.0 is a minor release of the SDK, addressing high-priority issues from previous
                         releases.This release is geared towards supporting iOS 13.</p>
                     <p>As of this release, Titanium SDK 8.1.x.x will not receive updates more than six months after the
@@ -65,7 +33,7 @@
                             Lifetimes</a> documents for details.</p>
                     <p>With the release of Titanium SDK 9.0.0, we will no longer support Node.js 8.X. Node 10.2.0 will
                         be the new minimum supported version with SDK 9.0.0.</p>
-                    <h2 id="Notice_of_feature_and_behavior_Changes">Notice of feature and behavior Changes</h2>
+                    <h2>Notice of feature and behavior Changes</h2>
                     <ul>
                         <li><a href="#">TIMOB-27126</a> - iOS 13: Support dark mode<ul>
                                 <li>Added TiColor support for all color-setters</li>
@@ -137,13 +105,13 @@
                             </ul>
                         </li>
                     </ul>
-                    <h3 id="behavior_Android_platform">Android platform</h3>
+                    <h3>Android platform</h3>
                     <p>There were no specific behavioral changes for the Android platform.</p>
-                    <h3 id="behavior_iOS_platform">iOS platform</h3>
+                    <h3>iOS platform</h3>
                     <p>There were no specific behavioral changes for the iOS platform.</p>
-                    <h3 id="behavior_Windows_platform">Windows platform</h3>
+                    <h3>Windows platform</h3>
                     <p>There were no specific behavioral changes for the Windows platform.</p>
-                    <h2 id="New_features">New features</h2>
+                    <h2>New features</h2>
                     <ul>
                         <li><a href="#">MOD-2534</a> - TiAPI: Update Facebook SDK's to latest (iOS 5.5.0, Android 5.4.0)
                             to support iOS 13<ul>
@@ -280,19 +248,22 @@
                             </ul>
                         </li>
                     </ul>
-                    <h3 id="new_Android_platform">Android platform</h3>
-                    <h3 id="new_iOS_platform">iOS platform</h3>
-                    <h3 id="new_Windows_platform">Windows platform</h3>
-                    <h2 id="Community_credits">Community credits</h2>
+                    <h3>Android platform</h3>
+                    <p>There were no specific Android features included for this release.</p>
+                    <h3>iOS platform</h3>
+                    <p>There were no specific iOS features included for this release.</p>
+                    <h3>Windows platform</h3>
+                    <p>There were no specific Windows features included for this release.</p>
+                    <h2>Community credits</h2>
                     <ul>
                         <li>Christy Thomas - <a href="#">TIMOB-24171</a></li>
                         <li>Fabian Martinez - <a href="#">TIMOB-27205</a></li>
                         <li>Sergey Volkov - <a href="#">TIMOB-27234</a></li>
                         <li>Hans Knöchel - <a href="#">MOD-2534</a>, <a href="#">MOD-2537</a>, <a
                                 href="#">TIMOB-27263</a>, <a href="#">TIMOB-27367</a>, <a href="#">TIMOB-27169</a>, <a
-                                href="#">TIMOB-27171</a>, <a href="#">TIMOB-27209</a></li>
+                                href="#">TIMOB-27171</a>, and <a href="#">TIMOB-27209</a></li>
                     </ul>
-                    <h2 id="Fixed_issues">Fixed issues</h2>
+                    <h2>Fixed issues</h2>
                     <ul>
                         <li><a href="#">TIMOB-24171</a> - iOS: AccessibilityLabel or AccessibilityValue does not work.
                         </li>
@@ -310,7 +281,7 @@
                         <li><a href="#">TIMOB-27367</a> - iOS: Apps can be rejected when including UIWebView refs</li>
                         <li><a href="#">TIMOB-27386</a> - iOS: Correctly decode push notification token</li>
                     </ul>
-                    <h2 id="Improvements">Improvements</h2>
+                    <h2>Improvements</h2>
                     <ul>
                         <li><a href="#">TIMOB-26573</a> - TiAPI: Make Ti.Buffer Node-compatible with Node's Buffer type
                             <ul>
@@ -448,12 +419,12 @@
                         <li><a href="#">TIMOB-27395</a> - iOS: Support new devices in os.cpus()
                         </li>
                     </ul>
-                    <h2 id="Known_issues">Known issues</h2>
+                    <h2>Known issues</h2>
                     <p>We did not discover any know issues with this release. If you discover any, please contact <a
                             href="#">support</a> or create a <a href="#">pull request</a> following our <a
                             href="#">guidelines</a> for reporting issues.</p>
-                    <h2 id="API_changes">API changes</h2>
-                    <h3 id="New_APIs">New APIs</h3>
+                    <h2>API changes</h2>
+                    <h3>New APIs</h3>
                     <p>The following APIs are new or have expanded platform support in release 8.2.0.</p>
 
                     <table>
@@ -796,8 +767,8 @@
                         </tbody>
                     </table>
 
-                    <h2 id="SDK_modules_versions">SDK modules versions</h2>
-                    <h3 id="Android_and_iOS">Android_and_iOS</h3>
+                    <h2>SDK modules versions</h2>
+                    <h3>Android_and_iOS</h3>
                     <table>
                         <thead>
                             <tr>
@@ -866,7 +837,7 @@
                         </tbody>
                     </table>
 
-                    <h3 id="CommonJS">CommonJS</h3>
+                    <h3>CommonJS</h3>
                     <table>
                         <thead>
                             <tr>
@@ -886,7 +857,7 @@
                         </tbody>
                     </table>
 
-                    <h3 id="Hyperloop">Hyperloop</h3>
+                    <h3>Hyperloop</h3>
                     <table>
                         <thead>
                             <tr>
@@ -905,10 +876,11 @@
                             </tr>
                         </tbody>
                     </table>
-                </div>
             </div>
+            </div>
+            <div class="col-md-1"></div>
         </div>
     </div>
 </body>
-
+<script src="../../js/toc_generator.js"></script>
 </html>
