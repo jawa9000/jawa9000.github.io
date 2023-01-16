@@ -118,6 +118,7 @@
             var towersCut = 0;
             var dragonsCut = 0; // 30% of totals
             var hamletCut = 0; // 50% of totals
+            var totalMined = 0;
 
             for (i in totals) {
                 dragonsCut += Math.round(totals[i] * 0.3); // dragon's tithe
@@ -126,9 +127,10 @@
             }
 
             towersCut = Math.round(towersCut / 2);
+            totalMined = towersCut + dragonsCut + hamletCut
             var eachPlayersCut = Math.round(towersCut / 3);
 
-            $('#output').append('<p>The dragon\'s cut is ' + numberWithCommas(dragonsCut) + 'gp.</p><p>The hamlet\'s cut is ' + numberWithCommas(hamletCut) + 'gp.</p><p>The tower\'s cut is ' + numberWithCommas(towersCut) + 'gp.</p><p>Each PC gets ' + numberWithCommas(eachPlayersCut) + 'gp.</p><br/>');
+            $('#output').append('<p>Total mined: ' + numberWithCommas(totalMined) + 'gp.</p><p>The dragon\'s cut is ' + numberWithCommas(dragonsCut) + 'gp.</p><p>The hamlet\'s cut is ' + numberWithCommas(hamletCut) + 'gp.</p><p>The tower\'s cut is ' + numberWithCommas(towersCut) + 'gp.</p><p>Each PC (and Auzben) gets ' + numberWithCommas(eachPlayersCut) + 'gp.</p><br/>');
 
             $('#output').append(output);
             
