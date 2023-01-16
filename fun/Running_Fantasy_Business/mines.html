@@ -79,6 +79,7 @@
             <div class="col-md-1"></div>
             <div class="col-md-6">
                 <div id="summary"></div>
+                <div id="kept"></div>
             </div>
             <div class="col-md-4">
                 <div id="output"></div>
@@ -97,219 +98,273 @@
         let minedOutput = {
             'granite': {
                 'name': 'Granite',
-                'gpOutput': [0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6]
+                'gpOutput': [0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6],
+                'pricePerPound': 0.1
             },
             'basalt': {
                 'name': 'Basalt',
-                'gpOutput': [1,2,3,4,5,6,7,8,10,11,12]
+                'gpOutput': [1,2,3,4,5,6,7,8,10,11,12],
+                'pricePerPound': 0.2
             },
             'marble': {
                 'name': 'Marble',
-                'gpOutput': [2,4,8,16,18,20,22,24,26,28,30,32]
+                'gpOutput': [2,4,8,16,18,20,22,24,26,28,30,32],
+                'pricePerPound': 0.4
             },
             'coal': {
                 'name': 'Coal',
-                'gpOutput': [1,2,3,4,5,6,7,8,9,10,11,12]
+                'gpOutput': [1,2,3,4,5,6,7,8,9,10,11,12],
+                'pricePerPound': 0.2
             },
             'petroleum': {
                 'name': 'Petroleum',
-                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130]
+                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130],
+                'pricePerPound': 50
             },
             'agate': {
                 'name': 'agate',
-                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130]
+                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130],
+                'pricePerPound': 50
             },
             'bloodstone': {
                 'name': 'bloodstone',
-                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130]
+                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130],
+                'pricePerPound': 50
             },
             'canelian': {
                 'name': 'canelian',
-                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130]
+                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130],
+                'pricePerPound': 50
             },
             'citrine': {
                 'name': 'citrine',
-                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130]
+                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130],
+                'pricePerPound': 50
             },
             'jasper': {
                 'name': 'jasper',
-                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130]
+                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130],
+                'pricePerPound': 50
             },
             'moonstone': {
                 'name': 'moonstone',
-                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130]
+                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130],
+                'pricePerPound': 50
             },
             'onyx': {
                 'name': 'onyx',
-                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130]
+                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130],
+                'pricePerPound': 50
             },
             'tourmaline': {
                 'name': 'tourmaline',
-                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130]
+                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130],
+                'pricePerPound': 50
             },
             'zircon': {
                 'name': 'zircon',
-                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130]
+                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130],
+                'pricePerPound': 50
             },
             'fluorite': {
                 'name': 'fluorite',
-                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130]
+                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130],
+                'pricePerPound': 50
             },
             'obsidian': {
                 'name': 'obsidian',
-                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130]
+                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130],
+                'pricePerPound': 50
             },
             'quartz': {
                 'name': 'quartz',
-                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130]
+                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130],
+                'pricePerPound': 50
             },
             'amethyst': {
                 'name': 'amethyst',
-                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130]
+                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130],
+                'pricePerPound': 50
             },
             'lapis lazuli': {
                 'name': 'lapis lazuli',
-                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130]
+                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130],
+                'pricePerPound': 50
             },
             'hematite': {
                 'name': 'hematite',
-                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130]
+                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130],
+                'pricePerPound': 50
             },
             'rhodochrosite': {
                 'name': 'rhodochrosite',
-                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130]
+                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130],
+                'pricePerPound': 50
             },
             'carnelian': {
                 'name': 'carnelian',
-                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130]
+                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130],
+                'pricePerPound': 50
             },
             'chrysopidate': {
                 'name': 'chrysopidate',
-                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130]
+                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130],
+                'pricePerPound': 50
             },
             'alexandrite': {
                 'name': 'alexandrite',
-                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130]
+                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130],
+                'pricePerPound': 50
             },
             'jade': {
                 'name': 'jade',
-                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130]
+                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130],
+                'pricePerPound': 50
             },
             'azurite': {
                 'name': 'azurite',
-                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130]
+                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130],
+                'pricePerPound': 50
             },
             'malachite': {
                 'name': 'malachite',
-                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130]
+                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130],
+                'pricePerPound': 50
             },
             'turquoise': {
                 'name': 'turquoise',
-                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130]
+                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130],
+                'pricePerPound': 50
             },
             'amber': {
                 'name': 'amber',
-                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130]
+                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130],
+                'pricePerPound': 50
             },
             'jet': {
                 'name': 'jet',
-                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130]
+                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130],
+                'pricePerPound': 50
             },
             'blue calcite': {
                 'name': 'blue calcite',
-                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130]
+                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130],
+                'pricePerPound': 50
             },
             'aquamarine': {
                 'name': 'aquamarine',
-                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130]
+                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130],
+                'pricePerPound': 50
             },
             'blueSpinel': {
                 'name': 'blue spinel',
-                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130]
+                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130],
+                'pricePerPound': 50
             },
             'peridot': {
                 'name': 'peridot',
-                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130]
+                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130],
+                'pricePerPound': 50
             },
             'topaz': {
                 'name': 'topaz',
-                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130]
+                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130],
+                'pricePerPound': 50
             },
             'garnet': {
                 'name': 'garnet',
-                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130]
+                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130],
+                'pricePerPound': 50
             },
             'jacinth': {
                 'name': 'jacinth',
-                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130]
+                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130],
+                'pricePerPound': 50
             },
             'opal': {
                 'name': 'opal',
-                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130]
+                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130],
+                'pricePerPound': 50
             },
             'redSpinel': {
                 'name': 'red spinel',
-                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130]
+                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130],
+                'pricePerPound': 50
             },
             'sapphire': {
                 'name': 'sapphire',
-                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130]
+                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130],
+                'pricePerPound': 50
             },
             'emerald': {
                 'name': 'emerald',
-                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130]
+                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130],
+                'pricePerPound': 50
             },
             'ruby': {
                 'name': 'ruby',
-                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130]
+                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130],
+                'pricePerPound': 50
             },
             'diamond': {
                 'name': 'diamond',
-                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130]
+                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130],
+                'pricePerPound': 50
             },
             'radioactive': {
                 'name': 'radioactive',
-                'gpOutput': [4.5,6.5,8.5,10,12.5,14.5,16,18,20,22,25,31]
+                'gpOutput': [4.5,6.5,8.5,10,12.5,14.5,16,18,20,22,25,31],
+                'pricePerPound': 500
             },
             'lead': {
                 'name': 'Lead',
-                'gpOutput': [0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6]
+                'gpOutput': [0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6],
+                'pricePerPound': 0.2
             },
             'zinc': {
                 'name': 'Zinc',
-                'gpOutput': [1,2,3,4,5,6,7,8,10,11,12]
+                'gpOutput': [1,2,3,4,5,6,7,8,10,11,12],
+                'pricePerPound': 0.2
             },
             'iron': {
                 'name': 'Iron',
-                'gpOutput': [2,3.5,5,6.5,8,9.5,11,12,14,15.5,17,18.5]
+                'gpOutput': [2,3.5,5,6.5,8,9.5,11,12,14,15.5,17,18.5],
+                'pricePerPound': 0.4
             },
             'tin': {
                 'name': 'Tin',
-                'gpOutput': [3.5,5.5,7.5,9.5,11,13.5,15,18,20,21.5,23.5,26]
+                'gpOutput': [3.5,5.5,7.5,9.5,11,13.5,15,18,20,21.5,23.5,26],
+                'pricePerPound': 0.3
             },
             'copper': {
                 'name': 'Copper',
-                'gpOutput': [5,7.5,10,12.5,15,17.5,20,22.5,25,27.5,30,32.5]
+                'gpOutput': [5,7.5,10,12.5,15,17.5,20,22.5,25,27.5,30,32.5],
+                'pricePerPound': 0.5
             },
             'silver': {
                 'name': 'Silver',
-                'gpOutput': [10,15,20,25,30,35,40,45,50,55,60,65]
+                'gpOutput': [10,15,20,25,30,35,40,45,50,55,60,65],
+                'pricePerPound': 5
             },
             'gold': {
                 'name': 'Gold',
-                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130]
+                'gpOutput': [17.5,22.5,38.5,50,67,72,87,100,110,117,130],
+                'pricePerPound': 50
             },
             'platinum': {
                 'name': 'Platinum',
-                'gpOutput': [40,65,79,112,136,160,185,210,232,280,305,330]
+                'gpOutput': [40,65,79,112,136,160,185,210,232,280,305,330],
+                'pricePerPound': 500
             },
             'mithril': {
                 'name': 'Mithril',
-                'gpOutput': [75,105,140,170,205,240,275,310,345,385,415,455]
+                'gpOutput': [75,105,140,170,205,240,275,310,345,385,415,455],
+                'pricePerPound': 2500
             },
             'adamantine': {
                 'name': 'Adamantine',
-                'gpOutput': [100,150,200,250,300,350,400,450,500,550,600,650]
+                'gpOutput': [100,150,200,250,300,350,400,450,500,550,600,650],
+                'pricePerPound': 5000
             }
         }
 
@@ -715,11 +770,6 @@
         var minedOutputTotal = {};
 
         $('button').on('click', function () {
-            $('div#summary').html(''); // reset summary output
-            $('div#output').html(''); // reset html output
-            // $('input#days').attr('disabled', false); // enable day input
-            // $('input#minerCount').attr('disabled', false); // enable miner input
-            
             var days = parseInt($('input#days').val()); // number of days to simulate
             var minerCount = $('input#minerCount').val(); // number of miners
 
@@ -773,11 +823,11 @@
                     }
 
                     if (minedOutputTotal[i].name == 'blueSpinel') {
-                        output += '<p>blue spinel: ' + numberWithCommas(tally) + 'gp</p>';
+                        output += '<p><input type="checkbox" id="blueSpinel" name="blueSpinel" checked>blue spinel:<span id="' + i + '">' + numberWithCommas(tally) + '</span>gp</p>';
                     } else if (minedOutputTotal[i].name == 'redSpinel') {
-                        output += '<p>red spinel: ' + numberWithCommas(tally) + 'gp</p>';
+                        output += '<p><input type="checkbox" id="redSpinel" name="redSpinel" checked>red spinel:<span id="' + i + '">' + numberWithCommas(tally) + '</span>gp</p>';
                     } else {
-                        output += '<p>' + minedOutputTotal[i].name + ': ' + numberWithCommas(tally) + 'gp</p>';
+                        output += '<p><input type="checkbox" id="' + minedOutputTotal[i].name + '" name="' + minedOutputTotal[i].name + '" checked><span id="' + i + '">' + minedOutputTotal[i].name + ': ' + numberWithCommas(tally) + '</span>gp</p>';
                     }
 
                     totals.push(tally)
@@ -790,8 +840,6 @@
                 grandTotal += totals[i];
             }
 
-            $('div#summary').append('<p><strong>Your mine generated ' + numberWithCommas(grandTotal) + 'gp worth of materials from ' + days + ' days of labor from ' + minerCount + ' miners</strong>.</p>');
-
             var dragonTipInput = parseInt($('input#percentage_dragonTip').val());
             var minersTipInput = parseInt($('input#percentage_minerTip').val());
             var mineUpkeepInput = parseInt($('input#percentage_mineUpkeep').val());
@@ -805,31 +853,64 @@
             var mineExpansion = Math.round(grandTotal * (mineExpansionInput / 100)); // 10% for mine expansion and facility upgrades
             var partyProfit = Math.round(grandTotal * (partysCut / 100)); // 40% is what the party keeps
             
-            $('div#summary').append('<p>The dragon get ' + numberWithCommas(Math.round(grandTotal * (dragonTipInput / 100))) + 'gp (' + dragonTipInput + '% tithe).</p>'); // defaults to 30% tithe to the dragon
-            $('div#summary').append('<p>The miners get ' + numberWithCommas(Math.round(grandTotal * (minersTipInput / 100))) + 'gp (' + minersTipInput + '% bonus).</p>'); // 4% tip to the miners
-            $('div#summary').append('<p>' + (mineUpkeepInput + miscExpensesInput) + '% goes to mine upkeep and misc expenses (' + numberWithCommas(mineUpkeep + miscExpenses) + 'gp).</p>');
-            $('div#summary').append('<p>' + mineExpansionInput + '% for mine expansion and facility upgrades (' + numberWithCommas(mineExpansion) + 'gp).</p>');
-            $('div#summary').append('<p><strong>The mine owners get '+ numberWithCommas(partyProfit) + 'gp</strong>.</p>');
+            $('div#output').html(''); // reset html output
             $('div#output').append(output);
+            updateSumamry(output);
         });
 
-        $('input').on('change', function () {
-            $('div#summary').html('');
+
+        $('div#output').on('change', 'input:checkbox', function() {
+            updateSumamry();
+        });
+
+        
+        $('input').on('change', function() {
+            updateSumamry(); 
+        });
+
+        function updateSumamry(output) {
+            $('div#summary').html(''); // reset summary output
 
             var days = parseInt($('input#days').val()); // number of days to simulate
             var minerCount = $('input#minerCount').val(); // number of miners
-
-            // $('input#days').attr('disabled', true); // disable day input
-            // $('input#minerCount').attr('disabled', true); // disable miner input
-
             var tally = [];
             var output = '';
 
+            var kept = [];
+
             for (i in minedOutputTotal) {
                 if (minedOutputTotal[i].worth.length > 0) {
-                    tally.push(minedOutputTotal[i].worth);
+                    // check to see if the checkbox for the item has been unchecked
+                    $('input:checkbox').each(function() {
+                        var id = $(this).attr('id');
+                        var status = $(this).prop('checked'); // true or false
+                        if (status == true) {
+                            tally.push(minedOutputTotal[i].worth);
+                            
+                        } else {
+                            kept.push(id)
+                        }
+                    });
                 }
             }
+
+            var keptOutput = '';
+            var cleanKept = [...new Set(kept)];
+
+            for (i in cleanKept) {
+                for (j in minedOutput) {
+                    if (j == cleanKept[i]) {
+                        var totalValue = $('span#' + j).text().split(' ')[1].replace(/,/g, '');
+                        var pounds = totalValue / minedOutput[j].pricePerPound;
+
+                        keptOutput += '<p>Your mine kept ' + numberWithCommas(pounds) + 'lbs of ' + kept[i] + '.</p>';
+                        break;
+                    }
+                }
+            }
+
+            $('div#kept').html('');
+            $('div#kept').append(keptOutput)
 
             var grandTotal = 0;
 
@@ -839,8 +920,6 @@
                 }
             }
 
-            $('div#summary').append('<p><strong>Your mine generated ' + numberWithCommas(grandTotal) + 'gp worth of materials from ' + days + ' days of labor from ' + minerCount + ' miners</strong>.</p>');
-
             var dragonTipInput = parseInt($('input#percentage_dragonTip').val());
             var minersTipInput = parseInt($('input#percentage_minerTip').val());
             var mineUpkeepInput = parseInt($('input#percentage_mineUpkeep').val());
@@ -851,14 +930,33 @@
             var miscExpenses = Math.round(grandTotal * (miscExpensesInput / 100)); // 6% for mine misc expenses
             var mineExpansion = Math.round(grandTotal * (mineExpansionInput / 100)); // 10% for mine expansion and facility upgrades
             var partyProfit = Math.round(grandTotal * (partysCut / 100)); // 40% is what the party keeps
+
+            updateTotalDisplay(grandTotal, minerCount, output, days);
+        }
+
+        function updateTotalDisplay(grandTotal, minerCount, output, days) {
+            var dragonTipInput = parseInt($('input#percentage_dragonTip').val());
+            var minersTipInput = parseInt($('input#percentage_minerTip').val());
+            var mineUpkeepInput = parseInt($('input#percentage_mineUpkeep').val());
+            var miscExpensesInput = parseInt($('input#percentage_miscExpenses').val());
+            var mineExpansionInput = parseInt($('input#percentage_mineExpansion').val());
+
+            var partysCut = 100 - (dragonTipInput + minersTipInput + mineUpkeepInput + miscExpensesInput + mineExpansionInput);
+
+            var mineUpkeep = Math.round(grandTotal * (mineUpkeepInput /100)); // 10% for mine maintainence
+            var miscExpenses = Math.round(grandTotal * (miscExpensesInput / 100)); // 6% for mine misc expenses
+            var mineExpansion = Math.round(grandTotal * (mineExpansionInput / 100)); // 10% for mine expansion and facility upgrades
+            var partyProfit = Math.round(grandTotal * (partysCut / 100)); // 40% is what the party keeps
             
-            $('div#summary').append('<p>The dragon get ' + numberWithCommas(Math.round(grandTotal * (dragonTipInput / 100))) + 'gp (' + dragonTipInput + '% tithe).</p>'); // defaults to 30% tithe to the dragon
-            $('div#summary').append('<p>The miners get ' + numberWithCommas(Math.round(grandTotal * (minersTipInput / 100))) + 'gp (' + minersTipInput + '% bonus).</p>'); // 4% tip to the miners
-            $('div#summary').append('<p>' + (mineUpkeepInput + miscExpensesInput) + '% goes to mine upkeep and misc expenses (' + numberWithCommas(mineUpkeep + miscExpenses) + 'gp).</p>');
-            $('div#summary').append('<p>' + mineExpansionInput + '% for mine expansion and facility upgrades (' + numberWithCommas(mineExpansion) + 'gp).</p>');
-            $('div#summary').append('<p><strong>The mine owners get '+ numberWithCommas(partyProfit) + 'gp</strong>.</p>');
+            $('div#summary').append('<p><strong>Your mine generated <span id="grandTotal">' + numberWithCommas(grandTotal) + '</span>gp worth of materials from ' + days + ' days of labor from ' + minerCount + ' miners</strong>.</p>');
+            $('div#summary').append('<p>The dragon get <span id="dragonTipInput">' + numberWithCommas(Math.round(grandTotal * (dragonTipInput / 100))) + '</span>gp (' + dragonTipInput + '% tithe).</p>'); // defaults to 30% tithe to the dragon
+            $('div#summary').append('<p>The miners get <span id="minersBonus">' + numberWithCommas(Math.round(grandTotal * (minersTipInput / 100))) + '</span>gp (' + minersTipInput + '% bonus).</p>'); // 4% tip to the miners
+            $('div#summary').append('<p>' + (mineUpkeepInput + miscExpensesInput) + '% goes to mine upkeep and misc expenses (<span id="upkeep">' + numberWithCommas(mineUpkeep + miscExpenses) + '</span>gp).</p>');
+            $('div#summary').append('<p>' + mineExpansionInput + '% for mine expansion and facility upgrades (<span id="mineExpansion">' + numberWithCommas(mineExpansion) + '</span>gp).</p>');
+            $('div#summary').append('<p><strong>The mine owners get <span id="partyProfit">' + numberWithCommas(partyProfit) + '</span>gp</strong> (<span id="partyProfitEach">' + numberWithCommas(Math.round(partyProfit/3)) + '</span> each).</p>');
             
-        });
+            $('div#output').append(output);
+        }
 
         function byproduct(material) {
             if (material == 'stones') {
