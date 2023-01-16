@@ -1,7 +1,7 @@
 var count = 0; // used to make sure each heading is unique as some subheadings may have the same name as other subheadings.
 var output = '<div class="floatLeft"><ul>'; // variable to handle the collection and display of the ToC
 
-$('h1, h2, h3, h4').each(function() { // generate a Table of Contents (ToC) based on the top four levels only
+$('h2, h3, h4').each(function() { // generate a Table of Contents (ToC) based on the top four levels only
     count ++;
 
     var text = $(this).text();
@@ -22,5 +22,3 @@ $('h1, h2, h3, h4').each(function() { // generate a Table of Contents (ToC) base
 output += '</ul>';
     
 $('toc').html(output); // display the ToC in the <toc> element
-
->> Rename all the recently created PDF files in Downloads folder and move them to D:\jawa9000.github.io\Writing_Samples\content
