@@ -4,6 +4,36 @@ let buildingConstuctionCosts = {
         'cost': '1,250',
         'time': 30
     },
+    'houseSmallWood': {
+        'name': 'Small wooden house',
+        'cost': '500',
+        'time': 24
+    },
+    'houseMediumWood': {
+        'name': 'Medium wooden house',
+        'cost': '1,000',
+        'time': 36
+    },
+    'houseLargeWood': {
+        'name': 'Large wooden house',
+        'cost': '2,000',
+        'time': 54
+    },
+    'houseSmallStone': {
+        'name': 'Small stone house',
+        'cost': '1,500',
+        'time': 36
+    },
+    'houseMediumStone': {
+        'name': 'Medium stone house',
+        'cost': '3,000',
+        'time': 54
+    },
+    'houseLargeStone': {
+        'name': 'Large stone house',
+        'cost': '6,000',
+        'time': 82
+    },
     'abbey': {
         'name': 'Abbey',
         'cost': '50,000',
@@ -19,7 +49,7 @@ let buildingConstuctionCosts = {
         'cost': '5,000',
         'time': 45
     },
-    'Guildhall': {
+    'guildhall': {
         'name': 'Guildhall, (town or city)',
         'cost': '5,000',
         'time': 60
@@ -44,7 +74,7 @@ let buildingConstuctionCosts = {
         'cost': '500,000',
         'time': 1200
     },
-    'Temple': {
+    'temple': {
         'name': 'Temple',
         'cost': '50,000',
         'time': 400
