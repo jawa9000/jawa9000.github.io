@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Querying Deleted Pages</title>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="../../css/bootstrap.css" rel="stylesheet">
+    <link href="../../css/tutorials.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/main.css" type="text/css" />
+    <script src="../../js/jquery-2.1.0.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <h1>Querying Deleted Pages</h1>
+                <p class="note">Archive note: all links and images have been disabled as their destinations and/or source locations no longer exist. Content marked with "[...]" have been removed or simplified.</p>
+                <p>Created by Brian Immel on June 4, 2022</p>
+                <toc></toc>
+                <h2>Overview</h2>
+                <p>This document shows entry-level programmers how to set up a SQL query using the <a href="#">[table]</a> table to generate a report of how many pages were deleted in the past 60 days. This tutorial also includes information on how to exclude certain types of wiki page types (like redirected and hidden from search page types). This query is part of a <a href="#">Learning SQL</a> series designed to help you get started with SQL and create your own dashboard filled with queries to report on your wiki's health.</p>
+                <p>This tutorial assumes you are familiar with using the <a href="#">[Query UI]</a> to write and test the query used in this document. See our documentation for how to use <a href="#">[Query UI]</a> to learn the basics of this interface.</p>
+                <p>If you need help, refer to our complete collection of <a href="#">Getting Started With Queries</a> and our <a href="#">user forum</a>.</p>
+                <h2>Deleted pages from the last 60 days</h2>
+                <p>The query itself is six lines broken down into three main steps: counting the pages, selecting spefici or similar wiki roots, and filtering by how many days you want to look back.</p>
+                <p>Copy and paste this code snippet into your <a href="#">[Query UI]</a> and click the <strong>Submit</strong> button.</p>
+                <code class="block">
+                    SELECT<br/>
+                    <span class="indent1">COUNT(page_title)</span><br/>
+                    FROM [table]<br/>
+                    WHERE<br/>
+                    <span class="indent1">(page_title = '[wiki_root]' OR page_title like '[wiki_root]/%')</span><br/>
+                    <span class="indent1">AND deletion_time >= (TO_UNIXTIME(NOW() - INTERVAL '60' DAY))</span>
+                </code>
+                <p>In this query, it counts the number of deleted documents by selecting the <a href="#"><code class="inline">page_title</code></a> column from the <a href="#">[table]</a> table. Next, the query is instructed to look for an explicit or similar wiki root (<code class="inline">(page_title = '[wiki_root]' OR page_title like '[wiki_root]/%')</code>). Finally, it filters the results by looking for the deletion timestamp between today (<code class="inline">TO_UNIXTIME(NOW()</code>) and the last 60 days. This returns a number in the results panel of the <a href="#">[Query UI]</a> of how pages were deleted in the last 60 days.</p>
+                <p><strong>Note</strong>: this query includes all <a href="#">page types</a> in the report. While this is helpful in getting a "big number" it may not be totally useful as you may want to exclude pages that don't affect the quality or health of your wiki.</p>
+                <h2>Excluding redirected or hidden pages</h2>
+                <p>In this section, we'll modify this query to exclude wiki page types of "redirected" and "hidden from search". You can use the <a href="#">Wiki Page Types</a> to look up the different types of wiki pages and decide if your customized query should include them or not.</p>
+                <p>Using the query above, append the following query snippet:</p>
+                <code class="block">
+                    AND page_is_redirect = 0<br/>
+                    AND page_is_hidden = 0
+                </code>
+                <p>Now when you execute this query, you may see a reduction in the number as these two wiki page types have been filtered out. If that additional filtering doesn't change the result, then those page types don't exist in your selected wiki and date range. However, it is possible that the original result wouldn’t change with or without this additional filtering. For example, if your query returned zero pages deleted in the last 60 days without filtering for redirects or hidden, then adding these additional filters wouldn't affect that result,</p>
+                <h2>Taking customizing this query</h2>
+                <p>You can further customize this query by having it report metrics on other wikispaces or changing the date range.</p>
+                <h3>Reporting on other wikispaces</h3>
+                <p>To get the number of deleted pages from other wikispaces, change the value of <code class="inline">[wiki_root]</code> in <code class="inline">(page_title = '[wiki_root]' OR page_title like '[wiki_root]/%')</code> (both locations) to any valid wiki root.</p>
+                <p><strong>Note</strong>: If you enter an invalid wiki root or both [wiki_root] values are not the same, null is displayed in the result.</p>
+                <p><strong>Tip</strong>: Ensure your wiki root is the correct wiki root by copy/pasting it into your browser and check if the URL is valid or not. Invalid wiki roots always result in a value of null.</p>
+                <h3>Changing the date range</h3>
+                <p>To change the range this query looks back, change the value of <code class="inline">60</code> in <code class="inline">AND deletion_time >= (TO_UNIXTIME(NOW() - INTERVAL '60' DAY))</code> to anything equal to or greater than one (1). The <code class="inline">NOW</code> function returns today's date and when paired with a value of one (1) for the date range, the result wouldn't be insightful.</p>
+                <p><strong>Tip</strong>: Some queries are based on a quarterly time scale (90 days) and others are monthly (30 days). You can adjust this value to fit your needs.</p>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../../js/toc_generator.js"></script>
+
+</html>

@@ -212,6 +212,17 @@ let samples = {
             projectNotes: 'Collaborated with one product engineer and team lead to rewrite this document from top to bottom. Captured and modified the images myself. Researched and wrote the GDPR statement that was approved by team leadership and the legal department.'
         }
     },
+    'Querying Deleted Pages': {
+        title: 'Querying Deleted Pages',
+        htmlLink: 'Querying_Deleted_Pages.html',
+        pdfLink: 'Querying_Deleted_Pages.pdf',
+        description: 'SQL tutorial on how to write a query to report how many wiki pages were deleted in a select time period.',
+        labels: ['Tutorial', 'SQL', 'Code Sample'],
+        projectDetails: {
+            audience: 'entry-level programmers and data scientists',
+            projectNotes: 'Researched and developed this query on my own and collaborated with another tech writer to verify the query and documentation.'
+        }
+    },
     // },
     // '': {
     //     title: '',
