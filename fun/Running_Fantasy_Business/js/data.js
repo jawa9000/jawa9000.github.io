@@ -190,17 +190,51 @@ let businessCosts = {
     }
 }
 
-var output = '<h2>Building construction time</h2><table><tr><th>Building</th><th>Cost (gp)</th><th>Time (days)</th></tr>';
+let settlementSizes = {
+    'thorp': {
+        'name': 'Thorp',
+        'population': '20-80'
+    },
+    'hamlet': {
+        'name': 'Hamlet',
+        'population': '81-400'
+    },
+    'village': {
+        'name': 'Village',
+        'population': '401-900'
+    },
+    'townSmall': {
+        'name': 'Town, small',
+        'population': '901-2,000'
+    },
+    'townLarge': {
+        'name': 'Town, large',
+        'population': '2,001-5,000'
+    },
+    'citySmall': {
+        'name': 'City, small',
+        'population': '5,001-12,000'
+    },
+    'cityLarge': {
+        'name': 'City, large',
+        'population': '12,001-25,000'
+    },
+    'metropolis': {
+        'name': 'Metrolpolis',
+        'population': '25,000+'
+    }
+}
+
+var output = '<h2>Building costs and construction time</h2><table><tr><th>Building</th><th>Cost (gp)</th><th>Time (days)</th></tr>';
 
 
 for (i in buildingConstuctionCosts) {
     output += '<tr><td>' + buildingConstuctionCosts[i].name + '</td>';
     output += '<td>' + buildingConstuctionCosts[i].cost + '</td>';
-    output += '<td>' + buildingConstuctionCosts[i].time + '</td></trd>';
+    output += '<td>' + buildingConstuctionCosts[i].time + '</td></tr>';
 }
 
-output += '</table>';
-output += '<h2>Daily property costs</h2><table><tr><th>Property</th><th>Total cost (day)</th><th>Skilled hirelings</th><th>Untrained hirelings</th></tr>'
+output += '</table><h2>Daily property costs and staffing</h2><table><tr><th>Property</th><th>Total cost (day)</th><th>Skilled hirelings</th><th>Untrained hirelings</th></tr>'
 
 for (i in businessCosts) {
     output += '<tr><td>' + businessCosts[i].name  + '</td>';
@@ -209,7 +243,14 @@ for (i in businessCosts) {
     output += '<td>' + businessCosts[i].untrained  + '</td></tr>';
 }
 
-output += '</table>';
+output += '</table><h2>Settlement sizes</h2><table><tr><th>Settlement size</th><th>Population</th></tr>'
+
+for (i in settlementSizes) {
+    output += '<tr><td>' + settlementSizes[i].name + '</td>';
+    output += '<td>' + settlementSizes[i].population + '</td></tr>';
+}
+
+output += '</table><br/>';
 
 $('div#output').append(output);
 /*
