@@ -220,7 +220,20 @@ let samples = {
         labels: ['Tutorial', 'SQL', 'Code Sample'],
         projectDetails: {
             audience: 'entry-level programmers and data scientists',
-            projectNotes: 'Researched and developed this query on my own and collaborated with another tech writer to verify the query and documentation.'
+            projectNotes: 'Researched and developed this query on my own and collaborated with another tech writer to verify the query and documentation.',
+            change: 'I would include sample output from the code snippet included in this document and add links to the other query documents related to this topic.'
+        }
+    },
+    'Find Archived Pages': {
+        title: 'Find Archived Pages',
+        htmlLink: 'Find_Archived_Pages.html',
+        pdfLink: 'Find_Archived_Pages.pdf',
+        description: 'SQL tutorial on how to write a query to generate a report of all archived wiki pages in a given wikispace.',
+        labels: ['Tutorial', 'SQL', 'Code Sample'],
+        projectDetails: {
+            audience: 'entry-level programmers and data scientists',
+            projectNotes: 'I collaborated with a fellow tech writer to write a series of queries that pulls data about documentation sets. I wrote, tested, and documented this query and updated the document once I received feedback about the inclusion of deleted and hidden pages.',
+            change: 'I would include sample output from the code snippet included in this document and add links to the other query documents related to this topic.'
         }
     },
     // },
