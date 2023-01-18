@@ -21,7 +21,7 @@
                 <toc></toc>
                 <h2>Overview</h2>
                 <p>This document shows entry-level programmers how to set up a SQL query using the <a href="#">[table]</a> table to generate a report of how many pages were deleted in the past 60 days. This tutorial also includes information on how to exclude certain types of wiki page types (like redirected and hidden from search page types). This query is part of a <a href="#">Learning SQL</a> series designed to help you get started with SQL and create your own dashboard filled with queries to report on your wiki's health.</p>
-                <p>This tutorial assumes you are familiar with using the <a href="#">[Query UI]</a> to write and test the query used in this document. See our documentation for how to use <a href="#">[Query UI]</a> to learn the basics of this interface.</p>
+                <p>This tutorial assumes you are familiar with using the <a href="#">[Query UI]</a> to write and test the query used in this document and are using the <a href="#">[wiki_database]</a> database set in your <a href="#">[Query UI]</a>. See our documentation for how to use <a href="#">[Query UI]</a> to learn the basics of this interface.</p>
                 <p>If you need help, refer to our complete collection of <a href="#">Getting Started With Queries</a> and our <a href="#">user forum</a>.</p>
                 <h2>Deleted pages from the last 60 days</h2>
                 <p>The query itself is six lines broken down into three main steps: counting the pages, selecting spefici or similar wiki roots, and filtering by how many days you want to look back.</p>
@@ -40,7 +40,7 @@
                 <p>In this section, we'll modify this query to exclude wiki page types of "redirected" and "hidden from search". You can use the <a href="#">Wiki Page Types</a> to look up the different types of wiki pages and decide if your customized query should include them or not.</p>
                 <p>Using the query above, append the following query snippet:</p>
                 <code class="block">
-                    AND page_is_redirect = 0<br/>
+                    AND redirected = 0<br/>
                     AND page_is_hidden = 0
                 </code>
                 <p>Now when you execute this query, you may see a reduction in the number as these two wiki page types have been filtered out. If that additional filtering doesn't change the result, then those page types don't exist in your selected wiki and date range. However, it is possible that the original result wouldn’t change with or without this additional filtering. For example, if your query returned zero pages deleted in the last 60 days without filtering for redirects or hidden, then adding these additional filters wouldn't affect that result,</p>
