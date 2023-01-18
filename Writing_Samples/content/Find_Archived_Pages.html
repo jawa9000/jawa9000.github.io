@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Find Archived Pages</title>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="../../css/bootstrap.css" rel="stylesheet">
+    <link href="../../css/tutorials.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/main.css" type="text/css" />
+    <script src="../../js/jquery-2.1.0.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <h1>Find Archived Pages</h1>
+                <p class="note">Archive note: all links and images have been disabled as their destinations and/or source locations no longer exist. Content marked with "[...]" have been removed or simplified.</p>
+                <p>Created by Brian Immel on June 4, 2022</p>
+                <toc></toc>
+                <h2>Overview</h2>
+                <p>This document shows entry-level programmers how to set up a SQL query using the <a href="#">[table]</a> table to generate a list of wiki pages that have the status of "archived" and sort them by their date stamp and page title. This tutorial also shows you how to exclude other document types as listed in our <a href="#">Wiki Page Types</a>. Additionally, this tutorial shows you how to apply a variable in place of hard-coded values in the query so that you can re-use this query in other places This query is part of a <a href="#">Learning SQL</a> series designed to help you get started with SQL and create your own dashboard filled with queries to report on your wiki's health.</p>
+                <p>This tutorial assumes you are familiar with using the <a href="#">[Query UI]</a> to write and test the query used in this document and are using the <a href="#">[wiki_database]</a> database set in your <a href="#">[Query UI]</a>. See our documentation for how to use <a href="#">[Query UI]</a> to learn the basics of this interface.</p>
+                <h2>Find archived pages</h2>
+                <p>This query is designed to help you find wiki documents that have been archived.</p>
+                <p>Copy and paste this code snippet into your <a href="#">[Query UI]</a> and click the <strong>Submit</strong> button.</p>
+                <code class="block">
+                    SELECT<br/>
+                    <span class="indent1">ds, page_title</span><br/>
+                    FROM [table]<br/>
+                    WHERE<br/>
+                    <span class="indent1">page_title LIKE '%[wiki_root]%'</span><br/>
+                    <span class="indent1">AND archive_time > 1</span><br/>
+                    GROUP BY<br/>
+                    <span class="indent1">ds, page_title</span><br/>
+                </code>
+                <p>What is this query doing? First off, it selects the date stamp (<code class="inline">ds</code>) and page title (<code class="inline">page_title</code>) from the <a href="#">[table]</a> so that the query can find all pages that matches the wiki root. Then, it filters for any document who's page archive status is greater than zero (0). The <a href="#">[database]</a> marks the date a wiki page has been archived and this is helpful for us to find any wiki document that has an archive status of one (1) or greater. Finally, the query groups the results by their date stamp and page title to make it easier to sort and organize wiki pages accordingly.</p>
+                <h2>Filters</h2>
+                <p>You can modify this query by appending the following filters in the <code class="inline">WHERE</code> clause:</p>
+                <ul>
+                    <li><code class="inline">redirected = 0</code> (binary) filters for pages that have not been redirected.</li>
+                    <li><code class="inline">deletion_time = 0</code> (date) filters for pages that have not been deleted.</li>
+                    <li><code class="inline">page_is_hidden = 0</code> (binary) filters pages that do not have the hidden status. If this value is set to <code class="inline">1</code>, the page is not visible to normal users (but still visible to wiki administrators.)</li>
+                    <li><code class="inline">ds = '2022-06-04'</code> to limit the results to pages only archived on a specific date.</li>
+                </ul>
+                <p>If you choose to use all these filters, your query should look like this:</p>
+                <code class="block">
+                    SELECT<br/>
+                    <span class="indent1">ds, page_title</span><br/>
+                    FROM [table]<br/>
+                    WHERE<br/>
+                    <span class="indent1">page_title LIKE '%[wiki_root]%'</span><br/>
+                    <span class="indent1">AND archive_time > 1</span><br/>
+                    <span class="indent1">AND redirected = 0</span><br/>
+                    <span class="indent1">AND deletion_time = 0</span><br/>
+                    <span class="indent1">AND page_is_hidden = 0</span><br/>
+                    <span class="indent1">AND ds = '2022-06-04'</span><br/>
+                    GROUP BY<br/>
+                    <span class="indent1">ds, page_title</span><br/>
+                </code>
+                <p>Now your query will only find wiki root pages that have been archived on June 4th, 2022 and exclude any document that has been archived, deleted, or has the status of hidden.</p>
+                <h2>Variables</h2>
+                <p>If you read the document called <a href="#">Using Query Dashboard</a>, you should be familiar with the notion of using variables. Using variables with queries allows you to reuse a query in multiple places (other dashboards, program queries, and documentation automation widgets) by passing values to the query instead of having to copy and rewrite a query to just change a few values.</p>
+                <p>To create a variable in <a href="#">[Query UI]</a>, follow these steps:</p>
+                <ol>
+                    <li>Open the <strong>Variable panel</strong> in the right-hand panel.</li>
+                    <li>Click the <strong>Add New Variable</strong> button and select the appropriate variable type (string, date, number, other). In this case, you want to select the <strong>string</strong> type.</li>
+                    <li>Provide a name in the <strong>Variable Name</strong> and the variable's <strong>default value</strong>. In this case, you want to enter <code class="inline">wiki_root</code> for both the variable name and variable value.</li>
+                    <li>Click the <strong>Save</strong> button.</li>
+                    <li>For this tutorial, replace the hard-coded value of [wiki_root] with <code class="inline">$wiki_root$</code>. When this query is used with a dashboard and connected with an input field, the value of the input field will pass to the query and return metrics for that user selected wiki root. If the user doesn't supply a wiki root in the input field, the default value will be displayed and the query uses that default value.</li>
+                </ol>
+                <p>Using this variable: replace <code class="inline">page_title LIKE '%[wiki_root]%'</code> with <code class="inline">page_title LIKE '%$wiki_root$%'</code> as shown in this code snippet:</p>
+                <code class="block">
+                    SELECT<br/>
+                    <span class="indent1">ds, page_title</span><br/>
+                    FROM [table]<br/>
+                    WHERE<br/>
+                    <span class="indent1">page_title LIKE '%$wiki_root$%'</span><br/>
+                    <span class="indent1">AND archive_time > 1</span><br/>
+                    GROUP BY<br/>
+                    <span class="indent1">ds, page_title</span>
+                </code>
+                <p>It should be noted that if you use a string instead of a date for a date value, the query will read the "date string" as a string and not a number. The results from this query would yield bad data as the date won't be valid.</p>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../../js/toc_generator.js"></script>
+
+</html>
