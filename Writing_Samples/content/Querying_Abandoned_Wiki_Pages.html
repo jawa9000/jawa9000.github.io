@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Querying Abandoned Wiki Pages</title>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="../../css/bootstrap.css" rel="stylesheet">
+    <link href="../../css/tutorials.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/main.css" type="text/css" />
+    <script src="../../js/jquery-2.1.0.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <h1>Querying Abandoned Wiki Pages</h1>
+                <p class="note">Archive note: all links and images have been disabled as their destinations and/or source locations no longer exist. Content marked with "[...]" have been removed or simplified.</p>
+                <p>Created by Brian Immel on June 4, 2022</p>
+                <toc></toc>
+                <h2>Overview</h2>
+                <p>This document shows entry-level programmers and data scientists how to set up a SQL query using the <a href="#">[table]</a> table to generate a list of wiki pages that have been abandoned (no assigned owner). This tutorial also shows you how to sort the results by ordering the results in either an ascending or descending manner. This query is part of a <a href="#">Learning SQL</a> series designed to help you get started with SQL and create your own dashboard filled with queries to report on your wiki's health.</p>
+                <p>This tutorial assumes you are familiar with using the <a href="#">[Query UI]</a> to write and test the query used in this document and are using the <a href="#">[wiki_database]</a> database set in your <a href="#">[Query UI]</a>. See our documentation for how to use <a href="#">[Query UI]</a> to learn the basics of this interface.</p>
+                <h2>Abandoned page query</h2>
+                <p>Copy and paste this code snippet into your <a href="#">[Query UI]</a> and click the <strong>Submit</strong> button.</p>
+                <code class="block">
+                    SELECT<br/>
+                    <span class="indent1">page_title, page_owners</span><br/>
+                    FROM [table]<br/>
+                    WHERE<br/>
+                    <span class="indent1">ds='&lt;DATEID&gt;'</span><br/>
+                    <span class="indent1">AND page_title LIKE '[wiki_root]%'</span><br/>
+                    <span class="indent1">AND page_owners is NULL</span><br/>
+                    LIMIT 500<br/>
+                    ORDER BY page_title ASC<br/>
+                </code>
+                <p>This query looks through all the pages in a given wiki root and all the pages in it's hierarchy (<code class="inline">[wiki_root]%</code>) as of today's date (<code class="inline">ds='&lt;DATEID&gt;'</code>) and looks for any page where the page property for page owner is empty (NULL). Additionally, the query limits the number of results to 500 (<code class="inline">LIMIT 500</code>). If you get 500 results and suspect there may be more, you can increase this number but this will cause the query to run slower and take up more computing resources.</p>
+                <h3>Ordering results</h3>
+                <p>The query order results in ascending order by the name of the wiki pages (<code class="inline">ORDER BY page_title ASC</code>). If you want to reverse the order of the results, change <code class="inline">ORDER BY page_title ASC</code> (ascending order) to <code class="inline">ORDER BY page_title DES</code> (descending order).</p>
+                <p><strong>Note</strong>: if this query returns empty, then that means all your wiki pages under the provided wiki root have page owners.</p>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../../js/toc_generator.js"></script>
+
+</html>

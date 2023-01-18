@@ -236,6 +236,18 @@ let samples = {
             change: 'I would include sample output from the code snippet included in this document and add links to the other query documents related to this topic.'
         }
     },
+    'Querying Abandoned Wiki Pages': {
+        title: 'Querying Abandoned Wiki Pages',
+        htmlLink: 'Querying_Abandoned_Wiki_Pages.html',
+        pdfLink: 'Querying_Abandoned_Wiki_Pages.pdf',
+        description: 'SQL tutorial on how to write a query to generate a list of all abandoned wiki pages in a given wikispace.',
+        labels: ['Tutorial', 'SQL', 'Code Sample'],
+        projectDetails: {
+            audience: 'entry-level programmers and data scientists',
+            projectNotes: 'I collaborated with a fellow tech writer to write a series of queries that pulls data about documentation sets. I wrote, tested, and documented this query.',
+            change: 'I would include sample output from the code snippet included in this document and add links to the other query documents related to this topic.'
+        }
+    },
     // },
     // '': {
     //     title: '',
