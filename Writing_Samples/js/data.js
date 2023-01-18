@@ -123,7 +123,7 @@ let samples = {
         htmlLink: 'Properties_of_a_YAML_File.html',
         pdfLink: 'Properties_of_a_YAML_File.pdf',
         description: 'Reference guide for internal developers and API documentation contributors to write clean YAML files.',
-        labels: ['Yaml', 'Reference', 'Guide'],
+        labels: ['Reference', 'Guide'],
         projectDetails: {
             audience: 'Internal engineers and documentation contributors',
             projectNotes: 'Collaborated with an outgoing engineer to write this guide from scratch. I interviewed the engineer for a total of three hours, tested the contents of this document, and revised it with team feedback.',
@@ -263,6 +263,10 @@ let samples = {
     //     }
     // },
 }
+
+
+
+$('span#count').text(Object.keys(samples).length); // display the number of writing samples in this collection
 
 var labels = []; // gather all labels from (writing) samples
 
