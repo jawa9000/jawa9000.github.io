@@ -94,9 +94,10 @@
             var tally = 0;
             var output = '';
             var totals = [];
+            var crystalTally = 0; // total number of crystals harvested
 
             for (var i = 0; i < days; i++) {
-                // 96 crystals can be harvest each day
+                // 96 crystals can be harvest each day if the proper ritual and procedures are followed around the clock.
                 // 1 in 4 crystals have magical properties
                 var totalCrystals = 0;
                 var worth = 0;
@@ -110,15 +111,20 @@
                     }
                 }
 
+                crystalTally += totalCrystals;
+
                 totals.push(worth);
                 output += '<p>Ulrye count for day ' + (i + 1) + ': '+ totalCrystals + ' (' + numberWithCommas(worth) + 'gp).</p>';
                 
             }
 
-            var towersCut = 0;
+            var towersCut = 0; // 20% of totals
             var dragonsCut = 0; // 30% of totals
             var hamletCut = 0; // 50% of totals
             var totalMined = 0;
+            var towersCutCrystal = Math.round(crystalTally * 0.2);
+            var dragonsCutCrystal = Math.round(crystalTally * 0.3);
+            var hamletCutCrystal = Math.round(crystalTally * 0.5);
 
             for (i in totals) {
                 dragonsCut += Math.round(totals[i] * 0.3); // dragon's tithe
@@ -127,10 +133,15 @@
             }
 
             towersCut = Math.round(towersCut / 2);
-            totalMined = towersCut + dragonsCut + hamletCut
-            var eachPlayersCut = Math.round(towersCut / 3);
+            totalMined = towersCut + dragonsCut + hamletCut;
 
-            $('#output').append('<p>Total mined: ' + numberWithCommas(totalMined) + 'gp.</p><p>The dragon\'s cut is ' + numberWithCommas(dragonsCut) + 'gp.</p><p>The hamlet\'s cut is ' + numberWithCommas(hamletCut) + 'gp.</p><p>The tower\'s cut is ' + numberWithCommas(towersCut) + 'gp.</p><p>Each PC (and Auzben) gets ' + numberWithCommas(eachPlayersCut) + 'gp.</p><br/>');
+            var eachPlayersCut = Math.round(towersCut / 3); // number of players plus Auzben the owner of the tower
+
+            $('#output').append('<p>Total mined: ' + numberWithCommas(totalMined) + 'gp (' + crystalTally + ' crystals).</p>');
+            $('#output').append('<p>The dragon\'s cut is ' + cutNCrystalOutput(dragonsCut, dragonsCutCrystal));
+            $('#output').append('<p>The hamlet\'s cut is ' + cutNCrystalOutput(hamletCut, hamletCutCrystal));
+            $('#output').append('<p>The tower\'s cut is ' + cutNCrystalOutput(towersCut, towersCutCrystal));
+            $('#output').append('<p>Each PC (and Auzben) gets ' + numberWithCommas(eachPlayersCut) + 'gp (' + numberWithCommas(eachPlayersCut * 2) + 'gp sold as powder).</p><hr/>');
 
             $('#output').append(output);
             
@@ -138,6 +149,11 @@
         });
 
 
+        // functions
+
+        function cutNCrystalOutput(cut, crystals) {
+            return numberWithCommas(cut) + 'gp (powder: ' + numberWithCommas(cut * 2) + 'gp; ' + crystals + ' crystals).';
+        }
 
         function rndNum(x) {
             return Math.floor(Math.random() * x);
@@ -145,7 +161,9 @@
 
         function numberWithCommas(x) {
             var parts = x.toString().split(".");
+
             parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
             return parts.join(".");
         }
 
