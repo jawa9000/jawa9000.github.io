@@ -12,7 +12,7 @@ let samples = {
         pdfLink: 'Document_Read_Time.pdf',
         labels: ['Tutorial', 'Code Sample'],
         projectDetails: {
-            audience: 'Entry-level JavaScript developers',
+            audience: 'Entry-level JavaScript developers.',
             projectNotes: 'Wrote this script and documented it based on the needs to include a reading time estimator. Once published, I received some feedback and I incorporated it into the snippet as well as the documentation.',
             change: 'I would add a few images illustrating the appearance of this feature and add links to reference materials and supporting materials for the reading time estimates.'
         }
@@ -24,7 +24,7 @@ let samples = {
         description: 'Brief guide instructing all user levels on how to remotely access their desktops.',
         labels: ['Guide', 'Tutorial'],
         projectDetails: {
-            audience: 'Everyone who used VPN services (all skill levels, position, and tenure)',
+            audience: 'Everyone who used VPN services (all skill levels, position, and tenure).',
             projectNotes: 'In my first month on the job, I was given a simple task of documenting the process of instructing all employees on how to use VPN services. I collaborated with the IT department to gather their notes and wrote a simple draft. I tested the steps myself, asked a few colleagues to try them as well and iterated on the document based on their feedback. Once published, I added a few more notes based on user feedback and integrated a separately written FAQ. Note: this document was originally requested for print only but was later adapted to web format as well.',
             change: 'Add more screen grabs for the Windows and Mac sections that illustrate what each section should look like as the audience for this document were mostly visually-based learners. I would also include contact information for the IT department and point any further questions to them as they were in charge of maintaining this service.'
         }
@@ -36,7 +36,7 @@ let samples = {
         description: 'Document I researched, wrote the script, tested, and wrote documentation that explains how to use various Node.js modules to export a Confluence sitemap.',
         labels: ['Tutorial', 'Code Sample'],
         projectDetails: {
-            audience: 'Intermediate JavaScript developers and Confluence Administrators',
+            audience: 'Intermediate JavaScript developers and Confluence Administrators.',
             projectNotes: 'I wrote and documented this script as part of a large process to automate the extraction of content from Confluence. The script and process was put into production where it remained until the company closed (~3.5 years).',
             change: 'Provide a complete code sample that can be copied and pasted.'
         }
@@ -54,7 +54,7 @@ let samples = {
         description: 'Reference documentation for using the AMPLIFY CLI.',
         labels: ['CLI', 'Reference'],
         projectDetails: {
-            audience: 'developers, all levels',
+            audience: 'developers, all levels.',
             projectNotes: 'I collaborated with three engineers to gather and write the outdated CLI documentation. I added the auth switch options section and half the pm section content with the team\'s help.'
         }
     },
@@ -65,7 +65,7 @@ let samples = {
         description: 'Entry level user tutorial on how to create a simple mobile app using Appcelerator platform. Collaborated with two engineers to rewrite and test an outdated tutorial.',
         labels: ['Tutorial'],
         projectDetails: {
-            audience: 'entry level mobile app developers',
+            audience: 'entry level mobile app developers.',
             projectNotes: 'Collaborated with engineers to rewrite the outdated tutorial over the course of three weeks. Rewrote the document from the ground up and tested and confirmed each step myself.',
             change: 'Add back in the screen shots and re-add links for getting help and links to next steps, reference documentation, and other tutorials.'
         }
@@ -77,7 +77,7 @@ let samples = {
         description: 'Another entry level user tutorial on how to create a simple mobile app using Appcelerator platform. Collaborated with two engineers to rewrite and test an outdated tutorial.',
         labels: ['Tutorial'],
         projectDetails: {
-            audience: 'Entry level developer',
+            audience: 'Entry level developer.',
             projectNotes: 'Revised this document based on direct research and feedback I received from the Titanium team. I completely rewrote this document over the course of 5 days (total of 17 man-hours).',
             change: 'Re-integrate screen shots.'
         }
@@ -89,7 +89,7 @@ let samples = {
         description: 'Example of a end-user product release note I collaborated with the entire team.',
         labels: ['Release Note'],
         projectDetails: {
-            audience: 'All Appcelerator users',
+            audience: 'All Appcelerator users.',
             projectNotes: 'Researched and wrote based on team meeting notes, team feedback, and change log differences every 2-6 weeks (or whenever the release went out).',
             change: 'Add the site navigation back in (missing due to an incomplete site).'
         }
@@ -101,7 +101,7 @@ let samples = {
         description: 'Release note for Appcelerator\'s Hyperloop 3.0.0.',
         labels: ['Release Note'],
         projectDetails: {
-            audience: 'All Appcelerator users',
+            audience: 'All Appcelerator users.',
             projectNotes: 'Researched and wrote based on team meeting notes, team feedback, and change log differences every 2-6 weeks (or whenever the release went out).',
             change: 'Add the site navigation back in (missing due to an incomplete site).'
         }
@@ -113,7 +113,7 @@ let samples = {
         description: 'Example of an end-user API doc I collaborated on updating, revising, and testing content with help from two engineers.',
         labels: ['API'],
         projectDetails: {
-            audience: 'End user developers and internal testers',
+            audience: 'End user developers and internal testers.',
             projectNotes: 'I collaborated with two software engineers to regularly review and revise this document if there was a release made changes to this feature.',
             change: 'Add code samples. As the engineers were short on time, one of the features of this document we sacrificed was code samples. Additionally, I\'d like to have better definitions and explanations of each property, method, and function. While brevity is usually best, short descriptions don\'t service new or novice users to the platform. Finally, I\'d ensure there are links to overviews and tutorials (where available).'
         }
@@ -125,7 +125,7 @@ let samples = {
         description: 'Reference guide for internal developers and API documentation contributors to write clean YAML files.',
         labels: ['Reference', 'Guide'],
         projectDetails: {
-            audience: 'Internal engineers and documentation contributors',
+            audience: 'Internal engineers and documentation contributors.',
             projectNotes: 'Collaborated with an outgoing engineer to write this guide from scratch. I interviewed the engineer for a total of three hours, tested the contents of this document, and revised it with team feedback.',
             change: 'Integrate additional notes and links for writing YAML files.'
         }
@@ -137,7 +137,7 @@ let samples = {
         description: 'Titanium SDK release note that includes information about platform behavioral changes, new features, API changes, and supported SDK modules.',
         labels: ['SDK', 'Release Note'],
         projectDetails: {
-            audience: 'all levels of mobile app developers',
+            audience: 'all levels of mobile app developers.',
             projectNotes: 'I collaborated with five engineers to produce this release note by gathering information from meetings, presentations, code snippets shared by end-users and internal engineers, feedback from end-users, automated content changes from code docs, and checked in repo files over the course of three weeks.'
         }
     },
@@ -148,7 +148,7 @@ let samples = {
         description: 'Guide on how to obtain and how to install the Google Android SDK and associated packages.',
         labels: ['SDK', 'Reference', 'Guide'],
         projectDetails: {
-            audience: 'all levels of mobile app developers',
+            audience: 'all levels of mobile app developers.',
             projectNotes: 'I collaborated with the entire team to produce and maintain this document for each release. This document would be updated each time there was a minor or major release or when one of the required packages changed.',
             change: 'I would add back in the graphics and screen grabs to better illustrate the processes mentioned in this document and organize the note into a section of it\'s own.'
         }
@@ -160,7 +160,7 @@ let samples = {
         description: 'Overview of all the Axway Appcelerator products used to build mobile applications.',
         labels: ['Overview'],
         projectDetails: {
-            audience: 'all levels of mobile app developers',
+            audience: 'all levels of mobile app developers.',
             projectNotes: 'Collaborated with project managers and sales team to write and maintain this overview document.',
             change: 'Add screen shots and short-form videos of the products.'
         }
@@ -172,7 +172,7 @@ let samples = {
         description: 'Tutorial on how to setup of the AMPLIFY Appcelerator Services for Android applications.',
         labels: ['Tutorial', 'Code Sample', 'SDK'],
         projectDetails: {
-            audience: 'Entry level mobile app developers',
+            audience: 'Entry level mobile app developers.',
             projectNotes: 'Collaborated with seven different engineers and the project manager to write this document from scratch.',
             change: 'Add screen shots and short-form videos various steps as they are completed. Additionally, I would split this document into two separate, and linked, documents.'
         }
@@ -184,7 +184,7 @@ let samples = {
         description: 'Reference documentation for using the AMPLIFY CLI.',
         labels: ['CLI', 'Reference'],
         projectDetails: {
-            audience: 'intermediate to advanced level mobile app developers',
+            audience: 'intermediate to advanced level mobile app developers.',
             projectNotes: 'Collaborated with three different engineers to revise and maintain this document.',
         }
     },
@@ -195,7 +195,7 @@ let samples = {
     //     description: 'Two page document explaining how to use a function that applies a modifier (bonus) based on player\'s weather (location).',
     //     labels: ['Reference', 'Code Sample', 'Tutorial'],
     //     projectDetails: {
-    //         audience: 'Entry level developers new to game development on Unity',
+    //         audience: 'Entry level developers new to game development on Unity.',
     //         projectNotes: 'Documented this function from scratch in 2.5 hours with less than a page\'s worth of notes. Took another hour to review and revise before submitting to the team for review.',
     //         change: '',
     //         other: ''
@@ -219,7 +219,7 @@ let samples = {
         description: 'SQL tutorial on how to write a query to report how many wiki pages were deleted in a select time period.',
         labels: ['Tutorial', 'SQL', 'Code Sample'],
         projectDetails: {
-            audience: 'entry-level programmers and data scientists',
+            audience: 'entry-level programmers and data scientists.',
             projectNotes: 'Researched and developed this query on my own and collaborated with another tech writer to verify the query and documentation.',
             change: 'I would include sample output from the code snippet included in this document and add links to the other query documents related to this topic.'
         }
@@ -231,7 +231,7 @@ let samples = {
         description: 'SQL tutorial on how to write a query to generate a report of all archived wiki pages in a given wikispace.',
         labels: ['Tutorial', 'SQL', 'Code Sample'],
         projectDetails: {
-            audience: 'entry-level programmers and data scientists',
+            audience: 'entry-level programmers and data scientists.',
             projectNotes: 'I collaborated with a fellow tech writer to write a series of queries that pulls data about documentation sets. I wrote, tested, and documented this query and updated the document once I received feedback about the inclusion of deleted and hidden pages.',
             change: 'I would include sample output from the code snippet included in this document and add links to the other query documents related to this topic.'
         }
@@ -243,12 +243,23 @@ let samples = {
         description: 'SQL tutorial on how to write a query to generate a list of all abandoned wiki pages in a given wikispace.',
         labels: ['Tutorial', 'SQL', 'Code Sample'],
         projectDetails: {
-            audience: 'entry-level programmers and data scientists',
+            audience: 'entry-level programmers and data scientists.',
             projectNotes: 'I collaborated with a fellow tech writer to write a series of queries that pulls data about documentation sets. I wrote, tested, and documented this query.',
             change: 'I would include sample output from the code snippet included in this document and add links to the other query documents related to this topic.'
         }
     },
-    // },
+    'Viewing Metrics With Appcelerator Dashboard': {
+        title: 'Viewing Metrics With Appcelerator Dashboard',
+        htmlLink: 'Viewing_Metrics_With_Appcelerator_Dashboard.html',
+        pdfLink: 'Viewing_Metrics_With_Appcelerator_Dashboard.pdf',
+        description: '',
+        labels: ['Overview'],
+        projectDetails: {
+            audience: 'New users to the Appcelerator platform (new to intermediate developers).',
+            projectNotes: 'Took existing documentation and collaborated with another technical writer to overhaul and simplify the content as the new UI was published.',
+            change: 'Complete the video introduction of the UI that was planned and link it to this document. Additionally, I would have liked to add more details to each of these sections but our project time was cut in half (from six weeks to three weeks).'
+        }
+    },
     // '': {
     //     title: '',
     //     htmlLink: '',
