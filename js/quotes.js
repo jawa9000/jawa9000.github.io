@@ -24,7 +24,6 @@ var ABOUT = [
 	["One of Brian's favorite hobbies is road cycling for hours on end which is then rewarded with his second favorite hobby of enjoying a good home brew."], //3
 	["Brian's web development blog contains a series of useful links, thoughts about his experience in web development, and tutorials he has written as they relate to web development."], //4
 	["Yes, Brian enjoys Futurama as well as geeky comics like xkcd, Saturday Morning Breakfast Cereal, and The Oatmeal."], //5
-	["When no one is looking (his wife and son), Brian can be found drooling over Lego sets and building a few from time to time. His inspirations can be found in his <a href='http://bimmelsbrick.blogspot.com/'>Lego blog</a>."], //6
 	["Brian has studied photography for many years in academic and post-academic settings. Today, he focuses his camera mostly on his son, family, and regional hiking trips. Check out his photo stream on <a href='https://www.flickr.com/photos/jawa9000/'>Flickr</a>."], //7
 	["...On the trails that is. He finds his center and calm easiest on a day hike through any one of Pacific Northwest's beautiful parks."] //8
 ];
