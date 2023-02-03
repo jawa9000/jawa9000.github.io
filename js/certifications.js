@@ -10,6 +10,12 @@ let certifications = {
     //     "date": "",
     //     "meta": [""]
     // },
+    "Learning C#": {
+        "link": "",
+        "title": "Learning C#",
+        "date": "January 2023",
+        "meta": ["C#", "Programming"]
+    },
     "Confidence: How to Overcome Self-Doubt, Insecurity, and Fears": {
         "link": "https://www.linkedin.com/learning/certificates/8d7dc7abe2ef763a52b90650e0ddee3ed929837c5bee17485bb00cf4de6f681a",
         "title": "Confidence: How to Overcome Self-Doubt, Insecurity, and Fears",
