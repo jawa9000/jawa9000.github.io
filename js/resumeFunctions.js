@@ -145,7 +145,12 @@ for (i in education) { // display education
 output += '<h2>Certifications</h2><ul id="certifications">';
 
 for (i in certifications) { // display certifications
-    output += '<li><a href="' + certifications[i].link + '">' + certifications[i].title + '</a><br />';
+    if (certifications[i].link.length > 0) { // if the certification has a link to the cert, add it
+        output += '<li><a href="' + certifications[i].link + '">' + certifications[i].title + '</a><br />';
+    } else {
+        output += '<li>' + certifications[i].title + '<br/>';
+    }
+    
     output += '<span>' + certifications[i].date + '</span><br/><span class="label label-default">';
     for (j in certifications[i].meta) {
         if (j == certifications[i].meta.length - 1) {
