@@ -1,5 +1,10 @@
 let volunteer = {
-    "Assistant coach": {
+    "Assistant coach Jan 2023": {
+        "title": "Assistant coach, Balistic United Soccer Club, Pleasanton CA",
+        "date": "January 2023 - March 2022",
+        "note": "<p>Assisted the soccer coach with various on and off-field duties coaching 10 and under boys soccer team.</p>"
+    },
+    "Assistant coach Aug 2022": {
         "title": "Assistant coach, Balistic United Soccer Club, Pleasanton CA",
         "date": "August 2022 - November 2022",
         "note": "<p>Assisted the soccer coach with various on and off-field duties coaching 10 and under boys soccer team.</p>"
