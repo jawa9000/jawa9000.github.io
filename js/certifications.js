@@ -10,6 +10,12 @@ let certifications = {
     //     "date": "",
     //     "meta": [""]
     // },
+    "Computer Science Principles Lab: C#": {
+        "link": "",
+        "title": "Computer Science Principles Lab: C#",
+        "date": "February 2023",
+        "meta": ["C#", "Programming"]
+    },
     "Learning C#": {
         "link": "",
         "title": "Learning C#",
