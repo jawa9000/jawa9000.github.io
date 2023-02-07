@@ -142,13 +142,17 @@ for (i in education) { // display education
     output += '<p>' + education[i].notes + '</p>';
 }
 
-output += '<h2>Certifications</h2><ul id="certifications">';
+output += '<h2>Certifications</h2><ol id="certifications">';
 
 for (i in certifications) { // display certifications
     if (certifications[i].link.length > 0) { // if the certification has a link to the cert, add it
         output += '<li><a href="' + certifications[i].link + '">' + certifications[i].title + '</a><br />';
     } else {
         output += '<li>' + certifications[i].title + '<br/>';
+    }
+
+    if (certifications[i].notes) {
+        output += '<span>' + certifications[i].notes + '</span><br/>';
     }
     
     output += '<span>' + certifications[i].date + '</span><br/><span class="label label-default">';
@@ -159,10 +163,13 @@ for (i in certifications) { // display certifications
             output += certifications[i].meta[j] + ', ';
         }
     }
+    output += '</span>';
+
+    
     output += '</li>';
 }
 
-output += '</ul><h2>Independent Coursework</h2><ul>';
+output += '</ol><h2>Independent Coursework</h2><ul>';
 
 for (i in independentCoursework) { // display independent coursework
     output += '<li>' + independentCoursework[i].name + '</li>';

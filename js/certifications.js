@@ -14,13 +14,15 @@ let certifications = {
         "link": "",
         "title": "Computer Science Principles Lab: C#",
         "date": "February 2023",
-        "meta": ["C#", "Programming"]
+        "meta": ["C#", "Programming"],
+        "notes": "Due to LinkedIn's limits on free accounts, it wouldn't issue the certification."
     },
     "Learning C#": {
         "link": "",
         "title": "Learning C#",
         "date": "January 2023",
-        "meta": ["C#", "Programming"]
+        "meta": ["C#", "Programming"],
+        "notes": "Due to LinkedIn's limits on free accounts, it wouldn't issue the certification."
     },
     "Confidence: How to Overcome Self-Doubt, Insecurity, and Fears": {
         "link": "https://www.linkedin.com/learning/certificates/8d7dc7abe2ef763a52b90650e0ddee3ed929837c5bee17485bb00cf4de6f681a",
@@ -62,43 +64,50 @@ let certifications = {
         "link": "",
         "title": "Change Management Foundations",
         "date": "March 2022",
-        "meta": ["Change management", "Management"]
+        "meta": ["Change management", "Management"],
+        "notes": "Due to LinkedIn's limits on free accounts, it wouldn't issue the certification."
     },
     "Creating Psychological Safety for Diverse Teams": {
         "link": "",
         "title": "Creating Psychological Safety for Diverse Teams",
         "date": "March 2022",
-        "meta": ["Team management"]
+        "meta": ["Team management"],
+        "notes": "Due to LinkedIn's limits on free accounts, it wouldn't issue the certification."
     },
     "Creating a Culture of Change": {
         "link": "",
         "title": "Creating a Culture of Change",
         "date": "March 2022",
-        "meta": ["Culture", "Management"]
+        "meta": ["Culture", "Management"],
+        "notes": "Due to LinkedIn's limits on free accounts, it wouldn't issue the certification."
     },
     "Introduction to Web APIs": {
         "link": "",
         "title": "Introduction to Web APIs",
         "date": "March 2022",
-        "meta": ["API"]
+        "meta": ["API"],
+        "notes": "Due to LinkedIn's limits on free accounts, it wouldn't issue the certification."
     },
     "Leading Culture Change in Your Team": {
         "link": "",
         "title": "Leading Culture Change in Your Team",
         "date": "March 2022",
-        "meta": ["Culture", "Management"]
+        "meta": ["Culture", "Management"],
+        "notes": "Due to LinkedIn's limits on free accounts, it wouldn't issue the certification."
     },
     "Leading When You're Not in Charge": {
         "link": "",
         "title": "Leading When You're Not in Charge",
         "date": "March 2022",
-        "meta": ["Team leadership"]
+        "meta": ["Team leadership"],
+        "notes": "Due to LinkedIn's limits on free accounts, it wouldn't issue the certification."
     },
     "Learning How to Increase Learner Engagement": {
         "link": "",
         "title": "Learning How to Increase Learner Engagement",
         "date": "March 2022",
-        "meta": ["Learning", "Engaging"]
+        "meta": ["Learning", "Engaging"],
+        "notes": "Due to LinkedIn's limits on free accounts, it wouldn't issue the certification."
     },
     "Project Management Simplified": {
         "link": "https://www.linkedin.com/learning/certificates/7cde078f6b8ee70a9871c4432d7fbb9ad914796ee8ba532adffdfd53b4b43613?u=67698794",
