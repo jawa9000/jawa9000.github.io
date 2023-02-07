@@ -144,18 +144,41 @@ for (i in education) { // display education
 
 output += '<h2>Certifications</h2><ol id="certifications">';
 
+Object.size = function(obj) { // get the length of an object
+    var size = 0;
+
+    for (key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            size++;
+        }
+    }
+    
+    return size;
+}
+
+var certLength = Object.size(certifications);
+
+// create an array and reverse it for counting how many certs I have so that they can be numbered from highest to lowest
+var certArray = [];
+
+for (var i = certLength; i > 0; i--) {
+    certArray.push(i);
+}
+
+var count = 0;
+
 for (i in certifications) { // display certifications
     if (certifications[i].link.length > 0) { // if the certification has a link to the cert, add it
-        output += '<li><a href="' + certifications[i].link + '">' + certifications[i].title + '</a><br />';
+        output += '<li><span>' + certArray[count] + '</span>. <a href="' + certifications[i].link + '">' + certifications[i].title + '</a><br />';
     } else {
-        output += '<li>' + certifications[i].title + '<br/>';
+        output += '<li><span>' + certArray[count] + '</span>. ' + certifications[i].title + '<br/>';
     }
 
     if (certifications[i].notes) {
-        output += '<span>' + certifications[i].notes + '</span><br/>';
+        output += '<span class="indend28">' + certifications[i].notes + '</span><br/>';
     }
     
-    output += '<span>' + certifications[i].date + '</span><br/><span class="label label-default">';
+    output += '<span class="indend28">' + certifications[i].date + '</span><br/><span class="label label-default indend28">';
     for (j in certifications[i].meta) {
         if (j == certifications[i].meta.length - 1) {
             output += certifications[i].meta[j];
@@ -165,8 +188,9 @@ for (i in certifications) { // display certifications
     }
     output += '</span>';
 
-    
     output += '</li>';
+
+    count++;
 }
 
 output += '</ol><h2>Independent Coursework</h2><ul>';
