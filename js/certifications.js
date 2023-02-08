@@ -8,8 +8,37 @@ let certifications = {
     //     "link": "",
     //     "title": "",
     //     "date": "",
-    //     "meta": [""]
+    //     "meta": [""],
+    //     "notes": ""
     // },
+    "Managing Stress and Building Resilience While Job Hunting": {
+        "link": "",
+        "title": "Managing Stress and Building Resilience While Job Hunting",
+        "date": "February 2023",
+        "meta": ["Resilience", "Stress management", "Job seeking"],
+        "notes": "Due to LinkedIn's limits on free accounts, it wouldn't issue the certification."
+    },
+    "How to Reframe Rejection, Beat Burnout, and Get Unstuck": {
+        "link": "",
+        "title": "How to Reframe Rejection, Beat Burnout, and Get Unstuck",
+        "date": "February 2023",
+        "meta": ["Rejection", "Burnout", "Reframing"],
+        "notes": "Due to LinkedIn's limits on free accounts, it wouldn't issue the certification."
+    },
+    "Use Rejection to Achieve Future Success": {
+        "link": "",
+        "title": "Use Rejection to Achieve Future Success",
+        "date": "February 2023",
+        "meta": ["Rejection"],
+        "notes": "Due to LinkedIn's limits on free accounts, it wouldn't issue the certification."
+    },
+    "Overcoming Rejection": {
+        "link": "",
+        "title": "Overcoming Rejection",
+        "date": "February 2023",
+        "meta": ["Rejection"],
+        "notes": "Due to LinkedIn's limits on free accounts, it wouldn't issue the certification."
+    },
     "Computer Science Principles Lab: C#": {
         "link": "",
         "title": "Computer Science Principles Lab: C#",
