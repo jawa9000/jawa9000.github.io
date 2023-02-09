@@ -11,6 +11,20 @@ let certifications = {
     //     "meta": [""],
     //     "notes": ""
     // },
+    "Pete Docter: Creating a Career Fueled by Imagination": {
+        "link": "",
+        "title": "Pete Docter: Creating a Career Fueled by Imagination",
+        "date": "February 2023",
+        "meta": ["Career management"],
+        "notes": "Due to LinkedIn's limits on free accounts, it wouldn't issue the certification."
+    },
+    "How to Follow Up on a Job Application": {
+        "link": "",
+        "title": "How to Follow Up on a Job Application",
+        "date": "February 2023",
+        "meta": ["Job Search Strategies"],
+        "notes": "Due to LinkedIn's limits on free accounts, it wouldn't issue the certification."
+    },
     "Managing Stress and Building Resilience While Job Hunting": {
         "link": "",
         "title": "Managing Stress and Building Resilience While Job Hunting",
