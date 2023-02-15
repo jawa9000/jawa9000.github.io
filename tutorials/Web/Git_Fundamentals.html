@@ -1,92 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="keywords" content="guide, reference, git, fundamental" />
-    <meta name="author" content="Brian Immel" />
-    <meta name="level" content="2" />
-    <meta name="description" content="Git Fundamentals" />
-    <link rel="shortcut icon" href="../../assets/ico/favicon.ico" />
-    <title>Git Fundamentals: A Reference Guide</title>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-06DGRLH7V4"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
 
-    <!-- Bootstrap core CSS -->
-    <link href="../../css/bootstrap.min.css" rel="stylesheet" />
+		gtag('config', 'G-06DGRLH7V4');
+	</script>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="keywords" content="guide, reference, git, fundamental" />
+	<meta name="author" content="Brian Immel" />
+	<meta name="level" content="2" />
+	<meta name="description" content="Git Fundamentals" />
+	<link rel="shortcut icon" href="../../assets/ico/favicon.ico" />
+	<title>Git Fundamentals: A Reference Guide</title>
 
-    <!-- Custom styles for this template -->
-    <link href="../../css/custom.css" rel="stylesheet" />
-    <link href="../../css/tutorials.css" rel="stylesheet" />
+	<!-- Bootstrap core CSS -->
+	<link href="../../css/bootstrap.min.css" rel="stylesheet" />
 
-    <!-- jQuery -->
-    <script src="../../js/jquery-2.1.0.min.js"></script>
+	<!-- Custom styles for this template -->
+	<link href="../../css/custom.css" rel="stylesheet" />
+	<link href="../../css/tutorials.css" rel="stylesheet" />
 
-    <!-- Bootstrap main javascript -->
-    <script src="../../js/bootstrap.js"></script>
+	<!-- jQuery -->
+	<script src="../../js/jquery-2.1.0.min.js"></script>
 
-    <style>
-      .tutorialContent p:first-child:first-letter {
-        font-size: 1em;
-        text-transform: none;
-      }
-      .tutorialBox h2 {
-        padding-left: 0; /* override for tutorials.css */
-      }
-      .blackBg {
-        background: black;
-        color: #eee;
-        padding: 5px;
-        margin: 5px;
-      }
-      .gitBranchIndent {
-        padding-left: 14px;
-      }
-      .branchGreen {
-        color: #008000;
-      }
-    </style>
-    <!--
-			To do list:
-			* write up overview
-			*
-		--></head>
+	<!-- Bootstrap main javascript -->
+	<script src="../../js/bootstrap.js"></script>
+
+	<style>
+		.tutorialContent p:first-child:first-letter {
+			font-size: 1em;
+			text-transform: none;
+		}
+		.tutorialBox h2 {
+			padding-left: 0; /* override for tutorials.css */
+		}
+		.blackBg {
+			background: black;
+			color: #eee;
+			padding: 5px;
+			margin: 5px;
+		}
+		.gitBranchIndent {
+			padding-left: 14px;
+		}
+		.branchGreen {
+			color: #008000;
+		}
+	</style>
+	</head>
   <body>
-    <nav
-      id="navigation"
-      class="navbar navbar-inverse navbar-fixed-top"
-      role="navigation"
-    ></nav>
+    <nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
     <script defer="defer" src="../../js/navigation.js"></script>
     <div class="container">
       <div class="row">
         <div class="col-md-2"></div>
         <article class="col-md-8">
-          <h1></h1>
-          <p class="lead">
-            Welcome to Git Fundamentals. This reference guide is meant to serve
-            as a basic instructional document on what Git is and how to use some
-            of it's basic features.
-          </p>
-          <p class="lead">
-            <strong>Goals of this guide:</strong> By the end of this document,
-            you should have a good understanding of how to create a repository,
-            configure Git, use basic commands, and to create and manage
-            repositories and branches. This document will not cover workflows
-            (based on personal experience, every individual and company uses Git
-            in a slightly different manner). Finally, this document will list a
-            series of links for <a href="#Resources">further reading</a> on all
-            these topics and more.
-          </p>
-          <p class="lead">
-            This document assumes you have already downloaded and installed Git
-            on your machine. If you have not done this yet, please visit Git's
-            <a
-              href="http://git-scm.com/downloads"
-              title="Git Download"
-              target="_blank"
-              >Git Download</a
-            >
-            page.
-          </p>
-          <p class="about">Written by Brian Immel</p>
+          <h1>Git Fundamentals</h1>
+          <p class="lead">Welcome to Git Fundamentals. This reference guide is meant to serve as a basic instructional document on what Git is and how to use some of it's basic features.</p>
+          <p class="lead"> <strong>Goals of this guide:</strong> By the end of this document,you should have a good understanding of how to create a repository, configure Git, use basic commands, and to create and manage repositories and branches. This document will not cover workflows (based on personal experience, every individual and company uses Git in a slightly different manner). Finally, this document will list a series of links for <a href="#Resources">further reading</a> on all these topics and more.</p>
+          <p class="lead">This document assumes you have already downloaded and installed Git on your machine. If you have not done this yet, please visit <a href="http://git-scm.com/downloads" title="Git Download" target="_blank">Git's Download</a> page.</p>
+          <p class="about">Written by Brian Immel.</p>
         </article>
         <div class="col-md-2"></div>
       </div>
@@ -98,14 +76,7 @@
               <article class="tutorialContent">
                 <a name="WhatIsGit" class="anchorLink"><h1>What is Git?</h1></a>
                 <div class="images floatRight">
-                  <img
-                    src="../../images/tutorials/Git_Fundamentals/Git-commits-over-time.png"
-                    id="gitCommitsOverTime"
-                    class="imgThumbnail"
-                    title="Git commits over time"
-                    data-toggle="modal"
-                    data-target=".gitCommitsOverTime"
-                  />
+                  <img src="../../images/tutorials/Git_Fundamentals/Git-commits-over-time.png" id="gitCommitsOverTime" class="imgThumbnail" title="Git commits over time" data-toggle="modal" data-target=".gitCommitsOverTime" />
                 </div>
                 <p>
                   <strong>Git</strong> is a
