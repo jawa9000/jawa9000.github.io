@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-06DGRLH7V4"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', 'G-06DGRLH7V4');
+		</script>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="tutorial,">
+		<meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+		<meta name="description" content="Tutorial using Jquery to dynamically create a table of contents (ToC) based on heading levels.">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+		<title>Generating a ToC using jQuery</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="../../css/custom.css" rel="stylesheet">
+		<link href="../../css/tutorials.css" rel="stylesheet">
+
+		<!-- jQuery -->
+		<script src="../../js/jquery-2.1.0.min.js"></script>
+
+		<!-- Bootstrap main javascript -->
+		<script src="../../js/bootstrap.js"></script>
+	</head>
+	<body>
+		<nav id="navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation"></nav>
+		<script defer src="../../js/navigation.js"></script>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h1>Generating a ToC Using jQuery</h1>
+					<p class="lead">This tutorial shows you how to create a table of contents (ToC) using a few lines of jQuery dynamically using the document's heading elements (levels 2 through 4) and create a bullet list with linking elements to each heading.</p>
+					<p class="lead">This code creates a bullet list for each heading level two through four, creates a link for each heading, and dynamically inserts that content into an element to display the links to each section.</p>
+					<p class="about">Written by Brian Immel.</p>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<article class="col-md-8">
+					<h2>Assumptions and requirements</h2>
+					<ul>
+						<li>This tutorial is meant for beginners and intermediate web developers.</li>
+						<li>You should be familiar with Javascript, jQuery, HTML, and CSS.</li>
+						<li>Your document needs to include a custom div element with the id of toc near the top of the document so the JavaScript routine can send the dynamically generated content into the document.</li>
+						<li>We are assuming that H1 headings will be used as the title of the document thus we'll exclude it from the table of contents.</li>
+					</ul>
+				</article>
+				<div class="col-md-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+            		<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name="ThebaseHTML" class="anchorLink">The base HTML</a></div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+								<p>Your base HTML document should look something like this in order for this tutorial to work properly:</p>
+								<code class="block">
+									<span class="indent1">...</span><br/>
+									<span class="indent1">&lt;script src="../../js/jquery-#.#.#.min.js"&gt;&lt;/script&gt;</span><br/>
+									&lt;/head&gt;<br/>
+									&lt;body&gt;<br/>
+									<span class="indent1">&lt;h1&gt;Document Title&lt;/h1&gt;</span><br/>
+									<span class="indent1">&lt;div id="toc"&gt;&lt;/div&gt;</span><br/>
+									<span class="indent1">&lt;!-- some generic headings for the code to use to build a ToC --&gt;</span><br/>
+									<span class="indent1">&lt;h2&gt;Introduction&lt;/h2&gt;</span><br/>
+									<span class="indent1">...opening paragraph...</span><br/>
+									<span class="indent1">&lt;h3&gt;Details&lt;/h3&gt;</span><br/>
+									<span class="indent1">...</span><br/>
+									<span class="indent1">&lt;h2&gt;Why use this?&lt;/h2&gt;</span><br/>
+									<span class="indent1">...</span><br/>
+									<span class="indent1">&lt;h3&gt;Details&lt;/h3&gt;</span><br/>
+									<span class="indent1">...</span><br/>
+									<span class="indent1">&lt;/body&gt;</span><br/>
+									&lt;script&gt;<br/>
+									...<br/>
+									&lt;/script&gt;<br/>
+									&lt;/html&gt;<br/>
+								</code>
+								<p>In my file, I have the jQuery library locally saved. You can reference any modern version you like. Without the div element with the id of <code class="inline">toc</code>, the JavaScript code would not be able to display the dynamically created table of contents.
+									</p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name="Buildingandcounting" class="anchorLink">Building and counting</a></div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+								<p>In the following code snippet, we start the JavaScript with two variables: count and output. The count variable is used as part of the unique id creation process as subheadings could have the same text as other subheadings. The output variable is used to collect all the elements that this routine will generate for the bullet list and its links.</p>
+								<code class="block">
+									...<br/>
+									var count = 0; <br/>
+									var output = '&lt;div class="floatLeft"&gt;&lt;ul&gt;';<br/>
+									...
+								</code>
+								<p><strong>Note</strong>: The div element has a class of floatLeft. In my site's CSS rules, I use a similar rule to create a particular format and spacing so the elements in the document float around the generated ToC. The CSS rule looks like this:</p>
+								<code class="block">
+									&lt;style&gt;<br/>
+										<span class="indent1">.floatLeft {</span><br/>
+											<span class="indent2">float: left;</span><br/>
+											<span class="indent2">padding: 0 15px 0 0;</span><br/>
+											<span class="indent2">margin: 0 10px 0 0;</span><br/>
+											<span class="indent2">background: rgba(0, 0, 0, 0.1);</span><br/>
+										<span class="indent1">}</span><br/>
+									&lt;/style&gt;
+								</code>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name="Theloop" class="anchorLink">The loop</a></div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+								<p>The each function allows the script to iterate through each heading level we want to include in the ToC. While in the loop, we'll collect information about each heading, and generate the bullets (and their levels), and each link.</p>
+								<code class="block">
+									...<br/>
+									$('h2, h3, h4').each(function() {<br/>
+										<span class="indent1">...</span>
+								</code>
+								<p><strong>Note</strong>: if you want to include other heading levels, add them in the selectors listed in this line of code.</p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name="Insidetheeachloop" class="anchorLink">Inside the each loop</a></div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+								<p>As the routine loops through each heading, we need to gather some information from the document, in particular, the text of each heading. We also want to use this text to create an unique and valid id that will be used to set up the link and anchor link. We need to convert the text of the heading to lower case, remove any special characters, and replace any whitespace characters with the underscore (“_") character.</p>
+								<code class="block">
+									...<br/>
+									count ++;<br/>
+									<br/>
+									var text = $(this).text();<br/>
+									var id = text.toLowerCase().replace(/[^a-zA-Z ]/g, '').replace(/\s/g, '_') + count;<br/>
+									var headingLevel = $(this).context.nodeName.toLowerCase();<br/>
+									...
+								</code>
+								<p>The <code class="inline">text</code> variable is used to collect the text of the heading element. The <code class="inline">id</code> variable converts the text string into a lowercase string removing any special characters and replacing whitespaces with underscores. Additionally, we add the <code class="inline">count</code> variable to it to make each id unique as some subheadings (as noted in the above HTML snippet) could have duplicate text and thus create a bad anchor link. The <code class="inline">headingLevel</code> variable is used to identify which heading level each one is and construct the appropriate HTML elements accordingly which we use later in this code.</p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name="Assigninganchorlinks" class="anchorLink">Assigning anchor links</a></div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+								<p>With all the data collected from the document, we are now ready to start building the anchor links. As we iterate through each heading element in the each loop, we can assign the <code class="inline">id</code> variable to each element to create an unique id for it to be used as an anchor.</p>
+								<code class="block">
+									...<br/>
+									$(this).attr('id', id);<br/>
+									...
+								</code>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name="Creatingthebulletsandlinks" class="anchorLink">Creating the bullets and links</a></div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+								<p>The last part of the each loop is to create the bullet list with links. As we are assuming we want to start at heading level 2 (<code class="inline">h2</code>), we will have the JavaScript look for heading level 2 and create a level 1 bullet. For each heading level down (<code class="inline">h3</code>, <code class="inline">h4</code>), we add an unordered list element (<code class="inline">ul</code>) to each heading level.</p>
+								<code class="block">
+										<span class="indent1">...</span><br/>
+										<span class="indent1">if (headingLevel == 'h2') {</span><br/>
+											<span class="indent1">output += '&lt;li&gt;&lt;a href="#' + id + '"&gt;' + text + '&lt;/a&gt;&lt;/li&gt;';</span><br/>
+											<span class="indent1">} else if (headingLevel == 'h3') {</span><br/>
+											<span class="indent1">output += '&lt;ul&gt;&lt;li&gt;&lt;a href="#' + id + '"&gt;' + text + '&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;';</span><br/>
+											<span class="indent1">} else if (headingLevel == 'h4') {</span><br/>
+											<span class="indent1">output += '&lt;ul&gt;&lt;ul&gt;&lt;li&gt;&lt;a href="#' + id + '"&gt;' + text + '&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/ul&gt;';</span><br/>
+											<span class="indent1">}</span><br/>
+									});<br/>
+									...
+								</code>
+								<p><strong>Note</strong>: if you added additional heading levels, you'll need to modify this snippet to include those headings as well.</p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name="RenderingtheToC" class="anchorLink">Rendering the ToC</a></div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+								<p>With the anchor links and ToC generated, it's now time to close the unordered list and render the navigation elements to the document:</p>
+								<code class="block">
+									...<br/>
+									output += '&lt;/ul&gt;&lt;/div&gt;';<br/>
+									<br/>
+									$('div#toc').html(output);
+								</code>
+							
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name="Results" class="anchorLink">Results</a></div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+								<p>After successfully completing this routine and loading your document, you can inspect each element and you should see something like this:</p>
+								<code class="block">
+									&lt;h1&gt;Document Title&lt;/h1&gt;<br/>
+									&lt;div id="toc"&gt;<br/>
+									<span class="indent1">&lt;ul&gt;</span><br/>
+									<span class="indent2">&lt;li&gt;&lt;a href="#introduction1"&gt;Introduction&lt;/li&gt;</span><br/>
+									<span class="indent2">&lt;ul&gt;</span><br/>
+									<span class="indent3">&lt;li&gt;&lt;a href="#details2"&gt;Details&lt;/li&gt;</span><br/>
+									<span class="indent2">&lt;/ul&gt;</span><br/>
+									<span class="indent2">&lt;li&gt;&lt;a href="#why_use_this3"&gt;Why use this?&lt;/li&gt;</span><br/>
+									<span class="indent2">&lt;ul&gt;</span><br/>
+									<span class="indent3">&lt;li&gt;&lt;a href="#details4"&gt;Details&lt;/li&gt;</span><br/>
+									<span class="indent2">&lt;/ul&gt;</span><br/>
+									<span class="indent1">&lt;/ul&gt;</span><br/>
+									&lt;/div&gt;<br/>
+									&lt;h2 id="introduction1"&gt;Introduction&lt;/h2&gt;<br/>
+									...opening paragraph...<br/>
+									&lt;h3 id="details2"&gt;Details&lt;/h3&gt;<br/>
+									...<br/>
+									&lt;h2 id="why_use_this3"&gt;Why use this?&lt;/h2&gt;<br/>
+									...<br/>
+									&lt;h3 id="details4"&gt;Details&lt;/h3&gt;
+								</code>
+								<p>It should be noted that when you click on the links for each of these ToCs, you'll see the URL change. The URL now has a hashtag (“<code class="inline">#</code>") followed by the name of the ToC element you clicked on. In the case of clicking on the Introduction, the URL looks like this: <code class="inline">ToC_example.html#introduction1</code>. You may also notice that the browser didn't jump down to the correct place. This is due to the fact that the length of the document isn't very long. If there were more content under each heading, then you would see the browser jumping to the correct location. In the <a href="ToC_example.html" target="_blank">example file</a>, I added some Lorem Ipsum text to act as space filler so you can see the anchor links in action.</p>
+				            </article>
+				        </div>
+					</section>
+					<section class="tutorialBox">
+				        <div class="tutorialRow">
+				            <div class="tutorialHeader"><a name="CompleteJavaScriptcode" class="anchorLink">Complete JavaScript code</a></div>
+				            <div class="corner"></div>
+				        </div>
+				        <div class="tutorialRow">
+				            <article class="tutorialContent">
+								<code class="block">
+									var count = 0;<br/>
+									var output = '&lt;div class="floatLeft"&gt;&lt;ul&gt;';<br/>
+									<br/>
+									$('h2, h3, h4').each(function() {<br/>
+									<span class="indent1">count ++;</span><br/>
+									<br/>
+									<span class="indent1">var text = $(this).text();</span><br/>
+									<span class="indent1">var id = text.toLowerCase().replace(/[^a-zA-Z ]/g, '').replace(/\s/g, '_') + count;</span><br/>
+									<span class="indent1">var headingLevel = $(this).context.nodeName.toLowerCase();</span><br/>
+									<br/>
+									<span class="indent1">$(this).attr('id', id);</span><br/>
+									<br/>
+									<span class="indent1">if (headingLevel == 'h2') {</span><br/>
+									<span class="indent2">output += '&lt;li&gt;&lt;a href="#' + id + '"&gt;' + text + '&lt;/a&gt;&lt;/li&gt;';</span><br/>
+									<span class="indent1">} else if (headingLevel == 'h3') {</span><br/>
+									<span class="indent2">output += '&lt;ul&gt;&lt;li&gt;&lt;a href="#' + id + '"&gt;' + text + '&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;';</span><br/>
+									<span class="indent1">} else if (headingLevel == 'h4') {</span><br/>
+									<span class="indent2">output += '&lt;ul&gt;&lt;ul&gt;&lt;li&gt;&lt;a href="#' + id + '"&gt;' + text + '&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/ul&gt;';</span><br/>
+									<span class="indent1">}</span><br/>
+									});<br/>
+									<br/>
+									output += '&lt;/ul&gt;&lt;/div&gt;';<br/>
+									<br/>
+									$('div#toc').html(output);
+
+								</code>
+				            </article>
+				        </div>
+					</section>
+				</div>
+				<div class="col-md-2"></div>
+			</div>
+		</div>
+		<!-- automated modal image storage-->
+		<div id="modal-container"></div>
+		<footer>
+			<div id="copyright"></div>
+		</footer>
+		<script src="../../js/getYear.js"></script>
+		<script src="../../js/modal-images.js"></script>
+		<script src="../../js/auto-number.js"></script>
+	</body>
+</html>
