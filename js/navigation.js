@@ -140,7 +140,7 @@ message += '<img src="' + tutorialSuffix + 'images/social/glyphicons_social/png/
 message += '</a></li>';
 // email link
 message += '<li>';
-message += '<a href="mailto:brian@jawa9000.com?Subject=General&#160;Request&#160;,&#160;Comment&#160;,&#160;or&#160;Question">';
+message += '<a href="mailto:jawa9000@gmail.com?Subject=General&#160;Request&#160;,&#160;Comment&#160;,&#160;or&#160;Question">';
 message += '<img src="' + tutorialSuffix + 'images/social/glyphicons_social/png/glyphicons_social_39_e-mail.png" title="Email Brian" alt="Email Brian">';
 message += '</a>';
 message += '</li></ul></div></div>';
