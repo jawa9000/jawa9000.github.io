@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-06DGRLH7V4"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-06DGRLH7V4');
+        </script>
+        <title>applyBonus() Function Sandbox</title>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <style>
+        * {
+            font-size: 1.1em;
+        }
+        #container {
+            text-align: center;
+            padding: 25px 0 0 0;
+        }
+        .spacer {
+            padding: 15px 0 0 0;
+        }
+    </style>
+
+<body>
+    <div id="container">
+        <label for="IWeatherProvider">IWeatherProvider</label>
+        <select name="IWeatherProvider" class="IWeatherProvider input">
+            <option value="">Select one</option>
+            <option value="Unset">Unset</option>
+            <option value="Clear">Clear</option>
+            <option value="Rainy">Rainy</option>
+            <option value="Cloudy">Cloudy</option>
+            <option value="ErrorNotFound">ErrorNotFound</option>
+        </select>
+
+        <label for="percentGood">percentGood</label>
+        <input type="number" min="0" max="1" step="0.1" value="0" pattern="\d*" class="percentGood input">
+        <div class="spacer">Bonus: <span id="bonus">0</span></div>
+    </div>
+    
+</body>
+
+<script>
+    const selectWeather = document.querySelector('.IWeatherProvider');
+    const selectPercentGood = document.querySelector('.percentGood');
+
+    selectWeather.addEventListener('change', (e) => { // grab the value for IWeatherProvider and execute applyBonus() function
+        applyBonus(selectPercentGood.value, e.target.value);
+    });
+
+    selectPercentGood.addEventListener('change', (e) => { // grab the value for percentGood and execute applyBonus() function
+        applyBonus(e.target.value, selectWeather.value);
+    });
+
+    function applyBonus(percentGood, IWeatherProvider) {
+        percentGood = parseFloat(percentGood);
+
+        if (percentGood > 1) { // limit the value of percentGood to 1. Note: even though the input field may accept and display numbers larger than 1, it still is limited to a value of 1.
+            percentGood = 1;
+        }
+
+        if (IWeatherProvider == 'Clear') { // apply weather bonus
+            percentGood = percentGood + 0.2;
+        } else {
+            percentGood = percentGood - 0.2;
+        }
+
+        percentGood = Math.max(0, Math.min(percentGood, 1)).toFixed(1); // limit the value of percentGood between 0 and 1
+
+        document.getElementById("bonus").textContent = percentGood;
+    }
+</script>
+</html>
