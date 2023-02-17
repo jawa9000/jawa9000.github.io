@@ -185,9 +185,13 @@ table.details th {
   text-align: center;
   padding: 5px; }
 
-table.alternating tbody tr:nth-child(even){
+table.alternating tbody tr:nth-child(even) {
     background-color: rgba(0, 0, 0, 0.04);
   }
+
+ol#certifications {
+  list-style-type: none;
+}
 
 /* portfolio-3d page fixes */
 .centered {
