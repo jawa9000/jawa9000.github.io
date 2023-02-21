@@ -25,7 +25,7 @@ let samples = {
         labels: ['Guide', 'Tutorial'],
         projectDetails: {
             audience: 'Everyone who used VPN services (all skill levels, position, and tenure).',
-            projectNotes: 'In my first month on the job, I was given a simple task of documenting the process of instructing all employees on how to use VPN services. I collaborated with the IT department to gather their notes and wrote a simple draft. I tested the steps myself, asked a few colleagues to try them as well and iterated on the document based on their feedback. Once published, I added a few more notes based on user feedback and integrated a separately written FAQ. Note: this document was originally requested for print only but was later adapted to web format as well.',
+            projectNotes: 'In my first month on the job, I was given a short task of documenting the process of instructing all employees on how to use VPN services. I collaborated with the IT department to gather their notes and wrote a simple draft. I tested the steps myself, asked a few colleagues to try them as well and iterated on the document based on their feedback. Once published, I added a few more notes based on user feedback and integrated a separately written FAQ. Note: this document was originally requested for print only but was later adapted to web format.',
             change: 'Add more screen grabs for the Windows and Mac sections that illustrate what each section should look like as the audience for this document were mostly visually-based learners. I would also include contact information for the IT department and point any further questions to them as they were in charge of maintaining this service.'
         }
     },
@@ -114,7 +114,7 @@ let samples = {
         labels: ['API'],
         projectDetails: {
             audience: 'End user developers and internal testers.',
-            projectNotes: 'I collaborated with two software engineers to regularly review and revise this document if there was a release made changes to this feature.',
+            projectNotes: 'I collaborated on updating, revising, and testing content with help from two engineers and revised with notes from the open source community. Note: The main navigation is missing as I salvaged this document from an archive that didn\'t include the dynamically generated navigation.            ',
             change: 'Add code samples. As the engineers were short on time, one of the features of this document we sacrificed was code samples. Additionally, I\'d like to have better definitions and explanations of each property, method, and function. While brevity is usually best, short descriptions don\'t service new or novice users to the platform. Finally, I\'d ensure there are links to overviews and tutorials (where available).'
         }
     },
