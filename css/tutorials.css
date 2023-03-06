@@ -98,10 +98,6 @@
   font-size: 0.9em;
   font-weight: none; }
 
-/*
-.tutorialContent span code, .guideContent span code {
-}
-*/
 .tutorialContent li, .guideContent li {
   padding-top: 5px;
   margin-left: -10px;
@@ -114,7 +110,7 @@
   text-transform: uppercase; }
 
 .tutorialBox, .guideBox {
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.05);
   display: table;
   position: relative;
   padding: 5px;
@@ -122,8 +118,8 @@
   border-radius: 7px;
   width: 100%; }
 
-.tutorialBox:nth-child(odd), .guideBox:nth-child(odd) {
-  background: rgba(0, 0, 0, 0.2); }
+/* .tutorialBox:nth-child(odd), .guideBox:nth-child(odd) {
+  background: rgba(0, 0, 0, 0.05); } */
 
 /* tables */
 table, th, td {
