@@ -1,11 +1,19 @@
+// This key needs to match the same key in protected/DO_NOT_UPLOAD/experienceTables.js otherwise it won't show up
 let experience = {
-    // "": {  // This key needs to match the same key in protected/DO_NOT_UPLOAD/experienceTables.js otherwise it won't show up
+    // "": {  
     //     "title": "",
     //     "company": "",
     //     "dates": "",
     //     "location": "",
     //     "responsbilities": []
     // },
+    "Epic Games - Senior Animation Technical Writer": {  
+        "title": "Senior Animation Technical Writer",
+        "company": "Epic Games",
+        "dates": "March 20, 2023 - present",
+        "location": "Larkspur, California",
+        "responsbilities": ['TBD']
+    },
     "meta": {
         "title": "Documentation Engineer",
         "company": "Meta",
