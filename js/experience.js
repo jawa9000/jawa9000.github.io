@@ -14,7 +14,7 @@ let experience = {
         "location": "Larkspur, California",
         "responsbilities": ['TBD']
     },
-    "meta": {
+    "Documentation Engineer Meta": {
         "title": "Documentation Engineer",
         "company": "Meta",
         "dates": "December 9 2019 - November 9 2022",
