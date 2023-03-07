@@ -11,6 +11,41 @@ let certifications = {
     //     "meta": [""],
     //     "notes": ""
     // },
+    // "Unreal Essential Training (2019)": {
+    //     "link": "",
+    //     "title": "Unreal Essential Training (2019)",
+    //     "date": "March 2023",
+    //     "meta": ["Unreal Engine"],
+    //     "notes": ""
+    // },
+    "Developing a Mentoring Program": {
+        "link": "",
+        "title": "Developing a Mentoring Program",
+        "date": "February 2023",
+        "meta": ["Employee Engagement","Mentoring"],
+        "notes": "Due to LinkedIn's limits on free accounts, it wouldn't issue the certification."
+    },
+    // "Applied Machine Learning: Foundations": {
+    //     "link": "",
+    //     "title": "Applied Machine Learning: Foundations",
+    //     "date": "",
+    //     "meta": [""],
+    //     "notes": ""
+    // },
+    // "Writing With Flair: How to Become an Exceptional Writer": {
+    //     "link": "",
+    //     "title": "Writing With Flair: How to Become an Exceptional Writer",
+    //     "date": "March 2023",
+    //     "meta": [""],
+    //     "notes": ""
+    // },
+    "Building Relationships While Working from Home": {
+        "link": "",
+        "title": "Building Relationships While Working from Home",
+        "date": "February 2023",
+        "meta": ["Telecommuting", "Workplace Relations"],
+        "notes": "Due to LinkedIn's limits on free accounts, it wouldn't issue the certification."
+    },
     "Pete Docter: Creating a Career Fueled by Imagination": {
         "link": "",
         "title": "Pete Docter: Creating a Career Fueled by Imagination",
