@@ -11,96 +11,95 @@ let certifications = {
     //     "meta": [""],
     //     "notes": ""
     // },
-    // "Unreal Essential Training (2019)": {
-    //     "link": "",
-    //     "title": "Unreal Essential Training (2019)",
-    //     "date": "March 2023",
-    //     "meta": ["Unreal Engine"],
-    //     "notes": ""
-    // },
+    "Unreal Essential Training (2019)": {
+        "link": "https://www.linkedin.com/learning/certificates/28e63dd9409618f64fedc4b1ec27d48885634e2bb92eb8e7caca76c246dab1b8",
+        "title": "Unreal Essential Training (2019)",
+        "date": "March 2023",
+        "meta": ["Unreal Engine"],
+    },
     "Developing a Mentoring Program": {
         "link": "",
         "title": "Developing a Mentoring Program",
         "date": "February 2023",
         "meta": ["Employee Engagement","Mentoring"],
-        "notes": "Due to LinkedIn's limits on free accounts, it wouldn't issue the certification."
+        "notes": "Due to LinkedIn's limit on the number of skills (50), they wouldn't issue the certificate."
     },
-    // "Applied Machine Learning: Foundations": {
-    //     "link": "",
-    //     "title": "Applied Machine Learning: Foundations",
-    //     "date": "",
-    //     "meta": [""],
-    //     "notes": ""
-    // },
-    // "Writing With Flair: How to Become an Exceptional Writer": {
-    //     "link": "",
-    //     "title": "Writing With Flair: How to Become an Exceptional Writer",
-    //     "date": "March 2023",
-    //     "meta": [""],
-    //     "notes": ""
-    // },
+    "Applied Machine Learning: Foundations": {
+        "link": "",
+        "title": "Applied Machine Learning: Foundations",
+        "date": "March 2023",
+        "meta": ["Artificial Intelligence (AI)", "Applied Machine Learning"],
+        "notes": "Due to LinkedIn's limit on the number of skills (50), they wouldn't issue the certificate."
+    },
+    "Writing With Flair: How to Become an Exceptional Writer": {
+        "link": "https://www.linkedin.com/learning/certificates/cc7164310a77af867de3b7f3741dde7585f27de56d4264a4b8b32c504a494ee6",
+        "title": "Writing With Flair: How to Become an Exceptional Writer",
+        "date": "March 2023",
+        "meta": ["writing"],
+        "notes": ""
+    },
     "Building Relationships While Working from Home": {
         "link": "",
         "title": "Building Relationships While Working from Home",
         "date": "February 2023",
         "meta": ["Telecommuting", "Workplace Relations"],
-        "notes": "Due to LinkedIn's limits on free accounts, it wouldn't issue the certification."
+        "notes": "Due to LinkedIn's limit on the number of skills (50), they wouldn't issue the certificate."
     },
     "Pete Docter: Creating a Career Fueled by Imagination": {
         "link": "",
         "title": "Pete Docter: Creating a Career Fueled by Imagination",
         "date": "February 2023",
         "meta": ["Career management"],
-        "notes": "Due to LinkedIn's limits on free accounts, it wouldn't issue the certification."
+        "notes": "Due to LinkedIn's limit on the number of skills (50), they wouldn't issue the certificate."
     },
     "How to Follow Up on a Job Application": {
         "link": "",
         "title": "How to Follow Up on a Job Application",
         "date": "February 2023",
         "meta": ["Job Search Strategies"],
-        "notes": "Due to LinkedIn's limits on free accounts, it wouldn't issue the certification."
+        "notes": "Due to LinkedIn's limit on the number of skills (50), they wouldn't issue the certificate."
     },
     "Managing Stress and Building Resilience While Job Hunting": {
         "link": "",
         "title": "Managing Stress and Building Resilience While Job Hunting",
         "date": "February 2023",
         "meta": ["Resilience", "Stress management", "Job seeking"],
-        "notes": "Due to LinkedIn's limits on free accounts, it wouldn't issue the certification."
+        "notes": "Due to LinkedIn's limit on the number of skills (50), they wouldn't issue the certificate."
     },
     "How to Reframe Rejection, Beat Burnout, and Get Unstuck": {
         "link": "",
         "title": "How to Reframe Rejection, Beat Burnout, and Get Unstuck",
         "date": "February 2023",
         "meta": ["Rejection", "Burnout", "Reframing"],
-        "notes": "Due to LinkedIn's limits on free accounts, it wouldn't issue the certification."
+        "notes": "Due to LinkedIn's limit on the number of skills (50), they wouldn't issue the certificate."
     },
     "Use Rejection to Achieve Future Success": {
         "link": "",
         "title": "Use Rejection to Achieve Future Success",
         "date": "February 2023",
         "meta": ["Rejection"],
-        "notes": "Due to LinkedIn's limits on free accounts, it wouldn't issue the certification."
+        "notes": "Due to LinkedIn's limit on the number of skills (50), they wouldn't issue the certificate."
     },
     "Overcoming Rejection": {
         "link": "",
         "title": "Overcoming Rejection",
         "date": "February 2023",
         "meta": ["Rejection"],
-        "notes": "Due to LinkedIn's limits on free accounts, it wouldn't issue the certification."
+        "notes": "Due to LinkedIn's limit on the number of skills (50), they wouldn't issue the certificate."
     },
     "Computer Science Principles Lab: C#": {
         "link": "",
         "title": "Computer Science Principles Lab: C#",
         "date": "February 2023",
         "meta": ["C#", "Programming"],
-        "notes": "Due to LinkedIn's limits on free accounts, it wouldn't issue the certification."
+        "notes": "Due to LinkedIn's limit on the number of skills (50), they wouldn't issue the certificate."
     },
     "Learning C#": {
         "link": "",
         "title": "Learning C#",
         "date": "January 2023",
         "meta": ["C#", "Programming"],
-        "notes": "Due to LinkedIn's limits on free accounts, it wouldn't issue the certification."
+        "notes": "Due to LinkedIn's limit on the number of skills (50), they wouldn't issue the certificate."
     },
     "Confidence: How to Overcome Self-Doubt, Insecurity, and Fears": {
         "link": "https://www.linkedin.com/learning/certificates/8d7dc7abe2ef763a52b90650e0ddee3ed929837c5bee17485bb00cf4de6f681a",
@@ -143,49 +142,49 @@ let certifications = {
         "title": "Change Management Foundations",
         "date": "March 2022",
         "meta": ["Change management", "Management"],
-        "notes": "Due to LinkedIn's limits on free accounts, it wouldn't issue the certification."
+        "notes": "Due to LinkedIn's limit on the number of skills (50), they wouldn't issue the certificate."
     },
     "Creating Psychological Safety for Diverse Teams": {
         "link": "",
         "title": "Creating Psychological Safety for Diverse Teams",
         "date": "March 2022",
         "meta": ["Team management"],
-        "notes": "Due to LinkedIn's limits on free accounts, it wouldn't issue the certification."
+        "notes": "Due to LinkedIn's limit on the number of skills (50), they wouldn't issue the certificate."
     },
     "Creating a Culture of Change": {
         "link": "",
         "title": "Creating a Culture of Change",
         "date": "March 2022",
         "meta": ["Culture", "Management"],
-        "notes": "Due to LinkedIn's limits on free accounts, it wouldn't issue the certification."
+        "notes": "Due to LinkedIn's limit on the number of skills (50), they wouldn't issue the certificate."
     },
     "Introduction to Web APIs": {
         "link": "",
         "title": "Introduction to Web APIs",
         "date": "March 2022",
         "meta": ["API"],
-        "notes": "Due to LinkedIn's limits on free accounts, it wouldn't issue the certification."
+        "notes": "Due to LinkedIn's limit on the number of skills (50), they wouldn't issue the certificate."
     },
     "Leading Culture Change in Your Team": {
         "link": "",
         "title": "Leading Culture Change in Your Team",
         "date": "March 2022",
         "meta": ["Culture", "Management"],
-        "notes": "Due to LinkedIn's limits on free accounts, it wouldn't issue the certification."
+        "notes": "Due to LinkedIn's limit on the number of skills (50), they wouldn't issue the certificate."
     },
     "Leading When You're Not in Charge": {
         "link": "",
         "title": "Leading When You're Not in Charge",
         "date": "March 2022",
         "meta": ["Team leadership"],
-        "notes": "Due to LinkedIn's limits on free accounts, it wouldn't issue the certification."
+        "notes": "Due to LinkedIn's limit on the number of skills (50), they wouldn't issue the certificate."
     },
     "Learning How to Increase Learner Engagement": {
         "link": "",
         "title": "Learning How to Increase Learner Engagement",
         "date": "March 2022",
         "meta": ["Learning", "Engaging"],
-        "notes": "Due to LinkedIn's limits on free accounts, it wouldn't issue the certification."
+        "notes": "Due to LinkedIn's limit on the number of skills (50), they wouldn't issue the certificate."
     },
     "Project Management Simplified": {
         "link": "https://www.linkedin.com/learning/certificates/7cde078f6b8ee70a9871c4432d7fbb9ad914796ee8ba532adffdfd53b4b43613?u=67698794",
