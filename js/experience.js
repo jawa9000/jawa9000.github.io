@@ -62,7 +62,7 @@ let experience = {
     "Documentation Specialist PDI DreamWorks Animation": {
         "title": "Documentation Specialist",
         "company": "PDI/DreamWorks Animation",
-        "dates": "July 2009 - March 2015",
+        "dates": "July 2009 - March 8 2015",
         "location": "Redwood City, CA",
         "responsbilities": ['Wrote documentation for proprietary software and third-party platforms, utilities, and plugins.', 'Wrote documentation and produced videos that supported educational and production needs.', 'Primarily focused on writing documentation for proprietary software as well as 3rd party platforms, utilities, and plugins.', 'Built, developed, and maintained an enterprise-level wiki (Confluence) by creating features and plugins using HTML, CSS, JavaScript, jQuery, and Java.', 'Organized documentation standards and structures via templates and periodic page reviews, and supported various documentation needs of production and the company at large.']
     },
