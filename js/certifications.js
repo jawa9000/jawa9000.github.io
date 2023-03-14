@@ -11,6 +11,13 @@ let certifications = {
     //     "meta": [""],
     //     "notes": ""
     // },
+    "Unreal Game Mechanics: Camera Walk Action": {
+        "link": "https://www.linkedin.com/learning/certificates/482598e96d5a67e93d301355c82c525d2bed9d758d5fbcee099ce689bb60fec7",
+        "title": "Unreal Game Mechanics: Camera Walk Action",
+        "date": "March 2023",
+        "meta": ["Game Mechanics", "Unreal Engine"],
+        "notes": ""
+    },
     "Unreal Essential Training (2019)": {
         "link": "https://www.linkedin.com/learning/certificates/28e63dd9409618f64fedc4b1ec27d48885634e2bb92eb8e7caca76c246dab1b8",
         "title": "Unreal Essential Training (2019)",
