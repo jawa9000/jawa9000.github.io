@@ -11,6 +11,20 @@ let certifications = {
     //     "meta": [""],
     //     "notes": ""
     // },
+    "Design Your First Infographic": {
+        "link": "https://www.linkedin.com/learning/certificates/d6065cc5c26ef7553c567b4ecb13c50ab9d9fc03d3fb03585f7adb67fd69ed22",
+        "title": "Design Your First Infographic",
+        "date": "March 2023",
+        "meta": ["Information Graphics"],
+        "notes": ""
+    },
+    "Unreal Engine: Game Terrain Techniques": {
+        "link": "https://www.linkedin.com/learning/certificates/1975c343dc6b018c6121a459ebcdf21e4528c1a72ec374989b700e9f663def61",
+        "title": "Unreal Engine: Game Terrain Techniques",
+        "date": "March 2023",
+        "meta": ["Terrain Modeling", "Unreal Engine", "Game Design"],
+        "notes": ""
+    },
     "Unreal Game Mechanics: Camera Walk Action": {
         "link": "https://www.linkedin.com/learning/certificates/482598e96d5a67e93d301355c82c525d2bed9d758d5fbcee099ce689bb60fec7",
         "title": "Unreal Game Mechanics: Camera Walk Action",
