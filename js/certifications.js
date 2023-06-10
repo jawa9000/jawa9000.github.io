@@ -11,6 +11,34 @@ let certifications = {
     //     "meta": [""],
     //     "notes": ""
     // },
+    "": {
+        "link": "https://www.linkedin.com/learning/certificates/ccdd89a048c4ac9ccd7d35196ec010c1d76c2bfa29e3b8c06867cad9eccd3869",
+        "title": "Unreal: Blueprint",
+        "date": "June 2023",
+        "meta": ["Blueprint","Unreal Engine"],
+        "notes": ""
+    },
+    "Taking Charge of Your Career": {
+        "link": "https://www.linkedin.com/learning/certificates/70246dfbf78ca21b27bd91adb6e60fbe6f0f213b8d16dff10826319a6c2a8818",
+        "title": "Taking Charge of Your Career",
+        "date": "March 2023",
+        "meta": ["Career Management"],
+        "notes": ""
+    },
+    "The Practice of High-Performing Employees": {
+        "link": "https://www.linkedin.com/learning/certificates/8e4b88b511d94bf3fde5235e3d9015507f5a116afbfa1a416403d37e9e1a77d0",
+        "title": "The Practice of High-Performing Employees",
+        "date": "March 2023",
+        "meta": ["Performance Improvement"],
+        "notes": ""
+    },
+    "Mastering Organizational Chaos": {
+        "link": "https://www.linkedin.com/learning/certificates/3ddf6a403050eb2481bb0864fb08e37541d75bd6b100a0c18c0193e8ab059c97",
+        "title": "Mastering Organizational Chaos",
+        "date": "March 2023",
+        "meta": ["Organizational Leadership"],
+        "notes": ""
+    },
     "Design Your First Infographic": {
         "link": "https://www.linkedin.com/learning/certificates/d6065cc5c26ef7553c567b4ecb13c50ab9d9fc03d3fb03585f7adb67fd69ed22",
         "title": "Design Your First Infographic",
