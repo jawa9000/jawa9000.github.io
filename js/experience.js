@@ -10,9 +10,10 @@ let experience = {
     "Epic Games - Senior Animation Technical Writer": {  
         "title": "Senior Animation Technical Writer",
         "company": "Epic Games",
-        "dates": "March 20, 2023 - present",
-        "location": "Larkspur, California",
-        "responsbilities": ['TBD']
+        "dates": "March 20, 2023 - October 2, 2023",
+        "location": "Larkspur, California (Remote)",
+        "responsbilities": ['Collaborated, researched, and edited multiple Unreal Editor documents, communicated with stakeholders, audited documents for compliance, improved search results, and contributed to various documentation tasks, including peer reviews and bug reporting, while also assisting in redefining localization team policies.', 'Collaborated, researched, wrote, and integrated SME and peer feedback into 16 new or updated Unreal Editor (UE) docs that were well received by the UE Dev community.','Communicated with key stakeholders, shared links to the published content, and noted any feedback on the docs I completed and published.','Audited 25 UE docs and took notes to suggest improvements that would ensure adherence to the Doc team\'s publication policies.','Identified and fixed poor metadata, resulting in improved search results in 80 docs.','Wrote or revised release notes for 7 different Unreal Engine product areas while collaborating with SMEs.','Identified and fixed broken links or images in 10 docs.','Researched and organized notes for revising 5 ongoing docs.','Conducted 6 peer reviews of fellow tech writers\' docs to ensure they followed the Doc team\'s style guide and were free of errors before publication.','Identified and resolved 182 Jira tickets, as they were either unnecessary, redundant, or represented completed tasks that were never closed.','Wrote a few Jira queries to assist the Doc team in identifying unassigned and unresolved tickets.','Gathered documentation requirements from the teams supported by reviewing various planning docs, backlogged Jira tickets, and by directly speaking with 5 different Product Owners and POCs.','Revised the New Hire Onboarding Checklist document to include missing notes, important apps, and links to critical docs to ensure future new hires have the most complete guide possible.','Participated in testing and provided feedback for new internal documentation tools.','Wrote team documentation to raise awareness of new policies and features for publishing content.','Gave two presentations on the topics of Docathons and Work Journaling, and answered questions on how to integrate those strategies on the individual level to several teammates.','Reported software bugs to the support team while writing Unreal Engine documentation.','Helped redefine the localization team\'s policy around code comments.'
+]
     },
     "Documentation Engineer Meta": {
         "title": "Documentation Engineer",
@@ -62,7 +63,7 @@ let experience = {
     "Documentation Specialist PDI DreamWorks Animation": {
         "title": "Documentation Specialist",
         "company": "PDI/DreamWorks Animation",
-        "dates": "July 2009 - March 8 2015",
+        "dates": "July 2009 - March 2015",
         "location": "Redwood City, CA",
         "responsbilities": ['Wrote documentation for proprietary software and third-party platforms, utilities, and plugins.', 'Wrote documentation and produced videos that supported educational and production needs.', 'Primarily focused on writing documentation for proprietary software as well as 3rd party platforms, utilities, and plugins.', 'Built, developed, and maintained an enterprise-level wiki (Confluence) by creating features and plugins using HTML, CSS, JavaScript, jQuery, and Java.', 'Organized documentation standards and structures via templates and periodic page reviews, and supported various documentation needs of production and the company at large.']
     },
