@@ -1,4 +1,116 @@
+// List newer example on top so they appear first in your web page.
+
 let samples = {
+    'Multi-Track Audio Capture': {
+        title: 'Multi-Track Audio Capture',
+        htmlLink: 'https://docs.unrealengine.com/5.3/en-US/multi-track-audio-capture-for-take-recorder-in-unreal-engine/',
+        pdfLink: '',
+        description: 'Record multi-track audio with Unreal Engine\'s Take Recorder',
+        labels: ['Overview'],
+        projectDetails: {
+            audience: 'All levels of Unreal Engine users',
+            projectNotes: 'I collaborated with SMEs and product owners to research and write this document, addressing information gaps and documenting new 5.3 features.',
+        }
+    },
+    'Pending Take': {
+        title: 'Pending Take',
+        htmlLink: 'https://docs.unrealengine.com/5.3/en-US/pending-takes-for-take-recorder-in-unreal-engine/',
+        pdfLink: '',
+        description: 'Learn the basics of using Pending Take in Unreal Engine\'s Take Recorder.',
+        labels: ['Overview', 'Tutorial'],
+        projectDetails: {
+            audience: 'All levels of Unreal Engine users',
+            projectNotes: 'I collaborated with SMEs and product owners to research and write this document, addressing information gaps and documenting new 5.3 features.',
+        }
+    },
+    'Creating Camera Cuts Using Sequencer': {
+        title: 'Creating Camera Cuts Using Sequencer',
+        htmlLink: 'https://docs.unrealengine.com/5.3/en-US/creating-camera-cuts-using-sequencer-in-unreal-engine/',
+        pdfLink: '',
+        description: 'Learn how to create camera cuts in Unreal Engine\'s Sequencer.',
+        labels: ['Tutorial'],
+        projectDetails: {
+            audience: 'Unreal Engine Beginners',
+            projectNotes: 'As part of my onboarding process, I assigned myself the task of writing a tutorial based on a feature I was unfamiliar with. This document is the outcome of that research. It underwent SME and peer reviews before its release to ensure content accuracy and adherence to documentation publication standards.',
+        }
+    },
+    'Dynamic Binding': {
+        title: 'Dynamic Binding',
+        htmlLink: 'https://docs.unrealengine.com/5.3/en-US/dynamic-binding-in-sequencer/',
+        pdfLink: '',
+        description: 'Unreal Engine\'s Dynamic Binding provides custom Blueprints logic that picks which object to possess in the level or which to spawn.',
+        labels: ['Overview', 'Tutorial'],
+        projectDetails: {
+            audience: 'All levels of Unreal Engine users',
+            projectNotes: 'I collaborated with SMEs and product owners to research and write this document, addressing information gaps and documenting new 5.3 features.',
+        }
+    },
+    'Recording Animation': {
+        title: 'Recording Animation',
+        htmlLink: 'https://docs.unrealengine.com/5.3/en-US/recording-animation-using-take-recorder-in-unreal-engine/',
+        pdfLink: '',
+        description: 'Learn how to use Unreal Engine\'s Take Recorder to capture animation from actor manipulation, physics simulations, and gameplay.',
+        labels: ['Tutorial'],
+        projectDetails: {
+            audience: 'All levels of Unreal Engine users',
+            projectNotes: 'I reviewed outdated material, incorporated new content, and submitted the revisions for SME and peer reviews to ensure content accuracy and compliance with documentation publication standards.',
+        }
+    },
+    'Take Recorder': {
+        title: 'Take Recorder',
+        htmlLink: 'https://docs.unrealengine.com/5.3/en-US/take-recorder-in-unreal-engine/',
+        pdfLink: '',
+        description: 'Take Recorder records gameplay animation, live performances, and other sources into Unreal Engine directly.',
+        labels: ['Overview', 'Reference'],
+        projectDetails: {
+            audience: 'All levels of Unreal Engine users',
+            projectNotes: 'I reviewed outdated material, incorporated new content, and submitted the revisions for SME and peer reviews to ensure content accuracy and compliance with documentation publication standards.',
+        }
+    },
+    'Cine Camera Actor': {
+        title: 'Cine Camera Actor',
+        htmlLink: 'https://docs.unrealengine.com/5.3/en-US/cinematic-cameras-in-unreal-engine/',
+        pdfLink: '',
+        description: 'The Cine Camera Actor is used as the primary camera type for filming cinematic content in Unreal Engine.',
+        labels: ['Overview', 'Tutorial'],
+        projectDetails: {
+            audience: 'All levels of Unreal Engine users',
+            projectNotes: 'I reviewed outdated material, incorporated new content, and submitted the revisions for SME and peer reviews to ensure content accuracy and compliance with documentation publication standards.',
+        }
+    },
+    'Possessables and Spawnables': {
+        title: 'Possessables and Spawnables',
+        htmlLink: 'https://docs.unrealengine.com/5.3/en-US/spawn-temporary-actors-in-unreal-engine-cinematics/',
+        pdfLink: '',
+        description: 'Spawn temporary Actors, lights, and other objects in your scene by using Spawnables.',
+        labels: ['Overview'],
+        projectDetails: {
+            audience: 'All levels of Unreal Engine users',
+            projectNotes: 'I reviewed outdated material, incorporated new content, and submitted the revisions for SME and peer reviews to ensure content accuracy and compliance with documentation publication standards.',
+        }
+    },
+    'Datasmith Supported Software and File Types': {
+        title: 'Datasmith Supported Software and File Types',
+        htmlLink: 'https://docs.unrealengine.com/5.3/en-US/datasmith-supported-software-and-file-types/',
+        pdfLink: '',
+        description: 'Details all the third-party software applications and data formats that Datasmith works with.',
+        labels: ['Reference'],
+        projectDetails: {
+            audience: 'All levels of Unreal Engine users',
+            projectNotes: 'I collaborated with an SME to update the supported application table, ensuring that the correct versions are listed.',
+        }
+    },
+    'Datasmith Supported Platforms': {
+        title: 'Datasmith Supported Platforms',
+        htmlLink: 'https://docs.unrealengine.com/5.3/en-US/datasmith-supported-platforms/',
+        pdfLink: '',
+        description: 'Details what Datasmith features work on which different platforms.',
+        labels: ['Reference'],
+        projectDetails: {
+            audience: 'All levels of Unreal Engine users',
+            projectNotes: 'I collaborated with an SME to update the supported application table, ensuring that the correct versions are listed.',
+        }
+    },
     'Technical Writing Guides': {
         title: 'Technical Writing Guides',
         htmlLink: '../tutorials.html#writing',
@@ -54,7 +166,7 @@ let samples = {
         description: 'Reference documentation for using the AMPLIFY CLI.',
         labels: ['CLI', 'Reference'],
         projectDetails: {
-            audience: 'developers, all levels.',
+            audience: 'Developers, all levels.',
             projectNotes: 'I collaborated with three engineers to gather and write the outdated CLI documentation. I added the auth switch options section and half the pm section content with the team\'s help.'
         }
     },
@@ -137,7 +249,7 @@ let samples = {
         description: 'Titanium SDK release note that includes information about platform behavioral changes, new features, API changes, and supported SDK modules.',
         labels: ['SDK', 'Release Note'],
         projectDetails: {
-            audience: 'all levels of mobile app developers.',
+            audience: 'All levels of mobile app developers.',
             projectNotes: 'I collaborated with five engineers to produce this release note by gathering information from meetings, presentations, code snippets shared by end-users and internal engineers, feedback from end-users, automated content changes from code docs, and checked in repo files over the course of three weeks.'
         }
     },
@@ -148,7 +260,7 @@ let samples = {
         description: 'Guide on how to obtain and how to install the Google Android SDK and associated packages.',
         labels: ['SDK', 'Reference', 'Guide'],
         projectDetails: {
-            audience: 'all levels of mobile app developers.',
+            audience: 'All levels of mobile app developers.',
             projectNotes: 'I collaborated with the entire team to produce and maintain this document for each release. This document would be updated each time there was a minor or major release or when one of the required packages changed.',
             change: 'I would add back in the graphics and screen grabs to better illustrate the processes mentioned in this document and organize the note into a section of it\'s own.'
         }
@@ -160,7 +272,7 @@ let samples = {
         description: 'Overview of all the Axway Appcelerator products used to build mobile applications.',
         labels: ['Overview'],
         projectDetails: {
-            audience: 'all levels of mobile app developers.',
+            audience: 'All levels of mobile app developers.',
             projectNotes: 'Collaborated with project managers and sales team to write and maintain this overview document.',
             change: 'Add screen shots and short-form videos of the products.'
         }
@@ -279,6 +391,7 @@ let samples = {
 
 $('span#count').text(Object.keys(samples).length); // display the number of writing samples in this collection
 
+// get and display labels
 var labels = []; // gather all labels from (writing) samples
 
 for (i in samples) {
@@ -309,6 +422,7 @@ $('#tabs').append(output);
 
 var output = '';
 
+// set and display content of samples object
 for (i in uniqueLabels) { // build the elements to house the writing samples
     if (i == 0) {
         output += '<div class="tab-pane active" id="' + uniqueLabels[i] + '">';
@@ -324,7 +438,9 @@ for (i in uniqueLabels) { // build the elements to house the writing samples
                 output += '<div class="webNote">';
                 if (uniqueLabels[i] == 'Blog' || samples[j].title == 'Technical Writing Guides') { // deal with the blog or local website tutorials entry URL
                     output += '<h3><a href="' + samples[j].htmlLink + '" target="blank">' + samples[j].title + '</a></h3>';
-                } else {
+                } else if (samples[j].htmlLink.indexOf('http') > -1) { // build elements for externally linked content
+                    output += '<h3><a href="' + samples[j].htmlLink + '" target="blank">' + samples[j].title + '</a></h3>';
+                } else { // build elements for internally linked content
                     output += '<h3><a href="content/' + samples[j].htmlLink + '" target="blank">' + samples[j].title + '</a></h3>';    
                 }
 
