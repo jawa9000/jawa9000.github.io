@@ -113,6 +113,7 @@ if (pageName.indexOf("Portfolio") > 0) {
 message += '<a href="' + tutorialSuffix + 'portfolio.html" class="dropdown-toggle" data-toggle="dropdown">Portfolio<span class="caret"></span></a>';
 message += '<ul class="dropdown-menu">';
 // ** when a new portfolio category has been created, add it here as a page link **
+message += '<li><a href="' + tutorialSuffix + 'Writing_Samples/index.html">Writing Samples</a></li>';
 message += '<li><a href="' + tutorialSuffix + 'portfolio-2d.html">2D</a></li>';
 message += '<li><a href="' + tutorialSuffix + 'portfolio-3d.html">3D</a></li>';
 message += '<li><a href="' + tutorialSuffix + 'portfolio-web.html">Web</a></li>';
