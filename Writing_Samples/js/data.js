@@ -1,6 +1,17 @@
 // List newer example on top so they appear first in your web page.
 
 let samples = {
+    '5.3 release note': {
+        title: 'Unreal Engine 5.3 Release Notes',
+        htmlLink: 'https://docs.unrealengine.com/5.3/en-US/unreal-engine-5.3-release-notes/#animation',
+        pdfLink: '',
+        description: 'Overview of new and updated features in Unreal Engine 5.3',
+        labels: ['Release Note'],
+        projectDetails: {
+            audience: 'All levels of Unreal Engine users',
+            projectNotes: 'I collaborated with several fellow technical writers and SMEs to gather, write, and revise the release notes for the Animation technologies section of this document.'
+        }
+    },
     'Multi-Track Audio Capture': {
         title: 'Multi-Track Audio Capture',
         htmlLink: 'https://docs.unrealengine.com/5.3/en-US/multi-track-audio-capture-for-take-recorder-in-unreal-engine/',
@@ -9,7 +20,7 @@ let samples = {
         labels: ['Overview'],
         projectDetails: {
             audience: 'All levels of Unreal Engine users',
-            projectNotes: 'I collaborated with SMEs and product owners to research and write this document, addressing information gaps and documenting new 5.3 features.',
+            projectNotes: 'I collaborated with SMEs and product owners to research and write this document, addressing information gaps and documenting new 5.3 features.'
         }
     },
     'Pending Take': {
@@ -20,7 +31,7 @@ let samples = {
         labels: ['Overview', 'Tutorial'],
         projectDetails: {
             audience: 'All levels of Unreal Engine users',
-            projectNotes: 'I collaborated with SMEs and product owners to research and write this document, addressing information gaps and documenting new 5.3 features.',
+            projectNotes: 'I collaborated with SMEs and product owners to research and write this document, addressing information gaps and documenting new 5.3 features.'
         }
     },
     'Creating Camera Cuts Using Sequencer': {
@@ -31,7 +42,7 @@ let samples = {
         labels: ['Tutorial'],
         projectDetails: {
             audience: 'Unreal Engine Beginners',
-            projectNotes: 'As part of my onboarding process, I assigned myself the task of writing a tutorial based on a feature I was unfamiliar with. This document is the outcome of that research. It underwent SME and peer reviews before its release to ensure content accuracy and adherence to documentation publication standards.',
+            projectNotes: 'As part of my onboarding process, I assigned myself the task of writing a tutorial based on a feature I was unfamiliar with. This document is the outcome of that research. It underwent SME and peer reviews before its release to ensure content accuracy and adherence to documentation publication standards.'
         }
     },
     'Dynamic Binding': {
@@ -42,7 +53,7 @@ let samples = {
         labels: ['Overview', 'Tutorial'],
         projectDetails: {
             audience: 'All levels of Unreal Engine users',
-            projectNotes: 'I collaborated with SMEs and product owners to research and write this document, addressing information gaps and documenting new 5.3 features.',
+            projectNotes: 'I collaborated with SMEs and product owners to research and write this document, addressing information gaps and documenting new 5.3 features.'
         }
     },
     'Recording Animation': {
@@ -53,7 +64,7 @@ let samples = {
         labels: ['Tutorial'],
         projectDetails: {
             audience: 'All levels of Unreal Engine users',
-            projectNotes: 'I reviewed outdated material, incorporated new content, and submitted the revisions for SME and peer reviews to ensure content accuracy and compliance with documentation publication standards.',
+            projectNotes: 'I reviewed outdated material, incorporated new content, and submitted the revisions for SME and peer reviews to ensure content accuracy and compliance with documentation publication standards.'
         }
     },
     'Take Recorder': {
@@ -64,7 +75,7 @@ let samples = {
         labels: ['Overview', 'Reference'],
         projectDetails: {
             audience: 'All levels of Unreal Engine users',
-            projectNotes: 'I reviewed outdated material, incorporated new content, and submitted the revisions for SME and peer reviews to ensure content accuracy and compliance with documentation publication standards.',
+            projectNotes: 'I reviewed outdated material, incorporated new content, and submitted the revisions for SME and peer reviews to ensure content accuracy and compliance with documentation publication standards.'
         }
     },
     'Cine Camera Actor': {
@@ -75,7 +86,7 @@ let samples = {
         labels: ['Overview', 'Tutorial'],
         projectDetails: {
             audience: 'All levels of Unreal Engine users',
-            projectNotes: 'I reviewed outdated material, incorporated new content, and submitted the revisions for SME and peer reviews to ensure content accuracy and compliance with documentation publication standards.',
+            projectNotes: 'I reviewed outdated material, incorporated new content, and submitted the revisions for SME and peer reviews to ensure content accuracy and compliance with documentation publication standards.'
         }
     },
     'Possessables and Spawnables': {
@@ -86,7 +97,7 @@ let samples = {
         labels: ['Overview'],
         projectDetails: {
             audience: 'All levels of Unreal Engine users',
-            projectNotes: 'I reviewed outdated material, incorporated new content, and submitted the revisions for SME and peer reviews to ensure content accuracy and compliance with documentation publication standards.',
+            projectNotes: 'I reviewed outdated material, incorporated new content, and submitted the revisions for SME and peer reviews to ensure content accuracy and compliance with documentation publication standards.'
         }
     },
     'Datasmith Supported Software and File Types': {
@@ -97,7 +108,7 @@ let samples = {
         labels: ['Reference'],
         projectDetails: {
             audience: 'All levels of Unreal Engine users',
-            projectNotes: 'I collaborated with an SME to update the supported application table, ensuring that the correct versions are listed.',
+            projectNotes: 'I collaborated with an SME to update the supported application table, ensuring that the correct versions are listed.'
         }
     },
     'Datasmith Supported Platforms': {
@@ -108,7 +119,7 @@ let samples = {
         labels: ['Reference'],
         projectDetails: {
             audience: 'All levels of Unreal Engine users',
-            projectNotes: 'I collaborated with an SME to update the supported application table, ensuring that the correct versions are listed.',
+            projectNotes: 'I collaborated with an SME to update the supported application table, ensuring that the correct versions are listed.'
         }
     },
     'Technical Writing Guides': {
