@@ -11,54 +11,83 @@ let certifications = {
     //     "meta": [""],
     //     "notes": ""
     // },
-    "": {
+    "Building a Better Relationship with Your Boss": {
+        "link": "https://www.linkedin.com/learning/certificates/348a4e32a94a3c3bb17fe0572e541b40dd204d5395796f9c80607bb5b67229a6",
+        "title": "Building a Better Relationship with Your Boss",
+        "date": "October 2023",
+        "meta": ["Interpersonal Relationships", "Managing Up"],
+    },
+    "The Six Skills of Proactive Professionals": {
+        "link": "https://www.linkedin.com/learning/certificates/f1ea5dd710d6b98595720ba078158f94bc8f57e26ccb393c1910ce6d5a0ddc5e",
+        "title": "The Six Skills of Proactive Professionals",
+        "date": "October 2023",
+        "meta": ["Career Management"],
+    },
+    "Improving Your Thinking": {
+        "link": "https://www.linkedin.com/learning/certificates/838da844a327a7d21fd01e55a116559f34861fff3dd43dfba4ac53062bf0f42b",
+        "title": "Improving Your Thinking",
+        "date": "October 2023",
+        "meta": ["Brain Training", "Critical Thinking"],
+    },
+    "Mindful Stress Management": {
+        "link": "https://www.linkedin.com/learning/certificates/7b86e1b0d66528ad86aa10b9ea87ba73cb1f92698d301a43e05fc8c3c28449cc",
+        "title": "Mindful Stress Management",
+        "date": "October 2023",
+        "meta": ["Mindfulness Based Stress Reduction"],
+    },
+    "Mindfulness Practices": {
+        "link": "https://www.linkedin.com/learning/certificates/94d830b3ee381f8adae81c27fb5f03a46657548b21ba3e6f5ad10f92facbe1e2",
+        "title": "Mindfulness Practices",
+        "date": "October 2023",
+        "meta": ["Mindfulness"],
+    },
+    "Positive Psychology for Less Stress and Happier Workdays": {
+        "link": "https://www.linkedin.com/learning/certificates/3e232df557a7354eeb8fd45ba56a6eb3fdce8dbc1b9338044c6f829741e25c98",
+        "title": "Positive Psychology for Less Stress and Happier Workdays",
+        "date": "October 2023",
+        "meta": ["Work-Life Balance", "Stress Management", "Positive Psychology"],
+    },
+    "Unreal Blueprint": {
         "link": "https://www.linkedin.com/learning/certificates/ccdd89a048c4ac9ccd7d35196ec010c1d76c2bfa29e3b8c06867cad9eccd3869",
         "title": "Unreal: Blueprint",
         "date": "June 2023",
         "meta": ["Blueprint","Unreal Engine"],
-        "notes": ""
     },
     "Taking Charge of Your Career": {
         "link": "https://www.linkedin.com/learning/certificates/70246dfbf78ca21b27bd91adb6e60fbe6f0f213b8d16dff10826319a6c2a8818",
         "title": "Taking Charge of Your Career",
         "date": "March 2023",
         "meta": ["Career Management"],
-        "notes": ""
     },
     "The Practice of High-Performing Employees": {
         "link": "https://www.linkedin.com/learning/certificates/8e4b88b511d94bf3fde5235e3d9015507f5a116afbfa1a416403d37e9e1a77d0",
         "title": "The Practice of High-Performing Employees",
         "date": "March 2023",
         "meta": ["Performance Improvement"],
-        "notes": ""
     },
     "Mastering Organizational Chaos": {
         "link": "https://www.linkedin.com/learning/certificates/3ddf6a403050eb2481bb0864fb08e37541d75bd6b100a0c18c0193e8ab059c97",
         "title": "Mastering Organizational Chaos",
         "date": "March 2023",
         "meta": ["Organizational Leadership"],
-        "notes": ""
     },
     "Design Your First Infographic": {
         "link": "https://www.linkedin.com/learning/certificates/d6065cc5c26ef7553c567b4ecb13c50ab9d9fc03d3fb03585f7adb67fd69ed22",
         "title": "Design Your First Infographic",
         "date": "March 2023",
         "meta": ["Information Graphics"],
-        "notes": ""
     },
     "Unreal Engine: Game Terrain Techniques": {
         "link": "https://www.linkedin.com/learning/certificates/1975c343dc6b018c6121a459ebcdf21e4528c1a72ec374989b700e9f663def61",
         "title": "Unreal Engine: Game Terrain Techniques",
         "date": "March 2023",
         "meta": ["Terrain Modeling", "Unreal Engine", "Game Design"],
-        "notes": ""
     },
     "Unreal Game Mechanics: Camera Walk Action": {
         "link": "https://www.linkedin.com/learning/certificates/482598e96d5a67e93d301355c82c525d2bed9d758d5fbcee099ce689bb60fec7",
         "title": "Unreal Game Mechanics: Camera Walk Action",
         "date": "March 2023",
         "meta": ["Game Mechanics", "Unreal Engine"],
-        "notes": ""
     },
     "Unreal Essential Training (2019)": {
         "link": "https://www.linkedin.com/learning/certificates/28e63dd9409618f64fedc4b1ec27d48885634e2bb92eb8e7caca76c246dab1b8",
@@ -85,7 +114,6 @@ let certifications = {
         "title": "Writing With Flair: How to Become an Exceptional Writer",
         "date": "March 2023",
         "meta": ["writing"],
-        "notes": ""
     },
     "Building Relationships While Working from Home": {
         "link": "",
