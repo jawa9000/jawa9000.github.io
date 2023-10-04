@@ -7,8 +7,8 @@ let experience = {
     //     "location": "",
     //     "responsbilities": []
     // },
-    "Epic Games - Senior Animation Technical Writer": {  
-        "title": "Senior Animation Technical Writer",
+    "Epic Games - Senior Technical Writer": {  
+        "title": "Senior Technical Writer",
         "company": "Epic Games",
         "dates": "March 20, 2023 - October 2, 2023",
         "location": "Larkspur, California (Remote)",
