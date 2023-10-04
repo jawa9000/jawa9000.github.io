@@ -25,7 +25,7 @@ let skills = {
     "Photography and video": ['Desktop recording', 'Digital Photography', 'Photography', 'Video editing', 'Video production', 'Video recording'],
 
     "Communication": ['Flowdock', 'Google Chat', 'HipChat', 'Join.me', 'MS Teams', 'Slack', 'Skype', 'Webex', 'Workplace', 'Zoom'],
-    "General skills": ['3D animation', '3D modeling', 'Analytics', 'Analytics dashboard designer', 'Asynchronous communication', 'Collaboration', 'Computer animation', 'Cross-functional team communication', 'Cross-functional team relationship development', 'Educator', 'Fluency in English', 'Interviewer', 'Mentor', 'Presenter', 'Program leader/manager', 'Social event organizer', 'Software training', 'Synchronous communication', 'Teaching', 'Trainer', 'Verbal communication', 'Written communication'],
+    "General skills": ['3D animation', '3D modeling', 'Analytics', 'Analytics dashboard designer', 'Asynchronous communication', 'Collaboration', 'Computer animation', 'Cross-functional team communication', 'Cross-functional team relationship development', 'Educator', 'Fluency in English', 'Interviewer', 'Mentor', 'Presenter', 'Program leader/manager', 'Social event organizer', 'Software training', 'Synchronous communication', 'Teaching', 'Trainer'],
     "Software": {
         "Adobe Suite": ['After Effects', 'FrameMaker', 'Illustrator', 'Lightroom', 'Photoshop', 'Premiere'],
         "3D": ['Unreal Engine', 'Autodesk Maya'],
