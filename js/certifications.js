@@ -11,6 +11,12 @@ let certifications = {
     //     "meta": [""],
     //     "notes": ""
     // },
+    "Agile Foundations": {
+        "link": "https://www.linkedin.com/learning/certificates/20419da493cbd506d2a3f836ca8a4315e7de08376b7c7d17e631317e9c7fe256",
+        "title": "Agile Foundations",
+        "date": "October 2023",
+        "meta": ["Agile Project Management", "Agile Methodologies"],
+    },
     "Building a Better Relationship with Your Boss": {
         "link": "https://www.linkedin.com/learning/certificates/348a4e32a94a3c3bb17fe0572e541b40dd204d5395796f9c80607bb5b67229a6",
         "title": "Building a Better Relationship with Your Boss",
