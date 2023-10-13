@@ -11,6 +11,18 @@ let certifications = {
     //     "meta": [""],
     //     "notes": ""
     // },
+    "SDLC": {
+        "link": "https://www.linkedin.com/learning/certificates/54ec630724d11e60d7a41848f3cd9e45f5479abab6c090e51619c7059710acf2",
+        "title": "Software Development Life Cycle (SDLC)",
+        "date": "October 2023",
+        "meta": ["Software Development Life Cycle", "SDLC"]
+    },
+    "Winding Down: Get a Better Night’s Sleep": {
+        "link": "https://www.linkedin.com/learning/certificates/3b0d2c835da0520c1d47237dbb087cf7b103189ca25d7a09f753101a10e15172",
+        "title": "Winding Down: Get a Better Night’s Sleep",
+        "date": "October 2023",
+        "meta": ["Mindfulness", "Relaxation Techniques"]
+    },
     "Agile Foundations": {
         "link": "https://www.linkedin.com/learning/certificates/20419da493cbd506d2a3f836ca8a4315e7de08376b7c7d17e631317e9c7fe256",
         "title": "Agile Foundations",
