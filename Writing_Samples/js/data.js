@@ -4,7 +4,7 @@ let samples = {
     '5.3 release note': {
         title: 'Unreal Engine 5.3 Release Notes',
         htmlLink: 'https://docs.unrealengine.com/5.3/en-US/unreal-engine-5.3-release-notes/#animation',
-        pdfLink: '',
+        pdfLink: 'Unreal_Engine_5.3_Release_Notes.pdf',
         description: 'Overview of new and updated features in Unreal Engine 5.3',
         labels: ['Release Note'],
         projectDetails: {
@@ -15,7 +15,7 @@ let samples = {
     'Multi-Track Audio Capture': {
         title: 'Multi-Track Audio Capture',
         htmlLink: 'https://docs.unrealengine.com/5.3/en-US/multi-track-audio-capture-for-take-recorder-in-unreal-engine/',
-        pdfLink: '',
+        pdfLink: 'Unreal_Engine_Multi-Track_Audio_Capture_for_Take_Recorder.pdf',
         description: 'Record multi-track audio with Unreal Engine\'s Take Recorder',
         labels: ['Overview'],
         projectDetails: {
@@ -26,7 +26,7 @@ let samples = {
     'Pending Take': {
         title: 'Pending Take',
         htmlLink: 'https://docs.unrealengine.com/5.3/en-US/pending-takes-for-take-recorder-in-unreal-engine/',
-        pdfLink: '',
+        pdfLink: 'Unreal_Engine_Pending_Takes_for_Take_Recorder.pdf',
         description: 'Learn the basics of using Pending Take in Unreal Engine\'s Take Recorder.',
         labels: ['Overview', 'Tutorial'],
         projectDetails: {
@@ -37,7 +37,7 @@ let samples = {
     'Creating Camera Cuts Using Sequencer': {
         title: 'Creating Camera Cuts Using Sequencer',
         htmlLink: 'https://docs.unrealengine.com/5.3/en-US/creating-camera-cuts-using-sequencer-in-unreal-engine/',
-        pdfLink: '',
+        pdfLink: 'Unreal_Engine_Creating_Camera_Cuts_Using_Sequencer.pdf',
         description: 'Learn how to create camera cuts in Unreal Engine\'s Sequencer.',
         labels: ['Tutorial'],
         projectDetails: {
@@ -48,7 +48,7 @@ let samples = {
     'Dynamic Binding': {
         title: 'Dynamic Binding',
         htmlLink: 'https://docs.unrealengine.com/5.3/en-US/dynamic-binding-in-sequencer/',
-        pdfLink: '',
+        pdfLink: 'Unreal_Engine_Dynamic_Binding.pdf',
         description: 'Unreal Engine\'s Dynamic Binding provides custom Blueprints logic that picks which object to possess in the level or which to spawn.',
         labels: ['Overview', 'Tutorial'],
         projectDetails: {
@@ -59,7 +59,7 @@ let samples = {
     'Recording Animation': {
         title: 'Recording Animation',
         htmlLink: 'https://docs.unrealengine.com/5.3/en-US/recording-animation-using-take-recorder-in-unreal-engine/',
-        pdfLink: '',
+        pdfLink: 'Unreal_Engine_Recording_Animation_Using_Take_Recorder.pdf',
         description: 'Learn how to use Unreal Engine\'s Take Recorder to capture animation from actor manipulation, physics simulations, and gameplay.',
         labels: ['Tutorial'],
         projectDetails: {
@@ -70,7 +70,7 @@ let samples = {
     'Take Recorder': {
         title: 'Take Recorder',
         htmlLink: 'https://docs.unrealengine.com/5.3/en-US/take-recorder-in-unreal-engine/',
-        pdfLink: '',
+        pdfLink: 'Unreal_Engine_Take_Recorder.pdf',
         description: 'Take Recorder records gameplay animation, live performances, and other sources into Unreal Engine directly.',
         labels: ['Overview', 'Reference'],
         projectDetails: {
@@ -81,7 +81,7 @@ let samples = {
     'Cine Camera Actor': {
         title: 'Cine Camera Actor',
         htmlLink: 'https://docs.unrealengine.com/5.3/en-US/cinematic-cameras-in-unreal-engine/',
-        pdfLink: '',
+        pdfLink: 'Unreal_Engine_Cine_Camera_Actor.pdf',
         description: 'The Cine Camera Actor is used as the primary camera type for filming cinematic content in Unreal Engine.',
         labels: ['Overview', 'Tutorial'],
         projectDetails: {
@@ -92,7 +92,7 @@ let samples = {
     'Possessables and Spawnables': {
         title: 'Possessables and Spawnables',
         htmlLink: 'https://docs.unrealengine.com/5.3/en-US/spawn-temporary-actors-in-unreal-engine-cinematics/',
-        pdfLink: '',
+        pdfLink: 'Unreal_Engine_Spawnables_and_Possessables.pdf',
         description: 'Spawn temporary Actors, lights, and other objects in your scene by using Spawnables.',
         labels: ['Overview'],
         projectDetails: {
@@ -103,7 +103,7 @@ let samples = {
     'Datasmith Supported Software and File Types': {
         title: 'Datasmith Supported Software and File Types',
         htmlLink: 'https://docs.unrealengine.com/5.3/en-US/datasmith-supported-software-and-file-types/',
-        pdfLink: '',
+        pdfLink: 'Unreal_Engine_Datasmith_Supported_Software_and_File_Types.pdf',
         description: 'Details all the third-party software applications and data formats that Datasmith works with.',
         labels: ['Reference'],
         projectDetails: {
@@ -114,7 +114,7 @@ let samples = {
     'Datasmith Supported Platforms': {
         title: 'Datasmith Supported Platforms',
         htmlLink: 'https://docs.unrealengine.com/5.3/en-US/datasmith-supported-platforms/',
-        pdfLink: '',
+        pdfLink: 'Unreal_Engine_Datasmith_Supported_Platforms.pdf',
         description: 'Details what Datasmith features work on which different platforms.',
         labels: ['Reference'],
         projectDetails: {
