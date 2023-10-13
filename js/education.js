@@ -26,7 +26,7 @@ let education = {
     "Indiana University Purdue University at Fort Wayne": {
         "location": "Indiana University Purdue University at Fort Wayne (IPFW)",
         "degree": "N/A, Graphic Design",
-        "dates": "1999 - 2000",
+        "dates": "Jan 1999 - July 2000",
         "grade": "4.0/4",
         "address": "2101 E Coliseum Blvd, Fort Wayne, IN 46805",
         "notes": "Studied Graphic Design with specialization in Computer Animation. Transferred to SCAD."
@@ -34,7 +34,7 @@ let education = {
     "Ball State University": {
         "location": "Ball State University",
         "degree": "BFA, Art",
-        "dates": "1994 - 1998",
+        "dates": "Sept 1994 - May 1998",
         "grade": "Overall GPA: 3.85/4, Focus GPA: 3.9/4",
         "address": "2000 W University Ave, Muncie, IN 47306",
         "notes": "Studied Fine Art with a focus in Printmaking."
