@@ -11,6 +11,30 @@ let certifications = {
     //     "meta": [""],
     //     "notes": ""
     // },
+    "Nailing your Interview, Resume, and Negotiation FAST": {
+        "link": "https://www.linkedin.com/learning/certificates/ad55e802b24d9e1fa1e5dab74a2ef8472e8eec40fbec25a43a8c22b83a7099c0",
+        "title": "Nailing your Interview, Resume, and Negotiation FAST",
+        "date": "October 2023",
+        "meta": ["Interview Preparation", "Career Management"]
+    },
+    "Learning Markdown": {
+        "link": "https://www.linkedin.com/learning/certificates/65ec070c357c2090535bd2fee59a6f51d8594f21fe72f3b2e653e3c9ed0eb178",
+        "title": "Learning Markdown",
+        "date": "October 2023",
+        "meta": ["Markdown"]
+    },
+    "Marketing Yourself to Maximize Career Opportunities": {
+        "link": "https://www.linkedin.com/learning/certificates/c473b0c1940832884f5f23172f760d7ea1d59774c2f5807306ae6ca09ce6b254",
+        "title": "Marketing Yourself to Maximize Career Opportunities",
+        "date": "October 2023",
+        "meta": ["Professional Networking", "Personal Branding"]
+    },
+    "Rediscovering Your Joy, Energy, and Purpose": {
+        "link": "https://www.linkedin.com/learning/certificates/88002652900be63758664f496613e994f32d536ae1200b14e03a1d19ee45faa5",
+        "title": "Rediscovering Your Joy, Energy, and Purpose",
+        "date": "October 2023",
+        "meta": ["Personal Development"]
+    },
     "SDLC": {
         "link": "https://www.linkedin.com/learning/certificates/54ec630724d11e60d7a41848f3cd9e45f5479abab6c090e51619c7059710acf2",
         "title": "Software Development Life Cycle (SDLC)",
