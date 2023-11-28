@@ -7,10 +7,13 @@ var url = document.URL;
 var meta = $('meta[name=level]').attr("content");
 var message = ""; // variable that will render the navigation bar
 
+console.log(pageName)
+
 // ** will need to add other sub directory sniffers here **
 
 // ** note to self: start using the meta elements to determine level and thus add the correct levels to relative link to. **
 var tutorialSuffix = "";
+
 if (meta) {
 	switch(meta) {
 		case "1":
@@ -55,6 +58,7 @@ if (pageName.toLowerCase().indexOf("tutorial") > -1) {
 }
 */
 
+// ** rewrite this so its a little more agnostic of the pageName
 if (pageName == "Home" || pageName == "Fun Web Projects" || pageName == "Games" || pageName == "Tutorials" || pageName.indexOf("Tutorials") > -1 || pageName.indexOf("Portfolio") > -1 ||  pageName == "Resume" || meta) {
 	message += '<a class="navbar-brand" href="' + tutorialSuffix + 'index.html">';
 	message += '<img src="' + tutorialSuffix + 'images/logo.png" class="logo" title="Jawa9000 Home" alt="Jawa9000 Home" />';
@@ -96,13 +100,6 @@ message += '<ul class="dropdown-menu">';
 message += '<li><a href="' + tutorialSuffix + 'tutorials.html#home">Tutorials</a></li>';
 message += '<li><a href="' + tutorialSuffix + 'tutorials.html#web">Web</a></li>';
 message += '<li><a href="' + tutorialSuffix + 'tutorials.html#writing">Technical Writing</a></li>';
-message += '<li><a href="' + tutorialSuffix + 'tutorials.html#Animation">Animation</a></li>';
-message += '<li><a href="' + tutorialSuffix + 'tutorials.html#Animation-Setup">Animation Setup</a></li>';
-message += '<li><a href="' + tutorialSuffix + 'tutorials.html#Cloth">Cloth</a></li>';
-message += '<li><a href="' + tutorialSuffix + 'tutorials.html#Rendering">Rendering</a></li>';
-message += '<li><a href="' + tutorialSuffix + 'tutorials.html#Texturing">Texturing</a></li>';
-message += '<li><a href="' + tutorialSuffix + 'tutorials.html#Theory-Reference">Theory & Reference</a></li>';
-message += '<li><a href="' + tutorialSuffix + 'tutorials.html#Workshop">Workshop</a></li>';
 message += '</ul></li>';
 // Portfolio link
 if (pageName.indexOf("Portfolio") > 0) {
@@ -116,7 +113,6 @@ message += '<ul class="dropdown-menu">';
 message += '<li><a href="' + tutorialSuffix + 'Writing_Samples/index.html">Writing Samples</a></li>';
 message += '<li><a href="' + tutorialSuffix + 'portfolio-2d.html">2D</a></li>';
 message += '<li><a href="' + tutorialSuffix + 'portfolio-3d.html">3D</a></li>';
-message += '<li><a href="' + tutorialSuffix + 'portfolio-web.html">Web</a></li>';
 message += '</ul></li>';
 // Resume link
 if (pageName == "Resume") {
