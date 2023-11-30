@@ -29,20 +29,22 @@
         text-align: center;
       }
       input {
-        width: 60px;
+        width: 45px;
       }
-      h1,
-      h2 {
+      input, select, button {
+        background-color: #f2ce9e;
+      }
+      #minerCount {
+        width: 50px;
+      }
+      h1, h2 {
         text-align: center;
       }
-      td,
-      th {
+      td, th {
         padding: 5px;
       }
       /* table elements */
-      table,
-      th,
-      td {
+      table, th, td {
         border: 1px solid black;
         padding: 5px;
       }
@@ -65,7 +67,29 @@
       }
       .indented {
         padding: 0 0 0 15px;
+        margin-left: 20px;
       }
+      body {
+            background-color: #d2b48c; /* Use a golden-brown color for the background */
+            font-family: 'Times New Roman', Times, serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #8b4513; /* Saddle Brown color for the header text */
+            text-align: center;
+        }
+        p, label {
+            color: #4b3621; /* Brown color for regular text */
+            font-size: 1.3em;
+        }
+        strong {
+            color: #2f1c0f; /* Dark Brown color for strong text */
+        }
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        
+        
     </style>
     <!-- For Jimmy -->
   </head>
@@ -74,8 +98,8 @@
     <h1 class="center">Mine Output</h1>
     <div class="container">
       <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-10">
+        
+        <div class="col-md-12">
           <label for="percentage_dragonTip">Dragon's cut (%)</label>
           <input id="percentage_dragonTip" type="number" min="0" step="1" max="100" value="50" />
           <label for="percentage_minerTip">Miner's cut (%)</label>
@@ -102,15 +126,14 @@
           <input id="mineOwnerCount" type="number" min="1" step="1" value="1" />
           <button>Mine</button>
         </div>
-        <div class="col-md-1"></div>
+        
       </div>
       <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-6">
+        <div class="col-md-7">
           <div id="summary"></div>
           <div id="kept"></div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-5">
           <!-- <p class="hidden">
             <input type="checkbox" id="master" name="master" /><label
               >Toggle all</label
@@ -179,7 +202,6 @@
             <p class="indented"><input type="checkbox" class="mined" name="turquoise" id="turquoise" total="0" checked>Turquoise: <span id="turquoise"></span>gp</p>
             <p class="indented"><input type="checkbox" class="mined" name="zircon" id="zircon" total="0" checked>Zircon: <span id="zircon"></span>gp</p> -->
         </div>
-        <div class="col-md-1"></div>
       </div>
     </div>
   </body>
