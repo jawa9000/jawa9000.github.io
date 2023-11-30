@@ -44,6 +44,7 @@ $(document).ready(function() {
         minedOutputTotal[i] = {};
         minedOutputTotal[i].name = i;
         minedOutputTotal[i].worth = [];
+        minedOutputTotal[i].count = 0;
     }
 
     var minerResults = {};
@@ -59,31 +60,31 @@ $(document).ready(function() {
         var minedRnd = rndNum(100); // pick a random number to indicate the result of what the miner mined
 
         for (k in miningProducts) { // loop through the different mining categories and select one of them based on the value of minedRnd
-            if (miningProducts[k].first <= minedRnd && miningProducts[k].second >= minedRnd) { // pick a mining product from the miningProducts object
-                switch (miningProducts[k].name) {
-                    case 'stones':
-                      minedItems(stones, mineQuality);
-                      byproduct('stones');
-                      minerResults[i].days[k] = j;
-                      break;
-                    case 'metals':
-                      minedItems(metals, mineQuality);
-                      byproduct('metals');
-                      minerResults[i].days[k] = j;
-                      break;
-                    case 'exotics':
-                      minedItems(exotics, mineQuality);
-                      byproduct('exotic');
-                      minerResults[i].days[k] = j;
-                      break;
-                    case 'gemstones':
-                      minedItems(gemstones, mineQuality);
-                      minerResults[i].days[k] = j;
-                      break;
-                    default: // Handle the default case if needed
-                      break;
-                }
+          if (miningProducts[k].first <= minedRnd && miningProducts[k].second >= minedRnd) { // pick a mining product from the miningProducts object
+            switch (miningProducts[k].name) {
+              case 'stones':
+                minedItems(stones, mineQuality);
+                byproduct('stones');
+                minerResults[i].days[k] = j;
+                break;
+              case 'metals':
+                minedItems(metals, mineQuality);
+                byproduct('metals');
+                minerResults[i].days[k] = j;
+                break;
+              case 'exotics':
+                minedItems(exotics, mineQuality);
+                byproduct('exotic');
+                minerResults[i].days[k] = j;
+                break;
+              case 'gemstones':
+                minedItems(gemstones, mineQuality);
+                minerResults[i].days[k] = j;
+                break;
+              default: // Handle the default case if needed
+                break;
             }
+          }
         }
       }
     }
@@ -98,6 +99,7 @@ $(document).ready(function() {
       for (k in minedOutputTotal[i].worth) { // Check if the value is a valid number before adding it to the tally
         if (!isNaN(minedOutputTotal[i].worth[k]) && minedOutputTotal[i].calculated == true) {
           tally += minedOutputTotal[i].worth[k];
+          minedOutputTotal[i].count ++;
         }
       }
 
@@ -124,11 +126,11 @@ $(document).ready(function() {
       if (minedOutputTotal[i].tally) {
           // ** add back in the categories of mined items so a whole category can be toggled on/off
         if (minedOutputTotal[i].name == "blueSpinel") {
-            output += '<p class="indented"><input type="checkbox" class="mined" id="blueSpinel" name="blueSpinel"  total = "' + numberWithCommas(minedOutputTotal[i].tally) + '" checked>blue spinel: <span id="' + i + '">' + numberWithCommas(minedOutputTotal[i].tally) + "</span>gp</p>";
+            output += '<p class="indented"><input type="checkbox" class="mined" id="blueSpinel" name="blueSpinel"  total = "' + numberWithCommas(minedOutputTotal[i].tally) + '" checked>blue spinel: <span id="' + i + '">' + numberWithCommas(minedOutputTotal[i].tally) + "</span>gp (" + numberWithCommas(minedOutputTotal[i].count,'zero') + " units)</p>";
         } else if (minedOutputTotal[i].name == "redSpinel") {
-            output += '<p class="indented"><input type="checkbox" class="mined" id="redSpinel" name="redSpinel"  total = "' + numberWithCommas(minedOutputTotal[i].tally) + '" checked>red spinel: <span id="' + i + '">' + numberWithCommas(minedOutputTotal[i].tally) + "</span>gp</p>";
+            output += '<p class="indented"><input type="checkbox" class="mined" id="redSpinel" name="redSpinel"  total = "' + numberWithCommas(minedOutputTotal[i].tally) + '" checked>red spinel: <span id="' + i + '">' + numberWithCommas(minedOutputTotal[i].tally) + "</span>gp (" + numberWithCommas(minedOutputTotal[i].count,'zero') + " units)</p>";
         } else {
-            output += '<p class="indented"><input type="checkbox" class="mined" id="' + minedOutputTotal[i].name + '" name="' + minedOutputTotal[i].name + '"  total = "' + numberWithCommas(minedOutputTotal[i].tally) + '" checked><span id="' + i + '">' + minedOutputTotal[i].name + ": " + numberWithCommas(minedOutputTotal[i].tally) + "</span>gp</p>";
+            output += '<p class="indented"><input type="checkbox" class="mined" id="' + minedOutputTotal[i].name + '" name="' + minedOutputTotal[i].name + '"  total = "' + numberWithCommas(minedOutputTotal[i].tally) + '" checked><span id="' + i + '">' + minedOutputTotal[i].name + ": " + numberWithCommas(minedOutputTotal[i].tally) + "</span>gp (" + numberWithCommas(minedOutputTotal[i].count,'zero') + " units)</p>";
         }
       }
     }
@@ -342,8 +344,13 @@ function rndNum(x) {
     return Math.floor(Math.random() * x);
 }
 
-function numberWithCommas(x) {
+function numberWithCommas(x, decimals) {
+  if (decimals == 'zero') {
+    var parts = x.toString().split(".");  
+  } else {
     var parts = x.toFixed(2).toString().split(".");
-    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    return parts.join(".");
+  }
+
+  parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return parts.join(".");
 }
