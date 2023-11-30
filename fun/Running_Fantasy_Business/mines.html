@@ -22,7 +22,6 @@
     <meta name="version" content="1.0.0" />
     <link rel="shortcut icon" href="../../assets/ico/favicon.ico" />
     <link href="../../css/normalize.css" rel="stylesheet" />
-    <!-- <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet"> -->
     <link href="../../css/bootstrap.min.css" rel="stylesheet" />
     <style>
       .center {
@@ -39,31 +38,6 @@
       }
       h1, h2 {
         text-align: center;
-      }
-      td, th {
-        padding: 5px;
-      }
-      /* table elements */
-      table, th, td {
-        border: 1px solid black;
-        padding: 5px;
-      }
-      th {
-        text-align: center;
-        background-color: rgb(101, 97, 148);
-        color: white;
-      }
-      tr:nth-child(odd) {
-        background-color: rgb(133, 127, 194);
-      }
-      tr:nth-child(even) {
-        background-color: rgb(169, 165, 209);
-      }
-      tr:hover {
-        background-color: rgb(195, 192, 231);
-      }
-      .hidden {
-        display: none;
       }
       .indented {
         padding: 0 0 0 15px;
@@ -88,8 +62,6 @@
         input[type="checkbox"] {
             margin-right: 10px;
         }
-        
-        
     </style>
     <!-- For Jimmy -->
   </head>
@@ -98,7 +70,6 @@
     <h1 class="center">Mine Output</h1>
     <div class="container">
       <div class="row">
-        
         <div class="col-md-12">
           <label for="percentage_dragonTip">Dragon's cut (%)</label>
           <input id="percentage_dragonTip" type="number" min="0" step="1" max="100" value="50" />
@@ -126,7 +97,6 @@
           <input id="mineOwnerCount" type="number" min="1" step="1" value="1" />
           <button>Mine</button>
         </div>
-        
       </div>
       <div class="row">
         <div class="col-md-7">
@@ -134,11 +104,6 @@
           <div id="kept"></div>
         </div>
         <div class="col-md-5">
-          <!-- <p class="hidden">
-            <input type="checkbox" id="master" name="master" /><label
-              >Toggle all</label
-            >
-          </p> -->
           <div id="output">
             <!-- <p><strong><input type="checkbox" name="stones" id="stones" total="0" checked>Stones</strong></p>
             <p class="indented"><input type="checkbox" class="mined stone" name="basalt" id="basalt" total="0" checked>Basalt: <span id="basalt"></span>gp</p>
