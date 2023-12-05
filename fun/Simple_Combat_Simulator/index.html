@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic Forms with jQuery</title>
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="script.js"></script>
+    <style>
+        input {
+            width: 50px;
+        }
+
+        input[id^="name"] {
+            width: 100px;
+        }
+
+        input[id^="weapons_"] {
+            width: 150px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 5px;
+            text-align: left;
+            max-width:100%;
+            white-space:nowrap;
+        }
+
+        th {
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+    </style>
+</head>
+
+<body>
+    <button id="addForm">Add Combatant</button>
+    <table id="formContainer">
+        <tr>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Count</th>
+            <th>AC</th>
+            <th>HP</th>
+            <th>Initiative</th>
+            <th>Speed</th>
+            <th>Distance to target</th>
+            <th># of attacks</th>
+            <th>Weapons</th>
+            <th>Weapon(s) damage</th>
+        </tr>
+</body>
+
+</html>
