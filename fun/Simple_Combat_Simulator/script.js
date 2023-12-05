@@ -10,25 +10,38 @@ $(document).ready(function () {
   });
 
   $("#simulate").on("click", function () { // start battle simulation
+    // extractTableData();
     simulate(extractTableData());
   });
 
   /* Functions */
 
   function simulate(data) {
-    // console.log(data)
+    console.log(data)
     // ignore empty nested objects
     for (const key in data) {
         if (Object.keys(data[key]).length === 0) {
             
         } else {
-            console.log(data[key]);
+            // console.log(data[key]);
+            for (i in data[key]) {
+                console.log(data[key][i])
+
+                // ** figure out which hero will attack which monster
+                    // In response that targeted monster should attack the hero
+                    // characters can only att
+                
+            }
             // ** pick up here
             /*
                 * while looping through the objects, set up the initiative order and then commence with combat
                 * figure out if the target is in range. If not, move individual their speed range or dash (up to double speed) to get to their oponent. 
                 * attack oponent and track health
                 * report all activity
+
+                * before fighting, figure out routine to determine who fights who
+                * add status of each character of 'dead' or 'alive' and have the fight engine determine who to fight after killing a character
+                * add property of 'target' so each character knows who to attack
             */
         }
     }
@@ -60,68 +73,69 @@ $(document).ready(function () {
     // output += '<td><input type="number" min="5" step="1" placeholder="5" title="Speed" id="speed_' + formCounter + '" /></td>';
     // output += '<td><input type="number" min="5" step="1" placeholder="5" title="Distance from target" id="distance_' + formCounter + '" /></td>';
     // output += '<td><input type="number" min="1" step="1" placeholder="1" title="Number of attacks" id="attacks_' + formCounter + '" /></td>';
-    output += '<td><input type="text" placeholder="Weapon(s)" title="Name of each weapon. Use a comma separated list." id="weapons_' + formCounter + '" /></td>';
-    output += '<td><input type="text" placeholder="Weapon(s) damage" title="Damge of each weapon. Use a comma separated list like this: 3d6, 3d6-1, 3d6+1." id="weaponsDamage_' + formCounter + '" /></td></tr>';
+    // output += '<td><input type="text" placeholder="Weapon(s)" title="Name of each weapon. Use a comma separated list." id="weapons_' + formCounter + '" /></td>';
+    // output += '<td><input type="text" placeholder="Weapon(s) damage" title="Damge of each weapon. Use a comma separated list like this: 3d6, 3d6-1, 3d6+1." id="weaponsDamage_' + formCounter + '" /></td></tr>';
 
     $("table#formContainer").append(output); // Append input elements to the form
   }
 
     function extractTableData() {
         var tableData = {}; // Initialize an empty object to store the data
-    
+        
         $("#formContainer tr").each(function (rowIndex) {
-        // Loop through each row
-        var rowData = {}; // Initialize an object to store the data for the current row
-    
-        // Loop through each input element in the current row
-        $(this).find("input").each(function (columnIndex) {
+            // Loop through each row
+            var rowData = {}; // Initialize an object to store the data for the current row
+        
+            var charType = $(this).find('select').val(); // Retrieve charType for the current row
+        
+            $(this).find("input").each(function (columnIndex) { // Loop through each input element in the current row
             // Use the column header as the key and input value as the value
             var id = $(this).attr("id").split("_")[0]; // use the name of the id attributes to set the values
-    
+        
             // Set the object's key and value based on the value of 'id'
             if (!rowData.hasOwnProperty(id)) {
-            rowData[id] = {};
+                rowData[id] = {};
             }
-    
+        
+            rowData.charType = charType; // Set charType for the entire row
+        
             if (id == "weapons") {
-            rowData[id][columnIndex] = $(this).val().split(",");
+                rowData[id][columnIndex] = $(this).val().split(",");
             } else if (id == "weaponsDamage") {
-            var damageDice = $(this).val().split(","); // split out the damage dice (3d6+1 or 3d6, or 3d6-1)
-    
-            if (!rowData[id].hasOwnProperty(columnIndex)) {
-                rowData[id][columnIndex] = [];
-            }
-    
-            damageDice.forEach((val) => {
-                var diceCount = val.split("d")[0]; // number of dice to roll
-                var dieValue = val.split("d")[1]; // die value (d4, d6, etc.)
-    
-                var damageObject = {};
-    
-                if (val.split("d")[1].indexOf("-") > 0) {
-                damageObject.dieRollModifierNegative = dieValue.split("-")[1];
-                dieValue = val.split("d")[1].split("-")[0]; // negative value like '3d6-1' returning negative 1
-                } else if (val.split("d")[1].indexOf("+") > 0) {
-                damageObject.dieRollModifierPositive = dieValue.split("+")[1];
-                dieValue = val.split("d")[1].split("+")[0]; // positive value like '3d6+1' returning positive one
+                var damageDice = $(this).val().split(","); // split out the damage dice (3d6+1 or 3d6, or 3d6-1)
+        
+                if (!rowData[id].hasOwnProperty(columnIndex)) {
+                    rowData[id][columnIndex] = [];
                 }
-    
-                damageObject.diceCount = diceCount;
-                damageObject.dieValue = dieValue;
-    
-                rowData[id][columnIndex].push(damageObject);
-            });
+        
+                damageDice.forEach((val) => {
+                    var diceCount = val.split("d")[0]; // number of dice to roll
+                    var dieValue = val.split("d")[1]; // die value (d4, d6, etc.)
+            
+                    var damageObject = {};
+            
+                    if (val.split("d")[1].indexOf("-") > 0) {
+                        damageObject.dieRollModifierNegative = dieValue.split("-")[1];
+                        dieValue = val.split("d")[1].split("-")[0]; // negative value like '3d6-1' returning negative 1
+                    } else if (val.split("d")[1].indexOf("+") > 0) {
+                        damageObject.dieRollModifierPositive = dieValue.split("+")[1];
+                        dieValue = val.split("d")[1].split("+")[0]; // positive value like '3d6+1' returning positive one
+                    }
+            
+                    damageObject.diceCount = diceCount;
+                    damageObject.dieValue = dieValue;
+            
+                    rowData[id][columnIndex].push(damageObject);
+                });
             } else {
-            rowData[id][columnIndex] = $(this).val();
+                rowData[id][columnIndex] = $(this).val();
             }
+            });
+        
+            tableData["Row " + (rowIndex + 1)] = rowData; // Add the data for the current row to the main object
         });
-    
-        tableData["Row " + (rowIndex + 1)] = rowData; // Add the data for the current row to the main object
-        });
-    
-        // Log the final object with all the data
-        // console.log(tableData);
+        
+        // console.log(tableData); // Log the final object with all the data
         return tableData;
     }
-  
 });
