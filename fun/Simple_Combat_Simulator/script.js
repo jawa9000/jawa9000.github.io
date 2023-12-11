@@ -226,19 +226,41 @@ let fighters = {
   function simulate(data) {
     data = fighters; // ** temporary setup for testing;
     // console.log(data)
-    // ignore empty nested objects
 
-    // Call the function to add initiativeRoll and random initiative to each nested object
-    const sortedFighters = addInitiativeOrderAndRandomInitiative(fighters);
+    const sortedFighters = addInitiativeOrderAndRandomInitiative(fighters); // Call the function to add initiativeRoll and random initiative to each nested object
 
-    // Log the modified and sorted fighters object
-    console.log(sortedFighters);
+    const fightersWithTargetsAndActions = addTargetAndActionBasedOnDistance(sortedFighters); // Call the function to add targets and actions based on distance
 
+    console.log(fightersWithTargetsAndActions); // Log the modified fighters object with targets and actions
+    // console.log(sortedFighters); // Log the modified and sorted fighters object
+
+    $(document).ready(function() {
+      $('div#history').empty();
+      var output = '<ol>';
+
+      for (i in fightersWithTargetsAndActions) {
+        if (fightersWithTargetsAndActions[i].action == 'attacking' && fightersWithTargetsAndActions[i].target != 'none') {
+          output += '<li>' + fightersWithTargetsAndActions[i].name[0] + ' is attacking ' + fightersWithTargetsAndActions[i].target + '</li>';
+        } else if (fightersWithTargetsAndActions[i].action == 'attacking' && !fightersWithTargetsAndActions[i].target) {
+          output += '<li class="warning">' + fightersWithTargetsAndActions[i].name[0] + ' is attacking ' + fightersWithTargetsAndActions[i].target + '</li>';
+        } else if (fightersWithTargetsAndActions[i].action == 'moving' && fightersWithTargetsAndActions[i].target != 'none') {
+          output += '<li>' + fightersWithTargetsAndActions[i].name[0] + ' is moving towards ' + fightersWithTargetsAndActions[i].target + '</li>';
+        } else if (fightersWithTargetsAndActions[i].action == 'moving' && !fightersWithTargetsAndActions[i].target) {
+          output += '<li class="warning">' + fightersWithTargetsAndActions[i].name[0] + ' is moving towards ' + fightersWithTargetsAndActions[i].target + '</li>';
+        } else {
+          output += '<li class="warning">' + fightersWithTargetsAndActions[i].name[0] + ' has none set for target</li>';
+        }
+      }
+      
+      output += '</ol>';
+      
+      $('div#history').html(output); // display the initial actions of all heroes and monsters
+    })
+      
+    
     
     // ** pick up here
     /*
-        * while looping through the objects, set up the initiative order and then commence with combat
-        * figure out if the target is in range. If not, move individual their speed range or dash (up to double speed) to get to their oponent. 
         * attack oponent and track health
         * report all activity
 
@@ -247,41 +269,100 @@ let fighters = {
         * add property of 'target' so each character knows who to attack
     */
   }
+  
+  function addTargetAndActionBasedOnDistance(fighters) {
+    const heroes = Object.values(fighters).filter(fighter => fighter.charType === 'hero');
+    const monsters = Object.values(fighters).filter(fighter => fighter.charType === 'monster');
+  
+    heroes.forEach(hero => {
+      const heroDistance = parseInt(hero.distance['6']);
+      const eligibleMonsters = monsters.filter(monster => {
+        const monsterDistance = parseInt(monster.distance['6']);
+        return Math.abs(heroDistance - monsterDistance) <= 5;
+      });
+  
+      if (eligibleMonsters.length > 0) {
+        const targetMonster = eligibleMonsters[Math.floor(Math.random() * eligibleMonsters.length)];
+        hero.target = targetMonster.name && targetMonster.name['0'];
+  
+        if (hero.distance['6'] < targetMonster.distance['6']) {
+          hero.action = 'attacking';
+        } else {
+          hero.action = 'moving';
+        }
+      } else { // If no eligible monsters, set target to a random monster and action to 'moving'
+        const randomMonster = monsters[Math.floor(Math.random() * monsters.length)];
+        hero.target = randomMonster.name && randomMonster.name['0'];
+        hero.action = 'moving';
+      }
+    });
+  
+    monsters.forEach(monster => {
+      const monsterDistance = parseInt(monster.distance['6']);
+      const eligibleHeroes = heroes.filter(hero => {
+        const heroDistance = parseInt(hero.distance['6']);
+        return Math.abs(monsterDistance - heroDistance) <= 5;
+      });
+  
+      if (eligibleHeroes.length > 0) {
+        const targetHero = eligibleHeroes[Math.floor(Math.random() * eligibleHeroes.length)];
+        monster.target = targetHero.name && targetHero.name['0'];
+  
+        if (monster.distance['6'] < targetHero.distance['6']) {
+          monster.action = 'attacking';
+        } else {
+          monster.action = 'moving';
+        }
+      } else { // If no eligible heroes, set target to a random hero and action to 'moving'
+        const randomHero = heroes[Math.floor(Math.random() * heroes.length)];
+        monster.target = randomHero.name && randomHero.name['0'];
+        monster.action = 'moving';
+      }
+    });
+  
+    return fighters;
+  }  
 
-  function addInitiativeOrderAndRandomInitiative(fighters) { // figure out the initiative
+  function addInitiativeOrderAndRandomInitiative(fighters) {
+    const result = {}; // Create a new object to store the modified fighters
+  
     for (const key in fighters) {
       if (fighters.hasOwnProperty(key)) {
         const fighter = fighters[key];
-
-        if (fighter.hasOwnProperty('count') && parseInt(fighter.count['1']) > 1) { // Duplicate the key-value pair based on the count value
+  
+        if (fighter.hasOwnProperty('count') && parseInt(fighter.count['1']) > 1) {
           for (let i = 1; i < parseInt(fighter.count['1']); i++) {
             const newKey = `${key}_duplicate_${i}`;
-        
-            fighters[newKey] = { ...fighter }; // Create a shallow copy of the original nested object
-            fighters[newKey].initiativeRoll = rollrndNumber(20); // Add a random value between 1 and 20 to the initiative property
+  
+            // Create a shallow copy of the original nested object and add initiativeRoll
+            const newFighter = { ...fighter, initiativeRoll: rollrndNumber(20) };
+            result[newKey] = newFighter;
           }
         }
   
-        fighter.initiativeRoll = rollrndNumber(20); // Add a random value between 1 and 20 to the initiative property
+        // Create a shallow copy of the original nested object and add initiativeRoll
+        const newFighter = { ...fighter, initiativeRoll: rollrndNumber(20) };
+        result[key] = newFighter;
       }
     }
   
-    const sortedFighters = Object.values(fighters) // Sort the highest initiativeRoll values and assign initiativeOrder
+    // Sort the highest initiativeRoll values and assign initiativeOrder
+    const sortedFighters = Object.values(result)
       .sort((a, b) => (b.initiativeRoll || 0) - (a.initiativeRoll || 0))
       .map((fighter, index) => {
         fighter.initiativeOrder = index + 1;
         return fighter;
       });
   
-    const result = {}; // Reconstruct the fighters object using the sorted array
+    const finalResult = {}; // Reconstruct the fighters object using the sorted array
     sortedFighters.forEach(fighter => {
-      result[`Row ${Object.keys(result).length + 2}`] = fighter;
+      finalResult[`Row ${Object.keys(finalResult).length + 2}`] = fighter;
     });
   
-    return result;
+    return finalResult;
   }
 
-  function rollrndNumber(die) { generate a random initiative value between 1 and 20
+  function rollrndNumber(die) { //generate a random initiative value between 1 and 20
     return Math.floor(Math.random() * die) + 1;
   }
 
@@ -375,7 +456,6 @@ let fighters = {
         tableData["Row " + (rowIndex + 1)] = rowData; // Add the data for the current row to the main object
     });
     
-    // console.log(tableData); // Log the final object with all the data
     return tableData;
   }
 });
