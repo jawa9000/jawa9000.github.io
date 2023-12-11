@@ -201,6 +201,22 @@ for (i in independentCoursework) { // display independent coursework
 
 $('#education').append(output);
 
+// copy resume content to system's clipboard via the keypress of 'c' or 'C'
+$(document).ready(function() {
+    $(document).on('keydown', function(event) {
+        if (event.key === 'c' || event.key === 'C') {
+            var contentToCopy = $('div#experience').html();
+            var clipboardElement = $("<textarea>").html(contentToCopy);
+
+            $("body").append(clipboardElement); // Append the temporary element to the document
+      
+            clipboardElement[0].select(); // Select and copy the text in the temporary element
+            document.execCommand("copy");
+      
+            clipboardElement.remove(); // Remove the temporary element
+        }
+    });
+});
 
 // functions
 
