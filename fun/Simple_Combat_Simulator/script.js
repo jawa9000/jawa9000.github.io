@@ -16,215 +16,12 @@ $(document).ready(function () {
     simulate(extractTableData());
   });
 
-  // ** temporary data to be used to build the combat system
-let fighters = {
-    "Row 2": {
-        "name": {
-            "0": "Thor"
-        },
-        "charType": "hero",
-        "count": {
-            "1": "1"
-        },
-        "armorClass": {
-            "2": "15"
-        },
-        "health": {
-            "3": "100"
-        },
-        "initiative": {
-            "4": "2"
-        },
-        "speed": {
-            "5": "30"
-        },
-        "distance": {
-            "6": "5"
-        },
-        "attacks": {
-            "7": "3"
-        },
-        "weapons": {
-            "8": [
-                "Axe"
-            ]
-        },
-        "weaponsDamage": {
-            "9": [{
-                    "diceCount": "3",
-                    "dieValue": "6"
-                }
-            ]
-        }
-    },
-    "Row 3": {
-        "name": {
-            "0": "Jane"
-        },
-        "charType": "hero",
-        "count": {
-            "1": "1"
-        },
-        "armorClass": {
-            "2": "13"
-        },
-        "health": {
-            "3": "85"
-        },
-        "initiative": {
-            "4": "1"
-        },
-        "speed": {
-            "5": "30"
-        },
-        "distance": {
-            "6": "5"
-        },
-        "attacks": {
-            "7": "2"
-        },
-        "weapons": {
-            "8": [
-                "Hammer"
-            ]
-        },
-        "weaponsDamage": {
-            "9": [
-                {
-                    "diceCount": "3",
-                    "dieValue": "8"
-                }
-            ]
-        }
-    },
-    "Row 4": {
-        "name": {
-            "0": "Ogre"
-        },
-        "charType": "monster",
-        "count": {
-            "1": "2"
-        },
-        "armorClass": {
-            "2": "12"
-        },
-        "health": {
-            "3": "50"
-        },
-        "initiative": {
-            "4": "0"
-        },
-        "speed": {
-            "5": "25"
-        },
-        "distance": {
-            "6": "5"
-        },
-        "attacks": {
-            "7": "2"
-        },
-        "weapons": {
-            "8": [
-                "Club"
-            ]
-        },
-        "weaponsDamage": {
-            "9": [
-                {
-                    "diceCount": "2",
-                    "dieValue": "6"
-                }
-            ]
-        }
-    },
-    "Row 5": {
-        "name": {
-            "0": "Orc"
-        },
-        "charType": "monster",
-        "count": {
-            "1": "5"
-        },
-        "armorClass": {
-            "2": "10"
-        },
-        "health": {
-            "3": "10"
-        },
-        "initiative": {
-            "4": "0"
-        },
-        "speed": {
-            "5": "20"
-        },
-        "distance": {
-            "6": "10"
-        },
-        "attacks": {
-            "7": "1"
-        },
-        "weapons": {
-            "8": [
-                "Club"
-            ]
-        },
-        "weaponsDamage": {
-            "9": [
-                {
-                    "diceCount": "1",
-                    "dieValue": "6"
-                }
-            ]
-        }
-    },
-    "Row 6": {
-        "name": {
-            "0": "Goblin"
-        },
-        "charType": "monster",
-        "count": {
-            "1": "3"
-        },
-        "armorClass": {
-            "2": "10"
-        },
-        "health": {
-            "3": "10"
-        },
-        "initiative": {
-            "4": "0"
-        },
-        "speed": {
-            "5": "20"
-        },
-        "distance": {
-            "6": "25"
-        },
-        "attacks": {
-            "7": "1"
-        },
-        "weapons": {
-            "8": [
-                "Sword"
-            ]
-        },
-        "weaponsDamage": {
-            "9": [
-                {
-                    "diceCount": "1",
-                    "dieValue": "6"
-                }
-            ]
-        }
-    }
-}
-
 // console.log(fighters)
 
   /* Functions */
 
   function simulate(data) {
-    data = fighters; // ** temporary setup for testing;
+    data = fightingFighters; // ** temporary setup for testing;
     // console.log(data)
 
     const sortedFighters = addInitiativeOrderAndRandomInitiative(fighters); // Call the function to add initiativeRoll and random initiative to each nested object
@@ -255,20 +52,63 @@ let fighters = {
       output += '</ol>';
       
       $('div#history').html(output); // display the initial actions of all heroes and monsters
-    })
+    });
+
+    simulateAttacks(fightingFighters);
       
-    
+    // With the initiatve and targets sorted out now, figure out the fighting system
     
     // ** pick up here
     /*
         * attack oponent and track health
         * report all activity
 
-        * before fighting, figure out routine to determine who fights who
         * add status of each character of 'dead' or 'alive' and have the fight engine determine who to fight after killing a character
-        * add property of 'target' so each character knows who to attack
     */
   }
+
+  function simulateAttacks(fighters) {
+    // console.log(fighters)
+    const aliveFighters = Object.values(fighters).filter(fighter => fighter.status === 'alive');
+
+    // console.log(aliveFighters)
+    
+    aliveFighters.forEach(attacker => {
+      const targetName = attacker.target;
+
+      // how many attacks does the attacker get?
+      const attackCount = attacker.attacks['7']; 
+
+      // console.log(attacker)
+      for (var i = 0; i < attackCount; i++) {
+        // ** loop through each weapon attack
+      }
+      // console.log(targetName)
+      // console.log(fighters[targetName].status)
+      // console.log(targetName, fighters[targetName]); // 'Thor' 'undefined'
+      // console.log(targetName)
+      
+      // if (targetName && fighters[targetName] && fighters[targetName].status === 'alive') {
+      //   console.log('yeah')
+      //   const attackRoll = rollrndNumber(20) + (attacker.attacks['7'] || 0);
+      //   const targetAC = parseInt(fighters[targetName].armorClass['2']) || 0;
+      //   // console.log(attackRoll, targetAC)
+  
+      //   console.log(`${attacker.name['0']} is attacking ${targetName} with an attack roll of ${attackRoll}.`);
+  
+      //   if (attackRoll >= targetAC) {
+      //     console.log(`The attack hits!`);
+      //     // You can add code here to deduct health points from the target, update statuses, etc.
+      //   } else {
+      //     console.log(`The attack misses!`);
+      //   }
+      // }
+    });
+  }
+  
+  // Example usage:
+  simulateAttacks(fightingFighters);
+  
   
   function addTargetAndActionBasedOnDistance(fighters) {
     const heroes = Object.values(fighters).filter(fighter => fighter.charType === 'hero');
