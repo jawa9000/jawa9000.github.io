@@ -24,29 +24,35 @@ $(document).ready(function () {
     data = fightingFighters; // ** temporary setup for testing;
     // console.log(data)
 
-    const sortedFighters = addInitiativeOrderAndRandomInitiative(fighters); // Call the function to add initiativeRoll and random initiative to each nested object
+    const sortedFighters = addInitiativeOrderAndRandomInitiative(fightingFighters); // Call the function to add initiativeRoll and random initiative to each nested object
 
-    const fightersWithTargetsAndActions = addTargetAndActionBasedOnDistance(sortedFighters); // Call the function to add targets and actions based on distance
+    let updatedFighters = selectNearestTarget(sortedFighters); // select nearest target, target it, and set action to either move towards it or attack it
+    console.log(updatedFighters);
 
-    console.log(fightersWithTargetsAndActions); // Log the modified fighters object with targets and actions
-    // console.log(sortedFighters); // Log the modified and sorted fighters object
+    addIdToFighters(updatedFighters); // create unique id for each fighter
 
     $(document).ready(function() {
       $('div#history').empty();
-      var output = '<ol>';
+      var output = '<p>Initiatize combat and select target and attack or move towards target.</p><ol>';
 
-      for (i in fightersWithTargetsAndActions) {
-        if (fightersWithTargetsAndActions[i].action == 'attacking' && fightersWithTargetsAndActions[i].target != 'none') {
-          output += '<li>' + fightersWithTargetsAndActions[i].name[0] + ' is attacking ' + fightersWithTargetsAndActions[i].target + '</li>';
-        } else if (fightersWithTargetsAndActions[i].action == 'attacking' && !fightersWithTargetsAndActions[i].target) {
-          output += '<li class="warning">' + fightersWithTargetsAndActions[i].name[0] + ' is attacking ' + fightersWithTargetsAndActions[i].target + '</li>';
-        } else if (fightersWithTargetsAndActions[i].action == 'moving' && fightersWithTargetsAndActions[i].target != 'none') {
-          output += '<li>' + fightersWithTargetsAndActions[i].name[0] + ' is moving towards ' + fightersWithTargetsAndActions[i].target + '</li>';
-        } else if (fightersWithTargetsAndActions[i].action == 'moving' && !fightersWithTargetsAndActions[i].target) {
-          output += '<li class="warning">' + fightersWithTargetsAndActions[i].name[0] + ' is moving towards ' + fightersWithTargetsAndActions[i].target + '</li>';
-        } else {
-          output += '<li class="warning">' + fightersWithTargetsAndActions[i].name[0] + ' has none set for target</li>';
-        }
+      for (const key in updatedFighters) {
+        if (updatedFighters.hasOwnProperty(key)) {
+          const fighter = updatedFighters[key];
+
+          if (fighter.action === 'moving') {
+            if (fighter.charType === 'hero') {
+              output += '<li>' + fighter.id.split('_')[0] + ' is moving towards a ' + fighter.target.split('_')[0] + '(' + fighter.target.split('_')[1] + ').';
+            } else {
+              output += '<li>' + fighter.id.replace('_','(') + ') is moving towards a ' + fighter.target.split('_')[0] + '.';
+            }
+          } else {
+            if (fighter.charType === 'hero') {
+              output += '<li>' + fighter.id.split('_')[0] + ' has targeted and is attacking ' + fighter.target.split('_')[0] + '(' + fighter.target.split('_')[1] + ').';
+            } else {
+              output += '<li>' + fighter.id.replace('_','(') + ') has targeted and is attacking ' + fighter.target.split('_')[0] + '.';
+            }
+          }
+        } 
       }
       
       output += '</ol>';
@@ -54,8 +60,9 @@ $(document).ready(function () {
       $('div#history').html(output); // display the initial actions of all heroes and monsters
     });
 
-    simulateAttacks(fightingFighters);
-      
+    // simulateAttacks(fightingFighters);
+
+          
     // With the initiatve and targets sorted out now, figure out the fighting system
     
     // ** pick up here
@@ -65,6 +72,15 @@ $(document).ready(function () {
 
         * add status of each character of 'dead' or 'alive' and have the fight engine determine who to fight after killing a character
     */
+  }
+
+  function addIdToFighters(fighters) { // add an unique id to each fighter
+    Object.keys(fighters).forEach(key => {
+      const fighter = fighters[key];
+      const name = fighter.name['0'];
+      const id = `${name}_${key.replace('Row ', '')}`;
+      fighter.id = id;
+    });
   }
 
   function simulateAttacks(fighters) {
@@ -105,63 +121,52 @@ $(document).ready(function () {
       // }
     });
   }
+
+  function selectNearestTarget(fighters) { // select nearest target, target it, and set action to either move towards it or attack it
+    const fightersArray = Object.values(fighters); // Convert the object to an array for easier processing
+      
+    for (const fighter of fightersArray) { // Iterate through each fighter
+      if (fighter.status === 'alive') { // Only process alive fighters
   
-  // Example usage:
-  simulateAttacks(fightingFighters);
+        // Get the coordinates of the current fighter
+        const fighterDistance = parseInt(fighter.distance['6']);
+        const fighterSpeed = parseInt(fighter.speed['5']);
+        const isHero = fighter.charType === 'hero';
   
+        // Filter the fighters to exclude the current fighter and dead fighters
+        const eligibleTargets = fightersArray.filter(target =>
+          target.id !== fighter.id && target.status === 'alive' && (isHero ? target.charType === 'monster' : target.charType === 'hero')
+        );
   
-  function addTargetAndActionBasedOnDistance(fighters) {
-    const heroes = Object.values(fighters).filter(fighter => fighter.charType === 'hero');
-    const monsters = Object.values(fighters).filter(fighter => fighter.charType === 'monster');
+        // Find the nearest target
+        let nearestTarget = null;
+        let nearestDistance = Infinity;
   
-    heroes.forEach(hero => {
-      const heroDistance = parseInt(hero.distance['6']);
-      const eligibleMonsters = monsters.filter(monster => {
-        const monsterDistance = parseInt(monster.distance['6']);
-        return Math.abs(heroDistance - monsterDistance) <= 5;
-      });
+        for (const target of eligibleTargets) {
+          const targetDistance = parseInt(target.distance['6']);
+          const targetSpeed = parseInt(target.speed['5']);
+          const distanceDiff = Math.abs(fighterDistance - targetDistance);
   
-      if (eligibleMonsters.length > 0) {
-        const targetMonster = eligibleMonsters[Math.floor(Math.random() * eligibleMonsters.length)];
-        hero.target = targetMonster.name && targetMonster.name['0'];
-  
-        if (hero.distance['6'] < targetMonster.distance['6']) {
-          hero.action = 'attacking';
-        } else {
-          hero.action = 'moving';
+          if (distanceDiff <= fighterSpeed && distanceDiff < nearestDistance) { // Check if the target is within the fighter's movement range
+            nearestTarget = target;
+            nearestDistance = distanceDiff;
+          }
         }
-      } else { // If no eligible monsters, set target to a random monster and action to 'moving'
-        const randomMonster = monsters[Math.floor(Math.random() * monsters.length)];
-        hero.target = randomMonster.name && randomMonster.name['0'];
-        hero.action = 'moving';
-      }
-    });
   
-    monsters.forEach(monster => {
-      const monsterDistance = parseInt(monster.distance['6']);
-      const eligibleHeroes = heroes.filter(hero => {
-        const heroDistance = parseInt(hero.distance['6']);
-        return Math.abs(monsterDistance - heroDistance) <= 5;
-      });
-  
-      if (eligibleHeroes.length > 0) {
-        const targetHero = eligibleHeroes[Math.floor(Math.random() * eligibleHeroes.length)];
-        monster.target = targetHero.name && targetHero.name['0'];
-  
-        if (monster.distance['6'] < targetHero.distance['6']) {
-          monster.action = 'attacking';
+        if (nearestTarget) { // Update the fighter's target and action properties
+          fighter.target = nearestTarget.id;
+          fighter.action = nearestDistance <= parseInt(nearestTarget.distance['6']) ? 'attacking' : 'moving';
         } else {
-          monster.action = 'moving';
+          // If no eligible targets, set target to null and action to 'moving'
+          fighter.target = null;
+          fighter.action = 'moving';
         }
-      } else { // If no eligible heroes, set target to a random hero and action to 'moving'
-        const randomHero = heroes[Math.floor(Math.random() * heroes.length)];
-        monster.target = randomHero.name && randomHero.name['0'];
-        monster.action = 'moving';
       }
-    });
+    }
   
     return fighters;
-  }  
+  }
+  
 
   function addInitiativeOrderAndRandomInitiative(fighters) {
     const result = {}; // Create a new object to store the modified fighters
@@ -206,7 +211,6 @@ $(document).ready(function () {
     return Math.floor(Math.random() * die) + 1;
   }
 
-
   function checkInputs() { // ensure that all the input fields have been filled out before allowing the simulate button to be usable.
     var allInputsFilled = true;
 
@@ -226,10 +230,10 @@ $(document).ready(function () {
     // Create input elements within the form with unique ids
     // ** temporarily disabled for testing reasons.
     // var output = '<tr id="row_' +formCounter +'"><td><select><option value="monster">Monster</option><option value="hero">Hero</option></select></td>';
-    // output += '<td><input type="text" placeholder="name" title="Name of individual(s)" id="name_' + formCounter + '" /></td>';
-    // output += '<td><input type="number" min="0" step="1" placeholder="1" title="Number of individuals" id="count_' + formCounter + '" /></td>';
+    // output += '<td><input type="text" placeholder="name" title="Name of fighter(s)" id="name_' + formCounter + '" /></td>';
+    // output += '<td><input type="number" min="0" step="1" placeholder="1" title="Number of fighters" id="count_' + formCounter + '" /></td>';
     // output += '<td><input type="number" min="1" step="1" placeholder="1" title="Armor class" id="armorClass_' + formCounter + '" /></td>';
-    // output += '<td><input type="number" min="1" step="1" placeholder="1" title="Health of each individual" id="health_' + formCounter + '" /></td>';
+    // output += '<td><input type="number" min="1" step="1" placeholder="1" title="Health of each figthter" id="health_' + formCounter + '" /></td>';
     // output += '<td><input type="number" min="0" step="1" placeholder="0" title="Initiative bonus" id="initiative_' + formCounter + '" /></td>';
     // output += '<td><input type="number" min="5" step="1" placeholder="5" title="Speed" id="speed_' + formCounter + '" /></td>';
     // output += '<td><input type="number" min="5" step="1" placeholder="5" title="Distance from target" id="distance_' + formCounter + '" /></td>';
@@ -298,4 +302,5 @@ $(document).ready(function () {
     
     return tableData;
   }
+
 });
