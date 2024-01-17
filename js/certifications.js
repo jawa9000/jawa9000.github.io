@@ -11,6 +11,18 @@ let certifications = {
     //     "meta": [""],
     //     "notes": ""
     // },
+    "Understanding Information Architecture": {
+        "link": "https://www.linkedin.com/learning/certificates/131d6aebf721aa061bd6d6533e62c271a80631e09abff5a224a1dbcc841064ff",
+        "title": "Understanding Information Architecture",
+        "date": "January 2024",
+        "meta": ["Information Architecture"]
+    },
+    "UX Foundations: Information Architecture": {
+        "link": "https://www.linkedin.com/learning/certificates/e8d1d26fb4b43cf04664e18ed965b6253f08bacfb7d0fe2b815782190844df9f",
+        "title": "UX Foundations: Information Architecture",
+        "date": "January 2024",
+        "meta": ["Information Architecture", "User Experience Design"]
+    },
     "Nailing your Interview, Resume, and Negotiation FAST": {
         "link": "https://www.linkedin.com/learning/certificates/ad55e802b24d9e1fa1e5dab74a2ef8472e8eec40fbec25a43a8c22b83a7099c0",
         "title": "Nailing your Interview, Resume, and Negotiation FAST",
