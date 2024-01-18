@@ -11,6 +11,18 @@ let certifications = {
     //     "meta": [""],
     //     "notes": ""
     // },
+    "UX Foundations: Content Strategy": {
+        "link": "https://www.linkedin.com/learning/certificates/c1f3c8ef0515e2b01da1cb2f750cb38ec3461828ee5dce72a054123cfe8d0d31",
+        "title": "UX Foundations: Content Strategy",
+        "date": "January 2024",
+        "meta": ["Content Strategy"]
+    },
+    "SEO: Keyword Strategy": {
+        "link": "https://www.linkedin.com/learning/certificates/eeb6a663de4b0a5ee8d2ee5de0794aad4fca5495f7b42627f43fdb646550aab9",
+        "title": "SEO: Keyword Strategy",
+        "date": "January 2024",
+        "meta": ["Search Engine Optimization", "Web Marketing Strategy"]
+    },
     "Understanding Information Architecture": {
         "link": "https://www.linkedin.com/learning/certificates/131d6aebf721aa061bd6d6533e62c271a80631e09abff5a224a1dbcc841064ff",
         "title": "Understanding Information Architecture",
