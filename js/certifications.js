@@ -11,6 +11,36 @@ let certifications = {
     //     "meta": [""],
     //     "notes": ""
     // },
+    "Technical Writing: Quick Start Guides": {
+        "link": "https://www.linkedin.com/learning/certificates/41c4a2bf5e5008df61f6fc61ad096af3762fc5c5cdb6226d231d53d8fcb4fee7",
+        "title": "Technical Writing: Quick Start Guides",
+        "date": "January 2024",
+        "meta": ["Technical Writing"]
+    },
+    "Understanding Information Architecture": {
+        "link": "https://www.linkedin.com/learning/certificates/131d6aebf721aa061bd6d6533e62c271a80631e09abff5a224a1dbcc841064ff",
+        "title": "Understanding Information Architecture",
+        "date": "January 2024",
+        "meta": ["Information Architecture"]
+    },
+    "Learning to Write for the Web": {
+        "link": "https://www.linkedin.com/learning/certificates/f7433b35fb9938a13e6020b7c4d1bdc45ebc819c25aa1c2ae3dc19da66452d9c",
+        "title": "Learning to Write for the Web",
+        "date": "January 2024",
+        "meta": ["Web Content Writing"]
+    },
+    "Tech Career Skills: Effective Technical Communication": {
+        "link": "https://www.linkedin.com/learning/certificates/961db9ce5cd7611bfd614da7e07796c6a4cd91bc682fc77452bd5ec01e21a938",
+        "title": "Tech Career Skills: Effective Technical Communication",
+        "date": "January 2024",
+        "meta": ["Tech Career Skills", "Technical Communication"]
+    },
+    "Editing and Proofreading Made Simple": {
+        "link": "https://www.linkedin.com/learning/certificates/9661c72f6d92a51abd95e701d42851c73f2295898ceb67fd9c1336e96455dcae",
+        "title": "Editing and Proofreading Made Simple",
+        "date": "January 2024",
+        "meta": ["Proofreading", "Copy Editing"]
+    },
     "UX Foundations: Content Strategy": {
         "link": "https://www.linkedin.com/learning/certificates/c1f3c8ef0515e2b01da1cb2f750cb38ec3461828ee5dce72a054123cfe8d0d31",
         "title": "UX Foundations: Content Strategy",
