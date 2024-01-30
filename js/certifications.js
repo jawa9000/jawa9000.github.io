@@ -11,6 +11,18 @@ let certifications = {
     //     "meta": [""],
     //     "notes": ""
     // },
+    "Learning Data Analytics": {
+        "link": "https://www.linkedin.com/learning/certificates/f13619abaeba28aca883a523cff3a8bfaba3b2255b29684bf6c50ad51b2a04f2",
+        "title": "Learning Data Analytics",
+        "date": "January 2024",
+        "meta": ["Data Analytics"]
+    },
+    "Communicating with Confidence": {
+        "link": "https://www.linkedin.com/learning/certificates/8925ebe2c03bfec63e000d9c43bdf53b76c75323aba9a25a6c75c54c262ac7a4",
+        "title": "Communicating with Confidence",
+        "date": "January 2024",
+        "meta": ["Public Speaking"]
+    },
     "Technical Writing: Quick Start Guides": {
         "link": "https://www.linkedin.com/learning/certificates/41c4a2bf5e5008df61f6fc61ad096af3762fc5c5cdb6226d231d53d8fcb4fee7",
         "title": "Technical Writing: Quick Start Guides",
