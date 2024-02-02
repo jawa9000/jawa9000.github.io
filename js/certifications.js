@@ -11,6 +11,30 @@ let certifications = {
     //     "meta": [""],
     //     "notes": ""
     // },
+    "Writing with Impact": {
+        "link": "https://www.linkedin.com/learning/certificates/79fcf3dc1f623c09578251aec039091a972b5f0c8d9b53b1f4e3e5dfd27f2026",
+        "title": "Writing with Impact",
+        "date": "February 2024",
+        "meta": ["High Impact Communication", "Writing"]
+    },
+    "Software Project Management Foundations": {
+        "link": "https://www.linkedin.com/learning/certificates/ab5fa6b381eec387874f9c2cf25cde37c7cdc74f065918f8ee862e2f99c5e0b7",
+        "title": "Software Project Management Foundations",
+        "date": "February 2024",
+        "meta": ["Software Project Management"]
+    },
+    "Creating API Documentation": {
+        "link": "https://www.linkedin.com/learning/certificates/afe0de218e77ab37b9c23fb41ba690607ceccae97ebece22bd81fb29c3b00077",
+        "title": "Creating API Documentation",
+        "date": "February 2024",
+        "meta": ["API Documentation"]
+    },
+    "Learning GitHub Pages": {
+        "link": "https://www.linkedin.com/learning/certificates/37c825b1c66f1ecf09fe9a2fcfdce6031c84b95b8ef4b73bb31471292e38df68",
+        "title": "Learning GitHub Pages",
+        "date": "February 2024",
+        "meta": ["GitHub"]
+    },
     "Learning Data Analytics": {
         "link": "https://www.linkedin.com/learning/certificates/f13619abaeba28aca883a523cff3a8bfaba3b2255b29684bf6c50ad51b2a04f2",
         "title": "Learning Data Analytics",
