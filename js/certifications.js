@@ -11,6 +11,36 @@ let certifications = {
     //     "meta": [""],
     //     "notes": ""
     // },
+    "Artificial Intelligence Foundations: Thinking Machines": {
+        "link": "https://www.linkedin.com/learning/certificates/a591bf1ad05aca18890956cc10586254b18a61336c7b1d77b32917f1b149866a",
+        "title": "Artificial Intelligence Foundations: Thinking Machines",
+        "date": "February 2024",
+        "meta": ["Machine Learning", "Artificial Intelligence (AI)"]
+    },
+    "Is There A Book In You? Learn to Create Your Own Masterpiece": {
+        "link": "https://www.linkedin.com/learning/certificates/f1e9c29a0ad91f6ef6ac2261a0089a55daf8e38f6a40c61d43b4b77c1cb5551a",
+        "title": "Is There A Book In You? Learn to Create Your Own Masterpiece",
+        "date": "February 2024",
+        "meta": ["Book Writing"]
+    },
+    "Creating GitHub Portfolios": {
+        "link": "https://www.linkedin.com/learning/certificates/f6b21f6bd7ae5c9fb11caf8af1e02d718e682c52e15942a27c56011d8f9c39ba",
+        "title": "Creating GitHub Portfolios",
+        "date": "February 2024",
+        "meta": ["GitHub"]
+    },
+    "Learning Static Site Building with Jekyll": {
+        "link": "https://www.linkedin.com/learning/certificates/da6d059132bdfceafcbbe01deb08ed3fd290d38f0dad0d353abadae8f59cc64e",
+        "title": "Learning Static Site Building with Jekyll",
+        "date": "February 2024",
+        "meta": ["Jekyll"]
+    },
+    "Unreal: Introduction to Lighting": {
+        "link": "https://www.linkedin.com/learning/certificates/f9d4f0e6ba81d4a9b727a71456ef6bbcddb3e84fdba5d85500d3fe4c137eb767",
+        "title": "Unreal: Introduction to Lighting",
+        "date": "February 2024",
+        "meta": ["Unreal Engine"]
+    },
     "Writing with Impact": {
         "link": "https://www.linkedin.com/learning/certificates/79fcf3dc1f623c09578251aec039091a972b5f0c8d9b53b1f4e3e5dfd27f2026",
         "title": "Writing with Impact",
