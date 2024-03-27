@@ -3,9 +3,9 @@ let skills = {
     "Programming": {
         "Languages": ['Bash', 'CSS3', 'HTML5', 'Java', 'JavaScript', 'JSON', 'Markdown', 'Markup', 'MySQL', 'PHP', 'Python', 'Sass', 'SQL', 'XHTML', 'XML', 'Yaml'],
         "Frameworks": ['Bootstrap', 'Express', 'MongoDB', 'Node.js', 'jQuery','React'],
-        "Analytics": ['Google Analytics', 'Piwik'],
+        "Analytics": ['Google Analytics', 'Piwik', 'Proprietary analytics'],
         "Indexing": ['Apache Solr'],
-        "Version Control": ['CVS', 'Git', 'Github'],
+        "Version Control": ['CVS', 'Git', 'Github', 'Perforce', 'Mercurial'],
         "Web services": ['WAMP', 'XAMPP'],
         "General": ['Database design', 'Front-end web development', 'Regular expressions', 'Responsive design', 'Web design', 'Web development']
     },
@@ -19,7 +19,7 @@ let skills = {
         "Confluence": ['Administration', 'Front-end development', 'Theme design', 'Plugin management', 'User Macro development', 'Instructor'],
         "Jira": ['Project management', 'Workflows', 'Instructor']
     },
-    "Technical writing skills": ['API', 'Archives wiki', 'Automation in application development', 'Confluence API', 'Content analysis', 'Content Curation', 'Content development', 'Content feedback integration', 'Content management systems', 'Content planning', 'Content research', 'Documentation', 'Documentation analysis', 'Documentation at scale', 'Documentation automation', 'Documentation communication', 'Documentation maintenance', 'Documentation procedures', 'Documentation publication automation', 'Documentation reporting', 'Documentation site design', 'Documentation tracking', 'information architecture', 'IT documentation', 'Live classroom training', 'program/project reports', 'Project management scheduling', 'Project manager', 'Project planning management', 'Proofreading', 'Remote training', 'REST API', 'ReSTful', 'SDK', 'Site documentation', 'Style guides', 'Technical writing', 'Verbal communication', 'Wiki documentation', 'Writing', 'Written communication'],
+    "Technical writing skills": ['API', 'API documentaiton', 'Archives wiki', 'Automation in application development', 'Confluence API', 'Content analysis', 'Content Curation', 'Content development', 'Content feedback integration', 'Content management systems', 'Content planning', 'Content research', 'Documentation', 'Documentation analysis', 'Documentation at scale', 'Documentation automation', 'Documentation communication', 'Documentation maintenance', 'Documentation procedures', 'Documentation publication automation', 'Documentation reporting', 'Documentation site design', 'Documentation tracking', 'Information architecture', 'IT documentation', 'Live classroom training', 'Program/project reporting', 'Project management scheduling', 'Project manager', 'Project planning management', 'Proofreading', 'Remote training', 'REST API', 'ReSTful', 'SDK', 'Site documentation', 'Style guide', 'Technical writing', 'Verbal communication', 'Wiki documentation', 'Writing', 'Written communication'],
     "Documentation types": ['Animated images', 'API documentation', 'Application note', 'Architecture guide', 'Diagrams', 'Glossary', 'Help manual', 'Illustration', 'Integration documentation', 'Landing page', 'Long-form video', 'Online help system', 'Overview', 'Reference', 'Reference manual', 'Release note', 'SDK reference', 'Short-form video', 'Static images', 'Training Guide', 'Tutorials', 'User guides'],
 
     "Photography and video": ['Desktop recording', 'Digital Photography', 'Photography', 'Video editing', 'Video production', 'Video recording'],
