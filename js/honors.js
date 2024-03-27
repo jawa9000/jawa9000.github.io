@@ -1,4 +1,14 @@
 let honors = {
+    // "": {
+    //     "title": "",
+    //     "date": "",
+    //     "note": ""
+    // },
+    "Albright College Game Jam Spring 2024": {
+        "title": "Albright College Game Jam Spring 2024",
+        "date": "March 26, 2024",
+        "note": "<p>I was one of the three game jam judges for the Albright College Game Jam Spring 2024, invited by Dave Kaul to provide feedback and score the student games based on seven dimensions of game design.</p>"
+    },
     "Axway Special KUDOS Award": {
         "title": "Axway Special KUDOS Award",
         "date": "May 8, 2017",
@@ -24,9 +34,4 @@ let honors = {
         "date": "July 2004",
         "note": "<p>An effective combination of creative exercises, real-life examples, and simple illustrations are integrated in this \"how-to\" book, teaching readers to develop their storyboarding skills for a variety of media types, including film, television, animation, and interactive media. Each aspect of the storyboarding process is carefully examined including creating visually specific shot lists and overhead diagrams, and drawing simple sketches that express a clear understanding of staging, editing, and composition. Coverage is rounded out with a comprehensive overview of camera techniques that helps readers visualize a scene before the process of storyboarding begins.</p>"
     }
-    // "": {
-    //     "title": "",
-    //     "date": "",
-    //     "note": ""
-    // },
 }
