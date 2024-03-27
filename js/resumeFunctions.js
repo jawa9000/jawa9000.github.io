@@ -15,7 +15,8 @@ var output = '';
 for (i in experience) { // display experience
     output += '<div id="' + i.replace(/ /g, '_') + '" class="span8 lozenge">'; // ensure id doesn't have any spaces
     output += '<h3 class="resumeTitle">' + experience[i].title + ', ' + experience[i].company + '</h3>';
-    output += '<h4>' + experience[i].dates + ' | ' + experience[i].location + '</h4><ul>';
+    output += '<h4>' + experience[i].dates + ' | ' + experience[i].location + '</h4>';
+    output +='<p><strong>Summary</strong>: ' + experience[i].summary + '</p><ul>';
 
     for (j in experience[i].responsbilities) { // display responsibilities based on series of strings or single strings
         if (typeof(experience[i].responsbilities[j]) === 'object') {
@@ -31,7 +32,21 @@ for (i in experience) { // display experience
         }
     }
 
-    output += '</ul></div>';
+    output += '</ul>';
+
+    output += '</ul>';
+
+    if (experience.hasOwnProperty(i) && experience[i].hasOwnProperty("skills")) { // add skills used
+        let sortedSkills = experience[i].skills.sort(); // Sort skills alphabetically
+        output += `<p><strong>Skills</strong>: ${sortedSkills.join(", ")}</p>`;
+    }
+
+    if (experience.hasOwnProperty(i) && experience[i].hasOwnProperty("technology")) { // add technologies used
+        let sortedTechnology = experience[i].technology.sort(); // Sort technology alphabetically
+        output += `<p><strong>Technologies</strong>: ${sortedTechnology.join(", ")}</p>`;
+    }
+
+    output += '</div>';
 }
 
 $('#experience').append(output);
