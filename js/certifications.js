@@ -11,6 +11,12 @@ let certifications = {
     //     "meta": [""],
     //     "notes": ""
     // },
+    "Advanced Grammar": {
+        "link": "https://www.linkedin.com/learning/certificates/5e63c28c73c0034eaa3457641aa48b094c65aa596e353d16872903ef2bfa3023",
+        "title": "Advanced Grammar",
+        "date": "March 2024",
+        "meta": ["English Grammar"]
+    },
     "Artificial Intelligence Foundations: Thinking Machines": {
         "link": "https://www.linkedin.com/learning/certificates/a591bf1ad05aca18890956cc10586254b18a61336c7b1d77b32917f1b149866a",
         "title": "Artificial Intelligence Foundations: Thinking Machines",
