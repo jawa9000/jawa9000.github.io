@@ -11,6 +11,12 @@ let certifications = {
     //     "meta": [""],
     //     "notes": ""
     // },
+    "Project Management Foundations": {
+        "link": "https://www.linkedin.com/learning/certificates/79eb92f2c60d25c08805463ce6949218c8ea8146c1aeb53e4c91089a37e22926",
+        "title": "Project Management Foundations",
+        "date": "March 2024",
+        "meta": ["Project Management"]
+    },
     "Advanced Grammar": {
         "link": "https://www.linkedin.com/learning/certificates/5e63c28c73c0034eaa3457641aa48b094c65aa596e353d16872903ef2bfa3023",
         "title": "Advanced Grammar",
