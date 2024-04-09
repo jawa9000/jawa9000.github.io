@@ -1,6 +1,20 @@
 // List newer example on top so they appear first in your web page.
 
 let samples = {
+    // '': {
+    //     title: '',
+    //     htmlLink: '',
+    //     pdfLink: '',
+    //     description: '',
+    //     labels: [''],
+    //     projectDetails: {
+    //         audience: '',
+    //         starNotes: '',
+    //         projectNotes: '',
+    //         change: '',
+    //         other: ''
+    //     }
+    // },
     '5.3 release note': {
         title: 'Unreal Engine 5.3 Release Notes',
         htmlLink: 'https://docs.unrealengine.com/5.3/en-US/unreal-engine-5.3-release-notes/#animation',
@@ -9,7 +23,7 @@ let samples = {
         labels: ['Release Note'],
         projectDetails: {
             audience: 'All levels of Unreal Engine users',
-            starNotes: 'STAR notes are pending.',
+            starNotes: 'Every release included a release note detailing new features, platform changes, SDK upgrades, upgrade notes, and other vital information end users needed to make informed decisions about using the new version. My task was to collaborate with another technical writer to fill out the animation section with all the updates and changes. We worked together with our various teams that we supported to identify and document all the information that needed to go into this section over the course of three weeks. From there, I conducted peer reviews of other sections and contributed to content efforts when other technical writers on the team needed assistance. The end result was this massive and comprehensive release note that covered every single feature and update that was part of Unreal Engine\'s 5.3 release.',
             projectNotes: 'I collaborated with several fellow technical writers and SMEs to gather, write, and revise the release notes for the Animation technologies section of this document.'
         }
     },
@@ -21,7 +35,7 @@ let samples = {
         labels: ['Overview'],
         projectDetails: {
             audience: 'All levels of Unreal Engine users',
-            starNotes: 'STAR notes are pending.',
+            starNotes: 'This topic was part of a planned 5.3 update release and needed documentation. As part of a larger quarterly project, I took on the documentation task to fill the knowledge gap. The document needed updating to include new features from version 5.3, as well as updating outdated features from previous versions. I worked intermittently on this project for six weeks while also working on other Sequencer-based projects. I regularly met with the Subject Matter Expert (SME) team to provide timely updates on my progress, gained additional information, incorporated team feedback, explored the features myself to ensure no feature was undocumented, created new supporting visual elements, ensured it followed the company\'s documentation style guide, and submitted it for peer review prior to publication. The culmination of these efforts was a comprehensive document detailing the usage of the audio features within Take Recorder.',
             projectNotes: 'I collaborated with SMEs and product owners to research and write this document, addressing information gaps and documenting new 5.3 features.'
         }
     },
@@ -33,7 +47,7 @@ let samples = {
         labels: ['Overview', 'Tutorial'],
         projectDetails: {
             audience: 'All levels of Unreal Engine users',
-            starNotes: 'STAR notes are pending.',
+            starNotes: 'This topic had not been updated since version 4.x. As part of a larger quarterly project, I took on the documentation task to fill the knowledge gap. This document needed to be updated to include new features from version 5.3, as well as updating outdated features from previous versions. I worked intermittently on this project for eight weeks while also working on other Sequencer-based projects. I regularly met with the Subject Matter Expert (SME) team to provide timely updates on my progress, gained additional information, incorporated team feedback, explored the features myself to ensure no feature was undocumented, created new supporting visual elements, ensured it followed the company\'s documentation style guide, and submitted it for peer review prior to publication. The outcome of this effort not only addressed information gaps and corrected misinformation about older features such as Pending Take but also incorporated documentation for new features introduced in Unreal Engine 5.3.',
             projectNotes: 'I collaborated with SMEs and product owners to research and write this document, addressing information gaps and documenting new 5.3 features.'
         }
     },
@@ -45,7 +59,7 @@ let samples = {
         labels: ['Tutorial'],
         projectDetails: {
             audience: 'Unreal Engine Beginners',
-            starNotes: 'STAR notes are pending.',
+            starNotes: 'Upon joining Epic Games, I found myself unfamiliar with their documentation process. To familiarize myself and test my skills, my manager approved a small project focused on learning and testing their documentation pipeline. I assigned myself the task of writing a tutorial based on features of Unreal Engine that I was unfamiliar with, which was part of a larger project that I would contribute to once I completed my onboarding projects. Over a period of six weeks, I worked intermittently on this project while also working on onboarding and other related projects. I thoroughly researched the topic, read reviews and comments about the problems end users were having with creating and using camera cuts within Sequencer, and created supporting visual elements. After creating a draft, I submitted it to Subject Matter Experts (SMEs) and had it peer-reviewed. I then integrated their feedback and published it. This effort not only filled a knowledge gap and rectified misinformation about some features of Sequencer but also served as a valuable learning experience, allowing me to become proficient in using Epic Games\' documentation pipeline and enhancing user understanding and utilization of these features.',
             projectNotes: 'As part of my onboarding process, I assigned myself the task of writing a tutorial based on a feature I was unfamiliar with. This document is the outcome of that research. It underwent SME and peer reviews before its release to ensure content accuracy and adherence to documentation publication standards.'
         }
     },
@@ -57,7 +71,7 @@ let samples = {
         labels: ['Overview', 'Tutorial'],
         projectDetails: {
             audience: 'All levels of Unreal Engine users',
-            starNotes: 'STAR notes are pending.',
+            starNotes: 'One of the new features introduced in Unreal Engine 5.3 was Dynamic Binding. Given that Dynamic Binding was within my assigned area of expertise, I eagerly embraced the responsibility. I met with Subject Matter Experts (SMEs) to identify the documentation needs, explored the Dynamic Binding feature in a sandbox environment, drafted the documentation, shared it with the feature\'s SMEs, created supporting visual elements, and integrated their feedback. This collaborative effort spanned over a month, during which I worked with the team intermittently. The completed document not only served as the foundation for all dynamically bound features within Unreal Engine\'s Sequencer system but also received positive feedback from users and stakeholders for its clarity, comprehensiveness, and effectiveness in guiding users through the Dynamic Binding feature.',
             projectNotes: 'I collaborated with SMEs and product owners to research and write this document, addressing information gaps and documenting new 5.3 features.'
         }
     },
@@ -69,7 +83,7 @@ let samples = {
         labels: ['Tutorial'],
         projectDetails: {
             audience: 'All levels of Unreal Engine users',
-            starNotes: 'STAR notes are pending.',
+            starNotes: 'The document, initially created for Unreal Engine 4.x, had become significantly outdated and no longer met the requirements for the latest Unreal Engine 5.x versions. As part of a higher priority series of projects, I needed to identify what could still be used, what needed to be rewritten, and create new supporting visuals. I thoroughly reviewed the outdated material, identified areas where the original content needed improvement, integrated new and updated content, applied the company\'s style guide, collaborated with the Subject Matter Expert (SME) to ensure accuracy, and submitted the revised document for peer review to ensure it met content accuracy and documentation publication standards. These efforts culminated in an up-to-date and precise document that users could rely on across all Unreal Engine 5.x versions for accurate guidance and information.',
             projectNotes: 'I reviewed outdated material, incorporated new content, and submitted the revisions for SME and peer reviews to ensure content accuracy and compliance with documentation publication standards.'
         }
     },
@@ -81,7 +95,7 @@ let samples = {
         labels: ['Overview', 'Reference'],
         projectDetails: {
             audience: 'All levels of Unreal Engine users',
-            starNotes: 'STAR notes are pending.',
+            starNotes: 'The document, initially created for Unreal Engine 4.x, had become significantly outdated and no longer met the requirements for the latest Unreal Engine 5.x versions. As part of a higher priority series of projects, I needed to identify what could still be used, what needed to be rewritten, and create new supporting visuals. I thoroughly reviewed the outdated material, identified areas where the original content needed improvement, integrated new and updated content, applied the company\'s style guide, collaborated with the Subject Matter Expert (SME) to ensure accuracy, and submitted the revised document for peer review to ensure it met content accuracy and documentation publication standards. These efforts culminated in an up-to-date and precise document that users could rely on across all Unreal Engine 5.x versions for accurate guidance and information.',
             projectNotes: 'I reviewed outdated material, incorporated new content, and submitted the revisions for SME and peer reviews to ensure content accuracy and compliance with documentation publication standards.'
         }
     },
@@ -93,7 +107,7 @@ let samples = {
         labels: ['Overview', 'Tutorial'],
         projectDetails: {
             audience: 'All levels of Unreal Engine users',
-            starNotes: 'foo',
+            starNotes: 'The document, initially created for Unreal Engine 4.x, had become significantly outdated and no longer met the requirements for the latest Unreal Engine 5.x versions. As part of a higher priority series of projects, I needed to identify what could still be used, what needed to be rewritten, and create new supporting visuals. I thoroughly reviewed the outdated material, identified areas where the original content needed improvement, integrated new and updated content, collaborated with the Subject Matter Expert (SME) to ensure accuracy, and submitted the revised document for peer review to ensure it met content accuracy and documentation publication standards. These efforts culminated in an up-to-date and precise document that users could rely on across all Unreal Engine 5.x versions for accurate guidance and information.',
             projectNotes: 'I reviewed outdated material, incorporated new content, and submitted the revisions for SME and peer reviews to ensure content accuracy and compliance with documentation publication standards.'
         }
     },
@@ -105,7 +119,7 @@ let samples = {
         labels: ['Overview'],
         projectDetails: {
             audience: 'All levels of Unreal Engine users',
-            starNotes: 'STAR notes are pending.',
+            starNotes: 'The document, initially created for Unreal Engine 4.x, had become significantly outdated and no longer met the requirements for the latest Unreal Engine 5.x versions. As part of a higher priority series of projects, I needed to identify what could still be used, what needed to be rewritten, and create new supporting visuals. I thoroughly reviewed the outdated material, identified areas where the original content needed improvement, integrated new and updated content, collaborated with the Subject Matter Expert (SME) to ensure accuracy, and submitted the revised document for peer review to ensure it met content accuracy and documentation publication standards. These efforts culminated in an up-to-date and precise document that users could rely on across all Unreal Engine 5.x versions for accurate guidance and information.',
             projectNotes: 'I reviewed outdated material, incorporated new content, and submitted the revisions for SME and peer reviews to ensure content accuracy and compliance with documentation publication standards.'
         }
     },
@@ -117,7 +131,7 @@ let samples = {
         labels: ['Reference'],
         projectDetails: {
             audience: 'All levels of Unreal Engine users',
-            starNotes: 'STAR notes are pending.',
+            starNotes: 'As part of the 5.3 Unreal Engine update, this document needed to be updated, and the usually assigned technical writer didn\'t have the bandwidth to do this task. Recognizing the need for an update during the 5.3 Unreal Engine update, I volunteered to manage the revision of this document, stepping in when the usual technical writer faced bandwidth constraints. I collaborated with the Subject Matter Expert (SME) to update the support application table and iterated on it with him for two rounds over the course of two weeks. This collaboration and iteration resulted in an updated support application table that accurately reflected the changes introduced in the 5.3 Unreal Engine update. As a result, users were able to quickly and confidently identify the correct version of the feature, leading to improved user experience and reduced support queries related to version compatibility. Additionally, this successful collaboration showcased my ability to take on and deliver short-term projects effectively within the team.',
             projectNotes: 'I collaborated with an SME to update the supported application table, ensuring that the correct versions are listed.'
         }
     },
@@ -129,7 +143,7 @@ let samples = {
         labels: ['Reference'],
         projectDetails: {
             audience: 'All levels of Unreal Engine users',
-            starNotes: 'STAR notes are pending.',
+            starNotes: 'As part of the 5.3 Unreal Engine update, this document needed to be updated, and the usually assigned technical writer didn\'t have the bandwidth to do this task. Recognizing the need for an update during the 5.3 Unreal Engine update, I volunteered to manage the revision of this document, stepping in when the usual technical writer faced bandwidth constraints. I collaborated with the Subject Matter Expert (SME) to update the support application table and iterated on it with him for two rounds over the course of two weeks. This collaboration and iteration resulted in an updated support application table that accurately reflected the changes introduced in the 5.3 Unreal Engine update. As a result, users were able to quickly and confidently identify the correct version of the feature, leading to improved user experience and reduced support queries related to version compatibility. Additionally, this successful collaboration showcased my ability to take on and deliver short-term projects effectively within the team.',
             projectNotes: 'I collaborated with an SME to update the supported application table, ensuring that the correct versions are listed.'
         }
     },
@@ -147,7 +161,7 @@ let samples = {
         labels: ['Tutorial', 'Code Sample'],
         projectDetails: {
             audience: 'Entry-level JavaScript developers.',
-            starNotes: 'STAR notes are pending.',
+            starNotes: 'Some users of our internal documentation site were complaining that they didn\'t want to read long documents or documents perceived to be long. The Document Team I was a part of decided to add a widget to our wiki that would display an estimate of reading time. I wrote a simple JavaScript file and integrated it into the company\'s wiki system as a widget that could be toggled on or off at the space level (applied to all pages within a specified space) or at the individual page level. I completed testing, demonstrated it to the Document Team for approval, implemented it in the wiki platform, and announced it to the company. Once published, I received feedback for improvements, which I incorporated immediately and documented my code for future changes. This new widget significantly reduced bounce rates on our documentation pages, increased user engagement, and improved overall user satisfaction.',
             projectNotes: 'Wrote this script and documented it based on the needs to include a reading time estimator. Once published, I received some feedback and I incorporated it into the snippet as well as the documentation.',
             change: 'I would add a few images illustrating the appearance of this feature and add links to reference materials and supporting materials for the reading time estimates.'
         }
@@ -160,7 +174,7 @@ let samples = {
         labels: ['Guide', 'Tutorial'],
         projectDetails: {
             audience: 'Everyone who used VPN services (all skill levels, position, and tenure).',
-            starNotes: 'STAR notes are pending.',
+            starNotes: 'As part of my onboarding tasks, I was given a short task of documenting the process of how employees should use the company\'s VPN services. I collaborated with the IT department to gather their notes and wrote a simple draft. I tested the steps myself, asked a few colleagues to try them as well, and iterated on the document based on their feedback. Once published, I added a few more notes based on user feedback and integrated a separately written FAQ. This saved the IT department countless hours and calls on how to use the company\'s VPN services.',
             projectNotes: 'In my first month on the job, I was given a short task of documenting the process of instructing all employees on how to use VPN services. I collaborated with the IT department to gather their notes and wrote a simple draft. I tested the steps myself, asked a few colleagues to try them as well and iterated on the document based on their feedback. Once published, I added a few more notes based on user feedback and integrated a separately written FAQ. Note: this document was originally requested for print only but was later adapted to web format.',
             change: 'Add more screen grabs for the Windows and Mac sections that illustrate what each section should look like as the audience for this document were mostly visually-based learners. I would also include contact information for the IT department and point any further questions to them as they were in charge of maintaining this service.'
         }
@@ -173,7 +187,7 @@ let samples = {
         labels: ['Tutorial', 'Code Sample'],
         projectDetails: {
             audience: 'Intermediate JavaScript developers and Confluence Administrators.',
-            starNotes: 'STAR notes are pending.',
+            starNotes: 'As part of a migration project, I was tasked with migrating over 3,000 documents from Confluence. I needed to first figure out and maintain the site\'s structure prior to migrating it’s content. Using Node.js and Nightmare.js, I wrote and tested a script that traversed the Confluence space, generated a list of pages in hierarchical order, and outputted the results to a user-specified text document based on the command-line interface I designed using JavaScript. The end result saved weeks worth of manual labor and page checking work. This script was also used as part of a bigger series of scripts that were used to export and import content out of and into other Confluence spaces.',
             projectNotes: 'I wrote and documented this script as part of a large process to automate the extraction of content from Confluence. The script and process was put into production where it remained until the company closed (~3.5 years).',
             change: 'Provide a complete code sample that can be copied and pasted.'
         }
@@ -333,7 +347,7 @@ let samples = {
     //     labels: ['Reference', 'Code Sample', 'Tutorial'],
     //     projectDetails: {
     //         audience: 'Entry level developers new to game development on Unity.',
-    //         starNotes: 'STAR notes are pending.',
+    //         starNotes: '',
             // projectNotes: 'Documented this function from scratch in 2.5 hours with less than a page\'s worth of notes. Took another hour to review and revise before submitting to the team for review.',
     //         change: '',
     //         other: ''
@@ -356,7 +370,7 @@ let samples = {
         htmlLink: 'Querying_Deleted_Pages.html',
         pdfLink: 'Querying_Deleted_Pages.pdf',
         description: 'SQL tutorial on how to write a query to report how many wiki pages were deleted in a select time period.',
-        labels: ['Tutorial', 'SQL', 'Code Sample'],
+        labels: ['Guide', 'SQL', 'Code Sample'],
         projectDetails: {
             audience: 'entry-level programmers and data scientists.',
             starNotes: 'The documentation team I was part of had created a series of queries that completed a dashboard, identifying documentation metrics and opportunities. I needed to document a query that I had created to ensure that our users understood the intent and usage of this query. I reviewed and tested the code I had created to explore various options with this query. Once I arrived at a peer-reviewed and approved solution, I wrote this document explaining its purpose and documented each line of code in less than a day. This resulted in a clear understanding of the query and its intended usage by our users.',
@@ -369,7 +383,7 @@ let samples = {
         htmlLink: 'Find_Archived_Pages.html',
         pdfLink: 'Find_Archived_Pages.pdf',
         description: 'SQL tutorial on how to write a query to generate a report of all archived wiki pages in a given wikispace.',
-        labels: ['Tutorial', 'SQL', 'Code Sample'],
+        labels: ['Guide', 'SQL', 'Code Sample'],
         projectDetails: {
             audience: 'entry-level programmers and data scientists.',
             starNotes: 'The doc team I was a part of had created a series of other queries that completed a dashboard identifying documentation metrics and opportunities. I needed to document a query that I had collaborated on with another tech writer to ensure that our users understood the intent and usage of this query. I reviewed the code we had created, tested it as we explored various options with this query. Once we arrived at a good solution, I wrote this document explaining its purpose and documented each line of code in less than a day. This resulted in a clear understanding of the query and its intended usage by our users.',
@@ -382,7 +396,7 @@ let samples = {
         htmlLink: 'Querying_Abandoned_Wiki_Pages.html',
         pdfLink: 'Querying_Abandoned_Wiki_Pages.pdf',
         description: 'SQL tutorial on how to write a query to generate a list of all abandoned wiki pages in a given wikispace.',
-        labels: ['Tutorial', 'SQL', 'Code Sample'],
+        labels: ['Guide', 'SQL', 'Code Sample'],
         projectDetails: {
             audience: 'entry-level programmers and data scientists.',
             starNotes: 'The doc team I was a part of had created a series of other queries that completed a dashboard identifying documentation metrics and opportunities. I needed to document a query that I had collaborated on with another tech writer to ensure that our users understood the intent and usage of this query. I reviewed the code we had created, tested it as we explored various options with this query. Once we arrived at a good solution, I wrote this document explaining its purpose and documented each line of code in less than a day. This resulted in a clear understanding of the query and its intended usage by our users.',
@@ -402,21 +416,7 @@ let samples = {
             projectNotes: 'Took existing documentation and collaborated with another technical writer to overhaul and simplify the content as the new UI was published.',
             change: 'Complete the video introduction of the UI that was planned and link it to this document. Additionally, I would have liked to add more details to each of these sections but our project time was cut in half (from six weeks to three weeks).'
         }
-    },
-    // '': {
-    //     title: '',
-    //     htmlLink: '',
-    //     pdfLink: '',
-    //     description: '',
-    //     labels: [''],
-    //     projectDetails: {
-    //         audience: '',
-    //         starNotes: 'STAR notes are pending.',
-    //         projectNotes: '',
-    //         change: '',
-    //         other: ''
-    //     }
-    // },
+    }
 }
 
 
