@@ -7,8 +7,6 @@ var url = document.URL;
 var meta = $('meta[name=level]').attr("content");
 var message = ""; // variable that will render the navigation bar
 
-console.log(pageName)
-
 // ** will need to add other sub directory sniffers here **
 
 // ** note to self: start using the meta elements to determine level and thus add the correct levels to relative link to. **
