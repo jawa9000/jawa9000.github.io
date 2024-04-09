@@ -9,7 +9,7 @@ let samples = {
         labels: ['Release Note'],
         projectDetails: {
             audience: 'All levels of Unreal Engine users',
-            starNotes: '',
+            starNotes: 'STAR notes are pending.',
             projectNotes: 'I collaborated with several fellow technical writers and SMEs to gather, write, and revise the release notes for the Animation technologies section of this document.'
         }
     },
@@ -21,7 +21,7 @@ let samples = {
         labels: ['Overview'],
         projectDetails: {
             audience: 'All levels of Unreal Engine users',
-            starNotes: '',
+            starNotes: 'STAR notes are pending.',
             projectNotes: 'I collaborated with SMEs and product owners to research and write this document, addressing information gaps and documenting new 5.3 features.'
         }
     },
@@ -33,7 +33,7 @@ let samples = {
         labels: ['Overview', 'Tutorial'],
         projectDetails: {
             audience: 'All levels of Unreal Engine users',
-            starNotes: '',
+            starNotes: 'STAR notes are pending.',
             projectNotes: 'I collaborated with SMEs and product owners to research and write this document, addressing information gaps and documenting new 5.3 features.'
         }
     },
@@ -45,7 +45,7 @@ let samples = {
         labels: ['Tutorial'],
         projectDetails: {
             audience: 'Unreal Engine Beginners',
-            starNotes: '',
+            starNotes: 'STAR notes are pending.',
             projectNotes: 'As part of my onboarding process, I assigned myself the task of writing a tutorial based on a feature I was unfamiliar with. This document is the outcome of that research. It underwent SME and peer reviews before its release to ensure content accuracy and adherence to documentation publication standards.'
         }
     },
@@ -57,7 +57,7 @@ let samples = {
         labels: ['Overview', 'Tutorial'],
         projectDetails: {
             audience: 'All levels of Unreal Engine users',
-            starNotes: '',
+            starNotes: 'STAR notes are pending.',
             projectNotes: 'I collaborated with SMEs and product owners to research and write this document, addressing information gaps and documenting new 5.3 features.'
         }
     },
@@ -69,7 +69,7 @@ let samples = {
         labels: ['Tutorial'],
         projectDetails: {
             audience: 'All levels of Unreal Engine users',
-            starNotes: '',
+            starNotes: 'STAR notes are pending.',
             projectNotes: 'I reviewed outdated material, incorporated new content, and submitted the revisions for SME and peer reviews to ensure content accuracy and compliance with documentation publication standards.'
         }
     },
@@ -81,7 +81,7 @@ let samples = {
         labels: ['Overview', 'Reference'],
         projectDetails: {
             audience: 'All levels of Unreal Engine users',
-            starNotes: '',
+            starNotes: 'STAR notes are pending.',
             projectNotes: 'I reviewed outdated material, incorporated new content, and submitted the revisions for SME and peer reviews to ensure content accuracy and compliance with documentation publication standards.'
         }
     },
@@ -105,7 +105,7 @@ let samples = {
         labels: ['Overview'],
         projectDetails: {
             audience: 'All levels of Unreal Engine users',
-            starNotes: '',
+            starNotes: 'STAR notes are pending.',
             projectNotes: 'I reviewed outdated material, incorporated new content, and submitted the revisions for SME and peer reviews to ensure content accuracy and compliance with documentation publication standards.'
         }
     },
@@ -117,7 +117,7 @@ let samples = {
         labels: ['Reference'],
         projectDetails: {
             audience: 'All levels of Unreal Engine users',
-            starNotes: '',
+            starNotes: 'STAR notes are pending.',
             projectNotes: 'I collaborated with an SME to update the supported application table, ensuring that the correct versions are listed.'
         }
     },
@@ -129,7 +129,7 @@ let samples = {
         labels: ['Reference'],
         projectDetails: {
             audience: 'All levels of Unreal Engine users',
-            starNotes: '',
+            starNotes: 'STAR notes are pending.',
             projectNotes: 'I collaborated with an SME to update the supported application table, ensuring that the correct versions are listed.'
         }
     },
@@ -147,7 +147,7 @@ let samples = {
         labels: ['Tutorial', 'Code Sample'],
         projectDetails: {
             audience: 'Entry-level JavaScript developers.',
-            starNotes: '',
+            starNotes: 'STAR notes are pending.',
             projectNotes: 'Wrote this script and documented it based on the needs to include a reading time estimator. Once published, I received some feedback and I incorporated it into the snippet as well as the documentation.',
             change: 'I would add a few images illustrating the appearance of this feature and add links to reference materials and supporting materials for the reading time estimates.'
         }
@@ -160,7 +160,7 @@ let samples = {
         labels: ['Guide', 'Tutorial'],
         projectDetails: {
             audience: 'Everyone who used VPN services (all skill levels, position, and tenure).',
-            starNotes: '',
+            starNotes: 'STAR notes are pending.',
             projectNotes: 'In my first month on the job, I was given a short task of documenting the process of instructing all employees on how to use VPN services. I collaborated with the IT department to gather their notes and wrote a simple draft. I tested the steps myself, asked a few colleagues to try them as well and iterated on the document based on their feedback. Once published, I added a few more notes based on user feedback and integrated a separately written FAQ. Note: this document was originally requested for print only but was later adapted to web format.',
             change: 'Add more screen grabs for the Windows and Mac sections that illustrate what each section should look like as the audience for this document were mostly visually-based learners. I would also include contact information for the IT department and point any further questions to them as they were in charge of maintaining this service.'
         }
@@ -173,7 +173,7 @@ let samples = {
         labels: ['Tutorial', 'Code Sample'],
         projectDetails: {
             audience: 'Intermediate JavaScript developers and Confluence Administrators.',
-            starNotes: '',
+            starNotes: 'STAR notes are pending.',
             projectNotes: 'I wrote and documented this script as part of a large process to automate the extraction of content from Confluence. The script and process was put into production where it remained until the company closed (~3.5 years).',
             change: 'Provide a complete code sample that can be copied and pasted.'
         }
@@ -333,7 +333,7 @@ let samples = {
     //     labels: ['Reference', 'Code Sample', 'Tutorial'],
     //     projectDetails: {
     //         audience: 'Entry level developers new to game development on Unity.',
-    //         starNotes: '',
+    //         starNotes: 'STAR notes are pending.',
             // projectNotes: 'Documented this function from scratch in 2.5 hours with less than a page\'s worth of notes. Took another hour to review and revise before submitting to the team for review.',
     //         change: '',
     //         other: ''
@@ -411,7 +411,7 @@ let samples = {
     //     labels: [''],
     //     projectDetails: {
     //         audience: '',
-    //         starNotes: '',
+    //         starNotes: 'STAR notes are pending.',
     //         projectNotes: '',
     //         change: '',
     //         other: ''
