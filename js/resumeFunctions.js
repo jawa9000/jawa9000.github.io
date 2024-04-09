@@ -16,7 +16,7 @@ for (i in experience) { // display experience
     output += '<div id="' + i.replace(/ /g, '_') + '" class="span8 lozenge">'; // ensure id doesn't have any spaces
     output += '<h3 class="resumeTitle">' + experience[i].title + ', ' + experience[i].company + '</h3>';
     output += '<h4>' + experience[i].dates + ' | ' + experience[i].location + '</h4>';
-    output +='<p><strong>Summary</strong>: ' + experience[i].summary + '</p><ul>';
+    output +='<p class="summary"><strong>Summary</strong>: ' + experience[i].summary + '</p><ul>';
 
     for (j in experience[i].responsbilities) { // display responsibilities based on series of strings or single strings
         if (typeof(experience[i].responsbilities[j]) === 'object') {
@@ -216,12 +216,15 @@ for (i in independentCoursework) { // display independent coursework
 
 $('#education').append(output);
 
-// copy resume content to system's clipboard via the keypress of 'c' or 'C'
+// copy resume content (ignoring the summaries) to system's clipboard via the keypress of 'c' or 'C'
 $(document).ready(function() {
     $(document).on('keydown', function(event) {
         if (event.key === 'c' || event.key === 'C') {
-            var contentToCopy = $('div#experience').html();
-            var clipboardElement = $("<textarea>").html(contentToCopy);
+            var contentToCopy = $('div#experience').clone(); // Clone the div#experience element
+            contentToCopy.find('.summary').remove(); // Remove elements with the summary class
+            var textContentToCopy = contentToCopy.text(); // Get only the text content from the cleaned HTML
+
+            var clipboardElement = $("<textarea>").text(textContentToCopy); // Create a temporary textarea with the text content
 
             $("body").append(clipboardElement); // Append the temporary element to the document
       
@@ -232,6 +235,8 @@ $(document).ready(function() {
         }
     });
 });
+
+
 
 // functions
 
