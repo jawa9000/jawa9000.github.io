@@ -9,6 +9,7 @@ let samples = {
         labels: ['Release Note'],
         projectDetails: {
             audience: 'All levels of Unreal Engine users',
+            starNotes: '',
             projectNotes: 'I collaborated with several fellow technical writers and SMEs to gather, write, and revise the release notes for the Animation technologies section of this document.'
         }
     },
@@ -20,6 +21,7 @@ let samples = {
         labels: ['Overview'],
         projectDetails: {
             audience: 'All levels of Unreal Engine users',
+            starNotes: '',
             projectNotes: 'I collaborated with SMEs and product owners to research and write this document, addressing information gaps and documenting new 5.3 features.'
         }
     },
@@ -31,6 +33,7 @@ let samples = {
         labels: ['Overview', 'Tutorial'],
         projectDetails: {
             audience: 'All levels of Unreal Engine users',
+            starNotes: '',
             projectNotes: 'I collaborated with SMEs and product owners to research and write this document, addressing information gaps and documenting new 5.3 features.'
         }
     },
@@ -42,6 +45,7 @@ let samples = {
         labels: ['Tutorial'],
         projectDetails: {
             audience: 'Unreal Engine Beginners',
+            starNotes: '',
             projectNotes: 'As part of my onboarding process, I assigned myself the task of writing a tutorial based on a feature I was unfamiliar with. This document is the outcome of that research. It underwent SME and peer reviews before its release to ensure content accuracy and adherence to documentation publication standards.'
         }
     },
@@ -53,6 +57,7 @@ let samples = {
         labels: ['Overview', 'Tutorial'],
         projectDetails: {
             audience: 'All levels of Unreal Engine users',
+            starNotes: '',
             projectNotes: 'I collaborated with SMEs and product owners to research and write this document, addressing information gaps and documenting new 5.3 features.'
         }
     },
@@ -64,6 +69,7 @@ let samples = {
         labels: ['Tutorial'],
         projectDetails: {
             audience: 'All levels of Unreal Engine users',
+            starNotes: '',
             projectNotes: 'I reviewed outdated material, incorporated new content, and submitted the revisions for SME and peer reviews to ensure content accuracy and compliance with documentation publication standards.'
         }
     },
@@ -75,6 +81,7 @@ let samples = {
         labels: ['Overview', 'Reference'],
         projectDetails: {
             audience: 'All levels of Unreal Engine users',
+            starNotes: '',
             projectNotes: 'I reviewed outdated material, incorporated new content, and submitted the revisions for SME and peer reviews to ensure content accuracy and compliance with documentation publication standards.'
         }
     },
@@ -86,6 +93,7 @@ let samples = {
         labels: ['Overview', 'Tutorial'],
         projectDetails: {
             audience: 'All levels of Unreal Engine users',
+            starNotes: 'foo',
             projectNotes: 'I reviewed outdated material, incorporated new content, and submitted the revisions for SME and peer reviews to ensure content accuracy and compliance with documentation publication standards.'
         }
     },
@@ -97,6 +105,7 @@ let samples = {
         labels: ['Overview'],
         projectDetails: {
             audience: 'All levels of Unreal Engine users',
+            starNotes: '',
             projectNotes: 'I reviewed outdated material, incorporated new content, and submitted the revisions for SME and peer reviews to ensure content accuracy and compliance with documentation publication standards.'
         }
     },
@@ -108,6 +117,7 @@ let samples = {
         labels: ['Reference'],
         projectDetails: {
             audience: 'All levels of Unreal Engine users',
+            starNotes: '',
             projectNotes: 'I collaborated with an SME to update the supported application table, ensuring that the correct versions are listed.'
         }
     },
@@ -119,6 +129,7 @@ let samples = {
         labels: ['Reference'],
         projectDetails: {
             audience: 'All levels of Unreal Engine users',
+            starNotes: '',
             projectNotes: 'I collaborated with an SME to update the supported application table, ensuring that the correct versions are listed.'
         }
     },
@@ -136,6 +147,7 @@ let samples = {
         labels: ['Tutorial', 'Code Sample'],
         projectDetails: {
             audience: 'Entry-level JavaScript developers.',
+            starNotes: '',
             projectNotes: 'Wrote this script and documented it based on the needs to include a reading time estimator. Once published, I received some feedback and I incorporated it into the snippet as well as the documentation.',
             change: 'I would add a few images illustrating the appearance of this feature and add links to reference materials and supporting materials for the reading time estimates.'
         }
@@ -148,6 +160,7 @@ let samples = {
         labels: ['Guide', 'Tutorial'],
         projectDetails: {
             audience: 'Everyone who used VPN services (all skill levels, position, and tenure).',
+            starNotes: '',
             projectNotes: 'In my first month on the job, I was given a short task of documenting the process of instructing all employees on how to use VPN services. I collaborated with the IT department to gather their notes and wrote a simple draft. I tested the steps myself, asked a few colleagues to try them as well and iterated on the document based on their feedback. Once published, I added a few more notes based on user feedback and integrated a separately written FAQ. Note: this document was originally requested for print only but was later adapted to web format.',
             change: 'Add more screen grabs for the Windows and Mac sections that illustrate what each section should look like as the audience for this document were mostly visually-based learners. I would also include contact information for the IT department and point any further questions to them as they were in charge of maintaining this service.'
         }
@@ -160,6 +173,7 @@ let samples = {
         labels: ['Tutorial', 'Code Sample'],
         projectDetails: {
             audience: 'Intermediate JavaScript developers and Confluence Administrators.',
+            starNotes: '',
             projectNotes: 'I wrote and documented this script as part of a large process to automate the extraction of content from Confluence. The script and process was put into production where it remained until the company closed (~3.5 years).',
             change: 'Provide a complete code sample that can be copied and pasted.'
         }
@@ -170,17 +184,6 @@ let samples = {
         description: 'Personal blog site I maintain on a semi-regular basis that captures documentation tooling, documentation trends, and conference summaries. All posts are researched, tested, and written by me.',
         labels: ['Tutorial', 'Blog', 'Guide'],
     },
-    'AMPLIFY CLI Commands': {
-        title: 'AMPLIFY CLI Commands',
-        htmlLink: 'AMPLIFY_CLI_Commands.html',
-        pdfLink: 'AMPLIFY_CLI_Commands.pdf',
-        description: 'Reference documentation for using the AMPLIFY CLI.',
-        labels: ['CLI', 'Reference'],
-        projectDetails: {
-            audience: 'Developers, all levels.',
-            projectNotes: 'I collaborated with three engineers to gather and write the outdated CLI documentation. I added the auth switch options section and half the pm section content with the team\'s help.'
-        }
-    },
     'Creating Your First Mobile App': {
         title: 'Creating Your First Mobile App',
         htmlLink: 'Creating_your_first_mobile_app.html',
@@ -189,6 +192,7 @@ let samples = {
         labels: ['Tutorial'],
         projectDetails: {
             audience: 'entry level mobile app developers.',
+            starNotes: 'I inherited an outdated tutorial that had received several comments from end-users and internally, indicating that updates were required. As one of my early projects, I was tasked with rewriting this document from scratch. I worked on this project part-time over the course of three weeks while collaborating with engineers and the PM to understand what steps a new user should take, explored the old and newly defined content, experimented with the tutorial myself, applied the style guide, added screenshots, and integrated team feedback as necessary. This resulted in a new and current document that explained each step in the process clearly for new users to understand. The marketing team then picked it up to be used as part of their sales pitch and onboarding process for new and potential customers.',
             projectNotes: 'Collaborated with engineers to rewrite the outdated tutorial over the course of three weeks. Rewrote the document from the ground up and tested and confirmed each step myself.',
             change: 'Add back in the screen shots and re-add links for getting help and links to next steps, reference documentation, and other tutorials.'
         }
@@ -201,7 +205,8 @@ let samples = {
         labels: ['Tutorial'],
         projectDetails: {
             audience: 'Entry level developer.',
-            projectNotes: 'Revised this document based on direct research and feedback I received from the Titanium team. I completely rewrote this document over the course of 5 days (total of 17 man-hours).',
+            starNotes: 'I inherited an outdated tutorial that had received several comments from end-users and internally, indicating that updates were required. As one of my early projects, I was tasked with rewriting this document from scratch while defining a company documentation style guide. I spent 17 hours (over five days) meeting with engineers to understand what steps a new user should take, explored the old and newly discovered content, experimented with the tutorial myself, applied the new style guide, added screenshots, and integrated team feedback as necessary. This resulted in a new and current document that explained each step in the process clearly for new users to understand. The marketing team then picked it up to be used as part of their sales pitch and onboarding process for new and potential customers.',
+            projectNotes: 'Revised this document based on direct research and feedback I received from the Titanium team. I completely rewrote this document over the course of five days (total of 17 man-hours).',
             change: 'Re-integrate screen shots.'
         }
     },
@@ -213,6 +218,7 @@ let samples = {
         labels: ['Release Note'],
         projectDetails: {
             audience: 'All Appcelerator users.',
+            starNotes: 'Each release required a comprehensive release note that listed all the changes, updates, new and/or removed features, improvements, API changes, fixed issues, and other information as required. It was my responsibility to capture all those updates for each release into a comprehensive document that was easily searchable and included code samples where possible. I collaborated with an average of five engineers for each release to gather updates for each supported platform, organized the content into appropriate categories and subcategories, added links to the relevant Jira tickets, wrote a summary statement about the release\'s theme, and identified and thanked contributors from the open-source community. This resulted in a streamlined and well-organized document that was easily searchable and informed end-users of changes to the platform.',
             projectNotes: 'Researched and wrote based on team meeting notes, team feedback, and change log differences every 2-6 weeks (or whenever the release went out).',
             change: 'Add the site navigation back in (missing due to an incomplete site).'
         }
@@ -225,6 +231,7 @@ let samples = {
         labels: ['Release Note'],
         projectDetails: {
             audience: 'All Appcelerator users.',
+            starNotes: 'Each release required a comprehensive release note that listed all the changes, updates, new and/or removed features, improvements, API changes, fixed issues, and other information as required. It was my responsibility to capture all those updates for each release into a comprehensive document that was easily searchable and included code samples where possible. I collaborated with the product engineer for each release to gather updates for each supported platform, organized the content into appropriate categories, and added links to the relevant Jira tickets. This resulted in a streamlined and well-organized document that was easily searchable and informed end-users of changes to the platform.',
             projectNotes: 'Researched and wrote based on team meeting notes, team feedback, and change log differences every 2-6 weeks (or whenever the release went out).',
             change: 'Add the site navigation back in (missing due to an incomplete site).'
         }
@@ -237,6 +244,7 @@ let samples = {
         labels: ['API'],
         projectDetails: {
             audience: 'End user developers and internal testers.',
+            starNotes: 'Every month, the product team released a new major, minor, or patch release. My task was to capture all the changes in these releases and publish a new release note for each one. I met with the team to gather the necessary information promptly, asked clarifying questions, reviewed internal product updates to identify areas that needed documentation, and drafted the release note for approval by the PM. Once approved, I\'d proceed with the automated documentation publication process on the target release date. This process typically spanned two weeks before the release. As a result, we maintained a smooth workflow for all involved members, and we consistently published the release note on time.',
             projectNotes: 'I collaborated on updating, revising, and testing content with help from two engineers and revised with notes from the open source community. Note: The main navigation is missing as I salvaged this document from an archive that didn\'t include the dynamically generated navigation.            ',
             change: 'Add code samples. As the engineers were short on time, one of the features of this document we sacrificed was code samples. Additionally, I\'d like to have better definitions and explanations of each property, method, and function. While brevity is usually best, short descriptions don\'t service new or novice users to the platform. Finally, I\'d ensure there are links to overviews and tutorials (where available).'
         }
@@ -245,10 +253,11 @@ let samples = {
         title: 'Properties of a YAML File',
         htmlLink: 'Properties_of_a_YAML_File.html',
         pdfLink: 'Properties_of_a_YAML_File.pdf',
-        description: 'Reference guide for internal developers and API documentation contributors to write clean YAML files.',
+        description: 'Reference guide for developers and API documentation contributors to write clean YAML files.',
         labels: ['Reference', 'Guide'],
         projectDetails: {
             audience: 'Internal engineers and documentation contributors.',
+            starNotes: 'We did not have any documentation on the purpose or usage of our YAML file format. This led to numerous incorrect usages of YAML properties, resulting in poorly rendered files on the API documentation site or causing the documentation publication process to fail when encountering a poorly formatted YAML file while generating the platform API documents. As part of my onboarding process, I met with the API engineering team to understand the intended usage of this format and wrote a draft documenting all the properties that could be used in these files. I collaborated with the engineering team to iterate on the content I wrote, interviewed the engineer who originally implemented the API documentation system, conducted several hours of testing to ensure I got all the details right, and made changes per the team\'s feedback. I then conducted an audit of all YAML files to find and fix any issues with this format. Once this project was completed, the document served as a guide for how the team was supposed to use the YAML format and reduced poorly formatted YAML files by 100%. This further resulted in zero issues when generating API documentation thanks to this guide that I wrote and shared with the team.',
             projectNotes: 'Collaborated with an outgoing engineer to write this guide from scratch. I interviewed the engineer for a total of three hours, tested the contents of this document, and revised it with team feedback.',
             change: 'Integrate additional notes and links for writing YAML files.'
         }
@@ -261,6 +270,7 @@ let samples = {
         labels: ['SDK', 'Release Note'],
         projectDetails: {
             audience: 'All levels of mobile app developers.',
+            starNotes: 'Each release required a comprehensive release note that listed all the changes, updates, new and/or removed features, improvements, API changes, fixed issues, and other information as required. It was my responsibility to capture all those updates for each release into a comprehensive document that was easily searchable and included code samples where possible. I collaborated with an average of five engineers for each release to gather updates for each supported platform, organized the content into appropriate categories and subcategories, added links to the relevant Jira tickets, wrote a summary statement about the release\'s theme, and identified and thanked contributors from the open-source community. This resulted in a streamlined and well-organized document that was easily searchable and informed end-users of changes to the platform.',
             projectNotes: 'I collaborated with five engineers to produce this release note by gathering information from meetings, presentations, code snippets shared by end-users and internal engineers, feedback from end-users, automated content changes from code docs, and checked in repo files over the course of three weeks.'
         }
     },
@@ -272,6 +282,7 @@ let samples = {
         labels: ['SDK', 'Reference', 'Guide'],
         projectDetails: {
             audience: 'All levels of mobile app developers.',
+            starNotes: 'Each major and minor release had to include updating this document to ensure that the required packages and target platform information were correct. I was tasked with reviewing the code repo for the package and target platform information, updating the supported and unsupported versions, and ensuring the installation processes were all correct. Once I received information for the next major or minor release, I would review the appropriate code files to find the necessary information for the required packages and target platform information, update the staging documentation, confirm that the installation steps had not changed from the previous versions (and make any necessary changes accordingly), and publish the content on release day. If no updates were required for the installation processes, each update to this document would only take a few hours to complete. This ensured our users had the most current information for using the latest version of the platform and how to install any dependencies.',
             projectNotes: 'I collaborated with the entire team to produce and maintain this document for each release. This document would be updated each time there was a minor or major release or when one of the required packages changed.',
             change: 'I would add back in the graphics and screen grabs to better illustrate the processes mentioned in this document and organize the note into a section of it\'s own.'
         }
@@ -284,6 +295,7 @@ let samples = {
         labels: ['Overview'],
         projectDetails: {
             audience: 'All levels of mobile app developers.',
+            starNotes: 'The original document was outdated and missing two new features. I had to include those new features, include a general statement about the document, and remove the marketing terminology. I collaborated with all the project managers whose features were mentioned in the document to ensure I captured the essence of each of the platform\'s features. I also worked with the sales team to help them understand why marketing terminology did not belong in a technical document. The end result was a simplified, less marketing-focused technical overview document that included the new features and had better formatting.',
             projectNotes: 'Collaborated with project managers and sales team to write and maintain this overview document.',
             change: 'Add screen shots and short-form videos of the products.'
         }
@@ -296,6 +308,7 @@ let samples = {
         labels: ['Tutorial', 'Code Sample', 'SDK'],
         projectDetails: {
             audience: 'Entry level mobile app developers.',
+            starNotes: 'The original document had not been updated in nearly two years and was missing key information on how to follow the steps outlined. I was given a month to revamp the document. I collaborated with seven engineers and the PM to review the source content, salvage what we could, and iterated on various drafts I had created to update the content. The project hit a snag as one of the engineers was on vacation, causing a slight delay because only he had the key information I needed to complete the project. I integrated the team\'s notes in a timely manner, followed the company\'s style guide, and verified the content to the best of my ability. The end result included a clear and easy-to-follow set of instructions for each step of the process, inclusion of new features and processes, and better formatting for easier content consumption.',
             projectNotes: 'Collaborated with seven different engineers and the project manager to write this document from scratch.',
             change: 'Add screen shots and short-form videos various steps as they are completed. Additionally, I would split this document into two separate, and linked, documents.'
         }
@@ -308,7 +321,8 @@ let samples = {
         labels: ['CLI', 'Reference'],
         projectDetails: {
             audience: 'intermediate to advanced level mobile app developers.',
-            projectNotes: 'Collaborated with three different engineers to revise and maintain this document.',
+            starNotes: 'I inherited an out-of-date document and was tasked with updating it with missing features. I met with the engineering team to identify what needed to be included and explored the features myself to better understand what I was documenting. I worked on this project part-time over the course of two weeks, verifying its content and updating the document to follow our style guide. The end result included all the new features, better formatting for easier content consumption, which led to an improved user experience.',
+            projectNotes: 'I collaborated with three engineers to revise and maintain the CLI documentation. I added the auth switch options section and half the pm section content with the team\'s help.'
         }
     },
      // 'applyBonus Function': { // note to self: if I don't get the gig with Niantic, post this some time in April.
@@ -319,7 +333,8 @@ let samples = {
     //     labels: ['Reference', 'Code Sample', 'Tutorial'],
     //     projectDetails: {
     //         audience: 'Entry level developers new to game development on Unity.',
-    //         projectNotes: 'Documented this function from scratch in 2.5 hours with less than a page\'s worth of notes. Took another hour to review and revise before submitting to the team for review.',
+    //         starNotes: '',
+            // projectNotes: 'Documented this function from scratch in 2.5 hours with less than a page\'s worth of notes. Took another hour to review and revise before submitting to the team for review.',
     //         change: '',
     //         other: ''
     //     }
@@ -332,6 +347,7 @@ let samples = {
         labels: ['Overview', 'Tutorial'],
         projectDetails: {
             audience: 'Entry-level mobile app developers',
+            starNotes: 'I inherited an out-of-date document and was tasked with rewriting it from scratch. I met with the lead product engineer and his team to identify what needed to be included in the document and where I could find additional resources to enhance its content. I worked on this project part-time over the course of a month, exploring the product features, identifying key terminology, including the GDPR statement, creating new screenshots, verifying code samples, and ensuring the content followed our style guide. The end result was a new, easy-to-understand, and current document that not only met GDPR requirements but also provided customers with clear instructions on how to apply the analytic features of the platform, leading to improved user experience and satisfaction.',
             projectNotes: 'Collaborated with one product engineer and team lead to rewrite this document from top to bottom. Captured and modified the images myself. Researched and wrote the GDPR statement that was approved by team leadership and the legal department.'
         }
     },
@@ -343,6 +359,7 @@ let samples = {
         labels: ['Tutorial', 'SQL', 'Code Sample'],
         projectDetails: {
             audience: 'entry-level programmers and data scientists.',
+            starNotes: 'The documentation team I was part of had created a series of queries that completed a dashboard, identifying documentation metrics and opportunities. I needed to document a query that I had created to ensure that our users understood the intent and usage of this query. I reviewed and tested the code I had created to explore various options with this query. Once I arrived at a peer-reviewed and approved solution, I wrote this document explaining its purpose and documented each line of code in less than a day. This resulted in a clear understanding of the query and its intended usage by our users.',
             projectNotes: 'Researched and developed this query on my own and collaborated with another tech writer to verify the query and documentation.',
             change: 'I would include sample output from the code snippet included in this document and add links to the other query documents related to this topic.'
         }
@@ -355,6 +372,7 @@ let samples = {
         labels: ['Tutorial', 'SQL', 'Code Sample'],
         projectDetails: {
             audience: 'entry-level programmers and data scientists.',
+            starNotes: 'The doc team I was a part of had created a series of other queries that completed a dashboard identifying documentation metrics and opportunities. I needed to document a query that I had collaborated on with another tech writer to ensure that our users understood the intent and usage of this query. I reviewed the code we had created, tested it as we explored various options with this query. Once we arrived at a good solution, I wrote this document explaining its purpose and documented each line of code in less than a day. This resulted in a clear understanding of the query and its intended usage by our users.',
             projectNotes: 'I collaborated with a fellow tech writer to write a series of queries that pulls data about documentation sets. I wrote, tested, and documented this query and updated the document once I received feedback about the inclusion of deleted and hidden pages.',
             change: 'I would include sample output from the code snippet included in this document and add links to the other query documents related to this topic.'
         }
@@ -367,6 +385,7 @@ let samples = {
         labels: ['Tutorial', 'SQL', 'Code Sample'],
         projectDetails: {
             audience: 'entry-level programmers and data scientists.',
+            starNotes: 'The doc team I was a part of had created a series of other queries that completed a dashboard identifying documentation metrics and opportunities. I needed to document a query that I had collaborated on with another tech writer to ensure that our users understood the intent and usage of this query. I reviewed the code we had created, tested it as we explored various options with this query. Once we arrived at a good solution, I wrote this document explaining its purpose and documented each line of code in less than a day. This resulted in a clear understanding of the query and its intended usage by our users.',
             projectNotes: 'I collaborated with a fellow tech writer to write a series of queries that pulls data about documentation sets. I wrote, tested, and documented this query.',
             change: 'I would include sample output from the code snippet included in this document and add links to the other query documents related to this topic.'
         }
@@ -379,6 +398,7 @@ let samples = {
         labels: ['Overview'],
         projectDetails: {
             audience: 'New users to the Appcelerator platform (new to intermediate developers).',
+            starNotes: 'The existing document for this topic was badly out of date. I needed to review and revise this document to ensure that it met with the new platform UI and features. I collaborated with another technical writer to overhaul and simplify the content of this document over the course of two months (this was a lower priority project). We would meet weekly do discuss what we had updated or discuss any roadblocks. Upon completion, our customers had a new document for viewing the platform\'s dashboard that was easier to understand, had a better user flow, and filled in blanks that customers were asking for.',
             projectNotes: 'Took existing documentation and collaborated with another technical writer to overhaul and simplify the content as the new UI was published.',
             change: 'Complete the video introduction of the UI that was planned and link it to this document. Additionally, I would have liked to add more details to each of these sections but our project time was cut in half (from six weeks to three weeks).'
         }
@@ -391,6 +411,7 @@ let samples = {
     //     labels: [''],
     //     projectDetails: {
     //         audience: '',
+    //         starNotes: '',
     //         projectNotes: '',
     //         change: '',
     //         other: ''
@@ -480,6 +501,10 @@ for (i in uniqueLabels) { // build the elements to house the writing samples
 
                     if (samples[j].projectDetails.audience) {
                         output += '<li><strong>Audience</strong>: ' + samples[j].projectDetails.audience + '</li>';
+                    }
+
+                    if (samples[j].projectDetails.starNotes) {
+                        output += '<li><strong>STAR notes</strong>: ' + samples[j].projectDetails.starNotes + '</li>';
                     }
 
                     if (samples[j].projectDetails.projectNotes) {
