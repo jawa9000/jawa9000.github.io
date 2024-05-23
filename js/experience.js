@@ -17,7 +17,7 @@ let experience = {
         "location": "Remote",
         "summary": "",
         "responsbilities": ['Supporting UX documentation for Amazon\'s IVI developer content, including first-time user experiences backed by Alexa services and all customizable features provided by this platform, enabling end-user personalization and branded digital cabin experiences for automakers.','Partnering with UX and cross-functional teams to deliver developer documentation, including a catalog of modular, customizable UI components and styles for OEMs and third parties to accelerate IVI design and theming.'],
-        "skills": ['Technical writing','Technical communication','Content analysis','Content development','Content feedback integration','Content planning', 'Content research', 'Documentation', 'Documentation communication', 'Documentation site design','Information architecture','Project management','Project planning', 'Verbal communication', 'Written communication','Asynchronous communication','Collaboration','Cross-functional team communication'],
+        "skills": ['Technical writing','Technical communication','Content analysis','Content development','Content feedback integration','Content planning', 'Content research', 'Documentation', 'Documentation communication', 'Documentation site design','Information architecture','Project management','Project planning', 'Verbal communication', 'Written communication','Asynchronous communication','Collaboration','Cross-functional team communication','Visual communication','User experience (UX)'],
         "technology": ['Google Suite', 'Figma', 'Quip', 'Word', 'Excel', 'PowerPoint']
     },
     "Snapser - Technical Writer Contractor": {  
