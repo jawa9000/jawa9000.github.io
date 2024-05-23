@@ -35,6 +35,6 @@ let skills = {
         "Wiki": ['Confluence', 'MediaWiki'],
         "Misc graphics": ['Camtasia', 'Gimp', 'Lucidchart', 'Record My Desktop', 'SnagIt', 'Visio'],
         "Microsoft": ['Excel', 'Outlook', 'PowerPoint', 'Sharepoint', 'Word'],
-        "Misc": ['ADP', 'Workday']
+        "Misc": ['Quip', 'Figma', 'ADP', 'Workday']
     }
 }
