@@ -33,8 +33,8 @@ let skills = {
         "Google": ['Calendar', 'Docs', 'Drawings', 'Drive', 'Forms', 'Gmail', 'Sheets', 'Sites', 'Slides'],
         "IDEs": ['Appcelerator Studio', 'Aptana', 'Atom', 'Dreamweaver', 'Eclipse', 'VS Code'],
         "Wiki": ['Confluence', 'MediaWiki'],
-        "Misc graphics": ['Camtasia', 'Gimp', 'Lucidchart', 'Record My Desktop', 'SnagIt', 'Visio'],
+        "Misc graphics": ['Camtasia', 'Gimp', 'Lucidchart', 'Record My Desktop', 'SnagIt', 'Visio', 'Miro', 'Figma'],
         "Microsoft": ['Excel', 'Outlook', 'PowerPoint', 'Sharepoint', 'Word'],
-        "Misc": ['Quip', 'Figma', 'ADP', 'Workday']
+        "Misc": ['Quip', 'ADP', 'Workday']
     }
 }
