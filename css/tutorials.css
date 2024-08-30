@@ -261,11 +261,15 @@ table {
 img {
   max-width: none; }
 
+img.size100 {
+  width: 100px;
+}
+
 /* floats */
 .floatRight {
   float: right; }
 
-.floatLeft {
+.floatLeft, .floatLeftImage {
   float: left; }
 
 /* header overrides from Bootstrap */
@@ -412,3 +416,14 @@ p.answer::before {
   text-decoration: underline; }
 
 /*# sourceMappingURL=tutorials.css.map */
+
+/* Captions */
+div.caption {
+  font-size: 0.9em;
+  font-style: italic;
+}
+
+/* Padding and Margins */
+.margin10 {
+  margin: 10px;
+}
