@@ -54,7 +54,7 @@ let experience = {
     "Documentation Engineer Meta": {
         "title": "Documentation Engineer",
         "company": "Meta",
-        "dates": "December 9 2019 - November 9 2022",
+        "dates": "December 9 2019 - December 9 2022",
         "location": "Menlo Park, CA; Hybrid",
         "summary": "Authored/Co-authored 360 pages, made 1,792 edits, verified 59 pages, and archived 66 pages for backend automation and capacity management services. I empowered engineers by structuring teams effectively, setting up collaboration systems, and leading the Docathon Program for 2.5 years. I collaborated with seven teams on various documentation types, authored monthly status reports, and championed better engineering projects. I mentored eight junior Documentation Engineers, conducted doc consults, and managed 29 successful docathon events.",
         "responsbilities": {
