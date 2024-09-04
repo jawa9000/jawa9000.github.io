@@ -17,8 +17,8 @@ let education = {
     },
     "Savannah College of Art and Design": {
         "location": "Savannah College of Art and Design (SCAD)",
-        "degree": "MFA, Computer Animation",
-        "dates": "Aug 2000 - Sept 2002",
+        "degree": "MFA, Computer Animation/Art",
+        "dates": "Aug 2000 - Nov 2002",
         "grade": "3.95/4",
         "address": "342 Bull St, Savannah, GA 31402",
         "notes": "Focus on 3D character rigging and animation."
