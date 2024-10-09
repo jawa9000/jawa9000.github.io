@@ -99,7 +99,7 @@
           </select>
           <label for="mineOwnerCount"># of mine owners</label>
           <input id="mineOwnerCount" type="number" min="1" step="1" value="1" />
-          <button>Mine</button>
+          <button id="mine">Mine</button>
         </div>
       </div>
       <div class="row">
@@ -108,68 +108,16 @@
           <div id="kept"></div>
         </div>
         <div class="col-md-5">
-          <div id="output">
-            <!-- <p><strong><input type="checkbox" name="stones" id="stones" total="0" checked>Stones</strong></p>
-            <p class="indented"><input type="checkbox" class="mined stone" name="basalt" id="basalt" total="0" checked>Basalt: <span id="basalt"></span>gp</p>
-            <p class="indented"><input type="checkbox" class="mined stone" name="granite" id="granite" total="0" checked>Granite: <span id="granite"></span>gp</p>
-            <p class="indented"><input type="checkbox" class="mined stone" name="marble" id="marble" total="0" checked>Marble: <span id="marble"></span>gp</p>
-            
-            <p><strong><input type="checkbox" name="exotics" id="exotics" total="0" checked>Exotics</strong></p>
-            <p class="indented"><input type="checkbox" class="mined" name="coal" id="coal" total="0" checked>Coal: <span id="coal"></span>gp</p>
-            <p class="indented"><input type="checkbox" class="mined" name="petroleum" id="petroleum" total="0" checked>Petroleum: <span id="petroleum"></span>gp</p>
-            
-            <p><strong><input type="checkbox" name="gemstones" id="gemstones" total="0" checked>Gemstones</strong></p>
-            <p class="indented"><input type="checkbox" class="mined" name="aquamarine" id="aquamarine" total="0" checked>Aquamarine: <span id="aquamarine"></span>gp</p>
-            <p class="indented"><input type="checkbox" class="mined" name="blueSpinel" id="blueSpinel" total="0" checked>Blue spinel: <span id="blueSpinel"></span>gp</p>
-            <p class="indented"><input type="checkbox" class="mined" name="diamond" id="diamond" total="0" checked>Diamond: <span id="diamond"></span>gp</p>
-            <p class="indented"><input type="checkbox" class="mined" name="emerald" id="emerald" total="0" checked>Emerald: <span id="emerald"></span>gp</p>
-            <p class="indented"><input type="checkbox" class="mined" name="garnet" id="garnet" total="0" checked>Garnet: <span id="garnet"></span>gp</p>
-            <p class="indented"><input type="checkbox" class="mined" name="jacinth" id="jacinth" total="0" checked>Jacinth: <span id="jacinth"></span>gp</p>
-            <p class="indented"><input type="checkbox" class="mined" name="opal" id="opal" total="0" checked>Opal: <span id="opal"></span>gp</p>
-            <p class="indented"><input type="checkbox" class="mined" name="peridot" id="peridot" total="0" checked>Peridot: <span id="peridot"></span>gp</p>           
-            <p class="indented"><input type="checkbox" class="mined" name="redSpinel" id="redSpinel" total="0" checked>Red spinel: <span id="redSpinel"></span>gp</p>
-            <p class="indented"><input type="checkbox" class="mined" name="ruby" id="ruby" total="0" checked>Ruby: <span id="ruby"></span>gp</p>
-            <p class="indented"><input type="checkbox" class="mined" name="sapphire" id="sapphire" total="0" checked>Sapphire: <span id="sapphire"></span>gp</p>
-            <p class="indented"><input type="checkbox" class="mined" name="topaz" id="topaz" total="0" checked>Topaz: <span id="topaz"></span>gp</p>
-            
-            <p><strong><input type="checkbox" name="metals" id="metals" total="0" checked>Metals</strong></p>
-            <p class="indented"><input type="checkbox" class="mined" name="adamantine" id="adamantine" total="0" checked>Adamantine: <span id="adamantine"></span>gp</p>
-            <p class="indented"><input type="checkbox" class="mined" name="copper" id="copper" total="0" checked>Copper: <span id="copper"></span>gp</p>
-            <p class="indented"><input type="checkbox" class="mined" name="gold" id="gold" total="0" checked>Gold: <span id="gold"></span>gp</p>
-            <p class="indented"><input type="checkbox" class="mined" name="iron" id="iron" total="0" checked>Iron: <span id="iron"></span>gp</p>
-            <p class="indented"><input type="checkbox" class="mined" name="lead" id="lead" total="0" checked>Lead: <span id="lead"></span>gp</p>
-            <p class="indented"><input type="checkbox" class="mined" name="mithril" id="mithril" total="0" checked>Mithril: <span id="mithril"></span>gp</p>
-            <p class="indented"><input type="checkbox" class="mined" name="platinum" id="platinum" total="0" checked>Platinum: <span id="platinum"></span>gp</p>
-            <p class="indented"><input type="checkbox" class="mined" name="silver" id="silver" total="0" checked>Silver: <span id="silver"></span>gp</p>
-            <p class="indented"><input type="checkbox" class="mined" name="tin" id="tin" total="0" checked>Tin: <span id="tin"></span>gp</p>
-            <p class="indented"><input type="checkbox" class="mined" name="zinc" id="zinc" total="0" checked>Zinc: <span id="zinc"></span>gp</p> 
-            
-            <p><strong><input type="checkbox" name="by-products" id="by-products" total="0" checked>By-products</strong></p>
-            <p class="indented"><input type="checkbox" class="mined" name="amber" id="amber" total="0" checked>Amber: <span id="amber"></span>gp</p>
-            <p class="indented"><input type="checkbox" class="mined" name="amethyst" id="amethyst" total="0" checked>Amethyst: <span id="amethyst"></span>gp</p>
-            <p class="indented"><input type="checkbox" class="mined" name="agate" id="agate" total="0" checked>Agate: <span id="agate"></span>gp</p>
-            <p class="indented"><input type="checkbox" class="mined" name="alexandrite" id="alexandrite" total="0" checked>Alexandrite: <span id="alexandrite"></span>gp</p>
-            <p class="indented"><input type="checkbox" class="mined" name="azurite" id="azurite" total="0" checked>Azurite: <span id="azurite"></span>gp</p>
-            <p class="indented"><input type="checkbox" class="mined" name="bloodstone" id="bloodstone" total="0" checked>Bloodstone: <span id="bloodstone"></span>gp</p>
-            <p class="indented"><input type="checkbox" class="mined" name="blueCalcite" id="blueCalcite" total="0" checked>Blue calcite: <span id="blueCalcite"></span>gp</p>
-            <p class="indented"><input type="checkbox" class="mined" name="canelian" id="canelian" total="0" checked>Canelian: <span id="canelian"></span>gp</p>
-            <p class="indented"><input type="checkbox" class="mined" name="chrysopidate" id="chrysopidate" total="0" checked>Chrysopidate: <span id="chrysopidate"></span>gp</p>
-            <p class="indented"><input type="checkbox" class="mined" name="citrine" id="citrine" total="0" checked>Citrine: <span id="citrine"></span>gp</p>
-            <p class="indented"><input type="checkbox" class="mined" name="fluorite" id="fluorite" total="0" checked>Fluorite: <span id="fluorite"></span>gp</p>
-            <p class="indented"><input type="checkbox" class="mined" name="hematite" id="hematite" total="0" checked>Hematite: <span id="hematite"></span>gp</p>
-            <p class="indented"><input type="checkbox" class="mined" name="jade" id="jade" total="0" checked>Jade: <span id="jade"></span>gp</p>
-            <p class="indented"><input type="checkbox" class="mined" name="jasper" id="jasper" total="0" checked>Jasper: <span id="jasper"></span>gp</p>
-            <p class="indented"><input type="checkbox" class="mined" name="jet" id="jet" total="0" checked>Jet: <span id="jet"></span>gp</p>
-            <p class="indented"><input type="checkbox" class="mined" name="lapis lazuli" id="lapisLazuli" total="0" checked>Lapis lazuli: <span id="lapisLazuli"></span>gp</p>
-            <p class="indented"><input type="checkbox" class="mined" name="malachite" id="malachite" total="0" checked>Malachite: <span id="malachite"></span>gp</p>
-            <p class="indented"><input type="checkbox" class="mined" name="moonstone" id="moonstone" total="0" checked>Moonstone: <span id="moonstone"></span>gp</p>
-            <p class="indented"><input type="checkbox" class="mined" name="obsidian" id="obsidian" total="0" checked>Obsidian: <span id="obsidian"></span>gp</p>
-            <p class="indented"><input type="checkbox" class="mined" name="onyx" id="onyx" total="0" checked>Onyx: <span id="onyx"></span>gp</p>
-            <p class="indented"><input type="checkbox" class="mined" name="quartz" id="quartz" total="0" checked>Quartz: <span id="quartz"></span>gp</p>
-            <p class="indented"><input type="checkbox" class="mined" name="rhodochrosite" id="rhodochrosite" total="0" checked>Rhodochrosite:<span id="rhodochrosite"></span>gp</p>
-            <p class="indented"><input type="checkbox" class="mined" name="tourmaline" id="tourmaline" total="0" checked>Tourmaline: <span id="tourmaline"></span>gp</p>
-            <p class="indented"><input type="checkbox" class="mined" name="turquoise" id="turquoise" total="0" checked>Turquoise: <span id="turquoise"></span>gp</p>
-            <p class="indented"><input type="checkbox" class="mined" name="zircon" id="zircon" total="0" checked>Zircon: <span id="zircon"></span>gp</p> -->
+          <div class="row">
+            <div class="col-md-6"></div>
+            <div class="col-md-3">
+              <button id="toggle" value="Enabled" disabled>Toggle</button>
+            </div>
+            <div class="col-md-3">
+              <button id="showHide" value="Show/Hide" disabled>Display</button>
+            </div>
+          </div>
+          <div id="output"></div>
         </div>
       </div>
     </div>
