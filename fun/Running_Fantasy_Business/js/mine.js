@@ -8,138 +8,56 @@ var miningResults = {};
 
 $(document).ready(function() {
   restoreCheckboxStates(); // Restore checkbox states from local storage
-  
-  $("button").on("click", function () {  
-    var days = parseInt($("input#days").val()); // number of days to simulate
-    var minerCount = parseInt($("input#minerCount").val()); // number of miners
-    var mineQuality = $("#mineQuality").val(); // quality of the mine
-    var mineOwnerCount = $("#mineOwnerCount").val(); // number of mine owners
 
-    if (mineOwnerCount <= 0) { // ensure there is always at least one mine owner
-      mineOwnerCount = 1;
-      $("#mineOwnerCount").val(1);
+  // check or uncheck generated resources and recalc their output values.
+  $('button#toggle').on('click', function() {
+    if ($(this).attr('value') == 'Enable') {
+      var buttonStatus = ['Disable', true];
+    } else {
+      var buttonStatus = ['Enable', false];
     }
 
-    if (days > 365) { // limit the amount of days to simulate. When testing, I found performance problems trying to simulate more than one year.
-      days = 365;
-      $("input#days").val(365);
-    }
-    if (days <= 0 || isNaN(days)) { // ensure the value is not 0 or less
-      days = 1;
-      $("input#days").val(1);
-    }
+    $('input[type="checkbox"]').each(function() { // toggle the checkbox based on the state of the toggle button
+      if ($(this).val() === 'unchecked') {
+        $(this).prop('checked', buttonStatus[1]);
+      } else {
+        $(this).prop('checked', buttonStatus[1]);
+      }
 
-    if (minerCount > 1000) { // limit the number of miners. Testing showed that more than 1000 miners causes performance issues.
-      minerCount = 1000;
-      $("input#minerCount").val(1000);
-    }
-    if (minerCount <= 0 || isNaN(minerCount)) { // ensure the value is not 0 or less
-      minerCount = 1;
-      $("input#minerCount").val(1);
-    }
-
-    var output = "";
-
-    for (i in minedOutput) { // set up the object to receive all material names and their worth
-        minedOutputTotal[i] = {};
-        minedOutputTotal[i].name = i;
-        minedOutputTotal[i].worth = [];
-        minedOutputTotal[i].count = 0;
-    }
-
-    var minerResults = {};
-    minerResults.minerCount = minerCount;
-
-    for (var i = 0; i < days; i++) { // loop through the number of selected days
-      for (var j = 0; j < minerCount; j++) { // loop through the number of selected miners
-        // update minerResults with the results of each miner on each day
-        minerResults[i] = {}; // set up miner's results object
-        minerResults[i].id = i; // miner's id (number)
-        minerResults[i].days = {}; // sub object to collect all the mined items from each day
-
-        var minedRnd = rndNum(100); // pick a random number to indicate the result of what the miner mined
-
-        for (k in miningProducts) { // loop through the different mining categories and select one of them based on the value of minedRnd
-          if (miningProducts[k].first <= minedRnd && miningProducts[k].second >= minedRnd) { // pick a mining product from the miningProducts object
-            switch (miningProducts[k].name) {
-              case 'stones':
-                minedItems(stones, mineQuality);
-                byproduct('stones');
-                minerResults[i].days[k] = j;
-                break;
-              case 'metals':
-                minedItems(metals, mineQuality);
-                byproduct('metals');
-                minerResults[i].days[k] = j;
-                break;
-              case 'exotics':
-                minedItems(exotics, mineQuality);
-                byproduct('exotic');
-                minerResults[i].days[k] = j;
-                break;
-              case 'gemstones':
-                minedItems(gemstones, mineQuality);
-                minerResults[i].days[k] = j;
-                break;
-              default: // Handle the default case if needed
-                break;
-            }
-          }
+      // ** recalc the values of the checked mined resources. Note: this isn't perfect but it does work.
+      var id = $(this).attr('id');
+      var days = parseInt($("input#days").val()); // number of days to simulate
+      
+      for (i in minedOutputTotal) { // Update the summary based on what was enable or disabled
+        if (minedOutputTotal[i].name == id && $('input#' + id).prop('checked') == false) {
+          minedOutputTotal.grandTotal -= minedOutputTotal[i].tally;
+        } else if (minedOutputTotal[i].name == id && $('input#' + id).prop('checked') == true) {
+          minedOutputTotal.grandTotal += minedOutputTotal[i].tally;
         }
       }
-    }
+      updateSummary(days);
+      saveCheckboxStates(); // Save checkbox states to local storage
+    });
 
-    minedOutputTotal.grandTotal = 0;
+    $(this).attr('value', buttonStatus[0]).text(buttonStatus[0]);
+  });
 
-    for (i in minedOutputTotal) {if (minedOutputTotal[i] && minedOutputTotal[i].worth && minedOutputTotal[i].worth.length > 0) {
-      var tally = 0;
-
-      minedOutputTotal[i].calculated = true; // used to determine if a mined item should be tallied or not as it is used later when the user toggle a mined item on/off.
-
-      for (k in minedOutputTotal[i].worth) { // Check if the value is a valid number before adding it to the tally
-        if (!isNaN(minedOutputTotal[i].worth[k]) && minedOutputTotal[i].calculated == true) {
-          tally += minedOutputTotal[i].worth[k];
-          minedOutputTotal[i].count ++;
-        }
-      }
-
-      minedOutputTotal[i].tally = tally;
-
-      minedOutputTotal.grandTotal += tally;
-
-      // ** figure out the category of the mined item so that I can organize each mined item by its respective category when displaying them
-      }
-    }
-
-    // get values from inputs that will be used to split the grandTotal amongst the dragon's cut, miner's cut, mine upkeep, mine expenses, and mine expansion
-    minedOutputTotal.dragonsCut = parseInt($("input#percentage_dragonTip").val());
-    minedOutputTotal.minersCut = parseInt($("input#percentage_minerTip").val());
-    minedOutputTotal.mineUpkeep = parseInt($("input#percentage_mineUpkeep").val());
-    minedOutputTotal.miscExpenses = parseInt($("input#percentage_miscExpenses").val());
-    minedOutputTotal.mineExpansion = parseInt($("input#percentage_mineExpansion").val());
-    minedOutputTotal.partysCut = 100 - (minedOutputTotal.dragonsCut + minedOutputTotal.minersCut + minedOutputTotal.mineUpkeep + minedOutputTotal.miscExpenses + minedOutputTotal.mineExpansion);
-    minedOutputTotal.mineOwnerCount = parseInt($("input#mineOwnerCount").val());
+  $('button#showHide').on('click', function() { // toggle the display of unchecked checkboxes
+    var val = $(this).attr('value');
     
-    var output = ""; // hold the generated HTML output of mined items and their values
-
-    for (i in minedOutputTotal) { // loop through minedOutputTotal object and display only the items that have been mined
-      if (minedOutputTotal[i].tally) {
-          // ** add back in the categories of mined items so a whole category can be toggled on/off
-        if (minedOutputTotal[i].name == "blueSpinel") {
-            output += '<p class="indented"><input type="checkbox" class="mined" id="blueSpinel" name="blueSpinel"  total = "' + numberWithCommas(minedOutputTotal[i].tally) + '" checked>blue spinel: <span id="' + i + '">' + numberWithCommas(minedOutputTotal[i].tally) + "</span>gp (" + numberWithCommas(minedOutputTotal[i].count,'zero') + " units)</p>";
-        } else if (minedOutputTotal[i].name == "redSpinel") {
-            output += '<p class="indented"><input type="checkbox" class="mined" id="redSpinel" name="redSpinel"  total = "' + numberWithCommas(minedOutputTotal[i].tally) + '" checked>red spinel: <span id="' + i + '">' + numberWithCommas(minedOutputTotal[i].tally) + "</span>gp (" + numberWithCommas(minedOutputTotal[i].count,'zero') + " units)</p>";
-        } else {
-            output += '<p class="indented"><input type="checkbox" class="mined" id="' + minedOutputTotal[i].name + '" name="' + minedOutputTotal[i].name + '"  total = "' + numberWithCommas(minedOutputTotal[i].tally) + '" checked><span id="' + i + '">' + minedOutputTotal[i].name + ": " + numberWithCommas(minedOutputTotal[i].tally) + "</span>gp (" + numberWithCommas(minedOutputTotal[i].count,'zero') + " units)</p>";
-        }
-      }
+    if (val == 'Show/Hide' || val == 'Show') {
+      var buttonStatus = ['Hide', true];
+      $('input[type="checkbox"]:not(:checked)').parent().hide(); 
+    } else if (val == 'Hide') { 
+      var buttonStatus = ['Show', false];
+      $('input[type="checkbox"]:not(:checked)').parent().show();  
     }
 
-    $("div#output").html(''); // reset html output
-    $("div#output").append(output);
-
-    updateSummary(days);
-    restoreCheckboxStates(); // Restore checkbox states from local storage
+    $(this).attr('value', buttonStatus[0]).text(buttonStatus[0]);
+  });
+  
+  $("button#mine").on("click", function () {
+    generateResources();
   });
 
   $("div#output").on("change", "input:checkbox", function () {
@@ -160,6 +78,144 @@ $(document).ready(function() {
 });
 
 // Functions
+
+function generateResources() {
+  // enable buttons
+  $('button#toggle').attr('disabled', false);
+  $('button#showHide').attr('disabled', false);
+
+  // Calc the mine's output
+  var days = parseInt($("input#days").val()); // number of days to simulate
+  var minerCount = parseInt($("input#minerCount").val()); // number of miners
+  var mineQuality = $("#mineQuality").val(); // quality of the mine
+  var mineOwnerCount = $("#mineOwnerCount").val(); // number of mine owners
+
+  if (mineOwnerCount <= 0) { // ensure there is always at least one mine owner
+    mineOwnerCount = 1;
+    $("#mineOwnerCount").val(1);
+  }
+
+  if (days > 365) { // limit the amount of days to simulate. When testing, I found performance problems trying to simulate more than one year.
+    days = 365;
+    $("input#days").val(365);
+  }
+  if (days <= 0 || isNaN(days)) { // ensure the value is not 0 or less
+    days = 1;
+    $("input#days").val(1);
+  }
+
+  if (minerCount > 1000) { // limit the number of miners. Testing showed that more than 1000 miners causes performance issues.
+    minerCount = 1000;
+    $("input#minerCount").val(1000);
+  }
+  if (minerCount <= 0 || isNaN(minerCount)) { // ensure the value is not 0 or less
+    minerCount = 1;
+    $("input#minerCount").val(1);
+  }
+
+  var output = "";
+
+  for (i in minedOutput) { // set up the object to receive all material names and their worth
+      minedOutputTotal[i] = {};
+      minedOutputTotal[i].name = i;
+      minedOutputTotal[i].worth = [];
+      minedOutputTotal[i].count = 0;
+  }
+
+  var minerResults = {};
+  minerResults.minerCount = minerCount;
+
+  for (var i = 0; i < days; i++) { // loop through the number of selected days
+    for (var j = 0; j < minerCount; j++) { // loop through the number of selected miners
+      // update minerResults with the results of each miner on each day
+      minerResults[i] = {}; // set up miner's results object
+      minerResults[i].id = i; // miner's id (number)
+      minerResults[i].days = {}; // sub object to collect all the mined items from each day
+
+      var minedRnd = rndNum(100); // pick a random number to indicate the result of what the miner mined
+
+      for (k in miningProducts) { // loop through the different mining categories and select one of them based on the value of minedRnd
+        if (miningProducts[k].first <= minedRnd && miningProducts[k].second >= minedRnd) { // pick a mining product from the miningProducts object
+          switch (miningProducts[k].name) {
+            case 'stones':
+              minedItems(stones, mineQuality);
+              byproduct('stones');
+              minerResults[i].days[k] = j;
+              break;
+            case 'metals':
+              minedItems(metals, mineQuality);
+              byproduct('metals');
+              minerResults[i].days[k] = j;
+              break;
+            case 'exotics':
+              minedItems(exotics, mineQuality);
+              byproduct('exotic');
+              minerResults[i].days[k] = j;
+              break;
+            case 'gemstones':
+              minedItems(gemstones, mineQuality);
+              minerResults[i].days[k] = j;
+              break;
+            default: // Handle the default case if needed
+              break;
+          }
+        }
+      }
+    }
+  }
+
+  minedOutputTotal.grandTotal = 0;
+
+  for (i in minedOutputTotal) {if (minedOutputTotal[i] && minedOutputTotal[i].worth && minedOutputTotal[i].worth.length > 0) {
+    var tally = 0;
+
+    minedOutputTotal[i].calculated = true; // used to determine if a mined item should be tallied or not as it is used later when the user toggle a mined item on/off.
+
+    for (k in minedOutputTotal[i].worth) { // Check if the value is a valid number before adding it to the tally
+      if (!isNaN(minedOutputTotal[i].worth[k]) && minedOutputTotal[i].calculated == true) {
+        tally += minedOutputTotal[i].worth[k];
+        minedOutputTotal[i].count ++;
+      }
+    }
+
+    minedOutputTotal[i].tally = tally;
+
+    minedOutputTotal.grandTotal += tally;
+
+    // ** figure out the category of the mined item so that I can organize each mined item by its respective category when displaying them
+    }
+  }
+
+  // get values from inputs that will be used to split the grandTotal amongst the dragon's cut, miner's cut, mine upkeep, mine expenses, and mine expansion
+  minedOutputTotal.dragonsCut = parseInt($("input#percentage_dragonTip").val());
+  minedOutputTotal.minersCut = parseInt($("input#percentage_minerTip").val());
+  minedOutputTotal.mineUpkeep = parseInt($("input#percentage_mineUpkeep").val());
+  minedOutputTotal.miscExpenses = parseInt($("input#percentage_miscExpenses").val());
+  minedOutputTotal.mineExpansion = parseInt($("input#percentage_mineExpansion").val());
+  minedOutputTotal.partysCut = 100 - (minedOutputTotal.dragonsCut + minedOutputTotal.minersCut + minedOutputTotal.mineUpkeep + minedOutputTotal.miscExpenses + minedOutputTotal.mineExpansion);
+  minedOutputTotal.mineOwnerCount = parseInt($("input#mineOwnerCount").val());
+  
+  var output = ""; // hold the generated HTML output of mined items and their values
+
+  for (i in minedOutputTotal) { // loop through minedOutputTotal object and display only the items that have been mined
+    if (minedOutputTotal[i].tally) {
+        // ** add back in the categories of mined items so a whole category can be toggled on/off
+      if (minedOutputTotal[i].name == "blueSpinel") {
+          output += '<p class="indented"><input type="checkbox" class="mined" id="blueSpinel" name="blueSpinel"  total = "' + numberWithCommas(minedOutputTotal[i].tally) + '" checked>blue spinel: <span id="' + i + '">' + numberWithCommas(minedOutputTotal[i].tally) + "</span>gp (" + numberWithCommas(minedOutputTotal[i].count,'zero') + " units)</p>";
+      } else if (minedOutputTotal[i].name == "redSpinel") {
+          output += '<p class="indented"><input type="checkbox" class="mined" id="redSpinel" name="redSpinel"  total = "' + numberWithCommas(minedOutputTotal[i].tally) + '" checked>red spinel: <span id="' + i + '">' + numberWithCommas(minedOutputTotal[i].tally) + "</span>gp (" + numberWithCommas(minedOutputTotal[i].count,'zero') + " units)</p>";
+      } else {
+          output += '<p class="indented"><input type="checkbox" class="mined" id="' + minedOutputTotal[i].name + '" name="' + minedOutputTotal[i].name + '"  total = "' + numberWithCommas(minedOutputTotal[i].tally) + '" checked><span id="' + i + '">' + minedOutputTotal[i].name + ": " + numberWithCommas(minedOutputTotal[i].tally) + "</span>gp (" + numberWithCommas(minedOutputTotal[i].count,'zero') + " units)</p>";
+      }
+    }
+  }
+
+  $("div#output").html(''); // reset html output
+  $("div#output").append(output);
+
+  updateSummary(days);
+  restoreCheckboxStates(); // Restore checkbox states from local storage
+}
 
 function saveCheckboxStates() {
   var checkboxStates = {};
@@ -192,11 +248,12 @@ function restoreCheckboxStates() {
 }
 
 function updateSummary(days) { // display the mined shared
+
   $("div#summary").html('');
 
   $("div#summary").append('<br/><p><strong>The mine generated <span id="grandTotal">' + numberWithCommas(minedOutputTotal.grandTotal) + '</span>gp worth of materials from ' + days + ' days of labor from the miners</strong>.</p>'); 
   
-  $("div#summary").append('<p>The dragon gets <span id="dragonTipInput">' + numberWithCommas(Math.round(minedOutputTotal.grandTotal * (minedOutputTotal.dragonsCut / 100))) + '</span>gp.</p><p>The miners get <span id="minersBonus">' + numberWithCommas(Math.round(minedOutputTotal.grandTotal * (minedOutputTotal.minersCut / 100))) + '</span>gp.<p>' + numberWithCommas(minedOutputTotal.mineUpkeep + minedOutputTotal.miscExpenses) + 'gp goes to mine upkeep and misc expenses.</p><p>' + numberWithCommas(minedOutputTotal.mineExpansion) + 'gp for mine expansion and facility upgrades.</p>');
+  $("div#summary").append('<p>The dragon gets <span id="dragonTipInput">' + numberWithCommas(Math.round(minedOutputTotal.grandTotal * (minedOutputTotal.dragonsCut / 100))) + '</span>gp.</p><p>The miners get <span id="minersBonus">' + numberWithCommas(Math.round(minedOutputTotal.grandTotal * (minedOutputTotal.minersCut / 100))) + '</span>gp.<p>' + numberWithCommas(minedOutputTotal.grandTotal * (minedOutputTotal.mineUpkeep + minedOutputTotal.miscExpenses) / 100) + 'gp goes to mine upkeep and misc expenses.</p><p>' + numberWithCommas((minedOutputTotal.grandTotal * minedOutputTotal.mineExpansion) / 100) + 'gp for mine expansion and facility upgrades.</p>');
 
   if (minedOutputTotal.mineOwnerCount == 1) {
       $("div#summary").append('<p>And the mine owner get ' + numberWithCommas(minedOutputTotal.grandTotal * (minedOutputTotal.partysCut / 100) / minedOutputTotal.mineOwnerCount) + 'gp.');
