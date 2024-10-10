@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-06DGRLH7V4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-06DGRLH7V4');
+    </script>
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+    <title>Financial Record Endpoint</title>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="../../css/bootstrap.css" rel="stylesheet">
+    <link href="../../css/tutorials.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/main.css" type="text/css" />
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <h1>Financial Record Endpoint</h1>
+                <div>Created by Brian Immel, last modified on October 10, 2024</div>
+                <toc></toc>
+                <div>
+                    <p>You can use this endpoint to manage your financial records. It offers a complete set of tools for retrieving, creating, updating, and deleting records related to your financial transactions. You can use it to retrieve, create, update, and delete records related to your financial transactions.</p>
+                    <h2>Methods and their functions</h2>
+                    <p><strong>GET</strong>: This method retrieves a list of financial records based on specific criteria. You can filter the results by providing parameters like account ID, date range, and transaction type.</p>
+                    <p><strong>POST</strong>: Use this method to create a new financial record, typically representing a transaction. You'll need to provide details such as the account it belongs to, transaction type, amount, date, and an optional description.</p>
+                    <p><strong>PUT</strong>: This method allows you to update an existing financial record. You can modify specific fields like the amount, description, or transaction type by including them in the request body.</p>
+                    <p><strong>DELETE</strong>: This method permanently removes a designated financial record.</p>
+                    <h3>Requirement</h3>
+                    <p>To ensure secure access to your financial data, this endpoint requires bearer token authentication. Include your API key in the Authorization header of your requests using the following format: <code class="inline">Authorization: Bearer YOUR_API_KEY</code></p>
+                    <h2>GET Method</h2>
+                    <p>The GET method allows you to retrieve financial records from the database by using the following request parameters: <code class="inline">account_id</code>, <code class="inline">start_date</code>, <code class="inline">end_date</code>, and <code class="inline">transaction_type</code>.</p>
+
+                    <p><strong>Endpoint</strong>:<code class="inline"> /api/v1/get-records</code></p>
+                    <h3>Request parameters</h3>
+                    <p>This table outlines the parameters used for querying financial records.</p>
+                    <table>
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Data Type</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                        <tr>
+                            <td><code class="inline">account_id</code></td>
+                            <td>string</td>
+                            <td>The ID of the account to query.</td>
+                            <td>"acc12345"</td>
+                        </tr>
+                        <tr>
+                            <td><code class="inline">start_date</code></td>
+                            <td>date</td>
+                            <td>The start date of the query range (YYYY-MM-DD).</td>
+                            <td>"2023-01-01"</td>
+                        </tr>
+                        <tr>
+                            <td><code class="inline">end_date</code></td>
+                            <td>date</td>
+                            <td>The end date of the query range (YYYY-MM-DD).</td>
+                            <td>"2023-12-31"</td>
+                        </tr>
+                        <tr>
+                            <td><code class="inline">transaction_type</code></td>
+                            <td>string</td>
+                            <td>The type of transaction (e.g., "deposit", "withdrawal").</td>
+                            <td>"deposit"</td>
+                        </tr>
+                    </table>
+                    <h3>Record retrieval using Node.js GET method</h3>
+                    <p>The provided code snippet demonstrates how to retrieve a specific financial record using Node.js and the Axios library. This process involves:</p>
+                    <ul>
+                        <li>Including the <strong>Bearer Token</strong>: Pass your token as a parameter to the <code class="inline">getRecord</code> function.</li>
+                        <li>Setting the <strong>Authorization Header</strong>: Within the function, add the <code class="inline">Authorization</code> header to the request configuration using the <code class="inline">headers</code> property. The header value should follow the format <code class="inline">Bearer &lt;your_token&gt;</code>.</li>
+                    </ul>
+                    <code class="block">
+                        <span>const axios = require('axios');</span><br/>
+                        <br/>
+                        <span>async function getRecord(url, token, params = {}) {</span><br/>
+                        <span class="indent1">try {</span><br/>
+                        <span class="indent2">const response = await axios.get(url, {</span><br/>
+                        <span class="indent2">headers: {</span><br/>
+                        <span class="indent3">Authorization: `Bearer ${token}`</span><br/>
+                        <span class="indent2">},</span><br/>
+                        <span class="indent2">params, // Include optional query parameters here</span><br/>
+                        <span class="indent1">});</span><br/>
+                        <span class="indent1">console.log(response.data);</span><br/>
+                        <span class="indent1">} catch (error) {</span><br/>
+                        <span class="indent2">console.error('Error:', error);</span><br/>
+                        <span class="indent1">}</span><br/>
+                        <span>}</span><br/><br/>
+                        <span>const url = 'https://your-api-endpoint.com/get-record/123';</span><br/>
+                        <span>const token = 'your_token_here';</span><br/><br/>
+                        <span>// Example usage: Retrieve all records</span><br/>
+                        <span>getRecord('https://your-api-endpoint.com/get-record', 'your_token_here');</span><br/><br/>
+                        <span>// Example usage: Filter by account ID</span><br/>
+                        <span>const accountId = 'acc12345';</span><br/>
+                        <span>getRecord('https://your-api-endpoint.com/get-record', 'your_token_here', { account_id: accountId });</span><br/><br/>
+                        <span>// Example usage: Filter by date range</span><br/>
+                        <span>const startDate = '2023-12-01';</span><br/>
+                        <span>const endDate = '2023-12-31';</span><br/>
+                        <span>getRecord('https://your-api-endpoint.com/get-record', 'your_token_here', { start_date: startDate, end_date: endDate });</span><br/><br/>
+                        <span>// Example usage: Filter by transaction type</span><br/>
+                        <span>const transactionType = 'deposit';</span><br/>
+                        <span>getRecord('https://your-api-endpoint.com/get-record', 'your_token_here', { transaction_type: transactionType });</span>
+                    </code>
+                    <p><strong>Explanation</strong>:</p>
+                    <ol>
+                        <li><strong>Include the Axios library</strong>: Import the axios library for Node.js.</li>
+                        <li><strong>Define the <code class="inline">getRecord</code> function</strong>: Create an asynchronous function named getRecord that accepts two parameters: the URL of the record to retrieve and the bearer token for authentication.</li>
+                        <li><strong>Make the GET request</strong>: Use axios.get to send a GET request to the specified URL. Include the bearer token in the Authorization header to authenticate the request.</li>
+                        <li><strong>Handle the response</strong>:</li>
+                        <ul>
+                            <li>If the request is successful, the <code class="inline">response.data</code> property returns the retrieved financial record data. Log this data to the console using <code class="inline">console.log</code>.</li>
+                            <li>If an error occurs, log the error message using <code class="inline">console.error</code>.</li>
+                        </ul>
+                    </ol>
+                    <p><strong>Addition notes</strong>:</p>
+                    <p>Before running the code, replace the placeholders:</p>
+                    <ul>
+                        <li><strong><code class="inline">https://your-api-endpoint.com/get-record/123</code></strong> with your actual API URL and record ID.</li>
+                        <li><strong><code class="inline">your_token_here</code></strong> with your actual bearer token.</li>
+                    </ul>
+                    <h3>Record retrieval using cURL GET method</h3>
+                    <p>The code snippet provides an alternative approach to retrieving financial records using the cURL command-line tool.</p>
+                    <code class="block">
+                        <span>curl -X GET -H "Authorization: Bearer your_token_here" -G \</span><br/>
+                        <span>-d "account_id=acc12345" \</span><br/>
+                        <span>-d "start_date=2023-12-01" \</span><br/>
+                        <span>-d "end_date=2023-12-31" \</span><br/>
+                        <span>-d "transaction_type=deposit" \</span><br/>
+                        <span>https://your-api-endpoint.com/get-record</span><br/>    
+                    </code>
+                    <p><strong>Explanation</strong>:</p>
+                    <ul>
+                        <li><strong><code class="inline">-X GET</code></strong>: Specifies the HTTP method (GET) for retrieving data.</li>
+                        <li><strong><code class="inline">-H "Authorization: Bearer your_token_here"</code></strong>: Sets the Authorization header with your bearer token. Replace your_token_here with your actual token.</li>
+                        <li><strong><code class="inline">-G</code></strong>: Indicates that the data should be sent as query parameters.</li>
+                        <li><strong><code class="inline">-d "account_id=acc12345"</code></strong>: Sets the account_id query parameter. Replace <code class="inline">acc12345</code> with your desired value.</li>
+                        <li><strong><code class="inline">-d "start_date=2023-12-01"</code></strong>: Sets the <code class="inline">start_date</code> query parameter (adjust the date as needed).</li>
+                        <li><strong><code class="inline">-d "end_date=2023-12-31"</code></strong>: Sets the <code class="inline">end_date</code> query parameter (adjust the date as needed).</li>
+                        <li><strong><code class="inline">-d "transaction_type=deposit"</code></strong>: Sets the <code class="inline">transaction_type</code> query parameter (adjust the type as needed).</li>
+                        <li><strong><code class="inline">https://your-api-endpoint.com/get-record</code></strong>: The URL of the API endpoint.</li>
+                    </ul>
+                    <p><strong>Additional notes</strong>:</p>
+                    <ul>
+                        <li>Remember to replace placeholders with your actual values.</li>
+                        <li>You can use query parameters appended to the URL to filter retrieved records (e.g., by account ID, date range).</li>
+                        <li>For advanced scenarios, consider using additional cURL options or tools like <code class="inline">jq</code> to process the response data further.</li>
+                    </ul>
+                    <h3>Successful response for GET method</h3>
+                    <p>Upon successful retrieval, the API returns a JSON response with a "success" flag and an array containing the matching financial records.</p>
+                    <p><strong>Example JSON response</strong>:</p>
+                    <code class="block">
+                        <span>{</span><br/>
+                        <span class="indent1">"success": true,</span><br/>
+                        <span class="indent1">"data": [</span><br/>
+                        <span class="indent2">{</span><br/>
+                        <span class="indent3">"id": "txn1234",</span><br/>
+                        <span class="indent3">"amount": 100.00,</span><br/>
+                        <span class="indent3">"transaction_date": "2024-07-03",</span><br/>
+                        <span class="indent3">"transaction_type": "deposit",</span><br/>
+                        <span class="indent3">"description": "July bonus"</span><br/>
+                        <span class="indent2">},</span><br/>
+                        <span class="indent2">// ... other transactions</span><br/>
+                        <span class="indent1">]</span><br/>
+                    <span>}</span>
+                    </code>
+                    <h2>POST Method</h2>
+                    <p>You can create a new financial record within the database using the POST method by using the following parameters: <code class="inline">account_id</code>, <code class="inline">transaction_type</code>, <code class="inline">amount</code>, <code class="inline">transaction_date</code>, and <code class="inline">description</code>.</p>
+                    <p><strong>Endpoint</strong>: <code class="inline">/api/v1/create-records</code></p>
+                    <h3>Request parameters</h3>
+                    <p>This table outlines the parameters used for creating a new financial record.</p>
+                    <table>
+                        <tr>
+                            <th>Field</th>
+                            <th>Data Type</th>
+                            <th>Description</th>
+                            <th>Required</th>
+                        </tr>
+                        <tr>
+                            <td><code class="inline">account_id</code></td>
+                            <td>string</td>
+                            <td>The ID of the account to associate the record with.</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td><code class="inline">transaction_type</code></td>
+                            <td>string</td>
+                            <td>The type of transaction (e.g., "deposit", "withdrawal").</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td><code class="inline">amount</code></td>
+                            <td>decimal</td>
+                            <td>The amount of the transaction.</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td><code class="inline">transaction_date</code></td>
+                            <td>date</td>
+                            <td>The date of the transaction (YYYY-MM-DD).</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td><code class="inline">description</code></td>
+                            <td>string</td>
+                            <td>A description of the transaction.</td>
+                            <td>Optional</td>
+                        </tr>
+                    </table>
+                    <h3>Create a new record using Node.js</h3>
+                    <p>This section provides a Node.js code example demonstrating how to create a new financial record within the API. It utilizes the Axios library for making HTTP requests.</p>
+                    <ul>
+                        <li>Including the <strong>Bearer Token</strong>: Pass your token as a parameter to the <code class="inline">createFinancialRecord</code> function.</li>
+                        <li>Setting the <strong>Authorization Header</strong>: Within the function, add the Authorization header to the request configuration using the headers property. The header value should follow the format Bearer &lt;your_token&gt;.</li>
+                    </ul>
+                        
+                    <code class="block">
+                    <span>const axios = require('axios');</span><br/>
+                    <br/>
+                    <span>async function createFinancialRecord(url, token, data) {</span><br/>
+                    <span class="indent1">try {</span><br/>
+                    <span class="indent2">const response = await axios.post(url, data, {</span><br/>
+                    <span class="indent3">headers: {</span><br/>
+                    <span class="indent4">Authorization: `Bearer ${token}`</span><br/>
+                    <span class="indent3">}</span><br/>
+                    <span class="indent2">});</span><br/>
+                    <span class="indent1">console.log(response.data);</span><br/>
+                    <span class="indent1">} catch (error) {</span><br/>
+                    <span class="indent2">console.error('Error:', error);</span><br/>
+                    <span class="indent1">}</span><br/>
+                    <span>}</span><br/><br/>
+                    <br/>
+                    <span>const url = 'https://your-api-endpoint.com/api/v1/create-record';</span><br/>
+                    <span>const token = 'your_token_here';</span><br/>
+                    <span>const data = {</span><br/>
+                    <span class="indent1">"account_id": "acc12345",</span><br/>
+                    <span class="indent1">"transaction_type": "deposit",</span><br/>
+                    <span class="indent1">"amount": 100.00,</span><br/>
+                    <span class="indent1">"transaction_date": "2023-12-25",</span><br/>
+                    <span class="indent1">"description": "Christmas bonus"</span><br/>
+                    <span>};</span><br/><br/>
+                    <span>createFinancialRecord(url, token, data);</span><br/>
+                    </code>
+                    <p><strong>Explanation</strong>:</p>
+                    <ol>
+                        <li><strong>Import the <code class="inline">axios</code> library</strong>: This library is commonly used for making HTTP requests in Node.js.</li>
+                        <li><strong>Define the <code class="inline">createFinancialRecord</code> function</strong>: This function takes the URL, bearer token, and data to be sent as parameters.</li>
+                        <li><strong>Make the POST request</strong>: Use <code class="inline">axios.post</code> to send a POST request to the specified URL.</li>
+                        <ul>
+                            <li>The <code class="inline">data</code> parameter contains the JSON object representing the financial record to be created.</li>
+                            <li>The <code class="inline">headers</code> object includes the Authorization header with the bearer token.</li>
+                        </ul>
+                        <li><strong>Handle the response</strong>: If the request is successful, the response data contains the newly created record. Otherwise, an error is logged.</li>
+                    </ol>
+                    <p><strong>Addition notes</strong>:</p>
+                    <p>Before running the code, replace the placeholders:</p>
+                    <ul>
+                        <li><strong><code class="inline">https://your-api-endpoint.com/api/v1/create-record</code></strong> with your actual API URL and record ID.</li>
+                        <li><strong><code class="inline">your_token_here</code></strong> with your actual bearer token.</li>
+                    </ul>
+                    <h3>Create a new record using cURL</h3>
+                    <p>This section outlines how to use cURL to create a new financial record within the API.</p>
+                    <code class="block">
+                        <span>curl -X POST -H "Authorization: Bearer your_token_here" -H "Content-Type: application/json" -d '{ \</span><br/>
+                            <span class="indent1">"account_id": "acc12345", \</span><br/>
+                            <span class="indent1">"transaction_type": "deposit", \</span><br/>
+                            <span class="indent1">"amount": 100.00, \</span><br/>
+                            <span class="indent1">"transaction_date": "2023-12-25", \</span><br/>
+                            <span class="indent1">"description": "Christmas bonus" \</span><br/>
+                        <span>}' \</span><br/>
+                        <span>https://your-api-endpoint.com/api/v1/create-record</span>
+                    </code>
+                    <p><strong>Explanation</strong>:</p>
+                    <ul>
+                        <li><strong><code class="inline">-X POST</code></strong>: Specifies the HTTP method as POST.</li>
+                        <li><strong><code class="inline">-H "Authorization</code></strong>: Bearer your_token_here": Sets the Authorization header with the bearer token. Replace your_token_here with your actual token.</li>
+                        <li><strong><code class="inline">-H "Content-Type</code></strong>: application/json": Indicates that the request body is in JSON format.</li>
+                        <li><strong><code class="inline">-d '{ ... }'</code></strong>: Sets the request body as a JSON object. Replace the placeholder values with your desired data.</li>
+                        <li><strong><code class="inline">https://your-api-endpoint.com/api/v1/create-record</code></strong>: The URL of the API endpoint.</li>
+                    </ul>
+                    <p><strong>Remember to replace</strong>:</p>
+                    <ul>
+                        <li><strong><code class="inline">your_token_here</code></strong> with your actual bearer token.</li>
+                        <li><strong><code class="inline">https://your-api-endpoint.com/api/v1/create-record</code></strong> with the correct URL of your API.</li>
+                    </ul>
+                    <h3>Successful response for POST method</h3>
+                    <p>Upon successful creation, the API returns a 201 status code and a JSON response containing the newly created record, including its unique ID.</p>
+                    <p><strong>Example JSON response</strong>:</p>
+                    <code class="block">
+                    <span>{</span><br/>
+                    <span class="indent1">"id": "txn123",</span><br/>
+                    <span class="indent1">"account_id": "acc12345",</span><br/>
+                    <span class="indent1">"transaction_type": "deposit",</span><br/>
+                    <span class="indent1">"amount": 100.00,</span><br/>
+                    <span class="indent1">"transaction_date": "2023-12-25",</span><br/>
+                    <span class="indent1">"description": "Christmas bonus"</span><br/>
+                    <span>}</span>
+                    </code>
+                    <h2>PUT Method</h2>
+                    <p>The PUT method allows you to modify existing financial records within the database. You can update specific fields like the amount, description, or transaction type while leaving other fields unchanged.</p>
+                    <p><strong>Endpoint</strong>: <code class="inline">/api/v1/update-records/{record_id}</code></p>
+                    <h3>Request parameters</h3>
+                    <p>This table outlines the optional parameters that can be included in the request body when updating a financial record.</p>
+                    <p>Note: Although all fields are optional, you must specify at least one field.</p>
+                    <table>
+                        <tr>
+                            <th>Field</th>
+                            <th>Data Type</th>
+                            <th>Description</th>
+                            <th>Required</th>
+                        </tr>
+                        <tr>
+                            <td><code class="inline">account_id</code></td>
+                            <td>string</td>
+                            <td>The ID of the account to associate the record with.</td>
+                            <td>Optional</td>
+                        </tr>
+                        <tr>
+                            <td><code class="inline">transaction_type</code></td>
+                            <td>string</td>
+                            <td>The type of transaction (e.g., "deposit", "withdrawal").</td>
+                            <td>Optional</td>
+                        </tr>
+                        <tr>
+                            <td><code class="inline">amount</code></td>
+                            <td>decimal</td>
+                            <td>The amount of the transaction.</td>
+                            <td>Optional</td>
+                        </tr>
+                        <tr>
+                            <td><code class="inline">transaction_date</code></td>
+                            <td>date</td>
+                            <td>The date of the transaction (YYYY-MM-DD).</td>
+                            <td>Optional</td>
+                        </tr>
+                        <tr>
+                            <td><code class="inline">description</code></td>
+                            <td>string</td>
+                            <td>A description of the transaction.</td>
+                            <td>Optional</td>
+                        </tr>
+                    </table>
+                    <h3>Update a record using Node.js</h3>
+                    <p>This code snippet showcases a Node.js function named <code class="inline">updateRecord</code> that utilizes Axios to modify an existing financial record within the database.</p>
+                    <p>Node.js and the Axios library. This process involves:</p>
+                    <ul>
+                        <li>Including the <strong>Bearer Token</strong>: Pass your token as a parameter to the <code class="inline">updateRecord</code> function.</li>
+                        <li>Setting the <strong>Authorization Header</strong>: Within the function, add the Authorization header to the request configuration using the headers property. The header value should follow the format Bearer &lt;your_token&gt;.</li>
+                    </ul>
+                    <code class="block">
+                    <span>const axios = require('axios');</span><br/><br/>
+                    <span>async function updateRecord(url, token, data) {</span><br/>
+                    <span class="indent1">try {</span><br/>
+                    <span class="indent2">const response = await axios.put(url, data, {</span><br/>
+                    <span class="indent3"></span>headers: {</span><br/>
+                    <span class="indent4"></span>Authorization: `Bearer ${token}`</span><br/>
+                    <span class="indent3">}</span><br/>
+                    <span class="indent2">});</span><br/>
+                    <span class="indent2">console.log(response.data);</span><br/>
+                    <span class="indent1">} catch (error) {</span><br/>
+                    <span class="indent2">console.error('Error:', error);</span><br/>
+                    <span class="indent1">}</span><br/>
+                    <span>}</span><br/><br/>
+                    <span>const url = 'https://your-api-endpoint.com/update-record/123';</span><br/>
+                    <span>const token = 'your_token_here';</span><br/>
+                    <span>const data = {</span><br/>
+                    <span class="indent1">// Update data here</span><br/>
+                    <span class="indent1">"amount": 200.00,</span><br/>
+                    <span class="indent1">"description": "Revised transaction"</span><br/>
+                    <span>};</span><br/><br/>
+                    <span>updateRecord(url, token, data);</span>
+                    </code>
+                    <p><strong>Explanation</strong>:</p>
+                    <ol>
+                        <li><strong>Include the Axios library</strong>: Import the axios library for Node.js.</li>
+                        <li><strong>Define <code class="inline">updateRecord</code> function</strong>: Takes URL, token, and update data as parameters.</li>
+                        <li><strong>Make PUT request</strong>: Uses <code class="inline">axios.put</code> with URL, data, and headers.</li>
+                        <li><strong>Set Authorization header</strong>: Includes bearer token for authentication.</li>
+                        <li><strong>Handle response</strong>: Logs the response data or an error.</li>
+                    </ol>
+                    <p><strong>Additional notes</strong>:</p>
+                    <p>Remember to replace the placeholder values (<code class="inline">https://your-api-endpoint.com/update-record/123</code> and <code class="inline">your_token_here</code>) with your actual API URL, record ID, and bearer token before running this code.</p>
+                    <h3>Update a record using cURL</h3>
+                    <p>This section demonstrates how to update an existing financial record within the API using cURL.</p>
+                    <code class="block">
+                    <span>curl -X PUT -H "Authorization: Bearer your_token_here" -H "Content-Type: application/json" -d '{ \</span><br/>
+                    <span class="indent1">"amount": 200.00, \</span><br/>
+                    <span class="indent1">"description": "Revised transaction" \</span>
+                    <span>}' \</span><br/>
+                    <span>https://your-api-endpoint.com/api/v1/update-records/123</span>
+                    </code>
+                    <p><strong>Explanation</strong>:</p>
+                    <ul>
+                        <li><strong><code class="inline">-X PUT</code></strong>: Specifies the HTTP method as PUT.</li>
+                        <li><strong><code class="inline">-H "Authorization</code></strong>: Bearer your_token_here": Sets the Authorization header with the bearer token. Replace your_token_here with your actual token.</li>
+                        <li><strong><code class="inline">-H "Content-Type</code></strong>: application/json": Indicates that the request body is in JSON format.</li>
+                        <li><strong><code class="inline">-d '{ ... }'</code></strong>: Sets the request body as a JSON object. Replace the placeholder values with your desired update data.</li>
+                        <li><strong><code class="inline">https://your-api-endpoint.com/api/v1/update-records/123</code></strong>: The URL of the API endpoint, including the specific record ID you want to update.</li>
+                    </ul>
+                    <p><strong>Remember to replace</strong>:</p>
+                    <ul>
+                        <li><strong><code class="inline">your_token_here</code></strong> with your actual bearer token.</li>
+                        <li><strong><code class="inline">https://your-api-endpoint.com/api/v1/update-records/123</code></strong> with the correct URL of your API and the desired record ID.</li>
+                    </ul>
+                    <p><strong>Additional notes</strong>:</p>
+                    <ul>
+                        <li>You can update any or all of the fields in the request body.</li>
+                        <li>For more complex JSON payloads, you might consider using a tool like <code class="inline">jq</code> to format and manipulate the data.</li>
+                        <li>Always ensure that your bearer token is kept secure and confidential.</li>
+                    </ul>
+                    <h3>Successful response for POST method</h3>
+                    <p>Upon successful update, the API returns a 200 status code and the updated financial record.</p>
+                    <p><strong>Example JSON response</strong>:</p>
+                    <code class="block">
+                    <span>{</span><br/>
+                    <span class="indent1">"id": "txn123",</span><br/>
+                    <span class="indent1">"account_id": "acc12345",</span><br/>
+                    <span class="indent1">"transaction_type": "deposit",</span><br/>
+                    <span class="indent1">"amount": 200.00,</span><br/>
+                    <span class="indent1">"transaction_date": "2023-12-25",</span><br/>
+                    <span class="indent1">"description": "Revised transaction"</span><br/>
+                    <span>}</span>
+                    </code>
+                    <h2>DELETE Method</h2>
+                    <p>The DELETE method allows you to permanently remove existing financial record from the database.</p>
+                    <p><strong>Endpoint</strong>:<code class="inline"> /api/v1/delete-record/{record_id}</code></p>
+                    <h3>Request parameters</h3>
+                    <p>No request body is required for the DELETE method.</p>
+                    <p><strong>Additional notes</strong>:</p>
+                    <ul>
+                        <li>The <code class="inline">record_id</code> in the URL path specifies the unique identifier of the record to be deleted.</li>
+                        <li>The DELETE method is typically idempotent, meaning it can be safely executed multiple times without changing the result.</li>
+                    </ul>
+                    <h3>Delete a record using Node.js</h3>
+                    <p>The provided code snippet demonstrateshow to permanently remove a financial record from the database using Node.js and Axios.</p>
+                    <code class="block">
+                    <span>const axios = require('axios');</span><br/><br/>
+                    <span>async function deleteRecord(url, token) {</span><br/>
+                    <span class="indent1">try {</span><br/>
+                    <span class="indent2">const response = await axios.delete(url, {</span><br/>
+                    <span class="indent3">headers: {</span><br/>
+                    <span class="indent4">Authorization: `Bearer ${token}`</span><br/>
+                    <span class="indent3">}</span><br/>
+                    <span class="indent2">});</span><br/>
+                    <span class="indent2">console.log(response.data);</span><br/>
+                    <span class="indent1">} catch (error) {</span><br/>
+                    <span class="indent2">console.error('Error:', error);</span><br/>
+                    <span class="indent1">}</span><br/>
+                    <span>}</span><br/><br/>
+                    <span>const url = 'https://your-api-endpoint.com/delete-record/123';</span><br/>
+                    <span>const token = 'your_token_here';</span><br/><br/>
+                    <span>deleteRecord(url, token);</span>
+
+                    </code>                    
+                    <p><strong>Explanation</strong>:</p>
+                    <ol>
+                        <li><strong>Include the Axios library</strong>: Import the axios library for Node.js.</li>
+                        <li><strong>Define <code class="inline">deleteRecord</code> function</strong>: Takes URL and token as parameters.</li>
+                        <li><strong>Make DELETE request</strong>: Uses axios.delete with URL and headers.</li>
+                        <li><strong>Set Authorization header</strong>: Includes bearer token for authentication.</li>
+                        <li><strong>Handle response</strong>: Logs the response data or an error.</li>
+                    </ol>
+                    <p><strong>Addition notes</strong>:</p>
+                    <p>Before running the code, replace the placeholders:</p>
+                    <ul>
+                        <li><strong><code class="inline">https://your-api-endpoint.com/delete-record/123</code></strong> with your actual API URL and record ID. <strong>Note</strong>: ensure you have the correct record id before executing this request.</li>
+                        <li><strong><code class="inline">your_token_here</code></strong> with your actual bearer token.</li>
+                    </ul>
+                    <h3>Delete a record using cURL</h3>
+                    <p>This section outlines how to use cURL to permanently delete a financial record from the database.</p>
+                    <code class="block">
+                        <span>curl -X DELETE -H "Authorization: Bearer your_token_here" \</span><br/>
+                        <span>https://your-api-endpoint.com/api/v1/delete-record/123</span>
+                    </code>
+                    <p><strong>Explanation</strong>:</p>
+                    <ul>
+                        <li><strong><code class="inline">-X DELETE</code></strong>: Specifies the HTTP method as DELETE.</li>
+                        <li><strong><code class="inline">-H "Authorization: Bearer your_token_here"</code></strong>: Sets the Authorization header with the bearer token. Replace your_token_here with your actual token.</li>
+                        <li><strong><code class="inline">https://your-api-endpoint.com/api/v1/delete-record/123</code></strong>: The URL of the API endpoint, including the specific record ID you want to delete.</li>
+                    </ul>
+                    <p><strong>Remember to replace</strong>:</p>
+                    <ul>
+                        <li><strong><code class="inline">your_token_here</code></strong> with your actual bearer token.</li>
+                        <li><strong><code class="inline">https://your-api-endpoint.com/api/v1/delete-record</code></strong> with the correct URL of your API.</li>
+                    </ul>
+                    <h2>Error Codes</h2>
+                    <p>This table lists the potential error codes that may be returned by the API, along with their corresponding descriptions:</p>
+                    <table>
+                        <tr>
+                            <th>Error Code</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td>400</td>
+                            <td>Bad Request (invalid parameters or missing required fields).</td>
+                        </tr>
+                        <tr>
+                            <td>401</td>
+                            <td>Unauthorized (authentication failed).</td>
+                        </tr>
+                        <tr>
+                            <td>403</td>
+                            <td>Forbidden (access denied).</td>
+                        </tr>
+                        <tr>
+                            <td>404</td>
+                            <td>Not Found (record not found).</td>
+                        </tr>
+                        <tr>
+                            <td>500</td>
+                            <td>Internal Server Error.</td>
+                        </tr>
+                    </table>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../../js/toc_generator.js"></script>
+</html>
