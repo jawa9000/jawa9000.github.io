@@ -168,6 +168,34 @@
 	<script src="js/getYear.js"></script>
 	<script src="js/quotes.js"></script>
 	<script src="js/resumeFunctions.js"></script>
+	<script>
+		// Calculate the total number of years as a professional writer and teacher.
+		function calculateExperience(experience, role) {
+			let totalMonths = 0;
+
+			for (const key in experience) {
+				const item = experience[key];
+
+				if (item.totalTime[0] === role) {
+				const startDate = new Date(item.dates[0]);
+				const endDate = item.dates[1] === "present" ? new Date() : new Date(item.dates[1]);
+				const months = (endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24 * 30);
+				totalMonths += months;
+				}
+			}
+
+			const years = Math.floor(totalMonths / 12);
+			const remainingMonths = Math.floor(totalMonths % 12);
+
+			return { years, remainingMonths };
+		}
+
+		const TWexperience = calculateExperience(experience, 'technical writer');
+		const teacherExperience = calculateExperience(experience, 'teacher');
+
+		// Display the total amount of time I have been a technical writer and teacher.
+		$('div#totalYears').text("Brian has been a technical writer for total of " + TWexperience.years + " years and " + TWexperience.remainingMonths + " months and a teacher for " + teacherExperience.years + " years and " + teacherExperience.remainingMonths + " months.");
+	</script>
 </body>
 
 </html>
