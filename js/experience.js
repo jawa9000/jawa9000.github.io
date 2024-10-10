@@ -23,7 +23,7 @@ let experience = {
     "XOPS Senior Technical Content Engineer Contractor": {  
         "title": "Senior Technical Content Engineer Contractor",
         "company": "XperienceOps, Inc (XOPS)",
-        "dates": "July 31, 2024 - October 18, 2024",
+        "dates": "July 31, 2024 - October 7, 2024",
         "location": "Pleasanton California; Hybrid",
         "summary": "Created and maintained comprehensive documentation for various XOPS projects, including the Operator platform, ServiceNow Spoke integration, and API events as well as contributing to writing guides, migrating content, and reviewing and improving documentation processes.", 
         "responsbilities": ['Created and audited comprehensive documentation for the XOPS Operator platform, including Operator Overview, Operator Setup, and various other guides.', 'Created and published user guides, runbooks, and onboarding materials for the ServiceNow Spoke integration.', ' Documented API events and functionalities for Zoom Integration.', 'Migrated content to customer-facing Postman documentation site.', 'Researched and wrote FedEx integration guides.', 'Reviewed and approved pull requests from colleagues.', 'Identified documentation needs for Workplace and Broadcom integrations.', 'Contributed to improving the writing style guide for the XOPS documentation.'],
