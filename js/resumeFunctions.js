@@ -15,7 +15,7 @@ var output = '';
 for (i in experience) { // display experience
     output += '<div id="' + i.replace(/ /g, '_') + '" class="span8 lozenge">'; // ensure id doesn't have any spaces
     output += '<h3 class="resumeTitle">' + experience[i].title + ', ' + experience[i].company + '</h3>';
-    output += '<h4>' + experience[i].dates + ' | ' + experience[i].location + '</h4>';
+    output += '<h4>' + experience[i].dates[0] + ' - ' + experience[i].dates[1] + ' | ' + experience[i].location + '</h4>';
     output +='<p class="summary"><strong>Summary</strong>: ' + experience[i].summary + '</p><ul>';
 
     for (j in experience[i].responsbilities) { // display responsibilities based on series of strings or single strings
