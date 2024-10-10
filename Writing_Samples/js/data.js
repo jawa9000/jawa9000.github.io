@@ -15,6 +15,47 @@ let samples = {
     //         other: ''
     //     }
     // },
+    // 'Snapser Landing Page': {
+    //     title: 'Welcome to Snapser',
+    //     htmlLink: 'https://snapser.com/snapser-docs',
+    //     pdfLink: '',
+    //     description: '',
+    //     labels: [''],
+    //     projectDetails: {
+    //         audience: '',
+    //         starNotes: '',
+    //         projectNotes: '',
+    //         change: '',
+    //         other: ''
+    //     }
+    // },
+    // 'About Snapser': {
+    //     title: 'About Snapser',
+    //     htmlLink: 'Snapser_About.html',
+    //     pdfLink: 'Snapser_About.pdf',
+    //     description: '',
+    //     labels: ['Overview'],
+    //     projectDetails: {
+    //         audience: 'All levels',
+    //         starNotes: '',
+    //         projectNotes: '',
+    //         change: '',
+    //         other: ''
+    //     }
+    // },
+    'Financial Record Endpoint': {
+        title: 'Financial Record Endpoint',
+        htmlLink: 'Financial_Record_Endpoint.html',
+        pdfLink: 'Financial_Record_Endpoint.pdf',
+        description: 'foo',
+        labels: ['API'],
+        projectDetails: {
+            audience: 'Entry-level developers and internal testers.',
+            starNotes: 'Over several years of developing a financial tracking application, I noticed inconsistencies in my approach and endpoints. To address this, I set a goal to create comprehensive documentation that would align the application with its original objectives. Over several months in my spare time, I focused on a specific endpoint, writing and testing it thoroughly. I then documented my findings, including its functionality, parameters, and expected responses. This documentation has been instrumental in streamlining development and ensuring the application remains consistent with its intended purpose.',
+            projectNotes: 'This API documentation is based on a personal project I have been creating in my spare time over the past few years.',
+            change: 'If I assigned myself more time to this particular endpoint, I would do more testing and document any newly discovered items.'
+        }
+    },
     '5.3 release note': {
         title: 'Unreal Engine 5.3 Release Notes',
         htmlLink: 'https://docs.unrealengine.com/5.3/en-US/unreal-engine-5.3-release-notes/#animation',
