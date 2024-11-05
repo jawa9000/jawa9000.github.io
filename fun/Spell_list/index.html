@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Random Spell Picker</title>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-06DGRLH7V4"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-06DGRLH7V4');
+  </script>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+  <meta name='description' content='Random spell picker'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <meta name="keywords" content="spell, javascript, random">
+  <meta name="author" content="Brian Immel">
+  <meta name="level" content="2">
+  <meta name="version" content="0.0.1">
+  <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+  <link href="../../css/normalize.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+  <link href="../../css/bootstrap.min.css" rel="stylesheet">
+  
+  <style>
+    .center {
+        text-align: center;
+        padding: 15px;
+    }
+    .container {
+        padding: 25px;
+    }
+    input, select, button {
+        background-color: #f2ce9e;
+    }
+    body {
+        background-color: #d2b48c; /* Use a golden-brown color for the background */
+        font-family: 'Times New Roman', Times, serif;
+        margin: 20px;
+    }
+    h1 {
+        color: #8b4513; /* Saddle Brown color for the header text */
+        text-align: center;
+    }
+    p, label {
+        color: #4b3621; /* Brown color for regular text */
+        font-size: 1.3em;
+    }
+    h1 {
+        color: #8b4513; /* Saddle Brown color for the header text */
+        text-align: center;
+    }
+  </style>
+</head>
+<body>
+    <body>
+        <h1>Random Spell Picker</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <label for="schoolFilter">School:</label>
+                    <select id="schoolFilter">
+                    <option value="">Any</option>
+                    <option value="Abjuration">Abjuration</option>
+                    <option value="Conjuration">Conjuration</option>
+                    <option value="Divination">Divination</option>
+                    <option value="Enchantment">Enchantment</option>
+                    <option value="Evocation">Evocation</option>
+                    <option value="Illusion">Illusion</option>
+                    <option value="Necromancy">Necromancy</option>
+                    <option value="Transmutation">Transmutation</option>
+                    </select>
+                    <label for="levelFilter">Level:</label>
+                    <select id="levelFilter">
+                        <option value="">Any</option>
+                        <option value="cantrip">Cantrip</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        </select>
+                    <label for="classFilter">Class:</label>
+                    <select id="classFilter">
+                        <option value="">Any</option>
+                        <option value="Bard">Bard</option>
+                        <option value="Cleric">Cleric</option>
+                        <option value="Druid">Druid</option>
+                        <option value="Paladin">Paladin</option>
+                        <option value="Ranger">Ranger</option>
+                        <option value="Sorcerer">Sorcerer</option>
+                        <option value="Wizard">Wizard</option>
+                        <option value="Warlock">Warlock</option>
+                    </select>
+                    <button id="randomSpellButton">Random Spell</button>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10 center">
+                        <p id="spellResult"></p>
+                    </div>  
+                    <div class="col-md-1"></div>
+                </div>
+            </div>
+        </div>
+
+  <script src="../../js/jquery-3.7.1.min.js"></script>
+  <script src="spell_list.js"></script>
+
+  <script>
+    $(document).ready(function() {
+    $("#randomSpellButton").click(function() {
+        const schoolFilter = $("#schoolFilter").val();
+        const levelFilter = $("#levelFilter").val();
+        const classFilter = $("#classFilter").val();
+
+        const filteredSpells = [];
+
+        for (const level in spellList) {
+            if (levelFilter === "" || level === levelFilter) {
+                for (const spell of spellList[level]) {
+                    if ((schoolFilter === "" || spell.School === schoolFilter) &&
+                        (classFilter === "" || classFilter.split(", ").some(c => spell.Class.includes(c)))) {
+                        filteredSpells.push(spell);
+                    }
+                }
+            }
+        }
+
+        if (filteredSpells.length === 0) {
+            $("#spellResult").text("No spells match the filters.");
+        } else {
+            const randomSpell = filteredSpells[Math.floor(Math.random() * filteredSpells.length)];
+            $("#spellResult").text(randomSpell["Spell Name"]);
+        }
+    });
+});
+  </script>
+</body>
+</html>
