@@ -1,0 +1,15 @@
+.center {
+    text-align: center;
+}
+body {
+    background-color: #d2b48c; /* Use a golden-brown color for the background */
+    font-family: 'Times New Roman', Times, serif;
+    margin: 20px;
+}
+h1 {
+    color: #8b4513; /* Saddle Brown color for the header text */
+    text-align: center;
+}
+input, select, button {
+    background-color: #f2ce9e;
+}
