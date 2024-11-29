@@ -9,7 +9,7 @@
     <meta name="keywords" content="treasure, javascript, random" />
     <meta name="author" content="Brian Immel" />
     <meta name="level" content="2" />
-    <meta name="version" content="0.0.1" />
+    <meta name="version" content="0.1.0" />
     <link rel="shortcut icon" href="../../assets/ico/favicon.ico" />
     <link href="../../css/normalize.css" rel="stylesheet" />
     <link
@@ -23,73 +23,84 @@
   <body>
     <h1 class="center">Random Weather Generator</h1>
     <div class="container">
-        <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-10">
-                <div class="center">
-                    <button id="generateButton">Generate Weather</button>
-                    <div id="weatherOutput"></div>
-                </div>
-            </div>
-            <div class="col-md-1"></div>
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+          <div class="center">
+            <button id="oneDay">One Day Forecast</button>
+            <button id="sevenDays">Seven Day Forecast</button>
+          </div>
         </div>
+        <div class="col-md-1"></div>
+      </div>
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+          <div id="weatherOutput"></div>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
     </div>
     <script>
       $(document).ready(function () {
-        const weatherData = {
-          temperature: {
-            "1-14": "Normal for the season",
-            "15-17": "1d4 x 10 degrees Fahrenheit colder",
-            "18-20": "1d4 x 10 degrees Fahrenheit hotter",
-          },
-          wind_precipitation: {
-            "1-12": "None, None",
-            "13-17": "Light, Light rain or light snowfall",
-            "18-20": "Strong, Heavy rain or heavy snowfall",
-          },
+        $("#oneDay").click(() => {
+          const weatherReport = generateWeatherReport();
+          $("#weatherOutput").html(weatherReport);
+        });
+
+        $("#sevenDays").click(() => {
+          let weatherReports = "<p>";
+          for (let day = 1; day <= 7; day++) {
+            weatherReports += generateWeatherReport(day);
+          }
+          weatherReports += "</p>";
+          $("#weatherOutput").html(weatherReports);
+        });
+
+        const generateWeatherReport = (day) => {
+          const temperature = rollDie(20);
+          const wind = rollDie(20);
+          const precipitation = rollDie(20);
+          let temperatureDescription = "";
+
+          if (temperature <= 14) {
+            temperatureDescription = "Temperature is normal for the season.";
+          } else if (temperature >= 15 && temperature <= 17) {
+            temperatureDescription = `${rollDie(4) * 10} degrees colder than seasonal norms.`;
+          } else {
+            temperatureDescription = `${rollDie(4) * 10} degrees warmer than seasonal norms.`;
+          }
+
+          let windDescription = "";
+          
+          if (wind <= 14) {
+            windDescription = "Calm wind.";
+          } else if (wind >= 15 && wind <= 17) {
+            windDescription = "Light wind.";
+          } else {
+            windDescription = "Strong wind.";
+          }
+
+          let precipitationDescription = "";
+
+          if (precipitation <= 14) {
+            precipitationDescription = "No precipitation.";
+          } else if (precipitation >= 15 && precipitation <= 17) {
+            precipitationDescription = "Light rain or snowfall.";
+          } else {
+            precipitationDescription = "Heavy rain or snowfall.";
+          }
+
+          if (day) { // Only include the day number for multiple days
+            return `<span>Day ${day}: ${temperatureDescription} ${windDescription} ${precipitationDescription}</span><br/>`;
+          } else {
+            return `<p>${temperatureDescription} ${windDescription} ${precipitationDescription}</p>`;
+          }
         };
 
-        $("#generateButton").click(function () {
-          const temperatureRoll = Math.floor(Math.random() * 20) + 1;
-          const windPrecipitationRoll = Math.floor(Math.random() * 20) + 1;
-
-          let temperature;
-          let wind;
-          let precipitation;
-
-          // Determine temperature based on roll
-          if (temperatureRoll <= 14) {
-            temperature = weatherData.temperature["1-14"];
-          } else if (temperatureRoll <= 17) {
-            temperature = weatherData.temperature["15-17"];
-            // Calculate specific temperature change based on 1d4 roll
-            const temperatureChange = Math.floor(Math.random() * 4) + 1 * 10;
-            temperature += ` (${temperatureChange} degrees colder)`;
-          } else {
-            temperature = weatherData.temperature["18-20"];
-            // Calculate specific temperature change based on 1d4 roll
-            const temperatureChange = Math.floor(Math.random() * 4) + 1 * 10;
-            temperature += ` (${temperatureChange} degrees hotter)`;
-          }
-
-          // Determine wind and precipitation based on roll
-          if (windPrecipitationRoll <= 12) {
-            wind = "None";
-            precipitation = "None";
-          } else if (windPrecipitationRoll <= 17) {
-            wind = "Light";
-            precipitation = "Light rain or light snowfall";
-          } else {
-            wind = "Strong";
-            precipitation = "Heavy rain or heavy snowfall";
-          }
-
-          $("#weatherOutput").html(`
-          <p>Temperature: ${temperature}</p>
-          <p>Wind: ${wind}</p>
-          <p>Precipitation: ${precipitation}</p>
-        `);
-        });
+        function rollDie(num) {
+          return Math.floor(Math.random() * num) + 1;
+        }
       });
     </script>
   </body>
