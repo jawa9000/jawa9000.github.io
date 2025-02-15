@@ -1,0 +1,108 @@
+<html>
+    <head>
+        <!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-06DGRLH7V4"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', 'G-06DGRLH7V4');
+		</script>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+        <title>Encounter Generator</title>
+        <meta name='description' content='Encounter Builder'>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <meta name="keywords" content="encounter, builder, javascript, random">
+        <meta name="author" content="Brian Immel">
+		<meta name="level" content="2">
+        <meta name="version" content="0.0.1">
+        <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+        <link href="../../css/normalize.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../Running_Fantasy_Business/main.css" rel="stylesheet" />
+        <style>
+            .pcLevels {
+                padding: 0 5px 0 0;
+            }
+        </style>
+
+        <script src="../../js/jquery-3.7.1.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <label>Number of PCs:</label>
+                    <input type="number" id="pcCount" step="1" min="1" value="1" />
+                    <br/>
+                    <label>PC's AVG level:</label>
+                    <input id="pcLevels" type='number' step='1' min='1' value='1' />
+                    <br/>
+                    <label>Encounter Difficulty:</label>
+                    <select id="difficulty">
+                        <option value="Any">Any</option>
+                        <option value="Easy">Easy</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Hard">Hard</option>
+                        <option value="Deadly">Deadly</option>
+                    </select>
+                    <br/>
+                    <label>Environment:</label>
+                    <select id="environment">
+                        <optgroup label="Environment">
+                            <option value="Any" selected="selected">Any</option>
+                            <option value="Arctic">Arctic</option>
+                            <option value="Coastal">Coastal</option>
+                            <option value="Desert">Desert</option>
+                            <option value="Forest">Forest</option>
+                            <option value="Grassland">Grassland</option>
+                            <option value="Hill">Hill</option>
+                            <option value="Jungle">Jungle</option>
+                            <option value="Mountain">Mountain</option>
+                            <option value="Swamp">Swamp</option>
+                            <option value="Underdark">Underdark</option>
+                            <option value="Underwater">Underwater</option>
+                            <option value="Urban">Urban</option>
+                        </optgroup>
+                        <optgroup label="Planar">
+                            <option value="Celestial">Celestial Plane</option>
+                            <option value="Abyssal">Abyssal Plane</option>
+                            <option value="Infernal">Infernal Plane</option>
+                        </optgroup>
+                        <optgroup label="Elemental">
+                            <option value="Air Elemental">Elemental Air</option>
+                            <option value="Earth Elemental">Elemental Earth</option>
+                            <option value="Fire Elemental">Elemental Fire</option>
+                            <option value="Water Elemental">Elemental Water</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <button>Generate Encounter</button>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <div id="output"></div>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+        
+        <script src="monsters.js"></script>
+        <script src="xp_thresholds.js"></script>
+        <script src="environments.js"></script>
+        <script src="main.js"></script>
+    </body>
+
+</html>
