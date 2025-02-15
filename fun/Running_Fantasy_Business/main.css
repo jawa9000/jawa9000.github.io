@@ -1,0 +1,42 @@
+.center {
+    text-align: center;
+  }
+  input {
+    width: 45px;
+  }
+  input, select, button {
+    background-color: #f2ce9e;
+  }
+  #minerCount {
+    width: 50px;
+  }
+  h1, h2 {
+    text-align: center;
+  }
+  .indented {
+    padding: 0 0 0 15px;
+    margin-left: 20px;
+  }
+  body {
+        background-color: #d2b48c; /* Use a golden-brown color for the background */
+        font-family: 'Times New Roman', Times, serif;
+        margin: 20px;
+  }
+  h1 {
+      color: #8b4513; /* Saddle Brown color for the header text */
+      text-align: center;
+  }
+  p, label {
+      color: #4b3621; /* Brown color for regular text */
+      font-size: 1.3em;
+  }
+  strong {
+      color: #2f1c0f; /* Dark Brown color for strong text */
+  }
+  input[type="checkbox"] {
+      margin-right: 10px;
+  }
+  button {
+    float: right;
+    margin-right: 183px;
+  }
