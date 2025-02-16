@@ -1,4 +1,8 @@
-const envirnoments = {
+// ** this is missing a ton of monsters that are listed in monsters.js
+
+// Note: when you add a new monster to monsters.js, make sure to add which environment is can be found in.
+
+const environments = {
   "Arctic": [
     "Adult White Dragon",
     "Ancient White Dragon",
