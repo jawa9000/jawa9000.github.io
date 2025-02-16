@@ -1,3 +1,4 @@
+// Note: when you add a new monster to this file, make sure to add which environment is can be found in by updating environments.js
 const monsters = [
     {
       "name": "Aboleth",
