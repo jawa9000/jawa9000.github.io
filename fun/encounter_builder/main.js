@@ -103,6 +103,14 @@ function generatePcLevelInputs(pcCount, pcLevel, difficulty, environment) {
             for (i in monsterNames) {
                 monsterOutput += "<li>" + monsterNames[i] + ": " + monsterChallenges[i] + "</li>";
             }
+            // >> Take the above and turn it into an object so it can replace monsterXP object
+
+            let myMonsterXP = {};
+            for (i in monsterNames) {
+                myMonsterXP[monsterNames[i]] = monsterChallenges[i]
+            }
+
+            console.log(myMonsterXP); // ** this almost works but the key isn't wrapped in quotes.
             
             monsterOutput += "</ul>";
 
@@ -136,10 +144,21 @@ Young Black Dragon: 2900
         output += monsterOutput;
     
 
+        const encounterOptionsImproved = generateEncounterOptionsImproved(xpTally, monsterXP);
+            // console.log("\nImproved Encounter Options:");
+        encounterOptionsImproved.forEach((option, index) => {
+            console.log(`Encounter Option ${index + 1}:`);
+            console.log("Monsters:", option.monsters);
+            console.log("Total XP:", option.totalXP);
+            console.log("--------------------");
+        });
+
+
         $('div#output').html(output);
     } else {
         $('div#output').html('');
     }
+
     
 }
 
@@ -162,80 +181,83 @@ const monsterXP = {
     "Young Black Dragon": 2900,
   };
   
-  const encounterTotalXP = 3600;
+//   const encounterTotalXP = 3600;
   
-  function generateEncounterOptions(xpLimit, monsterData) {
-    const monsterNames = Object.keys(monsterData);
-    const encounterOptions = [];
+//   function generateEncounterOptions(xpLimit, monsterData) {
+//     const monsterNames = Object.keys(monsterData);
+//     const encounterOptions = [];
   
-    for (let i = 0; i < 5; i++) { // Generate 5 encounter options (adjust as needed)
-      const currentEncounter = [];
-      let currentXP = 0;
+//     for (let i = 0; i < 5; i++) { // Generate 5 encounter options (adjust as needed)
+//       const currentEncounter = [];
+//       let currentXP = 0;
   
-      while (currentXP < xpLimit) {
-        const randomMonster = monsterNames[Math.floor(Math.random() * monsterNames.length)];
-        const monsterXPValue = monsterData[randomMonster];
+//       while (currentXP < xpLimit) {
+//         const randomMonster = monsterNames[Math.floor(Math.random() * monsterNames.length)];
+//         const monsterXPValue = monsterData[randomMonster];
   
-        if (currentXP + monsterXPValue <= xpLimit) {
-          currentEncounter.push(randomMonster);
-          currentXP += monsterXPValue;
-        } else {
-          break; // Stop adding monsters if XP limit is reached
-        }
-      }
-      encounterOptions.push({ monsters: currentEncounter, totalXP: currentXP });
-    }
+//         if (currentXP + monsterXPValue <= xpLimit) {
+//           currentEncounter.push(randomMonster);
+//           currentXP += monsterXPValue;
+//         } else {
+//           break; // Stop adding monsters if XP limit is reached
+//         }
+//       }
+//       encounterOptions.push({ monsters: currentEncounter, totalXP: currentXP });
+//     }
   
-    return encounterOptions;
-  }
+//     return encounterOptions;
+//   }
   
   
-  const encounterOptions = generateEncounterOptions(encounterTotalXP, monsterXP);
+//   const encounterOptions = generateEncounterOptions(encounterTotalXP, monsterXP);
   
-  encounterOptions.forEach((option, index) => {
-    console.log(`Encounter Option ${index + 1}:`);
-    console.log("Monsters:", option.monsters);
-    console.log("Total XP:", option.totalXP);
-    console.log("--------------------");
-  });
+//   encounterOptions.forEach((option, index) => {
+//     console.log(`Encounter Option ${index + 1}:`);
+//     console.log("Monsters:", option.monsters);
+//     console.log("Total XP:", option.totalXP);
+//     console.log("--------------------");
+//   });
   
   
   
   //Improved version:
+// >> Integrate this function into the generatePcLevelInputs function
+// >> Also, investigate as to why the page takes so long to load now. It could be a lack of internet connection or worse, their is a long looping event that is slowing down processing.
   function generateEncounterOptionsImproved(xpLimit, monsterData, numOptions = 5) {
-      const monsterNames = Object.keys(monsterData);
-      const encounterOptions = [];
+    const monsterNames = Object.keys(monsterData);
+    const encounterOptions = [];
+
+    for (let i = 0; i < numOptions; i++) {
+        const currentEncounter = [];
+        let currentXP = 0;
+
+        // Sort monsters by XP (descending) for better combinations
+        const sortedMonsters = monsterNames.sort((a, b) => monsterData[b] - monsterData[a]);
+
+        for (const monster of sortedMonsters) {
+            const monsterXPValue = monsterData[monster];
+            while (currentXP + monsterXPValue <= xpLimit) {
+                currentEncounter.push(monster);
+                currentXP += monsterXPValue;
+            }
+        }
+
+        encounterOptions.push({ monsters: currentEncounter, totalXP: currentXP });
+    }
+
+    return encounterOptions;
+}
   
-      for (let i = 0; i < numOptions; i++) {
-          const currentEncounter = [];
-          let currentXP = 0;
-  
-          // Sort monsters by XP (descending) for better combinations
-          const sortedMonsters = monsterNames.sort((a, b) => monsterData[b] - monsterData[a]);
-  
-          for (const monster of sortedMonsters) {
-              const monsterXPValue = monsterData[monster];
-              while (currentXP + monsterXPValue <= xpLimit) {
-                  currentEncounter.push(monster);
-                  currentXP += monsterXPValue;
-              }
-          }
-  
-          encounterOptions.push({ monsters: currentEncounter, totalXP: currentXP });
-      }
-  
-      return encounterOptions;
-  }
-  
-  const encounterOptionsImproved = generateEncounterOptionsImproved(encounterTotalXP, monsterXP);
-  
-  console.log("\nImproved Encounter Options:");
-  encounterOptionsImproved.forEach((option, index) => {
-      console.log(`Encounter Option ${index + 1}:`);
-      console.log("Monsters:", option.monsters);
-      console.log("Total XP:", option.totalXP);
-      console.log("--------------------");
-  });
+//   const encounterOptionsImproved = generateEncounterOptionsImproved(encounterTotalXP, monsterXP);
+//   const encounterOptionsImproved = generateEncounterOptionsImproved(encounterTotalXP, monsterXP);
+
+//   console.log("\nImproved Encounter Options:");
+//   encounterOptionsImproved.forEach((option, index) => {
+//       console.log(`Encounter Option ${index + 1}:`);
+//       console.log("Monsters:", option.monsters);
+//       console.log("Total XP:", option.totalXP);
+//       console.log("--------------------");
+//   });
 
 // for (const monsterName in monsters) {
 //     if (monsters.hasOwnProperty(monsterName)) { // Important: Check own properties
