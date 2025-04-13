@@ -1,0 +1,66 @@
+:root {
+    --button-bg-color: #f2ce9e;
+    --container-bg-color: rgba(0, 0, 0, 0.1); 
+    
+
+.container {
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px var(--container-bg-color);
+    width: 80%;
+    max-width: 600px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.selection {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #f2ce9e;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+#fumbleBtn, #fumbleSubmit, #criticalHitSubmit {
+    float: right;
+    margin: 0 0 0 120px;
+}
+
+.table-container {
+    border: 1px solid var(--container-bg-color);
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.input-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+input[type="number"] {
+    padding: 8px 2px;
+    border: 1px solid var(--container-bg-color);
+    border-radius: 4px;
+    width: 120px;
+}
+
+.result {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid var(--container-bg-color);
+    border-radius: 4px;
+}

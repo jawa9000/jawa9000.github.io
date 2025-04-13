@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-06DGRLH7V4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-06DGRLH7V4');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Critical Hit and Fumble Roller</title>
+    <meta name='description' content='Critical Hit and Fumble Roller'>
+    <meta name="keywords" content="critical hit, critical fail, fumble, javascript, random">
+    <meta name="author" content="Brian Immel">
+    <meta name="level" content="2">
+    <meta name="version" content="0.0.1">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+    <link href="../../css/normalize.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link href="../Running_Fantasy_Business/main.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <h1>Critical Hit and Fumble Roller</h1>
+
+        <div class="selection">
+            <button id="criticalHitBtn">Critical Hit</button>
+            <button id="fumbleBtn">Fumble</button>
+        </div>
+
+        <div id="criticalHit" class="table-container" style="display: none;">
+            <h2>Critical Hit</h2>
+            <div class="input-area">
+                <button id="criticalHitRandom">Random</button>
+                <input type="number" id="criticalHitInput" min="1" max="100" placeholder="Enter 1-100">
+                <button id="criticalHitSubmit">Submit</button>
+            </div>
+            <p id="criticalHitResult" class="result"></p>
+        </div>
+
+        <div id="fumble" class="table-container" style="display: none;">
+            <h2>Fumble</h2>
+            <div class="input-area">
+                <button id="fumbleRandom">Random</button>
+                <input type="number" id="fumbleInput" min="1" max="100" placeholder="Enter 1-100">
+                <button id="fumbleSubmit">Submit</button>
+            </div>
+            <p id="fumbleResult" class="result"></p>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
