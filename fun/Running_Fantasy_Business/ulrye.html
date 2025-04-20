@@ -23,6 +23,9 @@
     <link href="../../css/normalize.css" rel="stylesheet">
     <link href="../../css/bootstrap.min.css" rel="stylesheet">
     <link href="main.css" rel="stylesheet" />
+    <link href="../Running_Fantasy_Business/css/main.css" rel="stylesheet" />
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/RPG_navigation.js"></script>
     <style>
         .center {
             text-align: center;
@@ -82,10 +85,6 @@
             <div class="col-md-1"></div>
         </div>
     </div>
-</body>
-
-    <script src="../../js/jquery-3.7.1.min.js"></script>
-    
 
     <script>
         let ulryeGpOutput = [50,50,50,50,50,50,100,100,100,250];
@@ -151,7 +150,7 @@
             $('#output').append('<p>The dragon\'s cut is ' + cutNCrystalOutput(dragonsCut, dragonsCutCrystal));
             $('#output').append('<p>The hamlet\'s cut is ' + cutNCrystalOutput(hamletCut, hamletCutCrystal));
             $('#output').append('<p>The tower\'s cut is ' + cutNCrystalOutput(towersCut, towersCutCrystal));
-            $('#output').append('<p>Each PC (and Auzben) gets ' + numberWithCommas(eachPlayersCut) + 'gp (' + numberWithCommas(eachPlayersCut * 2) + 'gp sold as powder).</p><hr/>');
+            $('#output').append('<p>Vall and Auzben each get ' + numberWithCommas(eachPlayersCut) + 'gp (' + numberWithCommas(eachPlayersCut * 2) + 'gp sold as powder).</p><hr/>');
 
             $('#output').append(output);
             

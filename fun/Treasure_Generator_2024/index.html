@@ -1,0 +1,42 @@
+<html>
+<head>
+    <!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-06DGRLH7V4"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', 'G-06DGRLH7V4');
+		</script>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+    <title>Treasure Generator</title>
+    <meta name='description' content='Treasure Generator'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta name="keywords" content="treasure, javascript, random">
+    <meta name="author" content="Brian Immel">
+    <meta name="level" content="2">
+    <meta name="version" content="0.0.1">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+    <link href="../../css/normalize.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../Running_Fantasy_Business/css/main.css" rel="stylesheet" />
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="treasure.js"></script>
+    <script src="main.js"></script>
+    
+</head>
+<body>
+    <h1 class="center">Treasure Generator 2024</h1>
+    <select name="Levels">
+      <option value="levels1-4">levels 1-4</option>
+      <option value="levels5-10">levels 5-10</option>
+      <option value="levels11-16">levels 11-16</option>
+      <option value="levels17-20">levels 17-20</option>
+    </select>
+    <div id="items"></div>
+    <p id="result"></p>
+</body>
+</html>
