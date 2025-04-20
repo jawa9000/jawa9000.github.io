@@ -49,6 +49,7 @@ option {
 .navbar-inverse {
     background-color: var(--main-bg-color);
     border-color: var(--main-color);
+    margin-top: 80px;
 }
 
 ::placeholder {
