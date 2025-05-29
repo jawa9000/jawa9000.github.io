@@ -1,0 +1,25 @@
+.pcLevels {
+    padding: 0 5px 0 0;
+}
+
+.monsterLink {
+    color: red;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.monster-image {
+    max-width: 200px;
+    height: auto;
+    margin-top: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.back-to-list-paragraph {
+    text-align: right;
+    margin-top: 15px;
+}
+
+/* Add any other general styles for your page here */
