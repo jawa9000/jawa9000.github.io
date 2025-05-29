@@ -1,22 +1,36 @@
-// console.log(monsters)
-
-// for (const monsterName in monsters) {
-//     if (monsters.hasOwnProperty(monsterName)) { // Check if it's the object's own property
-//       console.log(monsters[monsterName].name);
-//       // ** Note: monsters[monsterName].Challenge needs be turned into an array. Use split(' ') to create separate values in the array. For example: '1/4 (50 XP)' becomes ['1/4', '(50 XP)']
-//     }
-//   }
-
-// for (i in environments) {
-//     console.log(environments[i])
-// }
+/**
+ * @file Main JavaScript file for the Monster Encounter Generator application.
+ * Handles user interactions, fetches data, generates encounter options, and displays results.
+ */
 
 let pcCount = 1;
 let pcLevel = 1; // sum of all PC levels
 let difficulty = "Any";
 let environment = "Any";
 
+/**
+ * @function
+ * @name $(document).ready
+ * @description Executes when the DOM is fully loaded. Initializes the application by:
+ * 1. Displaying the total count of available monsters.
+ * 2. Setting up event listeners for user input changes (pcCount, pcLevels, difficulty, environment)
+ *    and button clicks, all of which trigger the encounter generation process.
+ *
+ * @param {function} callback - The function to execute once the DOM is ready.
+ *
+ * @listens {change} on `input, select` elements - Triggers `generatePcLevelInputs`.
+ * @listens {click} on `button` elements - Triggers `generatePcLevelInputs`.
+ *
+ * @careful_modification
+ * - Modifying the event listeners or the functions they call (`generatePcLevelInputs`) can break the core user interaction flow and prevent encounters from being generated or updated.
+ * - Ensure that any new interactive elements that should trigger encounter regeneration are also bound here.
+ * - The initial monster count display relies on the `monsters` global variable being available.
+ */
 $(document).ready(function() { // listeners
+    // Count monsters and update the display
+    const monsterCount = monsters.length;
+    $("span#monsterCount").text(monsterCount);
+
     $("input, select").change(function() { // gather all data and generate encounter
         generatePcLevelInputs();
     });
@@ -28,17 +42,113 @@ $(document).ready(function() { // listeners
 
 // functions
 
+/**
+ * @function formatNumberWithCommas
+ * @description Formats a given number by adding commas as thousands separators.
+ * If the input is null or undefined, it returns an empty string.
+ *
+ * @param {number|null|undefined} number - The number to format.
+ * @returns {string} The formatted number as a string, or an empty string if the input is invalid.
+ *
+ * @careful_modification
+ * - This is a display utility function. Incorrect modifications could lead to misleading XP values or counts for the user.
+ * - While relatively isolated, ensure any changes to the regex or logic correctly handle various numeric inputs (integers, potentially decimals if requirements change, negative numbers though not expected here).
+ */
+function formatNumberWithCommas(number) {
+  if (number === null || number === undefined) {
+    return '';
+  }
+  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+/**
+ * @function createMonsterSlug
+ * @description Converts a monster name into a URL-friendly slug.
+ * This involves converting the name to lowercase, replacing spaces with hyphens,
+ * and removing any characters that are not alphanumeric or hyphens.
+ * This slug is primarily used for creating anchor links to monster stat blocks.
+ *
+ * @param {string} monsterName - The name of the monster.
+ * @returns {string} A URL-friendly slug. Returns an empty string if `monsterName` is falsy.
+ *
+ * @careful_modification
+ * - This function is critical for linking encounter options to their detailed stat blocks.
+ * - If the slug generation logic is changed, it must also be updated wherever these slugs are used as `id` attributes for the stat block divs (e.g., in `generatePcLevelInputs`).
+ * - Inconsistency will break the in-page navigation to monster details.
+ */
+function createMonsterSlug(monsterName) {
+    if (!monsterName) return '';
+    return monsterName.toLowerCase()
+                      .replace(/\s+/g, '-') // Replace spaces with hyphens
+                      .replace(/[^a-z0-9-]/g, ''); // Remove non-alphanumeric characters except hyphens
+}
+
+/**
+ * @function getEncounterXpMultiplier
+ * @description Calculates the XP multiplier for an encounter based on the number of monsters.
+ * This multiplier is used to determine the adjusted XP value of an encounter, which reflects its true difficulty.
+ * The multipliers are based on a popular RPG rule set.
+ *
+ * @param {number} monsterCount - The total number of monsters in the encounter.
+ * @returns {number} The XP multiplier. Returns 0 if monsterCount is non-positive,
+ *                   and 1 as a fallback for unexpected positive counts not covered by specific rules.
+ *
+ * @careful_modification
+ * - This function implements a core RPG game mechanic for encounter balancing.
+ * - Modifying these multiplier values or the conditions under which they apply will directly impact the accuracy of the calculated encounter difficulty.
+ * - Ensure any changes align with official RPG rules or clearly documented house rules if intended.
+ * - This function's logic should correspond to the data structure in `encounter_multiplier.js` if that file were to be used directly (though currently, the logic is hardcoded here).
+ */
+function getEncounterXpMultiplier(monsterCount) {
+    if (monsterCount <= 0) return 0; // No monsters, no XP multiplier.
+    if (monsterCount === 1) return 1;
+    if (monsterCount === 2) return 1.5;
+    if (monsterCount >= 3 && monsterCount <= 6) return 2;
+    if (monsterCount >= 7 && monsterCount <= 10) return 2.5;
+    if (monsterCount >= 11 && monsterCount <= 14) return 3;
+    if (monsterCount >= 15) return 4;
+    // Should ideally not be reached if monsterCount is positive,
+    // but as a fallback for unexpected counts > 0.
+    return 1;
+}
+
+/**
+ * @function generatePcLevelInputs
+ * @description Main function to generate and display encounter options based on user inputs.
+ * It reads PC count, average PC level, desired difficulty, and environment.
+ * It calculates the target XP, filters available monsters, generates encounter suggestions,
+ * and then renders these suggestions along with detailed monster stat blocks.
+ *
+ * @param {number} [pcCount_param] - (Note: Parameter is named with _param to avoid conflict with global `pcCount`, but the function actually reads from DOM) The number of player characters.
+ * @param {number} [pcLevel_param] - (Note: Parameter is named with _param to avoid conflict with global `pcLevel`, but the function actually reads from DOM) The average level of player characters.
+ * @param {string} [difficulty_param] - (Note: Parameter is named with _param to avoid conflict with global `difficulty`, but the function actually reads from DOM) The desired encounter difficulty (e.g., "easy", "medium", "hard", "deadly", "any").
+ * @param {string} [environment_param] - (Note: Parameter is named with _param to avoid conflict with global `environment`, but the function actually reads from DOM) The desired encounter environment (e.g., "Forest", "Arctic", "Any").
+ *
+ * @outputs HTML content to `div#encounterList` and `div#monsterStats`.
+ *
+ * @depends_on_globals `monsters`, `xp_thresholds`, `environments`.
+ * @calls `formatNumberWithCommas`, `createMonsterSlug`, `getEncounterXpMultiplier`, `generateEncounterOptionsImproved`.
+ *
+ * @careful_modification
+ * - **Core Logic**: This is the central function of the application. Changes can have widespread effects.
+ * - **Input Reading**: Altering how `currentPcCount`, `pcLevel`, `difficulty`, or `environmentSelected` are read from the DOM will break input processing.
+ * - **XP Calculation**: Relies heavily on the structure and content of the `xp_thresholds` global object. If `xp_thresholds` changes, this function's logic for accessing XP values might need updates. Incorrect XP calculation will lead to poorly balanced encounters.
+ * - **Randomization**: The logic for handling "Any" difficulty or "Any" environment involves random selection. Changes here could affect the variety or predictability of suggestions.
+ * - **Monster Filtering**: The process of creating `availableMonstersForEnvironment` is crucial. Modifying the filtering criteria (e.g., how monster XP is extracted or how monsters are matched to environments) can drastically change the pool of monsters available for encounter generation, potentially leading to no options or irrelevant options.
+ * - **HTML Generation**: The dynamic HTML generation for encounter options and monster stats is complex. Changes require careful testing to ensure layout, links (using `createMonsterSlug`), and data display remain correct.
+ * - **Error Handling**: The current error handling for missing XP thresholds is basic. More robust error handling might be needed if the data sources (`xp_thresholds`, `monsters`, `environments`) become unreliable or if user inputs lead to unexpected states.
+ * - **Performance**: For very large datasets or extremely complex filtering, performance could become a concern, though current pre-filtering helps.
+ */
 function generatePcLevelInputs(pcCount, pcLevel, difficulty, environment) {
-    pcCount = $("input#pcCount").val();
+    let currentPcCount = $("input#pcCount").val();
     pcLevel = $("input#pcLevels").val();
     difficulty = $("select#difficulty").val().toLowerCase();
     environmentSelected = $("select#environment").val();
 
-    let xpTally = 0;
-    let monsterNames = [];
-    let monsterChallenges = [];
-    let monsterOutput = "";
-
+    // Clear previous monster stats display
+    $('div#monsterStats').html('');
+    let monsterStatsContent = "";
+    const displayedMonsterStats = new Set(); // To track monsters whose stats have been added
     if (pcCount < 1) { // prevent zero enteries
         pcCount = 1;
     }
@@ -47,7 +157,8 @@ function generatePcLevelInputs(pcCount, pcLevel, difficulty, environment) {
         pcLevel = 1;
     }
 
-    // console.log(pcCount, pcLevel, difficulty, environment);
+    let xpTally = 0;
+    const numericPcLevel = parseInt(pcLevel, 10);
 
     if (difficulty == 'any') { // if difficulty == any, randomly pick a difficulty level
         let randomDifficulty = ["easy", "medium", "hard", "deadly"];
@@ -58,210 +169,279 @@ function generatePcLevelInputs(pcCount, pcLevel, difficulty, environment) {
 
     if (environmentSelected == 'Any') { // if environment == any, randomly pick an environment.
         var environmentOptions = [];
-        
+
         Object.entries(environments).forEach(([environment, creatures]) => { // return an array of all the possible environments
             environmentOptions.push(environment);
         });
-        
+
         let randomIndex = Math.floor(Math.random() * environmentOptions.length);
 
         environmentSelected = environmentOptions[randomIndex];
     }
 
-    // Calculate the xp threshold total
-    for (var i = 0; i < pcCount; i++) { // loop the the xp tallying system for the number of PCs
-        for (levels in xp_thresholds.encounterDifficulty) {
-            let level = xp_thresholds.encounterDifficulty[levels].level;
-            
-            if (level == pcLevel) { // match the difficulty and add the value to the xpTally
-                Object.entries(xp_thresholds.encounterDifficulty[levels]).forEach(([key, value]) => {
-                    if (key == difficulty) {
-                        xpTally += value;
-                    }
-                });
+    // Calculate the XP threshold total
+    let singlePcXpThresholds;
+    if (numericPcLevel >= 1 && numericPcLevel <= 20) {
+        singlePcXpThresholds = xp_thresholds.encounterDifficulty[pcLevel];
+    } else if (numericPcLevel > 20 && numericPcLevel <= 50) {
+        singlePcXpThresholds = xp_thresholds[pcLevel];
+    }
+
+    if (singlePcXpThresholds && singlePcXpThresholds[difficulty]) {
+        xpTally = singlePcXpThresholds[difficulty] * parseInt(currentPcCount, 10);
+    } else {
+        console.error(`XP threshold not found for level ${pcLevel} (numeric: ${numericPcLevel}) and difficulty ${difficulty}`);
+        $('div#encounterList').html('<p>Error: Could not determine XP threshold for the selected PC level and difficulty. Please ensure the level is between 1 and 50.</p>');
+        $('div#monsterStats').html(''); // Also clear monster stats on error
+        return; // Exit if no valid XP threshold
+    }
+
+
+    // Generate a list of possible monsters for the selected environment that fall within the xpTally limit (as a pre-filter)
+    let availableMonstersForEnvironment = {};
+    if (environments[environmentSelected]) {
+        const creaturesInEnv = environments[environmentSelected];
+        for (const monsterData of monsters) {
+            if (creaturesInEnv.includes(monsterData.name)) {
+                const challengeParts = monsterData.Challenge.split(' ');
+                const monsterXpString = challengeParts[1].replace(/[(),]/g, "");
+                const monsterXp = parseInt(monsterXpString, 10);
+
+                // Pre-filter: only consider monsters whose individual XP is not more than the total budget
+                // This helps in not considering extremely high CR monsters if the budget is low.
+                if (monsterXp > 0 && monsterXp <= xpTally) { // Ensure monsterXP is positive
+                    availableMonstersForEnvironment[monsterData.name] = monsterXp;
+                } else if (monsterXp > 0 && Object.keys(availableMonstersForEnvironment).length < 200) {
+                    // Fallback: if budget is very low, still add some monsters to allow combinations
+                    // This limit (200) is arbitrary to prevent excessively large lists for generateEncounterOptionsImproved
+                    availableMonstersForEnvironment[monsterData.name] = monsterXp;
+                }
             }
         }
     }
 
-    Object.entries(environments).forEach(([environment, creatures]) => { // Generate a list of possible monsters that fall within the xpTally limit
-        if (environmentSelected == environment) {
-            for (i in monsters) { // Look up the list of monsters in monsters.js and match them to the monsters listed in the environment[creatures] array
-                for (j in creatures) {
-                    if (monsters[i].name == creatures[j]) {
-                        let challenge = monsters[i].Challenge.split(' ')[1].replace(/[(),]/g, ""); // Returns the XP for a monster (e.g. "1100")
+    // display list of possible encounters
+    if (xpTally > 0) {
+        let outputHTML = `<p>Target XP for ${currentPcCount} PC(s) of average level  of ${pcLevel} for a ${difficulty} encounter in a ${environmentSelected.toLowerCase()} environment is ${formatNumberWithCommas(xpTally)}.</p>`;
 
-                        if (challenge <= xpTally) { // Create a pair of arrays to collect the possible monster names and their respective XP
-                            monsterNames.push(monsters[i].name);
-                            monsterChallenges.push(challenge);
+        if (Object.keys(availableMonstersForEnvironment).length > 0) {
+            const encounterOptionsImproved = generateEncounterOptionsImproved(xpTally, availableMonstersForEnvironment);
+
+            outputHTML += "<h3>Suggested Encounters:</h3>";
+            if (encounterOptionsImproved.length > 0 && encounterOptionsImproved.some(option => option.monsters.length > 0)) {
+                encounterOptionsImproved.forEach((option, index) => {
+                    if (option.monsters.length > 0) {
+                        const monsterCounts = option.monsters.reduce((acc, monster) => {
+                            acc[monster] = (acc[monster] || 0) + 1;
+                            return acc;
+                        }, {});
+
+                        const numMonstersInOption = option.monsters.length;
+                        const xpMultiplier = getEncounterXpMultiplier(numMonstersInOption);
+                        const adjustedXP = Math.floor(option.totalXP * xpMultiplier);
+
+                        let encounterDifficultyRating = "Trivial"; // Default if below easy
+                        // singlePcXpThresholds is already defined and holds {easy, medium, hard, deadly} for one PC of the party's level
+                        if (singlePcXpThresholds) {
+                            const partyEasyThreshold = singlePcXpThresholds.easy * parseInt(currentPcCount, 10);
+                            const partyMediumThreshold = singlePcXpThresholds.medium * parseInt(currentPcCount, 10);
+                            const partyHardThreshold = singlePcXpThresholds.hard * parseInt(currentPcCount, 10);
+                            const partyDeadlyThreshold = singlePcXpThresholds.deadly * parseInt(currentPcCount, 10);
+
+                            if (adjustedXP >= partyDeadlyThreshold) {
+                                encounterDifficultyRating = "Deadly";
+                            } else if (adjustedXP >= partyHardThreshold) {
+                                encounterDifficultyRating = "Hard";
+                            } else if (adjustedXP >= partyMediumThreshold) {
+                                encounterDifficultyRating = "Medium";
+                            } else if (adjustedXP >= partyEasyThreshold) {
+                                encounterDifficultyRating = "Easy";
+                            }
                         }
+
+                        outputHTML += `<h4>Encounter Option ${index + 1} (Raw XP: ${formatNumberWithCommas(option.totalXP)}, Adjusted XP: ${formatNumberWithCommas(adjustedXP)}, Party Difficulty: ${encounterDifficultyRating})</h4><ol>`;
+                        for (const monsterNameInOption in monsterCounts) {
+                            const fullMonsterData = monsters.find(m => m.name === monsterNameInOption);
+                            const monsterSlugForLink = createMonsterSlug(monsterNameInOption);
+                            let crString = "CR N/A";
+                            let monsterXpString = "XP N/A";
+                            if (fullMonsterData && fullMonsterData.Challenge) {
+                                crString = fullMonsterData.Challenge.split(' ')[0];
+                                const challengeParts = fullMonsterData.Challenge.split('(');
+                                if (challengeParts.length > 1 && challengeParts[1]) {
+                                    monsterXpString = challengeParts[1].replace(/[(),]/g, "").replace("XP", "").trim();
+                                }
+                            }
+                            outputHTML += `<li>${monsterCounts[monsterNameInOption]}x <a href="#monster-stat-${monsterSlugForLink}" class="monsterLink">${monsterNameInOption}</a> (CR: ${crString}, XP: ${formatNumberWithCommas(parseInt(monsterXpString, 10))})</li>`;
+                        }
+                        outputHTML += "</ol>";
+
+                        // Add monster stats to #monsterStats section for unique monsters
+                        option.monsters.forEach(monsterNameInStatBlock => {
+                            if (!displayedMonsterStats.has(monsterNameInStatBlock)) {
+                                const monsterDetails = monsters.find(m => m.name === monsterNameInStatBlock);
+                                if (monsterDetails) {
+                                    const monsterStatSlug = createMonsterSlug(monsterDetails.name);
+                                    monsterStatsContent += `<div class="monster-stat-block" id="monster-stat-${monsterStatSlug}">`;
+                                    monsterStatsContent += `<h3>${monsterDetails.name}</h3>`;
+                                    monsterStatsContent += `<p><em>${monsterDetails.meta}</em></p>`;
+                                    if (monsterDetails["Armor Class"]) monsterStatsContent += `<p><strong>Armor Class:</strong> ${monsterDetails["Armor Class"]}</p>`;
+                                    if (monsterDetails["Hit Points"]) monsterStatsContent += `<p><strong>Hit Points:</strong> ${monsterDetails["Hit Points"]}</p>`;
+                                    if (monsterDetails.Speed) monsterStatsContent += `<p><strong>Speed:</strong> ${monsterDetails.Speed}</p>`;
+                                    monsterStatsContent += `<hr>`;
+                                    monsterStatsContent += `<p><strong>STR:</strong> ${monsterDetails.STR}${monsterDetails.STR_mod || ''} | <strong>DEX:</strong> ${monsterDetails.DEX}${monsterDetails.DEX_mod || ''} | <strong>CON:</strong> ${monsterDetails.CON}${monsterDetails.CON_mod || ''} | <strong>INT:</strong> ${monsterDetails.INT}${monsterDetails.INT_mod || ''} | <strong>WIS:</strong> ${monsterDetails.WIS}${monsterDetails.WIS_mod || ''} | <strong>CHA:</strong> ${monsterDetails.CHA}${monsterDetails.CHA_mod || ''}</p>`;
+                                    monsterStatsContent += `<hr>`;
+                                    if (monsterDetails["Saving Throws"]) monsterStatsContent += `<p><strong>Saving Throws:</strong> ${monsterDetails["Saving Throws"]}</p>`;
+                                    if (monsterDetails.Skills) monsterStatsContent += `<p><strong>Skills:</strong> ${monsterDetails.Skills}</p>`;
+                                    if (monsterDetails["Damage Vulnerabilities"]) monsterStatsContent += `<p><strong>Damage Vulnerabilities:</strong> ${monsterDetails["Damage Vulnerabilities"]}</p>`;
+                                    if (monsterDetails["Damage Resistances"]) monsterStatsContent += `<p><strong>Damage Resistances:</strong> ${monsterDetails["Damage Resistances"]}</p>`;
+                                    if (monsterDetails["Damage Immunities"]) monsterStatsContent += `<p><strong>Damage Immunities:</strong> ${monsterDetails["Damage Immunities"]}</p>`;
+                                    if (monsterDetails["Condition Immunities"]) monsterStatsContent += `<p><strong>Condition Immunities:</strong> ${monsterDetails["Condition Immunities"]}</p>`;
+                                    if (monsterDetails.Senses) monsterStatsContent += `<p><strong>Senses:</strong> ${monsterDetails.Senses}</p>`;
+                                    if (monsterDetails.Languages) monsterStatsContent += `<p><strong>Languages:</strong> ${monsterDetails.Languages}</p>`;
+                                    if (monsterDetails.Challenge) monsterStatsContent += `<p><strong>Challenge:</strong> ${monsterDetails.Challenge}</p>`;
+                                    if (monsterDetails.Traits) monsterStatsContent += `<h4>Traits</h4>${monsterDetails.Traits}`;
+                                    if (monsterDetails.Actions) monsterStatsContent += `<h4>Actions</h4>${monsterDetails.Actions}`;
+                                    if (monsterDetails["Legendary Actions"]) monsterStatsContent += `<h4>Legendary Actions</h4>${monsterDetails["Legendary Actions"]}`;
+                                    if (monsterDetails.img_url) monsterStatsContent += `<img src="${monsterDetails.img_url}" alt="${monsterDetails.name}" class="monster-image">`;
+                                    monsterStatsContent += `<p class="back-to-list-paragraph"><a href="#encounterList" class="monsterLink">Back to Encounter List</a></p>`;
+                                    monsterStatsContent += `</div><hr class="monster-separator">`;
+                                    displayedMonsterStats.add(monsterNameInStatBlock);
+                                }
+                            }
+                        });
                     }
+                });
+            } else {
+                outputHTML += "<p>No suitable encounter options could be generated with the current criteria. Try a higher XP budget or different environment/difficulty.</p>";
+            }
+        } else {
+            outputHTML += "<p>No monsters found for the selected environment that fit the XP budget. Cannot generate encounter options.</p>";
+        }
+        $('div#encounterList').html(outputHTML);
+    } else {
+        $('div#encounterList').html('<p>No XP budget calculated. Please check PC level and difficulty settings.</p>');
+    }
+
+    // Populate the monster stats section if any stats were generated
+    if (displayedMonsterStats.size > 0) {
+        $('div#monsterStats').html('<h2>Monster Stats</h2>' + monsterStatsContent);
+    }
+}
+
+/**
+ * @function generateEncounterOptionsImproved
+ * @description Generates a specified number of unique encounter options that fit within a given XP limit,
+ * using a provided dataset of monsters and their XP values. It aims for variety and tries to get close
+ * to the XP limit.
+ *
+ * @param {number} xpLimit - The maximum total raw XP for an encounter.
+ * @param {Object.<string, number>} monsterData - An object where keys are monster names and values are their XP. It's expected that monsters with 0 XP are pre-filtered out.
+ * @param {number} [numOptions=5] - The desired number of unique encounter options to generate.
+ * @returns {Array<Object>} An array of encounter options. Each option is an object with:
+ *                          `monsters`: An array of monster names in the encounter.
+ *                          `totalXP`: The sum of raw XP for all monsters in that encounter.
+ *                          Returns an array with a single empty option `[{ monsters: [], totalXP: 0 }]`
+ *                          if no monsters are available or no suitable encounters can be formed.
+ *
+ * @careful_modification
+ * - **Algorithm Complexity & Performance**: This function uses a heuristic, randomized approach. Changes to the iteration limits (`maxTotalAttempts`, `fillAttempts`, `maxMonstersInEncounter`), monster selection logic, or the shuffling/sorting can significantly impact performance and the quality/variety of generated encounters. Test thoroughly with various `xpLimit` values and `monsterData` sizes.
+ * - **Encounter Quality**: The definition of a "good" encounter is subjective. This algorithm prioritizes getting close to the `xpLimit` and providing some variety. Modifying how `numTryAdd` is calculated or how `fittingMonsters` are chosen will change the composition of suggested encounters.
+ * - **Uniqueness**: The `generatedOptionSignatures` Set is used to avoid duplicate encounter suggestions (based on the exact multiset of monsters). If this logic is altered, users might see redundant options.
+ * - **Fallback Logic**: The fallback mechanism (filling with the smallest XP monster) is crucial for cases where the main generation loop fails to produce enough unique options. Ensure this fallback remains robust.
+ * - **Zero XP Monsters**: The function expects `monsterData` to contain monsters with positive XP values. The initial filter `filter(name => monsterData[name] > 0)` handles this. If 0 XP monsters were to be included for some reason, the logic for `numToAdd` in the fallback might need adjustment to prevent infinite loops or division by zero.
+ * - **`maxMonstersInEncounter`**: This limit prevents excessively large (in terms of monster count) encounters. Adjusting it can change the nature of generated encounters.
+ */
+  function generateEncounterOptionsImproved(xpLimit, monsterData, numOptions = 5) {
+    const monsterNames = Object.keys(monsterData).filter(name => monsterData[name] > 0); // Ensure monsters have XP
+    const encounterOptions = [];
+    const generatedOptionSignatures = new Set(); // To store signatures of generated options
+    const maxMonstersInEncounter = 15; // Arbitrary limit to prevent overly crowded encounters
+
+    if (monsterNames.length === 0) {
+        return [{ monsters: [], totalXP: 0 }]; // Return empty if no monsters available
+    }
+
+    // Max attempts to find numOptions unique encounters
+    const maxTotalAttempts = numOptions * 25; // Increased attempts for uniqueness
+    let attempts = 0;
+
+    while (encounterOptions.length < numOptions && attempts < maxTotalAttempts) {
+        attempts++;
+        let currentEncounter = [];
+        let currentXP = 0;
+
+        // --- Build one candidate encounter ---
+        // Shuffle available monsters for variety in each attempt
+        let availableForBuild = [...monsterNames].sort(() => 0.5 - Math.random());
+
+        // First pass: try to add a few different types of monsters that fit
+        for (let k = 0; k < availableForBuild.length && currentEncounter.length < maxMonstersInEncounter; k++) {
+            const monsterName = availableForBuild[k];
+            const monsterXPValue = monsterData[monsterName];
+
+            // Decide how many of this monster to try adding
+            let numTryAdd = 1;
+            // If it's a relatively small XP monster and we have budget, consider adding more than one
+            if (monsterXPValue <= xpLimit / 3 && Math.random() > 0.3) {
+                let maxCanAdd = Math.floor((xpLimit - currentXP) / monsterXPValue) || 0;
+                if (maxCanAdd > 0) {
+                    numTryAdd = Math.min(maxCanAdd, Math.floor(Math.random() * 3) + 1); // Add 1 to 3, if budget allows
                 }
             }
 
-            monsterOutput += "<ul>"; // Generate the HTML elements to list all the monsters and their XP
-            
-            for (i in monsterNames) {
-                monsterOutput += "<li>" + monsterNames[i] + ": " + monsterChallenges[i] + "</li>";
+            for (let m = 0; m < numTryAdd; m++) {
+                if (currentXP + monsterXPValue <= xpLimit && currentEncounter.length < maxMonstersInEncounter) {
+                    currentEncounter.push(monsterName);
+                    currentXP += monsterXPValue;
+                } else {
+                    break; // Stop adding this specific monster if budget or count exceeded
+                }
             }
-            // >> Take the above and turn it into an object so it can replace monsterXP object
-
-            let myMonsterXP = {};
-            for (i in monsterNames) {
-                myMonsterXP[monsterNames[i]] = monsterChallenges[i]
-            }
-
-            console.log(myMonsterXP); // ** this almost works but the key isn't wrapped in quotes.
-            
-            monsterOutput += "</ul>";
-
-            // ** come up with a way to generate a series of suggestions based on the number of monsters listed in monsterNames based on the combined limit of their total XP
-            // ** also, I'll need to add a routine that takes into account encounter multipliers
-            /*
-                using this information, write a js that will generate several options for monster encounters. Do this by using the enounter total (3600) as a limit to add up the xp values of the monsters. You may include the same monster as many times as you like as long as the XP total doesn't surpass the encounter total.
-                
-
-Black Dragon Wyrmling: 450
-Black Pudding: 1100
-Chuul: 1100
-Crocodile: 100
-Giant Constrictor Snake: 450
-Giant Frog: 50
-Giant Toad: 200
-Green Hag: 700
-Lizardfolk: 100
-Ochre Jelly: 450
-Shambling Mound: 1800
-Will-o'-Wisp: 450
-Young Black Dragon: 2900
-            */
+            if (currentXP / xpLimit > 0.90) break; // If very close to budget, stop this pass
         }
-    });
 
-    
-    // display list of possible encounters
-    if (xpTally > 0) {
-        var output = "<p>The total XP for the " + pcCount + " PCs of level " + pcLevel + " of a " + environmentSelected.toLowerCase() + " " + difficulty + " encounter is " + xpTally + ".";
-        output += monsterOutput;
-    
+        // Optional: One more pass for random fill if under budget and under monster count
+        let fillAttempts = 0;
+        while (currentXP < xpLimit && fillAttempts < 30 && currentEncounter.length < maxMonstersInEncounter) {
+            const fittingMonsters = monsterNames.filter(name => monsterData[name] <= (xpLimit - currentXP));
+            if (fittingMonsters.length === 0) break;
+            const randomPick = fittingMonsters[Math.floor(Math.random() * fittingMonsters.length)];
+            currentEncounter.push(randomPick);
+            currentXP += monsterData[randomPick];
+            fillAttempts++;
+        }
 
-        const encounterOptionsImproved = generateEncounterOptionsImproved(xpTally, monsterXP);
-            // console.log("\nImproved Encounter Options:");
-        encounterOptionsImproved.forEach((option, index) => {
-            console.log(`Encounter Option ${index + 1}:`);
-            console.log("Monsters:", option.monsters);
-            console.log("Total XP:", option.totalXP);
-            console.log("--------------------");
-        });
-
-
-        $('div#output').html(output);
-    } else {
-        $('div#output').html('');
+        if (currentEncounter.length > 0) {
+            // Canonical signature: sorted list of monster names, joined by a comma
+            const signature = [...currentEncounter].sort().join(',');
+            if (!generatedOptionSignatures.has(signature)) {
+                encounterOptions.push({ monsters: currentEncounter, totalXP: currentXP });
+                generatedOptionSignatures.add(signature);
+            }
+        }
     }
 
-    
-}
+    // Fallback if no unique options were generated by the main loop
+    if (encounterOptions.length === 0 && monsterNames.length > 0) {
+        const smallestMonsterName = monsterNames.sort((a, b) => monsterData[a] - monsterData[b])[0];
+        const smallestMonsterXp = monsterData[smallestMonsterName];
+        if (smallestMonsterXp <= xpLimit) { // Check if the smallest monster itself fits
+            let numToAdd = Math.floor(xpLimit / smallestMonsterXp);
+            numToAdd = Math.min(numToAdd, maxMonstersInEncounter); // Respect max monster count
+            numToAdd = Math.max(numToAdd, 1); // Ensure at least one is added if it fits
 
-
-
-// ** integrate this code into the above and add it to the HTML output routine.
-const monsterXP = {
-    "Black Dragon Wyrmling": 450,
-    "Black Pudding": 1100,
-    "Chuul": 1100,
-    "Crocodile": 100,
-    "Giant Constrictor Snake": 450,
-    "Giant Frog": 50,
-    "Giant Toad": 200,
-    "Green Hag": 700,
-    "Lizardfolk": 100,
-    "Ochre Jelly": 450,
-    "Shambling Mound": 1800,
-    "Will-o'-Wisp": 450,
-    "Young Black Dragon": 2900,
-  };
-  
-//   const encounterTotalXP = 3600;
-  
-//   function generateEncounterOptions(xpLimit, monsterData) {
-//     const monsterNames = Object.keys(monsterData);
-//     const encounterOptions = [];
-  
-//     for (let i = 0; i < 5; i++) { // Generate 5 encounter options (adjust as needed)
-//       const currentEncounter = [];
-//       let currentXP = 0;
-  
-//       while (currentXP < xpLimit) {
-//         const randomMonster = monsterNames[Math.floor(Math.random() * monsterNames.length)];
-//         const monsterXPValue = monsterData[randomMonster];
-  
-//         if (currentXP + monsterXPValue <= xpLimit) {
-//           currentEncounter.push(randomMonster);
-//           currentXP += monsterXPValue;
-//         } else {
-//           break; // Stop adding monsters if XP limit is reached
-//         }
-//       }
-//       encounterOptions.push({ monsters: currentEncounter, totalXP: currentXP });
-//     }
-  
-//     return encounterOptions;
-//   }
-  
-  
-//   const encounterOptions = generateEncounterOptions(encounterTotalXP, monsterXP);
-  
-//   encounterOptions.forEach((option, index) => {
-//     console.log(`Encounter Option ${index + 1}:`);
-//     console.log("Monsters:", option.monsters);
-//     console.log("Total XP:", option.totalXP);
-//     console.log("--------------------");
-//   });
-  
-  
-  
-  //Improved version:
-// >> Integrate this function into the generatePcLevelInputs function
-// >> Also, investigate as to why the page takes so long to load now. It could be a lack of internet connection or worse, their is a long looping event that is slowing down processing.
-  function generateEncounterOptionsImproved(xpLimit, monsterData, numOptions = 5) {
-    const monsterNames = Object.keys(monsterData);
-    const encounterOptions = [];
-
-    for (let i = 0; i < numOptions; i++) {
-        const currentEncounter = [];
-        let currentXP = 0;
-
-        // Sort monsters by XP (descending) for better combinations
-        const sortedMonsters = monsterNames.sort((a, b) => monsterData[b] - monsterData[a]);
-
-        for (const monster of sortedMonsters) {
-            const monsterXPValue = monsterData[monster];
-            while (currentXP + monsterXPValue <= xpLimit) {
-                currentEncounter.push(monster);
-                currentXP += monsterXPValue;
-            }
+            const monstersList = Array(numToAdd).fill(smallestMonsterName);
+            encounterOptions.push({
+                monsters: monstersList,
+                totalXP: numToAdd * smallestMonsterXp
+            });
         }
+    }
 
-        encounterOptions.push({ monsters: currentEncounter, totalXP: currentXP });
+    if (encounterOptions.length === 0) { // Final safety net if still no options
+        return [{ monsters: [], totalXP: 0 }];
     }
 
     return encounterOptions;
 }
-  
-//   const encounterOptionsImproved = generateEncounterOptionsImproved(encounterTotalXP, monsterXP);
-//   const encounterOptionsImproved = generateEncounterOptionsImproved(encounterTotalXP, monsterXP);
-
-//   console.log("\nImproved Encounter Options:");
-//   encounterOptionsImproved.forEach((option, index) => {
-//       console.log(`Encounter Option ${index + 1}:`);
-//       console.log("Monsters:", option.monsters);
-//       console.log("Total XP:", option.totalXP);
-//       console.log("--------------------");
-//   });
-
-// for (const monsterName in monsters) {
-//     if (monsters.hasOwnProperty(monsterName)) { // Important: Check own properties
-//       console.log(monsters[monsterName].name);
-//     }
-//   }
-
