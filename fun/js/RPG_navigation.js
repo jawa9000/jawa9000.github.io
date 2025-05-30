@@ -3,7 +3,7 @@ $(document).ready(function() {
       "../Apothecary/index.html, Apothecary",
       "../Critical_Hit_Fumble/index.html, Criticals",
       "../Dragon_Generator/index.html, Dragons",
-      "../Encounter_Builder/index.html, Encounters",
+      "../Encounter_Builder/index.html, Monster Encounters",
       "../Fantasy_Character_Generator/index.html, Char Gen",
       "../Monster_Sheet/index.html, Monster Sheet",
       "../Random_Weather/index.html, Weather",
