@@ -310,12 +310,12 @@ function generatePcLevelInputs(pcCount, pcLevel, difficulty, environment) {
                                     if (monsterDetails["Hit Points"]) monsterStatsContent += `<p><strong>Hit Points:</strong> ${monsterDetails["Hit Points"]}</p>`;
                                     if (monsterDetails.speed) monsterStatsContent += `<p><strong>Speed:</strong> ${monsterDetails.speed}</p>`; // lowercase 'speed'
                                     monsterStatsContent += `<hr>`;
-                                    monsterStatsContent += `<p><strong>STR:</strong> ${monsterDetails.str} (${abilityScoreModifier[0][String(monsterDetails.str)] ?? 'N/A'}) | ` +
-                                                           `<strong>DEX:</strong> ${monsterDetails.dex} (${abilityScoreModifier[0][String(monsterDetails.dex)] ?? 'N/A'}) | ` +
-                                                           `<strong>CON:</strong> ${monsterDetails.con} (${abilityScoreModifier[0][String(monsterDetails.con)] ?? 'N/A'}) | ` +
-                                                           `<strong>INT:</strong> ${monsterDetails.int} (${abilityScoreModifier[0][String(monsterDetails.int)] ?? 'N/A'}) | ` +
-                                                           `<strong>WIS:</strong> ${monsterDetails.wis} (${abilityScoreModifier[0][String(monsterDetails.wis)] ?? 'N/A'}) | ` +
-                                                           `<strong>CHA:</strong> ${monsterDetails.cha} (${abilityScoreModifier[0][String(monsterDetails.cha)] ?? 'N/A'})</p>`;
+                                    monsterStatsContent += `<p><strong>STR:</strong> ${monsterDetails.str} (${abilityScoreModifiers[0][String(monsterDetails.str)] ?? 'N/A'}) | ` +
+                                                           `<strong>DEX:</strong> ${monsterDetails.dex} (${abilityScoreModifiers[0][String(monsterDetails.dex)] ?? 'N/A'}) | ` +
+                                                           `<strong>CON:</strong> ${monsterDetails.con} (${abilityScoreModifiers[0][String(monsterDetails.con)] ?? 'N/A'}) | ` +
+                                                           `<strong>INT:</strong> ${monsterDetails.int} (${abilityScoreModifiers[0][String(monsterDetails.int)] ?? 'N/A'}) | ` +
+                                                           `<strong>WIS:</strong> ${monsterDetails.wis} (${abilityScoreModifiers[0][String(monsterDetails.wis)] ?? 'N/A'}) | ` +
+                                                           `<strong>CHA:</strong> ${monsterDetails.cha} (${abilityScoreModifiers[0][String(monsterDetails.cha)] ?? 'N/A'})</p>`;
                                     monsterStatsContent += `<hr>`;
                                     if (monsterDetails["Saving Throws"]) monsterStatsContent += `<p><strong>Saving Throws:</strong> ${monsterDetails["Saving Throws"]}</p>`;
                                     if (monsterDetails.skills) monsterStatsContent += `<p><strong>Skills:</strong> ${monsterDetails.skills}</p>`; // lowercase 'skills'

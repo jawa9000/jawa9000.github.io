@@ -1,4 +1,4 @@
-let abilityScoreModifier = [{
+let abilityScoreModifiers = [{
     1: -5,
     2: -4,
     3: -4,
