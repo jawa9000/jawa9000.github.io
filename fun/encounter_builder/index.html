@@ -75,19 +75,35 @@
                             <option value="Underdark">Underdark</option>
                             <option value="Underwater">Underwater</option>
                             <option value="Urban">Urban</option>
+                            <option value="Wasteland">Wasteland</option>
                         </optgroup>
                         <optgroup label="Planar">
-                            <option value="Celestial">Celestial Plane</option>
                             <option value="Abyssal">Abyssal Plane</option>
+                            <option value="Celestial">Celestial Plane</option>
+                            <!-- <option value="Divine">Divine Plane</option> -->
+                            <option value="Ethereal Plane">Ethereal Plane</option>
                             <option value="Infernal">Infernal Plane</option>
+                            <option value="Lower Planes">Lower Planes</option>
+                            <option value="Negative Energy Plane">Negative Energy Plane</option>
+                            <option value="Pandemonium">Pandemonium</option>
+                            <!-- <option value="Positive Energy Plane">Positive Energy Plane</option> -->
+                            <!-- <option value="Primal">Primal Plane</option> -->
+                            <option value="Shadowfell">Shadowfell</option>
+                            <option value="Upper Planes">Upper Planes</option><!-- <option value="Void">Void Plane</option> -->
                         </optgroup>
                         <optgroup label="Elemental">
-                            <option value="Air Elemental">Elemental Air</option>
-                            <option value="Earth Elemental">Elemental Earth</option>
-                            <option value="Fire Elemental">Elemental Fire</option>
-                            <option value="Water Elemental">Elemental Water</option>
+                            <option value="Elemental Air">Elemental Air</option>
+                            <option value="Elemental Earth">Elemental Earth</option>
+                            <option value="Elemental Fire">Elemental Fire</option>
+                            <option value="Elemental Water">Elemental Water</option>
                         </optgroup>
                     </select>
+                    <br/>
+                    <input type="checkbox" id="envDungeon" name="envDungeon" value="Dungeon">
+                    <label for="envDungeon">Dungeon <span class="info-icon" title="Creatures commonly found in dungeons.">ⓘ</span></label>
+                    <br/>
+                    <input type="checkbox" id="envVaries" name="envVaries" value="Varies">
+                    <label for="envVaries">Varies <span class="info-icon" title="Creatures that are hard to place in a specific location (like undead).">ⓘ</span></label>
                 </div>
                 <div class="col-md-2"></div>
             </div>
@@ -113,10 +129,8 @@
                 <div class="col-md-1"></div>
             </div>
         </div>
-        <!-- // Note: when you add a new monster to monsters.js, make sure to add which environment is can be found in by updating environments.js. -->
         <script src="monsters.js"></script>
         <script src="xp_thresholds.js"></script>
-        <script src="environments.js"></script>
         <script src="encounter_multipler.js"></script>
         <script src="ability_score_modifier.js"></script>
         <script src="main.js"></script>
