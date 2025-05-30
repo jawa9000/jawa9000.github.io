@@ -126,7 +126,7 @@ function getEncounterXpMultiplier(monsterCount) {
  *
  * @outputs HTML content to `div#encounterList` and `div#monsterStats`.
  *
- * @depends_on_globals `monsters`, `xp_thresholds`, `environments`.
+ * @depends_on_globals `monsters`, `xp_thresholds`, `environments`, `ability_score_modifier`.
  * @calls `formatNumberWithCommas`, `createMonsterSlug`, `getEncounterXpMultiplier`, `generateEncounterOptionsImproved`.
  *
  * @careful_modification
@@ -168,15 +168,25 @@ function generatePcLevelInputs(pcCount, pcLevel, difficulty, environment) {
     }
 
     if (environmentSelected == 'Any') { // if environment == any, randomly pick an environment.
-        var environmentOptions = [];
-
-        Object.entries(environments).forEach(([environment, creatures]) => { // return an array of all the possible environments
-            environmentOptions.push(environment);
+        const allPossibleEnvironments = new Set();
+        monsters.forEach(monster => {
+            if (monster.environments && Array.isArray(monster.environments)) {
+                monster.environments.forEach(env => {
+                    if (env && typeof env === 'string') { // Ensure env is a valid string
+                        allPossibleEnvironments.add(env);
+                    }
+                });
+            }
         });
+        const environmentOptions = Array.from(allPossibleEnvironments);
 
-        let randomIndex = Math.floor(Math.random() * environmentOptions.length);
-
-        environmentSelected = environmentOptions[randomIndex];
+        if (environmentOptions.length > 0) {
+            let randomIndex = Math.floor(Math.random() * environmentOptions.length);
+            environmentSelected = environmentOptions[randomIndex];
+        } else {
+            console.warn("No environments found in monsters.js to pick from for 'Any' environment selection. 'Any' will mean no environment filter.");
+            // environmentSelected remains "Any", implying no specific environment filter if no options found
+        }
     }
 
     // Calculate the XP threshold total
@@ -199,27 +209,38 @@ function generatePcLevelInputs(pcCount, pcLevel, difficulty, environment) {
 
     // Generate a list of possible monsters for the selected environment that fall within the xpTally limit (as a pre-filter)
     let availableMonstersForEnvironment = {};
-    if (environments[environmentSelected]) {
-        const creaturesInEnv = environments[environmentSelected];
-        for (const monsterData of monsters) {
-            if (creaturesInEnv.includes(monsterData.name)) {
-                const challengeParts = monsterData.Challenge.split(' ');
-                const monsterXpString = challengeParts[1].replace(/[(),]/g, "");
-                const monsterXp = parseInt(monsterXpString, 10);
+    for (const monsterData of monsters) {
+        let isMonsterInEnvironment = false;
+        if (environmentSelected === "Any") { // True if "Any" was selected and no specific environment could be derived
+            isMonsterInEnvironment = true; // No environment filter
+        } else if (monsterData.environments && Array.isArray(monsterData.environments)) {
+            isMonsterInEnvironment = monsterData.environments.includes(environmentSelected);
+        }
 
-                // Pre-filter: only consider monsters whose individual XP is not more than the total budget
-                // This helps in not considering extremely high CR monsters if the budget is low.
-                if (monsterXp > 0 && monsterXp <= xpTally) { // Ensure monsterXP is positive
-                    availableMonstersForEnvironment[monsterData.name] = monsterXp;
-                } else if (monsterXp > 0 && Object.keys(availableMonstersForEnvironment).length < 200) {
-                    // Fallback: if budget is very low, still add some monsters to allow combinations
-                    // This limit (200) is arbitrary to prevent excessively large lists for generateEncounterOptionsImproved
-                    availableMonstersForEnvironment[monsterData.name] = monsterXp;
-                }
+        if (isMonsterInEnvironment) {
+            const challengeString = monsterData.challenge; // Use lowercase 'challenge' as in monsters.js
+            if (!challengeString) {
+                console.warn(`Monster ${monsterData.name} is missing Challenge information.`);
+                continue;
+            }
+            const challengeParts = challengeString.split(' ');
+            let monsterXpString = "0";
+            if (challengeParts.length > 1 && challengeParts[1]) {
+                monsterXpString = challengeParts[1].replace(/[(),]/g, "");
+            }
+            const monsterXp = parseInt(monsterXpString, 10);
+
+            // Pre-filter: only consider monsters whose individual XP is not more than the total budget
+            // This helps in not considering extremely high CR monsters if the budget is low.
+            if (monsterXp > 0 && monsterXp <= xpTally) { // Ensure monsterXP is positive
+                availableMonstersForEnvironment[monsterData.name] = monsterXp;
+            } else if (monsterXp > 0 && Object.keys(availableMonstersForEnvironment).length < 200) {
+                // Fallback: if budget is very low, still add some monsters to allow combinations
+                // This limit (200) is arbitrary to prevent excessively large lists for generateEncounterOptionsImproved
+                availableMonstersForEnvironment[monsterData.name] = monsterXp;
             }
         }
     }
-
     // display list of possible encounters
     if (xpTally > 0) {
         let outputHTML = `<p>Target XP for ${currentPcCount} PC(s) of average level  of ${pcLevel} for a ${difficulty} encounter in a ${environmentSelected.toLowerCase()} environment is ${formatNumberWithCommas(xpTally)}.</p>`;
@@ -264,15 +285,15 @@ function generatePcLevelInputs(pcCount, pcLevel, difficulty, environment) {
                             const fullMonsterData = monsters.find(m => m.name === monsterNameInOption);
                             const monsterSlugForLink = createMonsterSlug(monsterNameInOption);
                             let crString = "CR N/A";
-                            let monsterXpString = "XP N/A";
-                            if (fullMonsterData && fullMonsterData.Challenge) {
-                                crString = fullMonsterData.Challenge.split(' ')[0];
-                                const challengeParts = fullMonsterData.Challenge.split('(');
+                            let monsterXpDisplayString = "XP N/A"; // Renamed to avoid conflict
+                            if (fullMonsterData && fullMonsterData.challenge) { // Use lowercase 'challenge'
+                                crString = fullMonsterData.challenge.split(' ')[0];
+                                const challengeParts = fullMonsterData.challenge.split('(');
                                 if (challengeParts.length > 1 && challengeParts[1]) {
-                                    monsterXpString = challengeParts[1].replace(/[(),]/g, "").replace("XP", "").trim();
+                                    monsterXpDisplayString = challengeParts[1].replace(/[(),]/g, "").replace("XP", "").trim();
                                 }
                             }
-                            outputHTML += `<li>${monsterCounts[monsterNameInOption]}x <a href="#monster-stat-${monsterSlugForLink}" class="monsterLink">${monsterNameInOption}</a> (CR: ${crString}, XP: ${formatNumberWithCommas(parseInt(monsterXpString, 10))})</li>`;
+                            outputHTML += `<li>${monsterCounts[monsterNameInOption]}x <a href="#monster-stat-${monsterSlugForLink}" class="monsterLink">${monsterNameInOption}</a> (CR: ${crString}, XP: ${formatNumberWithCommas(parseInt(monsterXpDisplayString, 10))})</li>`;
                         }
                         outputHTML += "</ol>";
 
@@ -284,25 +305,30 @@ function generatePcLevelInputs(pcCount, pcLevel, difficulty, environment) {
                                     const monsterStatSlug = createMonsterSlug(monsterDetails.name);
                                     monsterStatsContent += `<div class="monster-stat-block" id="monster-stat-${monsterStatSlug}">`;
                                     monsterStatsContent += `<h3>${monsterDetails.name}</h3>`;
-                                    monsterStatsContent += `<p><em>${monsterDetails.meta}</em></p>`;
+                                    monsterStatsContent += `<p><em>${monsterDetails.size} ${monsterDetails.type}, ${monsterDetails.alignment}</em></p>`; // Using available fields for meta
                                     if (monsterDetails["Armor Class"]) monsterStatsContent += `<p><strong>Armor Class:</strong> ${monsterDetails["Armor Class"]}</p>`;
                                     if (monsterDetails["Hit Points"]) monsterStatsContent += `<p><strong>Hit Points:</strong> ${monsterDetails["Hit Points"]}</p>`;
-                                    if (monsterDetails.Speed) monsterStatsContent += `<p><strong>Speed:</strong> ${monsterDetails.Speed}</p>`;
+                                    if (monsterDetails.speed) monsterStatsContent += `<p><strong>Speed:</strong> ${monsterDetails.speed}</p>`; // lowercase 'speed'
                                     monsterStatsContent += `<hr>`;
-                                    monsterStatsContent += `<p><strong>STR:</strong> ${monsterDetails.STR}${monsterDetails.STR_mod || ''} | <strong>DEX:</strong> ${monsterDetails.DEX}${monsterDetails.DEX_mod || ''} | <strong>CON:</strong> ${monsterDetails.CON}${monsterDetails.CON_mod || ''} | <strong>INT:</strong> ${monsterDetails.INT}${monsterDetails.INT_mod || ''} | <strong>WIS:</strong> ${monsterDetails.WIS}${monsterDetails.WIS_mod || ''} | <strong>CHA:</strong> ${monsterDetails.CHA}${monsterDetails.CHA_mod || ''}</p>`;
+                                    monsterStatsContent += `<p><strong>STR:</strong> ${monsterDetails.str} (${abilityScoreModifier[0][String(monsterDetails.str)] ?? 'N/A'}) | ` +
+                                                           `<strong>DEX:</strong> ${monsterDetails.dex} (${abilityScoreModifier[0][String(monsterDetails.dex)] ?? 'N/A'}) | ` +
+                                                           `<strong>CON:</strong> ${monsterDetails.con} (${abilityScoreModifier[0][String(monsterDetails.con)] ?? 'N/A'}) | ` +
+                                                           `<strong>INT:</strong> ${monsterDetails.int} (${abilityScoreModifier[0][String(monsterDetails.int)] ?? 'N/A'}) | ` +
+                                                           `<strong>WIS:</strong> ${monsterDetails.wis} (${abilityScoreModifier[0][String(monsterDetails.wis)] ?? 'N/A'}) | ` +
+                                                           `<strong>CHA:</strong> ${monsterDetails.cha} (${abilityScoreModifier[0][String(monsterDetails.cha)] ?? 'N/A'})</p>`;
                                     monsterStatsContent += `<hr>`;
                                     if (monsterDetails["Saving Throws"]) monsterStatsContent += `<p><strong>Saving Throws:</strong> ${monsterDetails["Saving Throws"]}</p>`;
-                                    if (monsterDetails.Skills) monsterStatsContent += `<p><strong>Skills:</strong> ${monsterDetails.Skills}</p>`;
+                                    if (monsterDetails.skills) monsterStatsContent += `<p><strong>Skills:</strong> ${monsterDetails.skills}</p>`; // lowercase 'skills'
                                     if (monsterDetails["Damage Vulnerabilities"]) monsterStatsContent += `<p><strong>Damage Vulnerabilities:</strong> ${monsterDetails["Damage Vulnerabilities"]}</p>`;
                                     if (monsterDetails["Damage Resistances"]) monsterStatsContent += `<p><strong>Damage Resistances:</strong> ${monsterDetails["Damage Resistances"]}</p>`;
-                                    if (monsterDetails["Damage Immunities"]) monsterStatsContent += `<p><strong>Damage Immunities:</strong> ${monsterDetails["Damage Immunities"]}</p>`;
-                                    if (monsterDetails["Condition Immunities"]) monsterStatsContent += `<p><strong>Condition Immunities:</strong> ${monsterDetails["Condition Immunities"]}</p>`;
-                                    if (monsterDetails.Senses) monsterStatsContent += `<p><strong>Senses:</strong> ${monsterDetails.Senses}</p>`;
-                                    if (monsterDetails.Languages) monsterStatsContent += `<p><strong>Languages:</strong> ${monsterDetails.Languages}</p>`;
-                                    if (monsterDetails.Challenge) monsterStatsContent += `<p><strong>Challenge:</strong> ${monsterDetails.Challenge}</p>`;
-                                    if (monsterDetails.Traits) monsterStatsContent += `<h4>Traits</h4>${monsterDetails.Traits}`;
-                                    if (monsterDetails.Actions) monsterStatsContent += `<h4>Actions</h4>${monsterDetails.Actions}`;
-                                    if (monsterDetails["Legendary Actions"]) monsterStatsContent += `<h4>Legendary Actions</h4>${monsterDetails["Legendary Actions"]}`;
+                                    if (monsterDetails["damage immunities"]) monsterStatsContent += `<p><strong>Damage Immunities:</strong> ${monsterDetails["damage immunities"]}</p>`; // lowercase 'damage immunities'
+                                    if (monsterDetails["condition immunities"]) monsterStatsContent += `<p><strong>Condition Immunities:</strong> ${monsterDetails["condition immunities"]}</p>`; // lowercase 'condition immunities'
+                                    if (monsterDetails.senses) monsterStatsContent += `<p><strong>Senses:</strong> ${monsterDetails.senses}</p>`; // lowercase 'senses'
+                                    if (monsterDetails.languages) monsterStatsContent += `<p><strong>Languages:</strong> ${monsterDetails.languages}</p>`; // lowercase 'languages'
+                                    if (monsterDetails.challenge) monsterStatsContent += `<p><strong>Challenge:</strong> ${monsterDetails.challenge}</p>`; // lowercase 'challenge'
+                                    if (monsterDetails.traits) monsterStatsContent += `<h4>Traits</h4>${monsterDetails.traits}`; // lowercase 'traits'
+                                    if (monsterDetails.actions) monsterStatsContent += `<h4>Actions</h4>${monsterDetails.actions}`; // lowercase 'actions'
+                                    if (monsterDetails["legendary actions"]) monsterStatsContent += `<h4>Legendary Actions</h4>${monsterDetails["legendary actions"]}`; // lowercase 'legendary actions'
                                     if (monsterDetails.img_url) monsterStatsContent += `<img src="${monsterDetails.img_url}" alt="${monsterDetails.name}" class="monster-image">`;
                                     monsterStatsContent += `<p class="back-to-list-paragraph"><a href="#encounterList" class="monsterLink">Back to Encounter List</a></p>`;
                                     monsterStatsContent += `</div><hr class="monster-separator">`;
