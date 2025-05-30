@@ -22,4 +22,7 @@
     margin-top: 15px;
 }
 
-/* Add any other general styles for your page here */
+.info-icon {
+    background-color: #f2ce9e;
+    border-radius: 50%;
+}
