@@ -326,6 +326,7 @@ function generatePcLevelInputs(pcCount, pcLevel, difficulty, environment) {
                                     if (monsterDetails.senses) monsterStatsContent += `<p><strong>Senses:</strong> ${monsterDetails.senses}</p>`; // lowercase 'senses'
                                     if (monsterDetails.languages) monsterStatsContent += `<p><strong>Languages:</strong> ${monsterDetails.languages}</p>`; // lowercase 'languages'
                                     if (monsterDetails.challenge) monsterStatsContent += `<p><strong>Challenge:</strong> ${monsterDetails.challenge}</p>`; // lowercase 'challenge'
+                                    if (monsterDetails.environments && monsterDetails.environments.length > 0) monsterStatsContent += `<p><strong>Environments:</strong> ${monsterDetails.environments.join(', ')}</p>`;
                                     if (monsterDetails.traits) monsterStatsContent += `<h4>Traits</h4>${monsterDetails.traits}`; // lowercase 'traits'
                                     if (monsterDetails.actions) monsterStatsContent += `<h4>Actions</h4>${monsterDetails.actions}`; // lowercase 'actions'
                                     if (monsterDetails["legendary actions"]) monsterStatsContent += `<h4>Legendary Actions</h4>${monsterDetails["legendary actions"]}`; // lowercase 'legendary actions'
