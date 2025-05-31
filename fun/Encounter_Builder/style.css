@@ -29,6 +29,12 @@
     border-radius: 50%;
 }
 
+.monster-add-count, .monster-remove-count {
+    float: none;
+    margin-right: 5px;
+}
+
+
 /* monster_catalog.html */
 /* body {
     font-family: sans-serif;

@@ -38,6 +38,81 @@ $(document).ready(function() { // listeners
     $("button").on('click', function() { // gather all data and generate encounter
         generatePcLevelInputs();
     });
+
+    // Attach plus/minus handlers for monster count adjustment
+    function recalcEncounter(encounterIdx) {
+        var encounterList = $("#encounterList").find("h4:contains('Encounter Option " + (encounterIdx+1) + "')").next("ol");
+        var monstersList = [];
+        encounterList.find("li").each(function() {
+            var count = parseInt($(this).find('.monster-count').text(), 10);
+            var monster = $(this).find('a.monsterLink').text();
+            for (var i=0; i<count; i++) monstersList.push(monster);
+        });
+        var totalXP = 0;
+        monstersList.forEach(function(monsterName) {
+            var xp = 0;
+            var m = monsters.find(m => m.name === monsterName);
+            if (m && m.challenge) {
+                var parts = m.challenge.split(' ');
+                if (parts.length > 1 && parts[1]) xp = parseInt(parts[1].replace(/[(),]/g, ""), 10);
+            }
+            totalXP += xp;
+        });
+        var xpMultiplier = getEncounterXpMultiplier(monstersList.length);
+        var adjustedXP = Math.floor(totalXP * xpMultiplier);
+        var pcCount = $("input#pcCount").val();
+        var pcLevel = $("input#pcLevels").val();
+        var difficulty = $("select#difficulty").val().toLowerCase();
+        var singlePcXpThresholds = null;
+        var numericPcLevel = parseInt(pcLevel, 10);
+        if (numericPcLevel >= 1 && numericPcLevel <= 20) {
+            singlePcXpThresholds = xp_thresholds.encounterDifficulty[pcLevel];
+        } else if (numericPcLevel > 20 && numericPcLevel <= 50) {
+            singlePcXpThresholds = xp_thresholds[pcLevel];
+        }
+        var encounterDifficultyRating = "Trivial";
+        if (singlePcXpThresholds) {
+            var partyEasyThreshold = singlePcXpThresholds.easy * parseInt(pcCount, 10);
+            var partyMediumThreshold = singlePcXpThresholds.medium * parseInt(pcCount, 10);
+            var partyHardThreshold = singlePcXpThresholds.hard * parseInt(pcCount, 10);
+            var partyDeadlyThreshold = singlePcXpThresholds.deadly * parseInt(pcCount, 10);
+            if (adjustedXP >= partyDeadlyThreshold) {
+                encounterDifficultyRating = "Deadly";
+            } else if (adjustedXP >= partyHardThreshold) {
+                encounterDifficultyRating = "Hard";
+            } else if (adjustedXP >= partyMediumThreshold) {
+                encounterDifficultyRating = "Medium";
+            } else if (adjustedXP >= partyEasyThreshold) {
+                encounterDifficultyRating = "Easy";
+            }
+        }
+        var h4 = $("#encounterList").find("h4:contains('Encounter Option " + (encounterIdx+1) + "')");
+        h4.html(`Encounter Option ${encounterIdx+1} (Raw XP: ${formatNumberWithCommas(totalXP)}, Adjusted XP: ${formatNumberWithCommas(adjustedXP)}, Party Difficulty: ${encounterDifficultyRating})`);
+    }
+    $(document).off('click', '.monster-add-count').on('click', '.monster-add-count', function() {
+        var encounterIdx = parseInt($(this).data('encounter'), 10);
+        var monster = $(this).data('monster');
+        var slug = window.createMonsterSlug(monster);
+        var countSpan = $("#monster-count-"+encounterIdx+"-"+slug);
+        var count = parseInt(countSpan.text(), 10);
+        countSpan.text(count+1);
+        recalcEncounter(encounterIdx);
+    });
+    $(document).off('click', '.monster-remove-count').on('click', '.monster-remove-count', function() {
+        var encounterIdx = parseInt($(this).data('encounter'), 10);
+        var monster = $(this).data('monster');
+        var slug = createMonsterSlug(monster);
+        var countSpan = $("#monster-count-"+encounterIdx+"-"+slug);
+        var count = parseInt(countSpan.text(), 10);
+        if (count > 1) {
+            countSpan.text(count-1);
+            recalcEncounter(encounterIdx);
+        } else if (count === 1) {
+            // Remove the entire <li> for this monster
+            countSpan.closest('li').remove();
+            recalcEncounter(encounterIdx);
+        }
+    });
 });
 
 // functions
@@ -293,7 +368,13 @@ function generatePcLevelInputs(pcCount, pcLevel, difficulty, environment) {
                                     monsterXpDisplayString = challengeParts[1].replace(/[(),]/g, "").replace("XP", "").trim();
                                 }
                             }
-                            outputHTML += `<li>${monsterCounts[monsterNameInOption]}x <a href="#monster-stat-${monsterSlugForLink}" class="monsterLink">${monsterNameInOption}</a> (CR: ${crString}, XP: ${formatNumberWithCommas(parseInt(monsterXpDisplayString, 10))})</li>`;
+                            // Add plus and minus buttons for each monster
+                            outputHTML += `<li>
+                                <span class="monster-count" id="monster-count-${index}-${monsterSlugForLink}">${monsterCounts[monsterNameInOption]}</span>x
+                                <a href="#monster-stat-${monsterSlugForLink}" class="monsterLink">${monsterNameInOption}</a> (CR: ${crString}, XP: ${formatNumberWithCommas(parseInt(monsterXpDisplayString, 10))})
+                                <button class="monster-add-count" data-encounter="${index}" data-monster="${monsterNameInOption}">+</button>
+                                <button class="monster-remove-count" data-encounter="${index}" data-monster="${monsterNameInOption}">-</button>
+                            </li>`;
                         }
                         outputHTML += "</ol>";
 
@@ -389,86 +470,72 @@ function generatePcLevelInputs(pcCount, pcLevel, difficulty, environment) {
         return [{ monsters: [], totalXP: 0 }]; // Return empty if no monsters available
     }
 
-    // Max attempts to find numOptions unique encounters
-    const maxTotalAttempts = numOptions * 25; // Increased attempts for uniqueness
-    let attempts = 0;
+    // Initial attempt to generate diverse options
+    let maxTotalAttempts = 1000;
+    for (let attempt = 0; attempt < maxTotalAttempts; attempt++) {
+        let remainingXp = xpLimit;
+        let optionMonsters = [];
+        let usedMonsterNames = new Set();
+        let numMonstersInEncounter = 0;
 
-    while (encounterOptions.length < numOptions && attempts < maxTotalAttempts) {
-        attempts++;
-        let currentEncounter = [];
-        let currentXP = 0;
+        // Ensure at least one monster is picked if possible
+        let firstMonsterAdded = false;
 
-        // --- Build one candidate encounter ---
-        // Shuffle available monsters for variety in each attempt
-        let availableForBuild = [...monsterNames].sort(() => 0.5 - Math.random());
+        // Try to add monsters without exceeding the XP limit
+        while (remainingXp > 0 && numMonstersInEncounter < maxMonstersInEncounter) {
+            let fittingMonsters = monsterNames.filter(name => {
+                const monsterXp = monsterData[name];
+                return !usedMonsterNames.has(name) && monsterXp <= remainingXp;
+            });
 
-        // First pass: try to add a few different types of monsters that fit
-        for (let k = 0; k < availableForBuild.length && currentEncounter.length < maxMonstersInEncounter; k++) {
-            const monsterName = availableForBuild[k];
-            const monsterXPValue = monsterData[monsterName];
-
-            // Decide how many of this monster to try adding
-            let numTryAdd = 1;
-            // If it's a relatively small XP monster and we have budget, consider adding more than one
-            if (monsterXPValue <= xpLimit / 3 && Math.random() > 0.3) {
-                let maxCanAdd = Math.floor((xpLimit - currentXP) / monsterXPValue) || 0;
-                if (maxCanAdd > 0) {
-                    numTryAdd = Math.min(maxCanAdd, Math.floor(Math.random() * 3) + 1); // Add 1 to 3, if budget allows
-                }
+            if (fittingMonsters.length === 0) {
+                break; // No more fitting monsters, exit the loop
             }
 
-            for (let m = 0; m < numTryAdd; m++) {
-                if (currentXP + monsterXPValue <= xpLimit && currentEncounter.length < maxMonstersInEncounter) {
-                    currentEncounter.push(monsterName);
-                    currentXP += monsterXPValue;
-                } else {
-                    break; // Stop adding this specific monster if budget or count exceeded
-                }
-            }
-            if (currentXP / xpLimit > 0.90) break; // If very close to budget, stop this pass
+            // Randomly select one of the fitting monsters
+            let selectedMonster = fittingMonsters[Math.floor(Math.random() * fittingMonsters.length)];
+            optionMonsters.push(selectedMonster);
+            usedMonsterNames.add(selectedMonster);
+            remainingXp -= monsterData[selectedMonster];
+            numMonstersInEncounter++;
+            firstMonsterAdded = true;
         }
 
-        // Optional: One more pass for random fill if under budget and under monster count
-        let fillAttempts = 0;
-        while (currentXP < xpLimit && fillAttempts < 30 && currentEncounter.length < maxMonstersInEncounter) {
-            const fittingMonsters = monsterNames.filter(name => monsterData[name] <= (xpLimit - currentXP));
-            if (fittingMonsters.length === 0) break;
-            const randomPick = fittingMonsters[Math.floor(Math.random() * fittingMonsters.length)];
-            currentEncounter.push(randomPick);
-            currentXP += monsterData[randomPick];
-            fillAttempts++;
+        // If no monsters were added, break to avoid infinite loop
+        if (!firstMonsterAdded) {
+            break;
         }
 
-        if (currentEncounter.length > 0) {
-            // Canonical signature: sorted list of monster names, joined by a comma
-            const signature = [...currentEncounter].sort().join(',');
-            if (!generatedOptionSignatures.has(signature)) {
-                encounterOptions.push({ monsters: currentEncounter, totalXP: currentXP });
-                generatedOptionSignatures.add(signature);
-            }
+        // Sort monsters by name for consistent ordering
+        optionMonsters.sort();
+
+        // Create a signature for the generated option (sorted monster names)
+        let optionSignature = optionMonsters.join(',');
+        if (!generatedOptionSignatures.has(optionSignature)) {
+            generatedOptionSignatures.add(optionSignature);
+            encounterOptions.push({ monsters: optionMonsters, totalXP: xpLimit - remainingXp });
+        }
+
+        // Limit the number of unique options
+        if (encounterOptions.length >= numOptions) {
+            break;
         }
     }
 
-    // Fallback if no unique options were generated by the main loop
-    if (encounterOptions.length === 0 && monsterNames.length > 0) {
-        const smallestMonsterName = monsterNames.sort((a, b) => monsterData[a] - monsterData[b])[0];
-        const smallestMonsterXp = monsterData[smallestMonsterName];
-        if (smallestMonsterXp <= xpLimit) { // Check if the smallest monster itself fits
-            let numToAdd = Math.floor(xpLimit / smallestMonsterXp);
-            numToAdd = Math.min(numToAdd, maxMonstersInEncounter); // Respect max monster count
-            numToAdd = Math.max(numToAdd, 1); // Ensure at least one is added if it fits
+    // If not enough unique options were generated, fallback to a simpler method
+    if (encounterOptions.length < numOptions) {
+        let minXpMonster = monsterNames.reduce((minName, name) => {
+            return monsterData[name] < monsterData[minName] ? name : minName;
+        });
 
-            const monstersList = Array(numToAdd).fill(smallestMonsterName);
+        // Fill the rest of the options with the minimum XP monster to reach the desired count
+        for (let i = encounterOptions.length; i < numOptions; i++) {
             encounterOptions.push({
-                monsters: monstersList,
-                totalXP: numToAdd * smallestMonsterXp
+                monsters: [...Array(i + 1).keys()].map(() => minXpMonster),
+                totalXP: monsterData[minXpMonster] * (i + 1)
             });
         }
     }
 
-    if (encounterOptions.length === 0) { // Final safety net if still no options
-        return [{ monsters: [], totalXP: 0 }];
-    }
-
     return encounterOptions;
-}
+  }
