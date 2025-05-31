@@ -20,7 +20,7 @@
         <meta name="language" content="en-us">
         <meta name="note" content="For Jimmy.">
 		<meta name="level" content="2">
-        <meta name="version" content="0.5.0">
+        <meta name="version" content="0.6.1">
         <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
         <link href="../../css/normalize.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
@@ -101,7 +101,7 @@
                     </select>
                     <br/>
                     <label>CR Min:</label>
-                    <select id="crMin" style="width: 80px;">
+                    <select id="crMin">
                     <option value="0">0</option>
                     <option value="1/8">1/8</option>
                     <option value="1/4">1/4</option>
@@ -138,7 +138,7 @@
                     <option value="30">30</option>
                     </select>
                     <label>CR Max:</label>
-                    <select id="crMax" style="width: 80px;">
+                    <select id="crMax">
                     <option value="30">30</option>
                     <option value="29">29</option>
                     <option value="28">28</option>
@@ -176,15 +176,36 @@
                     </select>
                     <br/>
                     <label>Min Monsters:</label>
-                    <input type="number" id="minMonsters" min="1" max="20" value="1" style="width: 60px;" />
+                    <input type="number" id="minMonsters" min="1" max="20" value="1" />
                     <label>Max Monsters:</label>
-                    <input type="number" id="maxMonsters" min="1" max="20" value="5" style="width: 60px;" />
+                    <input type="number" id="maxMonsters" min="1" max="20" value="5" />
                     <br/>
                     <input type="checkbox" id="envDungeon" name="envDungeon" value="Dungeon">
                     <label for="envDungeon">Dungeon <span class="info-icon" title="Creatures commonly found in dungeons.">ⓘ</span></label>
                     <br/>
                     <input type="checkbox" id="envVaries" name="envVaries" value="Varies">
                     <label for="envVaries">Varies <span class="info-icon" title="Creatures that are hard to place in a specific location (like undead).">ⓘ</span></label>
+                    <br/>
+                    <label>Monster Type:</label>
+                    <select id="monsterType">
+                      <option value="Any" selected>Any</option>
+                      <option value="Aberration">Aberration</option>
+                      <option value="Beast">Beast</option>
+                      <option value="Celestial">Celestial</option>
+                      <option value="Construct">Construct</option>
+                      <option value="Dragon">Dragon</option>
+                      <option value="Elemental">Elemental</option>
+                      <option value="Fey">Fey</option>
+                      <option value="Fiend">Fiend</option>
+                      <option value="Giant">Giant</option>
+                      <option value="Humanoid">Humanoid</option>
+                      <option value="Monstrosity">Monstrosity</option>
+                      <option value="Ooze">Ooze</option>
+                      <option value="Plant">Plant</option>
+                      <option value="Undead">Undead</option>
+                      <!-- Add more types as needed -->
+                    </select>
+                    <br/>
                 </div>
                 <div class="col-md-2"></div>
             </div>

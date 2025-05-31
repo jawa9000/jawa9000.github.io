@@ -31,11 +31,20 @@ $(document).ready(function() { // listeners
     const monsterCount = monsters.length;
     $("span#monsterCount").text(monsterCount);
 
-    $("input, select").change(function() { // gather all data and generate encounter
+    // Reset the URL for each user action
+    function resetUrl() {
+        if (window.history && window.history.replaceState) {
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
+    }
+
+    $("input, select").change(function() {
+        resetUrl();
         generatePcLevelInputs();
     });
 
-    $("button").on('click', function() { // gather all data and generate encounter
+    $("button").on('click', function() {
+        resetUrl();
         generatePcLevelInputs();
     });
 
@@ -221,6 +230,7 @@ function generatePcLevelInputs(pcCount, pcLevel, difficulty, environment) {
     environmentSelected = $("select#environment").val();
     let crMin = $('#crMin').val();
     let crMax = $('#crMax').val();
+    let selectedMonsterType = $('#monsterType').val();
     // Helper to convert CR string to numeric value for comparison
     function crToNumber(cr) {
         if (typeof cr === 'number') return cr;
@@ -305,7 +315,12 @@ function generatePcLevelInputs(pcCount, pcLevel, difficulty, environment) {
         } else if (monsterData.environments && Array.isArray(monsterData.environments)) {
             isMonsterInEnvironment = monsterData.environments.includes(environmentSelected);
         }
-        if (isMonsterInEnvironment) {
+        // Filter by monster type if not 'Any'
+        let isMonsterOfType = true;
+        if (selectedMonsterType && selectedMonsterType !== 'Any') {
+            isMonsterOfType = (monsterData.type && monsterData.type.toLowerCase() === selectedMonsterType.toLowerCase());
+        }
+        if (isMonsterInEnvironment && isMonsterOfType) {
             const challengeString = monsterData.challenge;
             if (!challengeString) {
                 console.warn(`Monster ${monsterData.name} is missing Challenge information.`);
@@ -601,7 +616,7 @@ function generateEncounterOptionsImproved(xpLimit, monsterData, numOptions = 5) 
     }
     if (encounterOptions.length < numOptions) {
         let minXpMonster = monsterNames.reduce((minName, name) => {
-            return monsterData[name] < monsterData[minName] ? name : minName;
+            return monsterData[name] < monsterData[minXpMonster] ? name : minXpMonster;
         });
         for (let i = encounterOptions.length; i < numOptions; i++) {
             encounterOptions.push({
