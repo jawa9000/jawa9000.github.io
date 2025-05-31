@@ -219,6 +219,20 @@ function generatePcLevelInputs(pcCount, pcLevel, difficulty, environment) {
     pcLevel = $("input#pcLevels").val();
     difficulty = $("select#difficulty").val().toLowerCase();
     environmentSelected = $("select#environment").val();
+    let crMin = $('#crMin').val();
+    let crMax = $('#crMax').val();
+    // Helper to convert CR string to numeric value for comparison
+    function crToNumber(cr) {
+        if (typeof cr === 'number') return cr;
+        if (cr === '0') return 0;
+        if (cr === '1/8') return 0.125;
+        if (cr === '1/4') return 0.25;
+        if (cr === '1/2') return 0.5;
+        let n = Number(cr);
+        return isNaN(n) ? 0 : n;
+    }
+    let crMinNum = crToNumber(crMin);
+    let crMaxNum = crToNumber(crMax);
 
     // Clear previous monster stats display
     $('div#monsterStats').html('');
@@ -286,18 +300,22 @@ function generatePcLevelInputs(pcCount, pcLevel, difficulty, environment) {
     let availableMonstersForEnvironment = {};
     for (const monsterData of monsters) {
         let isMonsterInEnvironment = false;
-        if (environmentSelected === "Any") { // True if "Any" was selected and no specific environment could be derived
-            isMonsterInEnvironment = true; // No environment filter
+        if (environmentSelected === "Any") {
+            isMonsterInEnvironment = true;
         } else if (monsterData.environments && Array.isArray(monsterData.environments)) {
             isMonsterInEnvironment = monsterData.environments.includes(environmentSelected);
         }
-
         if (isMonsterInEnvironment) {
-            const challengeString = monsterData.challenge; // Use lowercase 'challenge' as in monsters.js
+            const challengeString = monsterData.challenge;
             if (!challengeString) {
                 console.warn(`Monster ${monsterData.name} is missing Challenge information.`);
                 continue;
             }
+            // Extract CR value (first part of challenge string)
+            const crString = challengeString.split(' ')[0];
+            const crNum = crToNumber(crString);
+            // Only include monsters within CR min/max
+            if (crNum < crMinNum || crNum > crMaxNum) continue;
             const challengeParts = challengeString.split(' ');
             let monsterXpString = "0";
             if (challengeParts.length > 1 && challengeParts[1]) {
