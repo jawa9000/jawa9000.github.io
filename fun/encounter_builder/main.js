@@ -41,7 +41,7 @@ $(document).ready(function() { // listeners
 
     // Attach plus/minus handlers for monster count adjustment
     function recalcEncounter(encounterIdx) {
-        var encounterList = $("#encounterList").find("h4:contains('Encounter Option " + (encounterIdx+1) + "')").next("ol");
+        var encounterList = $("#encounterList").find("h4:contains('Encounter Option " + (encounterIdx+1) + "')").nextAll('ol').first();
         var monstersList = [];
         encounterList.find("li").each(function() {
             var count = parseInt($(this).find('.monster-count').text(), 10);
@@ -350,7 +350,9 @@ function generatePcLevelInputs(pcCount, pcLevel, difficulty, environment) {
                             }
                         }
 
-                        outputHTML += `<h4>Encounter Option ${index + 1} (Raw XP: ${formatNumberWithCommas(option.totalXP)}, Adjusted XP: ${formatNumberWithCommas(adjustedXP)}, Party Difficulty: ${encounterDifficultyRating})</h4><ol>`;
+                        outputHTML += `<h4>Encounter Option ${index + 1} (Raw XP: ${formatNumberWithCommas(option.totalXP)}, Adjusted XP: ${formatNumberWithCommas(adjustedXP)}, Party Difficulty: ${encounterDifficultyRating})</h4>`;
+                        outputHTML += `<button class="copy-encounter-list" data-encounter="${index}" data-party-xp="${adjustedXP}">Copy List</button>`;
+                        outputHTML += "<ol>";
                         for (const monsterNameInOption in monsterCounts) {
                             const fullMonsterData = monsters.find(m => m.name === monsterNameInOption);
                             const monsterSlugForLink = createMonsterSlug(monsterNameInOption);
@@ -422,6 +424,49 @@ function generatePcLevelInputs(pcCount, pcLevel, difficulty, environment) {
             outputHTML += "<p>No monsters found for the selected environment that fit the XP budget. Cannot generate encounter options.</p>";
         }
         $('div#encounterList').html(outputHTML);
+        // Attach copy button handler after HTML is set
+        $('.copy-encounter-list').off('click').on('click', function() {
+            // Find the <ol> that immediately follows this button
+            var encounterList = $(this).next('ol');
+            if (!encounterList.length) {
+                // Fallback: find the next <ol> anywhere after this button
+                encounterList = $(this).nextAll('ol').first();
+            }
+            var lines = [];
+            encounterList.find('li').each(function() {
+                var count = $(this).find('.monster-count').text();
+                var name = $(this).find('a.monsterLink').text();
+                var crMatch = $(this).html().match(/CR: ([^,)<]+)/);
+                var xpMatch = $(this).html().match(/XP: ([^)<]+)/);
+                var cr = crMatch ? crMatch[1] : 'N/A';
+                var xp = xpMatch ? xpMatch[1].replace(/,/g, '') : 'N/A';
+                lines.push(`${count}x ${name} (CR ${cr}, XP ${xp})`);
+            });
+            var text = lines.join('\n');
+            if (text.trim().length === 0) {
+                alert('No monsters to copy in this encounter.');
+                return;
+            }
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(function() {
+                    alert('Encounter list copied!');
+                }, function() {
+                    alert('Failed to copy encounter list.');
+                });
+            } else {
+                // Fallback for older browsers or insecure context
+                var temp = $('<textarea>');
+                $('body').append(temp);
+                temp.val(text).select();
+                try {
+                    document.execCommand('copy');
+                    alert('Encounter list copied!');
+                } catch (e) {
+                    alert('Failed to copy encounter list.');
+                }
+                temp.remove();
+            }
+        });
     } else {
         $('div#encounterList').html('<p>No XP budget calculated. Please check PC level and difficulty settings.</p>');
     }
@@ -549,3 +594,57 @@ function generateEncounterOptionsImproved(xpLimit, monsterData, numOptions = 5) 
     }
     return encounterOptions;
   }
+
+// Attach copy button handler after HTML is set
+$('.copy-encounter-list').off('click').on('click', function() {
+    var encounterIdx = parseInt($(this).data('encounter'), 10);
+    var adjustedXP = $(this).attr('data-party-xp');
+    if (typeof adjustedXP === 'undefined' || adjustedXP === null || adjustedXP === '') {
+        // fallback: try to extract from the header
+        var h4 = $(this).prevAll('h4').first();
+        var match = h4.text().match(/Adjusted XP: ([\d,]+)/i);
+        if (match && match[1]) {
+            adjustedXP = match[1];
+        }
+    }
+    var encounterList = $(this).next('ol');
+    if (!encounterList.length) {
+        encounterList = $(this).parent().find('ol').first();
+    }
+    var lines = [];
+    if (adjustedXP && adjustedXP !== 'undefined') {
+        lines.push(`Adjusted XP: ${formatNumberWithCommas(adjustedXP)}`);
+    }
+    encounterList.find('li').each(function() {
+        var count = $(this).find('.monster-count').text();
+        var name = $(this).find('a.monsterLink').text();
+        var crMatch = $(this).html().match(/CR: ([^,)<]+)/);
+        var xpMatch = $(this).html().match(/XP: ([^)<]+)/);
+        var cr = crMatch ? crMatch[1] : 'N/A';
+        var xp = xpMatch ? xpMatch[1].replace(/,/g, '') : 'N/A';
+        lines.push(`${count}x ${name} (CR ${cr}, XP ${xp})`);
+    });
+    var text = lines.join('\n');
+    if (text.trim().length === 0) {
+        alert('No monsters to copy in this encounter.');
+        return;
+    }
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(function() {
+            alert('Encounter list copied!');
+        }, function() {
+            alert('Failed to copy encounter list.');
+        });
+    } else {
+        var temp = $('<textarea>');
+        $('body').append(temp);
+        temp.val(text).select();
+        try {
+            document.execCommand('copy');
+            alert('Encounter list copied!');
+        } catch (e) {
+            alert('Failed to copy encounter list.');
+        }
+        temp.remove();
+    }
+});
