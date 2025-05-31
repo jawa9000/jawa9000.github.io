@@ -21,7 +21,8 @@
     <meta name="language" content="en-us">
     <meta name="note" content="For Jimmy.">
     <meta name="level" content="2">
-    <meta name="version" content="0.0.1">
+    <meta name="version" content="0.1.0">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <div id="stat-block-container">
@@ -30,6 +31,64 @@
 
     <div id="monster-index-container">
         <h2>Monster Index</h2>
+        <div id="monster-filters" style="margin-bottom: 1em;">
+            <label for="filter-environment">Environment:</label>
+            <select id="filter-environment">
+                <optgroup label="Environment">
+                    <option value="Any" selected="selected">Any</option>
+                    <option value="Arctic">Arctic</option>
+                    <option value="Coastal">Coastal</option>
+                    <option value="Desert">Desert</option>
+                    <option value="Forest">Forest</option>
+                    <option value="Grassland">Grassland</option>
+                    <option value="Hill">Hill</option>
+                    <option value="Jungle">Jungle</option>
+                    <option value="Mountain">Mountain</option>
+                    <option value="Swamp">Swamp</option>
+                    <option value="Underdark">Underdark</option>
+                    <option value="Underwater">Underwater</option>
+                    <option value="Urban">Urban</option>
+                    <option value="Wasteland">Wasteland</option>
+                </optgroup>
+                <optgroup label="Planar">
+                    <option value="Abyssal">Abyss</option>
+                    <option value="Celestial">Celestial</option>
+                    <!-- <option value="Divine">Divine Plane</option> -->
+                    <option value="Ethereal">Ethereal</option>
+                    <option value="Infernal">Infernal</option>
+                    <option value="Lower Planes">Lower Planes</option>
+                    <option value="Negative Energy">Negative Energy</option>
+                    <option value="Pandemonium">Pandemonium</option>
+                    <!-- <option value="Positive Energy">Positive Energy</option> -->
+                    <!-- <option value="Primal">Primal</option> -->
+                    <option value="Shadowfell">Shadowfell</option>
+                    <option value="Upper Planes">Upper Planes</option><!-- <option value="Void">Void Plane</option> -->
+                </optgroup>
+                <optgroup label="Elemental">
+                    <option value="Elemental Air">Elemental Air</option>
+                    <option value="Elemental Earth">Elemental Earth</option>
+                    <option value="Elemental Fire">Elemental Fire</option>
+                    <option value="Elemental Water">Elemental Water</option>
+                </optgroup>
+            </select>
+            <label for="filter-type">Type:</label>
+            <select id="filter-type"><option value="">All</option></select>
+            <label for="filter-size">Size:</label>
+            <select id="filter-size"><option value="">All</option></select>
+            <label for="filter-cr">CR:</label>
+            <select id="filter-cr"><option value="">All</option></select>
+            <label for="filter-alignment">Alignment:</label>
+            <select id="filter-alignment"><option value="">All</option></select>
+            <br/>
+            <label for="sort-monsters">Sort by:</label>
+            <select id="sort-monsters">
+                <option value="name">Name</option>
+                <option value="cr">CR</option>
+                <option value="type">Type</option>
+                <option value="size">Size</option>
+                <option value="alignment">Alignment</option>
+            </select>
+        </div>
         <div id="monster-list">
             <ul>
                 <!-- Monster names will be populated here by JavaScript -->

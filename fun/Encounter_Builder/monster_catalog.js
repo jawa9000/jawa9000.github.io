@@ -18,14 +18,112 @@ $(() => { // jQuery's DOM ready shorthand
         // Depending on desired behavior, you might want to show an error or proceed without modifiers.
     }
 
-    const sortedMonsters = [...monsters].sort((a, b) => a.name.localeCompare(b.name));
+    // --- FILTER AND SORT SUPPORT ---
+    function getUniqueValues(key, isArray) {
+        const values = new Set();
+        monsters.forEach(monster => {
+            if (isArray && Array.isArray(monster[key])) {
+                monster[key].forEach(v => v && values.add(v));
+            } else if (monster[key]) {
+                values.add(monster[key]);
+            }
+        });
+        return Array.from(values).sort();
+    }
 
-    sortedMonsters.forEach(monster => {
-        const $listItem = $('<li></li>')
-                            .text(monster.name)
-                            .on('click', () => displayMonsterStats(monster));
-        $monsterListUl.append($listItem);
-    });
+    function getCrSortValue(crString) {
+        if (!crString) return 0;
+        // Extract the CR value (e.g., '1/4', '2', '10') from the challenge string
+        let cr = String(crString).split(' ')[0].trim();
+        if (cr === '0') return 0;
+        if (cr === '1/8') return 0.125;
+        if (cr === '1/4') return 0.25;
+        if (cr === '1/2') return 0.5;
+        let n = parseFloat(cr);
+        return isNaN(n) ? 0 : n;
+    }
+
+    function getUniqueCrValues() {
+        const values = new Set();
+        monsters.forEach(monster => {
+            if (monster.challenge) {
+                let cr = String(monster.challenge).split(' ')[0].trim();
+                values.add(cr);
+            }
+        });
+        // Sort by numeric value using getCrSortValue
+        return Array.from(values).sort((a, b) => getCrSortValue(a) - getCrSortValue(b));
+    }
+
+    function populateFilterOptions() {
+        // Do not touch #filter-environment, it's static in HTML now
+        const types = getUniqueValues('type');
+        const sizes = getUniqueValues('size');
+        const crs = getUniqueCrValues();
+        const aligns = getUniqueValues('alignment');
+        types.forEach(t => $('#filter-type').append(`<option value="${t}">${t}</option>`));
+        sizes.forEach(s => $('#filter-size').append(`<option value="${s}">${s}</option>`));
+        crs.forEach(c => $('#filter-cr').append(`<option value="${c}">${c}</option>`));
+        aligns.forEach(a => $('#filter-alignment').append(`<option value="${a}">${a}</option>`));
+    }
+
+    function filterAndSortMonsters() {
+        let filtered = [...monsters];
+        const env = $('#filter-environment').val();
+        const type = $('#filter-type').val();
+        const size = $('#filter-size').val();
+        const cr = $('#filter-cr').val();
+        const align = $('#filter-alignment').val();
+        const sort = $('#sort-monsters').val();
+        // Only filter by environment if not 'Any' (or blank)
+        if (env && env !== 'Any') filtered = filtered.filter(m => Array.isArray(m.environments) && m.environments.includes(env));
+        if (type) filtered = filtered.filter(m => m.type === type);
+        if (size) filtered = filtered.filter(m => m.size === size);
+        if (cr) filtered = filtered.filter(m => {
+            if (!m.challenge) return false;
+            let mCr = String(m.challenge).split(' ')[0].trim();
+            return mCr === cr;
+        });
+        if (align) filtered = filtered.filter(m => m.alignment === align);
+        filtered.sort((a, b) => {
+            if (sort === 'cr') {
+                const crA = getCrSortValue(a.challenge);
+                const crB = getCrSortValue(b.challenge);
+                return crA - crB;
+            }
+            return String(a[sort] || '').localeCompare(String(b[sort] || ''));
+        });
+        return filtered;
+    }
+
+    function renderMonsterList() {
+        $monsterListUl.empty();
+        const filtered = filterAndSortMonsters();
+        const sort = $('#sort-monsters').val();
+        if (filtered.length === 0) {
+            $monsterListUl.html('<li>No monsters found.</li>');
+            $statBlockContainer.html('<p>No monsters available to display.</p>');
+            return;
+        }
+        filtered.forEach(monster => {
+            let displayName = monster.name;
+            if (sort && sort !== 'name') {
+                let sortValue = '';
+                if (sort === 'cr') {
+                    sortValue = String(monster.challenge || '');
+                } else {
+                    sortValue = monster[sort] || '';
+                }
+                if (sortValue) {
+                    displayName += ` [${sortValue}]`;
+                }
+            }
+            const $listItem = $('<li></li>')
+                .text(displayName)
+                .on('click', () => displayMonsterStats(monster));
+            $monsterListUl.append($listItem);
+        });
+    }
 
     function getAbilityScoreDisplay(scoreValue) {
         // Handles cases where scoreValue is undefined, null, or an empty/whitespace string
@@ -128,8 +226,8 @@ $(() => { // jQuery's DOM ready shorthand
         `;
     }
 
-    if (sortedMonsters.length === 0) {
-        $monsterListUl.html('<li>No monsters found.</li>');
-        $statBlockContainer.html('<p>No monsters available to display.</p>');
-    }
+    // Populate filter options and bind events
+    populateFilterOptions();
+    $('#monster-filters select').on('change', renderMonsterList);
+    renderMonsterList();
 });
