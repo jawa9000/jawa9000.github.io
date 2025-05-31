@@ -305,13 +305,8 @@ function generatePcLevelInputs(pcCount, pcLevel, difficulty, environment) {
             }
             const monsterXp = parseInt(monsterXpString, 10);
 
-            // Pre-filter: only consider monsters whose individual XP is not more than the total budget
-            // This helps in not considering extremely high CR monsters if the budget is low.
-            if (monsterXp > 0 && monsterXp <= xpTally) { // Ensure monsterXP is positive
-                availableMonstersForEnvironment[monsterData.name] = monsterXp;
-            } else if (monsterXp > 0 && Object.keys(availableMonstersForEnvironment).length < 200) {
-                // Fallback: if budget is very low, still add some monsters to allow combinations
-                // This limit (200) is arbitrary to prevent excessively large lists for generateEncounterOptionsImproved
+            // Only include monsters whose XP is within the XP budget for the selected difficulty
+            if (monsterXp > 0 && monsterXp <= xpTally) { // Ensure monsterXP is positive and within budget
                 availableMonstersForEnvironment[monsterData.name] = monsterXp;
             }
         }
