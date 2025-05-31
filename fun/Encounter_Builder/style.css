@@ -34,6 +34,10 @@
     margin-right: 5px;
 }
 
+ol li:nth-child(even) {
+    background-color: rgba(0,0,0,0.025);
+}
+
 
 /* monster_catalog.html */
 /* body {

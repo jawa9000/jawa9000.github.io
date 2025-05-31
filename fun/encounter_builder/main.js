@@ -432,98 +432,114 @@ function generatePcLevelInputs(pcCount, pcLevel, difficulty, environment) {
     }
 }
 
-/**
- * @function generateEncounterOptionsImproved
- * @description Generates a specified number of unique encounter options that fit within a given XP limit,
- * using a provided dataset of monsters and their XP values. It aims for variety and tries to get close
- * to the XP limit.
- *
- * @param {number} xpLimit - The maximum total raw XP for an encounter.
- * @param {Object.<string, number>} monsterData - An object where keys are monster names and values are their XP. It's expected that monsters with 0 XP are pre-filtered out.
- * @param {number} [numOptions=5] - The desired number of unique encounter options to generate.
- * @returns {Array<Object>} An array of encounter options. Each option is an object with:
- *                          `monsters`: An array of monster names in the encounter.
- *                          `totalXP`: The sum of raw XP for all monsters in that encounter.
- *                          Returns an array with a single empty option `[{ monsters: [], totalXP: 0 }]`
- *                          if no monsters are available or no suitable encounters can be formed.
- *
- * @careful_modification
- * - **Algorithm Complexity & Performance**: This function uses a heuristic, randomized approach. Changes to the iteration limits (`maxTotalAttempts`, `fillAttempts`, `maxMonstersInEncounter`), monster selection logic, or the shuffling/sorting can significantly impact performance and the quality/variety of generated encounters. Test thoroughly with various `xpLimit` values and `monsterData` sizes.
- * - **Encounter Quality**: The definition of a "good" encounter is subjective. This algorithm prioritizes getting close to the `xpLimit` and providing some variety. Modifying how `numTryAdd` is calculated or how `fittingMonsters` are chosen will change the composition of suggested encounters.
- * - **Uniqueness**: The `generatedOptionSignatures` Set is used to avoid duplicate encounter suggestions (based on the exact multiset of monsters). If this logic is altered, users might see redundant options.
- * - **Fallback Logic**: The fallback mechanism (filling with the smallest XP monster) is crucial for cases where the main generation loop fails to produce enough unique options. Ensure this fallback remains robust.
- * - **Zero XP Monsters**: The function expects `monsterData` to contain monsters with positive XP values. The initial filter `filter(name => monsterData[name] > 0)` handles this. If 0 XP monsters were to be included for some reason, the logic for `numToAdd` in the fallback might need adjustment to prevent infinite loops or division by zero.
- * - **`maxMonstersInEncounter`**: This limit prevents excessively large (in terms of monster count) encounters. Adjusting it can change the nature of generated encounters.
- */
-  function generateEncounterOptionsImproved(xpLimit, monsterData, numOptions = 5) {
-    const monsterNames = Object.keys(monsterData).filter(name => monsterData[name] > 0); // Ensure monsters have XP
-    const encounterOptions = [];
-    const generatedOptionSignatures = new Set(); // To store signatures of generated options
-    const maxMonstersInEncounter = 15; // Arbitrary limit to prevent overly crowded encounters
+// Helper functions for thematic matching
+function isTypeSimilar(typeA, typeB) {
+    if (!typeA || !typeB) return false;
+    typeA = typeA.toLowerCase();
+    typeB = typeB.toLowerCase();
+    // Partial match: substring or plural/singular
+    return typeA === typeB || typeA.includes(typeB) || typeB.includes(typeA);
+}
 
-    if (monsterNames.length === 0) {
-        return [{ monsters: [], totalXP: 0 }]; // Return empty if no monsters available
+function isAlignmentSimilar(alignA, alignB) {
+    if (!alignA || !alignB) return false;
+    alignA = alignA.toLowerCase();
+    alignB = alignB.toLowerCase();
+    // Partial match: substring or major axis (e.g. 'chaotic', 'evil')
+    const axes = ['lawful', 'chaotic', 'neutral', 'good', 'evil'];
+    for (let axis of axes) {
+        if (alignA.includes(axis) && alignB.includes(axis)) return true;
     }
+    // Fallback: substring
+    return alignA === alignB || alignA.includes(alignB) || alignB.includes(alignA);
+}
 
-    // Initial attempt to generate diverse options
+function hasEnvironmentOverlap(envsA, envsB) {
+    if (!Array.isArray(envsA) || !Array.isArray(envsB)) return false;
+    return envsA.some(env => envsB.includes(env));
+}
+
+function hasAssociationOverlap(assocA, assocB) {
+    if (!assocA || !assocB) return false;
+    // Associations may be string or array
+    let arrA = Array.isArray(assocA) ? assocA : [assocA];
+    let arrB = Array.isArray(assocB) ? assocB : [assocB];
+    return arrA.some(a => arrB.includes(a));
+}
+
+function generateEncounterOptionsImproved(xpLimit, monsterData, numOptions = 5) {
+    const monsterNames = Object.keys(monsterData).filter(name => monsterData[name] > 0);
+    const encounterOptions = [];
+    const generatedOptionSignatures = new Set();
+    const maxMonstersInEncounter = 15;
+    if (monsterNames.length === 0) {
+        return [{ monsters: [], totalXP: 0 }];
+    }
     let maxTotalAttempts = 1000;
     for (let attempt = 0; attempt < maxTotalAttempts; attempt++) {
         let remainingXp = xpLimit;
         let optionMonsters = [];
         let usedMonsterNames = new Set();
         let numMonstersInEncounter = 0;
-
-        // Ensure at least one monster is picked if possible
         let firstMonsterAdded = false;
-
-        // Try to add monsters without exceeding the XP limit
+        let firstMonsterData = null;
         while (remainingXp > 0 && numMonstersInEncounter < maxMonstersInEncounter) {
-            let fittingMonsters = monsterNames.filter(name => {
-                const monsterXp = monsterData[name];
-                return !usedMonsterNames.has(name) && monsterXp <= remainingXp;
-            });
-
-            if (fittingMonsters.length === 0) {
-                break; // No more fitting monsters, exit the loop
+            let fittingMonsters;
+            if (!firstMonsterAdded) {
+                // First monster: any fitting
+                fittingMonsters = monsterNames.filter(name => {
+                    const monsterXp = monsterData[name];
+                    return !usedMonsterNames.has(name) && monsterXp <= remainingXp;
+                });
+            } else {
+                // Thematic filter: only monsters similar to the first
+                fittingMonsters = monsterNames.filter(name => {
+                    if (usedMonsterNames.has(name)) return false;
+                    const monsterXp = monsterData[name];
+                    if (monsterXp > remainingXp) return false;
+                    const m = typeof monsters !== 'undefined' ? monsters.find(mon => mon.name === name) : null;
+                    if (!m || !firstMonsterData) return false;
+                    // Type
+                    if (isTypeSimilar(m.type, firstMonsterData.type)) return true;
+                    // Alignment
+                    if (isAlignmentSimilar(m.alignment, firstMonsterData.alignment)) return true;
+                    // Environment
+                    if (hasEnvironmentOverlap(m.environments, firstMonsterData.environments)) return true;
+                    // Associations (if present)
+                    if (hasAssociationOverlap(m.associations, firstMonsterData.associations)) return true;
+                    return false;
+                });
             }
-
-            // Randomly select one of the fitting monsters
+            if (fittingMonsters.length === 0) {
+                break;
+            }
             let selectedMonster = fittingMonsters[Math.floor(Math.random() * fittingMonsters.length)];
             optionMonsters.push(selectedMonster);
             usedMonsterNames.add(selectedMonster);
             remainingXp -= monsterData[selectedMonster];
             numMonstersInEncounter++;
-            firstMonsterAdded = true;
+            if (!firstMonsterAdded) {
+                firstMonsterAdded = true;
+                firstMonsterData = typeof monsters !== 'undefined' ? monsters.find(mon => mon.name === selectedMonster) : null;
+            }
         }
-
-        // If no monsters were added, break to avoid infinite loop
         if (!firstMonsterAdded) {
             break;
         }
-
-        // Sort monsters by name for consistent ordering
         optionMonsters.sort();
-
-        // Create a signature for the generated option (sorted monster names)
         let optionSignature = optionMonsters.join(',');
         if (!generatedOptionSignatures.has(optionSignature)) {
             generatedOptionSignatures.add(optionSignature);
             encounterOptions.push({ monsters: optionMonsters, totalXP: xpLimit - remainingXp });
         }
-
-        // Limit the number of unique options
         if (encounterOptions.length >= numOptions) {
             break;
         }
     }
-
-    // If not enough unique options were generated, fallback to a simpler method
     if (encounterOptions.length < numOptions) {
         let minXpMonster = monsterNames.reduce((minName, name) => {
             return monsterData[name] < monsterData[minName] ? name : minName;
         });
-
-        // Fill the rest of the options with the minimum XP monster to reach the desired count
         for (let i = encounterOptions.length; i < numOptions; i++) {
             encounterOptions.push({
                 monsters: [...Array(i + 1).keys()].map(() => minXpMonster),
@@ -531,6 +547,5 @@ function generatePcLevelInputs(pcCount, pcLevel, difficulty, environment) {
             });
         }
     }
-
     return encounterOptions;
   }
