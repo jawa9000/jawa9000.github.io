@@ -3,8 +3,8 @@ const monsters = [
     {
       "name": "Aboleth",
       "size": "Large",
-      "type": "aberration",
-      "alignment": "lawful evil",
+      "type": "Aberration",
+      "alignment": "Lawful Evil",
       "environments": ["Underdark", "Underwater", "Coastal"],
       "associates": ["Daelkyr", "Mind flayer", "Beholder", "Dragon turtle", "Kraken", "Carrion crawler", "Otyugh", "Hybrid spy", "Category 1 krasis", "Giant octopus", "Hybrid poisoner", "Hybrid shocker", "Druid", "Hybrid brute", "Hybrid flier", "Plesiosaurus", "Killer whale", "Giant shark", "Category 2 krasis", "Mage", "Biomancer", "Skyswimmer", "Category 3 krasis", "Zegana", "Acolyte"],
       "armor class": "17 (Natural Armor)",
@@ -29,8 +29,8 @@ const monsters = [
     {
       "name": "Acolyte",
       "size": "Medium",
-      "type": "humanoid",
-      "alignment": "any",
+      "type": "Humanoid",
+      "alignment": "Any",
       "environments": ["Urban"],
       "associates": ["Priest", "Lich King", "Lich", "Vampire", "Hag", "Fiend", "Demon", "Devil", "Dignitary", "Scout", "Soldier", "Knight", "Vampire pontiff", "Vampire spawn", "Cult fanatic", "Priest of the cult", "Priest of the cult (variant)", "Priest of the cult (variant 2)", "Priest of the cult (variant 3)", "Priest of the cult (variant 4)", "Priest of the cult (variant 5)", "Priest of the cult (variant 6)"],
       "armor class": "1",
@@ -53,8 +53,8 @@ const monsters = [
     {
       "name": "Adult Black Dragon",
       "size": "Huge",
-      "type": "dragon",
-      "alignment": "chaotic evil",
+      "type": "Dragon",
+      "alignment": "Chaotic Evil",
       "environments": ["Swamp"],
       "associates": ["Tiamat", "Swamp-bred chimera", "Merrow", "Myconid", "Troglodyte", "Drow priestess", "Drow", "Drow elite warrior", "Drow mage", "Drow priest", "Drow poisoner", "Drow skirmisher", "Drow slaver", "Drow spider keeper", "Drow warlock of the archfey", "Drow wizard", "Duergar", "Duergar mind master", "Duergar soulblade", "Duergar stone guard"],
       "armor class": "19 (Natural Armor)",
@@ -80,8 +80,8 @@ const monsters = [
     {
       "name": "Adult Blue Dragon",
       "size": "Huge",
-      "type": "dragon",
-      "alignment": "lawful evil",
+      "type": "Dragon",
+      "alignment": "Lawful Evil",
       "environments": ["Desert", "Coastal"],
       "associates": ["Tiamat", "Cyclops", "Djinni", "Arcanaloth", "Pseudodragon", "Druid", "Gnoll", "Bronze dragon"],
       "armor class": "19 (Natural Armor)",
@@ -107,8 +107,8 @@ const monsters = [
     {
       "name": "Adult Brass Dragon",
       "size": "Huge",
-      "type": "dragon",
-      "alignment": "chaotic good",
+      "type": "Dragon",
+      "alignment": "Chaotic Good",
       "environments": ["Coastal", "Desert", "Upper Planes"],
       "associates": ["Bahamut", "Fire Giant", "Fire elemental", "Weretiger", "Cyclops", "Gnoll"],
       "armor class": "18 (Natural Armor)",
@@ -134,8 +134,8 @@ const monsters = [
     {
       "name": "Adult Bronze Dragon",
       "size": "Huge",
-      "type": "dragon",
-      "alignment": "lawful good",
+      "type": "Dragon",
+      "alignment": "Lawful Good",
       "environments": ["Coastal", "Upper Planes"],
       "associates": ["Bahamut", "Pseudodragon", "Knight", "Revenant", "Blue dragon", "Bronze dragon", "Brass dragon", "Copper dragon", "Gold dragon", "Silver dragon", "White dragon", "Young bronze dragon", "Young brass dragon", "Young copper dragon", "Young gold dragon", "Young silver dragon", "Young white dragon"],
       "armor class": "19 (Natural Armor)",
@@ -161,8 +161,8 @@ const monsters = [
     {
       "name": "Adult Copper Dragon",
       "size": "Huge",
-      "type": "dragon",
-      "alignment": "chaotic good",
+      "type": "Dragon",
+      "alignment": "Chaotic Good",
       "environments": ["Hill", "Mountain", "Upper Planes"],
       "associates": ["Bahamut", "Aarakocra", "Gargoyle", "Centaur", "Pixie", "Satyr", "Druid", "Wereboar", "Hill Giant"],
       "armor class": "18 (Natural Armor)",
@@ -188,8 +188,8 @@ const monsters = [
     {
       "name": "Adult Gold Dragon",
       "size": "Huge",
-      "type": "dragon",
-      "alignment": "lawful good",
+      "type": "Dragon",
+      "alignment": "Lawful Good",
       "environments": ["Urban", "Mountain", "Upper Planes"],
       "associates": ["Bahamut", "Sphinx", "Pegasus", "Unicorn", "Gargoyle", "Aarakocra", "Centaur", "Druid"],
       "armor class": "19 (Natural Armor)",
@@ -215,8 +215,8 @@ const monsters = [
     {
       "name": "Adult Green Dragon",
       "size": "Huge",
-      "type": "dragon",
-      "alignment": "lawful evil",
+      "type": "Dragon",
+      "alignment": "Lawful Evil",
       "environments": ["Forest"],
       "associates": ["Tiamat", "Assassin", "Druid", "Bugbear", "Ancient Moonstone dragon", "Ancient Sapphire dragon", "Ancient Silver dragon", "Ancient White dragon", "Young green dragon", "Young moonstone dragon", "Young sapphire dragon", "Young silver dragon", "Young white dragon"],
       "armor class": "19 (Natural Armor)",
@@ -243,8 +243,8 @@ const monsters = [
     {
       "name": "Adult Red Dragon",
       "size": "Huge",
-      "type": "dragon",
-      "alignment": "chaotic evil",
+      "type": "Dragon",
+      "alignment": "Chaotic Evil",
       "environments": ["Mountain", "Hill"],
       "associates": ["Tiamat", "Fire giant lord", "Salamander", "Kobold", "Hobgoblin", "Githyanki knight", "Lich", "Death knight", "Beholder", "Ancient Moonstone dragon", "Ancient Sapphire dragon", "Ancient Silver dragon", "Ancient White dragon", "Young red dragon", "Young moonstone dragon", "Young sapphire dragon", "Young silver dragon", "Young white dragon"],
       "armor class": "19 (Natural Armor)",
@@ -270,8 +270,8 @@ const monsters = [
     {
       "name": "Adult Silver Dragon",
       "size": "Huge",
-      "type": "dragon",
-      "alignment": "lawful good",
+      "type": "Dragon",
+      "alignment": "Lawful Good",
       "environments": ["Mountain", "Upper Planes"],
       "associates": ["Bahamut", "Stone giant", "Succubus", "Incubus", "Hippogriff", "Ogre", "Pegasus", "Unicorn", "Gargoyle", "Aarakocra", "Centaur", "Druid"],
       "armor class": "19 (Natural Armor)",
@@ -297,8 +297,8 @@ const monsters = [
     {
       "name": "Adult White Dragon",
       "size": "Huge",
-      "type": "dragon",
-      "alignment": "chaotic evil",
+      "type": "Dragon",
+      "alignment": "Chaotic Evil",
       "environments": ["Arctic"],
       "associates": ["Tiamat", "Ice mephit", "Polar bear", "Pirate captain", "Djinni", "Arcanaloth", "Ancient Moonstone dragon", "Ancient Sapphire dragon", "Ancient Silver dragon", "Ancient White dragon", "Young white dragon"],
       "armor class": "18 (Natural Armor)",
@@ -324,8 +324,8 @@ const monsters = [
     {
       "name": "Air Elemental",
       "size": "Large",
-      "type": "elemental",
-      "alignment": "neutral",
+      "type": "Elemental",
+      "alignment": "Neutral",
       "environments": ["Elemental Air"],
       "associates": ["Arcana caster", "Nature caster", "Elemental"],
       "armor class": "1",
@@ -350,8 +350,8 @@ const monsters = [
     {
       "name": "Allosaurus",
       "size": "Large",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Grassland"],
       "associates": ["Beast"],
       "armor class": "13 Natural Armor",
@@ -374,8 +374,8 @@ const monsters = [
     {
       "name": "Ancient Black Dragon",
       "size": "Gargantuan",
-      "type": "dragon",
-      "alignment": "chaotic evil",
+      "type": "Dragon",
+      "alignment": "Chaotic Evil",
       "environments": ["Swamp"],
       "associates": ["Tiamat", "Swamp-bred chimera", "Merrow", "Myconid", "Troglodyte", "Drow priestess", "Assassin", "Ooze", "Ancient Moonstone dragon", "Ancient Sapphire dragon", "Ancient Silver dragon", "Ancient White dragon", "Young black dragon", "Young moonstone dragon", "Young sapphire dragon", "Young silver dragon", "Young white dragon"],
       "armor class": "22 (Natural Armor)",
@@ -401,8 +401,8 @@ const monsters = [
     {
       "name": "Ancient Blue Dragon",
       "size": "Gargantuan",
-      "type": "dragon",
-      "alignment": "lawful evil",
+      "type": "Dragon",
+      "alignment": "Lawful Evil",
       "environments": ["Desert", "Coastal"],
       "associates": ["Tiamat", "Cyclops", "Djinni", "Arcanaloth", "Pseudodragon", "Druid", "Gnoll", "Bronze dragon", "Copper dragon", "Gold dragon", "Green dragon", "Red dragon", "Silver dragon", "White dragon", "Young blue dragon", "Young copper dragon", "Young gold dragon", "Young green dragon", "Young red dragon", "Young silver dragon", "Young white dragon"],
       "armor class": "22 (Natural Armor)",
@@ -428,8 +428,8 @@ const monsters = [
     {
       "name": "Ancient Brass Dragon",
       "size": "Gargantuan",
-      "type": "dragon",
-      "alignment": "chaotic good",
+      "type": "Dragon",
+      "alignment": "Chaotic Good",
       "environments": ["Coastal", "Upper Planes"],
       "associates": ["Bahamut", "Fire Giant", "Fire elemental", "Weretiger", "Cyclops", "Gnoll", "Hippogriff", "Ogre", "Pegasus", "Unicorn", "Gargoyle", "Aarakocra", "Centaur", "Druid", "Ancient Moonstone dragon", "Ancient Sapphire dragon", "Ancient Silver dragon", "Ancient White dragon", "Young brass dragon", "Young moonstone dragon", "Young sapphire dragon", "Young silver dragon", "Young white dragon"],
       "armor class": "20 (Natural Armor)",
@@ -455,8 +455,8 @@ const monsters = [
     {
       "name": "Ancient Bronze Dragon",
       "size": "Gargantuan",
-      "type": "dragon",
-      "alignment": "lawful good",
+      "type": "Dragon",
+      "alignment": "Lawful Good",
       "environments": ["Coastal", "Upper Planes"],
       "associates": ["Bahamut", "Pseudodragon", "Knight", "Revenant", "Blue dragon", "Copper dragon", "Gold dragon", "Green dragon", "Red dragon", "Silver dragon", "White dragon", "Young bronze dragon", "Young copper dragon", "Young gold dragon", "Young green dragon", "Young red dragon", "Young silver dragon", "Young white dragon"],
       "armor class": "22 (Natural Armor)",
@@ -482,8 +482,8 @@ const monsters = [
     {
       "name": "Ancient Copper Dragon",
       "size": "Gargantuan",
-      "type": "dragon",
-      "alignment": "chaotic good",
+      "type": "Dragon",
+      "alignment": "Chaotic Good",
       "environments": ["Hill", "Mountain", "Upper Planes"],
       "associates": ["Bahamut", "Aarakocra", "Gargoyle", "Centaur", "Pixie", "Satyr", "Druid", "Wereboar", "Hill Giant", "Stone Giant", "Young brass dragon", "Young moonstone dragon", "Young sapphire dragon", "Young silver dragon", "Young white dragon"],
       "armor class": "21 (Natural Armor)",
@@ -509,8 +509,8 @@ const monsters = [
     {
       "name": "Ancient Gold Dragon",
       "size": "Gargantuan",
-      "type": "dragon",
-      "alignment": "lawful good",
+      "type": "Dragon",
+      "alignment": "Lawful Good",
       "environments": ["Urban", "Mountain", "Upper Planes"],
       "associates": ["Bahamut", "Sphinx", "Gargoyle", "Aarakocra", "Centaur", "Druid", "Unicorn", "Pegasus", "Young brass dragon", "Young moonstone dragon", "Young sapphire dragon", "Young silver dragon", "Young white dragon"],
       "armor class": "22 (Natural Armor)",
@@ -536,8 +536,8 @@ const monsters = [
     {
       "name": "Ancient Green Dragon",
       "size": "Gargantuan",
-      "type": "dragon",
-      "alignment": "lawful evil",
+      "type": "Dragon",
+      "alignment": "Lawful Evil",
       "environments": ["Forest"],
       "associates": ["Tiamat", "Assassin", "Druid", "Bugbear", "Ancient Moonstone dragon", "Ancient Sapphire dragon", "Ancient Silver dragon", "Ancient White dragon", "Young blue dragon", "Young copper dragon", "Young gold dragon", "Young green dragon", "Young red dragon", "Young silver dragon", "Young white dragon"],
       "armor class": "21 (Natural Armor)",
@@ -564,8 +564,8 @@ const monsters = [
     {
       "name": "Ancient Red Dragon",
       "size": "Gargantuan",
-      "type": "dragon",
-      "alignment": "chaotic evil",
+      "type": "Dragon",
+      "alignment": "Chaotic Evil",
       "environments": ["Mountain", "Hill"],
       "associates": ["Tiamat", "Fire Giant lord", "Salamander", "Kobold", "Hobgoblin", "Githyanki knight", "Lich", "Death knight", "Beholder", "Kobold Inventor", "Kobold Scale Sorcerer", "Ancient Moonstone dragon", "Ancient Sapphire dragon", "Ancient Silver dragon", "Ancient White dragon", "Young blue dragon", "Young copper dragon", "Young gold dragon", "Young green dragon", "Young red dragon", "Young silver dragon", "Young white dragon"],
       "armor class": "22 (Natural Armor)",
@@ -591,8 +591,8 @@ const monsters = [
     {
       "name": "Ancient Silver Dragon",
       "size": "Gargantuan",
-      "type": "dragon",
-      "alignment": "lawful good",
+      "type": "Dragon",
+      "alignment": "Lawful Good",
       "environments": ["Mountain", "Upper Planes"],
       "associates": ["Bahamut", "Stone Giant", "Succubus", "Incubus", "Hippogriff", "Ogre", "Pegasus", "Unicorn", "Young brass dragon", "Young moonstone dragon", "Young sapphire dragon", "Young silver dragon", "Young white dragon"],
       "armor class": "22 (Natural Armor)",
@@ -618,8 +618,8 @@ const monsters = [
     {
       "name": "Ancient White Dragon",
       "size": "Gargantuan",
-      "type": "dragon",
-      "alignment": "chaotic evil",
+      "type": "Dragon",
+      "alignment": "Chaotic Evil",
       "environments": ["Arctic"],
       "associates": ["Tiamat", "Ice mephit", "Polar bear", "Townsfolk", "Frost giant", "Frost giant jarl", "Frost giant emissary", "Frost giant taskmaster", "Frost giant warrior", "Frost giant berserker", "Ancient Moonstone dragon", "Ancient Sapphire dragon", "Ancient Silver dragon", "Ancient Gold dragon", "Young blue dragon", "Young copper dragon", "Young gold dragon", "Young green dragon", "Young red dragon", "Young silver dragon"],
       "armor class": "20 (Natural Armor)",
@@ -645,8 +645,8 @@ const monsters = [
     {
       "name": "Androsphinx",
       "size": "Large",
-      "type": "monstrosity",
-      "alignment": "lawful neutral",
+      "type": "Monstrosity",
+      "alignment": "Lawful Neutral",
       "environments": ["Desert", "Hill"],
       "associates": ["Ancient Moonstone dragon", "Ancient Sapphire dragon", "Ancient Silver dragon", "Ancient Gold dragon", "Ancient White dragon", "Young blue dragon", "Young copper dragon", "Young gold dragon", "Young green dragon", "Young red dragon", "Young silver dragon"],
       "armor class": "17 (Natural Armor)",
@@ -673,10 +673,10 @@ const monsters = [
     {
       "name": "Animated Armor",
       "size": "Medium",
-      "type": "construct",
-      "alignment": "unaligned",
+      "type": "Construct",
+      "alignment": "Unaligned",
       "environments": ["Dungeon", "Underdark", "Varies"],
-      "associates": ["Amethyst dragon wyrmling", "Construct", "Giant", "Golem", "Iron Golem", "Stone Golem", "Clay Golem", "Shield Guardian", "Warforged"],
+      "associates": ["Amethyst dragon wyrmling", "construct", "Giant", "Golem", "Iron Golem", "Stone Golem", "Clay Golem", "Shield Guardian", "Warforged"],
       "armor class": "18 (Natural Armor)",
       "hit points": "33 (6d8 + 6)",
       "speed": "25ft",
@@ -698,8 +698,8 @@ const monsters = [
     {
       "name": "Ankheg",
       "size": "Large",
-      "type": "monstrosity",
-      "alignment": "unaligned",
+      "type": "Monstrosity",
+      "alignment": "Unaligned",
       "environments": ["Forest", "Dungeon", "Grassland"],
       "associates": ["Golgari Swarm"],
       "armor class": "14 (Natural Armor), 11 While Prone",
@@ -720,8 +720,8 @@ const monsters = [
     {
       "name": "Ankylosaurus",
       "size": "Huge",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Grassland"],
       "associates": ["Beast"],
       "armor class": "15 Natural",
@@ -742,8 +742,8 @@ const monsters = [
     {
       "name": "Ape",
       "size": "Medium",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Grassland", "Jungle"],
       "associates": [ "Beast"],
       "armor class": "1",
@@ -765,8 +765,8 @@ const monsters = [
     {
       "name": "Archmage",
       "size": "Medium",
-      "type": "humanoid",
-      "alignment": "any",
+      "type": "Humanoid",
+      "alignment": "Any",
       "environments": ["Urban"],
       "associates": ["Fey noble", "Wizard", "Spellcaster", "Lich", "Death Knight", "Beholder", "Kobold Inventor", "Kobold Scale Sorcerer", "Ancient Moonstone dragon", "Ancient Sapphire dragon", "Ancient Silver dragon", "Ancient Gold dragon", "Ancient White dragon", "Young blue dragon", "Young copper dragon", "Young gold dragon", "Young green dragon", "Young red dragon", "Young silver dragon"],
       "armor class": "12 (15 With Mage Armor)",
@@ -790,8 +790,8 @@ const monsters = [
     {
       "name": "Assassin",
       "size": "Medium",
-      "type": "humanoid",
-      "alignment": "any",
+      "type": "Humanoid",
+      "alignment": "Any",
       "environments": ["Urban"],
       "associates": ["Young green dragon", "Golgari Swarm", "Beholder", "Goblin", "Droaam", "Tarkanan assassin"],
       "armor class": "15 (Studded Leather)",
@@ -816,8 +816,8 @@ const monsters = [
     {
       "name": "Awakened Shrub",
       "size": "Small",
-      "type": "plant",
-      "alignment": "unaligned",
+      "type": "Plant",
+      "alignment": "Unaligned",
       "environments": ["Forest"],
       "associates": ["Druid", "Awakened Tree"],
       "armor class": "9",
@@ -841,8 +841,8 @@ const monsters = [
     {
       "name": "Awakened Tree",
       "size": "Huge",
-      "type": "plant",
-      "alignment": "unaligned",
+      "type": "Plant",
+      "alignment": "Unaligned",
       "environments": ["Forest"],
       "associates": ["Druid", "Awakened Shrub", "Dryad", "Treant"],
       "armor class": "13 (Natural Armor)",
@@ -866,8 +866,8 @@ const monsters = [
     {
       "name": "Axe Beak",
       "size": "Large",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Hill"],
       "associates": [""],
       "armor class": "1",
@@ -888,8 +888,8 @@ const monsters = [
     {
       "name": "Azer",
       "size": "Medium",
-      "type": "elemental",
-      "alignment": "lawful neutral",
+      "type": "Elemental",
+      "alignment": "Lawful Neutral",
       "environments": ["Mountain", "Upper Planes"],
       "associates": ["Duergar"],
       "armor class": "17 (Natural Armor, Shield)",
@@ -914,8 +914,8 @@ const monsters = [
     {
       "name": "Baboon",
       "size": "Small",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Grassland"],
       "associates": [""],
       "armor class": "1",
@@ -937,8 +937,8 @@ const monsters = [
     {
       "name": "Badger",
       "size": "Tiny",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Forest", "Grassland"],
       "associates": [""],
       "armor class": "1",
@@ -960,8 +960,8 @@ const monsters = [
     {
       "name": "Balor",
       "size": "Huge",
-      "type": "fiend",
-      "alignment": "chaotic evil",
+      "type": "Fiend",
+      "alignment": "Chaotic Evil",
       "environments": ["Abyss"],
       "associates": [ "Amnizu", "Bearded Devil", "Bone Devil", "Chain Devil", "Erinyes", "Horned Devil", "Ice Devil", "Lemure", "Marilith", "Narzugon", "Nupperibo", "Pit Fiend", "Spined Devil", "Demogorgon", "Fraz-Urb'luu", "Graz'zt", "Juiblex", "Moloch", "Molydeus", "Nabassu", "Orcus", "Rutterkin", "Sibriex", "Yeenoghu", "Zariel", "Zuggtmoy"],
       "armor class": "19 (Natural Armor)",
@@ -987,8 +987,8 @@ const monsters = [
     {
       "name": "Bandit",
       "size": "Medium",
-      "type": "humanoid",
-      "alignment": "any",
+      "type": "Humanoid",
+      "alignment": "Any",
       "environments": ["Urban"],
       "associates": ["Thug", "Cultist", "Bandit Captain", "Berserker", "Druid", "Veteran", "Orog"],
       "armor class": "12 (Leather Armor)",
@@ -1009,8 +1009,8 @@ const monsters = [
     {
       "name": "Bandit Captain",
       "size": "Medium",
-      "type": "humanoid",
-      "alignment": "any",
+      "type": "Humanoid",
+      "alignment": "Any",
       "environments": ["Urban"],
       "associates": ["Bandit", "Thug", "Cultist", "Berserker", "Druid", "Veteran", "Orog"],
       "armor class": "15 (Studded Leather)",
@@ -1034,8 +1034,8 @@ const monsters = [
     {
       "name": "Banshee",
       "size": "Medium",
-      "type": "undead",
-      "alignment": "chaotic evil",
+      "type": "Undead",
+      "alignment": "Chaotic Evil",
       "environments": ["Varies"],
       "associates": [""],
       "armor class": "1",
@@ -1061,8 +1061,8 @@ const monsters = [
     {
       "name": "Barbed Devil",
       "size": "Medium",
-      "type": "fiend",
-      "alignment": "lawful evil",
+      "type": "Fiend",
+      "alignment": "Lawful Evil",
       "environments": ["Infernal"],
       "associates": ["Amnizu", "Bearded Devil", "Bone Devil", "Chain Devil", "Erinyes", "Horned Devil", "Ice Devil", "Lemure", "Marilith", "Narzugon", "Nupperibo", "Pit Fiend", "Spined Devil", "Demogorgon", "Fraz-Urb'luu", "Graz'zt", "Juiblex", "Moloch", "Molydeus", "Nabassu", "Orcus", "Rutterkin", "Sibriex", "Yeenoghu", "Zariel", "Zuggtmoy"],
       "armor class": "15 (Natural Armor)",
@@ -1089,8 +1089,8 @@ const monsters = [
     {
       "name": "Basilisk",
       "size": "Medium",
-      "type": "monstrosity",
-      "alignment": "unaligned",
+      "type": "Monstrosity",
+      "alignment": "Unaligned",
       "environments": ["Dungeon", "Varies"],
       "associates": ["Beholder"],
       "armor class": "15 (Natural Armor)",
@@ -1112,8 +1112,8 @@ const monsters = [
     {
       "name": "Bat",
       "size": "Tiny",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Urban", "Dungeon", "Varies", "Forest"],
       "associates": ["Swarm of Bats", "Giant Bat", "Vampire Spawn", "Vampire"],
       "armor class": "1",
@@ -1135,8 +1135,8 @@ const monsters = [
     {
       "name": "Bearded Devil",
       "size": "Medium",
-      "type": "fiend",
-      "alignment": "lawful evil",
+      "type": "Fiend",
+      "alignment": "Lawful Evil",
       "environments": ["Infernal"],
       "associates": ["Amnizu", "Barbed Devil", "Bone Devil", "Chain Devil", "Erinyes", "Horned Devil", "Ice Devil", "Lemure", "Marilith", "Narzugon", "Nupperibo", "Pit Fiend", "Spined Devil", "Duergar", "Demogorgon", "Fraz-Urb'luu", "Graz'zt", "Juiblex", "Moloch", "Molydeus", "Nabassu", "Orcus", "Rutterkin", "Sibriex", "Yeenoghu", "Zariel", "Zuggtmoy"],
       "armor class": "13 (Natural Armor)",
@@ -1162,8 +1162,8 @@ const monsters = [
     {
       "name": "Behir",
       "size": "Huge",
-      "type": "monstrosity",
-      "alignment": "neutral evil",
+      "type": "Monstrosity",
+      "alignment": "Neutral Evil",
       "environments": ["Dungeon"],
       "associates": [""],
       "armor class": "17 (Natural Armor)",
@@ -1186,8 +1186,8 @@ const monsters = [
     {
       "name": "Berserker",
       "size": "Medium",
-      "type": "humanoid",
-      "alignment": "any",
+      "type": "Humanoid",
+      "alignment": "Any",
       "environments": ["Urban", "Varies"],
       "associates": ["Bandit", "Thug", "Cultist", "Bandit Captain", "Druid", "Veteran", "Orog"],
       "armor class": "13 (Hide Armor)",
@@ -1209,8 +1209,8 @@ const monsters = [
     {
       "name": "Black Bear",
       "size": "Medium",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Forest"],
       "associates": [""],
       "armor class": "11 (Natural Armor)",
@@ -1233,8 +1233,8 @@ const monsters = [
     {
       "name": "Black Dragon Wyrmling",
       "size": "Medium",
-      "type": "dragon",
-      "alignment": "chaotic evil",
+      "type": "Dragon",
+      "alignment": "Chaotic Evil",
       "environments": ["Swamp"],
       "associates": ["Tiamat", "Black Dragon", "Black Dragon Adult", "Black Dragon Ancient", "Black Dragon Young"],
       "armor class": "17 (Natural Armor)",
@@ -1259,8 +1259,8 @@ const monsters = [
     {
       "name": "Black Pudding",
       "size": "Large",
-      "type": "ooze",
-      "alignment": "unaligned",
+      "type": "Ooze",
+      "alignment": "Unaligned",
       "environments": ["Swamp"],
       "associates": [""],
       "armor class": "7",
@@ -1285,8 +1285,8 @@ const monsters = [
     {
       "name": "Blink Dog",
       "size": "Medium",
-      "type": "fey",
-      "alignment": "lawful good",
+      "type": "Fey",
+      "alignment": "Lawful Good",
       "environments": ["Forest"],
       "associates": ["Displacer Beast"],
       "armor class": "1",
@@ -1309,8 +1309,8 @@ const monsters = [
     {
       "name": "Blood Hawk",
       "size": "Small",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Desert", "Grassland", "Mountain", "Hill"],
       "associates": [""],
       "armor class": "1",
@@ -1333,8 +1333,8 @@ const monsters = [
     {
       "name": "Blue Dragon Wyrmling",
       "size": "Medium",
-      "type": "dragon",
-      "alignment": "lawful evil",
+      "type": "Dragon",
+      "alignment": "Lawful Evil",
       "environments": ["Desert", "Coastal"],
       "associates": ["Pseudodragon", "Druid", "Gnoll", "Blue Dragon", "Blue Dragon Adult", "Blue Dragon Ancient", "Blue Dragon Young"],
       "armor class": "17 (Natural Armor)",
@@ -1358,8 +1358,8 @@ const monsters = [
     {
       "name": "Boar",
       "size": "Medium",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Forest"],
       "associates": ["Hobgoblin Captain", "Giant Boar"],
       "armor class": "11 (Natural Armor)",
@@ -1381,8 +1381,8 @@ const monsters = [
     {
       "name": "Bone Devil",
       "size": "Large",
-      "type": "fiend",
-      "alignment": "lawful evil",
+      "type": "Fiend",
+      "alignment": "Lawful Evil",
       "environments": ["Infernal"],
       "associates": ["Amnizu", "Barbed Devil", "Bearded Devil", "Chain Devil", "Erinyes", "Horned Devil", "Ice Devil", "Lemure", "Marilith", "Narzugon", "Nupperibo", "Pit Fiend", "Spined Devil", "Duergar", "Demogorgon", "Fraz-Urb'luu", "Graz'zt", "Juiblex", "Moloch", "Molydeus", "Nabassu", "Orcus", "Rutterkin", "Sibriex", "Yeenoghu", "Zariel", "Zuggtmoy"],
       "armor class": "19 (Natural Armor)",
@@ -1409,8 +1409,8 @@ const monsters = [
     {
       "name": "Brass Dragon Wyrmling",
       "size": "Medium",
-      "type": "dragon",
-      "alignment": "chaotic good",
+      "type": "Dragon",
+      "alignment": "Chaotic Good",
       "environments": ["Coastal", "Desert", "Upper Planes"],
       "associates": ["Couatl", "Efreeti", "Roc", "Brass Dragon", "Brass Dragon Adult", "Brass Dragon Ancient", "Brass Dragon Young"],
       "armor class": "16 (Natural Armor)",
@@ -1434,8 +1434,8 @@ const monsters = [
     {
       "name": "Bronze Dragon Wyrmling",
       "size": "Medium",
-      "type": "dragon",
-      "alignment": "lawful good",
+      "type": "Dragon",
+      "alignment": "Lawful Good",
       "environments": ["Coastal", "Desert", "Upper Planes"],
       "associates": ["Cyclops", "Water Elemental", "Blue Dragon", "Sahuagin Baron", "Djinni", "Marid", "Storm Giant", "Bronze Dragon", "Bronze Dragon Adult", "Bronze Dragon Ancient", "Bronze Dragon Young"],
       "armor class": "17 (Natural Armor)",
@@ -1460,8 +1460,8 @@ const monsters = [
     {
       "name": "Brown Bear",
       "size": "Large",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Forest"],
       "associates": ["Half-Ogre", "Orc", "Vine Blight", "Satyr", "Will-o'-Wisp", "Swarm of Poisonous Snakes", "Orc Eye of Gruumsh", "Orog", "Druid", "Polar Bear"],
       "armor class": "11 (Natural Armor)",
@@ -1484,8 +1484,8 @@ const monsters = [
     {
       "name": "Bugbear",
       "size": "Medium",
-      "type": "humanoid",
-      "alignment": "chaotic evil",
+      "type": "Humanoid",
+      "alignment": "Chaotic Evil",
       "environments": ["Forest", "Grassland", "Dungeon"],
       "associates": ["Mind Flayer", "Goblin", "Hobgoblin", "Human", "Orc", "Ogre", "Goblin Boss", "Wolf", "Giant Wolf Spider", "Veteran", "Berserker", "Bandit Captain"],
       "armor class": "16 (Hide Armor, Shield)",
@@ -1508,8 +1508,8 @@ const monsters = [
     {
       "name": "Bulette",
       "size": "Large",
-      "type": "monstrosity",
-      "alignment": "unaligned",
+      "type": "Monstrosity",
+      "alignment": "Unaligned",
       "environments": ["Grassland", "Hill", "Mountain"],
       "associates": ["Cyclops", "Galeb Duhr", "Wyvern", "Ettin", "Wereboar", "Revenant", "Gorgon", "Gnoll Fang of Yeenoghu", "Young Red Dragon", "Stone Giant", "Young Copper Dragon", "Roc"],
       "armor class": "17 (Natural Armor)",
@@ -1532,8 +1532,8 @@ const monsters = [
     {
       "name": "Camel",
       "size": "Large",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Desert"],
       "associates": ["Bandit", "Flying Snake", "Guard", "Kobold", "Mule", "Poisonous Snake", "Stirge", "Tribal Warrior"],
       "armor class": "9",
@@ -1554,8 +1554,8 @@ const monsters = [
     {
       "name": "Cat",
       "size": "Tiny",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Urban", "Varies"],
       "associates": ["Commoner", "Goat", "Rat", "Giant Rat"],
       "armor class": "1",
@@ -1578,8 +1578,8 @@ const monsters = [
     {
       "name": "Centaur",
       "size": "Large",
-      "type": "monstrosity",
-      "alignment": "neutral good",
+      "type": "Monstrosity",
+      "alignment": "Neutral Good",
       "environments": ["Grassland", "Mountain", "Forest", "Hill"],
       "associates": ["Dryad", "Satyr", "Pixie", "Knight", "Unicorn", "Pegasus", "Elf", "Giant Owl", "Giant Eagle", "Treant", "Green Dragon", "Green Dragon Adult", "Green Dragon Ancient", "Green Dragon Young"],
       "armor class": "1",
@@ -1602,8 +1602,8 @@ const monsters = [
     {
       "name": "Chain Devil",
       "size": "Medium",
-      "type": "fiend",
-      "alignment": "lawful evil",
+      "type": "Fiend",
+      "alignment": "Lawful Evil",
       "environments": ["Infernal"],
       "associates": ["Amnizu", "Barbed Devil", "Bearded Devil", "Bone Devil", "Erinyes", "Horned Devil", "Ice Devil", "Lemure", "Marilith", "Narzugon", "Nupperibo", "Pit Fiend", "Spined Devil", "Duergar", "Demogorgon", "Fraz-Urb'luu", "Graz'zt", "Juiblex", "Moloch", "Molydeus", "Nabassu", "Orcus", "Rutterkin", "Sibriex", "Yeenoghu", "Zariel", "Zuggtmoy"],
       "armor class": "16 (Natural Armor)",
@@ -1630,8 +1630,8 @@ const monsters = [
     {
       "name": "Chimera",
       "size": "Large",
-      "type": "monstrosity",
-      "alignment": "chaotic evil",
+      "type": "Monstrosity",
+      "alignment": "Chaotic Evil",
       "environments": ["Hill", "Mountain", "Grassland", "Forest"],
       "associates": ["Beholder", "Gorgon", "Couatl", "Ankylosaurus", "Weretiger", "Allosaurus", "Elephant", "Cyclops", "Galeb Duhr", "Wyvern", "Cloaker", "Hell Hound", "Drider", "Fire Giant", "Grick Alpha", "Mind Flayer Arcanist", "Drow Mage", "Spirit Naga", "Mind Flayer", "Behir", "Aboleth", "Dao", "Stone Giant", "Young Red Dragon", "Young Copper Dragon", "Roc", "Chimera Adult", "Chimera Ancient"],
       "armor class": "14 (Natural Armor)",
@@ -1653,8 +1653,8 @@ const monsters = [
     {
       "name": "Chuul",
       "size": "Large",
-      "type": "aberration",
-      "alignment": "chaotic evil",
+      "type": "Aberration",
+      "alignment": "Chaotic Evil",
       "environments": ["Swamp", "Underwater"],
       "associates": ["Salamander", "Hell Hound", "Ogre", "Orog", "Cyclops", "Giant Crocodile", "Giant Octopus", "Giant Shark", "Giant Toad", "Giant Constrictor Snake", "Merrow", "Sea Hag", "Sahuagin", "Sahuagin Baron", "Sahuagin Priestess", "Sahuagin Priest", "Sahuagin Guard", "Sahuagin Myrmidon", "Giant Squid", "Kraken Priest", "Kraken Priestess"],
       "armor class": "16 (Natural Armor)",
@@ -1679,8 +1679,8 @@ const monsters = [
     {
       "name": "Clay Golem",
       "size": "Large",
-      "type": "construct",
-      "alignment": "unaligned",
+      "type": "Construct",
+      "alignment": "Unaligned",
       "environments": ["Urban", "Dungeon", "Varies"],
       "associates": [""],
       "armor class": "14 (Natural Armor)",
@@ -1704,8 +1704,8 @@ const monsters = [
     {
       "name": "Cloaker",
       "size": "Large",
-      "type": "aberration",
-      "alignment": "chaotic neutral",
+      "type": "Aberration",
+      "alignment": "Chaotic Neutral",
       "environments": ["Underdark"],
       "associates": ["Hell Hound", "Drider", "Fire Giant", "Grick Alpha", "Mind Flayer Arcanist", "Drow Mage", "Spirit Naga", "Mind Flayer", "Behir", "Aboleth", "Dao", "Stone Giant", "Beholder", "Young Red Dragon", "Young Copper Dragon", "Roc", "Chimera Adult", "Chimera Ancient"],
       "armor class": "14 (Natural Armor)",
@@ -1728,8 +1728,8 @@ const monsters = [
     {
       "name": "Cloud Giant",
       "size": "Huge",
-      "type": "giant",
-      "alignment": "neutral",
+      "type": "Giant",
+      "alignment": "Neutral",
       "environments": ["Mountain"],
       "associates": ["Fire Giant", "Young Silver Dragon", "Young Gold Dragon", "Young Brass Dragon", "Young Bronze Dragon", "Young White Dragon", "Young Blue Dragon", "Young Green Dragon", "Young Black Dragon", "Young Red Dragon", "Storm Giant"],
       "armor class": "14 (Natural Armor)",
@@ -1753,8 +1753,8 @@ const monsters = [
     {
       "name": "Cockatrice",
       "size": "Small",
-      "type": "monstrosity",
-      "alignment": "unaligned",
+      "type": "Monstrosity",
+      "alignment": "Unaligned",
       "environments": ["Grassland"],
       "associates": ["Giant Wasp", "Swarm of Insects", "Jackalwere", "Scout", "Giant Goat", "Worg", "Hobgoblin", "Orc", "Gnoll"],
       "armor class": "1",
@@ -1775,8 +1775,8 @@ const monsters = [
     {
       "name": "Commoner",
       "size": "Medium",
-      "type": "humanoid",
-      "alignment": "any",
+      "type": "Humanoid",
+      "alignment": "Any",
       "environments": ["Urban"],
       "associates": ["Cat", "Goat", "Rat", "Raven", "Draft Horse", "Mastiff", "Mule", "Pony", "Pseudodragon", "Spy", "Acolyte", "Flying Snake", "Kobold", "Poisonous Snake", "Stirge", "Tribal Warrior"],
       "armor class": "1",
@@ -1797,8 +1797,8 @@ const monsters = [
     {
       "name": "Constrictor Snake",
       "size": "Large",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Jungle", "Swamp"],
       "associates": [""],
       "armor class": "1",
@@ -1819,8 +1819,8 @@ const monsters = [
     {
       "name": "Copper Dragon Wyrmling",
       "size": "Medium",
-      "type": "dragon",
-      "alignment": "chaotic good",
+      "type": "Dragon",
+      "alignment": "Chaotic Good",
       "environments": ["Hill", "Mountain", "Upper Planes"],
       "associates": [ "Aarakocra", "Gargoyle", "Centaur", "Pixie", "Satyr", "Druid", "Elf", "Giant Owl", "Giant Eagle", "Treant", "Unicorn", "Pegasus", "Green Dragon", "Green Dragon Adult", "Green Dragon Ancient", "Green Dragon Young"],
       "armor class": "16 (Natural Armor)",
@@ -1844,8 +1844,8 @@ const monsters = [
     {
       "name": "Couatl",
       "size": "Medium",
-      "type": "celestial",
-      "alignment": "lawful good",
+      "type": "Celestial",
+      "alignment": "Lawful Good",
       "environments": ["Desert", "Forest", "Grassland", "Jungle", "Urban"],
       "associates": ["Brass Dragon Wyrmling", "Copper Dragon Wyrmling", "Gold Dragon Wyrmling", "Silver Dragon Wyrmling", "Aarakocra", "Gargoyle", "Centaur", "Pixie", "Satyr", "Druid", "Elf", "Giant Owl", "Giant Eagle", "Treant", "Unicorn", "Pegasus"],
       "armor class": "19 (Natural Armor)",
@@ -1870,8 +1870,8 @@ const monsters = [
     {
       "name": "Crab",
       "size": "Tiny",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Underwater", "Coastal"],
       "associates": [""],
       "armor class": "11 (Natural Armor)",
@@ -1894,8 +1894,8 @@ const monsters = [
     {
       "name": "Crocodile",
       "size": "Large",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Swamp"],
       "associates": [""],
       "armor class": "12 (Natural Armor)",
@@ -1918,8 +1918,8 @@ const monsters = [
     {
       "name": "Cult Fanatic",
       "size": "Medium",
-      "type": "humanoid",
-      "alignment": "any",
+      "type": "Humanoid",
+      "alignment": "Any",
       "environments": ["Urban"],
       "associates": ["Cultist"],
       "armor class": "13 (Leather Armor)",
@@ -1942,8 +1942,8 @@ const monsters = [
     {
       "name": "Cultist",
       "size": "Medium",
-      "type": "humanoid",
-      "alignment": "any",
+      "type": "Humanoid",
+      "alignment": "Any",
       "environments": ["Urban"],
       "associates": ["Cult Fanatic", "Bandit", "Commoner", "Scout", "Thug", "Acolyte", "Priest"],
       "armor class": "12 (Leather Armor)",
@@ -1966,8 +1966,8 @@ const monsters = [
     {
       "name": "Cyclops",
       "size": "Huge",
-      "type": "giant",
-      "alignment": "chaotic neutral",
+      "type": "Giant",
+      "alignment": "Chaotic Neutral",
       "environments": ["Forest", "Dungeon", "Mountain"],
       "associates": ["Borborygmos", "Anarch", "Rubblebelt stalker", "Viashino", "Half-ogre", "Giant Boar", "Berserker", "Saber-toothed tiger", "Ogre", "Ettin", "Earth Elemental", "Fire Elemental", "Hill Giant", "Stone Giant", "Fomorian", "Hydra", "Wurm", "Young Blue Dragon", "Young Green Dragon", "Young Black Dragon", "Young White Dragon", "Young Red Dragon", "Chimera Adult", "Chimera Ancient"],
       "armor class": "14 Natural Armor",
@@ -1989,8 +1989,8 @@ const monsters = [
     {
       "name": "Darkmantle",
       "size": "Small",
-      "type": "monstrosity",
-      "alignment": "unaligned",
+      "type": "Monstrosity",
+      "alignment": "Unaligned",
       "environments": ["Underdark"],
       "associates": [""],
       "armor class": "1",
@@ -2013,8 +2013,8 @@ const monsters = [
     {
       "name": "Death Dog",
       "size": "Medium",
-      "type": "monstrosity",
-      "alignment": "neutral evil",
+      "type": "Monstrosity",
+      "alignment": "Neutral Evil",
       "environments": ["Desert", "Grassland", "Underdark"],
       "associates": [""],
       "armor class": "1",
@@ -2037,8 +2037,8 @@ const monsters = [
     {
       "name": "Deep Gnome (Svirfneblin)",
       "size": "Small",
-      "type": "humanoid",
-      "alignment": "neutral good",
+      "type": "Humanoid",
+      "alignment": "Neutral Good",
       "environments": ["Underdark"],
       "associates": [""],
       "armor class": "15 (Chain Shirt)",
@@ -2061,8 +2061,8 @@ const monsters = [
     {
       "name": "Deer",
       "size": "Medium",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Forest", "Grassland"],
       "associates": [""],
       "armor class": "1",
@@ -2083,8 +2083,8 @@ const monsters = [
     {
       "name": "Deva",
       "size": "Medium",
-      "type": "celestial",
-      "alignment": "lawful good",
+      "type": "Celestial",
+      "alignment": "Lawful Good",
       "environments": ["Celestial"],
       "associates": ["Arclight Phoenix", "Battleforce angel", "Firefist", "Guardian giant", "Firemane angel", "Planetar", "Solar", "Aurelia", "Mastiff", "Frontline medic", "Soldier", "Viashino", "Flame-kin (azer)", "Skyjek roc", "Knight", "Veteran", "Reckoner", "Serra angel", "Archangel of Wrath", "Archangel of Thune", "Archangel of Strife", "Archangel of Hope", "Archangel of Grace", "Archangel of Fury", "Archangel of Life"],
       "armor class": "17 (Natural Armor)",
@@ -2110,8 +2110,8 @@ const monsters = [
     {
       "name": "Dire Wolf",
       "size": "Large",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Artic", "Grassland", "Forest"],
       "associates": ["Werewolf", "Goblin", "Knight", "Acolyte", "Scout", "Soldier", "Selesnya", "Riding Horse", "Roc", "Pegasus", "Peryton", "Rhinoceros", "Saber-Toothed Tiger", "Griffon", "Giant Owl", "Giant Eagle", "Unicorn", "Treant", "Centaur", "Satyr", "Pixie", "Aarakocra", "Gargoyle"],
       "armor class": "14 (Natural Armor)",
@@ -2134,8 +2134,8 @@ const monsters = [
     {
       "name": "Djinni",
       "size": "Large",
-      "type": "elemental",
-      "alignment": "chaotic good",
+      "type": "Elemental",
+      "alignment": "Chaotic Good",
       "environments": ["Elemental Air", "Upper Planes"],
       "associates": ["Brass Dragon Wyrmling", "Dao", "Efreeti", "Marid", "Air Elemental", "Aarakocra", "Gargoyle", "Centaur", "Pixie", "Satyr", "Druid", "Elf", "Giant Owl", "Giant Eagle", "Treant", "Unicorn", "Pegasus"],
       "armor class": "17 (Natural Armor)",
@@ -2159,8 +2159,8 @@ const monsters = [
     {
       "name": "Doppelganger",
       "size": "Medium",
-      "type": "monstrosity",
-      "alignment": "neutral",
+      "type": "Monstrosity",
+      "alignment": "Neutral",
       "environments": ["Urban"],
       "associates": ["Invisible stalker", "Grick", "Intellect devourer", "Shadow", "Wraith", "Nightveil specter", "Hag", "Banshee", "Ghost", "Specter", "Vampire Spawn", "Mimic", "Oni", "Succubus/Incubus", "Demon", "Devil"],
       "armor class": "1",
@@ -2184,8 +2184,8 @@ const monsters = [
     {
       "name": "Draft Horse",
       "size": "Large",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Grassland", "Mountain", "Jungle", "Hill", "Forest", "Urban"],
       "associates": ["Commoner", "Acolyte", "Priest", "Cultist", "Bandit", "Thug", "Scout", "Veteran", "Soldier", "Knight"],
       "armor class": "1",
@@ -2206,8 +2206,8 @@ const monsters = [
     {
       "name": "Dragon Turtle",
       "size": "Gargantuan",
-      "type": "dragon",
-      "alignment": "neutral",
+      "type": "Dragon",
+      "alignment": "Neutral",
       "environments": ["Coastal"],
       "associates": [""],
       "armor class": "20 (Natural Armor)",
@@ -2231,8 +2231,8 @@ const monsters = [
     {
       "name": "Dretch",
       "size": "Small",
-      "type": "fiend",
-      "alignment": "chaotic evil",
+      "type": "Fiend",
+      "alignment": "Chaotic Evil",
       "environments": ["Abyss"],
       "associates": ["Mane", "Demon", "Flind", "Gnoll", "Grell", "Grick", "Intellect Devourer", "Mind Flayer", "Oni", "Succubus/Incubus", "Nightmare", "Bebilith", "Demogorgon"],
       "armor class": "11 (Natural Armor)",
@@ -2256,8 +2256,8 @@ const monsters = [
     {
       "name": "Drider",
       "size": "Large",
-      "type": "monstrosity",
-      "alignment": "chaotic evil",
+      "type": "Monstrosity",
+      "alignment": "Chaotic Evil",
       "environments": ["Underdark"],
       "associates": ["Drow Mage", "Chimera", "Yuan-ti pureblood", "Yuan-ti malison", "Yuan-ti abomination", "Yuan-ti anathema", "Yuan-ti pit master", "Yuan-ti mind whisperer", "Yuan-ti broodguard", "Yuan-ti nightmare speaker", "Yuan-ti malison (half-elf)", "Yuan-ti malison (human)", "Yuan-ti malison (tiefling)", "Yuan-ti malison (dragonborn)", "Yuan-ti malison (gnome)", "Yuan-ti malison (goblin)", "Yuan-ti malison (orc)", "Yuan-ti malison (bugbear)", "Yuan-ti malison (hobgoblin)"],
       "armor class": "19 (Natural Armor)",
@@ -2280,8 +2280,8 @@ const monsters = [
     {
       "name": "Drow",
       "size": "Medium",
-      "type": "humanoid",
-      "alignment": "neutral evil",
+      "type": "Humanoid",
+      "alignment": "Neutral Evil",
       "environments": ["Underdark"],
       "associates": ["Golgari Swarm", "Kraul", "Undercity Medusa", "Zombie", "Shambling Mound", "Troll", "Corpse Flower", "Jarad Vod Savo", "Drow Mage", "Drow Elite Warrior", "Devkarin", "Mind Flayer", "Grimlock", "Kuo-toa", "Quaggoth", "Vampire Spawn", "Chimera", "Spirit Naga", "Behir", "Aboleth", "Dao", "Stone Giant", "Beholder", "Carrion Crawler", "Gelatinous Cube", "Gibbering Mouther", "Minotaur Skeleton", "Ochre Jelly", "Doppelganger", "Quaggoth Thonot", "Roper", "Gargoyle", "Mimic", "Specter", "Ghast", "Intellect Devourer", "Beholder Zombie", "Kuo-toa Monitor", "Ettin", "Ogre", "Chuul", "Hell Hound", "Salamander", "Cloaker", "Drider", "Fire Giant", "Grick Alpha", "Mind Flayer Arcanist", "Goblin", "Goblin Boss", "Goblin Shaman", "Goblin Slyblade", "Goblin Skullcleaver", "Goblin Cutthroat", "Goblin Hexer", "Goblin Taskmaster", "Goblin Tactician", "Goblin Warchief", "Giant Spider", "Giant Wolf Spider"],
       "armor class": "15 (Chain Shirt)",
@@ -2304,8 +2304,8 @@ const monsters = [
     {
       "name": "Druid",
       "size": "Medium",
-      "type": "humanoid",
-      "alignment": "any",
+      "type": "Humanoid",
+      "alignment": "Any",
       "environments": ["Forest", "Swamp", "Jungle", "Hill", "Mountain", "Desert"],
       "associates": ["Awakened Shrub", "Awakened Tree", "Dryad", "Treant", "Copper Dragon Wyrmling", "Centaur", "Bandit", "Bandit Captain", "Berserker", "Black Dragon Wyrmling", "Giant Wolf Spider", "Blood Hawk", "Swarm of Insects", "Pixie", "Brown Bear", "Goblin", "Phase Spider", "Harpy", "Ettercap", "Orc", "Goblin Boss", "Ankheg", "Giant Constrictor Snake", "Bugbear", "Hobgoblin", "Wight", "Ogre", "Gnoll Pack Lord", "Giant Hyena", "Veteran", "Lizardfolk Shaman", "Swarm of Poisonous Snakes", "Lizardfolk", "Displacer Beast", "Green Hag", "Hobgoblin Captain", "Giant Boar", "Yuan-ti Malison", "Yuan-ti Pureblood", "Weretiger", "Gorgon", "Unicorn", "Shambling Mound", "Yuan-ti Abomination", "Wereboar", "Troll", "Oni", "Young Green Dragon", "Treant", "Revenant", "Grick Alpha", "Giant Ape", "Guardian Naga", "Adult Gold Dragon", "Polar Bear", "Cave Bear", "Twig Blight", "Nature Spirit", "Giant Elk", "Giant Owl", "Giant Eagle", "Giant Badger", "Giant Goat", "Giant Hyena", "Giant Lizard", "Giant Poisonous Snake", "Giant Vulture", "Giant Wasp", "Giant Weasel", "Giant Bat", "Giant Rat"],
       "armor class": "11 (16 With Barkskin)",
@@ -2328,8 +2328,8 @@ const monsters = [
     {
       "name": "Dryad",
       "size": "Medium",
-      "type": "fey",
-      "alignment": "neutral",
+      "type": "Fey",
+      "alignment": "Neutral",
       "environments": ["Forest"],
       "associates": ["Awakened Tree", "Awakened Shrub", "Treant", "Centaur", "Satyr", "Giant Owl", "Cat", "Blood Hawk", "Swarm of Insects", "Pixie", "Brown Bear", "Goblin", "Phase Spider", "Harpy", "Ettercap", "Orc", "Goblin Boss", "Ankheg", "Giant Constrictor Snake", "Bugbear", "Hobgoblin", "Wight", "Ogre", "Gnoll Pack Lord", "Giant Hyena", "Berserker", "Veteran", "Lizardfolk Shaman", "Swarm of Poisonous Snakes", "Lizardfolk", "Displacer Beast", "Green Hag", "Hobgoblin Captain", "Giant Boar", "Yuan-ti Malison", "Yuan-ti Pureblood", "Weretiger", "Gorgon", "Unicorn", "Shambling Mound", "Yuan-ti Abomination", "Conclave Dryad", "Wereboar", "Troll", "Oni", "Young Green Dragon", "Treant", "Revenant", "Grick Alpha", "Giant Ape", "Guardian Naga", "Adult Gold Dragon", "Polar Bear", "Cave Bear", "Twig Blight", "Nature Spirit", "Giant Elk", "Giant Owl", "Giant Eagle", "Giant Badger", "Giant Goat", "Giant Hyena", "Giant Lizard", "Giant Poisonous Snake", "Giant Vulture", "Giant Wasp", "Giant Weasel", "Giant Bat"],
       "armor class": "11 (16 With Barkskin)",
@@ -2352,8 +2352,8 @@ const monsters = [
     {
       "name": "Duergar",
       "size": "Medium",
-      "type": "humanoid",
-      "alignment": "lawful evil",
+      "type": "Humanoid",
+      "alignment": "Lawful Evil",
       "environments": ["Underdark"],
       "associates": ["Azer", "Bearded Devil", "Duergar Stone Guard", "Duergar Kavalrachni", "Male Steeder", "Female Steeder", "Duergar Hammerer", "Duergar Mind Master", "Duergar Screamer", "Duergar Soulblade", "Duergar Xarrorn", "Bearded Devil", "Allied Evil Azer", "Enslaved Goblin", "Summoned Earth Elemental", "Gargoyle", "Hell Hound", "Trained Rust Monster", "Shield Guardian", "Enslaved Troll", "Duergar Despot", "Duergar Warlord", "Goblin", "Goblin Boss", "Goblin Shaman", "Goblin Slyblade", "Goblin Skullcleaver", "Goblin Cutthroat", "Goblin Hexer", "Goblin Taskmaster", "Goblin Tactician", "Goblin Warchief", "Giant Spider", "Giant Wolf Spider"],
       "armor class": "16 (Scale Mail, Shield)",
@@ -2376,8 +2376,8 @@ const monsters = [
     {
       "name": "Dust Mephit",
       "size": "Small",
-      "type": "elemental",
-      "alignment": "neutral evil",
+      "type": "Elemental",
+      "alignment": "Neutral Evil",
       "environments": ["Desert"],
       "associates": [""],
       "armor class": "1",
@@ -2403,8 +2403,8 @@ const monsters = [
     {
       "name": "Eagle",
       "size": "Small",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Grassland", "Hill", "Mountain"],
       "associates": ["Giant Eagle"],
       "armor class": "1",
@@ -2427,8 +2427,8 @@ const monsters = [
     {
       "name": "Earth Elemental",
       "size": "Large",
-      "type": "elemental",
-      "alignment": "neutral",
+      "type": "Elemental",
+      "alignment": "Neutral",
       "environments": ["Elemental Earth"],
       "associates": ["Cyclops", "Elemental", "Fire Elemental", "Summoned Earth Elemental", "Earth Elemental Myrmidon", "Earth Elemental Myrmidon (Variant)", "Stone Giant", "Stone Giant Dreamwalker", "Stone Giant Everlasting One", "Stone Giant Jotun", "Stone Giant Jotun (Variant)", "Stone Giant Stone Guard", "Stone Giant Stone Guard (Variant)", "Stone Giant Stone Shaper", "Stone Giant Stone Shaper (Variant)", "Stone Giant Stormcaller", "Stone Giant Stormcaller (Variant)", "Stone Giant Thane", "Stone Giant Thane (Variant)", "Stone Giant Thane of the Earthmother"],
       "armor class": "17 (Natural Armor)",
@@ -2454,8 +2454,8 @@ const monsters = [
     {
       "name": "Efreeti",
       "size": "Large",
-      "type": "elemental",
-      "alignment": "lawful evil",
+      "type": "Elemental",
+      "alignment": "Lawful Evil",
       "environments": ["Elemental Fire", "Upper Planes"],
       "associates": ["Brass Dragon Wyrmling", "Djinni", "Marid", "Elemental General", "Elemental Prince of Evil Fire", "Fire Elemental", "Salamander", "Fire Giant", "Fire Giant Dreadnought", "Fire Giant Flame Lord", "Fire Giant Hellbringer", "Fire Giant Invoker", "Fire Giant Pyre Guard", "Fire Giant Rune Carver", "Fire Giant Stormcaller", "Fire Giant Thane", "Fire Giant Thane of the Firelands"],
       "armor class": "17 (Natural Armor)",
@@ -2479,8 +2479,8 @@ const monsters = [
     {
       "name": "Elephant",
       "size": "Huge",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Grassland"],
       "associates": [""],
       "armor class": "12 (Natural Armor)",
@@ -2502,8 +2502,8 @@ const monsters = [
     {
       "name": "Elk",
       "size": "Large",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Forest", "Grassland"],
       "associates": ["Krovod", "Deer", "Riding Horse", "Warhorse", "Giant Elk", "Giant Goat", "Giant Badger", "Giant Eagle", "Giant Owl", "Giant Vulture", "Giant Bat", "Giant Weasel", "Giant Rat"],
       "armor class": "1",
@@ -2525,8 +2525,8 @@ const monsters = [
     {
       "name": "Erinyes",
       "size": "Medium",
-      "type": "fiend",
-      "alignment": "lawful evil",
+      "type": "Fiend",
+      "alignment": "Lawful Evil",
       "environments": ["Infernal"],
       "associates": ["Balor", "Barbed Devil", "Bearded Devil", "Bone Devil", "Chain Devil", "Horned Devil", "Ice Devil", "Lemure", "Marilith", "Narzugon", "Nupperibo", "Pit Fiend", "Spined Devil", "Greater Devil", "Devil", "Infernal War Machine", "Infernal Engine", "Infernal War Machine (Variant)", "Infernal Engine (Variant)", "Devil's Ride", "Hellfire Engine", "Hellfire Engine (Variant)", "Hellfire Engine (Variant 2)", "Hellfire Engine (Variant 3)", "Hellfire Engine (Variant 4)"],
       "armor class": "18 (Plate)",
@@ -2553,8 +2553,8 @@ const monsters = [
     {
       "name": "Ettercap",
       "size": "Medium",
-      "type": "monstrosity",
-      "alignment": "neutral evil",
+      "type": "Monstrosity",
+      "alignment": "Neutral Evil",
       "environments": ["Forest"],
       "associates": ["Hag Minion", "Giant Spider", "Giant Wolf Spider", "Phase Spider", "Spider Swarm", "Giant Poisonous Snake", "Giant Constrictor Snake", "Giant Scorpion", "Giant Centipede", "Giant Wasp", "Giant Ant", "Giant Bat", "Giant Rat", "Giant Badger", "Giant Eagle", "Giant Owl", "Giant Vulture"],
       "armor class": "13 (Natural Armor)",
@@ -2577,8 +2577,8 @@ const monsters = [
     {
       "name": "Ettin",
       "size": "Large",
-      "type": "giant",
-      "alignment": "chaotic evil",
+      "type": "Giant",
+      "alignment": "Chaotic Evil",
       "environments": ["Hill", "Mountain"],
       "associates": ["Bulette", "Cyclops", "Beholder Greater Minion", "Troll", "Phase Spider", "Fomorian", "Earth Elemental", "Ogre", "Chuul", "Hell Hound", "Salamander", "Cloaker", "Drider", "Fire Giant", "Grick Alpha", "Mind Flayer Arcanist", "Goblin", "Goblin Boss", "Goblin Shaman", "Goblin Slyblade", "Goblin Skullcleaver", "Goblin Cutthroat", "Goblin Hexer", "Goblin Taskmaster", "Goblin Tactician", "Goblin Warchief", "Giant Spider", "Giant Wolf Spider"],
       "armor class": "12 (Natural Armor)",
@@ -2601,8 +2601,8 @@ const monsters = [
     {
       "name": "Fire Elemental",
       "size": "Large",
-      "type": "elemental",
-      "alignment": "neutral",
+      "type": "Elemental",
+      "alignment": "Neutral",
       "environments": ["Elemental Fire"],
       "associates": ["Cyclops", "Elemental", "Earth Elemental", "Fire Elemental Myrmidon", "Fire Elemental Myrmidon (Variant)", "Stone Giant", "Stone Giant Dreamwalker", "Stone Giant Everlasting One", "Stone Giant Jotun", "Stone Giant Jotun (Variant)", "Stone Giant Stone Guard", "Stone Giant Stone Guard (Variant)", "Stone Giant Stone Shaper", "Stone Giant Stone Shaper (Variant)", "Stone Giant Stormcaller", "Stone Giant Stormcaller (Variant)", "Stone Giant Thane", "Stone Giant Thane (Variant)", "Stone Giant Thane of the Earthmother"],
       "armor class": "1",
@@ -2627,8 +2627,8 @@ const monsters = [
     {
       "name": "Fire Giant",
       "size": "Huge",
-      "type": "giant",
-      "alignment": "lawful evil",
+      "type": "Giant",
+      "alignment": "Lawful Evil",
       "environments": ["Mountain"],
       "associates": ["Cloud Giant", "Chimera", "Cloaker", "Beholder Greater Minion", "Gorodan Ashford", "Ogre", "Hill Giant", "Surtur", "Fire Giant Dreadnought", "Fire Giant Flame Lord", "Fire Giant Hellbringer", "Fire Giant Invoker", "Fire Giant Pyre Guard", "Fire Giant Rune Carver", "Fire Giant Stormcaller", "Fire Giant Thane", "Fire Giant Thane of the Firelands"],
       "armor class": "18 (Plate)",
@@ -2652,8 +2652,8 @@ const monsters = [
     {
       "name": "Flameskull",
       "size": "Tiny",
-      "type": "undead",
-      "alignment": "neutral evil",
+      "type": "Undead",
+      "alignment": "Neutral Evil",
       "environments": ["Underdark"],
       "associates": ["Hag Servant", "Hag Minion", "Giant Spider", "Giant Wolf Spider", "Phase Spider", "Spider Swarm", "Giant Poisonous Snake", "Giant Constrictor Snake", "Giant Scorpion", "Giant Centipede", "Giant Wasp", "Giant Ant", "Giant Bat", "Giant Rat", "Giant Badger", "Giant Eagle", "Giant Owl", "Giant Vulture"],
       "armor class": "1",
@@ -2679,8 +2679,8 @@ const monsters = [
     {
       "name": "Flesh Golem",
       "size": "Medium",
-      "type": "construct",
-      "alignment": "neutral",
+      "type": "Construct",
+      "alignment": "Neutral",
       "environments": ["Urban", "Dungeon", "Varies"],
       "associates": ["Beholder Pet", "Hag Servant", "Hag Minion"],
       "armor class": "9",
@@ -2704,8 +2704,8 @@ const monsters = [
     {
       "name": "Flying Snake",
       "size": "Tiny",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Jungle"],
       "associates": ["Camel", "Bandit", "Guard", "Kobold", "Mule", "Poisonous Snake", "Stirge", "Tribal Warrior", "Commoner"],
       "armor class": "1",
@@ -2727,8 +2727,8 @@ const monsters = [
     {
       "name": "Flying Sword",
       "size": "Small",
-      "type": "construct",
-      "alignment": "unaligned",
+      "type": "Construct",
+      "alignment": "Unaligned",
       "environments": ["Dungeon", "Varies"],
       "associates": [""],
       "armor class": "17 (Natural Armor)",
@@ -2753,8 +2753,8 @@ const monsters = [
     {
       "name": "Frog",
       "size": "Tiny",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Forest", "Swamp"],
       "associates": ["Giant Frog", "Giant Toad", "Bullywug", "Giant Lizard"],
       "armor class": "1",
@@ -2776,8 +2776,8 @@ const monsters = [
     {
       "name": "Frost Giant",
       "size": "Huge",
-      "type": "giant",
-      "alignment": "neutral evil",
+      "type": "Giant",
+      "alignment": "Neutral Evil",
       "environments": ["Arctic"],
       "associates": ["Yeti", "Half-Ogre", "Brown Bear", "Orc Eye of Gruumsh", "Orog", "Winter Wolf", "Manticore", "Bandit Captain", "Druid", "Berserker", "Bandit", "Revenant", "Troll", "Werebear", "Young Remorhaz", "Mammoth", "Young White Dragon", "Abominable Yeti", "Remorhaz", "Ancient White Dragon", "Chimera", "Ettin", "Wereboar", "Gorgon", "Gnoll Fang of Yeenoghu", "Young Red Dragon", "Stone Giant", "Young Copper Dragon", "Roc", "Surtur", "Crystal Dragon", "Hill Giant", "Ogre", "Fomorian", "Frost Giant Dreadnought", "Frost Giant Flame Lord", "Frost Giant Hellbringer", "Frost Giant Invoker", "Frost Giant Pyre Guard", "Frost Giant Rune Carver", "Frost Giant Stormcaller", "Frost Giant Thane", "Frost Giant Thane of the Frostlands"],
       "armor class": "15 (Patchwork Armor)",
@@ -2801,8 +2801,8 @@ const monsters = [
     {
       "name": "Gargoyle",
       "size": "Medium",
-      "type": "elemental",
-      "alignment": "chaotic evil",
+      "type": "Elemental",
+      "alignment": "Chaotic Evil",
       "environments": ["Urban", "Hill", "Mountain"],
       "associates": ["Aarakocra", "Duergar"],
       "armor class": "15 (Natural Armor)",
@@ -2827,8 +2827,8 @@ const monsters = [
     {
       "name": "Gelatinous Cube",
       "size": "Large",
-      "type": "ooze",
-      "alignment": "unaligned",
+      "type": "Ooze",
+      "alignment": "Unaligned",
       "environments": ["Underdark"],
       "associates": ["Carrion Crawler"],
       "armor class": "6",
@@ -2851,8 +2851,8 @@ const monsters = [
     {
       "name": "Ghast",
       "size": "Medium",
-      "type": "undead",
-      "alignment": "chaotic evil",
+      "type": "Undead",
+      "alignment": "Chaotic Evil",
       "environments": ["Swamp", "Underdark", "Urban"],
       "associates": ["Ghoul"],
       "armor class": "1",
@@ -2877,8 +2877,8 @@ const monsters = [
     {
       "name": "Ghost",
       "size": "Medium",
-      "type": "undead",
-      "alignment": "any",
+      "type": "Undead",
+      "alignment": "Any",
       "environments": ["Ethereal", "Varies"],
       "associates": ["Specter", "Wraith", "Revenant", "Flameskull", "Banshee", "Ghost (Variant)", "Ghost of a Fallen Paladin", "Ghost of a Fallen Cleric", "Ghost of a Fallen Druid", "Ghost of a Fallen Ranger", "Ghost of a Fallen Bard", "Ghost of a Fallen Rogue", "Ghost of a Fallen Wizard", "Ghost of a Fallen Sorcerer"],
       "armor class": "1",
@@ -2903,8 +2903,8 @@ const monsters = [
     {
       "name": "Ghoul",
       "size": "Medium",
-      "type": "undead",
-      "alignment": "chaotic evil",
+      "type": "Undead",
+      "alignment": "Chaotic Evil",
       "environments": ["Varies"],
       "associates": ["Ghast", "Gnoll", "Devourer", "Maurezhi", "Skeleton", "Zombie", "Shadow", "Specter", "Wight", "Wraith", "Mummy", "Ghost", "Banshee", "Flameskull", "Revenant", "Deathlock"],
       "armor class": "1",
@@ -2927,8 +2927,8 @@ const monsters = [
     {
       "name": "Giant Ape",
       "size": "Huge",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Grassland", "Jungle"],
       "associates": ["Ape"],
       "armor class": "1",
@@ -2950,8 +2950,8 @@ const monsters = [
     {
       "name": "Giant Badger",
       "size": "Medium",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Grassland", "Jungle"],
       "associates": ["Badger"],
       "armor class": "1",
@@ -2973,8 +2973,8 @@ const monsters = [
     {
       "name": "Giant Bat",
       "size": "Large",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Forest", "Grassland", "Jungle"],
       "associates": ["Bat", "Swarm of Bats"],
       "armor class": "1",
@@ -2996,8 +2996,8 @@ const monsters = [
     {
       "name": "Giant Boar",
       "size": "Large",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Forest", "Grassland", "Jungle"],
       "associates": ["Hobgoblin Captain", "Hobgoblin", "Mammoth"],
       "armor class": "12 (Natural Armor)",
@@ -3019,8 +3019,8 @@ const monsters = [
     {
       "name": "Giant Centipede",
       "size": "Small",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Underdark"],
       "associates": [""],
       "armor class": "13 (Natural Armor)",
@@ -3041,8 +3041,8 @@ const monsters = [
     {
       "name": "Giant Constrictor Snake",
       "size": "Huge",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Swamp", "Jungle"],
       "associates": ["Constrictor Snake", "Tiger"],
       "armor class": "1",
@@ -3064,8 +3064,8 @@ const monsters = [
     {
       "name": "Giant Crab",
       "size": "Medium",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Underwater", "Coastal"],
       "associates": [""],
       "armor class": "15 (Natural Armor)",
@@ -3088,8 +3088,8 @@ const monsters = [
     {
       "name": "Giant Crocodile",
       "size": "Huge",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Swamp"],
       "associates": [""],
       "armor class": "14 (Natural Armor)",
@@ -3112,8 +3112,8 @@ const monsters = [
     {
       "name": "Giant Eagle",
       "size": "Large",
-      "type": "beast",
-      "alignment": "neutral good",
+      "type": "Beast",
+      "alignment": "Neutral Good",
       "environments": ["Grassland", "Hill", "Mountain"],
       "associates": ["Giant Wolf Spider", "Giant Vulture"],
       "armor class": "1",
@@ -3136,8 +3136,8 @@ const monsters = [
     {
       "name": "Giant Elk",
       "size": "Huge",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Forest", "Grassland"],
       "associates": ["Gnoll Pack Lord", "Giant Hyena", "Raktusk"],
       "armor class": "14 (Natural Armor)",
@@ -3160,8 +3160,8 @@ const monsters = [
     {
       "name": "Giant Fire Beetle",
       "size": "Small",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Underdark", "Forest"],
       "associates": [""],
       "armor class": "13 (Natural Armor)",
@@ -3183,8 +3183,8 @@ const monsters = [
     {
       "name": "Giant Frog",
       "size": "Medium",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Swamp", "Forest"],
       "associates": ["Bullywug", "Giant Toad", "Giant Poisonous Snake"],
       "armor class": "1",
@@ -3207,8 +3207,8 @@ const monsters = [
     {
       "name": "Giant Goat",
       "size": "Large",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Hill", "Mountain"],
       "associates": ["Worg", "Giant Hyena", "Giant Elk"],
       "armor class": "11 (Natural Armor)",
@@ -3230,8 +3230,8 @@ const monsters = [
     {
       "name": "Giant Hyena",
       "size": "Large",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Grassland"],
       "associates": ["Gnoll Pack Lord", "Hyena", "Gnoll"],
       "armor class": "1",
@@ -3254,8 +3254,8 @@ const monsters = [
     {
       "name": "Giant Lizard",
       "size": "Large",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Grassland", "Jungle"],
       "associates": ["Lizardfolk Shaman", "Lizardfolk", "Giant Poisonous Snake"],
       "armor class": "12 (Natural Armor)",
@@ -3276,8 +3276,8 @@ const monsters = [
     {
       "name": "Giant Octopus",
       "size": "Large",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Underwater"],
       "associates": ["Octopus"],
       "armor class": "1",
@@ -3300,8 +3300,8 @@ const monsters = [
     {
       "name": "Giant Owl",
       "size": "Large",
-      "type": "beast",
-      "alignment": "neutral",
+      "type": "Beast",
+      "alignment": "Neutral",
       "environments": ["Forest"],
       "associates": ["Dryad", "Homunculus", "Owl", "Warhorse", "Giant Eagle", "Griffon", "Sphinx of judgment", "Androsphinx"],
       "armor class": "1",
@@ -3324,8 +3324,8 @@ const monsters = [
     {
       "name": "Giant Poisonous Snake",
       "size": "Medium",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Forest"],
       "associates": ["Cult Fanatic", "Bandit", "Guard", "Kobold", "Mule", "Poisonous Snake", "Stirge", "Tribal Warrior", "Commoner", "Bullywug", "Lizardfolk Shaman", "Lizardfolk", "Giant Lizard", "Mind Flayer"],
       "armor class": "1",
@@ -3347,8 +3347,8 @@ const monsters = [
     {
       "name": "Giant Rat",
       "size": "Small",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Urban", "Grassland", "Mountain", "Jungle", "Hill", "Forest"],
       "associates": ["Swarm of Rats", "Orcus", "Cult Fanatic", "Bandit", "Guard", "Kobold", "Mule", "Poisonous Snake", "Stirge", "Tribal Warrior", "Commoner", "Meazel", "Bullywug", "Lizardfolk Shaman", "Lizardfolk", "Giant Lizard", "Mind Flayer"],
       "armor class": "1",
@@ -3370,8 +3370,8 @@ const monsters = [
     {
       "name": "Giant Scorpion",
       "size": "Large",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Desert"],
       "associates": [""],
       "armor class": "15 (Natural Armor)",
@@ -3392,8 +3392,8 @@ const monsters = [
     {
       "name": "Giant Sea Horse",
       "size": "Large",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Underwater", "Coastal"],
       "associates": ["Sea Horse"],
       "armor class": "13 (Natural Armor)",
@@ -3415,8 +3415,8 @@ const monsters = [
     {
       "name": "Giant Shark",
       "size": "Huge",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Coastal", "Underwater"],
       "associates": ["Kraken Priest", "Sahuagin Baron", "Water Elemental", "Marid", "Storm Giant", "Ancient Blue Dragon", "Ancient Bronze Dragon", "Adult Blue Dragon", "Adult Bronze Dragon", "Dragon Turtle", "Sea Serpent", "Sahuagin", "Merrow", "Giant Octopus", "Giant Sea Horse"],
       "armor class": "13 (Natural Armor)",
@@ -3439,8 +3439,8 @@ const monsters = [
     {
       "name": "Giant Spider",
       "size": "Large",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Forest", "Grassland", "Swamp"],
       "associates": ["Ettercap", "Drow", "Kuo-toa", "Goblin Boss", "Grimlock", "Ochre Jelly", "Giant Centipede", "Nothic", "Giant Toad", "Myconid Adult", "Myconid Sprout", "Minotaur Skeleton", "Minotaur", "Mimic", "Doppelganger", "Hobgoblin", "Intellect Devourer", "Spectator", "Orc", "Gibbering Mouther", "Water Weird", "Gas Spore", "Giant Constrictor Snake", "Shadow", "Grell", "Wight", "Quaggoth Spore Servant", "Gargoyle", "Ogre", "Ettin", "Chuul", "Salamander", "Phase Spider", "Hook Horror", "Duergar", "Ghost", "Flameskull", "Wraith", "Bone Naga", "Orc Eye of Gruumsh", "Orog", "Ghast", "Ghoul", "Otyugh", "Roper", "Vampire Spawn", "Chimera", "Mind Flayer", "Spirit Naga", "Skein spider"],
       "armor class": "14 (Natural Armor)",
@@ -3463,8 +3463,8 @@ const monsters = [
     {
       "name": "Giant Toad",
       "size": "Large",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Forest", "Grassland", "Swamp"],
       "associates": ["Lizardfolk Shaman", "Lizardfolk", "Dust Mephit", "Frog", "Giant Frog", "Bullywug", "Giant Lizard", "Nothic", "Myconid Adult", "Myconid Sprout", "Minotaur Skeleton", "Minotaur", "Mimic", "Doppelganger", "Hobgoblin", "Intellect Devourer", "Spectator", "Orc", "Gibbering Mouther", "Water Weird", "Gas Spore", "Giant Constrictor Snake", "Shadow", "Grell", "Wight", "Quaggoth Spore Servant", "Gargoyle", "Ogre", "Ettin", "Chuul", "Salamander", "Phase Spider", "Hook Horror", "Duergar", "Ghost", "Flameskull", "Wraith", "Bone Naga", "Orc Eye of Gruumsh", "Orog", "Ghast", "Ghoul", "Otyugh", "Roper", "Vampire Spawn", "Chimera", "Mind Flayer", "Spirit Naga", "Lizardfolk Queen", "Incubus", "Unicorn", "Giant Octopus", "Mage", "Specter", "Vampire", "Beholder", "Oni", "Adult Red Dracolich", "Dao", "Djinni", "Humanoid Bicuspid"],
       "armor class": "1",
@@ -3486,8 +3486,8 @@ const monsters = [
     {
       "name": "Giant Vulture",
       "size": "Large",
-      "type": "beast",
-      "alignment": "neutral",
+      "type": "Beast",
+      "alignment": "Neutral",
       "environments": ["Grassland", "Jungle", "Forest", "Swamp", "Desert", "Hill", "Mountain"],
       "associates": ["Orc Eye of Gruumsh", "Orog", "Hyena", "Jackal", "Scorpion", "Vulture", "Bandit", "Camel", "Flying Snake", "Guard", "Kobold", "Mule", "Poisonous Snake", "Stirge", "Tribal Warrior", "Constrictor Snake", "Giant Lizard", "Bandit Captain", "Berserker", "Druid", "Giant Constrictor Snake", "Gnoll Pack Lord", "Ogre", "Giant Scorpion", "Hobgoblin Captain", "Mummy", "Phase Spider", "Wight", "Yuan-ti Malison", "Couatl", "Gnoll Fang of Yeenoghu", "Lamia", "Weretiger", "Djinni", "Marid", "Roc", "Storm Giant", "Adult Bronze Dragon", "Adult Blue Dragon", "Dragon Turtle", "Ancient Bronze Dragon", "Ancient Blue Dragon", "Giant Eagle"],
       "armor class": "1",
@@ -3510,8 +3510,8 @@ const monsters = [
     {
       "name": "Giant Wasp",
       "size": "Medium",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Jungle", "Forest", "Grassland"],
       "associates": ["Swarm of Insects", "Peddler", "Warhorse", "Cultist", "Giant Rat", "Stirge", "Giant Poisonous Snake", "Swarm of Bats", "Winged Kobold", "Bandit", "Noble", "Riding Horse", "Guard", "Kenku", "Smoke Mephit", "Giant Owl", "Awakened Tree", "Awakened Shrub", "Dryad", "Treant", "Couatl", "Ghost", "Doppelganger", "Phase Spider", "Veteran", "Ghast", "Ghoul", "Gargoyle", "Cult Fanatic", "Wererat", "Assassin", "Invisible Stalker", "Gray Slaad", "Young Silver Dragon", "Cambion", "Revenant", "Wight", "Archmage", "Vampire Spawn", "Oni", "Mage", "Shield Guardian", "Rakshasa", "Vampire", "Adult Silver Dragon", "Ancient Silver Dragon", "Tarrasque"],
       "armor class": "1",
@@ -3532,8 +3532,8 @@ const monsters = [
     {
       "name": "Giant Weasel",
       "size": "Medium",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Forest", "Grassland", "Swamp"],
       "associates": ["Blood Hawk", "Flying Snake", "Guard", "Kobold", "Mastiff", "Mule", "Poisonous Snake", "Stirge", "Tribal Warrior", "Commoner", "Bullywug", "Lizardfolk Shaman", "Lizardfolk", "Giant Lizard", "Giant Rat", "Giant Poisonous Snake", "Giant Owl", "Giant Spider", "Giant Toad", "Giant Vulture", "Giant Wasp"],
       "armor class": "1",
@@ -3556,8 +3556,8 @@ const monsters = [
     {
       "name": "Giant Wolf Spider",
       "size": "Medium",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Forest", "Grassland", "Swamp"],
       "associates": ["Giant Eagle", "Pteranodon", "Scout", "Sahuagin", "Sea Hag", "Giant Toad", "Druid", "Commoner", "Water Elemental", "Cyclops", "Banshee", "Veteran", "Young Bronze Dragon", "Young Blue Dragon", "Sahuagin Baron", "Sahuagin Priestess", "Djinni", "Roc", "Marid", "Storm Giant", "Manticore", "Wyvern", "Green Hag", "Werewolf", "Hill Giant", "Wereboar", "Revenant", "Gorgon", "Gnoll Fang of Yeenoghu", "Young Red Dragon", "Stone Giant", "Young Copper Dragon", "Adult Copper Dragon", "Adult Red Dragon", "Ancient Copper Dragon", "Ancient Red Dragon", "Animated Armor", "Brass Dragon Wyrmling", "Brown Bear", "Bugbear", "Copper Dragon Wyrmling", "Death Dog", "Dire Wolf", "Dryad", "Duergar", "Faerie Dragon (Young)", "Fire Snake", "Ghoul", "Giant Hyena", "Giant Octopus", "Giant Spider", "Giant Toad", "Giant Vulture", "Goblin Boss", "Half-ogre", "Harpy", "Hippogriff", "Imp", "Kuo-toa Whip", "Lion", "Quadrone", "Quaggoth Spore Servant", "Quasit", "Scarecrow", "Specter", "Spy", "Swarm of Quippers", "Thri-keen", "Tiger", "Yuan-ti Pureblood", "Cat", "Snake", "Spider", "Wolf", "Giant Bats", "Giant Poisonous Snakes", "Giant Spiders", "Wolves"],
       "armor class": "1",
@@ -3580,8 +3580,8 @@ const monsters = [
     {
       "name": "Gibbering Mouther",
       "size": "Medium",
-      "type": "aberration",
-      "alignment": "neutral",
+      "type": "Aberration",
+      "alignment": "Neutral",
       "environments": ["Underdark"],
       "associates": ["Water Weird", "Gas Spore", "Giant Constrictor Snake", "Shadow", "Grell", "Wight", "Quaggoth Spore Servant", "Gargoyle", "Ogre", "Ettin", "Chuul", "Salamander", "Phase Spider", "Hook Horror", "Duergar", "Ghost", "Flameskull", "Wraith", "Bone Naga", "Orc Eye of Gruumsh", "Orog", "Ghast", "Ghoul", "Otyugh", "Roper", "Vampire Spawn", "Chimera", "Mind Flayer", "Spirit Naga", "Carrion Crawler", "Gelatinous Cube", "Ochre Jelly", "Doppelganger", "Quaggoth Thonot", "Mimic", "Specter", "Intellect Devourer", "Beholder Zombie", "Kuo-toa Monitor", "Hell Hound", "Cloaker", "Drider", "Fire Giant", "Grick Alpha", "Mind Flayer Arcanist", "Goblin"],
       "armor class": "9",
@@ -3604,8 +3604,8 @@ const monsters = [
     {
       "name": "Glabrezu",
       "size": "Large",
-      "type": "fiend",
-      "alignment": "chaotic evil",
+      "type": "Fiend",
+      "alignment": "Chaotic Evil",
       "environments": ["Abyss"],
       "associates": [""],
       "armor class": "17 (Natural Armor)",
@@ -3631,8 +3631,8 @@ const monsters = [
     {
       "name": "Gladiator",
       "size": "Medium",
-      "type": "humanoid",
-      "alignment": "any",
+      "type": "Humanoid",
+      "alignment": "Any",
       "environments": ["Urban"],
       "associates": ["Mind Flayer", "Stone Golem", "Swarm of Poisonous Snakes", "Tribal Warrior", "Veteran", "Zombie", "Mummy", "Yuan-ti Malison", "Yuan-ti Pureblood", "Druid", "Rhinoceros", "Wereboar", "Young Gold Dragon", "Triceratops", "Tyrannosaurus Rex", "Nomads", "Riding Horse", "Antelope", "Deer", "Cyclops", "Earth Elemental", "Fire Elemental", "Hill Giant", "Ogre", "Ettin", "Mammoth", "Fomorian", "Hydra", "Wurm", "Borborygmos", "Anarch", "Rubblebelt Stalker", "Viashino", "Half-ogre", "Giant Boar", "Berserker", "Saber-toothed tiger", "Gruul Clans", "Trog", "Druid of the Old Ways", "Huge Batterboar"],
       "armor class": "16 (Studded Leather, Shield)",
@@ -3657,8 +3657,8 @@ const monsters = [
     {
       "name": "Gnoll",
       "size": "Medium",
-      "type": "humanoid",
-      "alignment": "chaotic evil",
+      "type": "Humanoid",
+      "alignment": "Chaotic Evil",
       "environments": ["Grassland", "Desert", "Hill", "Mountain", "Underdark"],
       "associates": ["Bugbear", "Ogre", "Gnoll Pack Lord", "Giant Hyena", "Hobgoblin", "Orc", "Lion", "Worg", "Brown Bear", "Axe Beak", "Half-ogre", "Winged Kobold", "Goblin Boss", "Dire Wolf", "Giant Elk", "Giant Goat", "Manticore", "Phase Spider", "Gnoll Fang of Yeenoghu", "Giant Boar", "Bandit Captain", "Bandit", "Orc Eye of Gruumsh", "Orog", "Ettin", "Wereboar", "Goblin", "Griffon", "Peryton", "Pegasus", "Troll", "Cyclops", "Stone Giant", "Green Hag", "Wyvern", "Werewolf", "Werebear", "Revenant", "Gorgon", "Young Red Dragon", "Young Copper Dragon", "Roc", "Hyena", "Gnoll Hunter", "Gnoll Flesh Gnawer", "Gnoll Witherling", "Flind", "Barlgura", "Dretch", "Ghoul", "Hezrou", "Leucrotta", "Maw Demon", "Shoosuva", "Yeenoghu"],
       "armor class": "15 (Hide Armor, Shield)",
@@ -3680,8 +3680,8 @@ const monsters = [
     {
       "name": "Goat",
       "size": "Medium",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Hill", "Mountain"],
       "associates": ["Worg", "Herder", "Tribal Warrior", "Giant Goat"],
       "armor class": "1",
@@ -3703,8 +3703,8 @@ const monsters = [
     {
       "name": "Goblin",
       "size": "Small",
-      "type": "humanoid",
-      "alignment": "neutral evil",
+      "type": "Humanoid",
+      "alignment": "Neutral Evil",
       "environments": ["Grassland", "Hill", "Mountain", "Swamp", "Underdark", "Urban"],
       "associates": ["Goblin Boss", "Ettercap", "Orc", "Wolf", "Dire Wolf", "Orc Graffiti", "Myconid Adult", "Myconid Sprout", "Minotaur Skeleton", "Minotaur", "Mimic", "Doppelganger", "Hobgoblin", "Intellect Devourer", "Spectator", "Gibbering Mouther", "Water Weird", "Gas Spore", "Giant Constrictor Snake", "Shadow", "Grell", "Wight", "Quaggoth Spore Servant", "Gargoyle", "Ogre", "Ettin", "Chuul", "Salamander", "Phase Spider", "Hook Horror", "Duergar", "Ghost", "Flameskull", "Wraith", "Bone Naga", "Orc Eye of Gruumsh", "Orog", "Ghast", "Ghoul", "Otyugh", "Roper", "Vampire Spawn", "Chimera", "Mind Flayer", "Spirit Naga", "Hobgoblin Captain", "Hydra", "Carrion Crawler", "Bugbear", "Kobold", "Lizardfolk", "Yuan-ti Pureblood", "Cultist", "Bandit", "Commoner", "Goblinoids", "Dragon Turtle", "Rat", "Bat", "Warhorse", "Boar", "Hyena", "Drow", "Grimlock", "Kuo-toa", "Quaggoth", "Behir", "Aboleth", "Dao", "Stone Giant", "Beholder", "Gelatinous Cube", "Mind Flayer Arcanist", "Black Dragon Wyrmling", "Myconid Colony", "Gnoll"],
       "armor class": "15 (Leather Armor, Shield)",
@@ -3727,8 +3727,8 @@ const monsters = [
     {
       "name": "Gold Dragon Wyrmling",
       "size": "Medium",
-      "type": "dragon",
-      "alignment": "lawful good",
+      "type": "Dragon",
+      "alignment": "Lawful Good",
       "environments": ["Urban", "Mountain", "Upper Planes"],
       "associates": ["Adult Gold Dragon", "Druid", "Treant", "Revenant", "Grick Alpha", "Giant Ape", "Guardian Naga", "Ancient Gold Dragon", "Modrons", "Primus", "Metallic Dragons", "Gold Dragon", "Gold Dragon Wyrmling", "Gold Dragon Hatchling", "Gold Dragon Adult", "Gold Dragon Ancient"],
       "armor class": "17 Natural Armor",
@@ -3753,8 +3753,8 @@ const monsters = [
     {
       "name": "Gorgon",
       "size": "Large",
-      "type": "monstrosity",
-      "alignment": "unaligned",
+      "type": "Monstrosity",
+      "alignment": "Unaligned",
       "environments": ["Grassland", "Jungle", "Forest", "Swamp", "Desert", "Hill", "Mountain"],
       "associates": ["Basilisk", "Green Hag", "Displacer Beast", "Unicorn", "Revenant", "Ettin", "Wereboar", "Bulette", "Hill Giant", "Troll", "Werebear", "Chimera", "Cyclops", "Galeb Duhr", "Wyvern"],
       "armor class": "19 (Natural Armor)",
@@ -3778,8 +3778,8 @@ const monsters = [
     {
       "name": "Gray Ooze",
       "size": "Medium",
-      "type": "ooze",
-      "alignment": "unaligned",
+      "type": "Ooze",
+      "alignment": "Unaligned",
       "environments": ["Ocean", "Underdark", "Dungeon"],
       "associates": [""],
       "armor class": "8",
@@ -3804,10 +3804,10 @@ const monsters = [
     {
       "name": "Green Dragon Wyrmling",
       "size": "Medium",
-      "type": "dragon",
-      "alignment": "lawful evil",
+      "type": "Dragon",
+      "alignment": "Lawful Evil",
       "environments": ["Forest", "Grassland"],
-      "associates": [""],
+      "associates": ["Ancient Moonstone Dragon", "Ancient Green Dragon", "Animated Object", "Half-Amethyst Dragon", "Violet Faerie Dragon", "Myconid", "Merrow", "Pseudodragon", "Gnoll", "Weretiger", "Cyclops", "Aarakocra", "Gargoyle", "Centaur", "Pixie", "Satyr", "Druid", "Awakened Tree", "Animated Statue", "Androsphinx", "Gynosphinx", "Shadar-kai", "Vampire", "Ice Mephit", "Kobold"],
       "armor class": "17 (Natural Armor)",
       "hit points": "38 (7d8 + 7)",
       "speed": "30 ft, fly 60 ft, swim 30ft",
@@ -3831,8 +3831,8 @@ const monsters = [
     {
       "name": "Green Hag",
       "size": "Medium",
-      "type": "fey",
-      "alignment": "neutral evil",
+      "type": "Fey",
+      "alignment": "Neutral Evil",
       "environments": ["Swamp"],
       "associates": ["Annis Hag", "Bheur Hag", "Night Hag", "Sea Hag", "Goblin", "Flameskull", "Flesh Golem", "Helmed Horror", "Rug of Smothering", "Scarecrow", "Shadow Mastiff", "Swarm of Insects", "Swarm of Rats", "Yeth Hound", "Bugbear", "Doppelganger", "Ettercap", "Gargoyle", "Jackalwere", "Kenku", "Meenlock", "Oni", "Quickling", "Redcap", "Wererat", "Werewolf", "Displacer Beast", "Gorgon", "Unicorn", "Wight", "Yuan-ti Malison", "Yuan-ti Pureblood", "Banshee", "Basilisk", "Beholder Zombie", "Carrion Crawler", "Chimera", "Death Dog", "Drow Elite Warrior", "Duergar", "Fomorian", "Giant Ape", "Giant Crocodile", "Giant Scorpion", "Giant Spider", "Giant Toad", "Giant Vulture", "Githyanki Warrior", "Githzerai Monk", "Grick Alpha", "Griffon", "Hobgoblin Captain", "Hydra", "Kuo-toa Whip", "Lich", "Manticore", "Medusa", "Minotaur Skeleton", "Nothic"],
       "armor class": "17 (Natural Armor)",
@@ -3855,8 +3855,8 @@ const monsters = [
     {
       "name": "Grick",
       "size": "Medium",
-      "type": "monstrosity",
-      "alignment": "neutral",
+      "type": "Monstrosity",
+      "alignment": "Neutral",
       "environments": ["Underdark"],
       "associates": ["Grick Alpha", "Doppelganger", "Invisible Stalker", "Shadow", "Wraith", "Nightveil Specter", "Intellect Devourer", "Flying Horror", "Shadow Horror", "Skittering Horror", "Grick Alpha", "Grick Zookeeper", "Grick Hunter", "Grick Matriarch", "Grick Broodmother", "Grick Youngling", "Grick Hatchling"],
       "armor class": "14 (Natural Armor)",
@@ -3879,10 +3879,10 @@ const monsters = [
     {
       "name": "Griffon",
       "size": "Large",
-      "type": "monstrosity",
-      "alignment": "unaligned",
+      "type": "Monstrosity",
+      "alignment": "Unaligned",
       "environments": ["Forest", "Grassland", "Hill", "Mountain"],
-      "associates": ["Homunculus", "Owl", "Giant Owl", "Soldier", "Warhorse", "Giant Eagle", "Veteran", "Knight", "Precognitive Mage", "Felidar", "Lawmage", "Gynosphinx", "Androsphinx", "Isperia", "Skyjek Roc", "Centaur", "Pegasus", "Peryton", "Troll", "Cyclops", "Stone Giant", "Green Hag", "Wyvern", "Werewolf", "Werebear", "Revenant", "Gorgon", "Young Red Dragon", "Young Copper Dragon", "Roc", "Griffon (Celestial)", "Griffon (Fey)", "Griffon (Fiend)", "Griffon (Monstrosity)", "Griffon (Undead)", "Griffon (Elemental)", "Griffon (Aberrant)", "Griffon (Construct)", "Griffon (Dragon)"],
+      "associates": ["Homunculus", "Owl", "Giant Owl", "Soldier", "Warhorse", "Giant Eagle", "Veteran", "Knight", "Precognitive Mage", "Felidar", "Lawmage", "Gynosphinx", "Androsphinx", "Isperia", "Skyjek Roc", "Centaur", "Pegasus", "Peryton", "Troll", "Cyclops", "Stone Giant", "Green Hag", "Wyvern", "Werewolf", "Werebear", "Revenant", "Gorgon", "Young Red Dragon", "Young Copper Dragon", "Roc", "Griffon (Celestial)", "Griffon (Fey)", "Griffon (Fiend)", "Griffon (Monstrosity)", "Griffon (Undead)", "Griffon (Elemental)", "Griffon (Aberrant)", "Griffon (construct)", "Griffon (Dragon)"],
       "armor class": "1",
       "hit points": "59 (7d10 + 21)",
       "speed": "30 ft, fly 80ft",
@@ -3903,8 +3903,8 @@ const monsters = [
     {
       "name": "Grimlock",
       "size": "Medium",
-      "type": "humanoid",
-      "alignment": "neutral evil",
+      "type": "Humanoid",
+      "alignment": "Neutral Evil",
       "environments": ["Underdark"],
       "associates": ["Beholder", "Death Tyrant", "Duergar", "Goblin", "Hobgoblin", "Kobold", "Lizardfolk", "Orc", "Quaggoth", "Troglodyte", "Zombie", "Drow", "Kuo-toa", "Mind Flayer", "Svirfneblin", "Deep Gnome", "Githyanki", "Githzerai", "Aboleth", "Illithid", "Illithid Arcanist", "Illithid Elder Brain", "Illithid Lich", "Illithid Mind Flayer", "Illithid Psion", "Illithid Sorcerer", "Illithid Warlock"],
       "armor class": "1",
@@ -3928,8 +3928,8 @@ const monsters = [
     {
       "name": "Guard",
       "size": "Medium",
-      "type": "humanoid",
-      "alignment": "any",
+      "type": "Humanoid",
+      "alignment": "Any",
       "environments": ["Urban"],
       "associates": ["Bandit", "Camel", "Flying Snake", "Kobold", "Mule", "Poisonous Snake", "Stirge", "Tribal Warrior", "Blood Hawk", "Mastiff", "Noble", "Pony", "Gargoyle", "Bat", "Swarm of Bats", "Orzhov Giant", "Giant", "Hell Hound", "Nightmare", "Magmin", "Rakdos Giant", "Ogre", "Dire Wolf", "Guard (Thrall)", "Mind Flayer", "Shield Guardian", "Mage", "Vampire"],
       "armor class": "16 (Chain Shirt, Shield)",
@@ -3951,8 +3951,8 @@ const monsters = [
     {
       "name": "Guardian Naga",
       "size": "Large",
-      "type": "monstrosity",
-      "alignment": "lawful good",
+      "type": "Monstrosity",
+      "alignment": "Lawful Good",
       "environments": ["Desert", "Forest", "Grassland", "Hill", "Mountain", "Underdark", "Upper Planes"],
       "associates": ["Ancient Gold Dragon", "Gold Dragon", "Yuan-ti Malison", "Medusa", "Revenant", "Weretiger", "Gnoll Fang of Yeenoghu", "Young Blue Dragon", "Cyclops", "Yuan-ti Abomination", "Efreeti", "Roc", "Gynosphinx", "Androsphinx", "Isperia", "Skyjek Roc", "Giant Eagle", "Pegasus", "Peryton", "Troll", "Werebear", "Werewolf", "Griffon", "Wyvern", "Gorgon", "Young Red Dragon", "Young Copper Dragon"],
       "armor class": "18 (Natural Armor)",
@@ -3977,8 +3977,8 @@ const monsters = [
     {
       "name": "Gynosphinx",
       "size": "Large",
-      "type": "monstrosity",
-      "alignment": "lawful neutral",
+      "type": "Monstrosity",
+      "alignment": "Lawful Neutral",
       "environments": ["Desert"],
       "associates": ["Homunculus", "Owl", "Giant Owl", "Soldier", "Warhorse", "Giant Eagle", "Griffon", "Veteran", "Knight", "Precognitive Mage", "Felidar", "Lawmage", "Androsphinx", "Isperia", "Archon of the Triumvirate"],
       "armor class": "17 (Natural Armor)",
@@ -4005,8 +4005,8 @@ const monsters = [
     {
       "name": "Half-Red Dragon Veteran",
       "size": "Medium",
-      "type": "humanoid",
-      "alignment": "any",
+      "type": "Humanoid",
+      "alignment": "Any",
       "environments": ["Urban"],
       "associates": ["Veteran", "Red Dragon", "Young Red Dragon", "Adult Red Dragon", "Ancient Red Dragon", "Dragon Wyrmling", "Dragonborn", "Dragon Turtle", "Dracolich", "Dragon Hatchling", "Dragon Egg"],
       "armor class": "18 (Plate)",
@@ -4029,8 +4029,8 @@ const monsters = [
     {
       "name": "Harpy",
       "size": "Medium",
-      "type": "monstrosity",
-      "alignment": "chaotic evil",
+      "type": "Monstrosity",
+      "alignment": "Chaotic Evil",
       "environments": ["Forest"],
       "associates": [ "Brown Bear", "Bugbear", "Dire Wolf", "Dryad", "Duergar", "Faerie Dragon (Young)", "Fire Snake", "Ghoul", "Giant Hyena", "Giant Spider", "Giant Toad", "Goblin Boss", "Half-ogre", "Hippogriff", "Imp", "Kuo-toa Whip", "Lion", "Quadrone", "Quaggoth Spore Servant", "Quasit", "Scarecrow", "Specter", "Spy", "Swarm of Quippers", "Thri-keen", "Tiger", "Yuan-ti Pureblood"],
       "armor class": "1",
@@ -4051,8 +4051,8 @@ const monsters = [
     {
       "name": "Hawk",
       "size": "Tiny",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Grassland", "Mountain", "Hill"],
       "associates": [""],
       "armor class": "1",
@@ -4075,8 +4075,8 @@ const monsters = [
     {
       "name": "Hell Hound",
       "size": "Medium",
-      "type": "fiend",
-      "alignment": "lawful evil",
+      "type": "Fiend",
+      "alignment": "Lawful Evil",
       "environments": ["Lower Planes"],
       "associates": ["Giant Scorpion", "Hobgoblin Captain", "Mummy", "Phase Spider", "Wight", "Yuan-ti Malison", "Basilisk", "Manticore", "Veteran", "Carrion Crawler", "Gelatinous Cube", "Darkmantle", "Piercer", "Cyclops", "Earth Elemental", "Ogre", "Chuul", "Salamander", "Drow Elite Warrior", "Chimera", "Beholder Zombie", "Flesh Golem", "Gazer", "Nothic", "Otyugh", "Roper", "Wyvern", "Nightmare", "Magmin", "Rakdos Giant", "Steeder (Female)", "Duergar Hammerer", "Duergar Mind Master", "Duergar Screamer", "Duergar Soulblade", "Duergar Xarrorn", "Bearded Devil", "Azer", "Goblin", "Rust Monster", "Shield Guardian", "Troll"],
       "armor class": "15 (Natural Armor)",
@@ -4100,8 +4100,8 @@ const monsters = [
     {
       "name": "Hezrou",
       "size": "Large",
-      "type": "fiend",
-      "alignment": "chaotic evil",
+      "type": "Fiend",
+      "alignment": "Chaotic Evil",
       "environments": ["Abyss"],
       "associates": ["Barlgura", "Dretch", "Ghoul", "Gnoll Witherling", "Leucrotta", "Manes", "Maw Demon", "Shoosuva", "Troll", "Gnoll", "Giant Hyena", "Giant Scorpion", "Hobgoblin Captain", "Mummy", "Phase Spider", "Wight", "Yuan-ti Malison", "Basilisk", "Manticore", "Veteran", "Carrion Crawler", "Gelatinous Cube", "Darkmantle", "Piercer", "Cyclops", "Earth Elemental", "Ogre", "Chuul", "Salamander", "Drow Elite Warrior", "Chimera", "Beholder Zombie", "Flesh Golem", "Gazer", "Nothic", "Otyugh", "Roper", "Wyvern"],
       "armor class": "16 (Natural Armor)",
@@ -4127,8 +4127,8 @@ const monsters = [
     {
       "name": "Hill Giant",
       "size": "Huge",
-      "type": "giant",
-      "alignment": "chaotic evil",
+      "type": "Giant",
+      "alignment": "Chaotic Evil",
       "environments": ["Hill"],
       "associates": ["Ettin", "Hook Horror", "Manticore", "Minotaur", "Ogre", "Troll", "Wight", "Ogre Zombie", "Fire Elemental", "Lamia", "Mummy", "Phase Spider", "Yuan-ti Malison", "Bulette", "Gorgon", "Revenant", "Werebear", "Cambion", "Gladiator", "Vampire Spawn", "Mammoth", "Fomorian", "Hydra", "Wurm", "Borborygmos", "Anarch", "Rubblebelt Stalker", "Viashino", "Half-Ogre", "Giant Boar", "Berserker", "Saber-Toothed Tiger", "Trog", "Druid of the Old Ways", "Huge Batterboar", "Fire Giant", "Orzhov Giant", "Rakdos Giant", "Magmin", "Nightmare", "Hell Hound"],
       "armor class": "13 (Natural Armor)",
@@ -4150,8 +4150,8 @@ const monsters = [
     {
       "name": "Hippogriff",
       "size": "Large",
-      "type": "monstrosity",
-      "alignment": "unaligned",
+      "type": "Monstrosity",
+      "alignment": "Unaligned",
       "environments": ["Forest", "Grassland", "Hill", "Mountain"],
       "associates": ["Brown Bear", "Bugbear", "Dire Wolf", "Dryad", "Duergar", "Faerie Dragon (Young)", "Fire Snake", "Ghoul", "Giant Hyena", "Giant Spider", "Giant Toad", "Goblin Boss", "Half-ogre", "Harpy", "Imp", "Kuo-toa Whip", "Lion", "Quadrone", "Quaggoth Spore Servant", "Quasit", "Scarecrow", "Specter", "Spy", "Swarm of Quippers", "Thri-keen", "Tiger", "Yuan-ti Pureblood", "Giant Vulture", "Giant Eagle"],
       "armor class": "1",
@@ -4174,8 +4174,8 @@ const monsters = [
     {
       "name": "Hobgoblin",
       "size": "Medium",
-      "type": "humanoid",
-      "alignment": "lawful evil",
+      "type": "Humanoid",
+      "alignment": "Lawful Evil",
       "environments": ["Hill", "Mountain", "Underdark", "Urban"],
       "associates": ["Goblin", "Bugbear", "Hobgoblin Captain", "Hobgoblin Warlord", "Hobgoblin Devastator", "Hobgoblin Iron Shadow", "Beholder", "Death Tyrant", "Duergar", "Grimlock", "Kobold", "Lizardfolk", "Orc", "Quaggoth", "Troglodyte", "Zombie", "Mind Flayer", "Giant Boar", "Lizardfolk (Viashino)", "Giant Scorpion", "Hobgoblin (Thrall)", "Hobgoblin (Soldier)", "Hobgoblin (Warrior)", "Hobgoblin (Veteran)", "Hobgoblin (Elite Soldier)", "Hobgoblin (Elite Warrior)"],
       "armor class": "18 (Chain Mail, Shield)",
@@ -4197,8 +4197,8 @@ const monsters = [
     {
       "name": "Homunculus",
       "size": "Tiny",
-      "type": "construct",
-      "alignment": "neutral",
+      "type": "Construct",
+      "alignment": "Neutral",
       "environments": ["Varies"],
       "associates": ["Owl", "Giant Owl", "Soldier", "Warhorse", "Giant Eagle", "Griffon", "Veteran", "Knight", "Precognitive Mage", "Felidar", "Lawmage", "Gynosphinx", "Androsphinx", "Isperia", "Merfolk", "Hybrid Spy", "Category 1 Krasis", "Giant Octopus", "Hybrid Poisoner", "Hybrid Shocker", "Druid", "Hybrid Brute", "Hybrid Flier", "Plesiosaurus", "Killer Whale", "Giant Shark", "Category 2 Krasis", "Mage", "Biomancer", "Skyswimmer", "Category 3 Krasis", "Zegana", "Dragon Turtle", "Kraken", "Kraken Priest", "Kraken Hatchling", "Kraken Spawn", "Kraken Priestess", "Kraken Priestess (Variant)", "Kraken Priestess (Variant 2)"],
       "armor class": "13 (Natural Armor)",
@@ -4222,8 +4222,8 @@ const monsters = [
     {
       "name": "Horned Devil",
       "size": "Large",
-      "type": "fiend",
-      "alignment": "lawful evil",
+      "type": "Fiend",
+      "alignment": "Lawful Evil",
       "environments": ["Infernal"],
       "associates": ["Barbed Devil", "Cambion", "Bloodfray Giant", "Blood Witch", "Master of Cruelties", "Shadow Horror", "Sire of Insanity", "Lemure", "Spined Devil", "Bearded Devil", "Bone Devil", "Baalzebul", "Belial", "Dispater", "Mammon", "Zariel", "Asmodeus", "Pit Fiend", "Erinyes", "Ice Devil", "Nupperibo", "Chain Devil", "Marilith", "Pit Spawn", "Pit Spawn (Variant)", "Pit Spawn (Variant 2)", "Pit Spawn (Variant 3)", "Pit Spawn (Variant 4)", "Pit Spawn (Variant 5)"],
       "armor class": "18 (Natural Armor)",
@@ -4249,8 +4249,8 @@ const monsters = [
     {
       "name": "Hunter Shark",
       "size": "Large",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Underwater"],
       "associates": ["Giant shark", "Killer whale", "Merrow", "Plesiosaurus", "Sahuagin", "Sahuagin priestess", "Sea hag", "Dolphin", "Giant octopus", "Swarm of quippers", "Giant eel", "Giant toad", "Giant crab", "Giant seahorse", "Giant shark (variant)", "Giant shark (variant 2)", "Giant shark (variant 3)", "Giant shark (variant 4)", "Giant shark (variant 5)"],
       "armor class": "12 (Natural Armor)",
@@ -4273,8 +4273,8 @@ const monsters = [
     {
       "name": "Hydra",
       "size": "Huge",
-      "type": "monstrosity",
-      "alignment": "unaligned",
+      "type": "Monstrosity",
+      "alignment": "Unaligned",
       "environments": ["Swamp", "Underwater"],
       "associates": ["Goblin", "Mind flayer", "Yuan-ti", "Giant octopus", "Giant toad", "Giant crab", "Giant seahorse", "Giant shark (variant)", "Giant shark (variant 2)", "Giant shark (variant 3)", "Giant shark (variant 4)", "Giant shark (variant 5)", "Merrow", "Plesiosaurus", "Sahuagin", "Sahuagin priestess", "Sea hag", "Swarm of quippers"],
       "armor class": "15 (Natural Armor)",
@@ -4297,8 +4297,8 @@ const monsters = [
     {
       "name": "Hyena",
       "size": "Medium",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Grassland", "Hill", "Mountain"],
       "associates": ["Gnoll pack lord", "Gnoll", "Giant hyena"],
       "armor class": "1",
@@ -4321,8 +4321,8 @@ const monsters = [
     {
       "name": "Ice Devil",
       "size": "Large",
-      "type": "fiend",
-      "alignment": "lawful evil",
+      "type": "Fiend",
+      "alignment": "Lawful Evil",
       "environments": ["Infernal", "Arctic"],
       "associates": ["Levistus", "Marilith", "Lemure", "Spined Devil", "Bearded Devil", "Bone Devil", "Barbed Devil", "Horned Devil", "Pit Fiend", "Pit Spawn", "Pit Spawn (Variant)", "Pit Spawn (Variant 2)", "Pit Spawn (Variant 3)", "Pit Spawn (Variant 4)", "Pit Spawn (Variant 5)", "Cambion", "Blood Witch", "Master of Cruelties", "Shadow Horror", "Sire of Insanity"],
       "armor class": "18 (Natural Armor)",
@@ -4348,8 +4348,8 @@ const monsters = [
     {
       "name": "Ice Mephit",
       "size": "Small",
-      "type": "elemental",
-      "alignment": "neutral evil",
+      "type": "Elemental",
+      "alignment": "Neutral Evil",
       "environments": ["Arctic"],
       "associates": ["White dragon wyrmling", "Steam mephit", "Magma mephit", "Dust mephit", "Mud mephit", "Smoke mephit", "Mephit (Variant)", "Mephit (Variant 2)", "Mephit (Variant 3)", "Mephit (Variant 4)", "Mephit (Variant 5)"],
       "armor class": "1",
@@ -4375,8 +4375,8 @@ const monsters = [
     {
       "name": "Imp",
       "size": "Tiny",
-      "type": "fiend",
-      "alignment": "lawful evil",
+      "type": "Fiend",
+      "alignment": "Lawful Evil",
       "environments": ["Infernal"],
       "associates": ["Spellcaster", "Lich", "Vampire", "Necromancer", "Warlock", "Wizard", "Sorcerer", "Priest", "Cleric", "Druid", "Bard", "Rogue", "Assassin", "Thief", "Alchemist", "Artificer", "Illusionist", "Enchanter", "Evoker", "Conjurer", "Transmuter", "Abjurer", "Diviner", "Monk", "Paladin", "Ranger", "Fighter", "Barbarian", "Bugbear Chief", "Bugbear Boss", "Bugbear Captain", "Bugbear Warrior", "Bugbear Soldier"],
       "armor class": "1",
@@ -4402,8 +4402,8 @@ const monsters = [
     {
       "name": "Invisible Stalker",
       "size": "Medium",
-      "type": "elemental",
-      "alignment": "neutral",
+      "type": "Elemental",
+      "alignment": "Neutral",
       "environments": ["Elemental Air", "Upper Planes"],
       "associates": ["Dimir", "Spellcaster", "Warlock", "Wizard", "Apprentice", "Sorcerer", "Priest", "Cleric", "Druid", "Bard", "Rogue", "Assassin", "Thief", "Alchemist", "Artificer", "Illusionist", "Enchanter", "Evoker", "Conjurer", "Transmuter", "Abjurer", "Diviner", "Monk", "Paladin", "Ranger", "Fighter", "Barbarian", "Bugbear Chief", "Bugbear Boss", "Bugbear Captain", "Bugbear Warrior", "Bugbear Soldier"],
       "armor class": "1",
@@ -4429,10 +4429,10 @@ const monsters = [
     {
       "name": "Iron Golem",
       "size": "Large",
-      "type": "construct",
-      "alignment": "unaligned",
+      "type": "Construct",
+      "alignment": "Unaligned",
       "environments": ["Varies", "Dungeon"],
-      "associates": [""],
+      "associates": ["Dragonbone Golem", "Cadaver Collector", "Marut", "Retriever", "Steel Predator", "Stone Cursed", "Stone Defender", "Clockwork Bronze Scout", "Clockwork Iron Cobra", "Clockwork Oaken Bolter", "Clockwork Stone Defender", "Duergar Hammerer", "Duergar Screamer", "Automaton", "Autognome", "Clockwork Soldier", "Clockwork Scout", "Clockwork Sentinel", "Clockwork Watchman", "Clockwork Warden", "Clockwork Warhorse", "Clockwork Wyvern", "Clockwork Dragon"],
       "armor class": "20 (Natural Armor)",
       "hit points": "210 (20d10 + 100)",
       "speed": "30ft",
@@ -4454,8 +4454,8 @@ const monsters = [
     {
       "name": "Jackal",
       "size": "Small",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Desert", "Grassland"],
       "associates": ["Vulture", "Giant vulture", "Giant hyena", "Gnoll pack lord", "Gnoll", "Giant hyena (variant)", "Giant hyena (variant 2)", "Giant hyena (variant 3)", "Giant hyena (variant 4)", "Giant hyena (variant 5)"],
       "armor class": "1",
@@ -4478,8 +4478,8 @@ const monsters = [
     {
       "name": "Killer Whale",
       "size": "Huge",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Coastal", "Underwater"],
       "associates": ["Sahuagin", "Giant Shark", "Plesiosaurus", "Kraken", "Dragon Turtle", "Hunter Shark", "Swarm of Quippers", "Giant Octopus", "Dolphin"],
       "armor class": "12 (Natural Armor)",
@@ -4502,8 +4502,8 @@ const monsters = [
     {
       "name": "Knight",
       "size": "Medium",
-      "type": "humanoid",
-      "alignment": "any",
+      "type": "Humanoid",
+      "alignment": "Any",
       "environments": ["Urban"],
       "associates": ["Dire wolf", "Blackguard"],
       "armor class": "18 (Plate)",
@@ -4527,8 +4527,8 @@ const monsters = [
     {
       "name": "Kobold",
       "size": "Small",
-      "type": "humanoid",
-      "alignment": "lawful evil",
+      "type": "Humanoid",
+      "alignment": "Lawful Evil",
       "environments": ["Dungeon", "Forest"],
       "associates": ["Kobold inventor", "Kobold scale sorcerer", "Kobold dragonshield", "Black dragon wyrmling", "Ash", "Hobgoblin", "Hobgoblin captain", "Hobgoblin warlord", "Hobgoblin soldier", "Hobgoblin warrior", "Hobgoblin archer", "Hobgoblin scout", "Hobgoblin lieutenant", "Hobgoblin sergeant", "Hobgoblin officer"],
       "armor class": "1",
@@ -4550,8 +4550,8 @@ const monsters = [
     {
       "name": "Kraken",
       "size": "Gargantuan",
-      "type": "monstrosity",
-      "alignment": "chaotic evil",
+      "type": "Monstrosity",
+      "alignment": "Chaotic Evil",
       "environments": ["Coastal", "Underwater"],
       "associates": ["Kraken Priest", "Giant octopus", "Plesiosaurus", "Killer whale", "Giant shark", "Dragon turtle", "Merfolk", "Merrow", "Sahuagin", "Sahuagin priestess", "Sea hag", "Swarm of quippers", "Giant squid"],
       "armor class": "18 (Natural Armor)",
@@ -4577,8 +4577,8 @@ const monsters = [
     {
       "name": "Lamia",
       "size": "Large",
-      "type": "monstrosity",
-      "alignment": "chaotic evil",
+      "type": "Monstrosity",
+      "alignment": "Chaotic Evil",
       "environments": ["Desert"],
       "associates": ["Yuan-ti pureblood", "Yuan-ti malison", "Yuan-ti abomination", "Yuan-ti anathema", "Yuan-ti broodguard", "Yuan-ti guard", "Yuan-ti nightmare speaker", "Yuan-ti pit master", "Yuan-ti sorcerer", "Lamia (Variant)", "Lamia (Variant 2)", "Lamia (Variant 3)", "Lamia (Variant 4)", "Lamia (Variant 5)"],
       "armor class": "13 (Natural Armor)",
@@ -4601,8 +4601,8 @@ const monsters = [
     {
       "name": "Lemure",
       "size": "Medium",
-      "type": "fiend",
-      "alignment": "lawful evil",
+      "type": "Fiend",
+      "alignment": "Lawful Evil",
       "environments": ["Infernal"],
       "associates": ["Amnizu", "Barbed devil", "Bearded devil", "Chain devil", "Horned devil", "Pit fiend", "Spined devil", "Ice devil", "Erinyes", "Lemure (Variant)", "Lemure (Variant 2)", "Lemure (Variant 3)", "Lemure (Variant 4)", "Lemure (Variant 5)"],
       "armor class": "7",
@@ -4627,8 +4627,8 @@ const monsters = [
     {
       "name": "Lich",
       "size": "Medium",
-      "type": "undead",
-      "alignment": "any evil alignment",
+      "type": "Undead",
+      "alignment": "Any Evil Alignment",
       "environments": ["Varies"],
       "associates": ["Jarad Vod Savo", "Devkarin lich", "Alhoon", "Mind flayer", "Goblin warlock", "Vampire", "Vampire spawn", "Vampire lord", "Vampire mage", "Lich (Variant)", "Lich (Variant 2)", "Lich (Variant 3)", "Lich (Variant 4)", "Lich (Variant 5)"],
       "armor class": "17 (Natural Armor)",
@@ -4656,8 +4656,8 @@ const monsters = [
     {
       "name": "Lion",
       "size": "Large",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Grassland"],
       "associates": ["Tiger", "Panther (cougar)"],
       "armor class": "1",
@@ -4680,8 +4680,8 @@ const monsters = [
     {
       "name": "Lizard",
       "size": "Tiny",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Jungle", "Forest", "Desert", "Grassland"],
       "associates": ["Giant lizard", "Lizardfolk shaman", "Lizardfolk warrior", "Lizardfolk scout", "Lizardfolk tribe leader", "Lizardfolk champion", "Lizardfolk priest", "Lizardfolk shaman (Variant)", "Lizardfolk warrior (Variant)", "Lizardfolk scout (Variant)", "Lizardfolk tribe leader (Variant)", "Lizardfolk champion (Variant)", "Lizardfolk priest (Variant)"],
       "armor class": "1",
@@ -4702,8 +4702,8 @@ const monsters = [
     {
       "name": "Lizardfolk",
       "size": "Medium",
-      "type": "humanoid",
-      "alignment": "neutral",
+      "type": "Humanoid",
+      "alignment": "Neutral",
       "environments": ["Jungle", "Forest", "Desert", "Grassland", "Swamp"],
       "associates": ["Lizard king/queen", "Lizardfolk shaman", "Viashino", "Lizardfolk warrior", "Lizardfolk scout", "Lizardfolk tribe leader", "Lizardfolk champion", "Lizardfolk priest", "Lizardfolk shaman (Variant)", "Lizardfolk warrior (Variant)", "Lizardfolk scout (Variant)", "Lizardfolk tribe leader (Variant)", "Lizardfolk champion (Variant)", "Lizardfolk priest (Variant)"],
       "armor class": "15 (Natural Armor, Shield)",
@@ -4726,8 +4726,8 @@ const monsters = [
     {
       "name": "Mage",
       "size": "Medium",
-      "type": "humanoid",
-      "alignment": "any",
+      "type": "Humanoid",
+      "alignment": "Any",
       "environments": ["Urban"],
       "associates": ["Shield guardian", "Drow mage", "Chemister", "Advokist", "Archmage", "Illusionist", "Conjurer", "Diviner", "Enchanter", "Evoker", "Necromancer", "Transmuter", "War mage", "Wizard", "Sorcerer", "Warlock", "Bard", "Cleric", "Druid", "Rogue"],
       "armor class": "12 (15 With Mage Armor)",
@@ -4751,8 +4751,8 @@ const monsters = [
     {
       "name": "Magma Mephit",
       "size": "Small",
-      "type": "elemental",
-      "alignment": "neutral evil",
+      "type": "Elemental",
+      "alignment": "Neutral Evil",
       "environments": ["Elemental Fire"],
       "associates": ["Steam mephit", "Ice mephit", "Dust mephit", "Mud mephit", "Magma mephit (Variant)", "Magma mephit (Variant 2)", "Magma mephit (Variant 3)", "Magma mephit (Variant 4)", "Magma mephit (Variant 5)"],
       "armor class": "1",
@@ -4778,8 +4778,8 @@ const monsters = [
     {
       "name": "Magmin",
       "size": "Small",
-      "type": "elemental",
-      "alignment": "chaotic neutral",
+      "type": "Elemental",
+      "alignment": "Chaotic Neutral",
       "environments": ["Elemental Fire"],
       "associates": ["Steam mephit", "Ice mephit", "Hell hound", "Nightmare", "Magma mephit", "Magma mephit (Variant)", "Magma mephit (Variant 2)", "Magma mephit (Variant 3)", "Magma mephit (Variant 4)", "Magma mephit (Variant 5)"],
       "armor class": "14 (Natural Armor)",
@@ -4803,8 +4803,8 @@ const monsters = [
     {
       "name": "Mammoth",
       "size": "Huge",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Artic", "Grassland", "Jungle", "Forest", "Grassland"],
       "associates": ["Giant boar", "Deer", "Griffon", "Pegasus", "Peryton", "Dire wolf", "Rhinoceros", "Saber-toothed tiger", "Mammoth (Variant)", "Mammoth (Variant 2)", "Mammoth (Variant 3)", "Mammoth (Variant 4)", "Mammoth (Variant 5)"],
       "armor class": "13 (Natural Armor)",
@@ -4826,8 +4826,8 @@ const monsters = [
     {
       "name": "Manticore",
       "size": "Large",
-      "type": "monstrosity",
-      "alignment": "lawful evil",
+      "type": "Monstrosity",
+      "alignment": "Lawful Evil",
       "environments": ["Desert"],
       "associates": ["Beholder", "Bugbear", "Centaur", "Chimera", "Cyclops", "Dragon turtle", "Giant eagle", "Giant owl", "Giant vulture", "Gorgon", "Griffon", "Hippogriff", "Hydra", "Kraken", "Manticore (Variant)", "Manticore (Variant 2)", "Manticore (Variant 3)", "Manticore (Variant 4)", "Manticore (Variant 5)"],
       "armor class": "14 (Natural Armor)",
@@ -4849,8 +4849,8 @@ const monsters = [
     {
       "name": "Marilith",
       "size": "Large",
-      "type": "fiend",
-      "alignment": "chaotic evil",
+      "type": "Fiend",
+      "alignment": "Chaotic Evil",
       "environments": ["Abyss"],
       "associates": ["Ice Devil", "Molydeus", "Pit Fiend", "Marilith (Variant)", "Marilith (Variant 2)", "Marilith (Variant 3)", "Marilith (Variant 4)", "Marilith (Variant 5)"],
       "armor class": "18 (Natural Armor)",
@@ -4877,8 +4877,8 @@ const monsters = [
     {
       "name": "Mastiff",
       "size": "Medium",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Grassland", "Forest", "Desert", "Grassland"],
       "associates": ["Soldier", "Knight", "Veteran", "Reckoner", "Boros Legionnaire", "Boros Swiftblade", "Boros Swiftblade (Variant)", "Boros Swiftblade (Variant 2)", "Boros Swiftblade (Variant 3)", "Boros Swiftblade (Variant 4)", "Boros Swiftblade (Variant 5)"],
       "armor class": "1",
@@ -4901,8 +4901,8 @@ const monsters = [
     {
       "name": "Medusa",
       "size": "Medium",
-      "type": "monstrosity",
-      "alignment": "lawful evil",
+      "type": "Monstrosity",
+      "alignment": "Lawful Evil",
       "environments": ["Urban"],
       "associates": ["Devkarin lich", "Kraul death priest", "Golgari shaman", "Drow", "Kraul warrior", "Mind flayer"],
       "armor class": "15 (Natural Armor)",
@@ -4925,8 +4925,8 @@ const monsters = [
     {
       "name": "Merfolk",
       "size": "Medium",
-      "type": "humanoid",
-      "alignment": "neutral",
+      "type": "Humanoid",
+      "alignment": "Neutral",
       "environments": ["Coastal", "Underwater"],
       "associates": ["Category 1 krasis", "Category 2 krasis", "Category 3 krasis", "Hybrid spy", "Hybrid poisoner", "Hybrid shocker", "Hybrid brute", "Hybrid flier", "Biomancer", "Fluxcharger", "Scout", "Commoner", "Giant octopus", "Plesiosaurus", "Killer whale", "Giant shark", "Dragon turtle", "Kraken", "Merfolk (Variant)", "Merfolk (Variant 2)", "Merfolk (Variant 3)", "Merfolk (Variant 4)", "Merfolk (Variant 5)"],
       "armor class": "1",
@@ -4949,8 +4949,8 @@ const monsters = [
     {
       "name": "Merrow",
       "size": "Large",
-      "type": "monstrosity",
-      "alignment": "chaotic evil",
+      "type": "Monstrosity",
+      "alignment": "Chaotic Evil",
       "environments": ["Underwater", "Coastal"],
       "associates": ["Sahuagin", "Sahuagin priestess", "Sahuagin baron", "Sahuagin champion", "Sahuagin sea spawn", "Sahuagin shark", "Sahuagin (Variant)", "Sahuagin (Variant 2)", "Sahuagin (Variant 3)", "Sahuagin (Variant 4)", "Sahuagin (Variant 5)"],
       "armor class": "13 (Natural Armor)",
@@ -4972,8 +4972,8 @@ const monsters = [
     {
       "name": "Mimic",
       "size": "Medium",
-      "type": "monstrosity",
-      "alignment": "neutral",
+      "type": "Monstrosity",
+      "alignment": "Neutral",
       "environments": ["Underdark", "Urban"],
       "associates": ["Hoard mimic"],
       "armor class": "12 (Natural Armor)",
@@ -4998,8 +4998,8 @@ const monsters = [
     {
       "name": "Minotaur",
       "size": "Large",
-      "type": "monstrosity",
-      "alignment": "chaotic evil",
+      "type": "Monstrosity",
+      "alignment": "Chaotic Evil",
       "environments": ["Mountain", "Underdark", "Varies"],
       "associates": ["Gruul Anarch", "Gruul Rubblebelt stalker", "Gruul Viashino", "Gruul Half-ogre", "Gruul Batterboar", "Gruul Berserker", "Gruul Maaka", "Gruul Ogre", "Gruul Ettin", "Gruul Elemental (earth)", "Gruul Elemental (fire)", "Gruul Hill giant", "Gruul Trog", "Gruul Cyclops", "Gruul Huge batterboar", "Gruul Druid of the Old Ways", "Gruul Stone giant", "Gruul Fomorian", "Gruul Hydra", "Gruul Sunder shaman", "Borborygmos", "Beholder", "Baphomet"],
       "armor class": "14 (Natural Armor)",
@@ -5022,8 +5022,8 @@ const monsters = [
     {
       "name": "Minotaur Skeleton",
       "size": "Large",
-      "type": "undead",
-      "alignment": "lawful evil",
+      "type": "Undead",
+      "alignment": "Lawful Evil",
       "environments": ["Mountain", "Underdark", "Varies"],
       "associates": ["Minotaur", "Gruul"],
       "armor class": "12 (Natural Armor)",
@@ -5048,8 +5048,8 @@ const monsters = [
     {
       "name": "Mule",
       "size": "Medium",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Grassland", "Forest", "Desert", "Grassland", "Urban"],
       "associates": ["Tribal Warrior", "Tribal Hunter", "Tribal Shaman", "Tribal Berserker", "Tribal Scout", "Tribal Archer", "Tribal Chieftain", "Tribal Elder", "Tribal Champion", "Tribal Mystic", "Tribal Defender", "Tribal Guardian", "Tribal Warchief", "Tribal Warlock"],
       "armor class": "1",
@@ -5071,8 +5071,8 @@ const monsters = [
     {
       "name": "Mummy",
       "size": "Medium",
-      "type": "undead",
-      "alignment": "lawful evil",
+      "type": "Undead",
+      "alignment": "Lawful Evil",
       "environments": ["Desert", "Varies"],
       "associates": ["Mind flayer", "Mummy Lord", "Yuan-ti malison", "Yuan-ti pureblood"],
       "armor class": "11 (Natural Armor)",
@@ -5098,8 +5098,8 @@ const monsters = [
     {
       "name": "Mummy Lord",
       "size": "Medium",
-      "type": "undead",
-      "alignment": "lawful evil",
+      "type": "Undead",
+      "alignment": "Lawful Evil",
       "environments": ["Desert", "Varies"],
       "associates": ["Mummy", "Zombie", "Skeleton", "Giant skeleton", "Giant zombie", "Giant scorpion", "Giant spider", "Giant constrictor snake", "Giant poisonous snake", "Giant toad", "Giant centipede", "Giant lizard", "Giant rat", "Giant bat", "Giant wolf spider", "Mummy Lord (Variant)", "Mummy Lord (Variant 2)", "Mummy Lord (Variant 3)", "Mummy Lord (Variant 4)", "Mummy Lord (Variant 5)"],
       "armor class": "17 (Natural Armor)",
@@ -5127,8 +5127,8 @@ const monsters = [
     {
       "name": "Nalfeshnee",
       "size": "Large",
-      "type": "fiend",
-      "alignment": "chaotic evil",
+      "type": "Fiend",
+      "alignment": "Chaotic Evil",
       "environments": ["Abyss"],
       "associates": ["Green hag", "Sea hag", "Bheur hag", "Night hag", "Nalfeshnee (Variant)", "Nalfeshnee (Variant 2)", "Nalfeshnee (Variant 3)", "Nalfeshnee (Variant 4)", "Nalfeshnee (Variant 5)"],
       "armor class": "18 (Natural Armor)",
@@ -5154,8 +5154,8 @@ const monsters = [
     {
       "name": "Night Hag",
       "size": "Medium",
-      "type": "fiend",
-      "alignment": "neutral evil",
+      "type": "Fiend",
+      "alignment": "Neutral Evil",
       "environments": ["Lower Planes", "Varies", "Ethereal"],
       "associates": ["Magmin", "Hell hound", "Narzugon"],
       "armor class": "17 (Natural Armor)",
@@ -5180,8 +5180,8 @@ const monsters = [
     {
       "name": "Nightmare",
       "size": "Large",
-      "type": "fiend",
-      "alignment": "neutral evil",
+      "type": "Fiend",
+      "alignment": "Neutral Evil",
       "environments": ["Varies"],
       "associates": ["Magmin", "Hell hound", "Narzugon", "Night hag", "Nalfeshnee", "Nightmare (Variant)", "Nightmare (Variant 2)", "Nightmare (Variant 3)", "Nightmare (Variant 4)", "Nightmare (Variant 5)"],
       "armor class": "13 (Natural Armor)",
@@ -5204,8 +5204,8 @@ const monsters = [
     {
       "name": "Noble",
       "size": "Medium",
-      "type": "humanoid",
-      "alignment": "any",
+      "type": "Humanoid",
+      "alignment": "Any",
       "environments": ["Urban"],
       "associates": ["Advokist", "Indentured spirit", "Knight", "Priest", "Acolyte", "Sage", "Spy", "Thug", "Veteran", "Warrior", "Warlock of the Archfey", "Warlock of the Fiend", "Warlock of the Great Old One", "Warlock of the Undying"],
       "armor class": "15 (Breastplate)",
@@ -5228,8 +5228,8 @@ const monsters = [
     {
       "name": "Nothic",
       "size": "Medium",
-      "type": "aberration",
-      "alignment": "neutral evil",
+      "type": "Aberration",
+      "alignment": "Neutral Evil",
       "environments": ["Underdark"],
       "associates": ["Beholder", "Beholderkin", "Mind flayer", "Mind witness", "Nothic (Variant)", "Nothic (Variant 2)", "Nothic (Variant 3)", "Nothic (Variant 4)", "Nothic (Variant 5)"],
       "armor class": "15 Natural",
@@ -5252,8 +5252,8 @@ const monsters = [
     {
       "name": "Ochre Jelly",
       "size": "Large",
-      "type": "ooze",
-      "alignment": "unaligned",
+      "type": "Ooze",
+      "alignment": "Unaligned",
       "environments": ["Swamp"],
       "associates": ["Slithering tracker", "Black pudding", "Gray ooze", "Gelatinous cube"],
       "armor class": "8",
@@ -5279,8 +5279,8 @@ const monsters = [
     {
       "name": "Octopus",
       "size": "Small",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Underwater"],
       "associates": ["Giant octopus", "Killer whale", "Giant shark", "Plesiosaurus", "Dragon turtle", "Kraken", "Merfolk", "Merrow", "Sahuagin", "Hunter shark", "Swarm of quippers"],
       "armor class": "1",
@@ -5303,8 +5303,8 @@ const monsters = [
     {
       "name": "Ogre",
       "size": "Large",
-      "type": "giant",
-      "alignment": "chaotic evil",
+      "type": "Giant",
+      "alignment": "Chaotic Evil",
       "environments": ["Hill"],
       "associates": ["Hill giant", "Half-ogre", "Ettin", "Stone giant", "Fomorian", "Troll", "Mind flayer", "Bugbear", "Orog", "Azer", "Gargoyle", "Hell hound", "Rust monster", "Shield guardian", "Goblin", "Hobgoblin", "Kobold", "Lizardfolk", "Orc", "Ogre (Variant)", "Ogre (Variant 2)", "Ogre (Variant 3)", "Ogre (Variant 4)", "Ogre (Variant 5)"],
       "armor class": "11 (Hide Armor)",
@@ -5325,8 +5325,8 @@ const monsters = [
     {
       "name": "Ogre Zombie",
       "size": "Large",
-      "type": "undead",
-      "alignment": "neutral evil",
+      "type": "Undead",
+      "alignment": "Neutral Evil",
       "environments": ["Hill"],
       "associates": ["Death tyrant", "Zombie", "Mummy Lord", "Lich", "Giant skeleton", "Giant zombie", "Giant scorpion", "Giant spider", "Giant constrictor snake", "Giant poisonous snake", "Giant toad", "Giant centipede", "Giant lizard", "Giant rat", "Giant bat", "Giant wolf spider", "Ogre Zombie (Variant)", "Ogre Zombie (Variant 2)", "Ogre Zombie (Variant 3)", "Ogre Zombie (Variant 4)", "Ogre Zombie (Variant 5)"],
       "armor class": "8",
@@ -5351,8 +5351,8 @@ const monsters = [
     {
       "name": "Oni",
       "size": "Large",
-      "type": "giant",
-      "alignment": "lawful evil",
+      "type": "Giant",
+      "alignment": "Lawful Evil",
       "environments": ["Underdark"],
       "associates": ["Hag", "Green Hag", "Sea hag", "Bheur hag", "Gnoll", "Goblin", "Minotaur", "Kobold", "Ogre", "Orc", "Troll", "Oni (Variant)", "Oni (Variant 2)", "Oni (Variant 3)", "Oni (Variant 4)", "Oni (Variant 5)"],
       "armor class": "16 (Chain Mail)",
@@ -5376,8 +5376,8 @@ const monsters = [
     {
       "name": "Orc",
       "size": "Medium",
-      "type": "humanoid",
-      "alignment": "chaotic evil",
+      "type": "Humanoid",
+      "alignment": "Chaotic Evil",
       "environments": ["Mountain", "Forest", "Swamp", "Underdark", "Urban"],
       "associates": ["Hobgoblin", "Bugbear", "Mind flayer", "Beholder", "Orc War Chief", "Orog", "Orc Nurtured One of Yurtrus", "Orc Red Fang of Shargaas", "Orc Hand of Yurtrus", "Orc Blade of Ilneval", "Yeenoghu", "Drow", "Orcus"],
       "armor class": "13 (Hide Armor)",
@@ -5400,8 +5400,8 @@ const monsters = [
     {
       "name": "Otyugh",
       "size": "Large",
-      "type": "aberration",
-      "alignment": "neutral",
+      "type": "Aberration",
+      "alignment": "Neutral",
       "environments": ["Underdark"],
       "associates": ["Beholder", "Carrion crawler", "Mind flayer", "Nothic", "Otyugh (Variant)", "Otyugh (Variant 2)", "Otyugh (Variant 3)", "Otyugh (Variant 4)", "Otyugh (Variant 5)"],
       "armor class": "14 (Natural Armor)",
@@ -5424,8 +5424,8 @@ const monsters = [
     {
       "name": "Owl",
       "size": "Tiny",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Forest", "Grassland"],
       "associates": ["Giant owl", "Spellcaster", "Acolyte", "Priest", "Sage", "Warlock of the Archfey", "Warlock of the Fiend", "Warlock of the Great Old One", "Warlock of the Undying"],
       "armor class": "1",
@@ -5448,8 +5448,8 @@ const monsters = [
     {
       "name": "Owlbear",
       "size": "Large",
-      "type": "monstrosity",
-      "alignment": "unaligned",
+      "type": "Monstrosity",
+      "alignment": "Unaligned",
       "environments": ["Mountain", "Forest", "Artic"],
       "associates": ["Giant owl"],
       "armor class": "13 (Natural Armor)",
@@ -5472,8 +5472,8 @@ const monsters = [
     {
       "name": "Panther",
       "size": "Medium",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Grassland", "Mountain", "Forest"],
       "associates": ["Drow ranger", "Lion"],
       "armor class": "1",
@@ -5496,8 +5496,8 @@ const monsters = [
     {
       "name": "Pegasus",
       "size": "Large",
-      "type": "celestial",
-      "alignment": "chaotic good",
+      "type": "Celestial",
+      "alignment": "Chaotic Good",
       "environments": ["Forest", "Grassland", "Hill"],
       "associates": ["Mammoth", "Giant boar", "Deer", "Griffon", "Peryton", "Dire wolf", "Rhinoceros", "Saber-toothed tiger", "Spellcaster", "Acolyte", "Priest", "Sage", "Warlock of the Archfey", "Warlock of the Fiend", "Warlock of the Great Old One", "Warlock of the Undying"],
       "armor class": "1",
@@ -5520,8 +5520,8 @@ const monsters = [
     {
       "name": "Phase Spider",
       "size": "Large",
-      "type": "monstrosity",
-      "alignment": "unaligned",
+      "type": "Monstrosity",
+      "alignment": "Unaligned",
       "environments": ["Forest"],
       "associates": ["Hell Hound", "Lamia", "Wereboar", "Revenant", "Werebear", "Gnoll Fang of Yeenoghu", "Duergar", "Hook Horror", "Minotaur", "Wight", "Mummy", "Hobgoblin Captain"],
       "armor class": "13 (Natural Armor)",
@@ -5544,8 +5544,8 @@ const monsters = [
     {
       "name": "Pit Fiend",
       "size": "Large",
-      "type": "fiend",
-      "alignment": "lawful evil",
+      "type": "Fiend",
+      "alignment": "Lawful Evil",
       "environments": ["Infernal"],
       "associates": ["Lemure", "Marilith", "Ice Devil", "Amnizu", "Barbed devil", "Bearded devil", "Chain devil", "Horned devil", "Abishai", "Narzugon", "Warlock of the Fiend", "Warlock of the Great Old One", "Warlock of the Undying"],
       "armor class": "19 (Natural Armor)",
@@ -5571,8 +5571,8 @@ const monsters = [
     {
       "name": "Planetar",
       "size": "Large",
-      "type": "celestial",
-      "alignment": "lawful good",
+      "type": "Celestial",
+      "alignment": "Lawful Good",
       "environments": ["Celestial"],
       "associates": ["Deva", "Solar", "Aurelia", "Archon of the Triumvirate", "Archon of the Shield", "Archon of the Sword", "Archon of the Dawn", "Archon of the Light", "Archon of the Dawn", "Archon of the Light (Variant)", "Archon of the Dawn (Variant)", "Archon of the Light (Variant 2)", "Archon of the Dawn (Variant 2)"],
       "armor class": "19 (Natural Armor)",
@@ -5598,8 +5598,8 @@ const monsters = [
     {
       "name": "Plesiosaurus",
       "size": "Large",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Coastal", "Underwater"],
       "associates": ["Killer whale", "Dolphin", "Merfolk", "Giant octopus", "Giant shark", "Dragon turtle", "Kraken"],
       "armor class": "13 (Natural Armor)",
@@ -5622,8 +5622,8 @@ const monsters = [
     {
       "name": "Poisonous Snake",
       "size": "Tiny",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Forest", "Grassland", "Mountain", "Jungle"],
       "associates": [ "Giant poisonous snake", "Swarm of poisonous snakes", "Skein spider", "Piranha beetles", "Lizardfolk shaman", "Mind flayer"],
       "armor class": "1",
@@ -5644,8 +5644,8 @@ const monsters = [
     {
       "name": "Polar Bear",
       "size": "Large",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Arctic"],
       "associates": ["Druid", "Cave bear"],
       "armor class": "12 (Natural Armor)",
@@ -5668,8 +5668,8 @@ const monsters = [
     {
       "name": "Pony",
       "size": "Medium",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Grassland", "Mountain", "Jungle", "Urban", "Hill"],
       "associates": ["Commoner", "Mule", "Guard", "Draft horse", "Warhorse", "Riding horse"],
       "armor class": "1",
@@ -5690,8 +5690,8 @@ const monsters = [
     {
       "name": "Priest",
       "size": "Medium",
-      "type": "humanoid",
-      "alignment": "any",
+      "type": "Humanoid",
+      "alignment": "Any",
       "environments": ["Urban"],
       "associates": ["Acolyte", "Noble", "Cultist", "War priest", "Priest of the Old Faith", "Priest of the Forgotten God"],
       "armor class": "13 (Chain Shirt)",
@@ -5714,8 +5714,8 @@ const monsters = [
     {
       "name": "Pseudodragon",
       "size": "Tiny",
-      "type": "dragon",
-      "alignment": "neutral good",
+      "type": "Dragon",
+      "alignment": "Neutral Good",
       "environments": ["Forest", "Grassland", "Mountain", "Jungle", "Hill"],
       "associates": ["Spellcaster", "Blue dragon wyrmling", "Green dragon wyrmling", "Red dragon wyrmling", "Black dragon wyrmling", "White dragon wyrmling", "Bronze dragon wyrmling", "Copper dragon wyrmling", "Gold dragon wyrmling", "Silver dragon wyrmling", "Brass dragon wyrmling", "Warlock of the Archfey", "Warlock of the Fiend", "Warlock of the Great Old One", "Warlock of the Undying"],
       "armor class": "13 (Natural Armor)",
@@ -5738,8 +5738,8 @@ const monsters = [
     {
       "name": "Pteranodon",
       "size": "Medium",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Grassland", "Mountain", "Jungle", "Hill"],
       "associates": [""],
       "armor class": "13 Natural Armor",
@@ -5761,8 +5761,8 @@ const monsters = [
     {
       "name": "Purple Worm",
       "size": "Gargantuan",
-      "type": "monstrosity",
-      "alignment": "unaligned",
+      "type": "Monstrosity",
+      "alignment": "Unaligned",
       "environments": ["Underdark"],
       "associates": [""],
       "armor class": "18 (Natural Armor)",
@@ -5785,8 +5785,8 @@ const monsters = [
     {
       "name": "Quasit",
       "size": "Tiny",
-      "type": "fiend",
-      "alignment": "chaotic evil",
+      "type": "Fiend",
+      "alignment": "Chaotic Evil",
       "environments": ["Abyss", "Infernal"],
       "associates": ["Spellcaster", "Warlock", "Wizard", "Sorcerer", "Druid", "Cleric", "Cultist", "Priest", "Warlock of the Archfey", "Warlock of the Fiend", "Warlock of the Great Old One", "Warlock of the Undying"],
       "armor class": "1",
@@ -5812,8 +5812,8 @@ const monsters = [
     {
       "name": "Quipper",
       "size": "Tiny",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Underwater"],
       "associates": ["Swarm of quippers", "Hunter shark", "Giant octopus", "Killer whale", "Plesiosaurus", "Sahuagin", "Sea hag", "Dragon turtle", "Kraken"],
       "armor class": "1",
@@ -5835,8 +5835,8 @@ const monsters = [
     {
       "name": "Rakshasa",
       "size": "Medium",
-      "type": "fiend",
-      "alignment": "lawful evil",
+      "type": "Fiend",
+      "alignment": "Lawful Evil",
       "environments": ["Urban"],
       "associates": ["Spellcaster vampire", "Warrior vampire", "Vampire spawn", "Cultist", "Priest", "Warlock of the Archfey", "Warlock of the Fiend", "Warlock of the Great Old One", "Warlock of the Undying"],
       "armor class": "16 (Natural Armor)",
@@ -5861,8 +5861,8 @@ const monsters = [
     {
       "name": "Rat",
       "size": "Tiny",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Urban", "Grassland", "Mountain", "Jungle", "Hill", "Forest"],
       "associates": ["Swarm of rats", "Giant rat"],
       "armor class": "1",
@@ -5884,8 +5884,8 @@ const monsters = [
     {
       "name": "Raven",
       "size": "Tiny",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Forest", "Hill", "Swamp", "Urban", "Mountain", "Desert", "Grassland", "Artic"],
       "associates": ["Swarm of ravens", "Giant raven", "Giant owl", "Giant eagle", "Hippogriff", "Pegasus", "Roc", "Harpy", "Griffon", "Aarakocra"],
       "armor class": "1",
@@ -5908,8 +5908,8 @@ const monsters = [
     {
       "name": "Red Dragon Wyrmling",
       "size": "Medium",
-      "type": "dragon",
-      "alignment": "chaotic evil",
+      "type": "Dragon",
+      "alignment": "Chaotic Evil",
       "environments": ["Mountain", "Hill"],
       "associates": ["Hobgoblin captain", "Giant boar", "Orog", "Orc"],
       "armor class": "17 (Natural Armor)",
@@ -5933,8 +5933,8 @@ const monsters = [
     {
       "name": "Reef Shark",
       "size": "Medium",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Coastal", "Underwater"],
       "associates": ["Hunter shark", "Giant shark", "Killer whale", "Plesiosaurus", "Giant octopus", "Sahuagin", "Sea hag", "Dragon turtle", "Kraken"],
       "armor class": "12 (Natural Armor)",
@@ -5957,8 +5957,8 @@ const monsters = [
     {
       "name": "Remorhaz",
       "size": "Huge",
-      "type": "monstrosity",
-      "alignment": "unaligned",
+      "type": "Monstrosity",
+      "alignment": "Unaligned",
       "environments": ["Arctic"],
       "associates": ["Frost giant", "Young remorhaz", "Frost salamander", "Frost drake", "Frost spider", "Frost wyrm"],
       "armor class": "17 (Natural Armor)",
@@ -5981,8 +5981,8 @@ const monsters = [
     {
       "name": "Rhinoceros",
       "size": "Large",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Grassland", "Jungle", "Hill", "Forest"],
       "associates": ["Saber-toothed tiger", "Mammoth", "Giant boar", "Deer", "Griffon", "Pegasus", "Peryton", "Dire wolf"],
       "armor class": "11 (Natural Armor)",
@@ -6004,8 +6004,8 @@ const monsters = [
     {
       "name": "Riding Horse",
       "size": "Large",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Grassland", "Mountain", "Jungle", "Hill", "Forest", "Urban"],
       "associates": ["Nomads", "Tribal warrior", "Archmage", "Knight", "Paladin", "Ranger", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Rogue", "Sorcerer", "Warlock", "Wizard"],
       "armor class": "1",
@@ -6026,8 +6026,8 @@ const monsters = [
     {
       "name": "Roc",
       "size": "Gargantuan",
-      "type": "monstrosity",
-      "alignment": "unaligned",
+      "type": "Monstrosity",
+      "alignment": "Unaligned",
       "environments": ["Swamp"],
       "associates": ["Riding Horse", "Rhinoceros", "Saber-Toothed Tiger", "Dire Wolf", "Pegasus", "Peryton", "Griffon", "Giant Eagle", "Giant Owl", "Hippogriff", "Harpy"],
       "armor class": "15 (Natural Armor)",
@@ -6051,8 +6051,8 @@ const monsters = [
     {
       "name": "Roper",
       "size": "Large",
-      "type": "monstrosity",
-      "alignment": "neutral evil",
+      "type": "Monstrosity",
+      "alignment": "Neutral Evil",
       "environments": ["Underdark"],
       "associates": ["Beholder", "Carrion crawler", "Otyugh", "Goblin", "Hobgoblin", "Bugbear", "Dwarf prospector", "Drow mage", "Drow priestess", "Duergar", "Kobold", "Svirfneblin", "Deep gnome"],
       "armor class": "20 (Natural Armor)",
@@ -6075,8 +6075,8 @@ const monsters = [
     {
       "name": "Rug of Smothering",
       "size": "Large",
-      "type": "construct",
-      "alignment": "unaligned",
+      "type": "Construct",
+      "alignment": "Unaligned",
       "environments": ["Urban", "Varies"],
       "associates": ["Hag", "Cultist", "Priest", "Warlock of the Archfey", "Warlock of the Fiend", "Warlock of the Great Old One", "Warlock of the Undying"],
       "armor class": "1",
@@ -6100,8 +6100,8 @@ const monsters = [
     {
       "name": "Rust Monster",
       "size": "Medium",
-      "type": "monstrosity",
-      "alignment": "unaligned",
+      "type": "Monstrosity",
+      "alignment": "Unaligned",
       "environments": ["Underdark"],
       "associates": ["Ogre", "Duergar", "Drow", "Kobold", "Svirfneblin", "Deep gnome", "Giant spider", "Giant centipede", "Giant scorpion", "Giant wasp"],
       "armor class": "14 (Natural Armor)",
@@ -6123,8 +6123,8 @@ const monsters = [
     {
       "name": "Saber-Toothed Tiger",
       "size": "Large",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Grassland", "Jungle", "Hill", "Forest"],
       "associates": ["Rhinoceros", "Mammoth", "Giant boar", "Deer", "Griffon", "Pegasus", "Peryton", "Dire wolf"],
       "armor class": "1",
@@ -6147,8 +6147,8 @@ const monsters = [
     {
       "name": "Sahuagin",
       "size": "Medium",
-      "type": "humanoid",
-      "alignment": "lawful evil",
+      "type": "Humanoid",
+      "alignment": "Lawful Evil",
       "environments": ["Underwater", "Coastal"],
       "associates": ["Merrow", "Sahuagin priestess", "Sahuagin baron", "Killer whale", "Giant shark", "Plesiosaurus", "Kraken", "Dragon turtle", "Hunter shark", "Swarm of quippers", "Giant octopus", "Giant eel", "Giant crab", "Giant squid"],
       "armor class": "12 (Natural Armor)",
@@ -6171,8 +6171,8 @@ const monsters = [
     {
       "name": "Salamander",
       "size": "Large",
-      "type": "elemental",
-      "alignment": "neutral evil",
+      "type": "Elemental",
+      "alignment": "Neutral Evil",
       "environments": ["Elemental Fire"],
       "associates": ["Fire Snake", "White Dragon Wyrmling", "Young White Dragon", "Red Dragon Wyrmling", "Young Red Dragon", "Red Dragon", "Fire Giant", "Efreeti", "Magmin", "Fire Elemental"],
       "armor class": "15 (Natural Armor)",
@@ -6197,8 +6197,8 @@ const monsters = [
     {
       "name": "Satyr",
       "size": "Medium",
-      "type": "fey",
-      "alignment": "chaotic neutral",
+      "type": "Fey",
+      "alignment": "Chaotic Neutral",
       "environments": ["Forest"],
       "associates": ["Ape", "Dryad", "Centaur", "Pixie", "Deep Sashelas", "Nymph", "Unicorn", "Treant", "Green hag", "Redcap", "Faerie dragon"],
       "armor class": "14 (Leather Armor)",
@@ -6221,8 +6221,8 @@ const monsters = [
     {
       "name": "Scorpion",
       "size": "Tiny",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Desert"],
       "associates": ["Giant scorpion"],
       "armor class": "11 (Natural Armor)",
@@ -6243,8 +6243,8 @@ const monsters = [
     {
       "name": "Scout",
       "size": "Medium",
-      "type": "humanoid",
-      "alignment": "any",
+      "type": "Humanoid",
+      "alignment": "Any",
       "environments": ["Urban"],
       "associates": ["Selesnya initiate", "Acolyte", "Soldier", "Viashino", "Lizardfolk", "Kraul warrior", "Duergar prospector", "Drow guard", "Kobold dragonshield", "Svirfneblin scout", "Deep gnome scout"],
       "armor class": "13 (Leather Armor)",
@@ -6267,8 +6267,8 @@ const monsters = [
     {
       "name": "Sea Hag",
       "size": "Medium",
-      "type": "fey",
-      "alignment": "chaotic evil",
+      "type": "Fey",
+      "alignment": "Chaotic Evil",
       "environments": ["Coastal", "Underwater"],
       "associates": ["Green hag", "Bheur hag", "Hunter shark", "Killer whale", "Plesiosaurus", "Sahuagin", "Sahuagin priestess", "Gnoll", "Oni", "Giant octopus", "Giant eel", "Giant crab", "Giant squid"],
       "armor class": "14 (Natural Armor)",
@@ -6290,8 +6290,8 @@ const monsters = [
     {
       "name": "Sea Horse",
       "size": "Tiny",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Underwater", "Coastal"],
       "associates": ["Giant sea horse", "Merfolk", "Sahuagin", "Killer whale", "Plesiosaurus", "Kraken", "Dragon turtle", "Hunter shark", "Swarm of quippers", "Giant octopus", "Giant eel", "Giant crab", "Giant squid"],
       "armor class": "1",
@@ -6312,8 +6312,8 @@ const monsters = [
     {
       "name": "Shadow",
       "size": "Medium",
-      "type": "undead",
-      "alignment": "chaotic evil",
+      "type": "Undead",
+      "alignment": "Chaotic Evil",
       "environments": ["Plane of Shadow", "Dungeon", "Varies"],
       "associates": ["Devourer", "Skull lord", "Skeleton", "Zombie", "Specter", "Cadaver collector", "Ghost", "Wight", "Mummy", "Banshee", "Vampire spawn", "Lich"],
       "armor class": "1",
@@ -6340,8 +6340,8 @@ const monsters = [
     {
       "name": "Shambling Mound",
       "size": "Large",
-      "type": "plant",
-      "alignment": "unaligned",
+      "type": "Plant",
+      "alignment": "Unaligned",
       "environments": ["Swamp"],
       "associates": ["Golgari Swarm"],
       "armor class": "15 (Natural Armor)",
@@ -6367,8 +6367,8 @@ const monsters = [
     {
       "name": "Shield Guardian",
       "size": "Large",
-      "type": "construct",
-      "alignment": "unaligned",
+      "type": "Construct",
+      "alignment": "Unaligned",
       "environments": ["Urban", "Dungeon", "Varies"],
       "associates": ["Mage", "Wizard", "Sorcerer", "Warlock of the Archfey", "Warlock of the Fiend", "Warlock of the Great Old One", "Warlock of the Undying"],
       "armor class": "17 (Natural Armor)",
@@ -6393,8 +6393,8 @@ const monsters = [
     {
       "name": "Shrieker",
       "size": "Medium",
-      "type": "plant",
-      "alignment": "unaligned",
+      "type": "Plant",
+      "alignment": "Unaligned",
       "environments": ["Underdark"],
       "associates": ["Violet fungus", "Myconid adult", "Myconid sovereign", "Myconid sprout", "Myconid mushroom"],
       "armor class": "5",
@@ -6417,8 +6417,8 @@ const monsters = [
     {
       "name": "Silver Dragon Wyrmling",
       "size": "Medium",
-      "type": "dragon",
-      "alignment": "lawful good",
+      "type": "Dragon",
+      "alignment": "Lawful Good",
       "environments": ["Mountain", "Upper Planes"],
       "associates": ["Young silver dragon", "Adult silver dragon", "Ancient silver dragon", "Silver dragon hatchling", "Silver dragon wyrmling"],
       "armor class": "17 (Natural Armor)",
@@ -6442,8 +6442,8 @@ const monsters = [
     {
       "name": "Skeleton",
       "size": "Medium",
-      "type": "undead",
-      "alignment": "lawful evil",
+      "type": "Undead",
+      "alignment": "Lawful Evil",
       "environments": ["Dungeon", "Varies"],
       "associates": ["Skull lord", "Zombie", "Revenant", "Ghost", "Wight", "Mummy", "Banshee", "Vampire spawn", "Lich", "Devourer", "Cadaver collector"],
       "armor class": "13 (Armor Scraps)",
@@ -6467,8 +6467,8 @@ const monsters = [
     {
       "name": "Solar",
       "size": "Large",
-      "type": "celestial",
-      "alignment": "lawful good",
+      "type": "Celestial",
+      "alignment": "Lawful Good",
       "environments": ["Celestial"],
       "associates": ["Boros Legion", "Angels", "Archons", "Devas", "Planetars", "Empyreans", "Unicorns", "Pegasi", "Guardinals", "Couatls", "Unicorns"],
       "armor class": "21 (Natural Armor)",
@@ -6496,8 +6496,8 @@ const monsters = [
     {
       "name": "Spectator",
       "size": "Medium",
-      "type": "aberration",
-      "alignment": "lawful neutral",
+      "type": "Aberration",
+      "alignment": "Lawful Neutral",
       "environments": ["Underdark"],
       "associates": ["Beholder", "Spellcaster", "Warlock", "Wizard", "Apprentice", "Sorcerer", "Illithid", "Mind flayer", "Aboleth", "Githyanki", "Githzerai"],
       "armor class": "14 Natural",
@@ -6521,8 +6521,8 @@ const monsters = [
     {
       "name": "Specter",
       "size": "Medium",
-      "type": "undead",
-      "alignment": "chaotic evil",
+      "type": "Undead",
+      "alignment": "Chaotic Evil",
       "environments": ["Underdark", "Varies"],
       "associates": ["Orzhov giant", "Skull lord", "Cadaver collector", "Ghost", "Flameskull", "Wraith", "Banshee", "Vampire spawn", "Lich", "Devourer"],
       "armor class": "1",
@@ -6547,8 +6547,8 @@ const monsters = [
     {
       "name": "Spider",
       "size": "Tiny",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Forest"],
       "associates": ["Skein spider", "Giant spider", "Goblin", "Hobgoblin", "Bugbear", "Drow mage", "Drow ranger", "Ettercap", "Giant wolf spider", "Phase spider", "Drider", "Spider swarm"],
       "armor class": "1",
@@ -6571,8 +6571,8 @@ const monsters = [
     {
       "name": "Spirit Naga",
       "size": "Large",
-      "type": "monstrosity",
-      "alignment": "chaotic evil",
+      "type": "Monstrosity",
+      "alignment": "Chaotic Evil",
       "environments": ["Swamp", "Woodland", "Varies"],
       "associates": ["Yuan-ti", "Yuan-ti Pureblood", "Yuan-ti Malison", "Yuan-ti Abomination", "Yuan-ti Broodguard", "Yuan-ti Nightmare Speaker", "Yuan-ti Anathema", "Naga"],
       "armor class": "15 (Natural Armor)",
@@ -6597,8 +6597,8 @@ const monsters = [
     {
       "name": "Sprite",
       "size": "Tiny",
-      "type": "fey",
-      "alignment": "neutral good",
+      "type": "Fey",
+      "alignment": "Neutral Good",
       "environments": ["Forest"],
       "associates": ["Pixie", "Satyr", "Dryad", "Centaur", "Nymph", "Faerie dragon", "Green hag", "Redcap", "Bugbear", "Goblin"],
       "armor class": "15 (Leather Armor)",
@@ -6620,10 +6620,10 @@ const monsters = [
     {
       "name": "Spy",
       "size": "Medium",
-      "type": "humanoid",
-      "alignment": "any",
+      "type": "Humanoid",
+      "alignment": "Any",
       "environments": ["Urban"],
-      "associates": [""],
+      "associates": ["Vampire", "Hybrid Spy", "Thought Spy", "Changeling", "Doppelganger", "Assassin", "Master Thief", "Illusionist", "Enchanter Wizard", "Diviner Wizard", "Allip"],
       "armor class": "1",
       "hit points": "27 (6d8)",
       "speed": "30ft",
@@ -6644,8 +6644,8 @@ const monsters = [
     {
       "name": "Steam Mephit",
       "size": "Small",
-      "type": "elemental",
-      "alignment": "neutral evil",
+      "type": "Elemental",
+      "alignment": "Neutral Evil",
       "environments": ["Elemental Air"],
       "associates": ["Magma mephit", "Ice mephit", "Dust mephit", "Mud mephit", "Smoke mephit", "Mephit swarm"],
       "armor class": "1",
@@ -6669,8 +6669,8 @@ const monsters = [
     {
       "name": "Stirge",
       "size": "Tiny",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Forest", "Jungle", "Dungeon", "Swamp"],
       "associates": ["Giant rat", "Kobold", "Poisonous snake", "Tribal warrior", "Bullywug", "Constrictor snake", "Giant frog", "Giant lizard", "Giant poisonous snake", "Mud mephit", "Swarm of rats", "Swarm of ravens", "Winged kobold", "Winged kobold dragonshield", "Winged kobold sorcerer", "Winged kobold skirmisher", "Winged kobold taskmaster", "Winged kobold whelp"],
       "armor class": "14 (Natural Armor)",
@@ -6691,8 +6691,8 @@ const monsters = [
     {
       "name": "Stone Giant",
       "size": "Huge",
-      "type": "giant",
-      "alignment": "neutral",
+      "type": "Giant",
+      "alignment": "Neutral",
       "environments": ["Mountain", "Underdark"],
       "associates": ["Gruul Anarch", "Gruul Rubblebelt stalker", "Gruul Viashino", "Gruul Half-ogre", "Gruul Batterboar", "Gruul Berserker", "Gruul Maaka", "Gruul Ogre", "Gruul Ettin", "Gruul Elemental (earth)", "Gruul Elemental (fire)", "Gruul Hill giant", "Gruul Trog", "Gruul Cyclops", "Gruul Huge batterboar", "Gruul Druid of the Old Ways", "Gruul Fomorian", "Gruul Hydra", "Gruul Sunder shaman", "Borborygmos", "Frost giant", "Hill giant", "Fire giant", "Ettin", "Stone giant", "Cloud giant", "Storm giant", "Fomorian"],
       "armor class": "17 (Natural Armor)",
@@ -6717,8 +6717,8 @@ const monsters = [
     {
       "name": "Stone Golem",
       "size": "Large",
-      "type": "construct",
-      "alignment": "unaligned",
+      "type": "Construct",
+      "alignment": "Unaligned",
       "environments": ["Urban", "Dungeon", "Varies"],
       "associates": [""],
       "armor class": "17 (Natural Armor)",
@@ -6742,10 +6742,10 @@ const monsters = [
     {
       "name": "Storm Giant",
       "size": "Huge",
-      "type": "giant",
-      "alignment": "chaotic good",
+      "type": "Giant",
+      "alignment": "Chaotic Good",
       "environments": ["Mountain"],
-      "associates": [""],
+      "associates": ["Cloud Giant Smiling One", "Fire Giant Dreadnought", "Frost Giant Everlasting One", "Mouth of Grolantor", "Ogre Battering Ram", "Ogre Bolt Launcher", "Ogre Chain Brute", "Ogre Howdah", "Rot Troll", "Spirit Troll", "Stone Giant Dreamwalker", "Venom Troll", "Storm Giant Quintessent", "Beholder", "Beholder Eye Tyrant", "Beholder Gauth", "Beholder Spectator", "Beholder Death Kiss", "Beholder Hive Mother", "Beholder Elder Orb", "Beholder Overseer"],
       "armor class": "16 (Scale Mail)",
       "hit points": "230 (20d12 + 100)",
       "speed": "50 ft, swim 50ft",
@@ -6769,10 +6769,10 @@ const monsters = [
     {
       "name": "Succubus/Incubus",
       "size": "Medium",
-      "type": "fiend",
-      "alignment": "neutral evil",
+      "type": "Fiend",
+      "alignment": "Neutral Evil",
       "environments": ["Abyss"],
-      "associates": [""],
+      "associates": ["Succubus", "Humanoid", "Demon", "Devil", "Lemure", "Bearded Devil", "Barbed Devil", "Molydeus", "Babau", "Chasme", "Marilith", "Minotaur", "Skeleton", "Zombie", "Ghoul", "Ghast", "Shadow", "Rutterkin", "Yagnoloth", "Allip", "Paladin", "Religious Order", "Priest", "Priest of the Abyss", "Priest of the Nine Hells", "Priest of the Underdark", "Priest of the Undying Light"],
       "armor class": "15 (Natural Armor)",
       "hit points": "66 (12d8 + 12)",
       "speed": "30 ft, fly 60ft",
@@ -6794,10 +6794,10 @@ const monsters = [
     {
       "name": "Swarm of Bats",
       "size": "Medium",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Forest"],
-      "associates": ["Bat", "Giant bat", "Swarm of ravens", "Swarm of rats"],
+      "associates": ["Bat", "Swarm of Bats", "Swarm of Insects", "Swarm of Rats", "Swarm of Ravens", "Swarm of Quippers", "Swarm of Poisonous Snakes", "Lich", "Vampire", "Vampire Spawn"],
       "armor class": "1",
       "hit points": "22 (5d8)",
       "speed": "0 ft, fly 30ft",
@@ -6819,8 +6819,8 @@ const monsters = [
     {
       "name": "Swarm of Insects",
       "size": "Medium",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Forest", "Swamp", "Urban", "Dungeon", "Varies"],
       "associates": ["Ettercap", "Black bear", "Giant wasp", "Gnoll", "Hobgoblin", "Lizardfolk", "Orc", "Scout", "Satyr", "Thug", "Vine blight", "Worg", "Piranha beetles", "Swarmkeeper ranger", "Swarm of rats", "Swarm of ravens", "Swarm of spiders", "Swarm of poisonous snakes", "Swarm of quippers"],
       "armor class": "12 (Natural Armor)",
@@ -6844,8 +6844,8 @@ const monsters = [
     {
       "name": "Swarm of Poisonous Snakes",
       "size": "Medium",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Forest", "Grassland", "Mountain", "Jungle"],
       "associates": ["Lizardfolk shaman", "Mind flayer", "Yuan-ti pureblood", "Spiderwebs", "Giant poisonous snake", "Swarm of insects", "Swarm of bats", "Swarm of quippers", "Swarm of rats", "Swarm of ravens", "Swarm of spiders"],
       "armor class": "1",
@@ -6869,8 +6869,8 @@ const monsters = [
     {
       "name": "Swarm of Quippers",
       "size": "Medium",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Underwater"],
       "associates": ["Giant octopus", "Hunter shark", "Killer whale", "Kraken", "Plesiosaurus", "Sahuagin", "Sea hag", "Dragon turtle", "Swarm of poisonous snakes", "Swarm of bats", "Swarm of rats", "Swarm of ravens", "Swarm of spiders"],
       "armor class": "1",
@@ -6894,8 +6894,8 @@ const monsters = [
     {
       "name": "Swarm of Rats",
       "size": "Medium",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Urban"],
       "associates": ["Giant rat", "Kobold", "Poisonous snake", "Stirge", "Tribal warrior", "Bullywug", "Constrictor snake", "Giant frog", "Giant lizard", "Giant poisonous snake", "Mud mephit", "Swarm of ravens", "Winged kobold", "Hag", "Swarm of insects", "Swarm of bats", "Swarm of spiders", "Swarm of poisonous snakes", "Swarm of quippers"],
       "armor class": "1",
@@ -6919,8 +6919,8 @@ const monsters = [
     {
       "name": "Swarm of Ravens",
       "size": "Medium",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Forest", "Hill", "Swamp", "Urban", "Mountain", "Desert", "Grassland", "Artic"],
       "associates": ["Giant rat", "Kobold", "Poisonous snake", "Stirge", "Tribal warrior", "Bullywug", "Constrictor snake", "Giant frog", "Giant lizard", "Giant poisonous snake", "Mud mephit", "Swarm of rats", "Winged kobold", "Hag", "Swarm of insects", "Swarm of bats", "Swarm of spiders", "Swarm of poisonous snakes", "Swarm of quippers"],
       "armor class": "1",
@@ -6945,8 +6945,8 @@ const monsters = [
     {
       "name": "Tarrasque",
       "size": "Gargantuan",
-      "type": "monstrosity",
-      "alignment": "unaligned",
+      "type": "Monstrosity",
+      "alignment": "Unaligned",
       "environments": ["Dungeon", "Urban", "Wasteland", "Varies"],
       "associates": [""],
       "armor class": "25 (Natural Armor)",
@@ -6972,8 +6972,8 @@ const monsters = [
     {
       "name": "Thug",
       "size": "Medium",
-      "type": "humanoid",
-      "alignment": "any",
+      "type": "Humanoid",
+      "alignment": "Any",
       "environments": ["Urban"],
       "associates": ["Commoner", "Bandit", "Cultist"],
       "armor class": "11 (Leather Armor)",
@@ -6996,8 +6996,8 @@ const monsters = [
     {
       "name": "Tiger",
       "size": "Large",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Forest", "Grassland", "Mountain", "Jungle", "Hill"],
       "associates": ["Bandit captain", "Berserker", "Druid", "Giant elk", "Griffon", "Half-ogre", "Harpy", "Hippogriff", "Lion", "Ranger", "Scout", "Satyr", "Thug", "Vine blight", "Worg", "Piranha beetles"],
       "armor class": "1",
@@ -7020,8 +7020,8 @@ const monsters = [
     {
       "name": "Treant",
       "size": "Huge",
-      "type": "plant",
-      "alignment": "chaotic good",
+      "type": "Plant",
+      "alignment": "Chaotic Good",
       "environments": ["Forest", "Jungle"],
       "associates": ["Dryad", "Satyr", "Blink dog", "Elk", "Owlbear", "Giant owl", "Unicorn"],
       "armor class": "16 (Natural Armor)",
@@ -7045,8 +7045,8 @@ const monsters = [
     {
       "name": "Tribal Warrior",
       "size": "Medium",
-      "type": "humanoid",
-      "alignment": "any",
+      "type": "Humanoid",
+      "alignment": "Any",
       "environments": ["Forest", "Jungle", "Coastal"],
       "associates": ["Bandit", "Blood hawk", "Giant weasel", "Guard", "Kobold", "Mastiff", "Mule", "Poisonous snake", "Stirge", "Mind flayer", "Nomad", "Scout", "Thug", "Vine blight", "Worg"],
       "armor class": "12 (Hide Armor)",
@@ -7068,10 +7068,10 @@ const monsters = [
     {
       "name": "Triceratops",
       "size": "Huge",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Grassland"],
-      "associates": [""],
+      "associates": ["Deadbridge Goliath Beetle", "Rhinoceros", "Elephant", "Giant Elk", "Saber-Toothed Tiger", "Brontosaurus", "Deinonychus", "Dimetrodon", "Hadrosaurus", "Quetzalcoatlus", "Stegosaurus", "Velociraptor"],
       "armor class": "13 (Natural Armor)",
       "hit points": "95 (10d12 + 30)",
       "speed": "50ft",
@@ -7091,8 +7091,8 @@ const monsters = [
     {
       "name": "Troll",
       "size": "Large",
-      "type": "giant",
-      "alignment": "chaotic evil",
+      "type": "Giant",
+      "alignment": "Chaotic Evil",
       "environments": ["Mountain", "Forest", "Underdark"],
       "associates": ["Mind flayer", "Gnoll", "Ogre", "Hill giant", "Ettin", "Stone giant", "Fomorian", "Golgari troll"],
       "armor class": "15 (Natural Armor)",
@@ -7115,10 +7115,10 @@ const monsters = [
     {
       "name": "Twig Blight",
       "size": "Small",
-      "type": "plant",
-      "alignment": "neutral evil",
+      "type": "Plant",
+      "alignment": "Neutral Evil",
       "environments": ["Forest", "Grassland", "Mountain", "Jungle", "Hill"],
-      "associates": [""],
+      "associates": ["Shambling Mound", "Awakened Shrub", "Awakened Tree", "Needle Blight", "Vine Blight", "Vegepygmy", "Thorny Vegepygmy", "Vegepygmy Chief", "Corpse Flower", "Wood Woad", "Swarm of Rot Grubs", "Blight", "Blighted Druid", "Blighted Dryad", "Blighted Treant"],
       "armor class": "13 Natural Armor",
       "hit points": "4 (1d6 + 1)",
       "speed": "20ft",
@@ -7141,10 +7141,10 @@ const monsters = [
     {
       "name": "Tyrannosaurus Rex",
       "size": "Huge",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Forest", "Jungle", "Swamp"],
-      "associates": [""],
+      "associates": ["Brontosaurus", "Deinonychus", "Dimetrodon", "Hadrosaurus", "Quetzalcoatlus", "Stegosaurus", "Velociraptor"],
       "armor class": "13 (Natural Armor)",
       "hit points": "136 (13d12 + 52)",
       "speed": "50ft",
@@ -7164,8 +7164,8 @@ const monsters = [
     {
       "name": "Unicorn",
       "size": "Large",
-      "type": "celestial",
-      "alignment": "lawful good",
+      "type": "Celestial",
+      "alignment": "Lawful Good",
       "environments": ["Celestial"],
       "associates": ["Fey", "Dryad", "Satyr", "Blink dog", "Elk", "Owlbear", "Treant", "Giant owl", "Unicorn"],
       "armor class": "1",
@@ -7190,8 +7190,8 @@ const monsters = [
     {
       "name": "Vampire",
       "size": "Medium",
-      "type": "undead",
-      "alignment": "lawful evil",
+      "type": "Undead",
+      "alignment": "Lawful Evil",
       "environments": ["Abyss", "Pandemonium", "Negative Energy", "Shadowfell", "Varies", "Urban"],
       "associates": ["Goblin warlock", "Lich", "Warrior vampire", "Spellcaster vampire", "Orzhov", "Rakshasa", "Vampire spawn", "Vampire lord", "Vampire mage"],
       "armor class": "16 (Natural Armor)",
@@ -7217,8 +7217,8 @@ const monsters = [
     {
       "name": "Vampire Spawn",
       "size": "Medium",
-      "type": "undead",
-      "alignment": "neutral evil",
+      "type": "Undead",
+      "alignment": "Neutral Evil",
       "environments": ["Negative Energy", "Shadowfell", "Varies", "Urban"],
       "associates": ["Zombie", "Skeleton", "Vampire", "Vampire lord", "Vampire mage", "Vampire spawn"],
       "armor class": "15 (Natural Armor)",
@@ -7243,8 +7243,8 @@ const monsters = [
     {
       "name": "Veteran",
       "size": "Medium",
-      "type": "humanoid",
-      "alignment": "any",
+      "type": "Humanoid",
+      "alignment": "Any",
       "environments": ["Urban"],
       "associates": ["Mastiff", "Golgari agent", "Orzhov", "Ravnica Guildless", "Scout", "Dwarf explorer", "Mercenary", "Bounty hunter", "Soldier", "Martial arts adept", "Master thief", "Warlord", "Champion", "Blackguard", "Doppelganger", "Knight", "Phase spider", "Water weird", "Wight"],
       "armor class": "17 (Splint)",
@@ -7266,8 +7266,8 @@ const monsters = [
     {
       "name": "Violet Fungus",
       "size": "Medium",
-      "type": "plant",
-      "alignment": "unaligned",
+      "type": "Plant",
+      "alignment": "Unaligned",
       "environments": ["Underdark"],
       "associates": ["Shrieker", "Golgari"],
       "armor class": "5",
@@ -7290,10 +7290,10 @@ const monsters = [
     {
       "name": "Vrock",
       "size": "Large",
-      "type": "fiend",
-      "alignment": "chaotic evil",
+      "type": "Fiend",
+      "alignment": "Chaotic Evil",
       "environments": ["Abyss"],
-      "associates": [""],
+      "associates": ["Molydeus", "Babau", "Chasme", "Marilith", "Baphomet", "Demogorgon", "Fraz-Urb'luu", "Graz'zt", "Juiblex", "Orcus", "Yeenoghu", "Zuggtmoy", "Allip", "Bodak", "Demodand", "Dretch", "Glabrezu", "Hezrou", "Nalfeshnee", "Quasit", "Rutterkin", "Succubus/incubus"],
       "armor class": "15 (Natural Armor)",
       "hit points": "104 (11d10 + 44)",
       "speed": "40 ft, fly 60ft",
@@ -7317,8 +7317,8 @@ const monsters = [
     {
       "name": "Vulture",
       "size": "Medium",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Grassland", "Mountain", "Jungle", "Hill", "Forest", "Urban"],
       "associates": ["Cat", "Commoner", "Hyena", "Jackal", "Scorpion", "Deer", "Eagle", "Goat", "Rat", "Raven"],
       "armor class": "1",
@@ -7341,8 +7341,8 @@ const monsters = [
     {
       "name": "Warhorse",
       "size": "Large",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Grassland", "Mountain", "Jungle", "Hill", "Forest", "Urban"],
       "associates": ["Bandit captain", "Knight", "Thug", "Commoner", "Druid", "Ranger", "Paladin", "Cleric", "Fighter", "Barbarian", "Bard", "Monk"],
       "armor class": "1",
@@ -7364,10 +7364,10 @@ const monsters = [
     {
       "name": "Warhorse Skeleton",
       "size": "Large",
-      "type": "undead",
-      "alignment": "lawful evil",
+      "type": "Undead",
+      "alignment": "Lawful Evil",
       "environments": ["Shadowfell", "Urban", "Underdark", "Grassland"],
-      "associates": [""],
+      "associates": ["Necromancer", "Lich", "Undead Ruler", "Death Tyrant", "Skull Lord", "Ghast", "Revenant", "Wight", "Zombie", "Skeleton", "Ghost", "Mummy"],
       "armor class": "13 (Barding Scraps)",
       "hit points": "22 (3d10 + 6)",
       "speed": "60ft",
@@ -7389,10 +7389,10 @@ const monsters = [
     {
       "name": "Water Elemental",
       "size": "Large",
-      "type": "elemental",
-      "alignment": "neutral",
+      "type": "Elemental",
+      "alignment": "Neutral",
       "environments": ["Underwater", "Elemental Water"],
-      "associates": [""],
+      "associates": ["Elemental Myrmidon", "Elder Tempest", "Leviathan", "Zaratan", "Water weird", "Marid", "Trench", "Kraken"],
       "armor class": "14 (Natural Armor)",
       "hit points": "114 (12d10 + 48)",
       "speed": "30 ft, swim 90ft",
@@ -7415,8 +7415,8 @@ const monsters = [
     {
       "name": "Weasel",
       "size": "Tiny",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Forest", "Grassland", "Hill", "Woodland"],
       "associates": [""],
       "armor class": "1",
@@ -7439,10 +7439,10 @@ const monsters = [
     {
       "name": "Werebear",
       "size": "Medium",
-      "type": "humanoid",
-      "alignment": "neutral good",
+      "type": "Humanoid",
+      "alignment": "Neutral Good",
       "environments": ["Forest", "Hill", "Mountain", "Urban"],
-      "associates": [""],
+      "associates": ["Gnoll", "Worg", "Elf Werewolf", "Bestial Creature", "Tribal warrior", "Dire wolf", "Werewolf", "Wereboar", "Werecat", "Werebat"],
       "armor class": "10 In Humanoid Form, 11 In Bear And Hybrid Form",
       "hit points": "135 (18d8 + 54)",
       "speed": "30 ft, 40 ft, climb 30 ft in bear or hybrid for.",
@@ -7464,8 +7464,8 @@ const monsters = [
     {
       "name": "Wereboar",
       "size": "Medium",
-      "type": "humanoid",
-      "alignment": "neutral evil",
+      "type": "Humanoid",
+      "alignment": "Neutral Evil",
       "environments": ["Forest", "Hill", "Mountain", "Urban"],
       "associates": ["Tribal warrior", "Dire wolf"],
       "armor class": "10 In Humanoid Form, 11 In Boar Or Hybrid Form",
@@ -7489,10 +7489,10 @@ const monsters = [
     {
       "name": "Wererat",
       "size": "Medium",
-      "type": "humanoid",
-      "alignment": "lawful evil",
+      "type": "Humanoid",
+      "alignment": "Lawful Evil",
       "environments": ["Forest", "Hill", "Mountain", "Urban", "Jungle", "Grassland"],
-      "associates": [""],
+      "associates": ["Swarm of Rats", "Rat", "Giant Rat", "Annis Hag", "Bheur Hag", "Green Hag", "Elf Werewolf", "Bestial Creature", "Tribal warrior", "Dire wolf", "Werewolf", "Wereboar", "Werecat", "Werebat"],
       "armor class": "1",
       "hit points": "33 (6d8 + 6)",
       "speed": "30ft",
@@ -7514,10 +7514,10 @@ const monsters = [
     {
       "name": "Weretiger",
       "size": "Medium",
-      "type": "humanoid",
-      "alignment": "neutral",
+      "type": "Humanoid",
+      "alignment": "Neutral",
       "environments": ["Forest", "Hill", "Mountain", "Urban", "Jungle"],
-      "associates": [""],
+      "associates": ["Gnoll", "Young Brass Dragon", "Elf Werewolf", "Bestial Creature", "Tribal warrior", "Dire wolf", "Werewolf", "Wereboar", "Werecat", "Werebat"],
       "armor class": "1",
       "hit points": "120 (16d8 + 48)",
       "speed": "30 ft, 40 ft in tiger for.",
@@ -7539,8 +7539,8 @@ const monsters = [
     {
       "name": "Werewolf",
       "size": "Medium",
-      "type": "humanoid",
-      "alignment": "chaotic evil",
+      "type": "Humanoid",
+      "alignment": "Chaotic Evil",
       "environments": ["Forest", "Hill", "Mountain", "Urban", "Grassland", "Jungle"],
       "associates": ["Dire wolf"],
       "armor class": "11 In Humanoid Form, 12 In Wolf Or Hybrid Form",
@@ -7564,8 +7564,8 @@ const monsters = [
     {
       "name": "White Dragon Wyrmling",
       "size": "Medium",
-      "type": "dragon",
-      "alignment": "chaotic evil",
+      "type": "Dragon",
+      "alignment": "Chaotic Evil",
       "environments": ["Arctic"],
       "associates": ["Fire snake", "Salamander", "Ice mephit"],
       "armor class": "16 (Natural Armor)",
@@ -7589,8 +7589,8 @@ const monsters = [
     {
       "name": "Wight",
       "size": "Medium",
-      "type": "undead",
-      "alignment": "neutral evil",
+      "type": "Undead",
+      "alignment": "Neutral Evil",
       "environments": ["Underdark", "Swamp", "Desert", "Urban", "Varies", "Dungeon"],
       "associates": ["Revenant", "Skull lord", "Specter", "Ghost", "Flameskull", "Wraith", "Veteran", "Deathlock wight", "Cadaver collector"],
       "armor class": "14 (Studded Leather)",
@@ -7616,8 +7616,8 @@ const monsters = [
     {
       "name": "Will-o'-Wisp",
       "size": "Tiny",
-      "type": "undead",
-      "alignment": "chaotic evil",
+      "type": "Undead",
+      "alignment": "Chaotic Evil",
       "environments": ["Swamp"],
       "associates": [""],
       "armor class": "1",
@@ -7642,10 +7642,10 @@ const monsters = [
     {
       "name": "Winter Wolf",
       "size": "Large",
-      "type": "monstrosity",
-      "alignment": "neutral evil",
+      "type": "Monstrosity",
+      "alignment": "Neutral Evil",
       "environments": ["Arctic"],
-      "associates": [""],
+      "associates": ["Frost Giant", "Frost Giant Everlasting One", "Frost Giant Jarl", "Frost Giant Chief", "Frost Giant Wolf Rider", "Frost Giant Wolf Pack Leader", "Frost Giant Wolf Pack Hunter", "Frost Giant Wolf Pack Warrior", "Frost Giant Wolf Pack Scout"],
       "armor class": "13 (Natural Armor)",
       "hit points": "75 (10d10 + 20)",
       "speed": "50ft",
@@ -7667,8 +7667,8 @@ const monsters = [
     {
       "name": "Wolf",
       "size": "Medium",
-      "type": "beast",
-      "alignment": "unaligned",
+      "type": "Beast",
+      "alignment": "Unaligned",
       "environments": ["Forest", "Hill", "Mountain", "Grassland", "Jungle"],
       "associates": ["Goblin", "Dire wolf", "Worg", "Werewolf", "Winter wolf"],
       "armor class": "13 (Natural Armor)",
@@ -7691,8 +7691,8 @@ const monsters = [
     {
       "name": "Worg",
       "size": "Large",
-      "type": "monstrosity",
-      "alignment": "neutral evil",
+      "type": "Monstrosity",
+      "alignment": "Neutral Evil",
       "environments": ["Grassland", "Jungle", "Hill"],
       "associates": ["Goblin", "Hobgoblin", "Bugbear", "Lycanthrope", "Werewolf", "Winter wolf"],
       "armor class": "13 (Natural Armor)",
@@ -7715,8 +7715,8 @@ const monsters = [
     {
       "name": "Wraith",
       "size": "Medium",
-      "type": "undead",
-      "alignment": "neutral evil",
+      "type": "Undead",
+      "alignment": "Neutral Evil",
       "environments": ["Dungeon", "Negative Energy", "Varies"],
       "associates": ["Orzhov", "Dimir", "Undead"],
       "armor class": "1",
@@ -7741,10 +7741,10 @@ const monsters = [
     {
       "name": "Wyvern",
       "size": "Large",
-      "type": "dragon",
-      "alignment": "unaligned",
+      "type": "Dragon",
+      "alignment": "Unaligned",
       "environments": ["Mountain", "Forest"],
-      "associates": [""],
+      "associates": ["Beholder", "Green Hag", "Young Green Dragon", "Young Red Dragon", "Young White Dragon", "Young Black Dragon", "Young Blue Dragon", "Young Brass Dragon", "Young Copper Dragon", "Young Silver Dragon", "Young Gold Dragon"],
       "armor class": "13 (Natural Armor)",
       "hit points": "110 (13d10 + 39)",
       "speed": "20 ft, fly 80 ft",
@@ -7764,8 +7764,8 @@ const monsters = [
     {
       "name": "Xorn",
       "size": "Medium",
-      "type": "elemental",
-      "alignment": "neutral",
+      "type": "Elemental",
+      "alignment": "Neutral",
       "environments": ["Underdark"],
       "associates": [""],
       "armor class": "19 (Natural Armor)",
@@ -7789,8 +7789,8 @@ const monsters = [
     {
       "name": "Yeti",
       "size": "Large",
-      "type": "monstrosity",
-      "alignment": "chaotic evil",
+      "type": "Monstrosity",
+      "alignment": "Chaotic Evil",
       "environments": ["Arctic"],
       "associates": ["Abominable yeti", "Frost giant", "Ice mephit", "Remorhaz", "White dragon"],
       "armor class": "12 Natural Armor",
@@ -7814,10 +7814,10 @@ const monsters = [
     {
       "name": "Young Black Dragon",
       "size": "Large",
-      "type": "dragon",
-      "alignment": "chaotic evil",
+      "type": "Dragon",
+      "alignment": "Chaotic Evil",
       "environments": ["Swamp"],
-      "associates": [""],
+      "associates": ["Myconid", "Merrow", "Young Black Dragon"],
       "armor class": "18 (Natural Armor)",
       "hit points": "127 (15d10 + 45)",
       "speed": "40 ft, fly 80 ft, swim 40 ft",
@@ -7840,10 +7840,10 @@ const monsters = [
     {
       "name": "Young Blue Dragon",
       "size": "Large",
-      "type": "dragon",
-      "alignment": "lawful evil",
+      "type": "Dragon",
+      "alignment": "Lawful Evil",
       "environments": ["Desert", "Coastal"],
-      "associates": [""],
+      "associates": ["Pseudodragon", "Druid", "Gnoll", "Young Dragon Turtle"],
       "armor class": "18 (Natural Armor)",
       "hit points": "152 (16d10 + 64)",
       "speed": "40 ft, burrow 20 ft, fly 80ft",
@@ -7865,8 +7865,8 @@ const monsters = [
     {
       "name": "Young Brass Dragon",
       "size": "Large",
-      "type": "dragon",
-      "alignment": "chaotic good",
+      "type": "Dragon",
+      "alignment": "Chaotic Good",
       "environments": ["Coastal", "Desert", "Upper Planes"],
       "associates": [""],
       "armor class": "17 (Natural Armor)",
@@ -7890,10 +7890,10 @@ const monsters = [
     {
       "name": "Young Bronze Dragon",
       "size": "Large",
-      "type": "dragon",
-      "alignment": "lawful good",
+      "type": "Dragon",
+      "alignment": "Lawful Good",
       "environments": ["Coastal", "Desert", "Upper Planes"],
-      "associates": [""],
+      "associates": ["Pseudodragon", "Knight", "Revenant", "Young Dragon Turtle"],
       "armor class": "18 (Natural Armor)",
       "hit points": "142 (15d10 + 60)",
       "speed": "40 ft, fly 80 ft, swim 40ft",
@@ -7916,10 +7916,10 @@ const monsters = [
     {
       "name": "Young Copper Dragon",
       "size": "Large",
-      "type": "dragon",
-      "alignment": "chaotic good",
+      "type": "Dragon",
+      "alignment": "Chaotic Good",
       "environments": ["Hill", "Mountain", "Upper Planes"],
-      "associates": [""],
+      "associates": ["Aarakocra", "Gargoyle", "Centaur", "Pixie", "Satyr", "Druid", "Noble"],
       "armor class": "17 (Natural Armor)",
       "hit points": "119 (14d10 + 42)",
       "speed": "40 ft, climb 40 ft, fly 80ft",
@@ -7941,10 +7941,10 @@ const monsters = [
     {
       "name": "Young Gold Dragon",
       "size": "Large",
-      "type": "dragon",
-      "alignment": "lawful good",
+      "type": "Dragon",
+      "alignment": "Lawful Good",
       "environments": ["Urban", "Mountain", "Upper Planes"],
-      "associates": [""],
+      "associates": ["Modron", "Aasimar", "Celestial", "Young Dragon Turtle"],
       "armor class": "18 (Natural Armor)",
       "hit points": "178 (17d10 + 85)",
       "speed": "40 ft, fly 80 ft, swim 40ft",
@@ -7967,10 +7967,10 @@ const monsters = [
     {
       "name": "Young Green Dragon",
       "size": "Large",
-      "type": "dragon",
-      "alignment": "lawful evil",
+      "type": "Dragon",
+      "alignment": "Lawful Evil",
       "environments": ["Forest"],
-      "associates": [""],
+      "associates": ["Ancient Moonstone Dragon", "Ancient Green Dragon"],
       "armor class": "18 (Natural Armor)",
       "hit points": "136 (16d10 + 48)",
       "speed": "40 ft, fly 80 ft, swim 40ft",
@@ -7994,8 +7994,8 @@ const monsters = [
     {
       "name": "Young Red Dragon",
       "size": "Large",
-      "type": "dragon",
-      "alignment": "chaotic evil",
+      "type": "Dragon",
+      "alignment": "Chaotic Evil",
       "environments": ["Mountain", "Hill"],
       "associates": ["Fire giant", "Fire snakes", "Salamanders", "Kobolds", "Tiefling"],
       "armor class": "18 (Natural Armor)",
@@ -8019,8 +8019,8 @@ const monsters = [
     {
       "name": "Young Silver Dragon",
       "size": "Large",
-      "type": "dragon",
-      "alignment": "lawful good",
+      "type": "Dragon",
+      "alignment": "Lawful Good",
       "environments": ["Mountain", "Upper Planes"],
       "associates": [""],
       "armor class": "18 (Natural Armor)",
@@ -8044,8 +8044,8 @@ const monsters = [
     {
       "name": "Young White Dragon",
       "size": "Large",
-      "type": "dragon",
-      "alignment": "chaotic evil",
+      "type": "Dragon",
+      "alignment": "Chaotic Evil",
       "environments": ["Arctic"],
       "associates": ["Ice mephits", "Crystal dragon wyrmling", "Frost giant", "Remorhaz", "White dragon wyrmling"],
       "armor class": "17 (Natural Armor)",
@@ -8070,8 +8070,8 @@ const monsters = [
     {
       "name": "Zombie",
       "size": "Medium",
-      "type": "undead",
-      "alignment": "neutral evil",
+      "type": "Undead",
+      "alignment": "Neutral Evil",
       "environments": ["Urban", "Varies", "Dungeon"],
       "associates": ["Death tyrant", "Lich", "Mummy Lord", "Fungus", "Golgari shaman", "Orcus", "Skull lord", "Vampire spawn", "Skeleton", "Cadaver collector", "Shadow", "Wight", "Wraith", "Zombie lord", "Ghoul", "Ghast", "Deathlock"],
       "armor class": "8",
@@ -8096,7 +8096,7 @@ const monsters = [
     {
       "name": "Deathless Rider",
       "size": "Medium",
-      "type": "undead",
+      "type": "Undead",
       "alignment": "Lawful Evil",
       "environments": ["Forest"],
       "associates": ["Shadow Queen", "Warhorse Skeleton", "Nightmare"],
@@ -8114,23 +8114,23 @@ const monsters = [
       "damage_resistances": "Necrotic",
       "damage_immunities": "Poison",
       "condition_immunities": "Exhaustion, Poisoned",
-      "senses": "Darkvision 60 ft., Passive Perception 11",
+      "senses": "Darkvision 60 , Passive Perception 11",
       "languages": "Understands the languages it knew in life but can't speak",
       "challenge": "5 (1,800 XP)",
       "traits": "<p><em><strong>Mounted Adept.</strong></em> While mounted and without the incapacitated condition, the rider has advantage on melee attack rolls against any unmounted creature smaller than its mount, the rider and its mount have advantage on Dexterity saving throws, and the rider can force an attack targeted at its mount to target the rider instead.</p><p><em><strong>Undead Fortitude.</strong></em> If damage reduces the rider to 0 hit points, it must make a Constitution saving throw with a DC equal to 5+ the damage taken, unless the damage is radiant or from a critical hit. On a success, the rider drops to 1 hit point instead.</p>",
-      "actions": "<p><em><strong>Multiattack.</strong></em> The rider makes two Axe attacks. It can replace one of these attacks with Fell Glare.</p><p><em><strong>Axe.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft., one target. <em>Hit:</em> 13 (2d8+4) slashing damage.</p><p><em><strong>Fell Glare.</strong></em> The rider gazes at a creature within 30 feet of itself. The creature must succeed on a DC 13 Wisdom saving throw or have the frightened condition for 1 minute. The frightened creature can repeat the saving throw at the end of each of its turns, with disadvantage if it can see the rider, ending the condition on itself on a success.</p>",
+      "actions": "<p><em><strong>Multiattack.</strong></em> The rider makes two Axe attacks. It can replace one of these attacks with Fell Glare.</p><p><em><strong>Axe.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft, one target. <em>Hit:</em> 13 (2d8+4) slashing damage.</p><p><em><strong>Fell Glare.</strong></em> The rider gazes at a creature within 30 feet of itself. The creature must succeed on a DC 13 Wisdom saving throw or have the frightened condition for 1 minute. The frightened creature can repeat the saving throw at the end of each of its turns, with disadvantage if it can see the rider, ending the condition on itself on a success.</p>",
       "img_url": "https://5e.tools/img/MCV4EC/Deathless%20Rider.png?v=1.95.1"
     },
     {
       "name": "Goblin Warrior",
       "size": "Small",
-      "type": "humanoid",
+      "type": "Humanoid",
       "alignment": "Chaotic Neutral",
       "environments": ["Forest", "Grassland", "Hill", "Underdark"],
       "associates": ["Goblin", "Hobgoblin", "Bugbear", "Hobgoblin Captain", "Orc", "Gnoll", "Kobold", "Yuan-ti Pureblood", "Cultist", "Bandit", "Commoner"],
       "armor_class": "15 (Leather Armor, Shield)",
       "hit_points": "10 (3d6)",
-      "speed": "30 ft.",
+      "speed": "30 ft",
       "str": "8",
       "dex": "15",
       "con": "10",
@@ -8139,22 +8139,22 @@ const monsters = [
       "cha": "8",
       "saving_throws": "STR -1, DEX +2, CON +0, INT +0, WIS -1, CHA +1",
       "skills": "Stealth +6",
-      "senses": "Darkvision 60 ft., Passive Perception 9",
+      "senses": "Darkvision 60 ft, Passive Perception 9",
       "languages": "Common, Goblin",
       "challenge": "1/4 (50 XP)",
-      "actions": "<p><em><strong>Scimitar.</strong></em> <em>Melee Attack Roll:</em> +4, reach 5 ft. <em>Hit:</em> 5 (1d6+2) Slashing damage, plus 2 (1d4) Slashing damage if the attack roll had Advantage.</p><p><em><strong>Shortbow.</strong></em> <em>Ranged Attack Roll:</em> +4, range 80/320 ft. <em>Hit:</em> 5 (1d6+2) Piercing damage, plus 2 (1d4) Piercing damage if the attack roll had Advantage.</p><p><em><strong>Nimble Escape (Bonus Action).</strong></em> The goblin takes the Disengage or Hide action.</p>",
+      "actions": "<p><em><strong>Scimitar.</strong></em> <em>Melee Attack Roll:</em> +4, reach 5 ft <em>Hit:</em> 5 (1d6+2) Slashing damage, plus 2 (1d4) Slashing damage if the attack roll had Advantage.</p><p><em><strong>Shortbow.</strong></em> <em>Ranged Attack Roll:</em> +4, range 80/320 ft <em>Hit:</em> 5 (1d6+2) Piercing damage, plus 2 (1d4) Piercing damage if the attack roll had Advantage.</p><p><em><strong>Nimble Escape (Bonus Action).</strong></em> The goblin takes the Disengage or Hide action.</p>",
       "img_url": "https://www.dndbeyond.com/avatars/thumbnails/30991/300/1000/638280660682701921.png"
     },
     {
       "name": "Goblin Boss",
       "size": "Small",
-      "type": "humanoid",
+      "type": "Humanoid",
       "alignment": "Chaotic Neutral",
       "associates": ["Goblin", "Ettercap", "Orc", "Wolf", "Dire Wolf", "Myconid Adult", "Myconid Sprout", "Minotaur Skeleton", "Minotaur", "Mimic", "Doppelganger", "Hobgoblin", "Intellect Devourer", "Spectator", "Gibbering Mouther", "Water Weird", "Gas Spore", "Giant Constrictor Snake", "Shadow", "Grell", "Wight", "Quaggoth Spore Servant", "Gargoyle", "Ogre", "Ettin", "Chuul", "Salamander", "Phase Spider", "Hook Horror", "Duergar", "Ghost", "Flameskull", "Wraith", "Bone Naga", "Orc Eye of Gruumsh", "Orog", "Ghast", "Ghoul", "Otyugh", "Roper", "Vampire Spawn", "Chimera", "Mind Flayer", "Spirit Naga", "Cultist", "Bandit", "Commoner", "Bugbear", "Rat", "Bat", "Warhorse", "Boar", "Hyena", "Yuan-ti Pureblood"],
       "environments": ["Forest", "Grassland", "Hill", "Underdark"],
       "armor_class": "17 (Chain Shirt, Shield)",
       "hit_points": "21 (6d6)",
-      "speed": "30 ft.",
+      "speed": "30 ft",
       "str": "10",
       "dex": "15",
       "con": "10",
@@ -8163,23 +8163,23 @@ const monsters = [
       "cha": "10",
       "saving_throws": "STR +0, DEX +2, CON +0, INT +0, WIS -1, CHA +0",
       "skills": "Stealth +6",
-      "senses": "Darkvision 60 ft., Passive Perception 9",
+      "senses": "Darkvision 60 ft, Passive Perception 9",
       "languages": "Common, Goblin",
       "challenge": "1 (200 XP)",
-      "actions": "<p><em><strong>Multiattack.</strong></em> The goblin makes two attacks, using Scimitar or Shortbow in any combination.</p><p><em><strong>Scimitar.</strong></em> <em>Melee Attack Roll:</em> +4, reach 5 ft. <em>Hit:</em> 5 (1d6+2) Slashing damage, plus 2 (1d4) Slashing damage if the attack roll had Advantage.</p><p><em><strong>Shortbow.</strong></em> <em>Ranged Attack Roll:</em> +4, range 80/320 ft. <em>Hit:</em> 5 (1d6+2) Piercing damage, plus 2 (1d4) Piercing damage if the attack roll had Advantage.</p><p><em><strong>Nimble Escape (Bonus Action).</strong></em> The goblin takes the Disengage or Hide action.</p>",
+      "actions": "<p><em><strong>Multiattack.</strong></em> The goblin makes two attacks, using Scimitar or Shortbow in any combination.</p><p><em><strong>Scimitar.</strong></em> <em>Melee Attack Roll:</em> +4, reach 5 ft <em>Hit:</em> 5 (1d6+2) Slashing damage, plus 2 (1d4) Slashing damage if the attack roll had Advantage.</p><p><em><strong>Shortbow.</strong></em> <em>Ranged Attack Roll:</em> +4, range 80/320 ft <em>Hit:</em> 5 (1d6+2) Piercing damage, plus 2 (1d4) Piercing damage if the attack roll had Advantage.</p><p><em><strong>Nimble Escape (Bonus Action).</strong></em> The goblin takes the Disengage or Hide action.</p>",
       "reactions": "<p><em><strong>Redirect Attack.</strong></em> Trigger: A creature the goblin can see makes an attack roll against it. Response: The goblin chooses a Small or Medium ally within 5 feet of itself. The goblin and that ally swap places, and the ally becomes the target of the attack instead.</p>",
       "img_url": "https://www.dndbeyond.com/avatars/thumbnails/30989/290/1000/638280654327780587.png"
     },
     {
       "name": "Orc War Chief",
       "size": "Medium",
-      "type": "humanoid",
+      "type": "Humanoid",
       "alignment": "Chaotic Evil",
       "environments": ["Arctic", "Forest", "Grassland", "Hill", "Mountain", "Swamp", "Underdark"],
       "associates": ["ogre", "troll", "evil giants", "Orc", "Beholder", "Orog", "Giant hyena"],
       "armor_class": "16 (chain mail)",
       "hit_points": "93 (11d8+44)",
-      "speed": "30 ft.",
+      "speed": "30 ft",
       "str": "18",
       "dex": "12",
       "con": "18",
@@ -8188,23 +8188,23 @@ const monsters = [
       "cha": "16",
       "saving_throws": "STR +6, DEX +1, CON +6, INT +0, WIS +2, CHA +3",
       "skills": "Intimidation +5",
-      "senses": "Darkvision 60 ft., Passive Perception 10",
+      "senses": "Darkvision 60 ft, Passive Perception 10",
       "languages": "Common, Orc",
       "challenge": "4 (1,100 XP)",
       "traits": "<p><em><strong>Aggressive.</strong></em> As a bonus action, the orc can move up to its speed toward a hostile creature that it can see.</p><p><em><strong>Gruumsh's Fury.</strong></em> The orc deals an extra 4 (1d8) damage when it hits with a weapon attack (included in the attacks).</p>",
-      "actions": "<p><em><strong>Multiattack.</strong></em> The orc makes two attacks with its greataxe or its spear.</p><p><em><strong>Greataxe.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft., one target. <em>Hit:</em> 15 (1d12+4 plus 1d8) slashing damage.</p><p><em><strong>Spear.</strong></em> <em>Melee or Ranged Weapon Attack:</em> +6 to hit, reach 5 ft. or range 20/60 ft., one target. <em>Hit:</em> 12 (1d6 + 4 plus 1d8) piercing damage, or 13 (2d8+4) piercing damage if used with two hands to make a melee attack.</p><p><em><strong>Battle Cry (1/Day).</strong></em> Each creature of the war chief's choice that is within 30 feet of it, can hear it, and not already affected by Battle Cry gain advantage on attack rolls until the start of the war chief's next turn. The war chief can then make one attack as a bonus action.</p>",
+      "actions": "<p><em><strong>Multiattack.</strong></em> The orc makes two attacks with its greataxe or its spear.</p><p><em><strong>Greataxe.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft, one target. <em>Hit:</em> 15 (1d12+4 plus 1d8) slashing damage.</p><p><em><strong>Spear.</strong></em> <em>Melee or Ranged Weapon Attack:</em> +6 to hit, reach 5 ft or range 20/60 ft, one target. <em>Hit:</em> 12 (1d6 + 4 plus 1d8) piercing damage, or 13 (2d8+4) piercing damage if used with two hands to make a melee attack.</p><p><em><strong>Battle Cry (1/Day).</strong></em> Each creature of the war chief's choice that is within 30 feet of it, can hear it, and not already affected by Battle Cry gain advantage on attack rolls until the start of the war chief's next turn. The war chief can then make one attack as a bonus action.</p>",
       "img_url": "https://5e.tools/img/MM/Orc%20War%20Chief.png"
     },
     {
       "name": "Black Abishai",
       "size": "Medium",
-      "type": "fiend",
+      "type": "Fiend",
       "alignment": "Lawful Evil",
       "environments": ["Urban", "Underdark"],
       "associates": ["Tiamat", "Blue Abishai", "Green Abishai", "Red Abishai", "White Abishai", "Devils"],
       "armor_class": "15 (natural armor)",
       "hit_points": "58 (9d8 + 18)",
-      "speed": "30 ft., Fly 40 ft.",
+      "speed": "30 ft, Fly 40 ft",
       "str": "14",
       "dex": "17",
       "con": "14",
@@ -8216,23 +8216,23 @@ const monsters = [
       "damage_resistances": "Cold; Bludgeoning, Piercing, and Slashing from nonmagical attacks that aren't silvered",
       "damage_immunities": "Acid, Fire, Poison",
       "condition_immunities": "Poisoned",
-      "senses": "Darkvision 120 ft., Passive Perception 16",
-      "languages": "Draconic, Infernal, telepathy 120 ft.",
+      "senses": "Darkvision 120 ft, Passive Perception 16",
+      "languages": "Draconic, Infernal, telepathy 120 ft",
       "challenge": "7 (2,900 XP)",
       "traits": "<p><em><strong>Devil's Sight.</strong></em> Magical darkness doesn't impede the abishai's darkvision.</p><p><em><strong>Magic Resistance.</strong></em> The abishai has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Magic Weapons.</strong></em> The abishai's weapon attacks are magical.</p><p><em><strong>Shadow Stealth.</strong></em> While in dim light or darkness, the abishai can take the Hide action as a bonus action.</p>",
-      "actions": "<p><em><strong>Multiattack.</strong></em> The abishai makes three attacks: two with its scimitar and one with its bite.</p><p><em><strong>Scimitar.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft., one target. <em>Hit:</em> 6 (1d6 + 3) slashing damage.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft., one target. <em>Hit:</em> 8 (1d10 + 3) piercing damage plus 9 (2d8) acid damage.</p><p><em><strong>Creeping Darkness (Recharge 6).</strong></em> The abishai casts darkness at a point within 120 feet of it, requiring no components. Wisdom is its spellcasting ability for this spell. While the spell persists, the abishai can move the area of darkness up to 60 feet as a bonus action.</p>",
+      "actions": "<p><em><strong>Multiattack.</strong></em> The abishai makes three attacks: two with its scimitar and one with its bite.</p><p><em><strong>Scimitar.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft, one target. <em>Hit:</em> 6 (1d6 + 3) slashing damage.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft, one target. <em>Hit:</em> 8 (1d10 + 3) piercing damage plus 9 (2d8) acid damage.</p><p><em><strong>Creeping Darkness (Recharge 6).</strong></em> The abishai casts darkness at a point within 120 feet of it, requiring no components. Wisdom is its spellcasting ability for this spell. While the spell persists, the abishai can move the area of darkness up to 60 feet as a bonus action.</p>",
       "img_url": "https://5e.tools/img/MTF/Black%20Abishai.png"
     },
     {
       "name": "Blue Abishai",
       "size": "Medium",
-      "type": "fiend",
+      "type": "Fiend",
       "alignment": "Lawful Evil",
       "environments": ["Coastal","Urban"],
       "associates": ["Tiamat", "Black Abishai", "Green Abishai", "Red Abishai", "White Abishai", "Devils"],
       "armor_class": "19 (natural armor)",
       "hit_points": "195 (26d8 + 78)",
-      "speed": "30 ft., Fly 50 ft.",
+      "speed": "30 ft, Fly 50 ft",
       "str": "15",
       "dex": "14",
       "con": "17",
@@ -8244,8 +8244,8 @@ const monsters = [
       "damage_resistances": "Cold; Bludgeoning, Piercing, and Slashing from nonmagical attacks that aren't silvered",
       "damage_immunities": "Fire, Lightning, Poison",
       "condition_immunities": "Poisoned",
-      "senses": "Darkvision 120 ft., Passive Perception 16",
-      "languages": "Draconic, Infernal, telepathy 120 ft.",
+      "senses": "Darkvision 120 ft, Passive Perception 16",
+      "languages": "Draconic, Infernal, telepathy 120 ft",
       "challenge": "17 (18,000 XP)",
       "traits": "<p><em><strong>Devil's Sight.</strong></em> Magical darkness doesn't impede the abishai's darkvision.</p><ul><li>Cantrips (at will): friends, mage hand, message, minor illusion, shocking grasp</li><li>1st level (4 slots): chromatic orb, disguise self, expeditious retreat, magic missile, charm person, thunderwave</li><li>2nd level (3 slots): darkness, mirror image, misty step</li><li>3rd level (3 slots): dispel magic, fear, lightning bolt</li><li>4th level (3 slots): dimension door, greater invisibility, ice storm</li><li>5th level (2 slots): cone of cold, wall of force</li><li>6th level (1 slot): chain lightning</li><li>7th level (1 slot): teleport</li></ul>",
       "actions": "<p><em><strong>Multiattack.</strong></em> The abishai makes two attacks: one with its quarterstaff and one with its bite.</p>",
@@ -8254,13 +8254,13 @@ const monsters = [
     {
       "name": "Apprentice Wizard",
       "size": "Medium",
-      "type": "humanoid",
-      "alignment": "Any Alignment",
+      "type": "Humanoid",
+      "alignment": "Any",
       "environments": ["Urban", "Dungeon"],
       "associates": ["Wizards", "Mages", "Sorcerers"],
       "armor_class": "10",
       "hit_points": "13 (3d8)",
-      "speed": "30 ft.",
+      "speed": "30 ft",
       "str": "10",
       "dex": "10",
       "con": "10",
@@ -8272,19 +8272,19 @@ const monsters = [
       "languages": "Any one language (usually Common)",
       "challenge": "1/4 (50 XP)",
       "traits": "<p><em><strong>Spellcasting.</strong></em> The apprentice casts one of the following spells, using Intelligence as the spellcasting ability (spell save DC 12):</p><ul><li>At will: mage hand, prestidigitation</li><li>1/day each: burning hands, disguise self, mage armor (the apprentice has this cast on itself at the start of combat)</li></ul>",
-      "actions": "<p><em><strong>Arcane Burst.</strong></em> <em>Melee or Ranged Spell Attack:</em> +4 to hit, reach 5 ft. or range 120 ft., one target. <em>Hit:</em> 7 (1d10 + 2) force damage.</p>",
+      "actions": "<p><em><strong>Arcane Burst.</strong></em> <em>Melee or Ranged Spell Attack:</em> +4 to hit, reach 5 ft or range 120 ft, one target. <em>Hit:</em> 7 (1d10 + 2) force damage.</p>",
       "img_url": "https://5e.tools/img/VGM/Apprentice%20Wizard.png"
     }, 
     {
       "name": "Green Abishai",
       "size": "Medium",
-      "type": "fiend",
-      "alignment": "Typically Lawful Evil",
+      "type": "Fiend",
+      "alignment": "Lawful Evil",
       "environments": ["Urban"],
       "associates": ["Tiamat","Devils"],
       "armor_class": "18 (natural armor)",
       "hit_points": "195 (26d8 + 78)",
-      "speed": "30 ft., Fly 40 ft.",
+      "speed": "30 ft, Fly 40 ft",
       "str": "12",
       "dex": "17",
       "con": "16",
@@ -8296,13 +8296,648 @@ const monsters = [
       "damage_resistances": "Cold; Bludgeoning, Piercing, and Slashing from nonmagical attacks that aren't silvered",
       "damage_immunities": "Fire, Poison",
       "condition_immunities": "Poisoned",
-      "senses": "Darkvision 120 ft., Passive Perception 16",
-      "languages": "Draconic, Infernal, telepathy 120 ft.",
+      "senses": "Darkvision 120 ft, Passive Perception 16",
+      "languages": "Draconic, Infernal, telepathy 120 ft",
       "challenge": "15 (13,000 XP)",
       "traits": "<p><em><strong>Devil's Sight.</strong></em> Magical darkness doesn't impede the abishai's darkvision.</p>",
       "actions": "<p><em><strong>Multiattack.</strong></em> The abishai makes two Fiendish Claw attacks, or it makes one Fiendish Claw attack and uses Spellcasting.",
       "img_url": "https://5e.tools/img/MPMM/Green%20Abishai.png"
-    }
+    },
+    {
+      "name": "Orc Hand of Yurtrus",
+      "size": "Medium",
+      "type": "Humanoid",
+      "alignment": "Chaotic Evil",
+      "environments": [
+        "Forest",
+        "Grassland",
+        "Hill",
+        "Mountain",
+        "Underdark"
+      ],
+      "associates": ["Orc", "Orc Nurtured One of Yurtrus", "Followers of Luthic"],
+      "armor_class": "12 (hide armor)",
+      "hit_points": "30 (4d8+12)",
+      "speed": "30 ft",
+      "str": "12",
+      "dex": "11",
+      "con": "16",
+      "int": "11",
+      "wis": "14",
+      "cha": "9",
+      "skills": "Arcana +2, Intimidation +1, Medicine +4, Religion +2",
+      "senses": "Darkvision 60 ft, Passive Perception 12",
+      "languages": "Understands Common and Orc but can't speak",
+      "challenge": "2 (450 XP)",
+      "traits": "<p><em><strong>Aggressive.</strong></em> As a bonus action, the orc can move up to its speed toward a hostile creature that it can see.</p><p><em><strong>Spellcasting.</strong></em> The orc is a 4th-level spellcaster. Its spellcasting ability is Wisdom (spell save DC 12, +4 to hit with spell attacks).It requires no verbal components to cast its spells. The orc has the following cleric spells prepared:</p><p>Cantrips (at will): guidance, mending, resistance, thaumaturgy</p><p>1st level (4 slots): bane, detect magic, inflict wounds, protection from evil and good</p><p>2nd level (3 slots): blindness/deafness, silence</p>",
+      "actions": "<p><em><strong>Touch of the White Hand.</strong></em> <em>Melee Weapon Attack:</em> +3 to hit, reach 5 ft, one target. <em>Hit:</em> 9 (2d8) necrotic damage.</p>",
+      "img_url": "https://5e.tools/bestiary/orc-hand-of-yurtrus-vgm.html"
+    },
+    {
+      "name": "Orc Nurtured One of Yurtrus",
+      "size": "Medium",
+      "type": "Humanoid",
+      "alignment": "Chaotic Evil",
+      "environments": [
+        "Forest",
+        "Grassland",
+        "Hill",
+        "Mountain",
+        "Underdark"
+      ],
+      "associates": ["Orc", "Orc Hand of Yurtrus", "Followers of Luthic"],
+      "armor_class": "9",
+      "hit_points": "30 (4d8+12)",
+      "speed": "30 ft",
+      "str": "15",
+      "dex": "8",
+      "con": "16",
+      "int": "7",
+      "wis": "11",
+      "cha": "7",
+      "senses": "Darkvision 60 ft, Passive Perception 10",
+      "languages": "Common, Orc",
+      "challenge": "1/2 (100 XP)",
+      "traits": "<p><em><strong>Aggressive.</strong></em> As a bonus action, the orc can move up to its speed toward a hostile creature that it can see.</p><p><em><strong>Corrupted Carrier.</strong></em> When the orc is reduced to 0 hit points, it explodes, and any creature within 10 feet of it must make a DC 13 Constitution saving throw. On a failed save, the creature takes 14 (4d6) poison damage and becomes poisoned. On a success, the creature takes half as much damage and isn't poisoned. A creature poisoned by this effect can repeat the save at the end of each of its turn, ending the effect on itself on a success. While poisoned by this effect, a creature can't regain hit points.</p><p><em><strong>Nurtured One of Yurtrus.</strong></em> The orc has advantage on saving throws against poison and disease.</p>",
+      "actions": "<p><em><strong>Claws.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft, one target. <em>Hit:</em> 4 (1d4 + 2) slashing damage plus 2 (1d4) necrotic damage.</p><p><em><strong>Corrupted Vengeance.</strong></em> The orc reduces itself to 0 hit points, triggering its Corrupted Carrier trait.</p>",
+      "img_url": "https://5e.tools/bestiary/orc-nurtured-one-of-yurtrus-vgm.html"
+    },
+    {
+      "name": "Orc Red Fang of Shargaas",
+      "size": "Medium",
+      "type": "Humanoid",
+      "alignment": "Chaotic Evil",
+      "environments": [
+        "Forest",
+        "Hill",
+        "Mountain",
+        "Underdark",
+        "Urban"
+      ],
+      "associates": ["Orc", "Giant Bat", "Orc Hand of Shargaas", "Orc Nurtured One of Yurtrus", "Followers of Luthic", "Orc War Chief", "Orc Eye of Gruumsh", "Orog", "Orog War Leader", "Orc Red Fang of Shargaas"],
+      "armor_class": "15 (studded leather)",
+      "hit_points": "52 (8d8+16)",
+      "speed": "30 ft",
+      "str": "11",
+      "dex": "16",
+      "con": "15",
+      "int": "9",
+      "wis": "11",
+      "cha": "9",
+      "skills": "Intimidation +1, Perception +2, Stealth +5",
+      "senses": "Darkvision 60 ft, Passive Perception 12",
+      "languages": "Common, Orc",
+      "challenge": "3 (700 XP)",
+      "traits": "<p><em><strong>Cunning Action.</strong></em> On each of its turns, the orc can use a bonus action to take the Dash, Disengage, or Hide action.</p> <p><em><strong>Hand of Shargaas.</strong></em> The orc deals 2 extra dice of damage when it hits a target with a weapon attack (included in its attacks).</p><p><em><strong>Shargaas's Sight.</strong></em> Magical darkness doesn't impede the orc's darkvision.</p><p><em><strong>Slayer.</strong></em> In the first round of a combat, the orc has advantage on attack rolls against any creature that hasn't taken a turn yet. If the orc hits a creature that round who was surprised, the hit is automatically a critical hit.</p>",
+      "actions": "<p><em><strong>Multiattack.</strong></em> The orc makes two scimitar or dart attacks.</p> <p><em><strong>Scimitar.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft, one target. <em>Hit:</em> 13 (3d6 + 3) slashing damage.</p><p><em><strong>Dart.</strong></em> <em>Ranged Weapon Attack:</em> +5 to hit, range 20/60 ft, one target. <em>Hit:</em> 10 (3d4 + 3) piercing damage.</p><p><em><strong>Veil of Shargaas (Recharges after a Short or Long Rest).</strong></em> The orc casts darkness without any components. Wisdom is its spellcasting ability.</p>",
+      "img_url": "https://5e.tools/bestiary/orc-red-fang-of-shargaas-vgm.html"
+    },
+    {
+      "name": "Pixie",
+      "size": "Tiny",
+      "type": "Fey",
+      "alignment": "Neutral Good",
+      "environments": [
+        "Forest"
+      ],
+      "associates": ["Dryad", "Sprite", "Faerie Dragon", "Unicorn", "Treant", "Green Hag", "Nymph", "Satyr"],
+      "armor_class": "15",
+      "hit_points": "17 (5d4+5)",
+      "speed": "20 ft, fly 60 ft",
+      "str": "7",
+      "dex": "20",
+      "con": "12",
+      "int": "16",
+      "wis": "15",
+      "cha": "16",
+      "skills": "Deception +5, Nature +5, Perception +6, Stealth +9",
+      "senses": "passive Perception 16",
+      "languages": "Common, Sylvan",
+      "challenge": "1 (200 XP)",
+      "traits": "<p><em><strong>Magic Resistance.</strong></em> The pixie has advantage on saving throws against spells and other magical effects. </p><p><em><strong>Innate Spellcasting.</strong></em> The pixie's innate spellcasting ability is Charisma (spell save DC 13, +5 to hit with spell attacks). It can cast the following spells, requiring only its pixie dust as a component: </p><p>At will: druidcraft, greater invisibility (self only)</p><p>1/day each: confusion, dancing lights, detect evil and good, detect thoughts, dispel magic, entangle, fly, polymorph, sleep</p>",
+      "actions": "<p><em><strong>Shortsword.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft, one target. <em>Hit:</em> 8 (1d6 + 5) piercing damage.</p><p><em><strong>Shortbow.</strong></em> <em>Ranged Weapon Attack:</em> +7 to hit, range 80/320 ft, one target. <em>Hit:</em> 8 (1d6 + 5) piercing damage.</p>",
+      "img_url": "https://www.5esrd.com/database/creature/pixie/"
+    },
+    {
+      "name": "Sacred Statue",
+      "size": "Large",
+      "type": "Construct",
+      "alignment": "Any",
+      "environments": [
+        "Dungeon",
+        "Urban"
+      ],
+      "associates": ["Eidolon"],
+      "armor_class": "19 (natural armor)",
+      "hit_points": "95 (10d10+40)",
+      "speed": "25 ft",
+      "str": "19",
+      "dex": "8",
+      "con": "19",
+      "int": "14",
+      "wis": "19",
+      "cha": "16",
+      "saving_throws": "WIS +8",
+      "damage_resistances": "Acid, Fire, Lightning; Bludgeoning, Piercing, and Slashing from nonmagical attacks",
+      "damage_immunities": "Cold, Necrotic, Poison",
+      "condition_immunities": "Charmed, Exhaustion, Frightened, Paralyzed, Petrified, Poisoned",
+      "senses": "Darkvision 60 ft, Passive Perception 14",
+      "languages": "The languages the eidolon knew in life",
+      "challenge": "None (XP 0)",
+      "traits": "<p><em><strong>False Appearance.</strong></em> If the statue is motionless at the start of combat, it has advantage on its initiative roll. Moreover, if a creature hasn't observed the statue move or act, that creature must succeed on a DC 18 Intelligence (Investigation) check to discern that the statue isn't an object.</p><p><em><strong>Ghostly Inhabitant.</strong></em> The eidolon that enters the statue remains inside it until the statue drops to 0 hit points, the eidolon uses a bonus action to move out of the statue, or the eidolon is turned or forced out by an effect such as the dispel evil and good spell. When the eidolon leaves the statue, it appears in an unoccupied space within 5 feet of the statue.</p><p><em><strong>Inert.</strong></em> Without an eidolon inside, the statue is an object.</p><p><em><strong>Unusual Nature.</strong></em> The statue doesn't require air, food, drink, or sleep.</p>",
+      "actions": "<p><em><strong>Multiattack.</strong></em> The statue makes two Slam or Rock attacks.</p><p><em><strong>Slam.</strong></em> <em>Melee Weapon Attack:</em> +8 to hit, reach 10 ft, one target. <em>Hit:</em> 43 (6d12 + 4) bludgeoning damage.</p><p><em><strong>Rock.</strong></em> <em>Ranged Weapon Attack:</em> +8 to hit, range 60 ft/240 ft, one target. <em>Hit:</em> 37 (6d10 + 4) bludgeoning damage.</p>",
+      "img_url": "https://5e.tools/bestiary/sacred-statue-mpmm.html"
+    },
+    {
+      "name": "Sage",
+      "size": "Medium",
+      "type": "Humanoid",
+      "alignment": "Any",
+      "environments": [
+        "Urban",
+        "Dungeon"
+      ],
+      "associates": ["Wizard", "Scholar", "Librarian", "Alchemist", "Arcane Researcher"],
+      "armor_class": "10 (13 with mage armor)",
+      "hit_points": "22 (5d8)",
+      "speed": "30 ft",
+      "str": "8",
+      "dex": "10",
+      "con": "10",
+      "int": "18",
+      "wis": "15",
+      "cha": "11",
+      "skills": "Arcana +8, History +8, Insight +4, Investigation +8, Medicine +6, Nature +8, Religion +8",
+      "senses": "passive Perception 12",
+      "languages": "Common plus any four languages",
+      "challenge": "1/2 (100 XP)",
+      "traits": "<p><em><strong>Spellcasting.</strong></em> The sage is a spellcaster. Its spellcasting ability is Intelligence. It can cast Shocking Grasp at will.</p>",
+      "actions": "<p><em><strong>Shocking Grasp (Cantrip).</strong></em></p>",
+      "reactions": "<p><em><strong>Shield (1st-Level Spell; 3/Day).</strong></em></p>",
+      "img_url": "https://www.aidedd.org/dnd/images/sage.jpg"
+    },
+    {
+      "name": "Shadow Dragon",
+      "size": "Huge",
+      "type": "Dragon",
+      "alignment": "Chaotic Evil",
+      "environments": [
+        "Underdark",
+        "Swamp",
+        "Desert",
+        "Mountain",
+        "Wasteland"
+      ],
+      "associates": ["Shadow", "Shadow Demon", "Shadow Mastiff", "Darkling Elder", "Darkling", "Darkling Thief", "Darkling Warrior"],
+      "armor_class": "16",
+      "hit_points": "189 (18d12+72)",
+      "speed": "40 ft, Climb 40 ft, Fly 80 ft",
+      "str": "21",
+      "dex": "19",
+      "con": "18",
+      "int": "14",
+      "wis": "12",
+      "cha": "18",
+      "saving_throws": "DEX +9, WIS +6",
+      "skills": "Perception +11, Stealth +14",
+      "damage_resistances": "damage that isn't Force, Psychic, or Radiant (while in dim light or darkness)",
+      "damage_immunities": "Necrotic",
+      "senses": "Blindsight 30 ft, Darkvision 120 ft, Passive Perception 21",
+      "languages": "Common, Draconic",
+      "challenge": "13 (10,000 XP, or 11,500 in lair)",
+      "traits": "<p><em><strong>Legendary Resistance (3/Day, or 4/Day in Lair).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p><p><em><strong>Living Shadow.</strong></em> While in Dim Light or Darkness, the dragon has Resistance to damage that isn't Force, Psychic, or Radiant.</p><p><em><strong>Sunlight Sensitivity.</strong></em> While in sunlight, the dragon has Disadvantage on ability checks and attack rolls.</p>",
+      "actions": "<p><em><strong>Multiattack.</strong></em> The dragon makes three Rend attacks.</p><p><em><strong>Rend.</strong></em> <em>Melee Attack Roll:</em> +10, reach 10 ft <em>Hit:</em> 12 (2d6 + 5) Slashing damage plus 3 (1d6) Necrotic damage.</p><p><em><strong>Shadow Breath (Recharge 5-6).</strong></em> <em>Dexterity Saving Throw:</em> DC 17, each creature in a 60-foot Cone. <em>Failure:</em> 35 (10d6) Necrotic damage. <em>Success:</em> Half damage. <em>Failure or Success:</em> A Humanoid reduced to 0 Hit Points by this damage dies, and a Shadow rises from the corpse. The shadow is under the dragon's control and shares the dragon's Initiative count but acts immediately after the dragon.</p><p><em><strong>Shadow Stealth (Bonus Action).</strong></em> While in Dim Light or Darkness, the dragon takes the Hide action.</p>",
+      "legendary_actions": "<p>The shadow dragon can take 3 legendary actions (4 in Lair), choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The shadow dragon regains spent legendary actions at the start of its turn.</p><p><em><strong>Pounce.</strong></em> The dragon moves up to half its Speed, and it makes one Rend attack.</p><p><em><strong>Veil of Shadow.</strong></em> The dragon uses Shadow Stealth, and one creature of its choice that it can see within 10 feet of it takes 10 (3d6) Necrotic damage. The dragon can't take this action again until the start of its next turn.</p>",
+      "img_url": "https://5e.tools/img/MM/Shadow%20Dragon.png"
+    },
+    {
+      "name": "Shadow Demon",
+      "size": "Medium",
+      "type": "Fiend",
+      "alignment": "Chaotic Evil",
+      "environments": [
+        "Varies",
+        "Dungeon"
+      ],
+      "associates": ["Demon", "Shadow Dragon", "Shadow Mastiff", "Darkling Elder", "Darkling", "Darkling Thief", "Darkling Warrior"],
+      "armor_class": "13",
+      "hit_points": "66 (12d8+12)",
+      "speed": "30 ft, Fly 30 ft",
+      "str": "1",
+      "dex": "17",
+      "con": "12",
+      "int": "14",
+      "wis": "13",
+      "cha": "14",
+      "saving_throws": "DEX +5, CHA +4",
+      "skills": "Stealth +7",
+      "damage_vulnerabilities": "Radiant",
+      "damage_resistances": "Acid, Fire, Necrotic, Thunder; Bludgeoning, Piercing, and Slashing from nonmagical attacks",
+      "damage_immunities": "Cold, Lightning, Poison",
+      "condition_immunities": "Exhaustion, Grappled, Paralyzed, Petrified, Poisoned, Prone, Restrained",
+      "senses": "Darkvision 120 ft, Passive Perception 11",
+      "languages": "Abyssal, telepathy 120 ft",
+      "challenge": "4 (1,100 XP)",
+      "traits": "<p><em><strong>Incorporeal Movement.</strong></em> The demon can move through other creatures and objects as if they were difficult terrain. It takes 5 (1d10) force damage if it ends its turn inside an object.</p><p><em><strong>Light Sensitivity.</strong></em> While in bright light, the demon has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight.</p><p><em><strong>Shadow Stealth.</strong></em> While in dim light or darkness, the demon can take the Hide action as a bonus action.</p>",
+      "actions": "<p><em><strong>Claws.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft, one creature. <em>Hit:</em> 10 (2d6 + 3) psychic damage or, if the demon had advantage on the attack roll, 17 (4d6 + 3) psychic damage.</p>",
+      "img_url": "https://5e.tools/img/MM/Shadow%20Demon.png"
+    },
+    {
+      "name": "Demogorgon",
+      "size": "Huge",
+      "type": "Fiend",
+      "alignment": "Chaotic Evil",
+      "environments": [
+        "Wasteland",
+        "Underwater"
+      ],
+      "associates": ["Demon", "Demon Lord", "Demons", "Tiamat", "Orcus", "Graz'zt", "Baphomet"],
+      "armor_class": "22 (natural armor)",
+      "hit_points": "406 (28d12+224)",
+      "speed": "50 ft, Swim 50 ft",
+      "str": "29",
+      "dex": "14",
+      "con": "26",
+      "int": "20",
+      "wis": "17",
+      "cha": "25",
+      "saving_throws": "DEX +10, CON +16, WIS +11, CHA +15",
+      "skills": "Insight +11, Perception +19",
+      "damage_resistances": "Cold, Fire, Lightning",
+      "damage_immunities": "Poison; Bludgeoning, Piercing, and Slashing that is nonmagical",
+      "condition_immunities": "Charmed, Exhaustion, Frightened, Poisoned",
+      "senses": "Truesight 120 ft, Passive Perception 29",
+      "languages": "All, telepathy 120 ft",
+      "challenge": "26 (90,000 XP)",
+      "traits": "<p><em><strong>Innate Spellcasting.</strong></em> Demogorgon's spellcasting ability is Charisma (spell save DC 23). Demogorgon can innately cast the following spells, requiring no material components:</p><p>At will: detect magic, major image</p><p>3/day each: dispel magic, fear, telekinesis</p><p>1/day each: feeblemind, project image</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If Demogorgon fails a saving throw, he can choose to succeed instead.</p><p><em><strong>Magic Resistance.</strong></em> Demogorgon has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Magic Weapons.</strong></em> Demogorgon's weapon attacks are magical.</p><p><em><strong>Two Heads.</strong></em> Demogorgon has advantage on saving throws against being blinded, deafened, stunned, or knocked unconscious.</p>",
+      "actions": "<p><em><strong>Multiattack.</strong></em> Demogorgon makes two tentacle attacks.</p><p><em><strong>Tentacle.</strong></em> <em>Melee Weapon Attack:</em> +17 to hit, reach 10 ft, one target. <em>Hit:</em> 28 (3d12 + 9) bludgeoning damage. If the target is a creature, it must succeed on a DC 23 Constitution saving throw or its hit point maximum is reduced by an amount equal to the damage taken. This reduction lasts until the target finishes a long rest. The target dies if its hit point maximum is reduced to 0.</p><p><em><strong>Gaze.</strong></em> Demogorgon turns his magical gaze toward one creature that he can see within 120 feet of him. That target must make a DC 23 Wisdom saving throw. Unless the target is incapacitated, it can avert its eyes to avoid the gaze and to automatically succeed on the save. If the target does so, it can't see Demogorgon until the start of his next turn. If the target looks at him in the meantime, it must immediately make the save. If the target fails the save, the target suffers one of the following effects of Demogorgon's choice or at random:</p><ol><li><strong>Beguiling Gaze.</strong> The target is stunned until the start of Demogorgon's next turn or until Demogorgon is no longer within line of sight.</li><li><strong>Hypnotic Gaze.</strong> The target is charmed by Demogorgon until the start of Demogorgon's next turn. Demogorgon chooses how the charmed target uses its actions, reactions, and movement. Because this gaze requires Demogorgon to focus both heads on the target, he can't use his Maddening Gaze legendary action until the start of his next turn.</li><li><strong>Insanity Gaze.</strong> The target suffers the effect of the confusion spell without making a saving throw. The effect lasts until the start of Demogorgon's next turn. Demogorgon doesn't need to concentrate on the spell.</li></ol>",
+      "legendary_actions": "<p>Demogorgon can take 2 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. Demogorgon regains spent legendary actions at the start of each of their turns.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +17 to hit, reach 15 ft, one target. <em>Hit:</em> 20 (2d10 + 9) bludgeoning damage plus 11 (2d10) necrotic damage.</p><p><em><strong>Maddening Gaze.</strong></em> Demogorgon uses his Gaze action, and must choose either the Beguiling Gaze or the Insanity Gaze effect.</p>",
+      "img_url": "https://5e.tools/img/MTF/Demogorgon.png"
+    },
+    {
+      "name": "White Abishai",
+      "size": "Medium",
+      "type": "Fiend",
+      "alignment": "Lawful Evil",
+      "environments": [
+        "Urban",
+        "Wasteland"
+      ],
+      "associates": ["Devil","Tiamat Cultist"],
+      "armor_class": "15 (natural armor)",
+      "hit_points": "68 (8d8+32)",
+      "speed": "30 ft, Fly 40 ft",
+      "str": "16",
+      "dex": "11",
+      "con": "18",
+      "int": "11",
+      "wis": "12",
+      "cha": "13",
+      "saving_throws": "STR +6, CON +7",
+      "damage_resistances": "Bludgeoning, Piercing, and Slashing from nonmagical attacks that aren't silvered",
+      "damage_immunities": "Cold, Fire, Poison",
+      "condition_immunities": "Poisoned",
+      "senses": "Darkvision 120 ft, Passive Perception 11",
+      "languages": "Draconic, Infernal, telepathy 120 ft",
+      "challenge": "6 (2,300 XP)",
+      "traits": "<p><em><strong>Devil's Sight.</strong></em> Magical darkness doesn't impede the abishai's darkvision.</p><p><em><strong>Magic Resistance.</strong></em> The abishai has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Magic Weapons.</strong></em> The abishai's weapon attacks are magical.</p><p><em><strong>Reckless.</strong></em> At the start of its turn, the abishai can gain advantage on all melee weapon attack rolls during that turn, but attack rolls against it have advantage until the start of its next turn.</p>",
+      "actions": "<p><em><strong>Multiattack.</strong></em> The abishai makes two attacks: one with its longsword and one with its claw.</p><p><em><strong>Longsword.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft, one target. <em>Hit:</em> 7 (1d8 + 3) slashing damage, or 8 (1d10 + 3) slashing damage if used with two hands.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft, one target. <em>Hit:</em> 8 (1d10 + 3) slashing damage.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft, one target. <em>Hit:</em> 5 (1d4 + 3) piercing damage plus 3 (1d6) cold damage.</p>",
+      "reactions": "<p><em><strong>Vicious Reprisal.</strong></em> In response to taking damage, the abishai makes a bite attack against a random creature within 5 feet of it. If no creature is within reach, the abishai moves up to half its speed toward an enemy it can see, without provoking opportunity attacks.</p>",
+      "img_url": "https://5e.tools/img/MTF/White%20Abishai.png"
+    },
+    {
+      "name": "Troglodyte",
+      "size": "Medium",
+      "type": "Humanoid",
+      "alignment": "Chaotic Evil",
+      "environments": [
+        "Underdark",
+        "Dungeon"
+      ],
+      "associates": ["Lizardfolk", "Kobold", "Darkling Elder", "Darkling", "Darkling Thief", "Darkling Warrior"],
+      "armor_class": "11 (natural armor)",
+      "hit_points": "13 (2d8 + 4)",
+      "speed": "30 ft",
+      "str": "14",
+      "dex": "10",
+      "con": "14",
+      "int": "6",
+      "wis": "10",
+      "cha": "6",
+      "skills": "Stealth +2",
+      "senses": "Darkvision 60 ft, Passive Perception 10",
+      "languages": "Troglodyte",
+      "challenge": "1/4 (50 XP)",
+      "traits": "<p><em><strong>Chameleon Skin.</strong></em> The troglodyte has advantage on Dexterity (Stealth) checks made to hide.</p><p><em><strong>Stench.</strong></em> Any creature other than a troglodyte that starts its turn within 5 feet of the troglodyte must succeed on a DC 12 Constitution saving throw or be poisoned until the start of the creature's next turn. On a successful saving throw, the creature is immune to the stench of all troglodytes for 1 hour.</p><p><em><strong>Sunlight Sensitivity.</strong></em> While in sunlight, the troglodyte has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight.</p>",
+      "actions": "<p><em><strong>Multiattack.</strong></em> The troglodyte makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft, one target. <em>Hit:</em> 4 (1d4 + 2) piercing damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft, one target. <em>Hit:</em> 4 (1d4 + 2) slashing damage.</p>"
+    },
+    {
+      "name": "Topaz Dragon Wyrmling",
+      "size": "Medium",
+      "type": "Dragon",
+      "alignment": "Chaotic Neutral",
+      "environments": [
+        "Coastal",
+        "Swamp",
+        "Underwater"
+      ],
+      "associates": ["bronze dragon", "druid", "giant eagle", "pseudodragon", "giant crab", "griffon", "sea hag", "pirate"],
+      "armor_class": "16 (natural armor)",
+      "hit_points": "33 (6d8 + 6)",
+      "speed": "30 ft, Fly 60 ft, Swim 30 ft",
+      "str": "15",
+      "dex": "12",
+      "con": "13",
+      "int": "14",
+      "wis": "13",
+      "cha": "14",
+      "saving_throws": "DEX +3, CON +3, WIS +3, CHA +4",
+      "skills": "Intimidation +6, Perception +5, Stealth +3",
+      "damage_resistances": "Cold, Necrotic",
+      "senses": "Blindsight 10 ft, Darkvision 120 ft, Passive Perception 15",
+      "languages": "Draconic",
+      "challenge": "2 (450 XP)",
+      "traits": "<p><em><strong>Amphibious.</strong></em> The dragon can breathe both air and water.</p>",
+      "actions": "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft, one target. <em>Hit:</em> 7 (1d10 + 2) piercing damage plus 2 (1d4) necrotic damage.</p><p><em><strong>Desiccating Breath (Recharge 5-6).</strong></em> The dragon exhales yellowish necrotic energy in a 15-foot cone. Each creature in that area must make a DC 11 Constitution saving throw. On a failed save, the creature takes 21 (6d6) necrotic damage and is weakened until the end of its next turn. A weakened creature has disadvantage on Strength-based ability checks and Strength saving throws, and the creature's weapon attacks that rely on Strength deal half damage. On a successful save, the creature takes half as much damage and isn't weakened.</p><p><em><strong>Spellcasting (Psionics).</strong></em> The dragon casts one of the following spells, requiring no spell components and using Intelligence as the spellcasting ability (spell save DC 12):<br>1/day: bane</p>",
+      "img_url": "https://5e.tools/img/FTD/Alex%20Stone.webp"
+    },
+    {
+      "name": "Young Topaz Dragon",
+      "size": "Large",
+      "type": "Dragon",
+      "alignment": "Chaotic Neutral",
+      "environments": [
+        "Coastal",
+        "Swamp",
+        "Underwater"
+      ],
+      "associates": ["bronze dragon", "druid", "gynosphinx", "sahuagin", "harpy", "giant octopus", "sea hag", "pirate", "water elemental", "roc", "winged kobold"],
+      "armor_class": "17 (natural armor)",
+      "hit_points": "127 (17d10 + 34)",
+      "speed": "40 ft, Fly 80 ft, Swim 40 ft",
+      "str": "17",
+      "dex": "12",
+      "con": "15",
+      "int": "16",
+      "wis": "15",
+      "cha": "16",
+      "saving_throws": "DEX +4, CON +5, WIS +5, CHA +6",
+      "skills": "Intimidation +9, Perception +8, Stealth +4",
+      "damage_resistances": "Cold, Necrotic",
+      "senses": "Blindsight 30 ft, Darkvision 120 ft, Passive Perception 18",
+      "languages": "Common, Draconic, telepathy 120 ft",
+      "challenge": "7 (2,900 XP)",
+      "traits": "<p><em><strong>Amphibious.</strong></em> The dragon can breathe both air and water.</p>",
+      "actions": "<p><em><strong>Multiattack.</strong></em> The dragon makes one Bite attack and two Claw attacks.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 10 ft, one target. <em>Hit:</em> 14 (2d10 + 3) piercing damage plus 3 (1d6) necrotic damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft, one target. <em>Hit:</em> 6 (1d6 + 3) slashing damage.</p><p><em><strong>Desiccating Breath (Recharge 5-6).</strong></em> The dragon exhales yellowish necrotic energy in a 30-foot cone. Each creature in that area must make a DC 13 Constitution saving throw. On a failed save, the creature takes 28 (8d6) necrotic damage and is weakened until the end of its next turn. A weakened creature has disadvantage on Strength-based ability checks and Strength saving throws, and the creature's weapon attacks that rely on Strength deal half damage. On a successful save, the creature takes half as much damage and isn't weakened.</p><p><em><strong>Spellcasting (Psionics).</strong></em> The dragon casts one of the following spells, requiring no spell components and using Intelligence as the spellcasting ability (spell save DC 14):<br>1/day each: bane, create or destroy water</p>",
+      "img_url": "https://5e.tools/img/FTD/Alex%20Stone.webp"
+    },
+    {
+      "name": "Adult Topaz Dragon",
+      "size": "Huge",
+      "type": "Dragon",
+      "alignment": "Chaotic Neutral",
+      "environments": [
+        "Coastal",
+        "Swamp",
+        "Underwater"
+      ],
+      "associates": ["bronze dragon", "druid", "gynosphinx", "sahuagin", "harpy", "giant octopus", "sea hag", "pirate", "water elemental", "roc", "winged kobold"],
+      "armor_class": "18 (natural armor)",
+      "hit_points": "210 (20d12 + 80)",
+      "speed": "40 ft, Fly 80 ft, Swim 40 ft",
+      "str": "19",
+      "dex": "12",
+      "con": "19",
+      "int": "18",
+      "wis": "17",
+      "cha": "18",
+      "saving_throws": "DEX +6, CON +9, WIS +8, CHA +9",
+      "skills": "Intimidation +14, Perception +13, Stealth +6",
+      "damage_resistances": "Cold, Necrotic",
+      "senses": "Blindsight 60 ft, Darkvision 120 ft, Passive Perception 23",
+      "languages": "Common, Draconic, telepathy 120 ft",
+      "challenge": "13 (10,000 XP, or 11,500 in lair)",
+      "traits": "<p><em><strong>Amphibious.</strong></em> The dragon can breathe both air and water.</p><p><em><strong>Fabricate (1/Day).</strong></em> The dragon can cast fabricate, requiring no spell components and using Intelligence as the spellcasting ability.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
+      "actions": "<p><em><strong>Multiattack.</strong></em> The dragon makes one Bite attack and two Claw attacks.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +9 to hit, reach 10 ft, one target. <em>Hit:</em> 15 (2d10 + 4) piercing damage plus 3 (1d6) necrotic damage. </p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +9 to hit, reach 5 ft, one target. <em>Hit:</em> 8 (1d8 + 4) slashing damage.</p><p><em><strong>Desiccating Breath (Recharge 5-6).</strong></em> The dragon exhales yellowish necrotic energy in a 60-foot cone. Each creature in that area must make a DC 17 Constitution saving throw. On a failed save, the creature takes 35 (10d6) necrotic damage and is weakened until the end of its next turn. A weakened creature has disadvantage on Strength-based ability checks and Strength saving throws, and the creature's weapon attacks that rely on Strength deal half damage. On a successful save, the creature takes half as much damage and isn't weakened.</p><p><em><strong>Spellcasting (Psionics).</strong></em> The dragon casts one of the following spells, requiring no spell components and using Intelligence as the spellcasting ability (spell save DC 17):<br>1/day each: bane, control water, create or destroy water</p>",
+      "bonus_actions": "<p><em><strong>Change Shape.</strong></em> The dragon magically transforms into any creature that is Medium or Small, while retaining its game statistics (other than its size). This transformation ends if the dragon is reduced to 0 hit points or uses a bonus action to end it.</p><p><em><strong>Psychic Step.</strong></em> The dragon magically teleports to an unoccupied space it can see within 60 feet of it.</p>",
+      "legendary_actions": "<p>The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn.</p><p><em><strong>Claw.</strong></em> The dragon makes one Claw attack.</p><p><em><strong>Psionics (Costs 2 Actions).</strong></em> The dragon uses Psychic Step or Spellcasting.</p><p><em><strong>Essential Reduction (Costs 3 Actions).</strong></em> The dragon targets a creature or an object not being worn or carried that it can see within 60 feet of it. The target must succeed on a DC 17 Constitution saving throw or take 28 (8d6) necrotic damage. If this damage reduces the target to 0 hit points, it crumbles to dust.</p>",
+      "img_url": "https://5e.tools/img/FTD/Alex%20Stone.webp"
+    },
+    {
+      "name": "Ancient Topaz Dragon",
+      "size": "Gargantuan",
+      "type": "Dragon",
+      "alignment": "Chaotic Neutral",
+      "environments": [
+        "Coastal",
+        "Swamp",
+        "Underwater"
+      ],
+      "associates": ["bronze dragon", "druid", "gynosphinx", "sahuagin", "harpy", "giant octopus", "sea hag", "pirate", "water elemental", "roc", "winged kobold"],
+      "armor_class": "20 (natural armor)",
+      "hit_points": "280 (17d20 + 102)",
+      "speed": "40 ft, Fly 80 ft, Swim 40 ft",
+      "str": "23",
+      "dex": "12",
+      "con": "23",
+      "int": "20",
+      "wis": "19",
+      "cha": "20",
+      "saving_throws": "DEX +7, CON +12, WIS +10, CHA +11",
+      "skills": "Intimidation +17, Perception +16, Stealth +7",
+      "damage_resistances": "Cold, Necrotic",
+      "senses": "Blindsight 60 ft, Darkvision 120 ft, Passive Perception 26",
+      "languages": "Common, Draconic, telepathy 120 ft",
+      "challenge": "20 (25,000 XP, or 33,000 in lair)",
+      "traits": "<p><em><strong>Amphibious.</strong></em> The dragon can breathe both air and water.</p><p><em><strong>Fabricate (1/Day).</strong></em> The dragon can cast fabricate, requiring no spell components and using Intelligence as the spellcasting ability.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
+      "actions": "<p><em><strong>Multiattack.</strong></em> The dragon makes one Bite attack and two Claw attacks.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +12 to hit, reach 15 ft, one target. <em>Hit:</em> 17 (2d10 + 6) piercing damage plus 10 (3d6) necrotic damage. </p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +12 to hit, reach 10 ft, one target. <em>Hit:</em> 13 (2d6 + 6) slashing damage.</p><p><em><strong>Desiccating Breath (Recharge 5-6).</strong></em> The dragon exhales yellowish necrotic energy in a 90-foot cone. Each creature in that area must make a DC 20 Constitution saving throw. On a failed save, the creature takes 49 (14d6) necrotic damage and is weakened until the end of its next turn. A weakened creature has disadvantage on Strength-based ability checks and Strength saving throws, and the creature's weapon attacks that rely on Strength deal half damage. On a successful save, the creature takes half as much damage and isn't weakened.</p><p><em><strong>Spellcasting (Psionics).</strong></em> The dragon casts one of the following spells, requiring no spell components and using Intelligence as the spellcasting ability (spell save DC 19):<br>1/day each: antilife shell, bane, control water, create or destroy water</p>",
+      "bonus_actions": "<p><em><strong>Change Shape.</strong></em> The dragon magically transforms into any creature that is Medium or Small, while retaining its game statistics (other than its size). This transformation ends if the dragon is reduced to 0 hit points or uses a bonus action to end it.</p><p><em><strong>Psychic Step.</strong></em> The dragon magically teleports to an unoccupied space it can see within 60 feet of it.</p>",
+      "legendary_actions": "<p>The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn.</p><p><em><strong>Claw.</strong></em> The dragon makes one Claw attack.</p><p><em><strong>Psionics (Costs 2 Actions).</strong></em> The dragon uses Psychic Step or Spellcasting.</p><p><em><strong>Essential Reduction (Costs 3 Actions).</strong></em> The dragon targets a creature or an object not being worn or carried that it can see within 60 feet of it. The target must succeed on a DC 19 Constitution saving throw or take 40 (9d8) necrotic damage. If this damage reduces the target to 0 hit points, it crumbles to dust.</p>",
+      "img_url": "https://5e.tools/img/FTD/Alex%20Stone.webp"
+    },
+    {
+      "name": "Sword Wraith Warrior",
+      "size": "Medium",
+      "type": "Undead",
+      "alignment": "Lawful Evil",
+      "environments": [
+        "Grassland",
+        "Swamp",
+        "Varies"
+      ],
+      "associates": ["sword wraith commander"],
+      "armor_class": "16 (chain shirt, shield)",
+      "hit_points": "45 (6d8 + 18)",
+      "speed": "30 ft",
+      "str": "18",
+      "dex": "12",
+      "con": "17",
+      "int": "6",
+      "wis": "9",
+      "cha": "10",
+      "damage_resistances": "Necrotic; Bludgeoning, Piercing, and Slashing from nonmagical attacks",
+      "damage_immunities": "Poison",
+      "condition_immunities": "Exhaustion, Frightened, Poisoned, Unconscious",
+      "senses": "Darkvision 60 ft, Passive Perception 9",
+      "languages": "The languages it knew in life",
+      "challenge": "3 (700 XP)",
+      "traits": "<p><em><strong>Martial Fury.</strong></em> As a bonus action, the sword wraith can make one weapon attack. If it does so, attack rolls against it have advantage until the start of its next turn.</p>",
+      "actions": "<p><em><strong>Longsword.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft, one target. <em>Hit:</em> 8 (1d8 + 4) slashing damage, or 9 (1d10 + 4) slashing damage if used with two hands.</p><p><em><strong>Longbow.</strong></em> <em>Ranged Weapon Attack:</em> +3 to hit, range 150/600 ft, one target. <em>Hit:</em> 5 (1d8 + 1) piercing damage.</p>",
+      "img_url": "https://5e.tools/img/MTF/Eric%20Belisle.webp"
+    },
+    {
+      "name": "Sword Wraith Commander",
+      "size": "Medium",
+      "type": "Undead",
+      "alignment": "Lawful Evil",
+      "environments": [
+        "Grassland",
+        "Swamp",
+        "Varies"
+      ],
+      "associates": ["sword wraith warrior"],
+      "armor_class": "18 (breastplate, shield)",
+      "hit_points": "127 (15d8 + 60)",
+      "speed": "30 ft",
+      "str": "18",
+      "dex": "14",
+      "con": "18",
+      "int": "11",
+      "wis": "12",
+      "cha": "14",
+      "skills": "Perception +4",
+      "damage_resistances": "Necrotic; Bludgeoning, Piercing, and Slashing from nonmagical attacks",
+      "damage_immunities": "Poison",
+      "condition_immunities": "Exhaustion, Frightened, Poisoned, Unconscious",
+      "senses": "Darkvision 60 ft, Passive Perception 14",
+      "languages": "The languages it knew in life",
+      "challenge": "8 (3,900 XP)",
+      "traits": "<p><em><strong>Turning Defiance.</strong></em> The commander and any other sword wraiths within 30 feet of it have advantage on saving throws against effects that turn Undead.</p><p><em><strong>Unusual Nature.</strong></em> The commander doesn't require air, food, drink, or sleep.</p>",
+      "actions": "<p><em><strong>Multiattack.</strong></em> The commander makes two Longsword or Longbow attacks.</p><p><em><strong>Longsword.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft, one target. <em>Hit:</em> 8 (1d8 + 4) slashing damage, or 9 (1d10 + 4) slashing damage if used with two hands.</p><p><em><strong>Longbow.</strong></em> <em>Ranged Weapon Attack:</em> +5 to hit, range 150/600 ft, one target. <em>Hit:</em> 6 (1d8 + 2) piercing damage.</p><p><em><strong>Call to Honor (1/Day).</strong></em> If the commander has taken damage during this combat, it gives itself advantage on attack rolls until the end of its next turn, and 1d4 + 1 sword wraith warriors appear in unoccupied spaces within 30 feet of it. The warriors last until they drop to 0 hit points, and they take their turns immediately after the commander's turn on the same initiative count.</p>",
+      "bonus_actions": "<p><em><strong>Martial Fury.</strong></em> The commander makes one Longsword or Longbow attack, which deals an extra 9 (2d8) necrotic damage on a hit, and attack rolls against it have advantage until the start of its next turn.</p>"
+    },
+    {
+      "name": "Soul Monger",
+      "size": "Medium",
+      "type": "Humanoid",
+      "alignment": "Neutral",
+      "environments": [
+        "Underdark",
+        "Urban"
+      ],
+      "associates": ["shadar-kai"],
+      "armor_class": "15 (studded leather)",
+      "hit_points": "123 (19d8 + 38)",
+      "speed": "30 ft",
+      "str": "8",
+      "dex": "17",
+      "con": "14",
+      "int": "19",
+      "wis": "15",
+      "cha": "13",
+      "saving_throws": "DEX +7, WIS +6, CHA +5",
+      "skills": "Perception +6",
+      "damage_immunities": "Necrotic, Psychic",
+      "condition_immunities": "Charmed, Exhaustion, Frightened",
+      "senses": "Darkvision 60 ft, Passive Perception 17",
+      "languages": "Common, Elvish",
+      "challenge": "11 (7,200 XP)",
+      "traits": "<p><em><strong>Fey Ancestry.</strong></em> The soul monger has advantage on saving throws against being charmed, and magic can't put it to sleep.</p><p><em><strong>Innate Spellcasting.</strong></em> The soul monger's innate spellcasting ability is Intelligence (spell save DC 16, +8 to hit with spell attacks). It can innately cast the following spells, requiring no material components:<br>At will: chill touch, poison spray<br>1/day each: bestow curse, chain lightning, finger of death, gaseous form, phantasmal killer, seeming</p><p><em><strong>Magic Resistance.</strong></em> The soul monger has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Soul Thirst.</strong></em> When the soul monger reduces a creature to 0 hit points, the soul monger can gain temporary hit points equal to half the creature's hit point maximum. While the soul monger has temporary hit points from this ability, it has advantage on attack rolls.</p><p><em><strong>Weight of Ages.</strong></em> Any beast or humanoid, other than a shadar-kai, that starts its turn within 5 feet of the soul monger has its speed reduced by 20 feet until the start of that creature's next turn.</p>",
+      "actions": "<p><em><strong>Multiattack.</strong></em> The soul monger makes two phantasmal dagger attacks.</p><p><em><strong>Phantasmal Dagger.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft, one target. <em>Hit:</em> 13 (4d4 + 3) piercing damage plus 19 (3d12) necrotic damage, and the target has disadvantage on saving throws until the start of the soul monger's next turn.</p><p><em><strong>Wave of Weariness (Recharge 4-6).</strong></em> The soul monger emits weariness in a 60-foot cube. Each creature in that area must make a DC 16 Constitution saving throw. On a failed save, a creature takes 45 (10d8) psychic damage and suffers 1 level of exhaustion. On a successful save, it takes 22 (5d8) psychic damage.</p>",
+      "img_url": "https://5e.tools/img/MTF/Sidharth%20Chaturvedi.webp"
+    },
+    {
+      "name": "Skull Lord",
+      "size": "Medium",
+      "type": "Undead",
+      "alignment": "Lawful Evil",
+      "environments": [
+        "Desert",
+        "Swamp",
+        "Underdark",
+        "Varies"
+      ],
+      "associates": ["skeleton", "zombie", "ghoul", "mummy", "wight", "ghost", "shadow", "specter"],
+      "armor_class": "18 (plate armor)",
+      "hit_points": "105 (14d8 + 42)",
+      "speed": "30 ft",
+      "str": "14",
+      "dex": "16",
+      "con": "17",
+      "int": "16",
+      "wis": "15",
+      "cha": "21",
+      "skills": "Athletics +7, History +8, Perception +12, Stealth +8",
+      "damage_resistances": "Cold, Necrotic; Bludgeoning, Piercing, and Slashing from nonmagical attacks",
+      "damage_immunities": "Poison",
+      "condition_immunities": "Blinded, Charmed, Deafened, Exhaustion, Frightened, Poisoned, Stunned, Unconscious",
+      "senses": "Darkvision 60 ft, Passive Perception 22",
+      "languages": "All the languages it knew in life",
+      "challenge": "15 (13,000 XP)",
+      "traits": "<p><em><strong>Evasion.</strong></em> If the skull lord is subjected to an effect that allows it to make a Dexterity saving throw to take only half the damage, the skull lord instead takes no damage if it succeeds on the saving throw, and only half damage if it fails.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the skull lord fails a saving throw, it can choose to succeed instead.</p><p><em><strong>Master of the Grave.</strong></em> While within 30 feet of the skull lord, any undead ally of the skull lord makes saving throws with advantage, and that ally regains 1d6 hit points whenever it starts its turn there.</p><p><em><strong>Spellcasting.</strong></em> The skull lord is a 13th-level spellcaster. Its spellcasting ability is Charisma (spell save DC 18, +10 to hit with spell attacks). The skull lord knows the following sorcerer spells:<br>Cantrips (at will): chill touch, fire bolt, mage hand, poison spray, ray of frost, shocking grasp<br>1st level (4 slots): magic missile, expeditious retreat, thunderwave<br>2nd level (3 slots): mirror image, scorching ray<br>3rd level (3 slots): fear, haste<br>4th level (3 slots): dimension door, ice storm<br>5th level (2 slots): cloudkill, cone of cold<br>6th level (1 slot): eyebite<br>7th level (1 slot): finger of death</p>",
+      "actions": "<p><em><strong>Multiattack.</strong></em> The skull lord makes three bone staff attacks.</p><p><em><strong>Bone Staff.</strong></em> <em>Melee Weapon Attack:</em> +8 to hit, reach 5 ft, one target. <em>Hit:</em> 7 (1d8 + 3) bludgeoning damage plus 14 (4d6) necrotic damage.</p>",
+      "legendary_actions": "<p>The skull lord can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The skull lord regains spent legendary actions at the start of its turn.</p><p><em><strong>Bone Staff (Costs 2 Actions).</strong></em> The skull lord makes a bone staff attack.</p><p><em><strong>Cantrip.</strong></em> The skull lord casts a cantrip.</p><p><em><strong>Move.</strong></em> The skull lord moves up to its speed without provoking opportunity attacks.</p><p><em><strong>Summon Undead (Costs 3 Actions).</strong></em> Up to five skeletons or zombies appear in unoccupied spaces within 30 feet of the skull lord and remain until destroyed. Undead summoned in this way roll initiative and act in the next available turn. The skull lord can have up to five undead summoned by this ability at a time.</p>",
+      "img_url": "https://5e.tools/img/MTF/Ilya%20Shkipin.webp"
+    },
+    {
+      "name": "Skulk",
+      "size": "Medium",
+      "type": "Humanoid",
+      "alignment": "Chaotic Neutral",
+      "environments": [
+        "Coastal",
+        "Forest",
+        "Swamp",
+        "Underdark",
+        "Urban"
+      ],
+      "associates": ["assassin", "bandit", "cult fanatic", "cultist", "spy", "thug"],
+      "armor_class": "14",
+      "hit_points": "18 (4d8)",
+      "speed": "30 ft",
+      "str": "6",
+      "dex": "19",
+      "con": "10",
+      "int": "10",
+      "wis": "7",
+      "cha": "1",
+      "skills": "Stealth +8",
+      "damage_immunities": "Radiant",
+      "condition_immunities": "Blinded",
+      "senses": "Darkvision 120 ft, Passive Perception 8",
+      "languages": "Understands Common but can't speak",
+      "challenge": "1/2 (100 XP)",
+      "traits": "<p><em><strong>Fallible Invisibility.</strong></em> The skulk is invisible. This invisibility can be circumvented by three things:<br>• The skulk appears as a drab, smooth-skinned humanoid if its reflection can be seen in a mirror or on another surface.<br>• The skulk appears as a dim, translucent form in the light of a candle made of fat rendered from a corpse whose identity is unknown.<br>• Humanoid children, aged 10 and under, can see through this invisibility.</p><p><em><strong>Trackless.</strong></em> The skulk leaves no tracks to indicate where it has been or where it's headed.</p>",
+      "actions": "<p><em><strong>Claws.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft, one target. <em>Hit:</em> 6 (1d4 + 4) slashing damage. If the skulk has advantage on the attack roll, the target also takes 7 (2d6) necrotic damage.</p>",
+      "img_url": "https://5e.tools/img/MTF/Zack%20Stella.webp"
+    },
+    {
+      "name": "Umber Hulk",
+      "size": "Large",
+      "type": "Monstrosity",
+      "alignment": "Chaotic Evil",
+      "environments": [
+        "Underdark",
+        "Dungeon"
+      ],
+      "associates": ["drow", "duergar", "goblin", "kobold", "orc", "svirfneblin"],
+      "armor_class": "18 (natural armor)",
+      "hit_points": "93 (11d10+33)",
+      "speed": "30 ft, Burrow 20 ft",
+      "str": "20",
+      "dex": "13",
+      "con": "16",
+      "int": "9",
+      "wis": "10",
+      "cha": "10",
+      "senses": "Darkvision 120 ft, Tremorsense 60 ft, Passive Perception 10",
+      "languages": "Umber Hulk",
+      "challenge": "5 (1,800 XP)",
+      "traits": "<p><em><strong>Confusing Gaze.</strong></em> When a creature starts its turn within 30 feet of the umber hulk and is able to see the umber hulk's eyes, the umber hulk can magically force it to make a DC 15 Charisma saving throw, unless the umber hulk is incapacitated. On a failed saving throw, the creature can't take reactions until the start of its next turn and rolls a d8 to determine what it does during that turn. On a 1 to 4, the creature does nothing. On a 5 or 6, the creature takes no action but uses all its movement to move in a random direction.  On a 7 or 8, the creature makes one melee attack against a random creature, or it does nothing if no creature is within reach. Unless surprised, a creature can avert its eyes to avoid the saving throw at the start of its turn. If the creature does so, it can't see the umber hulk until the start of its next turn, when it can avert its eyes again. If the creature looks at the umber hulk in the meantime, it must immediately make the save.</p><p><em><strong>Tunneler.</strong></em> The umber hulk can burrow through solid rock at half its burrowing speed and leaves a 5 foot-wide, 8-foot-high tunnel in its wake.</p>",
+      "actions": "<p><em><strong>Multiattack.</strong></em> The umber hulk makes three attacks: two with its claws and one with its mandibles.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +8 to hit, reach 5 ft, one target. <em>Hit:</em> 9 (1d8+5) slashing damage.</p><p><em><strong>Mandibles.</strong></em> <em>Melee Weapon Attack:</em> +8 to hit, reach 5 ft, one target. <em>Hit:</em> 14 (2d8 + 5) slashing damage.</p>",
+      "img_url": "https://www.dndbeyond.com/avatars/thumbnails/16/469/1000/1000/636376773233303649.jpeg"
+    },
+    // >> new monsters added here that needs to be reviewed for associates and checked in general.
   ]
 
 
@@ -8323,13 +8958,12 @@ Adult kruthik
 Adult Oblex
 Adult Red Dracolich
 Advokist
-Air elemental myrmidon
 Alchemist
 Alhoon
 Alkilith
 Allied Evil Azer
 Allip
-Amethyst Dragon (Ancient, Adult, Young, Wyrmling)
+Amethyst Dragon (Ancient, Adult, Young)
 Amethyst dragon wyrmling
 Amnizu
 Anarch
@@ -8395,10 +9029,6 @@ Berbalang
 Bheur Hag
 Biomancer
 bjurer
-Black Dragon
-Black Dragon Adult
-Black Dragon Ancient
-Black Dragon Young
 Blackguard
 Blink dog
 Blistercoil Weird
@@ -8458,15 +9088,14 @@ Cloud Giant Smiling One
 Conclave Dryad
 Conjurer
 Conjurer wizard
-Construct
+construct
 Corpse Flower
 Cosmotronic Blastseeker
 Couatls
 Cougar
 Counterflux Blastseeker
 Cranium Rat
-Crystal Dragon
-Crystal Dragon (Ancient, Adult, Young, Wyrmling)
+Crystal Dragon (Ancient, Adult, Young)
 Crystal dragon wyrmling
 Cultist
 Daelkyr
@@ -8489,7 +9118,6 @@ Deep Sashelas
 Deep Scion
 Deinonychus
 Demilich
-Demogorgon
 Demon
 Derro
 Derro Savant
@@ -8521,7 +9149,7 @@ Dragon Chosen
 Dragon Egg
 Dragon Hatchling
 Dragon Speaker
-Dragon Turtles (Wyrmling, Young, Ancient)
+Dragon Turtles (Young, Ancient)
 Dragon Wyrmling
 Dragonblood Ooze
 Dragonborn
@@ -8553,30 +9181,20 @@ Dusk Hag
 Dwarf explorer
 Dwarf prospector
 Dybbuk
-Earth elemental myrmidon
-Earth Elemental Myrmidon (Variant)
 Egg hunter (hatchling, adult)
 Eidolon
 Eladrin, Spring
 Eladrin, Summer
 Eladrin, Winter
-Elder Brain
-Elder Oblex
 Elder Tempest
-Elemental
 Elemental General
-Elemental Myrmidon, Air
-Elemental Myrmidon, Earth
-Elemental Myrmidon, Fire
-Elemental Myrmidon, Water
 Elemental Prince of Evil Fire
 Emerald Dragon
-Empyreans
+Empyrean
 Enchanter
 Enchanter wizard
 Enslaved Goblin
 Enslaved Troll
-evil giants
 Evoker
 Evoker wizard
 Eyedrake
@@ -8588,8 +9206,6 @@ Fey
 Fey noble
 Fiend
 Fighter
-Fire elemental myrmidon
-Fire Elemental Myrmidon (Variant)
 Fire Giant Dreadnought
 Fire Giant Flame Lord
 Fire Giant Hellbringer
@@ -8650,12 +9266,14 @@ Ghost of a Fallen Ranger
 Ghost of a Fallen Rogue
 Ghost of a Fallen Sorcerer
 Ghost of a Fallen Wizard
-Giant
 Giant Ant
 Giant eel
 Giant hyena (variant 2)
 Giant hyena (variant 3)
 Giant hyena (variant 4)
+Topaz Dragon Ancient
+Topaz Dragon Adult
+Topaz Dragon Young
 Giant hyena (variant 5)
 Giant hyena (variant)
 Giant Poisonous Snakes
@@ -8675,18 +9293,16 @@ Giff
 Girallon
 Githyanki
 Githyanki Gish
-Githyanki gish/kith'rak/supreme commander
 Githyanki Kith'rak
 Githyanki knight
 Githyanki Supreme Commander
 Githyanki Warrior
-Githzerai
 Githzerai Anarch
-Githzerai anarch/enlightened/zerth
+Githzerai zerth
 Githzerai Enlightened
 Githzerai Monk
 Gloom weaver
-Gnoll (base, Flesh Gnawer, Hunter, Pack Lord, Witherling)
+Gnoll
 Gnoll Fang of Yeenoghu
 Gnoll Flesh Gnawer
 Gnoll Hunter
@@ -8717,7 +9333,7 @@ Grick Youngling
 Grick Zookeeper
 Griffon (Aberrant)
 Griffon (Celestial)
-Griffon (Construct)
+Griffon (construct)
 Griffon (Dragon)
 Griffon (Elemental)
 Griffon (Fey)
@@ -8725,7 +9341,6 @@ Griffon (Fiend)
 Griffon (Monstrosity)
 Griffon (Undead)
 Grung
-Grung (base, Elite Warrior, Wildling)
 Grung Elite Warrior
 Grung Wildling
 Gruul
@@ -8768,7 +9383,7 @@ Helmed Horror
 Herder
 Hoard Mimic
 Hoard Scarab (base, Swarm)
-Hobgoblin (base, Captain, Devastator, Iron Shadow, Warlord)
+Hobgoblin
 Hobgoblin (Elite Soldier)
 Hobgoblin (Elite Warrior)
 Hobgoblin (Soldier)
@@ -8802,9 +9417,11 @@ Hybrid Shocker
 Hybrid Spy
 Hydroloth
 Ice mephits
+Elder Oblex
 Illithid
 Illithid Arcanist
 Illithid Elder Brain
+Elder Brain
 Illithid Lich
 Illithid Mind Flayer
 Illithid Psion
@@ -8813,6 +9430,9 @@ Illithid Warlock
 Illusionist
 Illusionist wizard
 Imp
+Elemental Myrmidon, Earth
+Elemental Myrmidon, Fire
+Elemental Myrmidon, Water
 Incubus
 Indentured Spirit
 Infernal Engine
@@ -8830,7 +9450,7 @@ Juiblex
 Karrnathi undead soldier
 Kenku
 Ki-rin
-Kobold (base, Dragonshield, Inventor, Scale Sorcerer)
+Kobold
 Kobold Dragonshield
 Kobold Inventor
 Kobold Scale Sorcerer
@@ -8847,7 +9467,7 @@ Kraul death priest
 Kraul warrior
 Krenko
 Krovod
-Kruthik (Young, Adult, Hive Lord)
+Kruthik
 Kruthik Adult
 Kruthik Hive Lord
 Kruthik Young
@@ -8879,6 +9499,8 @@ Lich (Variant 5)
 Lich (Variant)
 Lich King
 Liondrake
+Undying councilor
+Undying soldier
 Lizard king/queen
 Lizardfolk (Viashino)
 Lizardfolk champion
@@ -8973,7 +9595,6 @@ Mummy Lord (Variant 4)
 Mummy Lord (Variant 5)
 Mummy Lord (Variant)
 Myconid
-Myconid (sprout, adult, sovereign)
 Myconid Adult
 Myconid Colony
 Myconid mushroom
@@ -8995,7 +9616,6 @@ Necromancer
 Necromancer wizard
 Needle blight
 Neogi
-Neogi (Hatchling, base, Master)
 Neogi Hatchling
 Neogi Master
 Neothelid
@@ -9018,10 +9638,10 @@ Nothic (Variant)
 Nupperibo
 Nymph
 Oaken bolter
-Oblex (Spawn, Adult, Elder)
+Oblex (Adult, Elder)
 Oblex Spawn
 Obzedat Ghost
-Ogre (Battering Ram, Bolt Launcher, Chain Brute, Howdah)
+Ogre
 Ogre (Variant 2)
 Ogre (Variant 3)
 Ogre (Variant 4)
@@ -9043,14 +9663,10 @@ Oni (Variant 4)
 Oni (Variant 5)
 Oni (Variant)
 Ooze
-Orc (base, Eye of Gruumsh, War Chief, Nurtured One of Yurtrus, Red Fang of Shargaas)
 Orc Blade of Ilneval
 Orc Eye of Gruumsh
 Orc Graffiti
 Orc Hand of Yurtrus
-Orc Nurtured One of Yurtrus
-Orc Red Fang of Shargaas
-Orc War Chief
 Orcus
 Orog
 Orthon
@@ -9076,14 +9692,14 @@ Pit Spawn (Variant 3)
 Pit Spawn (Variant 4)
 Pit Spawn (Variant 5)
 Pit Spawn (Variant)
-Pixie
-Planetars
+Vampire lord
+Planetar
 Precognitive Mage
 Priest of the Forgotten God
 Priest of the Old Faith
 Primus
 Quadrone
-Quaggoth (base, spore servant, thonot)
+Quaggoth
 Quaggoth Spore Servant
 Quaggoth Thonot
 Quetzalcoatlus
@@ -9107,8 +9723,6 @@ Rogue
 Rot troll
 Rubblebelt stalker
 Rutterkin
-Sacred statue
-Sage
 Sahuagin (baron, priestess)
 Sahuagin (Variant 2)
 Sahuagin (Variant 3)
@@ -9132,13 +9746,10 @@ Selesnya initiate
 Serra angel
 Servitor Thrull
 Shadar-kai
-Shadar-Kai (base, Gloom Weaver, Shadow Dancer, Soul Monger)
 Shadar-kai Gloom Weaver
 Shadar-kai Shadow Dancer
 Shadar-kai Soul Monger
 Shadow dancer
-Shadow demon
-Shadow Dragon (various types listed in list, but stat blocks not specified which types)
 Shadow Horror
 Shadow mastiff
 Shadow mastiff alpha
@@ -9151,8 +9762,6 @@ Simic Hybrid
 Sire of Insanity
 Skein spider
 Skittering Horror
-Skulk
-Skull Lord
 Skyjek Roc
 Skyswimmer
 Slaad (any, Blue, Death, Gray, Green, Red, Tadpole)
@@ -9162,7 +9771,6 @@ Snake
 Soldier
 Sorcerer
 Sorrowsworn, Wretched
-Soul monger
 Spawn of Kyuss
 Spellcaster
 Spellcaster vampire
@@ -9175,7 +9783,6 @@ Spirit Troll
 Spring eladrin
 Star moth
 Star Spawn Grue
-Star spawn grue/hulk/larva mage/mangler/seer
 Star Spawn Hulk
 Star Spawn Larva Mage
 Star Spawn Mangler
@@ -9213,9 +9820,6 @@ Swarm of Cranium Rats
 Swarm of Rot Grubs
 Swarm of spiders
 Swarmkeeper ranger
-Sword Wraith Commander
-Sword wraith commander/warrior
-Sword Wraith Warrior
 Tabaxi
 Tanarukk
 Tarkanan assassin
@@ -9229,8 +9833,6 @@ Tiamat
 Tiefling
 Titivilus
 Tlincalli
-Topaz dragon
-Topaz Dragon (Ancient, Adult, Young, Wyrmling)
 Tortle
 Tortle Druid
 Townsfolk
@@ -9254,20 +9856,13 @@ Tribal Warlock
 Tribal Warrior
 Tridrone
 Triton
-Trog
 Troglodyte
 Troll Spirit
 Troll Venom
 Troll, Dire
 Ulitharid
-Umber hulk
-Undead
-Undead councilor
 Undercity Medusa
-Undying councilor (NPC)
-Undying soldier
-Unicorns
-Vampire lord
+Unicorn
 Vampire mage
 Vampire pontiff
 Vampire spawn
@@ -9284,7 +9879,6 @@ War mage
 War Priest
 Warforged colossus
 Warforged soldier
-Warhorse Skeleton
 Warlock
 Warlock of the Archfey
 Warlock of the Archfey/Fiend/Great Old One
@@ -9311,7 +9905,6 @@ Wood Woad
 Wretched sorrowsworn
 Wurm
 Xvart
-Xvart (base, Warlock of Raxivort)
 Xvart Warlock of Raxivort
 Yagn
 Yagnoloth
@@ -9319,7 +9912,6 @@ Yeenoghu
 Yeth Hound
 Young remorhaz
 Yuan-ti
-Yuan-ti (base, abomination, anathema, broodguard, malison, mind whisperer, nightmare speaker, pureblood, pit master)
 Yuan-ti abomination
 Yuan-ti Anathema
 Yuan-ti Broodguard
