@@ -570,23 +570,53 @@ function generateEncounterOptionsImproved(xpLimit, monsterData, numOptions = 5) 
                     return !usedMonsterNames.has(name) && monsterXp <= remainingXp;
                 });
             } else {
-                // Thematic filter: only monsters similar to the first
+                // 1. Try associates
                 fittingMonsters = monsterNames.filter(name => {
                     if (usedMonsterNames.has(name)) return false;
                     const monsterXp = monsterData[name];
                     if (monsterXp > remainingXp) return false;
                     const m = typeof monsters !== 'undefined' ? monsters.find(mon => mon.name === name) : null;
                     if (!m || !firstMonsterData) return false;
-                    // Type
-                    if (isTypeSimilar(m.type, firstMonsterData.type)) return true;
-                    // Alignment
-                    if (isAlignmentSimilar(m.alignment, firstMonsterData.alignment)) return true;
-                    // Environment
-                    if (hasEnvironmentOverlap(m.environments, firstMonsterData.environments)) return true;
-                    // Associations (if present)
-                    if (hasAssociationOverlap(m.associations, firstMonsterData.associations)) return true;
+                    // Associates
+                    if (hasAssociationOverlap(m.associates, firstMonsterData.associates)) return true;
                     return false;
                 });
+                // 2. If not enough, try alignment
+                if (fittingMonsters.length === 0) {
+                    fittingMonsters = monsterNames.filter(name => {
+                        if (usedMonsterNames.has(name)) return false;
+                        const monsterXp = monsterData[name];
+                        if (monsterXp > remainingXp) return false;
+                        const m = typeof monsters !== 'undefined' ? monsters.find(mon => mon.name === name) : null;
+                        if (!m || !firstMonsterData) return false;
+                        if (isAlignmentSimilar(m.alignment, firstMonsterData.alignment)) return true;
+                        return false;
+                    });
+                }
+                // 3. If still not enough, try environment
+                if (fittingMonsters.length === 0) {
+                    fittingMonsters = monsterNames.filter(name => {
+                        if (usedMonsterNames.has(name)) return false;
+                        const monsterXp = monsterData[name];
+                        if (monsterXp > remainingXp) return false;
+                        const m = typeof monsters !== 'undefined' ? monsters.find(mon => mon.name === name) : null;
+                        if (!m || !firstMonsterData) return false;
+                        if (hasEnvironmentOverlap(m.environments, firstMonsterData.environments)) return true;
+                        return false;
+                    });
+                }
+                // 4. If still not enough, try type
+                if (fittingMonsters.length === 0) {
+                    fittingMonsters = monsterNames.filter(name => {
+                        if (usedMonsterNames.has(name)) return false;
+                        const monsterXp = monsterData[name];
+                        if (monsterXp > remainingXp) return false;
+                        const m = typeof monsters !== 'undefined' ? monsters.find(mon => mon.name === name) : null;
+                        if (!m || !firstMonsterData) return false;
+                        if (isTypeSimilar(m.type, firstMonsterData.type)) return true;
+                        return false;
+                    });
+                }
             }
             if (fittingMonsters.length === 0) {
                 break;
