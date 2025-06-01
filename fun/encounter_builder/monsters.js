@@ -5523,7 +5523,7 @@ const monsters = [
       "type": "monstrosity",
       "alignment": "unaligned",
       "environments": ["Forest"],
-      "associates": [""],
+      "associates": ["Hell Hound", "Lamia", "Wereboar", "Revenant", "Werebear", "Gnoll Fang of Yeenoghu", "Duergar", "Hook Horror", "Minotaur", "Wight", "Mummy", "Hobgoblin Captain"],
       "armor class": "13 (Natural Armor)",
       "hit points": "32 (5d10 + 5)",
       "speed": "30 ft, climb 30ft",
@@ -5671,7 +5671,7 @@ const monsters = [
       "type": "beast",
       "alignment": "unaligned",
       "environments": ["Grassland", "Mountain", "Jungle", "Urban", "Hill"],
-      "associates": [""],
+      "associates": ["Commoner", "Mule", "Guard", "Draft horse", "Warhorse", "Riding horse"],
       "armor class": "1",
       "hit points": "11 (2d8 + 2)",
       "speed": "40ft",
@@ -6975,7 +6975,7 @@ const monsters = [
       "type": "humanoid",
       "alignment": "any",
       "environments": ["Urban"],
-      "associates": [""],
+      "associates": ["Commoner", "Bandit", "Cultist"],
       "armor class": "11 (Leather Armor)",
       "hit points": "32 (5d8 + 10)",
       "speed": "30ft",
@@ -8308,19 +8308,38 @@ const monsters = [
 
   /*
   Refer to https://docs.google.com/spreadsheets/d/1ZVJW2zXbkYIeUqFKx-oLDwcJhrJtN3HYDvLDz0sDExI/edit?gid=0#gid=0 for a full list of monsters and their known associates.
-  ## monsters to be added:
-  Abishai
+  ## monsters to be added
+  The following is a list of monsters that are not currently in the above list, but are known to exist in the game. They need their stats added to the above list and their associates updated.
+
+  Once all these monsters are added, generate a PDF and add it back to this NotebookLM (https://notebooklm.google.com/notebook/223209c0-31b1-4d76-890a-e6f5dc0719a1?pli=1).
+Aarakocra
+Abishai
+Abishai, White
 Abjurer
+Abjurer wizard
 Abominable yeti
+Abyssal wretch
+Adult kruthik
+Adult Oblex
+Adult Red Dracolich
 Advokist
+Air elemental myrmidon
 Alchemist
 Alhoon
+Alkilith
 Allied Evil Azer
+Allip
+Amethyst Dragon (Ancient, Adult, Young, Wyrmling)
 Amethyst dragon wyrmling
 Amnizu
 Anarch
 Ancient Moonstone dragon
 Angels
+Angry sorrowsworn
+Animated Breath
+Annis hag
+Antelope
+Apprentice
 Arcana caster
 Arcanaloth
 Archangel of Fury
@@ -8330,6 +8349,8 @@ Archangel of Life
 Archangel of Strife
 Archangel of Thune
 Archangel of Wrath
+Archdruid
+Archer
 Archon of the Dawn
 Archon of the Dawn (Variant 2)
 Archon of the Dawn (Variant)
@@ -8341,29 +8362,56 @@ Archon of the Sword
 Archon of the Triumvirate
 Archons
 Arclight Phoenix
+Armanite
 Artificer
 Ash
 Asmodeus
+Aspect of Bahamut
+Aspect of Tiamat
+Astral Dreadnought
 Aurelia
+Aurochs
+Autumn eladrin
 Baalzebul
-Battleforce angel
+Babau
+Bael
+Bahamut
+Balhannoth
+Banderhobb
+Baphomet
+Barbarian
+Bard
+Barghest
+Barlgura
+Battleforce Angel
 Beast
 Beholder
 Beholder Greater Minion
 Beholder Pet
-Beholder Zombie
+Beholder zombie
 Beholderkin
 Belial
+Berbalang
 Bheur Hag
 Biomancer
+bjurer
+Black Dragon
 Black Dragon Adult
 Black Dragon Ancient
 Black Dragon Young
-Black pudding
 Blackguard
+Blink dog
+Blistercoil Weird
+Blood Drinker Vampire
 Blood Witch
 Bloodfray Giant
 Blue dragon
+Blue slaad
+Boar
+Bodak
+Boggle
+Bone naga
+Boneclaw
 Borborygmos
 Boros Legion
 Boros Legionnaire
@@ -8374,95 +8422,173 @@ Boros Swiftblade (Variant 4)
 Boros Swiftblade (Variant 5)
 Boros Swiftblade (Variant)
 Bounty hunter
+Brontosaurus
 Bronze dragon
+Bronze scout
 Bugbear Boss
 Bugbear Captain
 Bugbear Chief
 Bugbear Soldier
 Bugbear Warrior
+Bulezau
 Bullywug
 Cadaver collector
 Cambion
+Canoloth
 Carrion Crawler
-Category 1 krasis
-Category 2 krasis
-Category 3 krasis
+Category 1 Krasis
+Category 2 Krasis
+Category 3 Krasis
+Catoblepas
 Cave Bear
+Cave Fisher
+Champion
+Chasme
 Chemister
+Chitine
+Choker
+Choldrith
+Chromatic Greatwyrm
 Cleric
+Clockwork Bronze Scout
+Clockwork Iron Cobra
+Clockwork Oaken Bolter
+Clockwork Stone Defender
+Cloud Giant Smiling One
 Conclave Dryad
 Conjurer
+Conjurer wizard
 Construct
 Corpse Flower
+Cosmotronic Blastseeker
 Couatls
+Cougar
+Counterflux Blastseeker
+Cranium Rat
 Crystal Dragon
+Crystal Dragon (Ancient, Adult, Young, Wyrmling)
 Crystal dragon wyrmling
+Cultist
 Daelkyr
+Daelkyr (Belashyrra, Dyrrn)
 Dao
+Darkling
+Darkling Elder
+Death Kiss
 Death knight
 Death Tyrant
 Deathlock
-Deathlock wight
+Deathlock Mastermind
+Deathlock Wight
+Deathpact Angel
+Deep Dragon (Ancient, Adult, Young, Wyrmling)
 Deep gnome
 Deep gnome scout
+Deep rothe
 Deep Sashelas
+Deep Scion
+Deinonychus
+Demilich
 Demogorgon
 Demon
+Derro
+Derro Savant
 Devas
 Devil
 Devil's Ride
 Devkarin
 Devkarin lich
 Devourer
+Dhergoloth
 Dignitary
+Dimetrodon
 Dimir
+Dinosaurs (Clawfoot, Fastieth)
+Dire Troll
 Dispater
 Displacer Beast
 Diviner
+Diviner wizard
+Dolgaunt
+Dolphin
+Dolphin Delighter
+Dracohydra
+Dracolich
+Draconians (various types listed in list, but stat blocks not specified which types)
+Draegloth
+Dragon Blessed
+Dragon Chosen
 Dragon Egg
 Dragon Hatchling
-Dragon Wyrmling (generic)
+Dragon Speaker
+Dragon Turtles (Wyrmling, Young, Ancient)
+Dragon Wyrmling
+Dragonblood Ooze
 Dragonborn
+Dragonnel
 Droaam
-Drow Elite Warrior
+Drow arachnomancer
+Drow elite warrior
+Drow favored consort
 Drow guard
+Drow house captain
+Drow inquisitor
 Drow Mage
+Drow matron mother
 Drow priestess
 Drow ranger
+Drow shadowblade
 Druid of the Old Ways
-Duergar Despot
-Duergar Hammerer
-Duergar Kavalrachni
-Duergar Mind Master
+Duergar despot
+Duergar hammerer
+Duergar kavalrachni
+Duergar mind master
 Duergar prospector
-Duergar Screamer
-Duergar Soulblade
-Duergar Stone Guard
-Duergar Warlord
-Duergar Xarrorn
+Duergar screamer
+Duergar soulblade
+Duergar stone guard
+Duergar warlord
+Duergar xarrorn
+Dusk Hag
 Dwarf explorer
 Dwarf prospector
-Earth Elemental Myrmidon
+Dybbuk
+Earth elemental myrmidon
 Earth Elemental Myrmidon (Variant)
+Egg hunter (hatchling, adult)
+Eidolon
+Eladrin, Spring
+Eladrin, Summer
+Eladrin, Winter
+Elder Brain
+Elder Oblex
+Elder Tempest
 Elemental
 Elemental General
+Elemental Myrmidon, Air
+Elemental Myrmidon, Earth
+Elemental Myrmidon, Fire
+Elemental Myrmidon, Water
 Elemental Prince of Evil Fire
+Emerald Dragon
 Empyreans
 Enchanter
+Enchanter wizard
 Enslaved Goblin
 Enslaved Troll
-Ettercap
 evil giants
 Evoker
+Evoker wizard
+Eyedrake
 Faerie dragon
 Faerie Dragon (Young)
 Felidar
-Female Steeder
+Female steeder
 Fey
 Fey noble
 Fiend
 Fighter
-Fire Elemental Myrmidon
+Fire elemental myrmidon
 Fire Elemental Myrmidon (Variant)
 Fire Giant Dreadnought
 Fire Giant Flame Lord
@@ -8475,18 +8601,23 @@ Fire Giant Stormcaller
 Fire Giant Thane
 Fire Giant Thane of the Firelands
 Fire Snake
-Fire snakes
 Firefist
-Firemane angel
+Firemane Angel
+Firenewt Warlock of Imix
+Firenewt Warrior
+Flail Snail
 Flame-kin (azer)
 Flind
+Flux Blastseeker
 Fluxcharger
 Flying Horror
 Fomorian
 Fraz-Urb'luu
-Frontline medic
+Froghemoth
+Frontline Medic
 Frost drake
 Frost Giant Dreadnought
+Frost Giant Everlasting One
 Frost Giant Flame Lord
 Frost Giant Hellbringer
 Frost Giant Invoker
@@ -8495,14 +8626,22 @@ Frost Giant Rune Carver
 Frost Giant Stormcaller
 Frost Giant Thane
 Frost Giant Thane of the Frostlands
-Frost salamander
+Frost Salamander
 Frost spider
 Frost wyrm
 Fungus
-Galeb Duhr
+Galeb duhr
+Galvanic Blastseeker
+Galvanice Weird
 Gas Spore
+Gauth
 Gazer
+Gem Greatwyrm
+Gem Stalker
+Genie
+Geryon
 Ghost (Variant)
+Ghost Dragon
 Ghost of a Fallen Bard
 Ghost of a Fallen Cleric
 Ghost of a Fallen Druid
@@ -8511,15 +8650,15 @@ Ghost of a Fallen Ranger
 Ghost of a Fallen Rogue
 Ghost of a Fallen Sorcerer
 Ghost of a Fallen Wizard
+Giant
 Giant Ant
-Giant Bats
-Giant centipede
 Giant eel
 Giant hyena (variant 2)
 Giant hyena (variant 3)
 Giant hyena (variant 4)
 Giant hyena (variant 5)
 Giant hyena (variant)
+Giant Poisonous Snakes
 Giant raven
 Giant seahorse
 Giant shark (variant 2)
@@ -8530,12 +8669,24 @@ Giant shark (variant)
 Giant skeleton
 Giant Spiders
 Giant squid
+Giant Strider
 Giant zombie
+Giff
+Girallon
 Githyanki
+Githyanki Gish
+Githyanki gish/kith'rak/supreme commander
+Githyanki Kith'rak
 Githyanki knight
+Githyanki Supreme Commander
 Githyanki Warrior
 Githzerai
+Githzerai Anarch
+Githzerai anarch/enlightened/zerth
+Githzerai Enlightened
 Githzerai Monk
+Gloom weaver
+Gnoll (base, Flesh Gnawer, Hunter, Pack Lord, Witherling)
 Gnoll Fang of Yeenoghu
 Gnoll Flesh Gnawer
 Gnoll Hunter
@@ -8543,17 +8694,21 @@ Gnoll pack lord
 Gnoll Witherling
 Goblin warlock
 Goblinoids
+Gold Dragon
 Golgari
 Golgari agent
 Golgari shaman
 Golgari Swarm
 Golgari troll
+Goristro
 Gorodan Ashford
+Gray Render
+Gray Slaad
 Graz'zt
 Greater Devil
-Green dragon wyrmling
 Grell
-Grick Alpha
+Grick
+Grick alpha
 Grick Broodmother
 Grick Hatchling
 Grick Hunter
@@ -8569,6 +8724,10 @@ Griffon (Fey)
 Griffon (Fiend)
 Griffon (Monstrosity)
 Griffon (Undead)
+Grung
+Grung (base, Elite Warrior, Wildling)
+Grung Elite Warrior
+Grung Wildling
 Gruul
 Gruul Anarch
 Gruul Batterboar
@@ -8592,13 +8751,24 @@ Gruul Sunder shaman
 Gruul Trog
 Gruul Viashino
 Guard (Thrall)
+Guard Drake
 Guardian giant
 Guardinals
 Hag
+Hag (Annis, Bheur, Dusk, Green, Night)
 Hag Minion
 Hag Servant
 Half-ogre
-Hoard mimic
+Hellfire Engine
+Hellfire Engine (Variant 2)
+Hellfire Engine (Variant 3)
+Hellfire Engine (Variant 4)
+Hellfire Engine (Variant)
+Helmed Horror
+Herder
+Hoard Mimic
+Hoard Scarab (base, Swarm)
+Hobgoblin (base, Captain, Devastator, Iron Shadow, Warlord)
 Hobgoblin (Elite Soldier)
 Hobgoblin (Elite Warrior)
 Hobgoblin (Soldier)
@@ -8616,13 +8786,22 @@ Hobgoblin sergeant
 Hobgoblin soldier
 Hobgoblin Warlord
 Hobgoblin warrior
-Hook Horror
+Hollow Dragon
+Homunculi
+Hook horror
+Howler
+Huge Batterboar
+Human
 Humanoid Bicuspid
-Hybrid brute
-Hybrid flier
-Hybrid poisoner
-Hybrid shocker
-Hybrid spy
+Hungry sorrowsworn
+Hutijin
+Hybrid Brute
+Hybrid Flier
+Hybrid Poisoner
+Hybrid Shocker
+Hybrid Spy
+Hydroloth
+Ice mephits
 Illithid
 Illithid Arcanist
 Illithid Elder Brain
@@ -8632,46 +8811,66 @@ Illithid Psion
 Illithid Sorcerer
 Illithid Warlock
 Illusionist
+Illusionist wizard
+Imp
 Incubus
-Indentured spirit
+Indentured Spirit
 Infernal Engine
 Infernal Engine (Variant)
 Infernal War Machine
 Infernal War Machine (Variant)
 Intellect Devourer
+Iron cobra
 Isperia
+Iuz
+Jackalwere
+Jaculis
 Jarad Vod Savo
 Juiblex
+Karrnathi undead soldier
 Kenku
-Kobold dragonshield
-Kobold inventor
-Kobold scale sorcerer
-Kobolds
+Ki-rin
+Kobold (base, Dragonshield, Inventor, Scale Sorcerer)
+Kobold Dragonshield
+Kobold Inventor
+Kobold Scale Sorcerer
+Korred
 Kraken Hatchling
 Kraken Priest
 Kraken Priestess
 Kraken Priestess (Variant 2)
 Kraken Priestess (Variant)
 Kraken Spawn
+Krasis (Category 1, 2, 3)
 Kraul
 Kraul death priest
 Kraul warrior
+Krenko
 Krovod
+Kruthik (Young, Adult, Hive Lord)
+Kruthik Adult
+Kruthik Hive Lord
+Kruthik Young
 Kuo-toa
-Kuo-toa Monitor
-Kuo-toa Whip
+Kuo-toa archpriest
+Kuo-toa monitor
+Kuo-toa whip
+Lady Illmarrow
 Lamia (Variant 2)
 Lamia (Variant 3)
 Lamia (Variant 4)
 Lamia (Variant 5)
 Lamia (Variant)
+Larloch
 Lawmage
+Lazav
 Lemure (Variant 2)
 Lemure (Variant 3)
 Lemure (Variant 4)
 Lemure (Variant 5)
 Lemure (Variant)
 Leucrotta
+Leviathan
 Levistus
 Lich (Variant 2)
 Lich (Variant 3)
@@ -8679,6 +8878,7 @@ Lich (Variant 4)
 Lich (Variant 5)
 Lich (Variant)
 Lich King
+Liondrake
 Lizard king/queen
 Lizardfolk (Viashino)
 Lizardfolk champion
@@ -8688,19 +8888,25 @@ Lizardfolk priest (Variant)
 Lizardfolk Queen
 Lizardfolk scout
 Lizardfolk scout (Variant)
-Lizardfolk Shaman
+Lizardfolk shaman
 Lizardfolk shaman (Variant)
 Lizardfolk tribe leader
 Lizardfolk tribe leader (Variant)
 Lizardfolk warrior
 Lizardfolk warrior (Variant)
+Lonely sorrowsworn
+Lord of Blades
+Lords of Dust
+Lost sorrowsworn
+Lost spirits
 Lycanthrope
+Magewright
 Magma mephit (Variant 2)
 Magma mephit (Variant 3)
 Magma mephit (Variant 4)
 Magma mephit (Variant 5)
 Magma mephit (Variant)
-Male Steeder
+Male steeder
 Mammon
 Mammoth (Variant 2)
 Mammoth (Variant 3)
@@ -8708,7 +8914,6 @@ Mammoth (Variant 4)
 Mammoth (Variant 5)
 Mammoth (Variant)
 Mane
-Manes
 Manticore (Variant 2)
 Manticore (Variant 3)
 Manticore (Variant 4)
@@ -8720,13 +8925,15 @@ Marilith (Variant 3)
 Marilith (Variant 4)
 Marilith (Variant 5)
 Marilith (Variant)
-Martial arts adept
+Martial Arts Adept
+Marut
 Master of Cruelties
-Master thief
+Master Thief
 Maurezhi
 Maw Demon
 Meazel
 Meenlock
+Mephit (Mud, Smoke)
 Mephit (Variant 2)
 Mephit (Variant 3)
 Mephit (Variant 4)
@@ -8739,14 +8946,34 @@ Merfolk (Variant 3)
 Merfolk (Variant 4)
 Merfolk (Variant 5)
 Merfolk (Variant)
+Merregon
+Merrenoloth
+Merrow
 Metallic Dragons
-Mind Flayer Arcanist
-Mind witness
+Metallic Greatwyrm
+Metallic Sentinels (various types listed in list, but stat blocks not specified which types)
+Metallic Warbler
+Mimic
+Mind Drinker Vampire
+Mind flayer
+Mind flayer arcanist
+Mind flayer lich (alhoon variant)
+Mindwitness
 Modrons
 Moloch
 Molydeus
+Monk
+Morkoth
+Mouth of Grolantor
 Mud mephit
+Mule
+Mummy Lord (Variant 2)
+Mummy Lord (Variant 3)
+Mummy Lord (Variant 4)
+Mummy Lord (Variant 5)
+Mummy Lord (Variant)
 Myconid
+Myconid (sprout, adult, sovereign)
 Myconid Adult
 Myconid Colony
 Myconid mushroom
@@ -8754,6 +8981,8 @@ Myconid sovereign
 Myconid Sprout
 Nabassu
 Naga
+Naga Bone
+Nagpa
 Nalfeshnee (Variant 2)
 Nalfeshnee (Variant 3)
 Nalfeshnee (Variant 4)
@@ -8763,14 +8992,24 @@ Narzugon
 Nature caster
 Nature Spirit
 Necromancer
+Necromancer wizard
+Needle blight
+Neogi
+Neogi (Hatchling, base, Master)
+Neogi Hatchling
+Neogi Master
+Neothelid
 Nightmare (Variant 2)
 Nightmare (Variant 3)
 Nightmare (Variant 4)
 Nightmare (Variant 5)
 Nightmare (Variant)
-Nightveil Specter
+Nightveil specter
+Nightwalker
+Nilbog
+Niv-Mizzet
+Nivix Cyclops
 Nomad
-Nomads
 Nothic (Variant 2)
 Nothic (Variant 3)
 Nothic (Variant 4)
@@ -8778,30 +9017,43 @@ Nothic (Variant 5)
 Nothic (Variant)
 Nupperibo
 Nymph
+Oaken bolter
+Oblex (Spawn, Adult, Elder)
+Oblex Spawn
+Obzedat Ghost
+Ogre (Battering Ram, Bolt Launcher, Chain Brute, Howdah)
 Ogre (Variant 2)
 Ogre (Variant 3)
 Ogre (Variant 4)
 Ogre (Variant 5)
 Ogre (Variant)
+Ogre Battering Ram
+Ogre Bolt Launcher
+Ogre Chain Brute
+Ogre howdah
 Ogre Zombie (Variant 2)
 Ogre Zombie (Variant 3)
 Ogre Zombie (Variant 4)
 Ogre Zombie (Variant 5)
 Ogre Zombie (Variant)
+Oinoloth
 Oni (Variant 2)
 Oni (Variant 3)
 Oni (Variant 4)
 Oni (Variant 5)
 Oni (Variant)
 Ooze
+Orc (base, Eye of Gruumsh, War Chief, Nurtured One of Yurtrus, Red Fang of Shargaas)
 Orc Blade of Ilneval
 Orc Eye of Gruumsh
 Orc Graffiti
 Orc Hand of Yurtrus
 Orc Nurtured One of Yurtrus
 Orc Red Fang of Shargaas
+Orc War Chief
 Orcus
 Orog
+Orthon
 Orzhov
 Orzhov Giant
 Otyugh (Variant 2)
@@ -8809,10 +9061,12 @@ Otyugh (Variant 3)
 Otyugh (Variant 4)
 Otyugh (Variant 5)
 Otyugh (Variant)
-Panther (cougar)
+Ox
+Paladin
 Peddler
 Pegasi
 Peryton
+Phoenix
 Piercer
 Piranha beetles
 Pirate captain
@@ -8822,24 +9076,40 @@ Pit Spawn (Variant 3)
 Pit Spawn (Variant 4)
 Pit Spawn (Variant 5)
 Pit Spawn (Variant)
+Pixie
+Planetars
 Precognitive Mage
 Priest of the Forgotten God
 Priest of the Old Faith
 Primus
-Quaggoth
+Quadrone
+Quaggoth (base, spore servant, thonot)
 Quaggoth Spore Servant
 Quaggoth Thonot
+Quetzalcoatlus
 Quickling
+Rakdos
 Rakdos Giant
+Rakdos Lampooner
+Rakdos One Eye
+Rakdos Performer
 Raktusk
+Ranger
 Ravnica Guildless
 Reckoner
-Red Abishai
+Red abishai
 Red Dragon
 Redcap
+Remorhaz (Young)
+Retriever
 Revenant
+Rogue
+Rot troll
 Rubblebelt stalker
 Rutterkin
+Sacred statue
+Sage
+Sahuagin (baron, priestess)
 Sahuagin (Variant 2)
 Sahuagin (Variant 3)
 Sahuagin (Variant 4)
@@ -8851,34 +9121,74 @@ Sahuagin Priestess
 Sahuagin sea spawn
 Sahuagin shark
 Salamanders
+Sapphire Dragon (various types listed in list, but stat blocks not specified which types)
+Scarecrow
+Sea Mare
+Sea Serpent
+Sea Serpents (Ancient, Young)
+Sea spawn
 Selesnya
 Selesnya initiate
 Serra angel
+Servitor Thrull
+Shadar-kai
+Shadar-Kai (base, Gloom Weaver, Shadow Dancer, Soul Monger)
+Shadar-kai Gloom Weaver
+Shadar-kai Shadow Dancer
+Shadar-kai Soul Monger
+Shadow dancer
+Shadow demon
+Shadow Dragon (various types listed in list, but stat blocks not specified which types)
 Shadow Horror
-Shadow Mastiff
+Shadow mastiff
+Shadow mastiff alpha
+Shifter
 Shoosuva
 Sibriex
+Sigil
 Silver dragon hatchling
+Simic Hybrid
 Sire of Insanity
 Skein spider
 Skittering Horror
-Skull lord
+Skulk
+Skull Lord
 Skyjek Roc
 Skyswimmer
-Slithering tracker
+Slaad (any, Blue, Death, Gray, Green, Red, Tadpole)
+Slithering Tracker
 Smoke mephit
+Snake
 Soldier
 Sorcerer
+Sorrowsworn, Wretched
+Soul monger
+Spawn of Kyuss
 Spellcaster
 Spellcaster vampire
 Sphinx
 Sphinx of judgment
 Spider Swarm
 Spiderwebs
-Spined Devil
-Steam mephit
-Steeder (Female)
-Stone Giant Dreamwalker
+Spined devil
+Spirit Troll
+Spring eladrin
+Star moth
+Star Spawn Grue
+Star spawn grue/hulk/larva mage/mangler/seer
+Star Spawn Hulk
+Star Spawn Larva Mage
+Star Spawn Mangler
+Star spawn seer
+Steeder, Female
+Steeder, Male
+Steel predator
+Stegosaurus
+Stench kow
+Stone cursed
+Stone defender
+Stone giant
+Stone giant dreamwalker
 Stone Giant Everlasting One
 Stone Giant Jotun
 Stone Giant Jotun (Variant)
@@ -8891,20 +9201,43 @@ Stone Giant Stormcaller (Variant)
 Stone Giant Thane
 Stone Giant Thane (Variant)
 Stone Giant Thane of the Earthmother
+Storm Giant Quintessent
 Succubus
+Summer eladrin
 Summoned Earth Elemental
 Surtur
 Svirfneblin
 Svirfneblin scout
 Swamp-bred chimera
+Swarm of Cranium Rats
+Swarm of Rot Grubs
+Swarm of spiders
 Swarmkeeper ranger
+Sword Wraith Commander
+Sword wraith commander/warrior
+Sword Wraith Warrior
+Tabaxi
+Tanarukk
 Tarkanan assassin
+Tharizdun
+The Wretched
 Thief
+Thorny vegepygmy
+Thought Spy
 Thri-keen
 Tiamat
+Tiefling
+Titivilus
+Tlincalli
+Topaz dragon
+Topaz Dragon (Ancient, Adult, Young, Wyrmling)
+Tortle
+Tortle Druid
 Townsfolk
 Trained Rust Monster
 Transmuter
+Transmuter wizard
+Trapper
 Tribal Archer
 Tribal Berserker
 Tribal Champion
@@ -8919,27 +9252,49 @@ Tribal Shaman
 Tribal Warchief
 Tribal Warlock
 Tribal Warrior
+Tridrone
+Triton
 Trog
 Troglodyte
+Troll Spirit
+Troll Venom
+Troll, Dire
+Ulitharid
+Umber hulk
 Undead
+Undead councilor
 Undercity Medusa
+Undying councilor (NPC)
+Undying soldier
 Unicorns
 Vampire lord
 Vampire mage
 Vampire pontiff
+Vampire spawn
+Vampiric mist
+Vargouille
+Vegepygmy
+Vegepygmy Chief
+Vegepygmy Thorny
+Velociraptor
+Venom troll
 Viashino
 Vine blight
 War mage
-War priest
+War Priest
+Warforged colossus
+Warforged soldier
+Warhorse Skeleton
 Warlock
 Warlock of the Archfey
+Warlock of the Archfey/Fiend/Great Old One
 Warlock of the Fiend
 Warlock of the Great Old One
 Warlock of the Undying
 Warlord
-Warrior
 Warrior vampire
-Water Weird
+Wastrilith
+Water weird
 White Abishai
 White dragon
 Winged kobold
@@ -8948,16 +9303,26 @@ Winged kobold skirmisher
 Winged kobold sorcerer
 Winged kobold taskmaster
 Winged kobold whelp
+Winged Thrull
+Winter eladrin
 Wizard
 Wolves
+Wood Woad
+Wretched sorrowsworn
 Wurm
+Xvart
+Xvart (base, Warlock of Raxivort)
+Xvart Warlock of Raxivort
+Yagn
+Yagnoloth
 Yeenoghu
 Yeth Hound
 Young remorhaz
 Yuan-ti
+Yuan-ti (base, abomination, anathema, broodguard, malison, mind whisperer, nightmare speaker, pureblood, pit master)
 Yuan-ti abomination
-Yuan-ti anathema
-Yuan-ti broodguard
+Yuan-ti Anathema
+Yuan-ti Broodguard
 Yuan-ti guard
 Yuan-ti malison
 Yuan-ti malison (bugbear)
@@ -8969,11 +9334,13 @@ Yuan-ti malison (hobgoblin)
 Yuan-ti malison (human)
 Yuan-ti malison (orc)
 Yuan-ti malison (tiefling)
-Yuan-ti mind whisperer
-Yuan-ti nightmare speaker
-Yuan-ti pit master
+Yuan-ti Mind Whisperer
+Yuan-ti Nightmare Speaker
+Yuan-ti Pit Master
 Yuan-ti Pureblood
 Yuan-ti sorcerer
+Zaeurl (elf werewolf)
+Zaratan
 Zariel
 Zegana
 Zombie lord
