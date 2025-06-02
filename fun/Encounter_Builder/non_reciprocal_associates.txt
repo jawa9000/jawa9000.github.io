@@ -1,0 +1,1926 @@
+Non-reciprocal associate pairs:
+"aboleth" lists "dragon turtle" as an associate, but not vice versa.
+"aboleth" lists "kraken" as an associate, but not vice versa.
+"aboleth" lists "otyugh" as an associate, but not vice versa.
+"aboleth" lists "giant octopus" as an associate, but not vice versa.
+"aboleth" lists "druid" as an associate, but not vice versa.
+"aboleth" lists "plesiosaurus" as an associate, but not vice versa.
+"aboleth" lists "killer whale" as an associate, but not vice versa.
+"aboleth" lists "giant shark" as an associate, but not vice versa.
+"aboleth" lists "mage" as an associate, but not vice versa.
+"aboleth" lists "acolyte" as an associate, but not vice versa.
+"acolyte" lists "lich" as an associate, but not vice versa.
+"acolyte" lists "vampire" as an associate, but not vice versa.
+"acolyte" lists "knight" as an associate, but not vice versa.
+"acolyte" lists "vampire spawn" as an associate, but not vice versa.
+"acolyte" lists "cult fanatic" as an associate, but not vice versa.
+"adult black dragon" lists "merrow" as an associate, but not vice versa.
+"adult black dragon" lists "troglodyte" as an associate, but not vice versa.
+"adult black dragon" lists "drow" as an associate, but not vice versa.
+"adult black dragon" lists "duergar" as an associate, but not vice versa.
+"adult blue dragon" lists "cyclops" as an associate, but not vice versa.
+"adult blue dragon" lists "djinni" as an associate, but not vice versa.
+"adult blue dragon" lists "pseudodragon" as an associate, but not vice versa.
+"adult blue dragon" lists "druid" as an associate, but not vice versa.
+"adult blue dragon" lists "gnoll" as an associate, but not vice versa.
+"adult brass dragon" lists "fire giant" as an associate, but not vice versa.
+"adult brass dragon" lists "fire elemental" as an associate, but not vice versa.
+"adult brass dragon" lists "weretiger" as an associate, but not vice versa.
+"adult brass dragon" lists "cyclops" as an associate, but not vice versa.
+"adult brass dragon" lists "gnoll" as an associate, but not vice versa.
+"adult bronze dragon" lists "pseudodragon" as an associate, but not vice versa.
+"adult bronze dragon" lists "knight" as an associate, but not vice versa.
+"adult bronze dragon" lists "young bronze dragon" as an associate, but not vice versa.
+"adult bronze dragon" lists "young brass dragon" as an associate, but not vice versa.
+"adult bronze dragon" lists "young copper dragon" as an associate, but not vice versa.
+"adult bronze dragon" lists "young gold dragon" as an associate, but not vice versa.
+"adult bronze dragon" lists "young silver dragon" as an associate, but not vice versa.
+"adult bronze dragon" lists "young white dragon" as an associate, but not vice versa.
+"adult copper dragon" lists "gargoyle" as an associate, but not vice versa.
+"adult copper dragon" lists "centaur" as an associate, but not vice versa.
+"adult copper dragon" lists "pixie" as an associate, but not vice versa.
+"adult copper dragon" lists "satyr" as an associate, but not vice versa.
+"adult copper dragon" lists "druid" as an associate, but not vice versa.
+"adult copper dragon" lists "wereboar" as an associate, but not vice versa.
+"adult copper dragon" lists "hill giant" as an associate, but not vice versa.
+"adult gold dragon" lists "pegasus" as an associate, but not vice versa.
+"adult gold dragon" lists "unicorn" as an associate, but not vice versa.
+"adult gold dragon" lists "gargoyle" as an associate, but not vice versa.
+"adult gold dragon" lists "centaur" as an associate, but not vice versa.
+"adult green dragon" lists "assassin" as an associate, but not vice versa.
+"adult green dragon" lists "druid" as an associate, but not vice versa.
+"adult green dragon" lists "bugbear" as an associate, but not vice versa.
+"adult green dragon" lists "ancient silver dragon" as an associate, but not vice versa.
+"adult green dragon" lists "ancient white dragon" as an associate, but not vice versa.
+"adult green dragon" lists "young green dragon" as an associate, but not vice versa.
+"adult green dragon" lists "young silver dragon" as an associate, but not vice versa.
+"adult green dragon" lists "young white dragon" as an associate, but not vice versa.
+"adult red dragon" lists "salamander" as an associate, but not vice versa.
+"adult red dragon" lists "kobold" as an associate, but not vice versa.
+"adult red dragon" lists "hobgoblin" as an associate, but not vice versa.
+"adult red dragon" lists "lich" as an associate, but not vice versa.
+"adult red dragon" lists "ancient silver dragon" as an associate, but not vice versa.
+"adult red dragon" lists "ancient white dragon" as an associate, but not vice versa.
+"adult red dragon" lists "young red dragon" as an associate, but not vice versa.
+"adult red dragon" lists "young silver dragon" as an associate, but not vice versa.
+"adult red dragon" lists "young white dragon" as an associate, but not vice versa.
+"adult silver dragon" lists "stone giant" as an associate, but not vice versa.
+"adult silver dragon" lists "hippogriff" as an associate, but not vice versa.
+"adult silver dragon" lists "ogre" as an associate, but not vice versa.
+"adult silver dragon" lists "pegasus" as an associate, but not vice versa.
+"adult silver dragon" lists "unicorn" as an associate, but not vice versa.
+"adult silver dragon" lists "gargoyle" as an associate, but not vice versa.
+"adult silver dragon" lists "centaur" as an associate, but not vice versa.
+"adult silver dragon" lists "druid" as an associate, but not vice versa.
+"adult white dragon" lists "ice mephit" as an associate, but not vice versa.
+"adult white dragon" lists "polar bear" as an associate, but not vice versa.
+"adult white dragon" lists "djinni" as an associate, but not vice versa.
+"adult white dragon" lists "ancient silver dragon" as an associate, but not vice versa.
+"adult white dragon" lists "ancient white dragon" as an associate, but not vice versa.
+"adult white dragon" lists "young white dragon" as an associate, but not vice versa.
+"ancient black dragon" lists "merrow" as an associate, but not vice versa.
+"ancient black dragon" lists "troglodyte" as an associate, but not vice versa.
+"ancient black dragon" lists "assassin" as an associate, but not vice versa.
+"ancient black dragon" lists "ancient silver dragon" as an associate, but not vice versa.
+"ancient black dragon" lists "ancient white dragon" as an associate, but not vice versa.
+"ancient black dragon" lists "young black dragon" as an associate, but not vice versa.
+"ancient black dragon" lists "young silver dragon" as an associate, but not vice versa.
+"ancient black dragon" lists "young white dragon" as an associate, but not vice versa.
+"ancient blue dragon" lists "cyclops" as an associate, but not vice versa.
+"ancient blue dragon" lists "djinni" as an associate, but not vice versa.
+"ancient blue dragon" lists "pseudodragon" as an associate, but not vice versa.
+"ancient blue dragon" lists "druid" as an associate, but not vice versa.
+"ancient blue dragon" lists "gnoll" as an associate, but not vice versa.
+"ancient blue dragon" lists "young blue dragon" as an associate, but not vice versa.
+"ancient blue dragon" lists "young copper dragon" as an associate, but not vice versa.
+"ancient blue dragon" lists "young gold dragon" as an associate, but not vice versa.
+"ancient blue dragon" lists "young green dragon" as an associate, but not vice versa.
+"ancient blue dragon" lists "young red dragon" as an associate, but not vice versa.
+"ancient blue dragon" lists "young silver dragon" as an associate, but not vice versa.
+"ancient blue dragon" lists "young white dragon" as an associate, but not vice versa.
+"ancient brass dragon" lists "fire giant" as an associate, but not vice versa.
+"ancient brass dragon" lists "fire elemental" as an associate, but not vice versa.
+"ancient brass dragon" lists "weretiger" as an associate, but not vice versa.
+"ancient brass dragon" lists "cyclops" as an associate, but not vice versa.
+"ancient brass dragon" lists "gnoll" as an associate, but not vice versa.
+"ancient brass dragon" lists "hippogriff" as an associate, but not vice versa.
+"ancient brass dragon" lists "ogre" as an associate, but not vice versa.
+"ancient brass dragon" lists "pegasus" as an associate, but not vice versa.
+"ancient brass dragon" lists "unicorn" as an associate, but not vice versa.
+"ancient brass dragon" lists "gargoyle" as an associate, but not vice versa.
+"ancient brass dragon" lists "centaur" as an associate, but not vice versa.
+"ancient brass dragon" lists "druid" as an associate, but not vice versa.
+"ancient brass dragon" lists "ancient silver dragon" as an associate, but not vice versa.
+"ancient brass dragon" lists "ancient white dragon" as an associate, but not vice versa.
+"ancient brass dragon" lists "young brass dragon" as an associate, but not vice versa.
+"ancient brass dragon" lists "young silver dragon" as an associate, but not vice versa.
+"ancient brass dragon" lists "young white dragon" as an associate, but not vice versa.
+"ancient bronze dragon" lists "pseudodragon" as an associate, but not vice versa.
+"ancient bronze dragon" lists "knight" as an associate, but not vice versa.
+"ancient bronze dragon" lists "young bronze dragon" as an associate, but not vice versa.
+"ancient bronze dragon" lists "young copper dragon" as an associate, but not vice versa.
+"ancient bronze dragon" lists "young gold dragon" as an associate, but not vice versa.
+"ancient bronze dragon" lists "young green dragon" as an associate, but not vice versa.
+"ancient bronze dragon" lists "young red dragon" as an associate, but not vice versa.
+"ancient bronze dragon" lists "young silver dragon" as an associate, but not vice versa.
+"ancient bronze dragon" lists "young white dragon" as an associate, but not vice versa.
+"ancient copper dragon" lists "gargoyle" as an associate, but not vice versa.
+"ancient copper dragon" lists "centaur" as an associate, but not vice versa.
+"ancient copper dragon" lists "pixie" as an associate, but not vice versa.
+"ancient copper dragon" lists "satyr" as an associate, but not vice versa.
+"ancient copper dragon" lists "druid" as an associate, but not vice versa.
+"ancient copper dragon" lists "wereboar" as an associate, but not vice versa.
+"ancient copper dragon" lists "hill giant" as an associate, but not vice versa.
+"ancient copper dragon" lists "stone giant" as an associate, but not vice versa.
+"ancient copper dragon" lists "young brass dragon" as an associate, but not vice versa.
+"ancient copper dragon" lists "young silver dragon" as an associate, but not vice versa.
+"ancient copper dragon" lists "young white dragon" as an associate, but not vice versa.
+"ancient gold dragon" lists "gargoyle" as an associate, but not vice versa.
+"ancient gold dragon" lists "centaur" as an associate, but not vice versa.
+"ancient gold dragon" lists "druid" as an associate, but not vice versa.
+"ancient gold dragon" lists "unicorn" as an associate, but not vice versa.
+"ancient gold dragon" lists "pegasus" as an associate, but not vice versa.
+"ancient gold dragon" lists "young brass dragon" as an associate, but not vice versa.
+"ancient gold dragon" lists "young silver dragon" as an associate, but not vice versa.
+"ancient gold dragon" lists "young white dragon" as an associate, but not vice versa.
+"ancient green dragon" lists "assassin" as an associate, but not vice versa.
+"ancient green dragon" lists "druid" as an associate, but not vice versa.
+"ancient green dragon" lists "bugbear" as an associate, but not vice versa.
+"ancient green dragon" lists "ancient silver dragon" as an associate, but not vice versa.
+"ancient green dragon" lists "ancient white dragon" as an associate, but not vice versa.
+"ancient green dragon" lists "young blue dragon" as an associate, but not vice versa.
+"ancient green dragon" lists "young copper dragon" as an associate, but not vice versa.
+"ancient green dragon" lists "young gold dragon" as an associate, but not vice versa.
+"ancient green dragon" lists "young red dragon" as an associate, but not vice versa.
+"ancient green dragon" lists "young silver dragon" as an associate, but not vice versa.
+"ancient green dragon" lists "young white dragon" as an associate, but not vice versa.
+"ancient red dragon" lists "salamander" as an associate, but not vice versa.
+"ancient red dragon" lists "kobold" as an associate, but not vice versa.
+"ancient red dragon" lists "hobgoblin" as an associate, but not vice versa.
+"ancient red dragon" lists "lich" as an associate, but not vice versa.
+"ancient red dragon" lists "ancient silver dragon" as an associate, but not vice versa.
+"ancient red dragon" lists "ancient white dragon" as an associate, but not vice versa.
+"ancient red dragon" lists "young blue dragon" as an associate, but not vice versa.
+"ancient red dragon" lists "young copper dragon" as an associate, but not vice versa.
+"ancient red dragon" lists "young gold dragon" as an associate, but not vice versa.
+"ancient red dragon" lists "young green dragon" as an associate, but not vice versa.
+"ancient red dragon" lists "young red dragon" as an associate, but not vice versa.
+"ancient red dragon" lists "young silver dragon" as an associate, but not vice versa.
+"ancient red dragon" lists "young white dragon" as an associate, but not vice versa.
+"ancient silver dragon" lists "stone giant" as an associate, but not vice versa.
+"ancient silver dragon" lists "hippogriff" as an associate, but not vice versa.
+"ancient silver dragon" lists "ogre" as an associate, but not vice versa.
+"ancient silver dragon" lists "pegasus" as an associate, but not vice versa.
+"ancient silver dragon" lists "unicorn" as an associate, but not vice versa.
+"ancient silver dragon" lists "young brass dragon" as an associate, but not vice versa.
+"ancient silver dragon" lists "young silver dragon" as an associate, but not vice versa.
+"ancient silver dragon" lists "young white dragon" as an associate, but not vice versa.
+"ancient white dragon" lists "ice mephit" as an associate, but not vice versa.
+"ancient white dragon" lists "polar bear" as an associate, but not vice versa.
+"ancient white dragon" lists "ancient silver dragon" as an associate, but not vice versa.
+"ancient white dragon" lists "ancient gold dragon" as an associate, but not vice versa.
+"ancient white dragon" lists "young blue dragon" as an associate, but not vice versa.
+"ancient white dragon" lists "young copper dragon" as an associate, but not vice versa.
+"ancient white dragon" lists "young gold dragon" as an associate, but not vice versa.
+"ancient white dragon" lists "young green dragon" as an associate, but not vice versa.
+"ancient white dragon" lists "young red dragon" as an associate, but not vice versa.
+"ancient white dragon" lists "young silver dragon" as an associate, but not vice versa.
+"androsphinx" lists "ancient silver dragon" as an associate, but not vice versa.
+"androsphinx" lists "ancient gold dragon" as an associate, but not vice versa.
+"androsphinx" lists "ancient white dragon" as an associate, but not vice versa.
+"androsphinx" lists "young blue dragon" as an associate, but not vice versa.
+"androsphinx" lists "young copper dragon" as an associate, but not vice versa.
+"androsphinx" lists "young gold dragon" as an associate, but not vice versa.
+"androsphinx" lists "young green dragon" as an associate, but not vice versa.
+"androsphinx" lists "young red dragon" as an associate, but not vice versa.
+"androsphinx" lists "young silver dragon" as an associate, but not vice versa.
+"animated armor" lists "iron golem" as an associate, but not vice versa.
+"animated armor" lists "stone golem" as an associate, but not vice versa.
+"animated armor" lists "clay golem" as an associate, but not vice versa.
+"animated armor" lists "shield guardian" as an associate, but not vice versa.
+"archmage" lists "lich" as an associate, but not vice versa.
+"archmage" lists "ancient silver dragon" as an associate, but not vice versa.
+"archmage" lists "ancient gold dragon" as an associate, but not vice versa.
+"archmage" lists "ancient white dragon" as an associate, but not vice versa.
+"archmage" lists "young blue dragon" as an associate, but not vice versa.
+"archmage" lists "young copper dragon" as an associate, but not vice versa.
+"archmage" lists "young gold dragon" as an associate, but not vice versa.
+"archmage" lists "young green dragon" as an associate, but not vice versa.
+"archmage" lists "young red dragon" as an associate, but not vice versa.
+"archmage" lists "young silver dragon" as an associate, but not vice versa.
+"assassin" lists "young green dragon" as an associate, but not vice versa.
+"assassin" lists "goblin" as an associate, but not vice versa.
+"awakened tree" lists "treant" as an associate, but not vice versa.
+"axe beak" lists "druid" as an associate, but not vice versa.
+"axe beak" lists "goblin" as an associate, but not vice versa.
+"axe beak" lists "orc" as an associate, but not vice versa.
+"baboon" lists "ape" as an associate, but not vice versa.
+"baboon" lists "druid" as an associate, but not vice versa.
+"badger" lists "druid" as an associate, but not vice versa.
+"balor" lists "bearded devil" as an associate, but not vice versa.
+"balor" lists "bone devil" as an associate, but not vice versa.
+"balor" lists "chain devil" as an associate, but not vice versa.
+"balor" lists "horned devil" as an associate, but not vice versa.
+"balor" lists "ice devil" as an associate, but not vice versa.
+"balor" lists "lemure" as an associate, but not vice versa.
+"balor" lists "marilith" as an associate, but not vice versa.
+"balor" lists "pit fiend" as an associate, but not vice versa.
+"balor" lists "demogorgon" as an associate, but not vice versa.
+"bandit" lists "veteran" as an associate, but not vice versa.
+"bandit captain" lists "thug" as an associate, but not vice versa.
+"bandit captain" lists "cultist" as an associate, but not vice versa.
+"bandit captain" lists "veteran" as an associate, but not vice versa.
+"banshee" lists "will-o'-wisp" as an associate, but not vice versa.
+"barbed devil" lists "marilith" as an associate, but not vice versa.
+"barbed devil" lists "demogorgon" as an associate, but not vice versa.
+"bat" lists "vampire spawn" as an associate, but not vice versa.
+"bat" lists "vampire" as an associate, but not vice versa.
+"bearded devil" lists "marilith" as an associate, but not vice versa.
+"bearded devil" lists "demogorgon" as an associate, but not vice versa.
+"berserker" lists "thug" as an associate, but not vice versa.
+"berserker" lists "cultist" as an associate, but not vice versa.
+"berserker" lists "veteran" as an associate, but not vice versa.
+"black bear" lists "druid" as an associate, but not vice versa.
+"black pudding" lists "gelatinous cube" as an associate, but not vice versa.
+"blood hawk" lists "bandit" as an associate, but not vice versa.
+"blue dragon wyrmling" lists "druid" as an associate, but not vice versa.
+"blue dragon wyrmling" lists "gnoll" as an associate, but not vice versa.
+"boar" lists "giant boar" as an associate, but not vice versa.
+"bone devil" lists "lemure" as an associate, but not vice versa.
+"bone devil" lists "marilith" as an associate, but not vice versa.
+"bone devil" lists "pit fiend" as an associate, but not vice versa.
+"bone devil" lists "duergar" as an associate, but not vice versa.
+"bone devil" lists "demogorgon" as an associate, but not vice versa.
+"brass dragon wyrmling" lists "roc" as an associate, but not vice versa.
+"bronze dragon wyrmling" lists "cyclops" as an associate, but not vice versa.
+"bronze dragon wyrmling" lists "water elemental" as an associate, but not vice versa.
+"bronze dragon wyrmling" lists "djinni" as an associate, but not vice versa.
+"bronze dragon wyrmling" lists "storm giant" as an associate, but not vice versa.
+"brown bear" lists "orc" as an associate, but not vice versa.
+"brown bear" lists "satyr" as an associate, but not vice versa.
+"brown bear" lists "will-o'-wisp" as an associate, but not vice versa.
+"brown bear" lists "swarm of poisonous snakes" as an associate, but not vice versa.
+"brown bear" lists "polar bear" as an associate, but not vice versa.
+"bugbear" lists "wolf" as an associate, but not vice versa.
+"bugbear" lists "veteran" as an associate, but not vice versa.
+"bugbear" lists "berserker" as an associate, but not vice versa.
+"bugbear" lists "bandit captain" as an associate, but not vice versa.
+"bulette" lists "cyclops" as an associate, but not vice versa.
+"bulette" lists "wyvern" as an associate, but not vice versa.
+"bulette" lists "wereboar" as an associate, but not vice versa.
+"bulette" lists "young red dragon" as an associate, but not vice versa.
+"bulette" lists "stone giant" as an associate, but not vice versa.
+"bulette" lists "young copper dragon" as an associate, but not vice versa.
+"bulette" lists "roc" as an associate, but not vice versa.
+"camel" lists "bandit" as an associate, but not vice versa.
+"camel" lists "kobold" as an associate, but not vice versa.
+"camel" lists "mule" as an associate, but not vice versa.
+"camel" lists "poisonous snake" as an associate, but not vice versa.
+"camel" lists "stirge" as an associate, but not vice versa.
+"camel" lists "tribal warrior" as an associate, but not vice versa.
+"cat" lists "goat" as an associate, but not vice versa.
+"cat" lists "rat" as an associate, but not vice versa.
+"cat" lists "giant rat" as an associate, but not vice versa.
+"centaur" lists "pixie" as an associate, but not vice versa.
+"centaur" lists "knight" as an associate, but not vice versa.
+"centaur" lists "unicorn" as an associate, but not vice versa.
+"centaur" lists "pegasus" as an associate, but not vice versa.
+"centaur" lists "giant owl" as an associate, but not vice versa.
+"centaur" lists "giant eagle" as an associate, but not vice versa.
+"centaur" lists "treant" as an associate, but not vice versa.
+"chain devil" lists "ice devil" as an associate, but not vice versa.
+"chain devil" lists "marilith" as an associate, but not vice versa.
+"chain devil" lists "duergar" as an associate, but not vice versa.
+"chain devil" lists "demogorgon" as an associate, but not vice versa.
+"chimera" lists "couatl" as an associate, but not vice versa.
+"chimera" lists "ankylosaurus" as an associate, but not vice versa.
+"chimera" lists "weretiger" as an associate, but not vice versa.
+"chimera" lists "allosaurus" as an associate, but not vice versa.
+"chimera" lists "elephant" as an associate, but not vice versa.
+"chimera" lists "cyclops" as an associate, but not vice versa.
+"chimera" lists "wyvern" as an associate, but not vice versa.
+"chimera" lists "cloaker" as an associate, but not vice versa.
+"chimera" lists "spirit naga" as an associate, but not vice versa.
+"chimera" lists "behir" as an associate, but not vice versa.
+"chimera" lists "aboleth" as an associate, but not vice versa.
+"chimera" lists "stone giant" as an associate, but not vice versa.
+"chimera" lists "young red dragon" as an associate, but not vice versa.
+"chimera" lists "young copper dragon" as an associate, but not vice versa.
+"chimera" lists "roc" as an associate, but not vice versa.
+"chuul" lists "salamander" as an associate, but not vice versa.
+"chuul" lists "ogre" as an associate, but not vice versa.
+"chuul" lists "cyclops" as an associate, but not vice versa.
+"chuul" lists "giant crocodile" as an associate, but not vice versa.
+"chuul" lists "giant octopus" as an associate, but not vice versa.
+"chuul" lists "giant shark" as an associate, but not vice versa.
+"chuul" lists "giant constrictor snake" as an associate, but not vice versa.
+"chuul" lists "merrow" as an associate, but not vice versa.
+"chuul" lists "sea hag" as an associate, but not vice versa.
+"chuul" lists "sahuagin" as an associate, but not vice versa.
+"clay golem" lists "priest" as an associate, but not vice versa.
+"clay golem" lists "cultist" as an associate, but not vice versa.
+"cloaker" lists "hell hound" as an associate, but not vice versa.
+"cloaker" lists "drider" as an associate, but not vice versa.
+"cloaker" lists "spirit naga" as an associate, but not vice versa.
+"cloaker" lists "behir" as an associate, but not vice versa.
+"cloaker" lists "aboleth" as an associate, but not vice versa.
+"cloaker" lists "stone giant" as an associate, but not vice versa.
+"cloaker" lists "young red dragon" as an associate, but not vice versa.
+"cloaker" lists "young copper dragon" as an associate, but not vice versa.
+"cloaker" lists "roc" as an associate, but not vice versa.
+"cloud giant" lists "young silver dragon" as an associate, but not vice versa.
+"cloud giant" lists "young gold dragon" as an associate, but not vice versa.
+"cloud giant" lists "young brass dragon" as an associate, but not vice versa.
+"cloud giant" lists "young bronze dragon" as an associate, but not vice versa.
+"cloud giant" lists "young white dragon" as an associate, but not vice versa.
+"cloud giant" lists "young blue dragon" as an associate, but not vice versa.
+"cloud giant" lists "young green dragon" as an associate, but not vice versa.
+"cloud giant" lists "young black dragon" as an associate, but not vice versa.
+"cloud giant" lists "young red dragon" as an associate, but not vice versa.
+"cloud giant" lists "storm giant" as an associate, but not vice versa.
+"cockatrice" lists "giant wasp" as an associate, but not vice versa.
+"cockatrice" lists "swarm of insects" as an associate, but not vice versa.
+"cockatrice" lists "scout" as an associate, but not vice versa.
+"cockatrice" lists "giant goat" as an associate, but not vice versa.
+"cockatrice" lists "worg" as an associate, but not vice versa.
+"cockatrice" lists "hobgoblin" as an associate, but not vice versa.
+"cockatrice" lists "orc" as an associate, but not vice versa.
+"cockatrice" lists "gnoll" as an associate, but not vice versa.
+"commoner" lists "goat" as an associate, but not vice versa.
+"commoner" lists "rat" as an associate, but not vice versa.
+"commoner" lists "raven" as an associate, but not vice versa.
+"commoner" lists "mastiff" as an associate, but not vice versa.
+"commoner" lists "mule" as an associate, but not vice versa.
+"commoner" lists "pseudodragon" as an associate, but not vice versa.
+"commoner" lists "spy" as an associate, but not vice versa.
+"commoner" lists "acolyte" as an associate, but not vice versa.
+"commoner" lists "kobold" as an associate, but not vice versa.
+"commoner" lists "poisonous snake" as an associate, but not vice versa.
+"commoner" lists "stirge" as an associate, but not vice versa.
+"commoner" lists "tribal warrior" as an associate, but not vice versa.
+"constrictor snake" lists "druid" as an associate, but not vice versa.
+"copper dragon wyrmling" lists "gargoyle" as an associate, but not vice versa.
+"copper dragon wyrmling" lists "centaur" as an associate, but not vice versa.
+"copper dragon wyrmling" lists "pixie" as an associate, but not vice versa.
+"copper dragon wyrmling" lists "satyr" as an associate, but not vice versa.
+"copper dragon wyrmling" lists "giant owl" as an associate, but not vice versa.
+"copper dragon wyrmling" lists "giant eagle" as an associate, but not vice versa.
+"copper dragon wyrmling" lists "treant" as an associate, but not vice versa.
+"copper dragon wyrmling" lists "unicorn" as an associate, but not vice versa.
+"copper dragon wyrmling" lists "pegasus" as an associate, but not vice versa.
+"couatl" lists "copper dragon wyrmling" as an associate, but not vice versa.
+"couatl" lists "gold dragon wyrmling" as an associate, but not vice versa.
+"couatl" lists "silver dragon wyrmling" as an associate, but not vice versa.
+"couatl" lists "gargoyle" as an associate, but not vice versa.
+"couatl" lists "centaur" as an associate, but not vice versa.
+"couatl" lists "pixie" as an associate, but not vice versa.
+"couatl" lists "satyr" as an associate, but not vice versa.
+"couatl" lists "druid" as an associate, but not vice versa.
+"couatl" lists "giant owl" as an associate, but not vice versa.
+"couatl" lists "giant eagle" as an associate, but not vice versa.
+"couatl" lists "treant" as an associate, but not vice versa.
+"couatl" lists "unicorn" as an associate, but not vice versa.
+"couatl" lists "pegasus" as an associate, but not vice versa.
+"crab" lists "merfolk" as an associate, but not vice versa.
+"crab" lists "sahuagin" as an associate, but not vice versa.
+"crocodile" lists "lizardfolk" as an associate, but not vice versa.
+"crocodile" lists "druid" as an associate, but not vice versa.
+"cultist" lists "commoner" as an associate, but not vice versa.
+"cultist" lists "scout" as an associate, but not vice versa.
+"cultist" lists "acolyte" as an associate, but not vice versa.
+"cyclops" lists "giant boar" as an associate, but not vice versa.
+"cyclops" lists "berserker" as an associate, but not vice versa.
+"cyclops" lists "saber-toothed tiger" as an associate, but not vice versa.
+"cyclops" lists "ogre" as an associate, but not vice versa.
+"cyclops" lists "hill giant" as an associate, but not vice versa.
+"cyclops" lists "stone giant" as an associate, but not vice versa.
+"cyclops" lists "hydra" as an associate, but not vice versa.
+"cyclops" lists "young blue dragon" as an associate, but not vice versa.
+"cyclops" lists "young green dragon" as an associate, but not vice versa.
+"cyclops" lists "young black dragon" as an associate, but not vice versa.
+"cyclops" lists "young white dragon" as an associate, but not vice versa.
+"cyclops" lists "young red dragon" as an associate, but not vice versa.
+"darkmantle" lists "drow" as an associate, but not vice versa.
+"death dog" lists "gnoll" as an associate, but not vice versa.
+"death dog" lists "hyena" as an associate, but not vice versa.
+"deep gnome (svirfneblin)" lists "earth elemental" as an associate, but not vice versa.
+"deep gnome (svirfneblin)" lists "xorn" as an associate, but not vice versa.
+"deer" lists "wolf" as an associate, but not vice versa.
+"deer" lists "druid" as an associate, but not vice versa.
+"deva" lists "solar" as an associate, but not vice versa.
+"deva" lists "mastiff" as an associate, but not vice versa.
+"deva" lists "knight" as an associate, but not vice versa.
+"deva" lists "veteran" as an associate, but not vice versa.
+"dire wolf" lists "acolyte" as an associate, but not vice versa.
+"dire wolf" lists "scout" as an associate, but not vice versa.
+"dire wolf" lists "riding horse" as an associate, but not vice versa.
+"dire wolf" lists "griffon" as an associate, but not vice versa.
+"dire wolf" lists "giant owl" as an associate, but not vice versa.
+"dire wolf" lists "giant eagle" as an associate, but not vice versa.
+"dire wolf" lists "unicorn" as an associate, but not vice versa.
+"dire wolf" lists "treant" as an associate, but not vice versa.
+"dire wolf" lists "centaur" as an associate, but not vice versa.
+"dire wolf" lists "satyr" as an associate, but not vice versa.
+"dire wolf" lists "pixie" as an associate, but not vice versa.
+"dire wolf" lists "gargoyle" as an associate, but not vice versa.
+"djinni" lists "brass dragon wyrmling" as an associate, but not vice versa.
+"djinni" lists "air elemental" as an associate, but not vice versa.
+"djinni" lists "gargoyle" as an associate, but not vice versa.
+"djinni" lists "centaur" as an associate, but not vice versa.
+"djinni" lists "pixie" as an associate, but not vice versa.
+"djinni" lists "satyr" as an associate, but not vice versa.
+"djinni" lists "druid" as an associate, but not vice versa.
+"djinni" lists "giant owl" as an associate, but not vice versa.
+"djinni" lists "giant eagle" as an associate, but not vice versa.
+"djinni" lists "treant" as an associate, but not vice versa.
+"djinni" lists "unicorn" as an associate, but not vice versa.
+"djinni" lists "pegasus" as an associate, but not vice versa.
+"doppelganger" lists "invisible stalker" as an associate, but not vice versa.
+"doppelganger" lists "shadow" as an associate, but not vice versa.
+"doppelganger" lists "wraith" as an associate, but not vice versa.
+"doppelganger" lists "banshee" as an associate, but not vice versa.
+"doppelganger" lists "ghost" as an associate, but not vice versa.
+"doppelganger" lists "specter" as an associate, but not vice versa.
+"doppelganger" lists "vampire spawn" as an associate, but not vice versa.
+"doppelganger" lists "mimic" as an associate, but not vice versa.
+"doppelganger" lists "oni" as an associate, but not vice versa.
+"doppelganger" lists "succubus/incubus" as an associate, but not vice versa.
+"draft horse" lists "acolyte" as an associate, but not vice versa.
+"draft horse" lists "priest" as an associate, but not vice versa.
+"draft horse" lists "cultist" as an associate, but not vice versa.
+"draft horse" lists "bandit" as an associate, but not vice versa.
+"draft horse" lists "thug" as an associate, but not vice versa.
+"draft horse" lists "scout" as an associate, but not vice versa.
+"draft horse" lists "veteran" as an associate, but not vice versa.
+"draft horse" lists "knight" as an associate, but not vice versa.
+"dragon turtle" lists "sea hag" as an associate, but not vice versa.
+"dretch" lists "grick" as an associate, but not vice versa.
+"dretch" lists "oni" as an associate, but not vice versa.
+"dretch" lists "succubus/incubus" as an associate, but not vice versa.
+"dretch" lists "nightmare" as an associate, but not vice versa.
+"dretch" lists "demogorgon" as an associate, but not vice versa.
+"drow" lists "zombie" as an associate, but not vice versa.
+"drow" lists "shambling mound" as an associate, but not vice versa.
+"drow" lists "troll" as an associate, but not vice versa.
+"drow" lists "vampire spawn" as an associate, but not vice versa.
+"drow" lists "chimera" as an associate, but not vice versa.
+"drow" lists "spirit naga" as an associate, but not vice versa.
+"drow" lists "behir" as an associate, but not vice versa.
+"drow" lists "aboleth" as an associate, but not vice versa.
+"drow" lists "stone giant" as an associate, but not vice versa.
+"drow" lists "gelatinous cube" as an associate, but not vice versa.
+"drow" lists "gibbering mouther" as an associate, but not vice versa.
+"drow" lists "minotaur skeleton" as an associate, but not vice versa.
+"drow" lists "ochre jelly" as an associate, but not vice versa.
+"drow" lists "doppelganger" as an associate, but not vice versa.
+"drow" lists "roper" as an associate, but not vice versa.
+"drow" lists "gargoyle" as an associate, but not vice versa.
+"drow" lists "mimic" as an associate, but not vice versa.
+"drow" lists "specter" as an associate, but not vice versa.
+"drow" lists "ghast" as an associate, but not vice versa.
+"drow" lists "ettin" as an associate, but not vice versa.
+"drow" lists "ogre" as an associate, but not vice versa.
+"drow" lists "chuul" as an associate, but not vice versa.
+"drow" lists "hell hound" as an associate, but not vice versa.
+"drow" lists "salamander" as an associate, but not vice versa.
+"drow" lists "cloaker" as an associate, but not vice versa.
+"drow" lists "drider" as an associate, but not vice versa.
+"drow" lists "fire giant" as an associate, but not vice versa.
+"drow" lists "goblin boss" as an associate, but not vice versa.
+"drow" lists "giant wolf spider" as an associate, but not vice versa.
+"druid" lists "dryad" as an associate, but not vice versa.
+"druid" lists "treant" as an associate, but not vice versa.
+"druid" lists "centaur" as an associate, but not vice versa.
+"druid" lists "black dragon wyrmling" as an associate, but not vice versa.
+"druid" lists "blood hawk" as an associate, but not vice versa.
+"druid" lists "swarm of insects" as an associate, but not vice versa.
+"druid" lists "pixie" as an associate, but not vice versa.
+"druid" lists "goblin" as an associate, but not vice versa.
+"druid" lists "phase spider" as an associate, but not vice versa.
+"druid" lists "harpy" as an associate, but not vice versa.
+"druid" lists "ettercap" as an associate, but not vice versa.
+"druid" lists "orc" as an associate, but not vice versa.
+"druid" lists "goblin boss" as an associate, but not vice versa.
+"druid" lists "ankheg" as an associate, but not vice versa.
+"druid" lists "giant constrictor snake" as an associate, but not vice versa.
+"druid" lists "bugbear" as an associate, but not vice versa.
+"druid" lists "hobgoblin" as an associate, but not vice versa.
+"druid" lists "wight" as an associate, but not vice versa.
+"druid" lists "ogre" as an associate, but not vice versa.
+"druid" lists "giant hyena" as an associate, but not vice versa.
+"druid" lists "veteran" as an associate, but not vice versa.
+"druid" lists "swarm of poisonous snakes" as an associate, but not vice versa.
+"druid" lists "lizardfolk" as an associate, but not vice versa.
+"druid" lists "green hag" as an associate, but not vice versa.
+"druid" lists "giant boar" as an associate, but not vice versa.
+"druid" lists "weretiger" as an associate, but not vice versa.
+"druid" lists "gorgon" as an associate, but not vice versa.
+"druid" lists "unicorn" as an associate, but not vice versa.
+"druid" lists "shambling mound" as an associate, but not vice versa.
+"druid" lists "wereboar" as an associate, but not vice versa.
+"druid" lists "troll" as an associate, but not vice versa.
+"druid" lists "oni" as an associate, but not vice versa.
+"druid" lists "young green dragon" as an associate, but not vice versa.
+"druid" lists "treant" as an associate, but not vice versa.
+"druid" lists "giant ape" as an associate, but not vice versa.
+"druid" lists "guardian naga" as an associate, but not vice versa.
+"druid" lists "twig blight" as an associate, but not vice versa.
+"druid" lists "giant elk" as an associate, but not vice versa.
+"druid" lists "giant owl" as an associate, but not vice versa.
+"druid" lists "giant eagle" as an associate, but not vice versa.
+"druid" lists "giant badger" as an associate, but not vice versa.
+"druid" lists "giant goat" as an associate, but not vice versa.
+"druid" lists "giant hyena" as an associate, but not vice versa.
+"druid" lists "giant lizard" as an associate, but not vice versa.
+"druid" lists "giant poisonous snake" as an associate, but not vice versa.
+"druid" lists "giant wasp" as an associate, but not vice versa.
+"druid" lists "giant weasel" as an associate, but not vice versa.
+"druid" lists "giant bat" as an associate, but not vice versa.
+"druid" lists "giant rat" as an associate, but not vice versa.
+"dryad" lists "awakened shrub" as an associate, but not vice versa.
+"dryad" lists "cat" as an associate, but not vice versa.
+"dryad" lists "blood hawk" as an associate, but not vice versa.
+"dryad" lists "swarm of insects" as an associate, but not vice versa.
+"dryad" lists "brown bear" as an associate, but not vice versa.
+"dryad" lists "goblin" as an associate, but not vice versa.
+"dryad" lists "phase spider" as an associate, but not vice versa.
+"dryad" lists "ettercap" as an associate, but not vice versa.
+"dryad" lists "orc" as an associate, but not vice versa.
+"dryad" lists "goblin boss" as an associate, but not vice versa.
+"dryad" lists "ankheg" as an associate, but not vice versa.
+"dryad" lists "giant constrictor snake" as an associate, but not vice versa.
+"dryad" lists "bugbear" as an associate, but not vice versa.
+"dryad" lists "hobgoblin" as an associate, but not vice versa.
+"dryad" lists "wight" as an associate, but not vice versa.
+"dryad" lists "ogre" as an associate, but not vice versa.
+"dryad" lists "giant hyena" as an associate, but not vice versa.
+"dryad" lists "berserker" as an associate, but not vice versa.
+"dryad" lists "veteran" as an associate, but not vice versa.
+"dryad" lists "swarm of poisonous snakes" as an associate, but not vice versa.
+"dryad" lists "lizardfolk" as an associate, but not vice versa.
+"dryad" lists "green hag" as an associate, but not vice versa.
+"dryad" lists "giant boar" as an associate, but not vice versa.
+"dryad" lists "weretiger" as an associate, but not vice versa.
+"dryad" lists "gorgon" as an associate, but not vice versa.
+"dryad" lists "shambling mound" as an associate, but not vice versa.
+"dryad" lists "wereboar" as an associate, but not vice versa.
+"dryad" lists "troll" as an associate, but not vice versa.
+"dryad" lists "oni" as an associate, but not vice versa.
+"dryad" lists "young green dragon" as an associate, but not vice versa.
+"dryad" lists "giant ape" as an associate, but not vice versa.
+"dryad" lists "guardian naga" as an associate, but not vice versa.
+"dryad" lists "adult gold dragon" as an associate, but not vice versa.
+"dryad" lists "polar bear" as an associate, but not vice versa.
+"dryad" lists "twig blight" as an associate, but not vice versa.
+"dryad" lists "giant elk" as an associate, but not vice versa.
+"dryad" lists "giant eagle" as an associate, but not vice versa.
+"dryad" lists "giant badger" as an associate, but not vice versa.
+"dryad" lists "giant goat" as an associate, but not vice versa.
+"dryad" lists "giant hyena" as an associate, but not vice versa.
+"dryad" lists "giant lizard" as an associate, but not vice versa.
+"dryad" lists "giant poisonous snake" as an associate, but not vice versa.
+"dryad" lists "giant vulture" as an associate, but not vice versa.
+"dryad" lists "giant weasel" as an associate, but not vice versa.
+"dryad" lists "giant bat" as an associate, but not vice versa.
+"duergar" lists "hell hound" as an associate, but not vice versa.
+"duergar" lists "shield guardian" as an associate, but not vice versa.
+"eagle" lists "giant eagle" as an associate, but not vice versa.
+"earth elemental" lists "stone giant" as an associate, but not vice versa.
+"efreeti" lists "fire elemental" as an associate, but not vice versa.
+"efreeti" lists "fire giant" as an associate, but not vice versa.
+"elephant" lists "druid" as an associate, but not vice versa.
+"elk" lists "deer" as an associate, but not vice versa.
+"elk" lists "riding horse" as an associate, but not vice versa.
+"elk" lists "warhorse" as an associate, but not vice versa.
+"elk" lists "giant elk" as an associate, but not vice versa.
+"elk" lists "giant goat" as an associate, but not vice versa.
+"elk" lists "giant badger" as an associate, but not vice versa.
+"elk" lists "giant eagle" as an associate, but not vice versa.
+"elk" lists "giant owl" as an associate, but not vice versa.
+"elk" lists "giant vulture" as an associate, but not vice versa.
+"elk" lists "giant bat" as an associate, but not vice versa.
+"elk" lists "giant weasel" as an associate, but not vice versa.
+"elk" lists "giant rat" as an associate, but not vice versa.
+"erinyes" lists "ice devil" as an associate, but not vice versa.
+"erinyes" lists "marilith" as an associate, but not vice versa.
+"erinyes" lists "pit fiend" as an associate, but not vice versa.
+"ettercap" lists "giant wolf spider" as an associate, but not vice versa.
+"ettercap" lists "phase spider" as an associate, but not vice versa.
+"ettercap" lists "giant poisonous snake" as an associate, but not vice versa.
+"ettercap" lists "giant constrictor snake" as an associate, but not vice versa.
+"ettercap" lists "giant scorpion" as an associate, but not vice versa.
+"ettercap" lists "giant centipede" as an associate, but not vice versa.
+"ettercap" lists "giant wasp" as an associate, but not vice versa.
+"ettercap" lists "giant bat" as an associate, but not vice versa.
+"ettercap" lists "giant rat" as an associate, but not vice versa.
+"ettercap" lists "giant badger" as an associate, but not vice versa.
+"ettercap" lists "giant eagle" as an associate, but not vice versa.
+"ettercap" lists "giant owl" as an associate, but not vice versa.
+"ettercap" lists "giant vulture" as an associate, but not vice versa.
+"ettin" lists "phase spider" as an associate, but not vice versa.
+"ettin" lists "earth elemental" as an associate, but not vice versa.
+"ettin" lists "chuul" as an associate, but not vice versa.
+"ettin" lists "hell hound" as an associate, but not vice versa.
+"ettin" lists "salamander" as an associate, but not vice versa.
+"ettin" lists "cloaker" as an associate, but not vice versa.
+"ettin" lists "drider" as an associate, but not vice versa.
+"ettin" lists "fire giant" as an associate, but not vice versa.
+"ettin" lists "giant wolf spider" as an associate, but not vice versa.
+"fire elemental" lists "stone giant" as an associate, but not vice versa.
+"fire giant" lists "ogre" as an associate, but not vice versa.
+"flameskull" lists "giant wolf spider" as an associate, but not vice versa.
+"flameskull" lists "phase spider" as an associate, but not vice versa.
+"flameskull" lists "giant poisonous snake" as an associate, but not vice versa.
+"flameskull" lists "giant constrictor snake" as an associate, but not vice versa.
+"flameskull" lists "giant scorpion" as an associate, but not vice versa.
+"flameskull" lists "giant centipede" as an associate, but not vice versa.
+"flameskull" lists "giant wasp" as an associate, but not vice versa.
+"flameskull" lists "giant bat" as an associate, but not vice versa.
+"flameskull" lists "giant rat" as an associate, but not vice versa.
+"flameskull" lists "giant badger" as an associate, but not vice versa.
+"flameskull" lists "giant eagle" as an associate, but not vice versa.
+"flameskull" lists "giant owl" as an associate, but not vice versa.
+"flameskull" lists "giant vulture" as an associate, but not vice versa.
+"flying snake" lists "bandit" as an associate, but not vice versa.
+"flying snake" lists "kobold" as an associate, but not vice versa.
+"flying snake" lists "mule" as an associate, but not vice versa.
+"flying snake" lists "poisonous snake" as an associate, but not vice versa.
+"flying snake" lists "stirge" as an associate, but not vice versa.
+"flying snake" lists "tribal warrior" as an associate, but not vice versa.
+"flying sword" lists "animated armor" as an associate, but not vice versa.
+"frog" lists "giant frog" as an associate, but not vice versa.
+"frog" lists "giant lizard" as an associate, but not vice versa.
+"frost giant" lists "brown bear" as an associate, but not vice versa.
+"frost giant" lists "manticore" as an associate, but not vice versa.
+"frost giant" lists "bandit captain" as an associate, but not vice versa.
+"frost giant" lists "druid" as an associate, but not vice versa.
+"frost giant" lists "berserker" as an associate, but not vice versa.
+"frost giant" lists "bandit" as an associate, but not vice versa.
+"frost giant" lists "troll" as an associate, but not vice versa.
+"frost giant" lists "werebear" as an associate, but not vice versa.
+"frost giant" lists "mammoth" as an associate, but not vice versa.
+"frost giant" lists "chimera" as an associate, but not vice versa.
+"frost giant" lists "ettin" as an associate, but not vice versa.
+"frost giant" lists "wereboar" as an associate, but not vice versa.
+"frost giant" lists "gorgon" as an associate, but not vice versa.
+"frost giant" lists "young red dragon" as an associate, but not vice versa.
+"frost giant" lists "young copper dragon" as an associate, but not vice versa.
+"frost giant" lists "roc" as an associate, but not vice versa.
+"frost giant" lists "hill giant" as an associate, but not vice versa.
+"frost giant" lists "ogre" as an associate, but not vice versa.
+"ghost" lists "wraith" as an associate, but not vice versa.
+"ghost" lists "flameskull" as an associate, but not vice versa.
+"ghoul" lists "skeleton" as an associate, but not vice versa.
+"ghoul" lists "shadow" as an associate, but not vice versa.
+"ghoul" lists "specter" as an associate, but not vice versa.
+"ghoul" lists "wight" as an associate, but not vice versa.
+"ghoul" lists "wraith" as an associate, but not vice versa.
+"ghoul" lists "mummy" as an associate, but not vice versa.
+"ghoul" lists "ghost" as an associate, but not vice versa.
+"ghoul" lists "banshee" as an associate, but not vice versa.
+"ghoul" lists "flameskull" as an associate, but not vice versa.
+"giant ape" lists "ape" as an associate, but not vice versa.
+"giant badger" lists "badger" as an associate, but not vice versa.
+"giant bat" lists "swarm of bats" as an associate, but not vice versa.
+"giant centipede" lists "drow" as an associate, but not vice versa.
+"giant constrictor snake" lists "constrictor snake" as an associate, but not vice versa.
+"giant constrictor snake" lists "tiger" as an associate, but not vice versa.
+"giant crab" lists "merfolk" as an associate, but not vice versa.
+"giant crocodile" lists "crocodile" as an associate, but not vice versa.
+"giant crocodile" lists "lizardfolk" as an associate, but not vice versa.
+"giant crocodile" lists "druid" as an associate, but not vice versa.
+"giant elk" lists "giant hyena" as an associate, but not vice versa.
+"giant frog" lists "giant poisonous snake" as an associate, but not vice versa.
+"giant goat" lists "worg" as an associate, but not vice versa.
+"giant goat" lists "giant hyena" as an associate, but not vice versa.
+"giant goat" lists "giant elk" as an associate, but not vice versa.
+"giant lizard" lists "lizardfolk" as an associate, but not vice versa.
+"giant owl" lists "warhorse" as an associate, but not vice versa.
+"giant owl" lists "giant eagle" as an associate, but not vice versa.
+"giant owl" lists "androsphinx" as an associate, but not vice versa.
+"giant poisonous snake" lists "cult fanatic" as an associate, but not vice versa.
+"giant poisonous snake" lists "bandit" as an associate, but not vice versa.
+"giant poisonous snake" lists "guard" as an associate, but not vice versa.
+"giant poisonous snake" lists "kobold" as an associate, but not vice versa.
+"giant poisonous snake" lists "mule" as an associate, but not vice versa.
+"giant poisonous snake" lists "tribal warrior" as an associate, but not vice versa.
+"giant poisonous snake" lists "commoner" as an associate, but not vice versa.
+"giant poisonous snake" lists "lizardfolk" as an associate, but not vice versa.
+"giant rat" lists "cult fanatic" as an associate, but not vice versa.
+"giant rat" lists "bandit" as an associate, but not vice versa.
+"giant rat" lists "guard" as an associate, but not vice versa.
+"giant rat" lists "kobold" as an associate, but not vice versa.
+"giant rat" lists "mule" as an associate, but not vice versa.
+"giant rat" lists "poisonous snake" as an associate, but not vice versa.
+"giant rat" lists "tribal warrior" as an associate, but not vice versa.
+"giant rat" lists "commoner" as an associate, but not vice versa.
+"giant rat" lists "lizardfolk" as an associate, but not vice versa.
+"giant rat" lists "giant lizard" as an associate, but not vice versa.
+"giant scorpion" lists "cultist" as an associate, but not vice versa.
+"giant shark" lists "water elemental" as an associate, but not vice versa.
+"giant shark" lists "storm giant" as an associate, but not vice versa.
+"giant shark" lists "ancient blue dragon" as an associate, but not vice versa.
+"giant shark" lists "ancient bronze dragon" as an associate, but not vice versa.
+"giant shark" lists "adult blue dragon" as an associate, but not vice versa.
+"giant shark" lists "adult bronze dragon" as an associate, but not vice versa.
+"giant shark" lists "dragon turtle" as an associate, but not vice versa.
+"giant shark" lists "merrow" as an associate, but not vice versa.
+"giant shark" lists "giant octopus" as an associate, but not vice versa.
+"giant shark" lists "giant sea horse" as an associate, but not vice versa.
+"giant spider" lists "goblin boss" as an associate, but not vice versa.
+"giant spider" lists "grimlock" as an associate, but not vice versa.
+"giant spider" lists "ochre jelly" as an associate, but not vice versa.
+"giant spider" lists "giant centipede" as an associate, but not vice versa.
+"giant spider" lists "nothic" as an associate, but not vice versa.
+"giant spider" lists "giant toad" as an associate, but not vice versa.
+"giant spider" lists "minotaur skeleton" as an associate, but not vice versa.
+"giant spider" lists "minotaur" as an associate, but not vice versa.
+"giant spider" lists "mimic" as an associate, but not vice versa.
+"giant spider" lists "doppelganger" as an associate, but not vice versa.
+"giant spider" lists "hobgoblin" as an associate, but not vice versa.
+"giant spider" lists "spectator" as an associate, but not vice versa.
+"giant spider" lists "orc" as an associate, but not vice versa.
+"giant spider" lists "gibbering mouther" as an associate, but not vice versa.
+"giant spider" lists "giant constrictor snake" as an associate, but not vice versa.
+"giant spider" lists "shadow" as an associate, but not vice versa.
+"giant spider" lists "wight" as an associate, but not vice versa.
+"giant spider" lists "gargoyle" as an associate, but not vice versa.
+"giant spider" lists "ogre" as an associate, but not vice versa.
+"giant spider" lists "chuul" as an associate, but not vice versa.
+"giant spider" lists "salamander" as an associate, but not vice versa.
+"giant spider" lists "phase spider" as an associate, but not vice versa.
+"giant spider" lists "ghost" as an associate, but not vice versa.
+"giant spider" lists "wraith" as an associate, but not vice versa.
+"giant spider" lists "ghast" as an associate, but not vice versa.
+"giant spider" lists "ghoul" as an associate, but not vice versa.
+"giant spider" lists "otyugh" as an associate, but not vice versa.
+"giant spider" lists "roper" as an associate, but not vice versa.
+"giant spider" lists "vampire spawn" as an associate, but not vice versa.
+"giant spider" lists "chimera" as an associate, but not vice versa.
+"giant spider" lists "spirit naga" as an associate, but not vice versa.
+"giant toad" lists "lizardfolk" as an associate, but not vice versa.
+"giant toad" lists "dust mephit" as an associate, but not vice versa.
+"giant toad" lists "giant lizard" as an associate, but not vice versa.
+"giant toad" lists "nothic" as an associate, but not vice versa.
+"giant toad" lists "minotaur skeleton" as an associate, but not vice versa.
+"giant toad" lists "minotaur" as an associate, but not vice versa.
+"giant toad" lists "mimic" as an associate, but not vice versa.
+"giant toad" lists "doppelganger" as an associate, but not vice versa.
+"giant toad" lists "hobgoblin" as an associate, but not vice versa.
+"giant toad" lists "spectator" as an associate, but not vice versa.
+"giant toad" lists "orc" as an associate, but not vice versa.
+"giant toad" lists "gibbering mouther" as an associate, but not vice versa.
+"giant toad" lists "giant constrictor snake" as an associate, but not vice versa.
+"giant toad" lists "shadow" as an associate, but not vice versa.
+"giant toad" lists "wight" as an associate, but not vice versa.
+"giant toad" lists "gargoyle" as an associate, but not vice versa.
+"giant toad" lists "ogre" as an associate, but not vice versa.
+"giant toad" lists "ettin" as an associate, but not vice versa.
+"giant toad" lists "salamander" as an associate, but not vice versa.
+"giant toad" lists "phase spider" as an associate, but not vice versa.
+"giant toad" lists "duergar" as an associate, but not vice versa.
+"giant toad" lists "ghost" as an associate, but not vice versa.
+"giant toad" lists "flameskull" as an associate, but not vice versa.
+"giant toad" lists "wraith" as an associate, but not vice versa.
+"giant toad" lists "ghast" as an associate, but not vice versa.
+"giant toad" lists "ghoul" as an associate, but not vice versa.
+"giant toad" lists "otyugh" as an associate, but not vice versa.
+"giant toad" lists "roper" as an associate, but not vice versa.
+"giant toad" lists "vampire spawn" as an associate, but not vice versa.
+"giant toad" lists "chimera" as an associate, but not vice versa.
+"giant toad" lists "spirit naga" as an associate, but not vice versa.
+"giant toad" lists "unicorn" as an associate, but not vice versa.
+"giant toad" lists "giant octopus" as an associate, but not vice versa.
+"giant toad" lists "mage" as an associate, but not vice versa.
+"giant toad" lists "specter" as an associate, but not vice versa.
+"giant toad" lists "vampire" as an associate, but not vice versa.
+"giant toad" lists "oni" as an associate, but not vice versa.
+"giant toad" lists "djinni" as an associate, but not vice versa.
+"giant vulture" lists "hyena" as an associate, but not vice versa.
+"giant vulture" lists "scorpion" as an associate, but not vice versa.
+"giant vulture" lists "vulture" as an associate, but not vice versa.
+"giant vulture" lists "bandit" as an associate, but not vice versa.
+"giant vulture" lists "camel" as an associate, but not vice versa.
+"giant vulture" lists "flying snake" as an associate, but not vice versa.
+"giant vulture" lists "guard" as an associate, but not vice versa.
+"giant vulture" lists "kobold" as an associate, but not vice versa.
+"giant vulture" lists "mule" as an associate, but not vice versa.
+"giant vulture" lists "poisonous snake" as an associate, but not vice versa.
+"giant vulture" lists "stirge" as an associate, but not vice versa.
+"giant vulture" lists "tribal warrior" as an associate, but not vice versa.
+"giant vulture" lists "constrictor snake" as an associate, but not vice versa.
+"giant vulture" lists "giant lizard" as an associate, but not vice versa.
+"giant vulture" lists "bandit captain" as an associate, but not vice versa.
+"giant vulture" lists "berserker" as an associate, but not vice versa.
+"giant vulture" lists "giant constrictor snake" as an associate, but not vice versa.
+"giant vulture" lists "ogre" as an associate, but not vice versa.
+"giant vulture" lists "giant scorpion" as an associate, but not vice versa.
+"giant vulture" lists "mummy" as an associate, but not vice versa.
+"giant vulture" lists "phase spider" as an associate, but not vice versa.
+"giant vulture" lists "wight" as an associate, but not vice versa.
+"giant vulture" lists "couatl" as an associate, but not vice versa.
+"giant vulture" lists "lamia" as an associate, but not vice versa.
+"giant vulture" lists "weretiger" as an associate, but not vice versa.
+"giant vulture" lists "djinni" as an associate, but not vice versa.
+"giant vulture" lists "roc" as an associate, but not vice versa.
+"giant vulture" lists "storm giant" as an associate, but not vice versa.
+"giant vulture" lists "adult bronze dragon" as an associate, but not vice versa.
+"giant vulture" lists "adult blue dragon" as an associate, but not vice versa.
+"giant vulture" lists "dragon turtle" as an associate, but not vice versa.
+"giant vulture" lists "ancient bronze dragon" as an associate, but not vice versa.
+"giant vulture" lists "ancient blue dragon" as an associate, but not vice versa.
+"giant wasp" lists "warhorse" as an associate, but not vice versa.
+"giant wasp" lists "cultist" as an associate, but not vice versa.
+"giant wasp" lists "giant rat" as an associate, but not vice versa.
+"giant wasp" lists "stirge" as an associate, but not vice versa.
+"giant wasp" lists "giant poisonous snake" as an associate, but not vice versa.
+"giant wasp" lists "swarm of bats" as an associate, but not vice versa.
+"giant wasp" lists "bandit" as an associate, but not vice versa.
+"giant wasp" lists "noble" as an associate, but not vice versa.
+"giant wasp" lists "riding horse" as an associate, but not vice versa.
+"giant wasp" lists "guard" as an associate, but not vice versa.
+"giant wasp" lists "giant owl" as an associate, but not vice versa.
+"giant wasp" lists "awakened tree" as an associate, but not vice versa.
+"giant wasp" lists "awakened shrub" as an associate, but not vice versa.
+"giant wasp" lists "treant" as an associate, but not vice versa.
+"giant wasp" lists "couatl" as an associate, but not vice versa.
+"giant wasp" lists "ghost" as an associate, but not vice versa.
+"giant wasp" lists "doppelganger" as an associate, but not vice versa.
+"giant wasp" lists "phase spider" as an associate, but not vice versa.
+"giant wasp" lists "veteran" as an associate, but not vice versa.
+"giant wasp" lists "ghast" as an associate, but not vice versa.
+"giant wasp" lists "ghoul" as an associate, but not vice versa.
+"giant wasp" lists "gargoyle" as an associate, but not vice versa.
+"giant wasp" lists "cult fanatic" as an associate, but not vice versa.
+"giant wasp" lists "wererat" as an associate, but not vice versa.
+"giant wasp" lists "assassin" as an associate, but not vice versa.
+"giant wasp" lists "invisible stalker" as an associate, but not vice versa.
+"giant wasp" lists "young silver dragon" as an associate, but not vice versa.
+"giant wasp" lists "wight" as an associate, but not vice versa.
+"giant wasp" lists "archmage" as an associate, but not vice versa.
+"giant wasp" lists "vampire spawn" as an associate, but not vice versa.
+"giant wasp" lists "oni" as an associate, but not vice versa.
+"giant wasp" lists "mage" as an associate, but not vice versa.
+"giant wasp" lists "shield guardian" as an associate, but not vice versa.
+"giant wasp" lists "rakshasa" as an associate, but not vice versa.
+"giant wasp" lists "vampire" as an associate, but not vice versa.
+"giant wasp" lists "adult silver dragon" as an associate, but not vice versa.
+"giant wasp" lists "ancient silver dragon" as an associate, but not vice versa.
+"giant wasp" lists "tarrasque" as an associate, but not vice versa.
+"giant weasel" lists "blood hawk" as an associate, but not vice versa.
+"giant weasel" lists "flying snake" as an associate, but not vice versa.
+"giant weasel" lists "guard" as an associate, but not vice versa.
+"giant weasel" lists "kobold" as an associate, but not vice versa.
+"giant weasel" lists "mastiff" as an associate, but not vice versa.
+"giant weasel" lists "mule" as an associate, but not vice versa.
+"giant weasel" lists "poisonous snake" as an associate, but not vice versa.
+"giant weasel" lists "stirge" as an associate, but not vice versa.
+"giant weasel" lists "commoner" as an associate, but not vice versa.
+"giant weasel" lists "lizardfolk" as an associate, but not vice versa.
+"giant weasel" lists "giant lizard" as an associate, but not vice versa.
+"giant weasel" lists "giant rat" as an associate, but not vice versa.
+"giant weasel" lists "giant poisonous snake" as an associate, but not vice versa.
+"giant weasel" lists "giant owl" as an associate, but not vice versa.
+"giant weasel" lists "giant spider" as an associate, but not vice versa.
+"giant weasel" lists "giant toad" as an associate, but not vice versa.
+"giant weasel" lists "giant vulture" as an associate, but not vice versa.
+"giant weasel" lists "giant wasp" as an associate, but not vice versa.
+"giant wolf spider" lists "pteranodon" as an associate, but not vice versa.
+"giant wolf spider" lists "scout" as an associate, but not vice versa.
+"giant wolf spider" lists "sahuagin" as an associate, but not vice versa.
+"giant wolf spider" lists "sea hag" as an associate, but not vice versa.
+"giant wolf spider" lists "giant toad" as an associate, but not vice versa.
+"giant wolf spider" lists "commoner" as an associate, but not vice versa.
+"giant wolf spider" lists "water elemental" as an associate, but not vice versa.
+"giant wolf spider" lists "cyclops" as an associate, but not vice versa.
+"giant wolf spider" lists "banshee" as an associate, but not vice versa.
+"giant wolf spider" lists "veteran" as an associate, but not vice versa.
+"giant wolf spider" lists "young bronze dragon" as an associate, but not vice versa.
+"giant wolf spider" lists "young blue dragon" as an associate, but not vice versa.
+"giant wolf spider" lists "djinni" as an associate, but not vice versa.
+"giant wolf spider" lists "roc" as an associate, but not vice versa.
+"giant wolf spider" lists "storm giant" as an associate, but not vice versa.
+"giant wolf spider" lists "manticore" as an associate, but not vice versa.
+"giant wolf spider" lists "wyvern" as an associate, but not vice versa.
+"giant wolf spider" lists "green hag" as an associate, but not vice versa.
+"giant wolf spider" lists "werewolf" as an associate, but not vice versa.
+"giant wolf spider" lists "hill giant" as an associate, but not vice versa.
+"giant wolf spider" lists "wereboar" as an associate, but not vice versa.
+"giant wolf spider" lists "gorgon" as an associate, but not vice versa.
+"giant wolf spider" lists "young red dragon" as an associate, but not vice versa.
+"giant wolf spider" lists "stone giant" as an associate, but not vice versa.
+"giant wolf spider" lists "young copper dragon" as an associate, but not vice versa.
+"giant wolf spider" lists "adult copper dragon" as an associate, but not vice versa.
+"giant wolf spider" lists "adult red dragon" as an associate, but not vice versa.
+"giant wolf spider" lists "ancient copper dragon" as an associate, but not vice versa.
+"giant wolf spider" lists "ancient red dragon" as an associate, but not vice versa.
+"giant wolf spider" lists "animated armor" as an associate, but not vice versa.
+"giant wolf spider" lists "brass dragon wyrmling" as an associate, but not vice versa.
+"giant wolf spider" lists "brown bear" as an associate, but not vice versa.
+"giant wolf spider" lists "copper dragon wyrmling" as an associate, but not vice versa.
+"giant wolf spider" lists "death dog" as an associate, but not vice versa.
+"giant wolf spider" lists "dire wolf" as an associate, but not vice versa.
+"giant wolf spider" lists "dryad" as an associate, but not vice versa.
+"giant wolf spider" lists "ghoul" as an associate, but not vice versa.
+"giant wolf spider" lists "giant hyena" as an associate, but not vice versa.
+"giant wolf spider" lists "giant octopus" as an associate, but not vice versa.
+"giant wolf spider" lists "giant spider" as an associate, but not vice versa.
+"giant wolf spider" lists "giant toad" as an associate, but not vice versa.
+"giant wolf spider" lists "giant vulture" as an associate, but not vice versa.
+"giant wolf spider" lists "goblin boss" as an associate, but not vice versa.
+"giant wolf spider" lists "harpy" as an associate, but not vice versa.
+"giant wolf spider" lists "hippogriff" as an associate, but not vice versa.
+"giant wolf spider" lists "imp" as an associate, but not vice versa.
+"giant wolf spider" lists "lion" as an associate, but not vice versa.
+"giant wolf spider" lists "quasit" as an associate, but not vice versa.
+"giant wolf spider" lists "specter" as an associate, but not vice versa.
+"giant wolf spider" lists "spy" as an associate, but not vice versa.
+"giant wolf spider" lists "swarm of quippers" as an associate, but not vice versa.
+"giant wolf spider" lists "tiger" as an associate, but not vice versa.
+"giant wolf spider" lists "cat" as an associate, but not vice versa.
+"giant wolf spider" lists "wolf" as an associate, but not vice versa.
+"gibbering mouther" lists "giant constrictor snake" as an associate, but not vice versa.
+"gibbering mouther" lists "shadow" as an associate, but not vice versa.
+"gibbering mouther" lists "wight" as an associate, but not vice versa.
+"gibbering mouther" lists "gargoyle" as an associate, but not vice versa.
+"gibbering mouther" lists "ogre" as an associate, but not vice versa.
+"gibbering mouther" lists "ettin" as an associate, but not vice versa.
+"gibbering mouther" lists "chuul" as an associate, but not vice versa.
+"gibbering mouther" lists "salamander" as an associate, but not vice versa.
+"gibbering mouther" lists "phase spider" as an associate, but not vice versa.
+"gibbering mouther" lists "duergar" as an associate, but not vice versa.
+"gibbering mouther" lists "ghost" as an associate, but not vice versa.
+"gibbering mouther" lists "flameskull" as an associate, but not vice versa.
+"gibbering mouther" lists "wraith" as an associate, but not vice versa.
+"gibbering mouther" lists "ghast" as an associate, but not vice versa.
+"gibbering mouther" lists "ghoul" as an associate, but not vice versa.
+"gibbering mouther" lists "otyugh" as an associate, but not vice versa.
+"gibbering mouther" lists "roper" as an associate, but not vice versa.
+"gibbering mouther" lists "vampire spawn" as an associate, but not vice versa.
+"gibbering mouther" lists "chimera" as an associate, but not vice versa.
+"gibbering mouther" lists "spirit naga" as an associate, but not vice versa.
+"gibbering mouther" lists "gelatinous cube" as an associate, but not vice versa.
+"gibbering mouther" lists "ochre jelly" as an associate, but not vice versa.
+"gibbering mouther" lists "doppelganger" as an associate, but not vice versa.
+"gibbering mouther" lists "mimic" as an associate, but not vice versa.
+"gibbering mouther" lists "specter" as an associate, but not vice versa.
+"gibbering mouther" lists "hell hound" as an associate, but not vice versa.
+"gibbering mouther" lists "cloaker" as an associate, but not vice versa.
+"gibbering mouther" lists "drider" as an associate, but not vice versa.
+"gibbering mouther" lists "fire giant" as an associate, but not vice versa.
+"glabrezu" lists "cultist" as an associate, but not vice versa.
+"glabrezu" lists "drow" as an associate, but not vice versa.
+"gladiator" lists "stone golem" as an associate, but not vice versa.
+"gladiator" lists "swarm of poisonous snakes" as an associate, but not vice versa.
+"gladiator" lists "tribal warrior" as an associate, but not vice versa.
+"gladiator" lists "veteran" as an associate, but not vice versa.
+"gladiator" lists "zombie" as an associate, but not vice versa.
+"gladiator" lists "mummy" as an associate, but not vice versa.
+"gladiator" lists "druid" as an associate, but not vice versa.
+"gladiator" lists "rhinoceros" as an associate, but not vice versa.
+"gladiator" lists "wereboar" as an associate, but not vice versa.
+"gladiator" lists "young gold dragon" as an associate, but not vice versa.
+"gladiator" lists "triceratops" as an associate, but not vice versa.
+"gladiator" lists "tyrannosaurus rex" as an associate, but not vice versa.
+"gladiator" lists "riding horse" as an associate, but not vice versa.
+"gladiator" lists "deer" as an associate, but not vice versa.
+"gladiator" lists "cyclops" as an associate, but not vice versa.
+"gladiator" lists "earth elemental" as an associate, but not vice versa.
+"gladiator" lists "fire elemental" as an associate, but not vice versa.
+"gladiator" lists "ogre" as an associate, but not vice versa.
+"gladiator" lists "ettin" as an associate, but not vice versa.
+"gladiator" lists "mammoth" as an associate, but not vice versa.
+"gladiator" lists "hydra" as an associate, but not vice versa.
+"gladiator" lists "giant boar" as an associate, but not vice versa.
+"gladiator" lists "berserker" as an associate, but not vice versa.
+"gladiator" lists "saber-toothed tiger" as an associate, but not vice versa.
+"gnoll" lists "bugbear" as an associate, but not vice versa.
+"gnoll" lists "ogre" as an associate, but not vice versa.
+"gnoll" lists "hobgoblin" as an associate, but not vice versa.
+"gnoll" lists "orc" as an associate, but not vice versa.
+"gnoll" lists "lion" as an associate, but not vice versa.
+"gnoll" lists "worg" as an associate, but not vice versa.
+"gnoll" lists "brown bear" as an associate, but not vice versa.
+"gnoll" lists "axe beak" as an associate, but not vice versa.
+"gnoll" lists "goblin boss" as an associate, but not vice versa.
+"gnoll" lists "dire wolf" as an associate, but not vice versa.
+"gnoll" lists "giant elk" as an associate, but not vice versa.
+"gnoll" lists "giant goat" as an associate, but not vice versa.
+"gnoll" lists "manticore" as an associate, but not vice versa.
+"gnoll" lists "phase spider" as an associate, but not vice versa.
+"gnoll" lists "giant boar" as an associate, but not vice versa.
+"gnoll" lists "bandit captain" as an associate, but not vice versa.
+"gnoll" lists "bandit" as an associate, but not vice versa.
+"gnoll" lists "ettin" as an associate, but not vice versa.
+"gnoll" lists "wereboar" as an associate, but not vice versa.
+"gnoll" lists "griffon" as an associate, but not vice versa.
+"gnoll" lists "pegasus" as an associate, but not vice versa.
+"gnoll" lists "cyclops" as an associate, but not vice versa.
+"gnoll" lists "stone giant" as an associate, but not vice versa.
+"gnoll" lists "green hag" as an associate, but not vice versa.
+"gnoll" lists "wyvern" as an associate, but not vice versa.
+"gnoll" lists "werewolf" as an associate, but not vice versa.
+"gnoll" lists "gorgon" as an associate, but not vice versa.
+"gnoll" lists "young red dragon" as an associate, but not vice versa.
+"gnoll" lists "young copper dragon" as an associate, but not vice versa.
+"gnoll" lists "roc" as an associate, but not vice versa.
+"goat" lists "worg" as an associate, but not vice versa.
+"goat" lists "tribal warrior" as an associate, but not vice versa.
+"goat" lists "giant goat" as an associate, but not vice versa.
+"goblin" lists "ettercap" as an associate, but not vice versa.
+"goblin" lists "orc" as an associate, but not vice versa.
+"goblin" lists "minotaur skeleton" as an associate, but not vice versa.
+"goblin" lists "minotaur" as an associate, but not vice versa.
+"goblin" lists "mimic" as an associate, but not vice versa.
+"goblin" lists "doppelganger" as an associate, but not vice versa.
+"goblin" lists "spectator" as an associate, but not vice versa.
+"goblin" lists "giant constrictor snake" as an associate, but not vice versa.
+"goblin" lists "shadow" as an associate, but not vice versa.
+"goblin" lists "wight" as an associate, but not vice versa.
+"goblin" lists "gargoyle" as an associate, but not vice versa.
+"goblin" lists "chuul" as an associate, but not vice versa.
+"goblin" lists "salamander" as an associate, but not vice versa.
+"goblin" lists "phase spider" as an associate, but not vice versa.
+"goblin" lists "ghost" as an associate, but not vice versa.
+"goblin" lists "flameskull" as an associate, but not vice versa.
+"goblin" lists "wraith" as an associate, but not vice versa.
+"goblin" lists "ghast" as an associate, but not vice versa.
+"goblin" lists "ghoul" as an associate, but not vice versa.
+"goblin" lists "otyugh" as an associate, but not vice versa.
+"goblin" lists "vampire spawn" as an associate, but not vice versa.
+"goblin" lists "chimera" as an associate, but not vice versa.
+"goblin" lists "spirit naga" as an associate, but not vice versa.
+"goblin" lists "kobold" as an associate, but not vice versa.
+"goblin" lists "lizardfolk" as an associate, but not vice versa.
+"goblin" lists "cultist" as an associate, but not vice versa.
+"goblin" lists "bandit" as an associate, but not vice versa.
+"goblin" lists "commoner" as an associate, but not vice versa.
+"goblin" lists "dragon turtle" as an associate, but not vice versa.
+"goblin" lists "rat" as an associate, but not vice versa.
+"goblin" lists "bat" as an associate, but not vice versa.
+"goblin" lists "warhorse" as an associate, but not vice versa.
+"goblin" lists "boar" as an associate, but not vice versa.
+"goblin" lists "hyena" as an associate, but not vice versa.
+"goblin" lists "behir" as an associate, but not vice versa.
+"goblin" lists "aboleth" as an associate, but not vice versa.
+"goblin" lists "stone giant" as an associate, but not vice versa.
+"goblin" lists "gelatinous cube" as an associate, but not vice versa.
+"goblin" lists "black dragon wyrmling" as an associate, but not vice versa.
+"gold dragon wyrmling" lists "adult gold dragon" as an associate, but not vice versa.
+"gold dragon wyrmling" lists "druid" as an associate, but not vice versa.
+"gold dragon wyrmling" lists "treant" as an associate, but not vice versa.
+"gold dragon wyrmling" lists "giant ape" as an associate, but not vice versa.
+"gold dragon wyrmling" lists "guardian naga" as an associate, but not vice versa.
+"gold dragon wyrmling" lists "ancient gold dragon" as an associate, but not vice versa.
+"gorgon" lists "basilisk" as an associate, but not vice versa.
+"gorgon" lists "unicorn" as an associate, but not vice versa.
+"gorgon" lists "ettin" as an associate, but not vice versa.
+"gorgon" lists "wereboar" as an associate, but not vice versa.
+"gorgon" lists "troll" as an associate, but not vice versa.
+"gorgon" lists "werebear" as an associate, but not vice versa.
+"gorgon" lists "cyclops" as an associate, but not vice versa.
+"gorgon" lists "wyvern" as an associate, but not vice versa.
+"gray ooze" lists "black pudding" as an associate, but not vice versa.
+"green dragon wyrmling" lists "ancient green dragon" as an associate, but not vice versa.
+"green dragon wyrmling" lists "merrow" as an associate, but not vice versa.
+"green dragon wyrmling" lists "gnoll" as an associate, but not vice versa.
+"green dragon wyrmling" lists "weretiger" as an associate, but not vice versa.
+"green dragon wyrmling" lists "cyclops" as an associate, but not vice versa.
+"green dragon wyrmling" lists "gargoyle" as an associate, but not vice versa.
+"green dragon wyrmling" lists "centaur" as an associate, but not vice versa.
+"green dragon wyrmling" lists "pixie" as an associate, but not vice versa.
+"green dragon wyrmling" lists "satyr" as an associate, but not vice versa.
+"green dragon wyrmling" lists "druid" as an associate, but not vice versa.
+"green dragon wyrmling" lists "awakened tree" as an associate, but not vice versa.
+"green dragon wyrmling" lists "androsphinx" as an associate, but not vice versa.
+"green dragon wyrmling" lists "gynosphinx" as an associate, but not vice versa.
+"green dragon wyrmling" lists "vampire" as an associate, but not vice versa.
+"green dragon wyrmling" lists "ice mephit" as an associate, but not vice versa.
+"green dragon wyrmling" lists "kobold" as an associate, but not vice versa.
+"green hag" lists "night hag" as an associate, but not vice versa.
+"green hag" lists "goblin" as an associate, but not vice versa.
+"green hag" lists "flameskull" as an associate, but not vice versa.
+"green hag" lists "flesh golem" as an associate, but not vice versa.
+"green hag" lists "rug of smothering" as an associate, but not vice versa.
+"green hag" lists "swarm of insects" as an associate, but not vice versa.
+"green hag" lists "swarm of rats" as an associate, but not vice versa.
+"green hag" lists "bugbear" as an associate, but not vice versa.
+"green hag" lists "doppelganger" as an associate, but not vice versa.
+"green hag" lists "ettercap" as an associate, but not vice versa.
+"green hag" lists "gargoyle" as an associate, but not vice versa.
+"green hag" lists "werewolf" as an associate, but not vice versa.
+"green hag" lists "unicorn" as an associate, but not vice versa.
+"green hag" lists "wight" as an associate, but not vice versa.
+"green hag" lists "banshee" as an associate, but not vice versa.
+"green hag" lists "basilisk" as an associate, but not vice versa.
+"green hag" lists "chimera" as an associate, but not vice versa.
+"green hag" lists "death dog" as an associate, but not vice versa.
+"green hag" lists "duergar" as an associate, but not vice versa.
+"green hag" lists "giant ape" as an associate, but not vice versa.
+"green hag" lists "giant crocodile" as an associate, but not vice versa.
+"green hag" lists "giant scorpion" as an associate, but not vice versa.
+"green hag" lists "giant spider" as an associate, but not vice versa.
+"green hag" lists "giant toad" as an associate, but not vice versa.
+"green hag" lists "giant vulture" as an associate, but not vice versa.
+"green hag" lists "hydra" as an associate, but not vice versa.
+"green hag" lists "lich" as an associate, but not vice versa.
+"green hag" lists "manticore" as an associate, but not vice versa.
+"green hag" lists "medusa" as an associate, but not vice versa.
+"green hag" lists "minotaur skeleton" as an associate, but not vice versa.
+"green hag" lists "nothic" as an associate, but not vice versa.
+"grick" lists "invisible stalker" as an associate, but not vice versa.
+"grick" lists "shadow" as an associate, but not vice versa.
+"grick" lists "wraith" as an associate, but not vice versa.
+"griffon" lists "owl" as an associate, but not vice versa.
+"griffon" lists "warhorse" as an associate, but not vice versa.
+"griffon" lists "giant eagle" as an associate, but not vice versa.
+"griffon" lists "veteran" as an associate, but not vice versa.
+"griffon" lists "knight" as an associate, but not vice versa.
+"griffon" lists "androsphinx" as an associate, but not vice versa.
+"griffon" lists "centaur" as an associate, but not vice versa.
+"griffon" lists "troll" as an associate, but not vice versa.
+"griffon" lists "cyclops" as an associate, but not vice versa.
+"griffon" lists "stone giant" as an associate, but not vice versa.
+"griffon" lists "wyvern" as an associate, but not vice versa.
+"griffon" lists "werewolf" as an associate, but not vice versa.
+"griffon" lists "werebear" as an associate, but not vice versa.
+"griffon" lists "gorgon" as an associate, but not vice versa.
+"griffon" lists "young red dragon" as an associate, but not vice versa.
+"griffon" lists "young copper dragon" as an associate, but not vice versa.
+"grimlock" lists "duergar" as an associate, but not vice versa.
+"grimlock" lists "kobold" as an associate, but not vice versa.
+"grimlock" lists "lizardfolk" as an associate, but not vice versa.
+"grimlock" lists "orc" as an associate, but not vice versa.
+"grimlock" lists "troglodyte" as an associate, but not vice versa.
+"grimlock" lists "zombie" as an associate, but not vice versa.
+"grimlock" lists "aboleth" as an associate, but not vice versa.
+"guard" lists "bandit" as an associate, but not vice versa.
+"guard" lists "kobold" as an associate, but not vice versa.
+"guard" lists "mule" as an associate, but not vice versa.
+"guard" lists "poisonous snake" as an associate, but not vice versa.
+"guard" lists "stirge" as an associate, but not vice versa.
+"guard" lists "blood hawk" as an associate, but not vice versa.
+"guard" lists "mastiff" as an associate, but not vice versa.
+"guard" lists "noble" as an associate, but not vice versa.
+"guard" lists "gargoyle" as an associate, but not vice versa.
+"guard" lists "bat" as an associate, but not vice versa.
+"guard" lists "swarm of bats" as an associate, but not vice versa.
+"guard" lists "hell hound" as an associate, but not vice versa.
+"guard" lists "nightmare" as an associate, but not vice versa.
+"guard" lists "magmin" as an associate, but not vice versa.
+"guard" lists "ogre" as an associate, but not vice versa.
+"guard" lists "dire wolf" as an associate, but not vice versa.
+"guard" lists "shield guardian" as an associate, but not vice versa.
+"guard" lists "mage" as an associate, but not vice versa.
+"guard" lists "vampire" as an associate, but not vice versa.
+"guardian naga" lists "ancient gold dragon" as an associate, but not vice versa.
+"guardian naga" lists "medusa" as an associate, but not vice versa.
+"guardian naga" lists "weretiger" as an associate, but not vice versa.
+"guardian naga" lists "young blue dragon" as an associate, but not vice versa.
+"guardian naga" lists "cyclops" as an associate, but not vice versa.
+"guardian naga" lists "efreeti" as an associate, but not vice versa.
+"guardian naga" lists "roc" as an associate, but not vice versa.
+"guardian naga" lists "gynosphinx" as an associate, but not vice versa.
+"guardian naga" lists "androsphinx" as an associate, but not vice versa.
+"guardian naga" lists "giant eagle" as an associate, but not vice versa.
+"guardian naga" lists "pegasus" as an associate, but not vice versa.
+"guardian naga" lists "troll" as an associate, but not vice versa.
+"guardian naga" lists "werebear" as an associate, but not vice versa.
+"guardian naga" lists "werewolf" as an associate, but not vice versa.
+"guardian naga" lists "griffon" as an associate, but not vice versa.
+"guardian naga" lists "wyvern" as an associate, but not vice versa.
+"guardian naga" lists "gorgon" as an associate, but not vice versa.
+"guardian naga" lists "young red dragon" as an associate, but not vice versa.
+"guardian naga" lists "young copper dragon" as an associate, but not vice versa.
+"gynosphinx" lists "owl" as an associate, but not vice versa.
+"gynosphinx" lists "giant owl" as an associate, but not vice versa.
+"gynosphinx" lists "warhorse" as an associate, but not vice versa.
+"gynosphinx" lists "giant eagle" as an associate, but not vice versa.
+"gynosphinx" lists "veteran" as an associate, but not vice versa.
+"gynosphinx" lists "knight" as an associate, but not vice versa.
+"gynosphinx" lists "androsphinx" as an associate, but not vice versa.
+"half-red dragon veteran" lists "veteran" as an associate, but not vice versa.
+"half-red dragon veteran" lists "young red dragon" as an associate, but not vice versa.
+"half-red dragon veteran" lists "adult red dragon" as an associate, but not vice versa.
+"half-red dragon veteran" lists "ancient red dragon" as an associate, but not vice versa.
+"half-red dragon veteran" lists "dragon turtle" as an associate, but not vice versa.
+"harpy" lists "brown bear" as an associate, but not vice versa.
+"harpy" lists "bugbear" as an associate, but not vice versa.
+"harpy" lists "dire wolf" as an associate, but not vice versa.
+"harpy" lists "duergar" as an associate, but not vice versa.
+"harpy" lists "ghoul" as an associate, but not vice versa.
+"harpy" lists "giant hyena" as an associate, but not vice versa.
+"harpy" lists "giant spider" as an associate, but not vice versa.
+"harpy" lists "giant toad" as an associate, but not vice versa.
+"harpy" lists "goblin boss" as an associate, but not vice versa.
+"harpy" lists "imp" as an associate, but not vice versa.
+"harpy" lists "lion" as an associate, but not vice versa.
+"harpy" lists "quasit" as an associate, but not vice versa.
+"harpy" lists "specter" as an associate, but not vice versa.
+"harpy" lists "spy" as an associate, but not vice versa.
+"harpy" lists "swarm of quippers" as an associate, but not vice versa.
+"hawk" lists "druid" as an associate, but not vice versa.
+"hell hound" lists "giant scorpion" as an associate, but not vice versa.
+"hell hound" lists "mummy" as an associate, but not vice versa.
+"hell hound" lists "wight" as an associate, but not vice versa.
+"hell hound" lists "basilisk" as an associate, but not vice versa.
+"hell hound" lists "manticore" as an associate, but not vice versa.
+"hell hound" lists "veteran" as an associate, but not vice versa.
+"hell hound" lists "gelatinous cube" as an associate, but not vice versa.
+"hell hound" lists "darkmantle" as an associate, but not vice versa.
+"hell hound" lists "cyclops" as an associate, but not vice versa.
+"hell hound" lists "earth elemental" as an associate, but not vice versa.
+"hell hound" lists "salamander" as an associate, but not vice versa.
+"hell hound" lists "flesh golem" as an associate, but not vice versa.
+"hell hound" lists "nothic" as an associate, but not vice versa.
+"hell hound" lists "otyugh" as an associate, but not vice versa.
+"hell hound" lists "roper" as an associate, but not vice versa.
+"hell hound" lists "wyvern" as an associate, but not vice versa.
+"hell hound" lists "bearded devil" as an associate, but not vice versa.
+"hell hound" lists "azer" as an associate, but not vice versa.
+"hell hound" lists "goblin" as an associate, but not vice versa.
+"hell hound" lists "rust monster" as an associate, but not vice versa.
+"hell hound" lists "shield guardian" as an associate, but not vice versa.
+"hell hound" lists "troll" as an associate, but not vice versa.
+"hezrou" lists "dretch" as an associate, but not vice versa.
+"hezrou" lists "ghoul" as an associate, but not vice versa.
+"hezrou" lists "troll" as an associate, but not vice versa.
+"hezrou" lists "giant hyena" as an associate, but not vice versa.
+"hezrou" lists "giant scorpion" as an associate, but not vice versa.
+"hezrou" lists "mummy" as an associate, but not vice versa.
+"hezrou" lists "phase spider" as an associate, but not vice versa.
+"hezrou" lists "wight" as an associate, but not vice versa.
+"hezrou" lists "basilisk" as an associate, but not vice versa.
+"hezrou" lists "manticore" as an associate, but not vice versa.
+"hezrou" lists "veteran" as an associate, but not vice versa.
+"hezrou" lists "gelatinous cube" as an associate, but not vice versa.
+"hezrou" lists "darkmantle" as an associate, but not vice versa.
+"hezrou" lists "cyclops" as an associate, but not vice versa.
+"hezrou" lists "earth elemental" as an associate, but not vice versa.
+"hezrou" lists "ogre" as an associate, but not vice versa.
+"hezrou" lists "chuul" as an associate, but not vice versa.
+"hezrou" lists "salamander" as an associate, but not vice versa.
+"hezrou" lists "chimera" as an associate, but not vice versa.
+"hezrou" lists "flesh golem" as an associate, but not vice versa.
+"hezrou" lists "nothic" as an associate, but not vice versa.
+"hezrou" lists "otyugh" as an associate, but not vice versa.
+"hezrou" lists "roper" as an associate, but not vice versa.
+"hezrou" lists "wyvern" as an associate, but not vice versa.
+"hill giant" lists "ettin" as an associate, but not vice versa.
+"hill giant" lists "manticore" as an associate, but not vice versa.
+"hill giant" lists "minotaur" as an associate, but not vice versa.
+"hill giant" lists "wight" as an associate, but not vice versa.
+"hill giant" lists "ogre zombie" as an associate, but not vice versa.
+"hill giant" lists "fire elemental" as an associate, but not vice versa.
+"hill giant" lists "lamia" as an associate, but not vice versa.
+"hill giant" lists "mummy" as an associate, but not vice versa.
+"hill giant" lists "phase spider" as an associate, but not vice versa.
+"hill giant" lists "bulette" as an associate, but not vice versa.
+"hill giant" lists "werebear" as an associate, but not vice versa.
+"hill giant" lists "vampire spawn" as an associate, but not vice versa.
+"hill giant" lists "mammoth" as an associate, but not vice versa.
+"hill giant" lists "hydra" as an associate, but not vice versa.
+"hill giant" lists "giant boar" as an associate, but not vice versa.
+"hill giant" lists "berserker" as an associate, but not vice versa.
+"hill giant" lists "saber-toothed tiger" as an associate, but not vice versa.
+"hill giant" lists "magmin" as an associate, but not vice versa.
+"hill giant" lists "nightmare" as an associate, but not vice versa.
+"hill giant" lists "hell hound" as an associate, but not vice versa.
+"hippogriff" lists "brown bear" as an associate, but not vice versa.
+"hippogriff" lists "bugbear" as an associate, but not vice versa.
+"hippogriff" lists "dire wolf" as an associate, but not vice versa.
+"hippogriff" lists "dryad" as an associate, but not vice versa.
+"hippogriff" lists "duergar" as an associate, but not vice versa.
+"hippogriff" lists "ghoul" as an associate, but not vice versa.
+"hippogriff" lists "giant hyena" as an associate, but not vice versa.
+"hippogriff" lists "giant spider" as an associate, but not vice versa.
+"hippogriff" lists "giant toad" as an associate, but not vice versa.
+"hippogriff" lists "goblin boss" as an associate, but not vice versa.
+"hippogriff" lists "imp" as an associate, but not vice versa.
+"hippogriff" lists "lion" as an associate, but not vice versa.
+"hippogriff" lists "quasit" as an associate, but not vice versa.
+"hippogriff" lists "specter" as an associate, but not vice versa.
+"hippogriff" lists "spy" as an associate, but not vice versa.
+"hippogriff" lists "swarm of quippers" as an associate, but not vice versa.
+"hippogriff" lists "giant vulture" as an associate, but not vice versa.
+"hippogriff" lists "giant eagle" as an associate, but not vice versa.
+"hobgoblin" lists "duergar" as an associate, but not vice versa.
+"hobgoblin" lists "lizardfolk" as an associate, but not vice versa.
+"hobgoblin" lists "troglodyte" as an associate, but not vice versa.
+"hobgoblin" lists "zombie" as an associate, but not vice versa.
+"hobgoblin" lists "giant scorpion" as an associate, but not vice versa.
+"homunculus" lists "owl" as an associate, but not vice versa.
+"homunculus" lists "warhorse" as an associate, but not vice versa.
+"homunculus" lists "giant eagle" as an associate, but not vice versa.
+"homunculus" lists "veteran" as an associate, but not vice versa.
+"homunculus" lists "knight" as an associate, but not vice versa.
+"homunculus" lists "androsphinx" as an associate, but not vice versa.
+"homunculus" lists "merfolk" as an associate, but not vice versa.
+"homunculus" lists "giant octopus" as an associate, but not vice versa.
+"homunculus" lists "druid" as an associate, but not vice versa.
+"homunculus" lists "plesiosaurus" as an associate, but not vice versa.
+"homunculus" lists "killer whale" as an associate, but not vice versa.
+"homunculus" lists "giant shark" as an associate, but not vice versa.
+"homunculus" lists "mage" as an associate, but not vice versa.
+"homunculus" lists "dragon turtle" as an associate, but not vice versa.
+"homunculus" lists "kraken" as an associate, but not vice versa.
+"horned devil" lists "marilith" as an associate, but not vice versa.
+"hunter shark" lists "giant shark" as an associate, but not vice versa.
+"hunter shark" lists "merrow" as an associate, but not vice versa.
+"hunter shark" lists "plesiosaurus" as an associate, but not vice versa.
+"hunter shark" lists "giant octopus" as an associate, but not vice versa.
+"hunter shark" lists "giant toad" as an associate, but not vice versa.
+"hunter shark" lists "giant crab" as an associate, but not vice versa.
+"hydra" lists "giant octopus" as an associate, but not vice versa.
+"hydra" lists "giant toad" as an associate, but not vice versa.
+"hydra" lists "giant crab" as an associate, but not vice versa.
+"hydra" lists "merrow" as an associate, but not vice versa.
+"hydra" lists "plesiosaurus" as an associate, but not vice versa.
+"hydra" lists "sahuagin" as an associate, but not vice versa.
+"hydra" lists "sea hag" as an associate, but not vice versa.
+"hydra" lists "swarm of quippers" as an associate, but not vice versa.
+"ice mephit" lists "dust mephit" as an associate, but not vice versa.
+"imp" lists "lich" as an associate, but not vice versa.
+"imp" lists "vampire" as an associate, but not vice versa.
+"imp" lists "priest" as an associate, but not vice versa.
+"imp" lists "druid" as an associate, but not vice versa.
+"imp" lists "assassin" as an associate, but not vice versa.
+"invisible stalker" lists "priest" as an associate, but not vice versa.
+"invisible stalker" lists "druid" as an associate, but not vice versa.
+"invisible stalker" lists "assassin" as an associate, but not vice versa.
+"jackal" lists "giant hyena" as an associate, but not vice versa.
+"jackal" lists "gnoll" as an associate, but not vice versa.
+"killer whale" lists "giant shark" as an associate, but not vice versa.
+"killer whale" lists "dragon turtle" as an associate, but not vice versa.
+"killer whale" lists "giant octopus" as an associate, but not vice versa.
+"kobold" lists "black dragon wyrmling" as an associate, but not vice versa.
+"kraken" lists "giant octopus" as an associate, but not vice versa.
+"kraken" lists "giant shark" as an associate, but not vice versa.
+"kraken" lists "dragon turtle" as an associate, but not vice versa.
+"kraken" lists "merrow" as an associate, but not vice versa.
+"kraken" lists "sea hag" as an associate, but not vice versa.
+"lich" lists "vampire spawn" as an associate, but not vice versa.
+"lizard" lists "giant lizard" as an associate, but not vice versa.
+"mage" lists "archmage" as an associate, but not vice versa.
+"mage" lists "druid" as an associate, but not vice versa.
+"magma mephit" lists "dust mephit" as an associate, but not vice versa.
+"magmin" lists "steam mephit" as an associate, but not vice versa.
+"magmin" lists "ice mephit" as an associate, but not vice versa.
+"magmin" lists "magma mephit" as an associate, but not vice versa.
+"mammoth" lists "deer" as an associate, but not vice versa.
+"mammoth" lists "griffon" as an associate, but not vice versa.
+"mammoth" lists "dire wolf" as an associate, but not vice versa.
+"manticore" lists "bugbear" as an associate, but not vice versa.
+"manticore" lists "centaur" as an associate, but not vice versa.
+"manticore" lists "chimera" as an associate, but not vice versa.
+"manticore" lists "cyclops" as an associate, but not vice versa.
+"manticore" lists "dragon turtle" as an associate, but not vice versa.
+"manticore" lists "giant eagle" as an associate, but not vice versa.
+"manticore" lists "giant owl" as an associate, but not vice versa.
+"manticore" lists "giant vulture" as an associate, but not vice versa.
+"manticore" lists "gorgon" as an associate, but not vice versa.
+"manticore" lists "griffon" as an associate, but not vice versa.
+"manticore" lists "hippogriff" as an associate, but not vice versa.
+"manticore" lists "hydra" as an associate, but not vice versa.
+"manticore" lists "kraken" as an associate, but not vice versa.
+"mastiff" lists "knight" as an associate, but not vice versa.
+"medusa" lists "drow" as an associate, but not vice versa.
+"merfolk" lists "scout" as an associate, but not vice versa.
+"merfolk" lists "commoner" as an associate, but not vice versa.
+"merfolk" lists "giant octopus" as an associate, but not vice versa.
+"merfolk" lists "killer whale" as an associate, but not vice versa.
+"merfolk" lists "giant shark" as an associate, but not vice versa.
+"minotaur skeleton" lists "minotaur" as an associate, but not vice versa.
+"mummy lord" lists "skeleton" as an associate, but not vice versa.
+"mummy lord" lists "giant scorpion" as an associate, but not vice versa.
+"mummy lord" lists "giant spider" as an associate, but not vice versa.
+"mummy lord" lists "giant constrictor snake" as an associate, but not vice versa.
+"mummy lord" lists "giant poisonous snake" as an associate, but not vice versa.
+"mummy lord" lists "giant toad" as an associate, but not vice versa.
+"mummy lord" lists "giant centipede" as an associate, but not vice versa.
+"mummy lord" lists "giant lizard" as an associate, but not vice versa.
+"mummy lord" lists "giant rat" as an associate, but not vice versa.
+"mummy lord" lists "giant bat" as an associate, but not vice versa.
+"mummy lord" lists "giant wolf spider" as an associate, but not vice versa.
+"nalfeshnee" lists "green hag" as an associate, but not vice versa.
+"nalfeshnee" lists "sea hag" as an associate, but not vice versa.
+"nalfeshnee" lists "night hag" as an associate, but not vice versa.
+"night hag" lists "magmin" as an associate, but not vice versa.
+"night hag" lists "hell hound" as an associate, but not vice versa.
+"nightmare" lists "night hag" as an associate, but not vice versa.
+"nightmare" lists "nalfeshnee" as an associate, but not vice versa.
+"noble" lists "knight" as an associate, but not vice versa.
+"noble" lists "acolyte" as an associate, but not vice versa.
+"noble" lists "sage" as an associate, but not vice versa.
+"noble" lists "spy" as an associate, but not vice versa.
+"noble" lists "thug" as an associate, but not vice versa.
+"noble" lists "veteran" as an associate, but not vice versa.
+"ochre jelly" lists "black pudding" as an associate, but not vice versa.
+"ochre jelly" lists "gelatinous cube" as an associate, but not vice versa.
+"octopus" lists "killer whale" as an associate, but not vice versa.
+"octopus" lists "giant shark" as an associate, but not vice versa.
+"octopus" lists "plesiosaurus" as an associate, but not vice versa.
+"octopus" lists "dragon turtle" as an associate, but not vice versa.
+"octopus" lists "kraken" as an associate, but not vice versa.
+"octopus" lists "merfolk" as an associate, but not vice versa.
+"octopus" lists "merrow" as an associate, but not vice versa.
+"octopus" lists "sahuagin" as an associate, but not vice versa.
+"octopus" lists "hunter shark" as an associate, but not vice versa.
+"octopus" lists "swarm of quippers" as an associate, but not vice versa.
+"ogre" lists "stone giant" as an associate, but not vice versa.
+"ogre" lists "azer" as an associate, but not vice versa.
+"ogre" lists "gargoyle" as an associate, but not vice versa.
+"ogre" lists "shield guardian" as an associate, but not vice versa.
+"ogre" lists "hobgoblin" as an associate, but not vice versa.
+"ogre" lists "kobold" as an associate, but not vice versa.
+"ogre" lists "lizardfolk" as an associate, but not vice versa.
+"ogre" lists "orc" as an associate, but not vice versa.
+"ogre zombie" lists "zombie" as an associate, but not vice versa.
+"ogre zombie" lists "mummy lord" as an associate, but not vice versa.
+"ogre zombie" lists "lich" as an associate, but not vice versa.
+"ogre zombie" lists "giant scorpion" as an associate, but not vice versa.
+"ogre zombie" lists "giant spider" as an associate, but not vice versa.
+"ogre zombie" lists "giant constrictor snake" as an associate, but not vice versa.
+"ogre zombie" lists "giant poisonous snake" as an associate, but not vice versa.
+"ogre zombie" lists "giant toad" as an associate, but not vice versa.
+"ogre zombie" lists "giant centipede" as an associate, but not vice versa.
+"ogre zombie" lists "giant lizard" as an associate, but not vice versa.
+"ogre zombie" lists "giant rat" as an associate, but not vice versa.
+"ogre zombie" lists "giant bat" as an associate, but not vice versa.
+"ogre zombie" lists "giant wolf spider" as an associate, but not vice versa.
+"oni" lists "gnoll" as an associate, but not vice versa.
+"oni" lists "goblin" as an associate, but not vice versa.
+"oni" lists "minotaur" as an associate, but not vice versa.
+"oni" lists "kobold" as an associate, but not vice versa.
+"oni" lists "ogre" as an associate, but not vice versa.
+"oni" lists "orc" as an associate, but not vice versa.
+"oni" lists "troll" as an associate, but not vice versa.
+"orc" lists "drow" as an associate, but not vice versa.
+"otyugh" lists "nothic" as an associate, but not vice versa.
+"owl" lists "acolyte" as an associate, but not vice versa.
+"owl" lists "priest" as an associate, but not vice versa.
+"owl" lists "sage" as an associate, but not vice versa.
+"owlbear" lists "giant owl" as an associate, but not vice versa.
+"panther" lists "lion" as an associate, but not vice versa.
+"pegasus" lists "giant boar" as an associate, but not vice versa.
+"pegasus" lists "deer" as an associate, but not vice versa.
+"pegasus" lists "acolyte" as an associate, but not vice versa.
+"pegasus" lists "priest" as an associate, but not vice versa.
+"pegasus" lists "sage" as an associate, but not vice versa.
+"phase spider" lists "lamia" as an associate, but not vice versa.
+"phase spider" lists "wereboar" as an associate, but not vice versa.
+"phase spider" lists "werebear" as an associate, but not vice versa.
+"phase spider" lists "duergar" as an associate, but not vice versa.
+"phase spider" lists "minotaur" as an associate, but not vice versa.
+"phase spider" lists "wight" as an associate, but not vice versa.
+"phase spider" lists "mummy" as an associate, but not vice versa.
+"planetar" lists "solar" as an associate, but not vice versa.
+"plesiosaurus" lists "giant octopus" as an associate, but not vice versa.
+"plesiosaurus" lists "giant shark" as an associate, but not vice versa.
+"plesiosaurus" lists "dragon turtle" as an associate, but not vice versa.
+"poisonous snake" lists "swarm of poisonous snakes" as an associate, but not vice versa.
+"pony" lists "mule" as an associate, but not vice versa.
+"pony" lists "draft horse" as an associate, but not vice versa.
+"pony" lists "warhorse" as an associate, but not vice versa.
+"pony" lists "riding horse" as an associate, but not vice versa.
+"pseudodragon" lists "red dragon wyrmling" as an associate, but not vice versa.
+"pseudodragon" lists "black dragon wyrmling" as an associate, but not vice versa.
+"pseudodragon" lists "white dragon wyrmling" as an associate, but not vice versa.
+"pseudodragon" lists "bronze dragon wyrmling" as an associate, but not vice versa.
+"pseudodragon" lists "copper dragon wyrmling" as an associate, but not vice versa.
+"pseudodragon" lists "gold dragon wyrmling" as an associate, but not vice versa.
+"pseudodragon" lists "silver dragon wyrmling" as an associate, but not vice versa.
+"pseudodragon" lists "brass dragon wyrmling" as an associate, but not vice versa.
+"quasit" lists "druid" as an associate, but not vice versa.
+"quasit" lists "cultist" as an associate, but not vice versa.
+"quasit" lists "priest" as an associate, but not vice versa.
+"quipper" lists "swarm of quippers" as an associate, but not vice versa.
+"quipper" lists "hunter shark" as an associate, but not vice versa.
+"quipper" lists "giant octopus" as an associate, but not vice versa.
+"quipper" lists "killer whale" as an associate, but not vice versa.
+"quipper" lists "plesiosaurus" as an associate, but not vice versa.
+"quipper" lists "sahuagin" as an associate, but not vice versa.
+"quipper" lists "sea hag" as an associate, but not vice versa.
+"quipper" lists "dragon turtle" as an associate, but not vice versa.
+"quipper" lists "kraken" as an associate, but not vice versa.
+"rakshasa" lists "vampire spawn" as an associate, but not vice versa.
+"rakshasa" lists "cultist" as an associate, but not vice versa.
+"rakshasa" lists "priest" as an associate, but not vice versa.
+"rat" lists "swarm of rats" as an associate, but not vice versa.
+"rat" lists "giant rat" as an associate, but not vice versa.
+"raven" lists "swarm of ravens" as an associate, but not vice versa.
+"raven" lists "giant owl" as an associate, but not vice versa.
+"raven" lists "giant eagle" as an associate, but not vice versa.
+"raven" lists "hippogriff" as an associate, but not vice versa.
+"raven" lists "pegasus" as an associate, but not vice versa.
+"raven" lists "roc" as an associate, but not vice versa.
+"raven" lists "harpy" as an associate, but not vice versa.
+"raven" lists "griffon" as an associate, but not vice versa.
+"red dragon wyrmling" lists "giant boar" as an associate, but not vice versa.
+"red dragon wyrmling" lists "orc" as an associate, but not vice versa.
+"reef shark" lists "hunter shark" as an associate, but not vice versa.
+"reef shark" lists "giant shark" as an associate, but not vice versa.
+"reef shark" lists "killer whale" as an associate, but not vice versa.
+"reef shark" lists "plesiosaurus" as an associate, but not vice versa.
+"reef shark" lists "giant octopus" as an associate, but not vice versa.
+"reef shark" lists "sahuagin" as an associate, but not vice versa.
+"reef shark" lists "sea hag" as an associate, but not vice versa.
+"reef shark" lists "dragon turtle" as an associate, but not vice versa.
+"reef shark" lists "kraken" as an associate, but not vice versa.
+"rhinoceros" lists "giant boar" as an associate, but not vice versa.
+"rhinoceros" lists "deer" as an associate, but not vice versa.
+"rhinoceros" lists "griffon" as an associate, but not vice versa.
+"riding horse" lists "tribal warrior" as an associate, but not vice versa.
+"riding horse" lists "archmage" as an associate, but not vice versa.
+"riding horse" lists "knight" as an associate, but not vice versa.
+"riding horse" lists "druid" as an associate, but not vice versa.
+"roc" lists "riding horse" as an associate, but not vice versa.
+"roc" lists "rhinoceros" as an associate, but not vice versa.
+"roc" lists "saber-toothed tiger" as an associate, but not vice versa.
+"roc" lists "pegasus" as an associate, but not vice versa.
+"roc" lists "giant eagle" as an associate, but not vice versa.
+"roc" lists "giant owl" as an associate, but not vice versa.
+"roc" lists "hippogriff" as an associate, but not vice versa.
+"roc" lists "harpy" as an associate, but not vice versa.
+"roper" lists "otyugh" as an associate, but not vice versa.
+"roper" lists "hobgoblin" as an associate, but not vice versa.
+"roper" lists "bugbear" as an associate, but not vice versa.
+"roper" lists "duergar" as an associate, but not vice versa.
+"roper" lists "kobold" as an associate, but not vice versa.
+"rug of smothering" lists "cultist" as an associate, but not vice versa.
+"rug of smothering" lists "priest" as an associate, but not vice versa.
+"rust monster" lists "duergar" as an associate, but not vice versa.
+"rust monster" lists "drow" as an associate, but not vice versa.
+"rust monster" lists "kobold" as an associate, but not vice versa.
+"rust monster" lists "giant spider" as an associate, but not vice versa.
+"rust monster" lists "giant centipede" as an associate, but not vice versa.
+"rust monster" lists "giant scorpion" as an associate, but not vice versa.
+"rust monster" lists "giant wasp" as an associate, but not vice versa.
+"saber-toothed tiger" lists "giant boar" as an associate, but not vice versa.
+"saber-toothed tiger" lists "deer" as an associate, but not vice versa.
+"saber-toothed tiger" lists "griffon" as an associate, but not vice versa.
+"sahuagin" lists "plesiosaurus" as an associate, but not vice versa.
+"sahuagin" lists "giant octopus" as an associate, but not vice versa.
+"salamander" lists "young white dragon" as an associate, but not vice versa.
+"salamander" lists "red dragon wyrmling" as an associate, but not vice versa.
+"salamander" lists "young red dragon" as an associate, but not vice versa.
+"salamander" lists "fire giant" as an associate, but not vice versa.
+"salamander" lists "magmin" as an associate, but not vice versa.
+"salamander" lists "fire elemental" as an associate, but not vice versa.
+"satyr" lists "ape" as an associate, but not vice versa.
+"satyr" lists "green hag" as an associate, but not vice versa.
+"scout" lists "lizardfolk" as an associate, but not vice versa.
+"sea hag" lists "killer whale" as an associate, but not vice versa.
+"sea hag" lists "plesiosaurus" as an associate, but not vice versa.
+"sea hag" lists "sahuagin" as an associate, but not vice versa.
+"sea hag" lists "gnoll" as an associate, but not vice versa.
+"sea hag" lists "giant octopus" as an associate, but not vice versa.
+"sea hag" lists "giant crab" as an associate, but not vice versa.
+"sea horse" lists "merfolk" as an associate, but not vice versa.
+"sea horse" lists "sahuagin" as an associate, but not vice versa.
+"sea horse" lists "killer whale" as an associate, but not vice versa.
+"sea horse" lists "plesiosaurus" as an associate, but not vice versa.
+"sea horse" lists "kraken" as an associate, but not vice versa.
+"sea horse" lists "dragon turtle" as an associate, but not vice versa.
+"sea horse" lists "hunter shark" as an associate, but not vice versa.
+"sea horse" lists "swarm of quippers" as an associate, but not vice versa.
+"sea horse" lists "giant octopus" as an associate, but not vice versa.
+"sea horse" lists "giant crab" as an associate, but not vice versa.
+"shadow" lists "skeleton" as an associate, but not vice versa.
+"shadow" lists "specter" as an associate, but not vice versa.
+"shadow" lists "ghost" as an associate, but not vice versa.
+"shadow" lists "wight" as an associate, but not vice versa.
+"shadow" lists "mummy" as an associate, but not vice versa.
+"shadow" lists "banshee" as an associate, but not vice versa.
+"shadow" lists "vampire spawn" as an associate, but not vice versa.
+"shadow" lists "lich" as an associate, but not vice versa.
+"silver dragon wyrmling" lists "young silver dragon" as an associate, but not vice versa.
+"silver dragon wyrmling" lists "adult silver dragon" as an associate, but not vice versa.
+"silver dragon wyrmling" lists "ancient silver dragon" as an associate, but not vice versa.
+"skeleton" lists "ghost" as an associate, but not vice versa.
+"skeleton" lists "wight" as an associate, but not vice versa.
+"skeleton" lists "mummy" as an associate, but not vice versa.
+"skeleton" lists "banshee" as an associate, but not vice versa.
+"skeleton" lists "lich" as an associate, but not vice versa.
+"spectator" lists "aboleth" as an associate, but not vice versa.
+"specter" lists "flameskull" as an associate, but not vice versa.
+"specter" lists "wraith" as an associate, but not vice versa.
+"specter" lists "banshee" as an associate, but not vice versa.
+"specter" lists "vampire spawn" as an associate, but not vice versa.
+"specter" lists "lich" as an associate, but not vice versa.
+"spider" lists "giant spider" as an associate, but not vice versa.
+"spider" lists "goblin" as an associate, but not vice versa.
+"spider" lists "hobgoblin" as an associate, but not vice versa.
+"spider" lists "bugbear" as an associate, but not vice versa.
+"spider" lists "ettercap" as an associate, but not vice versa.
+"spider" lists "phase spider" as an associate, but not vice versa.
+"spider" lists "drider" as an associate, but not vice versa.
+"sprite" lists "satyr" as an associate, but not vice versa.
+"sprite" lists "dryad" as an associate, but not vice versa.
+"sprite" lists "centaur" as an associate, but not vice versa.
+"sprite" lists "green hag" as an associate, but not vice versa.
+"sprite" lists "bugbear" as an associate, but not vice versa.
+"sprite" lists "goblin" as an associate, but not vice versa.
+"spy" lists "vampire" as an associate, but not vice versa.
+"spy" lists "doppelganger" as an associate, but not vice versa.
+"spy" lists "assassin" as an associate, but not vice versa.
+"steam mephit" lists "dust mephit" as an associate, but not vice versa.
+"stirge" lists "kobold" as an associate, but not vice versa.
+"stirge" lists "poisonous snake" as an associate, but not vice versa.
+"stirge" lists "constrictor snake" as an associate, but not vice versa.
+"stirge" lists "giant frog" as an associate, but not vice versa.
+"stirge" lists "giant lizard" as an associate, but not vice versa.
+"stone giant" lists "hill giant" as an associate, but not vice versa.
+"stone giant" lists "fire giant" as an associate, but not vice versa.
+"stone giant" lists "ettin" as an associate, but not vice versa.
+"stone giant" lists "cloud giant" as an associate, but not vice versa.
+"stone giant" lists "storm giant" as an associate, but not vice versa.
+"stone golem" lists "priest" as an associate, but not vice versa.
+"succubus/incubus" lists "lemure" as an associate, but not vice versa.
+"succubus/incubus" lists "bearded devil" as an associate, but not vice versa.
+"succubus/incubus" lists "barbed devil" as an associate, but not vice versa.
+"succubus/incubus" lists "marilith" as an associate, but not vice versa.
+"succubus/incubus" lists "minotaur" as an associate, but not vice versa.
+"succubus/incubus" lists "skeleton" as an associate, but not vice versa.
+"succubus/incubus" lists "zombie" as an associate, but not vice versa.
+"succubus/incubus" lists "ghoul" as an associate, but not vice versa.
+"succubus/incubus" lists "ghast" as an associate, but not vice versa.
+"succubus/incubus" lists "shadow" as an associate, but not vice versa.
+"succubus/incubus" lists "priest" as an associate, but not vice versa.
+"swarm of bats" lists "swarm of insects" as an associate, but not vice versa.
+"swarm of bats" lists "lich" as an associate, but not vice versa.
+"swarm of bats" lists "vampire" as an associate, but not vice versa.
+"swarm of bats" lists "vampire spawn" as an associate, but not vice versa.
+"swarm of insects" lists "ettercap" as an associate, but not vice versa.
+"swarm of insects" lists "black bear" as an associate, but not vice versa.
+"swarm of insects" lists "gnoll" as an associate, but not vice versa.
+"swarm of insects" lists "hobgoblin" as an associate, but not vice versa.
+"swarm of insects" lists "lizardfolk" as an associate, but not vice versa.
+"swarm of insects" lists "orc" as an associate, but not vice versa.
+"swarm of insects" lists "scout" as an associate, but not vice versa.
+"swarm of insects" lists "satyr" as an associate, but not vice versa.
+"swarm of insects" lists "thug" as an associate, but not vice versa.
+"swarm of insects" lists "worg" as an associate, but not vice versa.
+"swarm of insects" lists "swarm of quippers" as an associate, but not vice versa.
+"swarm of poisonous snakes" lists "giant poisonous snake" as an associate, but not vice versa.
+"swarm of quippers" lists "giant octopus" as an associate, but not vice versa.
+"swarm of quippers" lists "plesiosaurus" as an associate, but not vice versa.
+"swarm of quippers" lists "sea hag" as an associate, but not vice versa.
+"swarm of quippers" lists "dragon turtle" as an associate, but not vice versa.
+"swarm of rats" lists "kobold" as an associate, but not vice versa.
+"swarm of rats" lists "poisonous snake" as an associate, but not vice versa.
+"swarm of rats" lists "tribal warrior" as an associate, but not vice versa.
+"swarm of rats" lists "constrictor snake" as an associate, but not vice versa.
+"swarm of rats" lists "giant frog" as an associate, but not vice versa.
+"swarm of rats" lists "giant lizard" as an associate, but not vice versa.
+"swarm of rats" lists "giant poisonous snake" as an associate, but not vice versa.
+"swarm of ravens" lists "giant rat" as an associate, but not vice versa.
+"swarm of ravens" lists "kobold" as an associate, but not vice versa.
+"swarm of ravens" lists "poisonous snake" as an associate, but not vice versa.
+"swarm of ravens" lists "tribal warrior" as an associate, but not vice versa.
+"swarm of ravens" lists "constrictor snake" as an associate, but not vice versa.
+"swarm of ravens" lists "giant frog" as an associate, but not vice versa.
+"swarm of ravens" lists "giant lizard" as an associate, but not vice versa.
+"swarm of ravens" lists "giant poisonous snake" as an associate, but not vice versa.
+"thug" lists "commoner" as an associate, but not vice versa.
+"tiger" lists "bandit captain" as an associate, but not vice versa.
+"tiger" lists "berserker" as an associate, but not vice versa.
+"tiger" lists "druid" as an associate, but not vice versa.
+"tiger" lists "giant elk" as an associate, but not vice versa.
+"tiger" lists "griffon" as an associate, but not vice versa.
+"tiger" lists "scout" as an associate, but not vice versa.
+"tiger" lists "satyr" as an associate, but not vice versa.
+"tiger" lists "thug" as an associate, but not vice versa.
+"tiger" lists "worg" as an associate, but not vice versa.
+"treant" lists "blink dog" as an associate, but not vice versa.
+"treant" lists "elk" as an associate, but not vice versa.
+"treant" lists "owlbear" as an associate, but not vice versa.
+"treant" lists "giant owl" as an associate, but not vice versa.
+"tribal warrior" lists "bandit" as an associate, but not vice versa.
+"tribal warrior" lists "blood hawk" as an associate, but not vice versa.
+"tribal warrior" lists "kobold" as an associate, but not vice versa.
+"tribal warrior" lists "mastiff" as an associate, but not vice versa.
+"tribal warrior" lists "poisonous snake" as an associate, but not vice versa.
+"tribal warrior" lists "scout" as an associate, but not vice versa.
+"tribal warrior" lists "thug" as an associate, but not vice versa.
+"tribal warrior" lists "worg" as an associate, but not vice versa.
+"triceratops" lists "rhinoceros" as an associate, but not vice versa.
+"triceratops" lists "elephant" as an associate, but not vice versa.
+"triceratops" lists "giant elk" as an associate, but not vice versa.
+"triceratops" lists "saber-toothed tiger" as an associate, but not vice versa.
+"troll" lists "stone giant" as an associate, but not vice versa.
+"twig blight" lists "shambling mound" as an associate, but not vice versa.
+"twig blight" lists "awakened shrub" as an associate, but not vice versa.
+"twig blight" lists "awakened tree" as an associate, but not vice versa.
+"unicorn" lists "blink dog" as an associate, but not vice versa.
+"unicorn" lists "elk" as an associate, but not vice versa.
+"unicorn" lists "owlbear" as an associate, but not vice versa.
+"unicorn" lists "giant owl" as an associate, but not vice versa.
+"vampire" lists "rakshasa" as an associate, but not vice versa.
+"veteran" lists "scout" as an associate, but not vice versa.
+"veteran" lists "doppelganger" as an associate, but not vice versa.
+"veteran" lists "knight" as an associate, but not vice versa.
+"veteran" lists "phase spider" as an associate, but not vice versa.
+"vrock" lists "marilith" as an associate, but not vice versa.
+"vrock" lists "demogorgon" as an associate, but not vice versa.
+"vrock" lists "dretch" as an associate, but not vice versa.
+"vrock" lists "glabrezu" as an associate, but not vice versa.
+"vrock" lists "hezrou" as an associate, but not vice versa.
+"vrock" lists "nalfeshnee" as an associate, but not vice versa.
+"vrock" lists "quasit" as an associate, but not vice versa.
+"vrock" lists "succubus/incubus" as an associate, but not vice versa.
+"vulture" lists "cat" as an associate, but not vice versa.
+"vulture" lists "commoner" as an associate, but not vice versa.
+"vulture" lists "hyena" as an associate, but not vice versa.
+"vulture" lists "scorpion" as an associate, but not vice versa.
+"vulture" lists "deer" as an associate, but not vice versa.
+"vulture" lists "eagle" as an associate, but not vice versa.
+"vulture" lists "goat" as an associate, but not vice versa.
+"vulture" lists "rat" as an associate, but not vice versa.
+"vulture" lists "raven" as an associate, but not vice versa.
+"warhorse" lists "bandit captain" as an associate, but not vice versa.
+"warhorse" lists "knight" as an associate, but not vice versa.
+"warhorse" lists "thug" as an associate, but not vice versa.
+"warhorse" lists "commoner" as an associate, but not vice versa.
+"warhorse" lists "druid" as an associate, but not vice versa.
+"warhorse skeleton" lists "lich" as an associate, but not vice versa.
+"warhorse skeleton" lists "skull lord" as an associate, but not vice versa.
+"warhorse skeleton" lists "ghast" as an associate, but not vice versa.
+"warhorse skeleton" lists "wight" as an associate, but not vice versa.
+"warhorse skeleton" lists "zombie" as an associate, but not vice versa.
+"warhorse skeleton" lists "skeleton" as an associate, but not vice versa.
+"warhorse skeleton" lists "ghost" as an associate, but not vice versa.
+"warhorse skeleton" lists "mummy" as an associate, but not vice versa.
+"water elemental" lists "kraken" as an associate, but not vice versa.
+"werebear" lists "worg" as an associate, but not vice versa.
+"werebear" lists "tribal warrior" as an associate, but not vice versa.
+"werebear" lists "dire wolf" as an associate, but not vice versa.
+"werebear" lists "werewolf" as an associate, but not vice versa.
+"werebear" lists "wereboar" as an associate, but not vice versa.
+"wereboar" lists "tribal warrior" as an associate, but not vice versa.
+"wereboar" lists "dire wolf" as an associate, but not vice versa.
+"wererat" lists "swarm of rats" as an associate, but not vice versa.
+"wererat" lists "rat" as an associate, but not vice versa.
+"wererat" lists "giant rat" as an associate, but not vice versa.
+"wererat" lists "tribal warrior" as an associate, but not vice versa.
+"wererat" lists "dire wolf" as an associate, but not vice versa.
+"wererat" lists "werewolf" as an associate, but not vice versa.
+"wererat" lists "wereboar" as an associate, but not vice versa.
+"weretiger" lists "gnoll" as an associate, but not vice versa.
+"weretiger" lists "young brass dragon" as an associate, but not vice versa.
+"weretiger" lists "tribal warrior" as an associate, but not vice versa.
+"weretiger" lists "dire wolf" as an associate, but not vice versa.
+"weretiger" lists "werewolf" as an associate, but not vice versa.
+"weretiger" lists "wereboar" as an associate, but not vice versa.
+"wight" lists "specter" as an associate, but not vice versa.
+"wight" lists "ghost" as an associate, but not vice versa.
+"wight" lists "flameskull" as an associate, but not vice versa.
+"wight" lists "wraith" as an associate, but not vice versa.
+"wolf" lists "dire wolf" as an associate, but not vice versa.
+"wolf" lists "worg" as an associate, but not vice versa.
+"wolf" lists "werewolf" as an associate, but not vice versa.
+"wolf" lists "winter wolf" as an associate, but not vice versa.
+"worg" lists "goblin" as an associate, but not vice versa.
+"worg" lists "hobgoblin" as an associate, but not vice versa.
+"worg" lists "bugbear" as an associate, but not vice versa.
+"worg" lists "werewolf" as an associate, but not vice versa.
+"worg" lists "winter wolf" as an associate, but not vice versa.
+"wyvern" lists "green hag" as an associate, but not vice versa.
+"wyvern" lists "young green dragon" as an associate, but not vice versa.
+"wyvern" lists "young red dragon" as an associate, but not vice versa.
+"wyvern" lists "young white dragon" as an associate, but not vice versa.
+"wyvern" lists "young black dragon" as an associate, but not vice versa.
+"wyvern" lists "young blue dragon" as an associate, but not vice versa.
+"wyvern" lists "young brass dragon" as an associate, but not vice versa.
+"wyvern" lists "young copper dragon" as an associate, but not vice versa.
+"wyvern" lists "young silver dragon" as an associate, but not vice versa.
+"wyvern" lists "young gold dragon" as an associate, but not vice versa.
+"yeti" lists "ice mephit" as an associate, but not vice versa.
+"yeti" lists "remorhaz" as an associate, but not vice versa.
+"young black dragon" lists "merrow" as an associate, but not vice versa.
+"young blue dragon" lists "pseudodragon" as an associate, but not vice versa.
+"young blue dragon" lists "druid" as an associate, but not vice versa.
+"young blue dragon" lists "gnoll" as an associate, but not vice versa.
+"young bronze dragon" lists "pseudodragon" as an associate, but not vice versa.
+"young bronze dragon" lists "knight" as an associate, but not vice versa.
+"young copper dragon" lists "gargoyle" as an associate, but not vice versa.
+"young copper dragon" lists "centaur" as an associate, but not vice versa.
+"young copper dragon" lists "pixie" as an associate, but not vice versa.
+"young copper dragon" lists "satyr" as an associate, but not vice versa.
+"young copper dragon" lists "druid" as an associate, but not vice versa.
+"young copper dragon" lists "noble" as an associate, but not vice versa.
+"young red dragon" lists "fire giant" as an associate, but not vice versa.
+"young white dragon" lists "remorhaz" as an associate, but not vice versa.
+"young white dragon" lists "white dragon wyrmling" as an associate, but not vice versa.
+"zombie" lists "lich" as an associate, but not vice versa.
+"zombie" lists "wight" as an associate, but not vice versa.
+"zombie" lists "wraith" as an associate, but not vice versa.
+"zombie" lists "ghast" as an associate, but not vice versa.
+"deathless rider" lists "warhorse skeleton" as an associate, but not vice versa.
+"deathless rider" lists "nightmare" as an associate, but not vice versa.
+"goblin warrior" lists "goblin" as an associate, but not vice versa.
+"goblin warrior" lists "hobgoblin" as an associate, but not vice versa.
+"goblin warrior" lists "bugbear" as an associate, but not vice versa.
+"goblin warrior" lists "orc" as an associate, but not vice versa.
+"goblin warrior" lists "gnoll" as an associate, but not vice versa.
+"goblin warrior" lists "kobold" as an associate, but not vice versa.
+"goblin warrior" lists "cultist" as an associate, but not vice versa.
+"goblin warrior" lists "bandit" as an associate, but not vice versa.
+"goblin warrior" lists "commoner" as an associate, but not vice versa.
+"goblin boss" lists "ettercap" as an associate, but not vice versa.
+"goblin boss" lists "orc" as an associate, but not vice versa.
+"goblin boss" lists "wolf" as an associate, but not vice versa.
+"goblin boss" lists "dire wolf" as an associate, but not vice versa.
+"goblin boss" lists "minotaur skeleton" as an associate, but not vice versa.
+"goblin boss" lists "minotaur" as an associate, but not vice versa.
+"goblin boss" lists "mimic" as an associate, but not vice versa.
+"goblin boss" lists "doppelganger" as an associate, but not vice versa.
+"goblin boss" lists "hobgoblin" as an associate, but not vice versa.
+"goblin boss" lists "spectator" as an associate, but not vice versa.
+"goblin boss" lists "gibbering mouther" as an associate, but not vice versa.
+"goblin boss" lists "giant constrictor snake" as an associate, but not vice versa.
+"goblin boss" lists "shadow" as an associate, but not vice versa.
+"goblin boss" lists "wight" as an associate, but not vice versa.
+"goblin boss" lists "gargoyle" as an associate, but not vice versa.
+"goblin boss" lists "ogre" as an associate, but not vice versa.
+"goblin boss" lists "chuul" as an associate, but not vice versa.
+"goblin boss" lists "salamander" as an associate, but not vice versa.
+"goblin boss" lists "phase spider" as an associate, but not vice versa.
+"goblin boss" lists "ghost" as an associate, but not vice versa.
+"goblin boss" lists "flameskull" as an associate, but not vice versa.
+"goblin boss" lists "wraith" as an associate, but not vice versa.
+"goblin boss" lists "ghast" as an associate, but not vice versa.
+"goblin boss" lists "ghoul" as an associate, but not vice versa.
+"goblin boss" lists "otyugh" as an associate, but not vice versa.
+"goblin boss" lists "roper" as an associate, but not vice versa.
+"goblin boss" lists "vampire spawn" as an associate, but not vice versa.
+"goblin boss" lists "chimera" as an associate, but not vice versa.
+"goblin boss" lists "spirit naga" as an associate, but not vice versa.
+"goblin boss" lists "cultist" as an associate, but not vice versa.
+"goblin boss" lists "bandit" as an associate, but not vice versa.
+"goblin boss" lists "commoner" as an associate, but not vice versa.
+"goblin boss" lists "rat" as an associate, but not vice versa.
+"goblin boss" lists "bat" as an associate, but not vice versa.
+"goblin boss" lists "warhorse" as an associate, but not vice versa.
+"goblin boss" lists "boar" as an associate, but not vice versa.
+"goblin boss" lists "hyena" as an associate, but not vice versa.
+"orc war chief" lists "ogre" as an associate, but not vice versa.
+"orc war chief" lists "troll" as an associate, but not vice versa.
+"orc war chief" lists "giant hyena" as an associate, but not vice versa.
+"black abishai" lists "green abishai" as an associate, but not vice versa.
+"black abishai" lists "white abishai" as an associate, but not vice versa.
+"blue abishai" lists "green abishai" as an associate, but not vice versa.
+"blue abishai" lists "white abishai" as an associate, but not vice versa.
+"orc red fang of shargaas" lists "giant bat" as an associate, but not vice versa.
+"orc red fang of shargaas" lists "orc nurtured one of yurtrus" as an associate, but not vice versa.
+"orc red fang of shargaas" lists "orc war chief" as an associate, but not vice versa.
+"pixie" lists "unicorn" as an associate, but not vice versa.
+"pixie" lists "treant" as an associate, but not vice versa.
+"pixie" lists "green hag" as an associate, but not vice versa.
+"shadow dragon" lists "shadow" as an associate, but not vice versa.
+"troglodyte" lists "lizardfolk" as an associate, but not vice versa.
+"troglodyte" lists "kobold" as an associate, but not vice versa.
+"topaz dragon wyrmling" lists "druid" as an associate, but not vice versa.
+"topaz dragon wyrmling" lists "giant eagle" as an associate, but not vice versa.
+"topaz dragon wyrmling" lists "pseudodragon" as an associate, but not vice versa.
+"topaz dragon wyrmling" lists "giant crab" as an associate, but not vice versa.
+"topaz dragon wyrmling" lists "griffon" as an associate, but not vice versa.
+"topaz dragon wyrmling" lists "sea hag" as an associate, but not vice versa.
+"young topaz dragon" lists "druid" as an associate, but not vice versa.
+"young topaz dragon" lists "gynosphinx" as an associate, but not vice versa.
+"young topaz dragon" lists "sahuagin" as an associate, but not vice versa.
+"young topaz dragon" lists "harpy" as an associate, but not vice versa.
+"young topaz dragon" lists "giant octopus" as an associate, but not vice versa.
+"young topaz dragon" lists "sea hag" as an associate, but not vice versa.
+"young topaz dragon" lists "water elemental" as an associate, but not vice versa.
+"young topaz dragon" lists "roc" as an associate, but not vice versa.
+"adult topaz dragon" lists "druid" as an associate, but not vice versa.
+"adult topaz dragon" lists "gynosphinx" as an associate, but not vice versa.
+"adult topaz dragon" lists "sahuagin" as an associate, but not vice versa.
+"adult topaz dragon" lists "harpy" as an associate, but not vice versa.
+"adult topaz dragon" lists "giant octopus" as an associate, but not vice versa.
+"adult topaz dragon" lists "sea hag" as an associate, but not vice versa.
+"adult topaz dragon" lists "water elemental" as an associate, but not vice versa.
+"adult topaz dragon" lists "roc" as an associate, but not vice versa.
+"ancient topaz dragon" lists "druid" as an associate, but not vice versa.
+"ancient topaz dragon" lists "gynosphinx" as an associate, but not vice versa.
+"ancient topaz dragon" lists "sahuagin" as an associate, but not vice versa.
+"ancient topaz dragon" lists "harpy" as an associate, but not vice versa.
+"ancient topaz dragon" lists "giant octopus" as an associate, but not vice versa.
+"ancient topaz dragon" lists "sea hag" as an associate, but not vice versa.
+"ancient topaz dragon" lists "water elemental" as an associate, but not vice versa.
+"ancient topaz dragon" lists "roc" as an associate, but not vice versa.
+"skull lord" lists "ghoul" as an associate, but not vice versa.
+"skull lord" lists "mummy" as an associate, but not vice versa.
+"skull lord" lists "ghost" as an associate, but not vice versa.
+"skulk" lists "assassin" as an associate, but not vice versa.
+"skulk" lists "bandit" as an associate, but not vice versa.
+"skulk" lists "cult fanatic" as an associate, but not vice versa.
+"skulk" lists "cultist" as an associate, but not vice versa.
+"skulk" lists "spy" as an associate, but not vice versa.
+"skulk" lists "thug" as an associate, but not vice versa.
+"umber hulk" lists "drow" as an associate, but not vice versa.
+"umber hulk" lists "duergar" as an associate, but not vice versa.
+"umber hulk" lists "goblin" as an associate, but not vice versa.
+"umber hulk" lists "kobold" as an associate, but not vice versa.
+"umber hulk" lists "orc" as an associate, but not vice versa.
