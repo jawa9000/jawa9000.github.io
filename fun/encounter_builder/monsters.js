@@ -1,4 +1,3 @@
-// Note: when you add a new monster to this file, make sure to add which environment is can be found in by updating environments.js
 const monsters = [
     {
       "name": "Aboleth",
@@ -8939,7 +8938,7 @@ const monsters = [
     },
     // >> new monsters added here that needs to be reviewed for associates and checked in general.
   ]
-
+module.exports = monsters;
 
   /*
   Refer to https://docs.google.com/spreadsheets/d/1ZVJW2zXbkYIeUqFKx-oLDwcJhrJtN3HYDvLDz0sDExI/edit?gid=0#gid=0 for a full list of monsters and their known associates.
