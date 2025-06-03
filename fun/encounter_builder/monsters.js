@@ -9710,7 +9710,6 @@ const monsters = [
     "legendary_actions": "",
     "img_url": ""
   },
-  // >>
   {
     "name": "Amethyst Dragon Wyrmling",
     "size": "Medium",
@@ -9900,6 +9899,185 @@ const monsters = [
     "reactions": "",
     "legendary_actions": "<p>Legendary Action Uses: 3. Immediately after another creature's turn, The dracolich can expend a use to take one of the following actions. The dracolich regains all expended uses at the start of each of its turns.</p><p><em><strong>Detect.</strong></em> The dracolich makes a Wisdom (Perception) check.</p><p><em><strong>Tail Attack.</strong></em> The dracolich makes a tail attack.</p><p><em><strong>Wing Attack (Costs 2 Actions).</strong></em> The dracolich beats its wings. Each creature within 10 feet of the dracolich must succeed on a DC 22 Dexterity saving throw or take 15 (2d6+8) bludgeoning damage and be knocked prone. The dracolich can then fly up to half its flying speed.</p>",
     "img_url": ""
+  },
+  // >>
+  {
+    "name": "Moonstone Dragon Wyrmling",
+    "size": "Medium",
+    "type": "Dragon",
+    "alignment": "Neutral",
+    "environments": [
+      "Forest",
+      "Mountain",
+      "Dungeon"
+    ],
+    "associates": [
+      "Pixie",
+      "Sprite",
+      "Faerie Dragon",
+      "Animated Armor",
+      "White Dragon Wyrmling",
+      "Ettercap",
+      "Modron",
+      "Quickling"
+    ],
+    "armor_class": "17 (natural armor)",
+    "hit_points": "39 (6d8 + 12)",
+    "speed": "30 ft., fly 60 ft.",
+    "str": "16",
+    "dex": "14",
+    "con": "14",
+    "int": "16",
+    "wis": "14",
+    "cha": "17",
+    "saving_throws": "INT +5, WIS +4, CHA +5",
+    "skills": "Perception +4, Persuasion +5, Stealth +4",
+    "damage_vulnerabilities": "",
+    "damage_resistances": "",
+    "damage_immunities": "",
+    "condition_immunities": "Charmed",
+    "senses": "Blindsight 10 ft., Darkvision 60 ft., Passive Perception 14",
+    "languages": [
+      "Draconic"
+    ],
+    "challenge": "2 (450 XP)",
+    "traits": "",
+    "actions": "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 10 ft., one target. <em>Hit:</em> 12 (2d8 + 3) piercing damage plus 3 (1d6) radiant damage.</p><p><em><strong>Breath Weapon (Recharge 5-6).</strong></em> The dragon uses one of the following breath weapons:</p><ol><li><em>Dream Breath.</em> The dragon exhales mist in a 90-foot cone. Each creature in that area must succeed on a DC 12 Constitution saving throw or fall unconscious for 10 minutes. This effect ends for a creature if the creature takes damage or someone uses an action to wake it.</li><li><em>Moonlight Breath.</em> The dragon exhales a beam of moonlight in a 30-foot line that is 5 feet wide. Each creature in that area must make a DC 12 Dexterity saving throw, taking 14 (4d6) radiant damage on a failed save, or half as much damage on a successful one.</li></ol>",
+    "reactions": "",
+    "legendary_actions": "",
+    "img_url": "https://5e.tools/img/FTD/Moonstone%20Dragon%20Wyrmling.webp"
+  },
+  {
+    "name": "Young Moonstone Dragon",
+    "size": "Large",
+    "type": "Dragon",
+    "alignment": "Neutral",
+    "environments": [
+      "Forest",
+      "Mountain",
+      "Dungeon"
+    ],
+    "associates": [
+      "Pixie",
+      "Sprite",
+      "Deva",
+      "Fomorian",
+      "Treant",
+      "Blink Dog",
+      "Night Hag"
+    ],
+    "armor_class": "18 (natural armor)",
+    "hit_points": "144 (17d10 + 51)",
+    "speed": "40 ft., fly 80 ft.",
+    "str": "18",
+    "dex": "16",
+    "con": "17",
+    "int": "18",
+    "wis": "17",
+    "cha": "19",
+    "saving_throws": "CON +6, INT +7, WIS +6, CHA +7",
+    "skills": "Perception +6, Persuasion +7, Stealth +6",
+    "damage_vulnerabilities": "",
+    "damage_resistances": "",
+    "damage_immunities": "",
+    "condition_immunities": "Charmed",
+    "senses": "Blindsight 30 ft., Darkvision 120 ft., Passive Perception 16",
+    "languages": [
+      "Common",
+      "Draconic",
+      "Sylvan"
+    ],
+    "challenge": "8 (3,900 XP)",
+    "traits": "",
+    "actions": "<p><em><strong>Multiattack.</strong></em> The dragon makes one Bite attack and two Claw attacks.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 10 ft., one target. <em>Hit:</em> 15 (2d10 + 4) piercing damage plus 5 (1d10) radiant damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft., one target. <em>Hit:</em> 11 (2d6 + 4) slashing damage.</p><p><em><strong>Breath Weapon (Recharge 5-6).</strong></em> The dragon uses one of the following breath weapons:</p><ol><li><em>Dream Breath.</em> The dragon exhales mist in a 90-foot cone. Each creature in that area must succeed on a DC 14 Constitution saving throw or fall unconscious for 10 minutes. This effect ends for a creature if the creature takes damage or someone uses an action to wake it.</li><li><em>Moonlight Breath.</em> The dragon exhales a beam of moonlight in a 60-foot line that is 5 feet wide. Each creature in that area must make a DC 14 Dexterity saving throw, taking 38 (7d10) radiant damage on a failed save, or half as much damage on a successful one.</li></ol><p><em><strong>Spellcasting.</strong></em> The dragon casts one of the following spells, requiring no material components and using Charisma as the spellcasting ability (spell save DC 15):</p><p>1/day each: calm emotions, faerie fire</p>",
+    "reactions": "",
+    "legendary_actions": "",
+    "img_url": "https://5e.tools/img/FTD/Young%20Moonstone%20Dragon.webp"
+  },
+  {
+    "name": "Adult Moonstone Dragon",
+    "size": "Huge",
+    "type": "Dragon",
+    "alignment": "Neutral",
+    "environments": [
+      "Forest",
+      "Mountain",
+      "Dungeon"
+    ],
+    "associates": [
+      "Pixie",
+      "Sprite"
+    ],
+    "armor_class": "19 (natural armor)",
+    "hit_points": "195 (17d12 + 85)",
+    "speed": "40 ft., fly 80 ft.",
+    "str": "20",
+    "dex": "18",
+    "con": "20",
+    "int": "22",
+    "wis": "20",
+    "cha": "23",
+    "saving_throws": "INT +11, WIS +10, CHA +11",
+    "skills": "Perception +10, Persuasion +11, Stealth +9",
+    "damage_vulnerabilities": "",
+    "damage_resistances": "",
+    "damage_immunities": "",
+    "condition_immunities": "Charmed",
+    "senses": "Blindsight 60 ft., Darkvision 120 ft., Passive Perception 20",
+    "languages": [
+      "Common",
+      "Draconic",
+      "Elvish",
+      "Gnomish",
+      "Sylvan"
+    ],
+    "challenge": "15 (13,000 XP)",
+    "traits": "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
+    "actions": "<p><em><strong>Multiattack.</strong></em> The dragon makes one Bite attack and two Claw attacks.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +10 to hit, reach 10 ft., one target. <em>Hit:</em> 16 (2d10 + 5) piercing damage plus 7 (2d6) radiant damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +10 to hit, reach 5 ft., one target. <em>Hit:</em> 12 (2d6 + 5) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +10 to hit, reach 15 ft., one target. <em>Hit:</em> 9 (1d8 + 5) bludgeoning damage. If the target is a creature, it must succeed on a DC 18 Strength saving throw or be knocked prone.</p><p><em><strong>Breath Weapon (Recharge 5-6).</strong></em> The dragon uses one of the following breath weapons:</p><ol><li><em>Dream Breath.</em> The dragon exhales mist in a 90-foot cone. Each creature in that area must succeed on a DC 18 Constitution saving throw or fall unconscious for 10 minutes. This effect ends for a creature if the creature takes damage or someone uses an action to wake it.</li><li><em>Moonlight Breath.</em> The dragon exhales a beam of moonlight in a 90-foot line that is 10 feet wide. Each creature in that area must make a DC 18 Dexterity saving throw, taking 49 (9d10) radiant damage on a failed save, or half as much damage on a successful one.</li></ol><p><em><strong>Spellcasting.</strong></em> The dragon casts one of the following spells, requiring no material components and using Charisma as the spellcasting ability (spell save DC 19):</p><p>At will: faerie fire<br>1/day each: calm emotions, invisibility, revivify</p>",
+    "reactions": "",
+    "legendary_actions": "<p>The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn.</p><p><em><strong>Tail.</strong></em> The dragon makes one Tail attack.</p><p><em><strong>Cast a Spell (Costs 2 Actions).</strong></em> The dragon uses Spellcasting.</p>",
+    "img_url": "https://5e.tools/img/FTD/Adult%20Moonstone%20Dragon.webp"
+  },
+  {
+    "name": "Ancient Moonstone Dragon",
+    "size": "Gargantuan",
+    "type": "Dragon",
+    "alignment": "Neutral",
+    "environments": [
+      "Forest",
+      "Mountain",
+      "Dungeon"
+    ],
+    "associates": [
+      "Pixie",
+      "Sprite"
+    ],
+    "armor_class": "20 (natural armor)",
+    "hit_points": "330 (20d20 + 120)",
+    "speed": "40 ft., fly 80 ft.",
+    "str": "22",
+    "dex": "18",
+    "con": "23",
+    "int": "20",
+    "wis": "22",
+    "cha": "26",
+    "saving_throws": "INT +12, WIS +13, CHA +15",
+    "skills": "Perception +13, Persuasion +15, Stealth +11",
+    "damage_vulnerabilities": "",
+    "damage_resistances": "",
+    "damage_immunities": "",
+    "condition_immunities": "Charmed",
+    "senses": "Truesight 120 ft., Passive Perception 23",
+    "languages": [
+      "All",
+      "telepathy 120 ft."
+    ],
+    "challenge": "21 (33,000 XP)",
+    "traits": "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
+    "actions": "<p><em><strong>Multiattack.</strong></em> The dragon makes one Bite attack and two Claw attacks.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +13 to hit, reach 15 ft., one target. <em>Hit:</em> 17 (2d10 + 6) piercing damage plus 11 (2d10) radiant damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +13 to hit, reach 10 ft., one target. <em>Hit:</em> 13 (2d6 + 6) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +13 to hit, reach 20 ft., one target. <em>Hit:</em> 10 (1d8 + 6) bludgeoning damage. If the target is a creature, it must succeed on a DC 21 Strength saving throw or be knocked prone.</p><p><em><strong>Breath Weapon (Recharge 5-6).</strong></em> The dragon uses one of the following breath weapons:</p><ol><li><em>Dream Breath.</em> The dragon exhales mist in a 90-foot cone. Each creature in that area must succeed on a DC 21 Constitution saving throw or fall unconscious for 10 minutes. This effect ends for a creature if the creature takes damage or someone uses an action to wake it.</li><li><em>Moonlight Breath.</em> The dragon exhales a beam of moonlight in a 120-foot line that is 10 feet wide. Each creature in that area must make a DC 21 Dexterity saving throw, taking 60 (11d10) radiant damage on a failed save, or half as much damage on a successful one.</li></ol><p><em><strong>Spellcasting.</strong></em> The dragon casts one of the following spells, requiring no material components and using Charisma as the spellcasting ability (spell save DC 23):</p><p>At will: faerie fire<br>2/day each: calm emotions, dispel magic, invisibility, revivify</p>",
+    "reactions": "",
+    "legendary_actions": "<p>The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn.</p><p><em><strong>Tail.</strong></em> The dragon makes one Tail attack.</p><p><em><strong>Cast a Spell (Costs 2 Actions).</strong></em> The dragon uses Spellcasting.</p>",
+    "img_url": "https://5e.tools/img/FTD/Ancient%20Moonstone%20Dragon.webp"
   }
 ]
 module.exports = monsters;
