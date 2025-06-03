@@ -75,8 +75,6 @@ Check monsters.js to see if the following monsters are listed. If they are not, 
 Amethyst Dragon (Ancient, Adult, Young)
 Amnizu
 Anarch
-Ancient Moonstone dragon
-Angels
 Angry sorrowsworn
 Animated Breath
 Annis hag
