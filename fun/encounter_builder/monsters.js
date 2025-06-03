@@ -5378,7 +5378,7 @@ const monsters = [
       "type": "Humanoid",
       "alignment": "Chaotic Evil",
       "environments": ["Mountain", "Forest", "Swamp", "Underdark", "Urban"],
-      "associates": ["Hobgoblin", "Bugbear", "Mind flayer", "Beholder", "Orc War Chief", "Orog", "Orc Nurtured One of Yurtrus", "Orc Red Fang of Shargaas", "Orc Hand of Yurtrus", "Orc Blade of Ilneval", "Yeenoghu", "Drow", "Orcus"],
+      "associates": ["Hobgoblin", "Bugbear", "Mind Flayer", "Beholder", "Orc War Chief", "Orog", "Orc Nurtured One of Yurtrus", "Orc Red Fang of Shargaas", "Orc Hand of Yurtrus", "Orc Blade of Ilneval", "Yeenoghu", "Drow", "Orcus"],
       "armor class": "13 (Hide Armor)",
       "hit points": "15 (2d8 + 6)",
       "speed": "30ft",
@@ -8906,7 +8906,6 @@ const monsters = [
       "actions": "<p><em><strong>Multiattack.</strong></em> The umber hulk makes three attacks: two with its claws and one with its mandibles.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +8 to hit, reach 5 ft, one target. <em>Hit:</em> 9 (1d8+5) slashing damage.</p><p><em><strong>Mandibles.</strong></em> <em>Melee Weapon Attack:</em> +8 to hit, reach 5 ft, one target. <em>Hit:</em> 14 (2d8 + 5) slashing damage.</p>",
       "img_url": "https://www.dndbeyond.com/avatars/thumbnails/16/469/1000/1000/636376773233303649.jpeg"
     },
-    // >> new monsters added here that needs to be reviewed for associates and checked in general.
     {
       "name": "Warforged Colossus",
       "size": "Gargantuan",
@@ -8995,7 +8994,7 @@ const monsters = [
     {
       "name": "Orc, Gray",
       "size": "Medium",
-      "type": "humanoid",
+      "type": "Humanoid",
       "environments": [
         "Dungeon"
       ],
@@ -9195,7 +9194,329 @@ const monsters = [
       "traits": "<p><em><strong>Incorporeal Movement.</strong></em> The ghost dragon can move through other creatures and objects as if they were difficult terrain. It takes 5 (1d10) force damage if it ends its turn inside an object.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the ghost dragon fails a saving throw, it can choose to succeed instead. </p><p><em><strong>Undead Nature.</strong></em> The ghost dragon doesn't require air, food, drink, or sleep. </p>",
       "actions": "<p><em><strong>Multiattack.</strong></em> The ghost dragon makes two attacks: one with its Bite and one with its Ghostly Claw. </p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +11 to hit, reach 15 ft., one target. <em>Hit:</em> 16 (2d10 + 5) necrotic damage. </p><p><em><strong>Ghostly Claw.</strong></em> <em>Melee Weapon Attack:</em> +11 to hit, reach 10 ft., one target. <em>Hit:</em> 12 (2d6 + 5) force damage. </p><p><em><strong>Terrifying Breath (Recharge 5-6).</strong></em> The ghost dragon exhales ghostly mist in a 60-foot cone. Each creature in that area must make a DC 21 Constitution saving throw. On a failed save, a creature takes 49 (9d10) necrotic damage and is frightened of the ghost dragon for 1 minute. On a successful save, the creature takes half as much damage and isn't frightened. While frightened of the ghost dragon, a creature is paralyzed. The frightened creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to this ghost dragon's Terrifying Breath for the next 24 hours. </p>",
       "legendary_actions": "<p>The ghost dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The ghost dragon regains spent legendary actions at the start of its turn. </p><p><em><strong>Attack.</strong></em> The ghost dragon makes one Ghostly Claw attack. </p><p><em><strong>Move.</strong></em> The ghost dragon moves up to half its speed. </p><p><em><strong>Etherealness (Costs 2 Actions).</strong></em> The ghost dragon enters the Ethereal Plane from the Material Plane, or vice versa. It is visible on the Material Plane while it is in the Ethereal Plane, and vice versa, but it can't affect or be affected by anything on the other plane. </p>"
-    }
+    }, 
+    {
+      "name": "Orcus",
+      "size": "Huge",
+      "type": "Fiend",
+      "alignment": "Chaotic Evil",
+      "environments": ["Varies"],
+      "associates": [],
+      "armor_class": "17 (natural armor), 20 with the Wand of Orcus",
+      "hit_points": "405 (30d12+210)",
+      "speed": "40 ft., Fly 40 ft.",
+      "str": "27",
+      "dex": "14",
+      "con": "25",
+      "int": "20",
+      "wis": "20",
+      "cha": "25",
+      "saving_throws": "DEX +10, CON +15, WIS +13, CHA +7",
+      "skills": "Arcana +13, Perception +13",
+      "damage_vulnerabilities": "",
+      "damage_resistances": "Cold, Fire, Lightning",
+      "damage_immunities": "Necrotic, Poison; Bludgeoning, Piercing, and Slashing that is nonmagical",
+      "condition_immunities": "Charmed, Exhaustion, Frightened, Poisoned",
+      "senses": "Truesight 120 ft., Passive Perception 22",
+      "languages": "All, telepathy 120 ft.",
+      "challenge": "26 (90,000 XP)",
+      "traits": "<p><em><strong>Innate Spellcasting.</strong></em> Orcus's spellcasting ability is Charisma (spell save DC 23, +15 to hit with spell attacks). He can innately cast the following spells, requiring no material components:</p><p>At will: chill touch (17th level), detect magic</p><p>3/day each: create undead, dispel magic</p><p>1/day: time stop</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If Orcus fails a saving throw, he can choose to succeed instead.</p><p><em><strong>Magic Resistance.</strong></em> Orcus has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Magic Weapons.</strong></em> Orcus's weapon attacks are magical.</p><p><em><strong>Master of Undeath.</strong></em> When Orcus casts animate dead or create undead, he chooses the level at which the spell is cast, and the creatures created by the spells remain under his control indefinitely. Additionally, he can cast create undead even when it isn't night.</p><p><em><strong>Wand of Orcus.</strong></em> The wand has 7 charges, and any of its properties that require a saving throw have a save DC of 18. While holding it, Orcus can use an action to cast animate dead, blight, or speak with dead. Alternatively, he can expend 1 or more of the wand's charges to cast one of the following spells from it: circle of death (1 charge), finger of death (1 charge), or power word kill (2 charges). The wand regains 1d4+3 charges daily at dawn.</p><p>While holding the wand, Orcus can use an action to conjure undead creatures whose combined average hit points don't exceed 500. These undead magically rise up from the ground or otherwise form in unoccupied spaces within 300 feet of Orcus and obey his commands until they are destroyed or until he dismisses them as an action. Once this property of the wand is used, the property can't be used again until the next dawn.</p>",
+      "actions": "<p><em><strong>Multiattack.</strong></em> Orcus makes two Wand of Orcus attacks.</p><p><em><strong>Wand of Orcus.</strong></em> <em>Melee Weapon Attack:</em> +19 to hit, reach 10 ft., one target. <em>Hit:</em> 21 (3d8+8) bludgeoning damage plus 13 (2d12) necrotic damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 10 ft., one target. <em>Hit:</em> 21 (3d8+8) piercing damage plus 9 (2d8) poison damage.</p>",
+      "reactions": "",
+      "legendary_actions": "<p>Legendary Action Uses: 3. Immediately after another creature's turn, Orcus can expend a use to take one of the following actions. Orcus regains all expended uses at the start of each of their turns.</p><p><em><strong>Tail.</strong></em> Orcus makes one tail attack.</p><p><em><strong>A Taste of Undeath.</strong></em> Orcus casts chill touch (17th level).</p><p><em><strong>Creeping Death (Costs 2 Actions).</strong></em> Orcus chooses a point on the ground that he can see within 100 feet of him. A cylinder of swirling necrotic energy 60 feet tall and with a 10-foot radius rises from that point and lasts until the end of Orcus's next turn. Creatures in that area have vulnerability to necrotic damage.</p>",
+      "img_url": ""
+    },
+    {
+      "name": "Yeenoghu",
+      "size": "Huge",
+      "type": "Fiend",
+      "alignment": "Chaotic Evil",
+      "environments": ["Wasteland"],
+      "associates": ["Gnoll", "Hyena", "Ghoul"],
+      "armor_class": "20 (natural armor)",
+      "hit_points": "333 (23d12+184)",
+      "speed": "50 ft.",
+      "str": "29",
+      "dex": "16",
+      "con": "26",
+      "int": "15",
+      "wis": "24",
+      "cha": "15",
+      "saving_throws": "STR +9, DEX +10, CON +15, WIS +14",
+      "skills": "Intimidation +9, Perception +14",
+      "damage_vulnerabilities": "",
+      "damage_resistances": "Cold, Fire, Lightning",
+      "damage_immunities": "Poison; Bludgeoning, Piercing, and Slashing that is nonmagical",
+      "condition_immunities": "Charmed, Exhaustion, Frightened, Poisoned",
+      "senses": "Truesight 120 ft., Passive Perception 24",
+      "languages": "All, telepathy 120 ft.",
+      "challenge": "24 (62,000 XP)",
+      "traits": "<p><em><strong>Innate Spellcasting.</strong></em> Yeenoghu's spellcasting ability is Charisma (spell save DC 17, +9 to hit with spell attacks). He can innately cast the following spells, requiring no material components:</p><p>At will: detect magic</p><p>3/day each: dispel magic, fear, invisibility</p><p>1/day: teleport</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If Yeenoghu fails a saving throw, he can choose to succeed instead.</p><p><em><strong>Magic Resistance.</strong></em> Yeenoghu has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Magic Weapons.</strong></em> Yeenoghu's weapon attacks are magical.</p><p><em><strong>Rampage.</strong></em> When Yeenoghu reduces a creature to 0 hit points with a melee attack on his turn, Yeenoghu can take a bonus action to move up to half his speed and make a bite attack.</p>",
+      "actions": "<p><em><strong>Multiattack.</strong></em> Yeenoghu makes three flail attacks. If an attack hits, he can cause it to create an additional effect of his choice or at random (each effect can be used only once per Multiattack):</p><p>1. The attack deals an extra 13 (2d12) bludgeoning damage.</p><p>2. The target must succeed on a DC 17 Constitution saving throw or be paralyzed until the start of Yeenoghu's next turn.</p><p>3. The target must succeed on a DC 17 Wisdom saving throw or be affected by the confusion spell until the start of Yeenoghu's next turn.</p><p><em><strong>Flail.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 15 ft., one target. <em>Hit:</em> 15 (1d12+9) bludgeoning damage.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 10 ft., one target. <em>Hit:</em> 14 (1d10+9) piercing damage.</p>",
+      "reactions": "",
+      "legendary_actions": "<p>Legendary Action Uses: 3. Immediately after another creature's turn, Yeenoghu can expend a use to take one of the following actions. Yeenoghu regains all expended uses at the start of each of their turns.</p><p><em><strong>Charge.</strong></em> Yeenoghu moves up to his speed.</p><p><em><strong>Swat Away.</strong></em> Yeenoghu makes a flail attack. If the attack hits, the target must succeed on a DC 24 Strength saving throw or be pushed 15 feet in a straight line away from Yeenoghu. If the saving throw fails by 5 or more, the target falls prone.</p><p><em><strong>Savage (Costs 2 Actions).</strong></em> Yeenoghu makes a bite attack against each creature within 10 feet of him.</p>",
+      "img_url": ""
+    },
+    {
+      "name": "Orog",
+      "size": "Medium",
+      "type": "Humanoid",
+      "alignment": "Chaotic Evil",
+      "environments": ["Arctic", "Forest", "Grassland", "Hill", "Mountain", "Underdark"],
+      "associates": ["Orc", "Orc War Chief", "Orc Warlock of Gruumsh", "Orc Warlock of Ilneval", "Orc Warlock of Shargaas", "Orc Nutured One of Yurtrus", "Ilneval Cultist"],
+      "img_url": "https://www.dndbeyond.com/avatars/thumbnails/16/469/1000/1000/636376773233303649.jpeg",
+      "armor_class": "18 (plate armor)",
+      "hit_points": "42 (5d8+20)",
+      "speed": "30 ft.",
+      "str": "18",
+      "dex": "12",
+      "con": "18",
+      "int": "12",
+      "wis": "11",
+      "cha": "12",
+      "saving_throws": "STR +4, INT +1, DEX +1, CON +4, WIS +0, CHA +1",
+      "skills": "Intimidation +5, Survival +2",
+      "damage_vulnerabilities": "",
+      "damage_resistances": "",
+      "damage_immunities": "",
+      "condition_immunities": "",
+      "senses": "Darkvision 60 ft., Passive Perception 10",
+      "languages": "Common, Orc",
+      "challenge": "2 (450 XP)",
+      "traits": "<p><em><strong>Aggressive.</strong></em> As a bonus action, the orog can move up to its speed toward a hostile creature that it can see.</p>",
+      "actions": "<p><em><strong>Multiattack.</strong></em> The orog makes two greataxe attacks.</p><p><em><strong>Greataxe.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft., one target. <em>Hit:</em> 10 (1d12+4) slashing damage.</p><p><em><strong>Javelin.</strong></em> <em>Melee or Ranged Weapon Attack:</em> +6 to hit, reach 5 ft. or range 30/120 ft., one target. <em>Hit:</em> 7 (1d6+4) piercing damage.</p>",
+      "reactions": "",
+      "legendary_actions": "",
+    },
+    {
+      "name": "Beholder",
+      "size": "Large",
+      "type": "Aberration",
+      "alignment": "Lawful Evil",
+      "environments": ["Underdark", "Urban"],
+      "associates": [],
+      "armor_class": "18 (natural armor)",
+      "hit_points": "180 (19d10+76)",
+      "speed": "0 ft., Fly 20 ft. (hover)",
+      "str": "10",
+      "dex": "14",
+      "con": "18",
+      "int": "17",
+      "wis": "15",
+      "cha": "17",
+      "saving_throws": "INT +8, WIS +7, CHA +8",
+      "skills": "Perception +12",
+      "damage_vulnerabilities": "",
+      "damage_resistances": "",
+      "damage_immunities": "Prone",
+      "condition_immunities": "Prone",
+      "senses": "Darkvision 120 ft., Passive Perception 22",
+      "languages": "Deep Speech, Undercommon",
+      "challenge": "13 (10,000 XP, or 11,500 in lair)",
+      "traits": "<p><em><strong>Antimagic Cone.</strong></em> The beholder's central eye creates an area of antimagic, as in the antimagic field spell, in a 150-foot cone. At the start of each of its turns, the beholder decides which way the cone faces and whether the cone is active. The area works against the beholder's own eye rays.</p>",
+      "actions": "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft., one target. <em>Hit:</em> 14 (4d6) piercing damage.</p><p><em><strong>Eye Rays.</strong></em> The beholder shoots three of the following magical eye rays at random (reroll duplicates), choosing one to three targets it can see within 120 feet of it:</p><p>1. <em>Charm Ray.</em> The targeted creature must succeed on a DC 16 Wisdom saving throw or be charmed by the beholder for 1 hour, or until the beholder harms the creature.</p><p>2. <em>Paralyzing Ray.</em> The targeted creature must succeed on a DC 16 Constitution saving throw or be paralyzed for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p><p>3. <em>Fear Ray.</em> The targeted creature must succeed on a DC 16 Wisdom saving throw or be frightened for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p><p>4. <em>Slowing Ray.</em> The targeted creature must succeed on a DC 16 Dexterity saving throw. On a failed save, the target's speed is halved for 1 minute. In addition, the creature can't take reactions, and it can take either an action or a bonus action on its turn, not both. The creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p><p>5. <em>Enervation Ray.</em> The targeted creature must make a DC 16 Constitution saving throw, taking 36 (8d8) necrotic damage on a failed save, or half as much damage on a successful one.</p><p>6. <em>Telekinetic Ray.</em> If the target is a creature, it must succeed on a DC 16 Strength saving throw or the beholder moves it up to 30 feet in any direction. It is restrained by the ray's telekinetic grip until the start of the beholder's next turn or until the beholder is incapacitated. If the target is an object weighing 300 pounds or less that isn't being worn or carried, it is moved up to 30 feet in any direction. The beholder can also exert fine control on objects with this ray, such as manipulating a simple tool or opening a door or a container.</p><p>7. <em>Sleep Ray.</em> The targeted creature must succeed on a DC 16 Wisdom saving throw or fall asleep and remain unconscious for 1 minute. The target awakens if it takes damage or another creature takes an action to wake it. This ray has no effect on constructs and undead.</p><p>8. <em>Petrification Ray.</em> The targeted creature must make a DC 16 Dexterity saving throw. On a failed save, the creature begins to turn to stone and is restrained. It must repeat the saving throw at the end of its next turn. On a success, the effect ends. On a failure, the creature is petrified until freed by the greater restoration spell or other magic.</p><p>9. <em>Disintegration Ray.</em> If the target is a creature, it must succeed on a DC 16 Dexterity saving throw or take 45 (10d8) force damage. If this damage reduces the creature to 0 hit points, its body becomes a pile of fine gray dust. If the target is a Large or smaller nonmagical object or creation of magical force, it is disintegrated without a saving throw. If the target is a Huge or larger object or creation of magical force, this ray disintegrates a 10-foot cube of it.</p><p>10. <em>Death Ray.</em> The targeted creature must succeed on a DC 16 Dexterity saving throw or take 55 (10d10) necrotic damage. The target dies if the ray reduces it to 0 hit points.</p>",
+      "reactions": "",
+      "legendary_actions": "<p>The beholder can take 3 legendary actions, using the Eye Ray option below. It can take only one legendary action at a time and only at the end of another creature's turn. The beholder regains spent legendary actions at the start of its turn.</p><p><em><strong>Eye Ray.</strong></em> The beholder uses one random eye ray.</p>",
+      "img_url": ""
+    },
+    {
+      "name": "Mind Flayer",
+      "size": "Medium",
+      "type": "Aberration",
+      "alignment": "Lawful Evil",
+      "environments": ["Underdark"],
+      "associates": [],
+      "armor_class": "15 (breastplate)",
+      "hit_points": "71 (13d8+13)",
+      "speed": "30 ft.",
+      "str": "11",
+      "dex": "12",
+      "con": "12",
+      "int": "19",
+      "wis": "17",
+      "cha": "17",
+      "saving_throws": "INT +7, WIS +6, CHA +6",
+      "skills": "Arcana +7, Deception +6, Insight +6, Perception +6, Persuasion +6, Stealth +4",
+      "damage_vulnerabilities": "",
+      "damage_resistances": "",
+      "damage_immunities": "",
+      "condition_immunities": "",
+      "senses": "Darkvision 120 ft., Passive Perception 16",
+      "languages": "Deep Speech, Undercommon, telepathy 120 ft.",
+      "challenge": "7 (2,900 XP)",
+      "traits": "<p><em><strong>Innate Spellcasting (Psionics).</strong></em> The mind flayer's innate spellcasting ability is Intelligence (spell save DC 15). It can innately cast the following spells, requiring no components:</p><p>At will: detect thoughts, levitate</p><p>1/day each: dominate monster, plane shift (self only)</p><p><em><strong>Magic Resistance.</strong></em> The mind flayer has advantage on saving throws against spells and other magical effects.</p>",
+      "actions": "<p><em><strong>Tentacles.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft., one creature. <em>Hit:</em> 15 (2d10+4) psychic damage. If the target is Medium or smaller, it is grappled (escape DC 15) and must succeed on a DC 15 Intelligence saving throw or be stunned until this grapple ends.</p><p><em><strong>Extract Brain.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft., one incapacitated humanoid grappled by the mind flayer. <em>Hit:</em> The target takes 55 (10d10) piercing damage. If this damage reduces the target to 0 hit points, the mind flayer kills the target by extracting and devouring its brain.</p><p><em><strong>Mind Blast (Recharge 5-6).</strong></em> The mind flayer magically emits psychic energy in a 60-foot cone. Each creature in that area must succeed on a DC 15 Intelligence saving throw or take 22 (4d8+4) psychic damage and be stunned for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p>",
+      "reactions": "",
+      "legendary_actions": ""
+    }, 
+    // >> new monsters added here that needs to be reviewed for associates and checked in general.
+    {
+      "name": "Githyanki Supreme Commander",
+      "size": "Medium",
+      "type": "Humanoid",
+      "alignment": "Lawful Evil",
+      "environments": ["Desert","Mountain","Urban"],
+      "associates": ["Kith'rak","Adult Red Dragon", "Githyanki Gish", "Githyanki Knight", "Githyanki Warrior", "Githyanki Gish"],
+      "img_url": "https://www.dndbeyond.com/avatars/thumbnails/16/469/1000/1000/636376773233303649.jpeg",
+      "armor_class": "18 (plate armor)",
+      "hit_points": "187 (22d8+88)",
+      "speed": "30 ft.",
+      "str": "19",
+      "dex": "17",
+      "con": "18",
+      "int": "16",
+      "wis": "16",
+      "cha": "18",
+      "saving_throws": "CON +9, INT +8, WIS +8",
+      "skills": "Insight +8, Intimidation +9, Perception +8",
+      "damage_vulnerabilities": "",
+      "damage_resistances": "",
+      "damage_immunities": "",
+      "condition_immunities": "",
+      "senses": "Passive Perception 18",
+      "languages": "Gith",
+      "challenge": "14 (11,500 XP)",
+      "traits": "<p><em><strong>Innate Spellcasting (Psionics).</strong></em> The githyanki's innate spellcasting ability is Intelligence (spell save DC 16, +8 to hit with spell attacks). It can innately cast the following spells, requiring no components:</p><ul><li>At will: mage hand (the hand is invisible)</li><li>3/day each: jump, levitate (self only), misty step, nondetection (self only)</li><li>1/day each: Bigby's hand, mass suggestion, plane shift, telekinesis</li></ul>",
+      "actions": "<p><em><strong>Multiattack.</strong></em> The githyanki makes two greatsword attacks.</p><p><em><strong>Silver Greatsword.</strong></em> <em>Melee Weapon Attack:</em> +12 to hit, reach 5 ft., one target. <em>Hit:</em> 14 (2d6 + 7) slashing damage plus 17 (5d6) psychic damage. On a critical hit against a target in an astral body (as with the astral projection spell), the githyanki can cut the silvery cord that tethers the target to its material body, instead of dealing damage.</p>",
+      "reactions": "<p><em><strong>Parry.</strong></em> The githyanki adds 5 to its AC against one melee attack that would hit it. To do so, the githyanki must see the attacker and be wielding a melee weapon.</p>",
+      "legendary_actions": "<p>Legendary Action Uses: 3. Immediately after another creature's turn, The githyanki supreme commander can expend a use to take one of the following actions. The githyanki supreme commander regains all expended uses at the start of each of its turns.</p><p><em><strong>Attack (2 Actions).</strong></em> The githyanki makes a greatsword attack.</p><p><em><strong>Command Ally.</strong></em> The githyanki targets one ally it can see within 30 feet of it. If the target can see or hear the githyanki, the target can make one melee weapon attack using its reaction and has advantage on the attack roll.</p><p><em><strong>Teleport.</strong></em> The githyanki magically teleports, along with any equipment it is wearing and carrying, to an unoccupied space it can see within 30 feet of it. It also becomes insubstantial until the start of its next turn. While insubstantial, it can move through other creatures and objects as if they were difficult terrain. If it ends its turn inside an object, it takes 16 (3d10) force damage and is moved to the nearest unoccupied space.</p>",
+      "img_url": ""
+    },
+    {
+      "name": "Githyanki Knight",
+      "size": "Medium",
+      "type": "Humanoid",
+      "alignment": "Lawful Evil",
+      "environments": ["Varies"],
+      "associates": ["Mind Flayer", "Adult Red Dragon", "Githyanki Gish", "Githyanki Supreme Commander", "Githyanki Warrior", "Githyanki Gish", "Githyanki Kith'rak"],
+      "img_url": "https://www.dndbeyond.com/avatars/thumbnails/16/469/1000/1000/636376773233303649.jpeg",
+      "armor_class": "18 (plate armor)",
+      "hit_points": "91 (14d8+28)",
+      "speed": "30 ft.",
+      "str": "16",
+      "dex": "14",
+      "con": "15",
+      "int": "14",
+      "wis": "14",
+      "cha": "15",
+      "saving_throws": "INT +5, WIS +5, CON +5",
+      "skills": "",
+      "damage_vulnerabilities": "",
+      "damage_resistances": "",
+      "damage_immunities": "",
+      "condition_immunities": "",
+      "senses": "Passive Perception 12",
+      "languages": "Gith",
+      "challenge": "8 (3,900 XP)",
+      "traits": "<p><em><strong>Innate Spellcasting (Psionics).</strong></em> The githyanki's innate spellcasting ability is Intelligence (spell save DC 13, +5 to hit with spell attacks). It can innately cast the following spells, requiring no components:</p><ul><li>At will: mage hand (the hand is invisible)</li><li>3/day each: jump, misty step, nondetection (self only), tongues</li><li>1/day each: plane shift, telekinesis</li></ul>",
+      "actions": "<p><em><strong>Multiattack.</strong></em> The githyanki makes two silver greatsword attacks.</p><p><em><strong>Silver Greatsword.</strong></em> <em>Melee Weapon Attack:</em> +9 to hit, reach 5 ft., one target. <em>Hit:</em> 13 (2d6 + 6) slashing damage plus 10 (3d6) psychic damage. This is a magic weapon attack. On a critical hit against a target in an astral body (as with the astral projection spell), the githyanki can cut the silvery cord that tethers the target to its material body, instead of dealing damage.</p>",
+      "reactions": "",
+      "legendary_actions": "",
+    },
+    {
+      "name": "Githyanki Kith'rak",
+      "size": "Medium",
+      "type": "Humanoid",
+      "alignment": "Lawful Evil",
+      "environments": [
+        "Desert",
+        "Mountain",
+        "Urban"
+      ],
+      "associates": ["Sarth", "Adult Red Dragon", "Githyanki Knight", "Githyanki Gish", "Githyanki Supreme Commander", "Githyanki Warrior"],
+      "img_url": "https://www.dndbeyond.com/avatars/thumbnails/16/469/1000/1000/636376773233303649.jpeg",
+      "armor_class": "18 (plate armor)",
+      "hit_points": "180 (24d8+72)",
+      "speed": "30 ft.",
+      "str": "18",
+      "dex": "16",
+      "con": "17",
+      "int": "16",
+      "wis": "15",
+      "cha": "17",
+      "saving_throws": "INT +7, CON +7, WIS +6",
+      "skills": "Intimidation +7, Perception +6",
+      "damage_vulnerabilities": "",
+      "damage_resistances": "",
+      "damage_immunities": "",
+      "condition_immunities": "",
+      "senses": "Passive Perception 16",
+      "languages": "Gith",
+      "challenge": "12 (8,400 XP)",
+      "traits": "<p><em><strong>Innate Spellcasting (Psionics).</strong></em> The githyanki's innate spellcasting ability is Intelligence (spell save DC 15, +7 to hit with spell attacks). It can innately cast the following spells, requiring no components:</p><ul><li>At will: mage hand (the hand is invisible)</li><li>3/day each: blur, jump, misty step, nondetection (self only)</li><li>1/day each: plane shift, telekinesis</li></ul><p><em><strong>Rally the Troops.</strong></em> As a bonus action, the githyanki can magically end the charmed and frightened conditions on itself and each creature of its choice that it can see within 30 feet of it.</p>",
+      "actions": "<p><em><strong>Multiattack.</strong></em> The githyanki makes three greatsword attacks.</p><p><em><strong>Greatsword.</strong></em> <em>Melee Weapon Attack:</em> +8 to hit, reach 5 ft., one target. <em>Hit:</em> 11 (2d6 + 4) slashing damage plus 17 (5d6) psychic damage.</p>",
+      "reactions": "<p><em><strong>Parry.</strong></em> The githyanki adds 4 to its AC against one melee attack that would hit it. To do so, the githyanki must see the attacker and be wielding a melee weapon.</p>",
+      "legendary_actions": "",
+    },
+    {
+      "name": "Githyanki Gish",
+      "size": "Medium",
+      "type": "Humanoid",
+      "alignment": "Lawful Evil",
+      "environments": [
+        "Desert",
+        "Mountain",
+        "Urban"
+      ],
+      "associates": ["Sarth", "Adult Red Dragon", "Githyanki Knight", "Githyanki Kith'rak", "Githyanki Supreme Commander", "Githyanki Warrior"],
+      "img_url": "https://www.dndbeyond.com/avatars/thumbnails/16/469/1000/1000/636376773233303649.jpeg",
+      "armor_class": "17 (half plate armor)",
+      "hit_points": "123 (19d8+38)",
+      "speed": "30 ft.",
+      "str": "17",
+      "dex": "15",
+      "con": "14",
+      "int": "16",
+      "wis": "15",
+      "cha": "16",
+      "saving_throws": "INT +7, CON +6, WIS +6",
+      "skills": "Insight +6, Perception +6, Stealth +6",
+      "damage_vulnerabilities": "",
+      "damage_resistances": "",
+      "damage_immunities": "",
+      "condition_immunities": "",
+      "senses": "Passive Perception 16",
+      "languages": "Gith",
+      "challenge": "10 (5,900 XP)",
+      "traits": "<p><em><strong>Innate Spellcasting (Psionics).</strong></em> The githyanki's innate spellcasting ability is Intelligence (spell save DC 15, +7 to hit with spell attacks). It can innately cast the following spells, requiring no components:</p><ul><li>At will: mage hand (the hand is invisible)</li><li>3/day each: jump, misty step, nondetection (self only)</li><li>1/day each: plane shift, telekinesis</li></ul><p><em><strong>Spellcasting.</strong></em> The githyanki is an 8th-level spellcaster. Its spellcasting ability is Intelligence (spell save DC 15, +7 to hit with spell attacks). The githyanki has the following wizard spells prepared:</p><ul><li>Cantrips (at will): blade ward, light, message, true strike</li><li>1st level (4 slots): expeditious retreat, magic missile, sleep, thunderwave</li><li>2nd level (3 slots): blur, invisibility, levitate</li><li>3rd level (3 slots): counterspell, fireball, haste</li><li>4th level (2 slots): dimension door</li></ul><p><em><strong>War Magic.</strong></em> When the githyanki uses its action to cast a spell, it can make one weapon attack as a bonus action.</p>",
+      "actions": "<p><em><strong>Multiattack.</strong></em> The githyanki makes two longsword attacks.</p><p><em><strong>Longsword.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft., one target. <em>Hit:</em> 7 (1d8 + 3) slashing damage plus 18 (4d8) psychic damage, or 8 (1d10 + 3) slashing damage plus 18 (4d8) psychic damage if used with two hands.</p>",
+      "reactions": "",
+      "legendary_actions": "",
+    },
+    {
+      "name": "Githyanki Warrior",
+      "size": "Medium",
+      "type": "Humanoid",
+      "alignment": "Lawful Evil",
+      "environments": [
+        "Varies"
+      ],
+      "associates": ["Githyanki Gish", "Githyanki Knight", "Githyanki Kith'rak", "Githyanki Supreme Commander", "Adult Red Dragon"],
+      "img_url": "https://www.dndbeyond.com/avatars/thumbnails/16/469/1000/1000/636376773233303649.jpeg",
+      "armor_class": "17 (half plate)",
+      "hit_points": "49 (9d8+9)",
+      "speed": "30 ft.",
+      "str": "15",
+      "dex": "14",
+      "con": "12",
+      "int": "13",
+      "wis": "13",
+      "cha": "10",
+      "saving_throws": "CON +3, INT +3, WIS +3",
+      "skills": "",
+      "damage_vulnerabilities": "",
+      "damage_resistances": "",
+      "damage_immunities": "",
+      "condition_immunities": "",
+      "senses": "Passive Perception 11",
+      "languages": "Gith",
+      "challenge": "3 (700 XP)",
+      "traits": "<p><em><strong>Innate Spellcasting (Psionics).</strong></em> The githyanki's innate spellcasting ability is Intelligence. It can innately cast the following spells, requiring no components:</p><ul><li>At will: mage hand (the hand is invisible)</li><li>3/day each: jump, misty step, nondetection (self only)</li></ul>",
+      "actions": "<p><em><strong>Multiattack.</strong></em> The githyanki makes two greatsword attacks.</p><p><em><strong>Greatsword.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft., one target. <em>Hit:</em> 9 (2d6 + 2) slashing damage plus 7 (2d6) psychic damage.</p>",
+      "reactions": "",
+      "legendary_actions": "",
+    },
+
   ]
 module.exports = monsters;
 
@@ -9276,7 +9597,6 @@ Barghest
 Barlgura
 Battleforce Angel
 Beast
-Beholder
 Beholder Greater Minion
 Beholder Pet
 Beholder zombie
@@ -9547,18 +9867,12 @@ Giant Strider
 Giant zombie
 Giff
 Girallon
-Githyanki
-Githyanki Gish
-Githyanki Kith'rak
-Githyanki knight
-Githyanki Supreme Commander
 Githyanki Warrior
 Githzerai Anarch
 Githzerai zerth
 Githzerai Enlightened
 Githzerai Monk
 Gloom weaver
-Gnoll
 Gnoll Fang of Yeenoghu
 Gnoll Flesh Gnawer
 Gnoll Hunter
@@ -9566,7 +9880,6 @@ Gnoll pack lord
 Gnoll Witherling
 Goblin warlock
 Goblinoids
-Gold Dragon
 Golgari
 Golgari agent
 Golgari shaman
@@ -9829,7 +10142,7 @@ Metallic Sentinels (various types listed in list, but stat blocks not specified 
 Metallic Warbler
 Mimic
 Mind Drinker Vampire
-Mind flayer
+
 Mind flayer arcanist
 Mind flayer lich (alhoon variant)
 Mindwitness
@@ -9915,8 +10228,6 @@ Oni (Variant 4)
 Oni (Variant 5)
 Oni (Variant)
 Ooze
-Orcus
-Orog
 Orthon
 Orzhov
 Orzhov Giant
@@ -10152,7 +10463,6 @@ Xvart
 Xvart Warlock of Raxivort
 Yagn
 Yagnoloth
-Yeenoghu
 Yeth Hound
 Young remorhaz
 Yuan-ti
