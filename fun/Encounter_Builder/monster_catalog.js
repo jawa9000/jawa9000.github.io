@@ -118,11 +118,14 @@ $(() => { // jQuery's DOM ready shorthand
                     displayName += ` [${sortValue}]`;
                 }
             }
-            const $listItem = $('<li></li>')
-                .text(displayName)
-                .on('click', () => displayMonsterStats(monster));
+            // Only show monster name in the index, no associates
+            const $listItem = $('<li></li>');
+            const $nameSpan = $('<span></span>').addClass('monster-name').text(displayName).css('cursor', 'pointer');
+            $nameSpan.on('click', () => displayMonsterStats(monster));
+            $listItem.append($nameSpan);
             $monsterListUl.append($listItem);
         });
+        // Remove associates from the index list, keep click handler for monster name only
     }
 
     function getAbilityScoreDisplay(scoreValue) {
@@ -157,6 +160,23 @@ $(() => { // jQuery's DOM ready shorthand
         $statBlockContainer.empty(); // Clear previous stats
         const $monsterDiv = $('<div></div>').addClass('stat-block');
 
+        // Associates clickable comma-separated list
+        let associatesHtml = '';
+        if (monster.associates && Array.isArray(monster.associates) && monster.associates.length > 0) {
+            associatesHtml = monster.associates.map((name, idx) => {
+                const exists = monsters.some(m => m.name === name);
+                if (exists) {
+                    return `<span class="associate-link associate-present" data-monster="${name}">${name}</span>`;
+                } else {
+                    return `<span class="associate-not-present" title="Associate currently not found">${name}</span>`;
+                }
+            }).join(', ');
+        } else if (monster.associates) {
+            associatesHtml = `<span>${monster.associates}</span>`;
+        } else {
+            associatesHtml = '<span>None</span>';
+        }
+
         $monsterDiv.html(`
             <h2>${monster.name}</h2>
             <p><em>${monster.size} ${monster.type}, ${monster.alignment}</em></p>
@@ -187,7 +207,7 @@ $(() => { // jQuery's DOM ready shorthand
             ${createPropertyHtml('Languages', monster.languages)}
             ${createPropertyHtml('Challenge', monster.challenge)}
             ${createPropertyHtml('Environments', Array.isArray(monster.environments) ? monster.environments.join(', ') : monster.environments)}
-            ${createPropertyHtml('Associates', Array.isArray(monster.associates) ? monster.associates.join(', ') : monster.associates)}
+            <p><span class="property-label">Associates:</span> ${associatesHtml}</p>
             ${monster.traits ? `<hr>${createHtmlSection('Traits', monster.traits)}` : ''}
             ${monster.actions ? `<hr>${createHtmlSection('Actions', monster.actions)}` : ''}
             ${monster.reactions ? `<hr>${createHtmlSection('Reactions', monster.reactions)}` : ''}
@@ -209,6 +229,15 @@ $(() => { // jQuery's DOM ready shorthand
 
         $statBlockContainer.append($monsterDiv);
         $('html, body').scrollTop(0); // Scroll the entire page to the top
+
+        // Attach click handler for associates (span version)
+        $monsterDiv.find('.associate-link').off('click').on('click', function() {
+            const name = $(this).data('monster');
+            const assocMonster = monsters.find(m => m.name === name);
+            if (assocMonster) {
+                displayMonsterStats(assocMonster);
+            }
+        });
     }
 
     function createPropertyHtml(label, value) {

@@ -133,6 +133,17 @@ label, select, input[type='number'], input[type='checkbox'] {
 .stats-table th, .stats-table td {
     padding: 4px;
 }
+.associate-present {
+    color: #8b4513; /* SaddleBrown */
+    cursor: pointer;
+}
+.associate-present:hover {
+    text-decoration: underline;
+}
+.associate-not-present {
+    color: rgba(0,0,0,0.9); /* Light gray for not found */
+    cursor: not-allowed;
+}
 
 /* Responsive tweaks for encounter builder */
 @media (max-width: 600px) {
