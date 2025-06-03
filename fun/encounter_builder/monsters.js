@@ -8303,36 +8303,6 @@ const monsters = [
       "img_url": "https://5e.tools/img/MPMM/Green%20Abishai.png"
     },
     {
-      "name": "Orc Hand of Yurtrus",
-      "size": "Medium",
-      "type": "Humanoid",
-      "alignment": "Chaotic Evil",
-      "environments": [
-        "Forest",
-        "Grassland",
-        "Hill",
-        "Mountain",
-        "Underdark"
-      ],
-      "associates": ["Orc", "Orc Nurtured One of Yurtrus", "Followers of Luthic"],
-      "armor_class": "12 (hide armor)",
-      "hit_points": "30 (4d8+12)",
-      "speed": "30 ft",
-      "str": "12",
-      "dex": "11",
-      "con": "16",
-      "int": "11",
-      "wis": "14",
-      "cha": "9",
-      "skills": "Arcana +2, Intimidation +1, Medicine +4, Religion +2",
-      "senses": "Darkvision 60 ft, Passive Perception 12",
-      "languages": "Understands Common and Orc but can't speak",
-      "challenge": "2 (450 XP)",
-      "traits": "<p><em><strong>Aggressive.</strong></em> As a bonus action, the orc can move up to its speed toward a hostile creature that it can see.</p><p><em><strong>Spellcasting.</strong></em> The orc is a 4th-level spellcaster. Its spellcasting ability is Wisdom (spell save DC 12, +4 to hit with spell attacks).It requires no verbal components to cast its spells. The orc has the following cleric spells prepared:</p><p>Cantrips (at will): guidance, mending, resistance, thaumaturgy</p><p>1st level (4 slots): bane, detect magic, inflict wounds, protection from evil and good</p><p>2nd level (3 slots): blindness/deafness, silence</p>",
-      "actions": "<p><em><strong>Touch of the White Hand.</strong></em> <em>Melee Weapon Attack:</em> +3 to hit, reach 5 ft, one target. <em>Hit:</em> 9 (2d8) necrotic damage.</p>",
-      "img_url": "https://5e.tools/bestiary/orc-hand-of-yurtrus-vgm.html"
-    },
-    {
       "name": "Orc Nurtured One of Yurtrus",
       "size": "Medium",
       "type": "Humanoid",
@@ -8937,6 +8907,295 @@ const monsters = [
       "img_url": "https://www.dndbeyond.com/avatars/thumbnails/16/469/1000/1000/636376773233303649.jpeg"
     },
     // >> new monsters added here that needs to be reviewed for associates and checked in general.
+    {
+      "name": "Warforged Colossus",
+      "size": "Gargantuan",
+      "type": "Construct",
+      "alignment": "Unaligned",
+      "environments": [
+        "Coastal",
+        "Mountain",
+        "Swamp",
+        "Underwater",
+        "Urban",
+        "Wasteland"
+      ],
+      "associates": ["Warforged", "Warforged Juggernaut", "Warforged Scout", "warforged soldier", "warforged defender", "Artificer", "Artillerist", "Battle Smith", "Wizard", "Construct"],
+      "img_url": "https://5e.tools/img/MTF/Erik%20M%C3%B6ller.webp",
+      "armor_class": "23 (natural armor)",
+      "hit_points": "410 (20d20 + 200)",
+      "speed": "60 ft.",
+      "str": "30",
+      "dex": "11",
+      "con": "30",
+      "int": "3",
+      "wis": "11",
+      "cha": "8",
+      "saving_throws": "STR +10, DEX +0, CON +10, INT +4, WIS +8, CHA +7",
+      "damage_immunities": "Necrotic, Poison; Bludgeoning, Piercing, and Slashing from nonmagical attacks",
+      "condition_immunities": "Charmed, Exhaustion, Frightened, Incapacitated, Paralyzed, Petrified, Poisoned, Stunned",
+      "senses": "Truesight 150 ft., Passive Perception 10",
+      "languages": "Understands Common but can't speak",
+      "challenge": "25 (75,000 XP)",
+      "traits": "<p><em><strong>Immutable Form.</strong></em> The colossus is immune to any spell or effect that would alter its form. </p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the colossus fails a saving throw, it can choose to succeed instead. </p><p><em><strong>Magic Resistance.</strong></em> The colossus has advantage on saving throws against spells and other magical effects. </p><p><em><strong>Siege Monster.</strong></em> The colossus deals double damage to objects and structures. </p><p><em><strong>Towering Terror.</strong></em> Any enemy outside the colossus that starts its turn within 30 feet of it must succeed on a DC 26 Wisdom saving throw or be frightened until the start of the enemy's next turn. If the enemy's saving throw is successful, it is immune to this colossus's Towering Terror for the next 24 hours.</p>",
+      "actions": "<p><em><strong>Multiattack.</strong></em> The colossus makes three attacks-one with its slam and two with its eldritch turrets-and then uses Stomp. </p><p><em><strong>Slam.</strong></em> <em>Melee Weapon Attack:</em> +18 to hit, reach 20 ft., one target. </p>"
+    },
+    {
+      "name": "Warlord",
+      "size": "Medium",
+      "type": "Humanoid",
+      "alignment": "Any",
+      "environments": ["Urban"],
+      "associates": ["Bandit Captain", "Knight", "Mercenary Veteran", "Soldier", "War Priest", "Gladiator", "Fighter", "Barbarian", "Ranger", "Paladin", "Veteran", "Mercenary"],
+      "img_url": "https://5e.tools/img/MTF/Erik%20M%C3%B6ller.webp",
+      "armor_class": "18 (plate)",
+      "hit_points": "229 (27d8 + 108)",
+      "speed": "30 ft.",
+      "str": "20",
+      "dex": "16",
+      "con": "18",
+      "int": "12",
+      "wis": "12",
+      "cha": "18",
+      "saving_throws": "STR +9, DEX +7, CON +8, INT +1, WIS +1, CHA +4",
+      "skills": "Athletics +9, Intimidation +8, Perception +5, Persuasion +8",
+      "senses": "Passive Perception 15",
+      "languages": "Any two languages",
+      "challenge": "12 (8,400 XP)",
+      "traits": "<p><em><strong>Indomitable (3/Day).</strong></em> The warlord can reroll a saving throw it fails. It must use the new roll. </p><p><em><strong>Survivor.</strong></em> The warlord regains 10 hit points at the start of its turn if it has fewer than half its hit points but at least 1 hit point. </p>",
+      "actions": "<p><em><strong>Multiattack.</strong></em> The warlord makes two Greatsword or Short bow attacks. </p><p><em><strong>Greatsword.</strong></em> <em>Melee Weapon Attack:</em> +9 to hit, reach 5 ft., one target. <em>Hit:</em> 12 (2d6 + 5) slashing damage. </p><p><em><strong>Shortbow.</strong></em> <em>Ranged Weapon Attack:</em> +7 to hit, range 20/60 ft., one target. <em>Hit:</em> 6 (1d6 + 3) piercing damage. </p>",
+      "legendary_actions": "<p>The warlord can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The warlord regains all expended uses at the start of each of its turns. </p><p><em><strong>Command Ally.</strong></em> The warlord targets one ally it can see within 30 feet of it. If the target can see and hear the warlord, the target can make one weapon attack as a reaction and gains advantage on the attack roll. </p><p><em><strong>Weapon Attack.</strong></em> The warlord makes one Greatsword or Shortbow attack. </p><p><em><strong>Frighten Foe (Costs 2 Actions).</strong></em> The warlord targets one creature it can see within 30 feet of it. If the target can see and hear it, the target must succeed on a DC 16 Wisdom saving throw or be frightened until the end of warlord's next turn. </p>"
+    },
+    {
+      "name": "Orc Hand of Yurtrus",
+      "size": "Medium",
+      "type": "Humanoid",
+      "alignment": "Chaotic Evil",
+      "environments": [
+        "Dungeon"
+      ],
+      "associates": ["Orc War Chief", "Orc Warlock of Gruumsh", "Orc Warlock of Ilneval", "Orc Eye of Gruumsh", "Orc Blade of Ilneval", "Orc Gray", "Orog", "Orc"],
+      "armor_class": "12 (hide armor)",
+      "hit_points": "30 (4d8 + 12)",
+      "speed": "30 ft.",
+      "str": "12",
+      "dex": "11",
+      "con": "16",
+      "int": "11",
+      "wis": "14",
+      "cha": "9",
+      "saving_throws": "STR +1, DEX +0, CON +3, INT +0, WIS +2, CHA -1",
+      "skills": "Arcana +2, Intimidation +1, Medicine +4, Religion +2",
+      "senses": "Darkvision 60 ft., Passive Perception 12",
+      "languages": "Understands Common and Orc but can't speak",
+      "challenge": "2 (450 XP)",
+      "traits": "<p><em><strong>Aggressive.</strong></em> As a bonus action, the orc can move up to its speed toward a hostile creature that it can see.</p><p><em><strong>Spellcasting.</strong></em> The orc is a 4th-level spellcaster. Its spellcasting ability is Wisdom (spell save DC 12, +4 to hit with spell attacks). It requires no verbal components to cast its spells. The orc has the following cleric spells prepared: Cantrips (at will): guidance, mending, resistance, thaumaturgy; 1st level (4 slots): bane, detect magic, inflict wounds, protection from evil and good; 2nd level (3 slots): blindness/deafness, silence.</p>",
+      "actions": "<p><em><strong>Touch of the White Hand.</strong></em> <em>Melee Spell Attack:</em> +4 to hit, reach 5 ft., one creature. <em>Hit:</em> 9 (2d8) necrotic damage, and the target's Strength score is reduced by 1d4. The target dies if this reduces its Strength to 0. Otherwise, the reduction lasts until the target finishes a long rest. If a creature's Strength score is reduced to 0 by this attack, it rises as a zombie 1 hour later, unless it was a construct or an undead. The zombie is under the orc's control and acts after the orc in the initiative order. The orc can have no more than six zombies under its control at one time.</p>"
+    },
+    {
+      "name": "Orc, Gray",
+      "size": "Medium",
+      "type": "humanoid",
+      "environments": [
+        "Dungeon"
+      ],
+      "associates": ["Orc War Chief", "Orc Warlock of Gruumsh", "Orc Warlock of Ilneval", "Orc Eye of Gruumsh", "Orc Blade of Ilneval", "Orc Hand of Yurtrus", "Orog", "Orc"],
+      "alignment": "Chaotic Evil",
+      "armor_class": "13",
+      "hit_points": "15 (2d8 + 6)",
+      "speed": "40 ft., burrow 20 ft., climb 20 ft.",
+      "str": "14",
+      "dex": "16",
+      "con": "16",
+      "int": "9",
+      "wis": "11",
+      "cha": "10",
+      "skills": "Acrobatics +5, Athletics +4, Perception +2, Stealth +7",
+      "senses": "blindsight 30 ft., darkvision 60 ft., passive Perception 12",
+      "languages": "Orc",
+      "challenge": "1/4 (50 XP)",
+      "traits": "<p><em><strong>Aggressive.</strong></em> As a bonus action, the orc can move up to its speed toward a hostile creature it can see. </p><p><em><strong>Magic Absorption.</strong></em> When the gray orc is hit by a spell or is in the area of a spell, it regains hp equal to the spell's level. This trait doesn't counter the spell or negate its damage or effects. The orc regains the hp after the spell is resolved.</p><p><em><strong>Pack Tactics.</strong></em> The gray orc has advantage on attack rolls against a creature if at least one of the orc's allies is within 5 feet of the creature and the ally isn't incapacitated. </p><p><em><strong>Sunlight Sensitivity.</strong></em> While in sunlight, the gray orc has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight. </p>",
+      "actions": "<p><em><strong>Claws.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft., one target. <em>Hit:</em> 5 (1d4 + 3) slashing damage. </p>"
+    },
+    {
+      "name": "Orc Eye of Gruumsh",
+      "size": "Medium",
+      "type": "Humanoid",
+      "alignment": "Chaotic Evil",
+      "environments": [
+        "Arctic",
+        "Forest",
+        "Grassland",
+        "Hill",
+        "Mountain",
+        "Swamp",
+        "Underdark"
+      ],
+      "associates": ["Orc Blade of Ilneval", "Orc Hand of Yurtrus", "Orc War Chief", "Orc", "Orc Warlock of Gruumsh", "Orc Nutured One of Yurtrus", "Orog", "Gruumsh Cultist"],
+      "img_url": "https://www.dndbeyond.com/avatars/thumbnails/16/469/1000/1000/636376773233303649.jpeg",
+      "armor_class": "16 (ring mail, shield)",
+      "hit_points": "45 (6d8 + 18)",
+      "speed": "30 ft.",
+      "str": "16",
+      "dex": "12",
+      "con": "17",
+      "int": "9",
+      "wis": "13",
+      "cha": "12",
+      "skills": "Intimidation +3, Religion +1",
+      "senses": "Darkvision 60 ft., Passive Perception 11",
+      "languages": "Common, Orc",
+      "challenge": "2 (450 XP)",
+      "traits": "<p><em><strong>Aggressive.</strong></em> As a bonus action, the orc can move up to its speed toward a hostile creature that it can see. </p><p><em><strong>Gruumsh's Fury.</strong></em> The orc deals an extra 4 (1d8) damage when it hits with a weapon attack (included in the attacks). </p><p><em><strong>Spellcasting.</strong></em> The orc is a 3rd-level spellcaster. Its spellcasting ability is Wisdom (spell save DC 11, +3 to hit with spell attacks). The orc has the following cleric spells prepared: Cantrips (at will): guidance, resistance, thaumaturgy; 1st level (4 slots): bless, command; 2nd level (2 slots): augury, spiritual weapon (spear).</p>",
+      "actions": "<p><em><strong>Spear.</strong></em> <em>Melee or Ranged Weapon Attack:</em> +5 to hit, reach 5 ft. or range 20/60 ft., one target. <em>Hit:</em> 11 (1d6 + 3 plus 1d8) piercing damage, or 12 (2d8 + 3) piercing damage if used with two hands to make a melee attack.</p>"
+    },
+    {
+      "name": "Orc Blade of Ilneval",
+      "size": "Medium",
+      "type": "Humanoid",
+      "alignment": "Chaotic Evil",
+      "environments": [
+        "Dungeon"
+      ],
+      "associates": ["Orc Hand of Yurtrus", "Orc Eye of Gruumsh", "Orc War Chief", "Orc", "Orc Warlock of Gruumsh", "Orc Warlock of Ilneval", "Orc Warlock of Shargaas", "Orc Nutured One of Yurtrus", "Orog", "Ilneval Cultist"],
+      "img_url": "https://www.dndbeyond.com/avatars/thumbnails/16/469/1000/1000/636376773233303649.jpeg",
+      "armor_class": "18 (chain mail, shield)",
+      "hit_points": "60 (8d8 + 24)",
+      "speed": "30 ft.",
+      "str": "17",
+      "dex": "11",
+      "con": "17",
+      "int": "10",
+      "wis": "12",
+      "cha": "14",
+      "saving_throws": "WIS +3",
+      "skills": "Insight +3, Intimidation +4, Perception +3",
+      "senses": "Darkvision 60 ft., Passive Perception 13",
+      "languages": "Common, Orc",
+      "challenge": "4 (1,100 XP)",
+      "traits": "<p><em><strong>Aggressive.</strong></em> As a bonus action, the orc can move up to its speed toward a hostile creature that it can see. </p><p><em><strong>Foe Smiter of Ilneval.</strong></em> The orc deals an extra die of damage when it hits with a longsword attack (included in the attack). </p>",
+      "actions": "<p><em><strong>Multiattack.</strong></em> The orc makes two melee attacks with its longsword or two ranged attacks with its javelins. If Ilneval's Command is available to use, the orc can use it after these attacks. </p><p><em><strong>Longsword.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft., one target. <em>Hit:</em> 12 (2d8 + 3) slashing damage, or 10 (1d8 + 6) slashing damage if used with two hands. </p><p><em><strong>Javelin.</strong></em> <em>Melee or Ranged Weapon Attack:</em> +5 to hit, reach 5 ft. or range 30/120 ft., one target. <em>Hit:</em> 6 (1d6 + 3) piercing damage.</p><p><em><strong>Ilneval's Command (Recharge 6).</strong></em> The orc targets one or more allies it can see within 30 feet of it. Until the end of the orc's next turn, each target can't be frightened, and its first attack roll on each of its turns has advantage. To be affected, an ally must be able to hear the orc.</p>"
+    },
+    {
+      "name": "Kobold Scale Sorcerer",
+      "size": "Small",
+      "type": "Humanoid",
+      "alignment": "Any",
+      "environments": [
+        "Forest",
+        "Hill",
+        "Mountain",
+        "Underdark",
+        "Urban"
+      ],
+      "associates": ["Kobold Dragonshield", "Kobold Inventor", "Kobold Scale Sorcerer", "Kobold", "Winged Kobold"],
+      "img_url": "https://www.dndbeyond.com/avatars/thumbnails/16/469/1000/1000/636376773233303649.jpeg",
+      "armor_class": "15 (natural armor)",
+      "hit_points": "27 (5d6 + 10)",
+      "speed": "30 ft.",
+      "str": "7",
+      "dex": "15",
+      "con": "14",
+      "int": "10",
+      "wis": "9",
+      "cha": "14",
+      "saving_throws": "STR -2, DEX +2, CON +2, INT +0, WIS -1, CHA +2",
+      "skills": "Arcana +2, Medicine +1",
+      "senses": "Darkvision 60 ft., Passive Perception 9",
+      "languages": "Common, Draconic",
+      "challenge": "1 (200 XP)",
+      "traits": "<p><em><strong>Pack Tactics.</strong></em> The kobold has advantage on an attack roll against a creature if at least one of the kobold's allies is within 5 feet of the creature and the ally isn't incapacitated. </p><p><em><strong>Sunlight Sensitivity.</strong></em> While in sunlight, the kobold has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight. </p><p><em><strong>Spellcasting.</strong></em> The kobold casts one of the following spells, requiring no material components and using Charisma as the spellcasting ability (spell save DC 12): At will: mage hand, prestidigitation; 2/day each: charm person, fog cloud, levitate. </p>",
+      "actions": "<p><em><strong>Multiattack.</strong></em> The kobold makes two Dagger or Chromatic Bolt attacks. It can replace one attack with a use of Spellcasting. </p><p><em><strong>Dagger.</strong></em> <em>Melee or Ranged Weapon Attack:</em> +4 to hit, reach 5 ft. or range 20/60 ft., one target. <em>Hit:</em> 4 (1d4 + 2) piercing damage. </p><p><em><strong>Chromatic Bolt.</strong></em> <em>Ranged Spell Attack:</em> +4 to hit, range 90 ft., one target. <em>Hit:</em> 7 (2d6) damage of a type chosen from the following: acid, cold, fire, lightning, poison, or thunder. </p>"
+    },
+    {
+      "name": "Kobold Inventor",
+      "size": "Small",
+      "type": "Humanoid",
+      "alignment": "Lawful Evil",
+      "environments": [
+        "Forest",
+        "Hill",
+        "Mountain",
+        "Underdark",
+        "Urban"
+      ],
+      "associates": ["Kobold", "Kobold Dragonshield", "Kobold Scale Sorcerer", "Kobold Inventor", "dragon", "Winged Kobold"],
+      "img_url": "https://www.dndbeyond.com/avatars/thumbnails/16/469/1000/1000/636376773233303649.jpeg",
+      "armor_class": "12",
+      "hit_points": "13 (3d6 + 3)",
+      "speed": "30 ft.",
+      "str": "7",
+      "dex": "15",
+      "con": "12",
+      "int": "8",
+      "wis": "7",
+      "cha": "8",
+      "skills": "Perception +0",
+      "senses": "Darkvision 60 ft., Passive Perception 10",
+      "languages": "Common, Draconic",
+      "challenge": "1/4 (50 XP)",
+      "traits": "<p><em><strong>Pack Tactics.</strong></em> The kobold has advantage on an attack roll against a creature if at least one of the kobold's allies is within 5 feet of the creature and the ally isn't incapacitated. </p><p><em><strong>Sunlight Sensitivity.</strong></em> While in sunlight, the kobold has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight. </p>",
+      "actions": "<p><em><strong>Dagger.</strong></em> <em>Melee or Ranged Weapon Attack:</em> +4 to hit, reach 5 ft. or range 20/60 ft., one target. <em>Hit:</em> 4 (1d4 + 2) piercing damage. </p><p><em><strong>Sling.</strong></em> <em>Ranged Weapon Attack:</em> +4 to hit, range 30/120 ft., one target. <em>Hit:</em> 4 (1d4 + 2) bludgeoning damage. </p><p><em><strong>Weapon Invention.</strong></em> The kobold uses one of the following options (roll a d8 or choose one); the kobold can use each one no more than once per day: <ol><li>Acid. The kobold hurls a flask of acid. <em>Ranged Weapon Attack:</em> +4 to hit, range 5/20 ft., one target. <em>Hit:</em> 7 (2d6) acid damage.</li><li>Alchemist's fire. The kobold throws a flask of alchemist's fire. <em>Ranged Weapon Attack:</em> +4 to hit, range 5/20 ft., one target. <em>Hit:</em> 7 (2d6) fire damage. The target also takes 3 (1d6) fire damage at the start of each of its turns until it or another creature takes an action to douse the flames.</li><li>Ball Bearings. The kobold scatters a bag of ball bearings on the ground in a 10-foot square area within 5 feet of it. A creature moving through the area must succeed on a DC 12 Dexterity saving throw or fall prone. The ball bearings are difficult terrain.</li><li>Firecracker. The kobold lights a firecracker and hurls it at a point within 20 feet of it. The firecracker explodes in a 5-foot radius. Each creature in the area must succeed on a DC 12 Dexterity saving throw or take 5 (2d4) fire damage.</li><li>Net. <em>Ranged Weapon Attack:</em> +4 to hit, range 5/15 ft., one Large or smaller creature. <em>Hit:</em> The target is restrained. As an action, a creature can make a DC 10 Strength check, freeing itself or another creature within reach on a success. Dealing 5 slashing damage to the net (AC 10) frees the target without harming it.</li><li>Poisoned Darts. The kobold fires two poisoned darts. <em>Ranged Weapon Attack:</em> +4 to hit, range 20/60 ft., two targets. <em>Hit:</em> 2 (1d4) piercing damage plus 5 (2d4) poison damage.</li><li>Smoke Bomb. The kobold throws a smoke bomb at a point within 20 feet of it. The bomb creates a cloud of thick smoke in a 10-foot radius. The area within the smoke is heavily obscured for 1 minute or until a strong wind disperses the smoke.</li><li>Swarm of Insects. The kobold throws a bag of insects at a point within 20 feet of it. A swarm of insects (wasps) with 11 hit points emerges from the bag and rolls initiative. At the end of each of the swarm's turns, there's a 50 percent chance that the swarm disperses.</li></ol></p>"
+    },
+    {
+      "name": "Kobold Dragonshield",
+      "size": "Small",
+      "type": "Humanoid",
+      "alignment": "Any",
+      "environments": [
+        "Forest",
+        "Hill",
+        "Mountain",
+        "Underdark"
+      ],
+      "associates": ["kolbold", "kobold dragonshield", "Kobold Scale Sorcerer", "Kobold Inventor", "dragon"],
+      "img_url": "https://www.dndbeyond.com/avatars/thumbnails/16/469/1000/1000/636376773233303649.jpeg",
+      "armor_class": "15 (leather, shield)",
+      "hit_points": "44 (8d6 + 16)",
+      "speed": "20 ft.",
+      "str": "12",
+      "dex": "15",
+      "con": "14",
+      "int": "8",
+      "wis": "9",
+      "cha": "10",
+      "saving_throws": "STR +1, DEX +2, CON +2, INT -1, WIS -1, CHA +0",
+      "skills": "Perception +1",
+      "senses": "Darkvision 60 ft., Passive Perception 11",
+      "languages": "Common, Draconic",
+      "challenge": "1 (200 XP)",
+      "traits": "<p><em><strong>Dragon's Resistance.</strong></em> The kobold has resistance to a type of damage based on the color of dragon that invested it with power (choose or roll a d10): 1-2, acid (black or copper); 3-4, cold (silver or white); 5-6, fire (brass, gold, or red); 7-8, lightning (blue or bronze); 9-10, poison (green).</p><p><em><strong>Heart of the Dragon.</strong></em> If the kobold is frightened or paralyzed by an effect that allows a saving throw, it can repeat the save at the start of its turn to end the effect on itself and all kobolds within 30 feet of it. Any kobold that starts its turn in the area and is frightened or paralyzed by the effect can repeat the save. </p>",
+      "actions": "<p><em><strong>Multiattack.</strong></em> The kobold makes two Spear attacks. </p><p><em><strong>Spear.</strong></em> <em>Melee or Ranged Weapon Attack:</em> +3 to hit, reach 5 ft. or range 20/60 ft., one target. <em>Hit:</em> 4 (1d6 + 1) piercing damage, or 5 (1d8 + 1) piercing damage if used with two hands to make a melee attack. </p>"
+    },
+    {
+      "name": "Ghost Dragon",
+      "size": "Huge",
+      "type": "Undead",
+      "alignment": "Any",
+      "environments": ["Ethereal","Varies"],
+      "associates": ["dragon", "undead", "ghost"],
+      "img_url": "https://www.dndbeyond.com/avatars/thumbnails/16/469/1000/1000/636376773233303649.jpeg",
+      "armor_class": "10",
+      "hit_points": "324 (24d12 + 168)",
+      "speed": "40 ft., Fly 80 ft. (hover)",
+      "str": "20",
+      "dex": "10",
+      "con": "25",
+      "int": "16",
+      "wis": "15",
+      "cha": "19",
+      "saving_throws": "CON +13, WIS +8, CHA +10",
+      "skills": "Perception +14, Stealth +12",
+      "damage_resistances": "Bludgeoning, Piercing, Slashing",
+      "damage_immunities": "Acid, Cold, Necrotic, Poison",
+      "condition_immunities": "Charmed, Exhaustion, Frightened, Grappled, Paralyzed, Petrified, Poisoned, Prone, Restrained",
+      "senses": "Blindsight 60 ft., Darkvision 120 ft., Passive Perception 24",
+      "languages": "Common, Draconic, telepathy 120 ft.",
+      "challenge": "17 (18,000 XP)",
+      "traits": "<p><em><strong>Incorporeal Movement.</strong></em> The ghost dragon can move through other creatures and objects as if they were difficult terrain. It takes 5 (1d10) force damage if it ends its turn inside an object.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the ghost dragon fails a saving throw, it can choose to succeed instead. </p><p><em><strong>Undead Nature.</strong></em> The ghost dragon doesn't require air, food, drink, or sleep. </p>",
+      "actions": "<p><em><strong>Multiattack.</strong></em> The ghost dragon makes two attacks: one with its Bite and one with its Ghostly Claw. </p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +11 to hit, reach 15 ft., one target. <em>Hit:</em> 16 (2d10 + 5) necrotic damage. </p><p><em><strong>Ghostly Claw.</strong></em> <em>Melee Weapon Attack:</em> +11 to hit, reach 10 ft., one target. <em>Hit:</em> 12 (2d6 + 5) force damage. </p><p><em><strong>Terrifying Breath (Recharge 5-6).</strong></em> The ghost dragon exhales ghostly mist in a 60-foot cone. Each creature in that area must make a DC 21 Constitution saving throw. On a failed save, a creature takes 49 (9d10) necrotic damage and is frightened of the ghost dragon for 1 minute. On a successful save, the creature takes half as much damage and isn't frightened. While frightened of the ghost dragon, a creature is paralyzed. The frightened creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to this ghost dragon's Terrifying Breath for the next 24 hours. </p>",
+      "legendary_actions": "<p>The ghost dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The ghost dragon regains spent legendary actions at the start of its turn. </p><p><em><strong>Attack.</strong></em> The ghost dragon makes one Ghostly Claw attack. </p><p><em><strong>Move.</strong></em> The ghost dragon moves up to half its speed. </p><p><em><strong>Etherealness (Costs 2 Actions).</strong></em> The ghost dragon enters the Ethereal Plane from the Material Plane, or vice versa. It is visible on the Material Plane while it is in the Ethereal Plane, and vice versa, but it can't affect or be affected by anything on the other plane. </p>"
+    }
   ]
 module.exports = monsters;
 
@@ -8948,7 +9207,6 @@ module.exports = monsters;
   Once all these monsters are added, generate a PDF and add it back to this NotebookLM (https://notebooklm.google.com/notebook/223209c0-31b1-4d76-890a-e6f5dc0719a1?pli=1).
 Aarakocra
 Abishai
-Abishai, White
 Abjurer
 Abjurer wizard
 Abominable yeti
@@ -9256,7 +9514,6 @@ Gem Stalker
 Genie
 Geryon
 Ghost (Variant)
-Ghost Dragon
 Ghost of a Fallen Bard
 Ghost of a Fallen Cleric
 Ghost of a Fallen Druid
@@ -9449,10 +9706,6 @@ Juiblex
 Karrnathi undead soldier
 Kenku
 Ki-rin
-Kobold
-Kobold Dragonshield
-Kobold Inventor
-Kobold Scale Sorcerer
 Korred
 Kraken Hatchling
 Kraken Priest
@@ -9662,10 +9915,6 @@ Oni (Variant 4)
 Oni (Variant 5)
 Oni (Variant)
 Ooze
-Orc Blade of Ilneval
-Orc Eye of Gruumsh
-Orc Graffiti
-Orc Hand of Yurtrus
 Orcus
 Orog
 Orthon
@@ -9876,7 +10125,6 @@ Viashino
 Vine blight
 War mage
 War Priest
-Warforged colossus
 Warforged soldier
 Warlock
 Warlock of the Archfey
@@ -9884,12 +10132,9 @@ Warlock of the Archfey/Fiend/Great Old One
 Warlock of the Fiend
 Warlock of the Great Old One
 Warlock of the Undying
-Warlord
 Warrior vampire
 Wastrilith
 Water weird
-White Abishai
-White dragon
 Winged kobold
 Winged kobold dragonshield
 Winged kobold skirmisher
