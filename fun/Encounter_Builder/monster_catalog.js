@@ -60,27 +60,15 @@ $(() => { // jQuery's DOM ready shorthand
         let hasTelepathy = false;
         let hasNA = false;
         monsters.forEach(monster => {
-            if (monster.languages) {
-                // Convert to array if not already
-                let langs = monster.languages;
-                if (!Array.isArray(langs)) {
-                    langs = String(langs)
-                        .replace(/\band\b/gi, ',')
-                        .replace(/\band can't speak\b/gi, '')
-                        .replace(/\(.*?\)/g, '')
-                        .split(',')
-                        .map(l => l.trim())
-                        .filter(l => l);
-                    monster.languages = langs; // update to array for future use
-                }
-                langs.forEach(l => {
+            if (Array.isArray(monster.languages)) {
+                monster.languages.forEach(l => {
                     if (/telepathy/i.test(l)) {
                         hasTelepathy = true;
                     }
                     if (/^N\/A$/i.test(l)) {
                         hasNA = true;
                     }
-                    if (l && !/^Any/i.test(l) && !/^All/i.test(l) && !/^The languages/i.test(l) && !/^Understands/i.test(l) && !/telepathy/i.test(l) && !/^but can't speak/i.test(l) && !/^N\/A$/i.test(l)) {
+                    if (l && !/^Any/i.test(l) && !/^All/i.test(l) && !/^The languages/i.test(l) && !/^Understands/i.test(l) && !/telepathy/i.test(l) && !/^N\/A$/i.test(l)) {
                         values.add(l);
                     }
                 });
