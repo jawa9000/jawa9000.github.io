@@ -1,6 +1,6 @@
 $(() => { // jQuery's DOM ready shorthand
     const $statBlockContainer = $('#stat-block-container');
-    const $monsterListUl = $('#monster-list ul');
+    const $monsterListUl = $('#monster-list ol');
 
     if (typeof monsters === 'undefined' || !Array.isArray(monsters)) {
         console.error('Error: `monsters` array not found. Ensure monsters.js is loaded and defines `monsters`.');
@@ -55,16 +55,54 @@ $(() => { // jQuery's DOM ready shorthand
         return Array.from(values).sort((a, b) => getCrSortValue(a) - getCrSortValue(b));
     }
 
+    function getUniqueLanguages() {
+        const values = new Set();
+        let hasTelepathy = false;
+        let hasNA = false;
+        monsters.forEach(monster => {
+            if (monster.languages) {
+                // Convert to array if not already
+                let langs = monster.languages;
+                if (!Array.isArray(langs)) {
+                    langs = String(langs)
+                        .replace(/\band\b/gi, ',')
+                        .replace(/\band can't speak\b/gi, '')
+                        .replace(/\(.*?\)/g, '')
+                        .split(',')
+                        .map(l => l.trim())
+                        .filter(l => l);
+                    monster.languages = langs; // update to array for future use
+                }
+                langs.forEach(l => {
+                    if (/telepathy/i.test(l)) {
+                        hasTelepathy = true;
+                    }
+                    if (/^N\/A$/i.test(l)) {
+                        hasNA = true;
+                    }
+                    if (l && !/^Any/i.test(l) && !/^All/i.test(l) && !/^The languages/i.test(l) && !/^Understands/i.test(l) && !/telepathy/i.test(l) && !/^but can't speak/i.test(l) && !/^N\/A$/i.test(l)) {
+                        values.add(l);
+                    }
+                });
+            }
+        });
+        if (hasTelepathy) values.add('Telepathy');
+        if (hasNA) values.add('N/A');
+        return Array.from(values).sort();
+    }
+
     function populateFilterOptions() {
         // Do not touch #filter-environment, it's static in HTML now
         const types = getUniqueValues('type');
         const sizes = getUniqueValues('size');
         const crs = getUniqueCrValues();
         const aligns = getUniqueValues('alignment');
+        const languages = getUniqueLanguages();
         types.forEach(t => $('#filter-type').append(`<option value="${t}">${t}</option>`));
         sizes.forEach(s => $('#filter-size').append(`<option value="${s}">${s}</option>`));
         crs.forEach(c => $('#filter-cr').append(`<option value="${c}">${c}</option>`));
         aligns.forEach(a => $('#filter-alignment').append(`<option value="${a}">${a}</option>`));
+        languages.forEach(lang => $('#filter-language').append(`<option value="${lang}">${lang}</option>`));
     }
 
     function filterAndSortMonsters() {
@@ -74,6 +112,7 @@ $(() => { // jQuery's DOM ready shorthand
         const size = $('#filter-size').val();
         const cr = $('#filter-cr').val();
         const align = $('#filter-alignment').val();
+        const language = $('#filter-language').val();
         const sort = $('#sort-monsters').val();
         // Only filter by environment if not 'Any' (or blank)
         if (env && env !== 'Any') filtered = filtered.filter(m => Array.isArray(m.environments) && m.environments.includes(env));
@@ -85,6 +124,9 @@ $(() => { // jQuery's DOM ready shorthand
             return mCr === cr;
         });
         if (align) filtered = filtered.filter(m => m.alignment === align);
+        if (language) {
+            filtered = filtered.filter(m => Array.isArray(m.languages) && m.languages.some(l => l.toLowerCase() === language.toLowerCase()));
+        }
         filtered.sort((a, b) => {
             if (sort === 'cr') {
                 const crA = getCrSortValue(a.challenge);
@@ -177,6 +219,14 @@ $(() => { // jQuery's DOM ready shorthand
             associatesHtml = '<span>None</span>';
         }
 
+        // Show languages as comma-separated list if array
+        let languagesDisplay = '';
+        if (Array.isArray(monster.languages)) {
+            languagesDisplay = monster.languages.join(', ');
+        } else {
+            languagesDisplay = monster.languages || '';
+        }
+
         $monsterDiv.html(`
             <h2>${monster.name}</h2>
             <p><em>${monster.size} ${monster.type}, ${monster.alignment}</em></p>
@@ -204,7 +254,7 @@ $(() => { // jQuery's DOM ready shorthand
             ${createPropertyHtml('Damage Immunities', monster.damage_immunities)}
             ${createPropertyHtml('Condition Immunities', monster.condition_immunities)}
             ${createPropertyHtml('Senses', monster.senses)}
-            ${createPropertyHtml('Languages', monster.languages)}
+            ${createPropertyHtml('Languages', languagesDisplay)}
             ${createPropertyHtml('Challenge', monster.challenge)}
             ${createPropertyHtml('Environments', Array.isArray(monster.environments) ? monster.environments.join(', ') : monster.environments)}
             <p><span class="property-label">Associates:</span> ${associatesHtml}</p>
