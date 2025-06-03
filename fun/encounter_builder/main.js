@@ -435,7 +435,11 @@ function generatePcLevelInputs(pcCount, pcLevel, difficulty, environment) {
                                     if (monsterDetails["damage immunities"]) monsterStatsContent += `<p><strong>Damage Immunities:</strong> ${monsterDetails["damage immunities"]}</p>`; // lowercase 'damage immunities'
                                     if (monsterDetails["condition immunities"]) monsterStatsContent += `<p><strong>Condition Immunities:</strong> ${monsterDetails["condition immunities"]}</p>`; // lowercase 'condition immunities'
                                     if (monsterDetails.senses) monsterStatsContent += `<p><strong>Senses:</strong> ${monsterDetails.senses}</p>`; // lowercase 'senses'
-                                    if (monsterDetails.languages) monsterStatsContent += `<p><strong>Languages:</strong> ${monsterDetails.languages}</p>`; // lowercase 'languages'
+                                    if (monsterDetails.languages && Array.isArray(monsterDetails.languages)) {
+                                        monsterStatsContent += `<p><strong>Languages:</strong> ${monsterDetails.languages.join(', ')}</p>`;
+                                    } else if (monsterDetails.languages) {
+                                        monsterStatsContent += `<p><strong>Languages:</strong> ${monsterDetails.languages}</p>`;
+                                    }
                                     if (monsterDetails.challenge) monsterStatsContent += `<p><strong>Challenge:</strong> ${monsterDetails.challenge}</p>`; // lowercase 'challenge'
                                     if (monsterDetails.environments && monsterDetails.environments.length > 0) monsterStatsContent += `<p><strong>Environments:</strong> ${monsterDetails.environments.join(', ')}</p>`;
                                     if (monsterDetails.traits) monsterStatsContent += `<h4>Traits</h4>${monsterDetails.traits}`; // lowercase 'traits'
@@ -645,9 +649,12 @@ function generateEncounterOptionsImproved(xpLimit, monsterData, numOptions = 5) 
         }
     }
     if (encounterOptions.length < numOptions) {
-        let minXpMonster = monsterNames.reduce((minName, name) => {
-            return monsterData[name] < monsterData[minXpMonster] ? name : minXpMonster;
-        });
+        let minXpMonster = monsterNames[0];
+        for (let i = 1; i < monsterNames.length; i++) {
+            if (monsterData[monsterNames[i]] < monsterData[minXpMonster]) {
+                minXpMonster = monsterNames[i];
+            }
+        }
         for (let i = encounterOptions.length; i < numOptions; i++) {
             encounterOptions.push({
                 monsters: [...Array(i + 1).keys()].map(() => minXpMonster),
