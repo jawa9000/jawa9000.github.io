@@ -553,7 +553,12 @@ function generateEncounterOptionsImproved(xpLimit, monsterData, numOptions = 5) 
     const monsterNames = Object.keys(monsterData).filter(name => monsterData[name] > 0);
     const encounterOptions = [];
     const generatedOptionSignatures = new Set();
-    const maxMonstersInEncounter = 15;
+    // Get maxMonstersInEncounter from the #maxMonsters input
+    let maxMonstersInEncounter = 15;
+    const maxMonstersInput = document.getElementById('maxMonsters');
+    if (maxMonstersInput && !isNaN(parseInt(maxMonstersInput.value, 10))) {
+        maxMonstersInEncounter = parseInt(maxMonstersInput.value, 10);
+    }
     if (monsterNames.length === 0) {
         return [{ monsters: [], totalXP: 0 }];
     }
@@ -655,10 +660,12 @@ function generateEncounterOptionsImproved(xpLimit, monsterData, numOptions = 5) 
                 minXpMonster = monsterNames[i];
             }
         }
+        // Only fill up to maxMonstersInEncounter
         for (let i = encounterOptions.length; i < numOptions; i++) {
+            let monsterCount = Math.min(i + 1, maxMonstersInEncounter);
             encounterOptions.push({
-                monsters: [...Array(i + 1).keys()].map(() => minXpMonster),
-                totalXP: monsterData[minXpMonster] * (i + 1)
+                monsters: Array(monsterCount).fill(minXpMonster),
+                totalXP: monsterData[minXpMonster] * monsterCount
             });
         }
     }
