@@ -9031,7 +9031,6 @@ const monsters = [
         "Underdark"
       ],
       "associates": ["Orc Blade of Ilneval", "Orc Hand of Yurtrus", "Orc War Chief", "Orc", "Orc Warlock of Gruumsh", "Orc Nutured One of Yurtrus", "Orog", "Gruumsh Cultist"],
-      "img_url": "https://www.dndbeyond.com/avatars/thumbnails/16/469/1000/1000/636376773233303649.jpeg",
       "armor_class": "16 (ring mail, shield)",
       "hit_points": "45 (6d8 + 18)",
       "speed": "30 ft.",
@@ -9057,7 +9056,6 @@ const monsters = [
         "Dungeon"
       ],
       "associates": ["Orc Hand of Yurtrus", "Orc Eye of Gruumsh", "Orc War Chief", "Orc", "Orc Warlock of Gruumsh", "Orc Warlock of Ilneval", "Orc Warlock of Shargaas", "Orc Nutured One of Yurtrus", "Orog", "Ilneval Cultist"],
-      "img_url": "https://www.dndbeyond.com/avatars/thumbnails/16/469/1000/1000/636376773233303649.jpeg",
       "armor_class": "18 (chain mail, shield)",
       "hit_points": "60 (8d8 + 24)",
       "speed": "30 ft.",
@@ -9088,7 +9086,6 @@ const monsters = [
         "Urban"
       ],
       "associates": ["Kobold Dragonshield", "Kobold Inventor", "Kobold Scale Sorcerer", "Kobold", "Winged Kobold"],
-      "img_url": "https://www.dndbeyond.com/avatars/thumbnails/16/469/1000/1000/636376773233303649.jpeg",
       "armor_class": "15 (natural armor)",
       "hit_points": "27 (5d6 + 10)",
       "speed": "30 ft.",
@@ -9119,7 +9116,6 @@ const monsters = [
         "Urban"
       ],
       "associates": ["Kobold", "Kobold Dragonshield", "Kobold Scale Sorcerer", "Kobold Inventor", "dragon", "Winged Kobold"],
-      "img_url": "https://www.dndbeyond.com/avatars/thumbnails/16/469/1000/1000/636376773233303649.jpeg",
       "armor_class": "12",
       "hit_points": "13 (3d6 + 3)",
       "speed": "30 ft.",
@@ -9148,7 +9144,6 @@ const monsters = [
         "Underdark"
       ],
       "associates": ["kolbold", "kobold dragonshield", "Kobold Scale Sorcerer", "Kobold Inventor", "dragon"],
-      "img_url": "https://www.dndbeyond.com/avatars/thumbnails/16/469/1000/1000/636376773233303649.jpeg",
       "armor_class": "15 (leather, shield)",
       "hit_points": "44 (8d6 + 16)",
       "speed": "20 ft.",
@@ -9173,7 +9168,6 @@ const monsters = [
       "alignment": "Any",
       "environments": ["Ethereal","Varies"],
       "associates": ["dragon", "undead", "ghost"],
-      "img_url": "https://www.dndbeyond.com/avatars/thumbnails/16/469/1000/1000/636376773233303649.jpeg",
       "armor_class": "10",
       "hit_points": "324 (24d12 + 168)",
       "speed": "40 ft., Fly 80 ft. (hover)",
@@ -9264,7 +9258,6 @@ const monsters = [
       "alignment": "Chaotic Evil",
       "environments": ["Arctic", "Forest", "Grassland", "Hill", "Mountain", "Underdark"],
       "associates": ["Orc", "Orc War Chief", "Orc Warlock of Gruumsh", "Orc Warlock of Ilneval", "Orc Warlock of Shargaas", "Orc Nutured One of Yurtrus", "Ilneval Cultist"],
-      "img_url": "https://www.dndbeyond.com/avatars/thumbnails/16/469/1000/1000/636376773233303649.jpeg",
       "armor_class": "18 (plate armor)",
       "hit_points": "42 (5d8+20)",
       "speed": "30 ft.",
@@ -9349,7 +9342,6 @@ const monsters = [
       "reactions": "",
       "legendary_actions": ""
     }, 
-    // >> new monsters added here that needs to be reviewed for associates and checked in general.
     {
       "name": "Githyanki Supreme Commander",
       "size": "Medium",
@@ -9357,7 +9349,6 @@ const monsters = [
       "alignment": "Lawful Evil",
       "environments": ["Desert","Mountain","Urban"],
       "associates": ["Kith'rak","Adult Red Dragon", "Githyanki Gish", "Githyanki Knight", "Githyanki Warrior", "Githyanki Gish"],
-      "img_url": "https://www.dndbeyond.com/avatars/thumbnails/16/469/1000/1000/636376773233303649.jpeg",
       "armor_class": "18 (plate armor)",
       "hit_points": "187 (22d8+88)",
       "speed": "30 ft.",
@@ -9389,7 +9380,6 @@ const monsters = [
       "alignment": "Lawful Evil",
       "environments": ["Varies"],
       "associates": ["Mind Flayer", "Adult Red Dragon", "Githyanki Gish", "Githyanki Supreme Commander", "Githyanki Warrior", "Githyanki Gish", "Githyanki Kith'rak"],
-      "img_url": "https://www.dndbeyond.com/avatars/thumbnails/16/469/1000/1000/636376773233303649.jpeg",
       "armor_class": "18 (plate armor)",
       "hit_points": "91 (14d8+28)",
       "speed": "30 ft.",
@@ -9424,7 +9414,6 @@ const monsters = [
         "Urban"
       ],
       "associates": ["Sarth", "Adult Red Dragon", "Githyanki Knight", "Githyanki Gish", "Githyanki Supreme Commander", "Githyanki Warrior"],
-      "img_url": "https://www.dndbeyond.com/avatars/thumbnails/16/469/1000/1000/636376773233303649.jpeg",
       "armor_class": "18 (plate armor)",
       "hit_points": "180 (24d8+72)",
       "speed": "30 ft.",
@@ -9459,7 +9448,6 @@ const monsters = [
         "Urban"
       ],
       "associates": ["Sarth", "Adult Red Dragon", "Githyanki Knight", "Githyanki Kith'rak", "Githyanki Supreme Commander", "Githyanki Warrior"],
-      "img_url": "https://www.dndbeyond.com/avatars/thumbnails/16/469/1000/1000/636376773233303649.jpeg",
       "armor_class": "17 (half plate armor)",
       "hit_points": "123 (19d8+38)",
       "speed": "30 ft.",
@@ -9492,7 +9480,6 @@ const monsters = [
         "Varies"
       ],
       "associates": ["Githyanki Gish", "Githyanki Knight", "Githyanki Kith'rak", "Githyanki Supreme Commander", "Adult Red Dragon"],
-      "img_url": "https://www.dndbeyond.com/avatars/thumbnails/16/469/1000/1000/636376773233303649.jpeg",
       "armor_class": "17 (half plate)",
       "hit_points": "49 (9d8+9)",
       "speed": "30 ft.",
@@ -9516,7 +9503,159 @@ const monsters = [
       "reactions": "",
       "legendary_actions": "",
     },
-
+// >> new monsters added here that needs to be reviewed for associates and checked in general. Look to remove any "[cite:...]" that the prompt missed.
+    {
+      "name": "Hobgoblin Soldier",
+      "size": "Medium",
+      "type": "Humanoid",
+      "alignment": "Lawful Evil",
+      "environments": ["Dungeon"],
+      "associates": ["Hobgoblin", "Hobgoblin Captain", "Hobgoblin Warlord", "Hobgoblin Devastator"],
+      "armor_class": "20 (plate armor, shield)",
+      "hit_points": "65 (10d8 + 20)",
+      "speed": "30 ft.",
+      "str": "16",
+      "dex": "14",
+      "con": "14",
+      "int": "10",
+      "wis": "10",
+      "cha": "12",
+      "saving_throws": "",
+      "skills": "Athletics +5, Intimidation +3, Perception +2",
+      "damage_vulnerabilities": "",
+      "damage_resistances": "",
+      "damage_immunities": "",
+      "condition_immunities": "",
+      "senses": "darkvision 60 ft., passive Perception 12",
+      "languages": "Common, Goblin",
+      "challenge": "3 (700 XP)",
+      "traits": "<p><em><strong>Coordinated Attack.</strong></em> The hobgoblin soldier can add 1d4 to its attack rolls for each non-incapacitated hobgoblin ally within 5 feet of the target, up to a maximum of 3d4. </p><p><em><strong>Protector.</strong></em> All allies within 5 feet of the hobgoblin soldier add +1 to their AC for a maximum of +1. </p>",
+      "actions": "<p><em><strong>Multiattack.</strong></em> The hobgoblin soldier makes two melee attacks.</p><p><em><strong>Shortsword.</strong></em> Melee Weapon Attack: +5 to hit, reach 5 ft., one target. <em>Hit:</em> 6 (1d6 + 3) slashing damage. </p><p><em><strong>Spear.</strong></em> Melee or Ranged Weapon Attack: +5 to hit, reach 5 ft., or range 30/60 ft., one target. <em>Hit:</em> 6 (1d6 + 3) piercing damage, or 7 (1d8 + 3) piercing damage if wielded with two hands. </p><p><em><strong>Dagger.</strong></em> Melee or Ranged Weapon Attack: +5 to hit, reach 5 ft. or range 20/60 ft., one target. <em>Hit:</em> 5 (1d4 + 3) piercing damage. </p>",
+      "reactions": "<p><em><strong>Counterattack.</strong></em> If the attack roll made against the hobgoblin soldier results in a 10 or lower, the hobgoblin soldier may make an opportunity attack against the attacker. </p>",
+      "legendary_actions": "",
+    },
+    {
+      "name": "Githzerai Monk",
+      "size": "Medium",
+      "type": "Humanoid",
+      "alignment": "Lawful Neutral",
+      "environments": ["Dungeon"],
+      "associates": ["Githzerai Enlightened", "Githzerai Zerth", "Githzerai Anarch", "Githzerai Psion"],
+      "armor_class": "14",
+      "hit_points": "38 (7d8 + 7)",
+      "speed": "30 ft.",
+      "str": "12",
+      "dex": "15",
+      "con": "12",
+      "int": "13",
+      "wis": "14",
+      "cha": "10",
+      "saving_throws": "STR +3, DEX +4, INT +3, WIS +4",
+      "skills": "Insight +4, Perception +4",
+      "damage_vulnerabilities": "",
+      "damage_resistances": "",
+      "damage_immunities": "",
+      "condition_immunities": "",
+      "senses": "Passive Perception 14",
+      "languages": "Gith",
+      "challenge": "2 (450 XP)",
+      "traits": "<p><em><strong>Innate Spellcasting (Psionics).</strong></em> The githzerai's innate spellcasting ability is Wisdom. It can innately cast the following spells, requiring no components: <br>At will: mage hand (the hand is invisible) <br>3/day each: feather fall, jump, see invisibility, shield </p><p><em><strong>Psychic Defense.</strong></em> While the githzerai is wearing no armor and wielding no shield, its AC includes its Wisdom modifier. </p>",
+      "actions": "<p><em><strong>Multiattack.</strong></em> The githzerai makes two unarmed strikes. </p><p><em><strong>Unarmed Strike.</strong></em> Melee Weapon Attack: +4 to hit, reach 5 ft., one target. <em>Hit:</em> 6 (1d8 + 2) bludgeoning damage plus 9 (2d8) psychic damage. This is a magic weapon attack. </p>",
+      "reactions": "",
+      "legendary_actions": "",
+    },
+    {
+      "name": "Githzerai Enlightened",
+      "size": "Medium",
+      "type": "Humanoid",
+      "alignment": "Lawful Neutral",
+      "environments": ["Desert", "Mountain", "Urban"],
+      "associates": ["Githzerai Monk", "Githzerai Zerth", "Githzerai Anarch", "Githzerai Psion", "Githzerai Psion"],
+      "armor_class": "18",
+      "hit_points": "112 (15d8 + 45)",
+      "speed": "30 ft.",
+      "str": "14",
+      "dex": "19",
+      "con": "16",
+      "int": "17",
+      "wis": "19",
+      "cha": "13",
+      "saving_throws": "STR +6, DEX +8, INT +7, WIS +8",
+      "skills": "Arcana +7, Insight +8, Perception +8",
+      "damage_vulnerabilities": "",
+      "damage_resistances": "",
+      "damage_immunities": "",
+      "condition_immunities": "",
+      "senses": "Passive Perception 18",
+      "languages": "Gith",
+      "challenge": "10 (5,900 XP)",
+      "traits": "<p><em><strong>Innate Spellcasting (Psionics).</strong></em> The githzerai's innate spellcasting ability is Wisdom (spell save DC 16, +8 to hit with spell attacks). It can innately cast the following spells, requiring no components: <br>At will: mage hand (the hand is invisible) <br>3/day each: blur, expeditious retreat, feather fall, jump, see invisibility, shield <br>1/day each: haste, plane shift, teleport </p><p><em><strong>Psychic Defense.</strong></em> While the githzerai is wearing no armor and wielding no shield, its AC includes its Wisdom modifier. </p>",
+      "actions": "<p><em><strong>Multiattack.</strong></em> The githzerai makes three unarmed strikes. </p><p><em><strong>Unarmed Strike.</strong></em> Melee Weapon Attack: +8 to hit, reach 5 ft., one target. <em>Hit:</em> 13 (2d8 + 4) bludgeoning damage plus 13 (3d8) psychic damage. </p><p><em><strong>Temporal Strike (Recharge 6).</strong></em> Melee Weapon Attack: +8 to hit, reach 5 ft., one creature. <em>Hit:</em> 13 (2d8 + 4) bludgeoning damage plus 52 (8d12) psychic damage. The target must succeed on a DC 16 Wisdom saving throw or move 1 round forward in time.  A target moved forward in time vanishes for the duration. When the effect ends, the target reappears in the space it left or in an unoccupied space nearest to that space if it's occupied.</p>",
+      "reactions": "",
+      "legendary_actions": "",
+    },
+    {
+      "name": "Githzerai Zerth",
+      "size": "Medium",
+      "type": "Humanoid",
+      "alignment": "Lawful Neutral",
+      "environments": ["Dungeon"],
+      "associates": ["Githzerai Monk", "Githzerai Enlightened", "Githzerai Anarch", "Githzerai Psion"],
+      "armor_class": "17",
+      "hit_points": "84 (13d8 + 26)",
+      "speed": "30 ft.",
+      "str": "13",
+      "dex": "18",
+      "con": "15",
+      "int": "16",
+      "wis": "17",
+      "cha": "12",
+      "saving_throws": "STR +4, DEX +7, INT +6, WIS +6",
+      "skills": "Arcana +6, Insight +6, Perception +6",
+      "damage_vulnerabilities": "",
+      "damage_resistances": "",
+      "damage_immunities": "",
+      "condition_immunities": "",
+      "senses": "Passive Perception 16",
+      "languages": "Gith",
+      "challenge": "6 (2,300 XP)",
+      "traits": "<p><em><strong>Innate Spellcasting (Psionics).</strong></em> The githzerai's innate spellcasting ability is Wisdom. It can innately cast the following spells, requiring no components: <br>At will: mage hand (the hand is invisible) <br>3/day each: feather fall, jump, see invisibility, shield <br>1/day each: phantasmal killer, plane shift </p><p><em><strong>Psychic Defense.</strong></em> While the githzerai is wearing no armor and wielding no shield, its AC includes its Wisdom modifier. </p>",
+      "actions": "<p><em><strong>Multiattack.</strong></em> The githzerai makes two unarmed strikes. </p><p><em><strong>Unarmed Strike.</strong></em> Melee Weapon Attack: +7 to hit, reach 5 ft., one target. <em>Hit:</em> 11 (2d6 + 4) bludgeoning damage plus 13 (3d8) psychic damage. This is a magic weapon attack. </p>",
+      "reactions": "",
+      "legendary_actions": "",
+      "img_url": ""
+    },
+    {
+      "name": "Githzerai Anarch",
+      "size": "Medium",
+      "type": "Humanoid",
+      "alignment": "Lawful Neutral",
+      "environments": ["Dungeon"],
+      "associates": ["Githzerai Monk", "Githzerai Enlightened", "Githzerai Zerth", "Githzerai Psion"],
+      "armor_class": "20",
+      "hit_points": "144 (17d8 + 68)",
+      "speed": "30 ft., Fly 40 ft. (hover)",
+      "str": "16",
+      "dex": "21",
+      "con": "18",
+      "int": "18",
+      "wis": "20",
+      "cha": "14",
+      "saving_throws": "STR +8, DEX +10, INT +9, WIS +10",
+      "skills": "Arcana +9, Insight +10, Perception +10",
+      "damage_vulnerabilities": "",
+      "damage_resistances": "",
+      "damage_immunities": "",
+      "condition_immunities": "",
+      "senses": "Passive Perception 20",
+      "languages": "Gith",
+      "challenge": "16 (15,000 XP)",
+      "traits": "<p><em><strong>Innate Spellcasting (Psionics).</strong></em> The anarch's innate spellcasting ability is Wisdom (spell save DC 18, +10 to hit with spell attacks). It can innately cast the following spells, requiring no components: <br>At will: mage hand (the hand is invisible) <br>3/day each: feather fall, jump, see invisibility, shield, telekinesis <br>1/day each: globe of invulnerability, plane shift, teleportation circle, wall of force </p><p><em><strong>Psychic Defense.</strong></em> While the anarch is wearing no armor and wielding no shield, its AC includes its Wisdom modifier. </p>",
+      "actions": "<p><em><strong>Multiattack.</strong></em> The anarch makes three unarmed strikes. </p><p><em><strong>Unarmed Strike.</strong></em> Melee Weapon Attack: +10 to hit, reach 5 ft., one target. <em>Hit:</em> 14 (2d8 + 5) bludgeoning damage plus 18 (4d8) psychic damage. </p>",
+      "reactions": "",
+      "legendary_actions": "<p>Legendary Action Uses: 3. Immediately after another creature's turn, The githzerai anarch can expend a use to take one of the following actions. The githzerai anarch regains all expended uses at the start of each of its turns. </p><p><em><strong>Strike.</strong></em> The anarch makes one unarmed strike. </p><p><em><strong>Teleport.</strong></em> The anarch magically teleports, along with any equipment it is wearing and carrying, to an unoccupied space it can see within 30 feet of it. </p><p><em><strong>Change Gravity (Costs 3 Actions).</strong></em> The anarch casts the reverse gravity spell. The spell has the normal effect, except that the anarch can orient the area in any direction and creatures and objects fall toward the end of the area. </p>",
+      "img_url": ""
+    }
   ]
 module.exports = monsters;
 
@@ -9867,11 +10006,6 @@ Giant Strider
 Giant zombie
 Giff
 Girallon
-Githyanki Warrior
-Githzerai Anarch
-Githzerai zerth
-Githzerai Enlightened
-Githzerai Monk
 Gloom weaver
 Gnoll Fang of Yeenoghu
 Gnoll Flesh Gnawer
@@ -9952,8 +10086,6 @@ Helmed Horror
 Herder
 Hoard Mimic
 Hoard Scarab (base, Swarm)
-Hobgoblin
-Hobgoblin (Elite Soldier)
 Hobgoblin (Elite Warrior)
 Hobgoblin (Soldier)
 Hobgoblin (Thrall)
@@ -9967,7 +10099,6 @@ Hobgoblin lieutenant
 Hobgoblin officer
 Hobgoblin scout
 Hobgoblin sergeant
-Hobgoblin soldier
 Hobgoblin Warlord
 Hobgoblin warrior
 Hollow Dragon
