@@ -72,23 +72,7 @@ Once all these monsters are added, generate a PDF and add it back to this Notebo
 ## Monster list
 Check monsters.js to see if the following monsters are listed. If they are not, use a Google search "5e [monster name]" to find it, download a PDF of it, and use this Gemini Gem (https://gemini.google.com/gem/77b2f643d48c) to batch convert up to 10 monsters at a time. Use this prompt: "Convert these PDFs into a JSON object." Then, copy/paste into monsters.js at the end, remove the array brackets, and clean up anything that is amiss (like remove "[cite:...]", add associates, and check the newly added monsters in the monster_catalog.html list).
 
-Aarakocra
-Abishai
-Abjurer
-Abjurer wizard
-Abominable yeti
-Abyssal wretch
-Adult kruthik
-Adult Oblex
-Adult Red Dracolich
-Advokist
-Alchemist
-Alhoon
-Alkilith
-Allied Evil Azer
-Allip
 Amethyst Dragon (Ancient, Adult, Young)
-Amethyst dragon wyrmling
 Amnizu
 Anarch
 Ancient Moonstone dragon
