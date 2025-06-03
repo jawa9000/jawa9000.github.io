@@ -110,11 +110,7 @@ Archangel of Wrath
 Archdruid
 Archer
 Archon of the Dawn
-Archon of the Dawn (Variant 2)
-Archon of the Dawn (Variant)
 Archon of the Light
-Archon of the Light (Variant 2)
-Archon of the Light (Variant)
 Archon of the Shield
 Archon of the Sword
 Archon of the Triumvirate
@@ -168,11 +164,6 @@ Borborygmos
 Boros Legion
 Boros Legionnaire
 Boros Swiftblade
-Boros Swiftblade (Variant 2)
-Boros Swiftblade (Variant 3)
-Boros Swiftblade (Variant 4)
-Boros Swiftblade (Variant 5)
-Boros Swiftblade (Variant)
 Bounty hunter
 Brontosaurus
 Bronze dragon
@@ -272,7 +263,6 @@ Dragon Egg
 Dragon Hatchling
 Dragon Speaker
 Dragon Turtles (Young, Ancient)
-Dragon Wyrmling
 Dragonblood Ooze
 Dragonborn
 Dragonnel
@@ -378,7 +368,6 @@ Gem Greatwyrm
 Gem Stalker
 Genie
 Geryon
-Ghost (Variant)
 Ghost of a Fallen Bard
 Ghost of a Fallen Cleric
 Ghost of a Fallen Druid
@@ -389,22 +378,12 @@ Ghost of a Fallen Sorcerer
 Ghost of a Fallen Wizard
 Giant Ant
 Giant eel
-Giant hyena (variant 2)
-Giant hyena (variant 3)
-Giant hyena (variant 4)
 Topaz Dragon Ancient
 Topaz Dragon Adult
 Topaz Dragon Young
-Giant hyena (variant 5)
-Giant hyena (variant)
 Giant Poisonous Snakes
 Giant raven
 Giant seahorse
-Giant shark (variant 2)
-Giant shark (variant 3)
-Giant shark (variant 4)
-Giant shark (variant 5)
-Giant shark (variant)
 Giant skeleton
 Giant Spiders
 Giant squid
@@ -484,16 +463,11 @@ Hag Minion
 Hag Servant
 Half-ogre
 Hellfire Engine
-Hellfire Engine (Variant 2)
-Hellfire Engine (Variant 3)
-Hellfire Engine (Variant 4)
-Hellfire Engine (Variant)
 Helmed Horror
 Herder
 Hoard Mimic
 Hoard Scarab (base, Swarm)
 Hobgoblin (Elite Warrior)
-Hobgoblin (Soldier)
 Hobgoblin (Thrall)
 Hobgoblin (Veteran)
 Hobgoblin (Warrior)
@@ -512,7 +486,6 @@ Homunculi
 Hook horror
 Howler
 Huge Batterboar
-Human
 Humanoid Bicuspid
 Hungry sorrowsworn
 Hutijin
@@ -535,16 +508,13 @@ Illithid Sorcerer
 Illithid Warlock
 Illusionist
 Illusionist wizard
-Imp
 Elemental Myrmidon, Earth
 Elemental Myrmidon, Fire
 Elemental Myrmidon, Water
 Incubus
 Indentured Spirit
 Infernal Engine
-Infernal Engine (Variant)
 Infernal War Machine
-Infernal War Machine (Variant)
 Intellect Devourer
 Iron cobra
 Isperia
@@ -560,8 +530,6 @@ Korred
 Kraken Hatchling
 Kraken Priest
 Kraken Priestess
-Kraken Priestess (Variant 2)
-Kraken Priestess (Variant)
 Kraken Spawn
 Krasis (Category 1, 2, 3)
 Kraul
@@ -578,27 +546,12 @@ Kuo-toa archpriest
 Kuo-toa monitor
 Kuo-toa whip
 Lady Illmarrow
-Lamia (Variant 2)
-Lamia (Variant 3)
-Lamia (Variant 4)
-Lamia (Variant 5)
-Lamia (Variant)
 Larloch
 Lawmage
 Lazav
-Lemure (Variant 2)
-Lemure (Variant 3)
-Lemure (Variant 4)
-Lemure (Variant 5)
-Lemure (Variant)
 Leucrotta
 Leviathan
 Levistus
-Lich (Variant 2)
-Lich (Variant 3)
-Lich (Variant 4)
-Lich (Variant 5)
-Lich (Variant)
 Lich King
 Liondrake
 Undying councilor
@@ -606,18 +559,12 @@ Undying soldier
 Lizard king/queen
 Lizardfolk (Viashino)
 Lizardfolk champion
-Lizardfolk champion (Variant)
 Lizardfolk priest
-Lizardfolk priest (Variant)
 Lizardfolk Queen
 Lizardfolk scout
-Lizardfolk scout (Variant)
 Lizardfolk shaman
-Lizardfolk shaman (Variant)
 Lizardfolk tribe leader
-Lizardfolk tribe leader (Variant)
 Lizardfolk warrior
-Lizardfolk warrior (Variant)
 Lonely sorrowsworn
 Lord of Blades
 Lords of Dust
@@ -625,30 +572,10 @@ Lost sorrowsworn
 Lost spirits
 Lycanthrope
 Magewright
-Magma mephit (Variant 2)
-Magma mephit (Variant 3)
-Magma mephit (Variant 4)
-Magma mephit (Variant 5)
-Magma mephit (Variant)
 Male steeder
 Mammon
-Mammoth (Variant 2)
-Mammoth (Variant 3)
-Mammoth (Variant 4)
-Mammoth (Variant 5)
-Mammoth (Variant)
 Mane
-Manticore (Variant 2)
-Manticore (Variant 3)
-Manticore (Variant 4)
-Manticore (Variant 5)
-Manticore (Variant)
 Marid
-Marilith (Variant 2)
-Marilith (Variant 3)
-Marilith (Variant 4)
-Marilith (Variant 5)
-Marilith (Variant)
 Martial Arts Adept
 Marut
 Master of Cruelties
@@ -658,18 +585,8 @@ Maw Demon
 Meazel
 Meenlock
 Mephit (Mud, Smoke)
-Mephit (Variant 2)
-Mephit (Variant 3)
-Mephit (Variant 4)
-Mephit (Variant 5)
-Mephit (Variant)
 Mephit swarm
 Mercenary
-Merfolk (Variant 2)
-Merfolk (Variant 3)
-Merfolk (Variant 4)
-Merfolk (Variant 5)
-Merfolk (Variant)
 Merregon
 Merrenoloth
 Merrow
@@ -679,7 +596,6 @@ Metallic Sentinels (various types listed in list, but stat blocks not specified 
 Metallic Warbler
 Mimic
 Mind Drinker Vampire
-
 Mind flayer arcanist
 Mind flayer lich (alhoon variant)
 Mindwitness
@@ -690,12 +606,6 @@ Monk
 Morkoth
 Mouth of Grolantor
 Mud mephit
-Mule
-Mummy Lord (Variant 2)
-Mummy Lord (Variant 3)
-Mummy Lord (Variant 4)
-Mummy Lord (Variant 5)
-Mummy Lord (Variant)
 Myconid
 Myconid Adult
 Myconid Colony
@@ -706,11 +616,6 @@ Nabassu
 Naga
 Naga Bone
 Nagpa
-Nalfeshnee (Variant 2)
-Nalfeshnee (Variant 3)
-Nalfeshnee (Variant 4)
-Nalfeshnee (Variant 5)
-Nalfeshnee (Variant)
 Narzugon
 Nature caster
 Nature Spirit
@@ -721,58 +626,27 @@ Neogi
 Neogi Hatchling
 Neogi Master
 Neothelid
-Nightmare (Variant 2)
-Nightmare (Variant 3)
-Nightmare (Variant 4)
-Nightmare (Variant 5)
-Nightmare (Variant)
 Nightveil specter
 Nightwalker
 Nilbog
 Niv-Mizzet
 Nivix Cyclops
 Nomad
-Nothic (Variant 2)
-Nothic (Variant 3)
-Nothic (Variant 4)
-Nothic (Variant 5)
-Nothic (Variant)
 Nupperibo
 Nymph
 Oaken bolter
 Oblex (Adult, Elder)
 Oblex Spawn
 Obzedat Ghost
-Ogre
-Ogre (Variant 2)
-Ogre (Variant 3)
-Ogre (Variant 4)
-Ogre (Variant 5)
-Ogre (Variant)
 Ogre Battering Ram
 Ogre Bolt Launcher
 Ogre Chain Brute
 Ogre howdah
-Ogre Zombie (Variant 2)
-Ogre Zombie (Variant 3)
-Ogre Zombie (Variant 4)
-Ogre Zombie (Variant 5)
-Ogre Zombie (Variant)
 Oinoloth
-Oni (Variant 2)
-Oni (Variant 3)
-Oni (Variant 4)
-Oni (Variant 5)
-Oni (Variant)
 Ooze
 Orthon
 Orzhov
 Orzhov Giant
-Otyugh (Variant 2)
-Otyugh (Variant 3)
-Otyugh (Variant 4)
-Otyugh (Variant 5)
-Otyugh (Variant)
 Ox
 Paladin
 Peddler
@@ -783,11 +657,6 @@ Piercer
 Piranha beetles
 Pirate captain
 Pit Spawn
-Pit Spawn (Variant 2)
-Pit Spawn (Variant 3)
-Pit Spawn (Variant 4)
-Pit Spawn (Variant 5)
-Pit Spawn (Variant)
 Vampire lord
 Planetar
 Precognitive Mage
@@ -819,12 +688,6 @@ Rogue
 Rot troll
 Rubblebelt stalker
 Rutterkin
-Sahuagin (baron, priestess)
-Sahuagin (Variant 2)
-Sahuagin (Variant 3)
-Sahuagin (Variant 4)
-Sahuagin (Variant 5)
-Sahuagin (Variant)
 Sahuagin Baron
 Sahuagin champion
 Sahuagin Priestess
@@ -894,15 +757,10 @@ Stone giant
 Stone giant dreamwalker
 Stone Giant Everlasting One
 Stone Giant Jotun
-Stone Giant Jotun (Variant)
 Stone Giant Stone Guard
-Stone Giant Stone Guard (Variant)
 Stone Giant Stone Shaper
-Stone Giant Stone Shaper (Variant)
 Stone Giant Stormcaller
-Stone Giant Stormcaller (Variant)
 Stone Giant Thane
-Stone Giant Thane (Variant)
 Stone Giant Thane of the Earthmother
 Storm Giant Quintessent
 Succubus
