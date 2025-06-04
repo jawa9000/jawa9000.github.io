@@ -1,0 +1,214 @@
+/* Updated to match ../Running_Fantasy_Business/css/main.css styles */
+body {
+    background-color: #d2b48c; /* Use a golden-brown color for the background */
+    font-family: 'Times New Roman', Times, serif;
+    margin: 20px;
+}
+
+h1, h2 {
+    color: #8b4513; /* Saddle Brown color for the header text */
+    text-align: center;
+    margin-bottom: 0.5em;
+}
+
+label {
+    display: block;
+    margin: 0.5em 0 0.2em 0;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    padding: 0.4em 0.7em;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background-color: #f2ce9e !important;
+    color: #23272f !important;
+    margin-left: 0.5em;
+    text-align: center;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus {
+    background-color: #f2ce9e !important;
+    color: #23272f !important;
+}
+
+input[type="text"]:checked::before {
+    color: #f2ce9e !important
+}
+input[type="checkbox"] {
+    accent-color: #8b4513; /* Saddle Brown color for checkboxes */
+    margin-left: 0.5em;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px #f2ce9e inset !important;
+    box-shadow: 0 0 0 1000px #f2ce9e inset !important;
+    -webkit-text-fill-color: #23272f !important;
+    color: #23272f !important;
+    background-color: #f2ce9e !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+button {
+    float: left;
+    color: #23272f;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5em 1.2em;
+    margin: 0.5em 0.5em 0.5em 0;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+    background-color: #f2ce9e;
+    text-align: center;
+}
+
+button:hover {
+    background: #ff9900;
+}
+
+#clearHistoryBtn {
+    margin-top: 20px;
+}
+
+section {
+    margin-bottom: 2.5em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid #444;
+}
+
+#facilitiesList,
+#characterSummary,
+#bastionSummary,
+#turnResults,
+#bpResults,
+#turnLog {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-top: 1em;
+    background: rgba(0,0,0, 0.05);
+    border-radius: 8px;
+    padding: 1em;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+#maintainOptions {
+    margin: 0.5em 0 0.5em 1em;
+    background: #f2ce9e;
+    border-radius: 6px;
+    padding: 0.7em 1em;
+    border: 1px solid #444;
+}
+
+.center {
+    text-align: center;
+}
+
+.input50 {
+    width: 50%;
+}
+
+.inputFitContent {
+    width: fit-content;
+}
+
+#characterForm button {
+    margin-bottom: 1em;
+}
+
+#characterSummary {
+    margin-top: 1em;
+    display: block;
+    clear: both;
+}
+
+#bastionForm button {
+    margin-bottom: 1em;
+}
+
+#bastionSummary {
+    margin-top: 1em;
+    display: block;
+    clear: both;
+}
+
+#bp-section button {
+    margin-bottom: 1em;
+}
+
+#bpResults {
+    margin-top: 1em;
+    display: block;
+    clear: both;
+}
+
+#turnForm button {
+    margin-bottom: 1em;
+}
+
+#turnResults {
+    margin-top: 1em;
+    display: block;
+    clear: both;
+}
+
+.bastion-attack-info {
+    margin-top: 1em;
+    background: rgba(0,0,0,0.1);
+    border: 1px solid #8b4513;
+    border-radius: 6px;
+    padding: 1em;
+    color: #23272f;
+}
+
+.info-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1em;
+    height: 1em;
+    background-color: #f2ce9e;
+    border-radius: 50%;
+    font-size: 1em;
+    margin-left: 2px;
+    color: #8b4513; /* Optional: icon color */
+}
+
+/* Add a grid layout for facility checkboxes */
+#facilityCheckboxes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.5em 1.5em;
+    margin-bottom: 1em;
+}
+#facilityCheckboxes label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.3em;
+    font-weight: normal;
+    background: rgba(0,0,0,0.05);
+    border-radius: 4px;
+    padding: 0.2em 0.5em;
+}
+#facilityCheckboxes strong {
+    grid-column: 1 / -1;
+    margin-top: 0.5em;
+    margin-bottom: 0.2em;
+    display: block;
+}
+
+@media (max-width: 700px) {
+    .container {
+        padding: 1em;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+}
