@@ -208,7 +208,6 @@ Dragon Turtles (Young, Ancient)
 Dragonborn
 Dragonnel
 Droaam
-Drow arachnomancer
 Drow elite warrior
 Drow favored consort
 Drow guard
@@ -217,6 +216,7 @@ Drow inquisitor
 Drow Mage
 Drow matron mother
 Drow priestess
+Junior Drow Priestess of Lolth
 Drow ranger
 Drow shadowblade
 Duergar despot
