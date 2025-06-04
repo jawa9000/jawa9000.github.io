@@ -91,21 +91,17 @@ Archangel of Life
 Archangel of Strife
 Archangel of Thune
 Archangel of Wrath
-Archdruid
 Archer
 Archon of the Dawn
 Archon of the Light
 Archon of the Shield
 Archon of the Sword
 Archon of the Triumvirate
-Archons
 Arclight Phoenix
 Armanite
 Artificer
 Ash
 Asmodeus
-Aspect of Bahamut
-Aspect of Tiamat
 Astral Dreadnought
 Aurelia
 Aurochs
@@ -123,13 +119,9 @@ Barghest
 Barlgura
 Battleforce Angel
 Beast
-Beholder Greater Minion
-Beholder Pet
-Beholder zombie
 Beholderkin
 Belial
 Berbalang
-Bheur Hag
 Biomancer
 bjurer
 Blackguard
@@ -138,11 +130,9 @@ Blood Drinker Vampire
 Blood Witch
 Bloodfray Giant
 Blue slaad
-Boar
 Bodak
 Boggle
 Bone naga
-Boneclaw
 Borborygmos
 Boros Legion
 Boros Legionnaire
@@ -150,17 +140,11 @@ Boros Swiftblade
 Bounty hunter
 Brontosaurus
 Bronze scout
-Bugbear Boss
-Bugbear Captain
-Bugbear Chief
-Bugbear Soldier
-Bugbear Warrior
 Bulezau
 Bullywug
 Cadaver collector
 Cambion
 Canoloth
-Carrion Crawler
 Category 1 Krasis
 Category 2 Krasis
 Category 3 Krasis
@@ -171,41 +155,25 @@ Champion
 Chasme
 Chemister
 Chitine
-Choker
 Choldrith
-Chromatic Greatwyrm
 Cleric
-Clockwork Bronze Scout
-Clockwork Iron Cobra
-Clockwork Oaken Bolter
-Clockwork Stone Defender
-Cloud Giant Smiling One
-Conclave Dryad
-Conjurer
-Conjurer wizard
-construct
 Corpse Flower
 Cosmotronic Blastseeker
 Couatls
 Cougar
 Counterflux Blastseeker
 Cranium Rat
-Crystal Dragon (Ancient, Adult, Young)
-Crystal dragon wyrmling
-Cultist
 Daelkyr
 Daelkyr (Belashyrra, Dyrrn)
 Dao
 Darkling
 Darkling Elder
-Death Kiss
-Death knight
 Death Tyrant
 Deathlock
 Deathlock Mastermind
 Deathlock Wight
 Deathpact Angel
-Deep Dragon (Ancient, Adult, Young, Wyrmling)
+Deep Dragon Wyrmling
 Deep gnome
 Deep gnome scout
 Deep rothe
@@ -235,17 +203,8 @@ Diviner wizard
 Dolgaunt
 Dolphin
 Dolphin Delighter
-Dracohydra
-Dracolich
 Draconians (various types listed in list, but stat blocks not specified which types)
-Draegloth
-Dragon Blessed
-Dragon Chosen
-Dragon Egg
-Dragon Hatchling
-Dragon Speaker
 Dragon Turtles (Young, Ancient)
-Dragonblood Ooze
 Dragonborn
 Dragonnel
 Droaam
@@ -260,7 +219,6 @@ Drow matron mother
 Drow priestess
 Drow ranger
 Drow shadowblade
-Druid of the Old Ways
 Duergar despot
 Duergar hammerer
 Duergar kavalrachni
