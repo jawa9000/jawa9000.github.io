@@ -25,11 +25,16 @@
 }
 
 .info-icon {
-    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1em;
+    height: 1em;
     background-color: #f2ce9e;
     border-radius: 50%;
     font-size: 1em;
     margin-left: 2px;
+    color: #8b4513; /* Optional: icon color */
 }
 
 .monster-add-count, .monster-remove-count {
