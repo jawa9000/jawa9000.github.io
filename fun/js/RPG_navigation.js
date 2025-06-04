@@ -8,6 +8,7 @@ $(document).ready(function() {
       "../Fantasy_Character_Generator/index.html, Char Gen",
       "../Monster_Sheet/index.html, Monster Sheet",
       "../Random_Weather/index.html, Weather",
+      "../Bastions/index.html, Bastions",
       "../Running_Fantasy_Business/index.html, Business",
       "../Running_Fantasy_Business/mines.html, Mines",
       "../Running_Fantasy_Business/ulrye.html, Ulrye",
