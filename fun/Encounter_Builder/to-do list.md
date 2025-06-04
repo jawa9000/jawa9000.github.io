@@ -72,6 +72,8 @@ Once all these monsters are added, generate a PDF and add it back to this Notebo
 ## Monster list
 Check monsters.js to see if the following monsters are listed. If they are not, use a Google search "5e [monster name]" to find it, download a PDF of it, and use this Gemini Gem (https://gemini.google.com/gem/77b2f643d48c) to batch convert up to 10 monsters at a time. Use this prompt: "Convert these PDFs into a JSON object." Then, copy/paste into monsters.js at the end, remove the array brackets, and clean up anything that is amiss (like remove "[cite:...]", add associates, and check the newly added monsters in the monster_catalog.html list).
 
+>> Something is wrong with "name": "Hobgoblin1", and "name": "Hobgoblin",
+
 Amethyst Dragon (Ancient, Adult, Young)
 Amnizu
 Anarch
@@ -135,7 +137,6 @@ Blistercoil Weird
 Blood Drinker Vampire
 Blood Witch
 Bloodfray Giant
-Blue dragon
 Blue slaad
 Boar
 Bodak
@@ -148,7 +149,6 @@ Boros Legionnaire
 Boros Swiftblade
 Bounty hunter
 Brontosaurus
-Bronze dragon
 Bronze scout
 Bugbear Boss
 Bugbear Captain
@@ -271,7 +271,6 @@ Duergar soulblade
 Duergar stone guard
 Duergar warlord
 Duergar xarrorn
-Dusk Hag
 Dwarf explorer
 Dwarf prospector
 Dybbuk
@@ -297,7 +296,6 @@ Faerie Dragon (Young)
 Felidar
 Female steeder
 Fey
-Fey noble
 Fiend
 Fighter
 Fire Giant Dreadnought
@@ -343,7 +341,6 @@ Fungus
 Galeb duhr
 Galvanic Blastseeker
 Galvanice Weird
-Gas Spore
 Gauth
 Gazer
 Gem Greatwyrm
@@ -370,7 +367,6 @@ Giant skeleton
 Giant Spiders
 Giant squid
 Giant Strider
-Giant zombie
 Giff
 Girallon
 Gloom weaver
@@ -392,7 +388,6 @@ Gray Render
 Gray Slaad
 Graz'zt
 Greater Devil
-Grell
 Grick
 Grick alpha
 Grick Broodmother
@@ -449,21 +444,6 @@ Helmed Horror
 Herder
 Hoard Mimic
 Hoard Scarab (base, Swarm)
-Hobgoblin (Elite Warrior)
-Hobgoblin (Thrall)
-Hobgoblin (Veteran)
-Hobgoblin (Warrior)
-Hobgoblin archer
-Hobgoblin Captain
-Hobgoblin Devastator
-Hobgoblin Iron Shadow
-Hobgoblin lieutenant
-Hobgoblin officer
-Hobgoblin scout
-Hobgoblin sergeant
-Hobgoblin Warlord
-Hobgoblin warrior
-Hollow Dragon
 Homunculi
 Hook horror
 Howler
@@ -534,7 +514,6 @@ Lazav
 Leucrotta
 Leviathan
 Levistus
-Lich King
 Liondrake
 Undying councilor
 Undying soldier
@@ -660,8 +639,6 @@ Raktusk
 Ranger
 Ravnica Guildless
 Reckoner
-Red abishai
-Red Dragon
 Redcap
 Remorhaz (Young)
 Retriever
@@ -823,12 +800,6 @@ Warlock of the Undying
 Warrior vampire
 Wastrilith
 Water weird
-Winged kobold
-Winged kobold dragonshield
-Winged kobold skirmisher
-Winged kobold sorcerer
-Winged kobold taskmaster
-Winged kobold whelp
 Winged Thrull
 Winter eladrin
 Wizard
@@ -842,7 +813,6 @@ Yagn
 Yagnoloth
 Yeth Hound
 Young remorhaz
-Yuan-ti
 Yuan-ti abomination
 Yuan-ti Anathema
 Yuan-ti Broodguard
@@ -866,6 +836,5 @@ Zaeurl (elf werewolf)
 Zaratan
 Zariel
 Zegana
-Zombie lord
 Zuggtmoy 
   */
