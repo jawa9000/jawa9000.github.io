@@ -1,6 +1,6 @@
 $(() => { // jQuery's DOM ready shorthand
     const $statBlockContainer = $('#stat-block-container');
-    const $monsterListUl = $('#monster-list ol');
+    const $monsterListUl = $('#monster-list ol'); // Fix: use ol, not ul
 
     if (typeof monsters === 'undefined' || !Array.isArray(monsters)) {
         console.error('Error: `monsters` array not found. Ensure monsters.js is loaded and defines `monsters`.');
@@ -135,7 +135,7 @@ $(() => { // jQuery's DOM ready shorthand
             $statBlockContainer.html('<p>No monsters available to display.</p>');
             return;
         }
-        filtered.forEach(monster => {
+        filtered.forEach((monster) => {
             let displayName = monster.name;
             if (sort && sort !== 'name') {
                 let sortValue = '';
@@ -148,7 +148,7 @@ $(() => { // jQuery's DOM ready shorthand
                     displayName += ` [${sortValue}]`;
                 }
             }
-            // Only show monster name in the index, no associates
+            // Remove manual numbering, let <ol> handle it
             const $listItem = $('<li></li>');
             const $nameSpan = $('<span></span>').addClass('monster-name').text(displayName).css('cursor', 'pointer');
             $nameSpan.on('click', () => displayMonsterStats(monster));
@@ -185,6 +185,16 @@ $(() => { // jQuery's DOM ready shorthand
         return `${scoreString} ${modifierFormatted}`;
     }
 
+    // Helper: Get property value case-insensitively
+    function getProp(obj, propName) {
+        if (!obj || !propName) return undefined;
+        if (obj.hasOwnProperty(propName)) return obj[propName];
+        const lower = propName.toLowerCase();
+        for (const key in obj) {
+            if (key.toLowerCase() === lower) return obj[key];
+        }
+        return undefined;
+    }
 
     function displayMonsterStats(monster) {
         $statBlockContainer.empty(); // Clear previous stats
@@ -219,8 +229,8 @@ $(() => { // jQuery's DOM ready shorthand
             <h2>${monster.name}</h2>
             <p><em>${monster.size} ${monster.type}, ${monster.alignment}</em></p>
             <hr>
-            ${createPropertyHtml('Armor Class', monster.armor_class)}
-            ${createPropertyHtml('Hit Points', monster.hit_points)}
+            ${createPropertyHtml('Armor Class', getProp(monster, 'armor class'))}
+            ${createPropertyHtml('Hit Points', getProp(monster, 'hit points'))}
             ${createPropertyHtml('Speed', monster.speed)}
             <hr>
             <table class="stats-table">
@@ -249,7 +259,7 @@ $(() => { // jQuery's DOM ready shorthand
             ${monster.traits ? `<hr>${createHtmlSection('Traits', monster.traits)}` : ''}
             ${monster.actions ? `<hr>${createHtmlSection('Actions', monster.actions)}` : ''}
             ${monster.reactions ? `<hr>${createHtmlSection('Reactions', monster.reactions)}` : ''}
-            ${monster.legendary_actions ? `<hr>${createHtmlSection('Legendary Actions', monster.legendary_actions)}` : ''}
+            ${getProp(monster, 'legendary actions') ? `<hr>${createHtmlSection('Legendary Actions', getProp(monster, 'legendary actions'))}` : ''}
         `);
         
         if (monster.img_url) {

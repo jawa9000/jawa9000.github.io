@@ -417,8 +417,8 @@ function generatePcLevelInputs(pcCount, pcLevel, difficulty, environment) {
                                     monsterStatsContent += `<div class="monster-stat-block" id="monster-stat-${monsterStatSlug}">`;
                                     monsterStatsContent += `<h3>${monsterDetails.name}</h3>`;
                                     monsterStatsContent += `<p><em>${monsterDetails.size} ${monsterDetails.type}, ${monsterDetails.alignment}</em></p>`; // Using available fields for meta
-                                    if (monsterDetails["Armor Class"]) monsterStatsContent += `<p><strong>Armor Class:</strong> ${monsterDetails["Armor Class"]}</p>`;
-                                    if (monsterDetails["Hit Points"]) monsterStatsContent += `<p><strong>Hit Points:</strong> ${monsterDetails["Hit Points"]}</p>`;
+                                    if (getProp(monsterDetails, "armor class")) monsterStatsContent += `<p><strong>Armor Class:</strong> ${getProp(monsterDetails, "armor class")}</p>`;
+                                    if (getProp(monsterDetails, "hit points")) monsterStatsContent += `<p><strong>Hit Points:</strong> ${getProp(monsterDetails, "hit points")}</p>`;
                                     if (monsterDetails.speed) monsterStatsContent += `<p><strong>Speed:</strong> ${monsterDetails.speed}</p>`; // lowercase 'speed'
                                     monsterStatsContent += `<hr>`;
                                     monsterStatsContent += `<p><strong>STR:</strong> ${monsterDetails.str} (${abilityScoreModifiers[0][String(monsterDetails.str)] ?? 'N/A'}) | ` +
@@ -444,7 +444,7 @@ function generatePcLevelInputs(pcCount, pcLevel, difficulty, environment) {
                                     if (monsterDetails.environments && monsterDetails.environments.length > 0) monsterStatsContent += `<p><strong>Environments:</strong> ${monsterDetails.environments.join(', ')}</p>`;
                                     if (monsterDetails.traits) monsterStatsContent += `<h4>Traits</h4>${monsterDetails.traits}`; // lowercase 'traits'
                                     if (monsterDetails.actions) monsterStatsContent += `<h4>Actions</h4>${monsterDetails.actions}`; // lowercase 'actions'
-                                    if (monsterDetails["legendary actions"]) monsterStatsContent += `<h4>Legendary Actions</h4>${monsterDetails["legendary actions"]}`; // lowercase 'legendary actions'
+                                    if (monsterDetails["legendary actions"]) monsterStatsContent += `<h4>Legendary Actions</h4>${getProp(monsterDetails, "legendary actions")}`; // lowercase 'legendary actions'
                                     if (monsterDetails.img_url) monsterStatsContent += `<img src="${monsterDetails.img_url}" alt="${monsterDetails.name}" class="monster-image">`;
                                     monsterStatsContent += `<p class="back-to-list-paragraph"><a href="#encounterList" class="monsterLink">Back to Encounter List</a></p>`;
                                     monsterStatsContent += `</div><hr class="monster-separator">`;
@@ -671,6 +671,19 @@ function generateEncounterOptionsImproved(xpLimit, monsterData, numOptions = 5) 
     }
     return encounterOptions;
   }
+
+// Helper: Get property value case-insensitively
+function getProp(obj, propName) {
+    if (!obj || !propName) return undefined;
+    // Try exact match first
+    if (obj.hasOwnProperty(propName)) return obj[propName];
+    // Try case-insensitive match
+    const lower = propName.toLowerCase();
+    for (const key in obj) {
+        if (key.toLowerCase() === lower) return obj[key];
+    }
+    return undefined;
+}
 
 // Attach copy button handler after HTML is set
 $('.copy-encounter-list').off('click').on('click', function() {
