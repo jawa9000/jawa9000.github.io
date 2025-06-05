@@ -90,6 +90,12 @@
                 <option value="size">Size</option>
                 <option value="alignment">Alignment</option>
             </select>
+            <div style="margin-top:0.5em; margin-bottom:0.5em;">
+              <label><input type="checkbox" id="filter-reactions"> Reactions</label>
+              <label><input type="checkbox" id="filter-bonus-actions"> Bonus Actions</label>
+              <label><input type="checkbox" id="filter-legendary-actions"> Legendary Actions</label>
+              <label><input type="checkbox" id="filter-lair-actions"> Lair Actions</label>
+            </div>
         </div>
         <div id="monster-list">
             <ol>
@@ -97,6 +103,14 @@
             </ol>
         </div>
     </div>
+    <!-- Add a legend for stat block sections -->
+<div id="stat-block-legend" style="display:none">
+  <h4>Stat Block Sections</h4>
+  <ul>
+    <li>Bonus Actions: Special actions a monster can take on its turn in addition to its normal action.</li>
+    <li>Lair Actions: Special actions a monster can take when in its lair, usually on initiative count 20.</li>
+  </ul>
+</div>
     <link href="../Running_Fantasy_Business/css/main.css" rel="stylesheet" />
     <link href="style.css" rel="stylesheet" />
     <script src="../../js/jquery-3.7.1.min.js"></script>
