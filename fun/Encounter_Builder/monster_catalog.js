@@ -126,14 +126,32 @@ $(() => { // jQuery's DOM ready shorthand
         return filtered;
     }
 
+    function hasProp(monster, prop) {
+        // Case-insensitive property check for stat block fields
+        return Object.keys(monster).some(k => k.toLowerCase() === prop.toLowerCase() && monster[k] && monster[k].toString().trim() !== '');
+    }
+
     function renderMonsterList() {
         $monsterListUl.empty();
-        const filtered = filterAndSortMonsters();
+        let filtered = filterAndSortMonsters();
         const sort = $('#sort-monsters').val();
         if (filtered.length === 0) {
             $monsterListUl.html('<li>No monsters found.</li>');
             $statBlockContainer.html('<p>No monsters available to display.</p>');
             return;
+        }
+        // New: filter by stat block features
+        if ($('#filter-reactions').is(':checked')) {
+            filtered = filtered.filter(m => hasProp(m, 'reactions'));
+        }
+        if ($('#filter-bonus-actions').is(':checked')) {
+            filtered = filtered.filter(m => hasProp(m, 'bonus actions'));
+        }
+        if ($('#filter-legendary-actions').is(':checked')) {
+            filtered = filtered.filter(m => hasProp(m, 'legendary actions'));
+        }
+        if ($('#filter-lair-actions').is(':checked')) {
+            filtered = filtered.filter(m => hasProp(m, 'lair actions'));
         }
         filtered.forEach((monster) => {
             let displayName = monster.name;
@@ -260,11 +278,17 @@ $(() => { // jQuery's DOM ready shorthand
             ${monster.actions ? `<hr>${createHtmlSection('Actions', monster.actions)}` : ''}
             ${monster.reactions ? `<hr>${createHtmlSection('Reactions', monster.reactions)}` : ''}
             ${getProp(monster, 'legendary actions') ? `<hr>${createHtmlSection('Legendary Actions', getProp(monster, 'legendary actions'))}` : ''}
+            ${getProp(monster, 'bonus actions') ? `<hr>${createHtmlSection('Bonus Actions', getProp(monster, 'bonus actions'))}` : ''}
+            ${getProp(monster, 'lair actions') ? `<hr>${createHtmlSection('Lair Actions', getProp(monster, 'lair actions'))}` : ''}
+            ${getProp(monster, 'regional effects') ? `<hr>${createHtmlSection('Regional Effects', getProp(monster, 'regional effects'))}` : ''}
         `);
         
-        if (monster.img_url) {
+        // Update all references from 'img_url' to 'img url' for monster images
+        // Use getProp(monster, 'img url') instead of monster.img_url or monster["img_url"]
+        const imgUrl = getProp(monster, 'img url');
+        if (imgUrl) {
             const $img = $('<img>')
-                            .attr('src', monster.img_url)
+                            .attr('src', imgUrl)
                             .attr('alt', monster.name)
                             .css({
                                 'maxWidth': '200px',
@@ -306,5 +330,11 @@ $(() => { // jQuery's DOM ready shorthand
     // Populate filter options and bind events
     populateFilterOptions();
     $('#monster-filters select').on('change', renderMonsterList);
+    // Add event listeners for new filter checkboxes
+    $(document).ready(function() {
+        $('#filter-reactions, #filter-bonus-actions, #filter-legendary-actions, #filter-lair-actions').on('change', function() {
+            renderMonsterList();
+        });
+    });
     renderMonsterList();
 });
