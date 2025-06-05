@@ -445,7 +445,12 @@ function generatePcLevelInputs(pcCount, pcLevel, difficulty, environment) {
                                     if (monsterDetails.traits) monsterStatsContent += `<h4>Traits</h4>${monsterDetails.traits}`; // lowercase 'traits'
                                     if (monsterDetails.actions) monsterStatsContent += `<h4>Actions</h4>${monsterDetails.actions}`; // lowercase 'actions'
                                     if (monsterDetails["legendary actions"]) monsterStatsContent += `<h4>Legendary Actions</h4>${getProp(monsterDetails, "legendary actions")}`; // lowercase 'legendary actions'
-                                    if (monsterDetails.img_url) monsterStatsContent += `<img src="${monsterDetails.img_url}" alt="${monsterDetails.name}" class="monster-image">`;
+                                    if (getProp(monsterDetails, "bonus actions")) monsterStatsContent += `<h4>Bonus Actions</h4>${getProp(monsterDetails, "bonus actions")}`;
+                                    if (getProp(monsterDetails, "lair actions")) monsterStatsContent += `<h4>Lair Actions</h4>${getProp(monsterDetails, "lair actions")}`;
+                                    // Update all references from 'img_url' to 'img url' for monster images
+                                    // Use getProp(monster, 'img url') instead of monster.img_url or monster["img_url"]
+                                    const imgUrl = getProp(monsterDetails, 'img url');
+                                    if (imgUrl) monsterStatsContent += `<img src="${imgUrl}" alt="${monsterDetails.name}" class="monster-image">`;
                                     monsterStatsContent += `<p class="back-to-list-paragraph"><a href="#encounterList" class="monsterLink">Back to Encounter List</a></p>`;
                                     monsterStatsContent += `</div><hr class="monster-separator">`;
                                     displayedMonsterStats.add(monsterNameInStatBlock);
@@ -738,3 +743,51 @@ $('.copy-encounter-list').off('click').on('click', function() {
         temp.remove();
     }
 });
+
+function renderStatBlock(monster) {
+  let statBlockHtml = `<div class="monster-stat-block" id="monster-stat-${createMonsterSlug(monster.name)}">`;
+  statBlockHtml += `<h3>${monster.name}</h3>`;
+  statBlockHtml += `<p><em>${monster.size} ${monster.type}, ${monster.alignment}</em></p>`; // Using available fields for meta
+  if (getProp(monster, "armor class")) statBlockHtml += `<p><strong>Armor Class:</strong> ${getProp(monster, "armor class")}</p>`;
+  if (getProp(monster, "hit points")) statBlockHtml += `<p><strong>Hit Points:</strong> ${getProp(monster, "hit points")}</p>`;
+  if (monster.speed) statBlockHtml += `<p><strong>Speed:</strong> ${monster.speed}</p>`; // lowercase 'speed'
+  statBlockHtml += `<hr>`;
+  statBlockHtml += `<p><strong>STR:</strong> ${monster.str} (${abilityScoreModifiers[0][String(monster.str)] ?? 'N/A'}) | ` +
+                   `<strong>DEX:</strong> ${monster.dex} (${abilityScoreModifiers[0][String(monster.dex)] ?? 'N/A'}) | ` +
+                   `<strong>CON:</strong> ${monster.con} (${abilityScoreModifiers[0][String(monster.con)] ?? 'N/A'}) | ` +
+                   `<strong>INT:</strong> ${monster.int} (${abilityScoreModifiers[0][String(monster.int)] ?? 'N/A'}) | ` +
+                   `<strong>WIS:</strong> ${monster.wis} (${abilityScoreModifiers[0][String(monster.wis)] ?? 'N/A'}) | ` +
+                   `<strong>CHA:</strong> ${monster.cha} (${abilityScoreModifiers[0][String(monster.cha)] ?? 'N/A'})</p>`;
+  statBlockHtml += `<hr>`;
+  if (monster["Saving Throws"]) statBlockHtml += `<p><strong>Saving Throws:</strong> ${monster["Saving Throws"]}</p>`;
+  if (monster.skills) statBlockHtml += `<p><strong>Skills:</strong> ${monster.skills}</p>`; // lowercase 'skills'
+  if (monster["Damage Vulnerabilities"]) statBlockHtml += `<p><strong>Damage Vulnerabilities:</strong> ${monster["Damage Vulnerabilities"]}</p>`;
+  if (monster["Damage Resistances"]) statBlockHtml += `<p><strong>Damage Resistances:</strong> ${monster["Damage Resistances"]}</p>`;
+  if (monster["damage immunities"]) statBlockHtml += `<p><strong>Damage Immunities:</strong> ${monster["damage immunities"]}</p>`; // lowercase 'damage immunities'
+  if (monster["condition immunities"]) statBlockHtml += `<p><strong>Condition Immunities:</strong> ${monster["condition immunities"]}</p>`; // lowercase 'condition immunities'
+  if (monster.senses) statBlockHtml += `<p><strong>Senses:</strong> ${monster.senses}</p>`; // lowercase 'senses'
+  if (monster.languages && Array.isArray(monster.languages)) {
+      statBlockHtml += `<p><strong>Languages:</strong> ${monster.languages.join(', ')}</p>`;
+  } else if (monster.languages) {
+      statBlockHtml += `<p><strong>Languages:</strong> ${monster.languages}</p>`;
+  }
+  if (monster.challenge) statBlockHtml += `<p><strong>Challenge:</strong> ${monster.challenge}</p>`; // lowercase 'challenge'
+  if (monster.environments && monster.environments.length > 0) statBlockHtml += `<p><strong>Environments:</strong> ${monster.environments.join(', ')}</p>`;
+  if (monster.traits) statBlockHtml += `<h4>Traits</h4>${monster.traits}`; // lowercase 'traits'
+  if (monster.actions) statBlockHtml += `<h4>Actions</h4>${monster.actions}`; // lowercase 'actions'
+  if (monster["legendary actions"]) statBlockHtml += `<h4>Legendary Actions</h4>${getProp(monster, "legendary actions")}`; // lowercase 'legendary actions'
+  if (getProp(monster, "bonus actions")) statBlockHtml += `<h4>Bonus Actions</h4>${getProp(monster, "bonus actions")}`;
+  if (getProp(monster, "lair actions")) statBlockHtml += `<h4>Lair Actions</h4>${getProp(monster, "lair actions")}`;
+  // After lair actions section
+  const regionalEffects = getProp(monster, 'regional effects');
+  if (regionalEffects) {
+    statBlockHtml += `<h4>Regional Effects</h4><div>${regionalEffects}</div>`;
+  }
+  // Update all references from 'img_url' to 'img url' for monster images
+  // Use getProp(monster, 'img url') instead of monster.img_url or monster["img_url"]
+  const imgUrl = getProp(monster, 'img url');
+  if (imgUrl) statBlockHtml += `<img src="${imgUrl}" alt="${monster.name}" class="monster-image">`;
+  statBlockHtml += `<p class="back-to-list-paragraph"><a href="#encounterList" class="monsterLink">Back to Encounter List</a></p>`;
+  statBlockHtml += `</div><hr class="monster-separator">`;
+  return statBlockHtml;
+}
