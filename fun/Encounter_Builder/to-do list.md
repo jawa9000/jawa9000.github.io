@@ -74,7 +74,6 @@ Check monsters.js to see if the following monsters are listed. If they are not, 
 
 >> Something is wrong with "name": "Hobgoblin1", and "name": "Hobgoblin",
 
-Amethyst Dragon (Ancient, Adult, Young)
 Amnizu
 Anarch
 Angry sorrowsworn
@@ -180,7 +179,6 @@ Deep rothe
 Deep Sashelas
 Deep Scion
 Deinonychus
-Demilich
 Demon
 Derro
 Derro Savant
@@ -206,29 +204,6 @@ Dolphin Delighter
 Draconians (various types listed in list, but stat blocks not specified which types)
 Dragon Turtles (Young, Ancient)
 Dragonborn
-Dragonnel
-Droaam
-Drow elite warrior
-Drow favored consort
-Drow guard
-Drow house captain
-Drow inquisitor
-Drow Mage
-Drow matron mother
-Drow priestess
-Junior Drow Priestess of Lolth
-Drow ranger
-Drow shadowblade
-Duergar despot
-Duergar hammerer
-Duergar kavalrachni
-Duergar mind master
-Duergar prospector
-Duergar screamer
-Duergar soulblade
-Duergar stone guard
-Duergar warlord
-Duergar xarrorn
 Dwarf explorer
 Dwarf prospector
 Dybbuk
@@ -249,28 +224,12 @@ Enslaved Troll
 Evoker
 Evoker wizard
 Eyedrake
-Faerie dragon
 Faerie Dragon (Young)
 Felidar
 Female steeder
 Fey
 Fiend
 Fighter
-Fire Giant Dreadnought
-Fire Giant Flame Lord
-Fire Giant Hellbringer
-Fire Giant Invoker
-Fire giant lord
-Fire Giant Pyre Guard
-Fire Giant Rune Carver
-Fire Giant Stormcaller
-Fire Giant Thane
-Fire Giant Thane of the Firelands
-Fire Snake
-Firefist
-Firemane Angel
-Firenewt Warlock of Imix
-Firenewt Warrior
 Flail Snail
 Flame-kin (azer)
 Flind
@@ -280,8 +239,6 @@ Flying Horror
 Fomorian
 Fraz-Urb'luu
 Froghemoth
-Frontline Medic
-Frost drake
 Frost Giant Dreadnought
 Frost Giant Everlasting One
 Frost Giant Flame Lord
@@ -295,15 +252,11 @@ Frost Giant Thane of the Frostlands
 Frost Salamander
 Frost spider
 Frost wyrm
-Fungus
 Galeb duhr
 Galvanic Blastseeker
 Galvanice Weird
 Gauth
 Gazer
-Gem Greatwyrm
-Gem Stalker
-Genie
 Geryon
 Ghost of a Fallen Bard
 Ghost of a Fallen Cleric
@@ -313,7 +266,6 @@ Ghost of a Fallen Ranger
 Ghost of a Fallen Rogue
 Ghost of a Fallen Sorcerer
 Ghost of a Fallen Wizard
-Giant Ant
 Giant eel
 Topaz Dragon Ancient
 Topaz Dragon Adult
