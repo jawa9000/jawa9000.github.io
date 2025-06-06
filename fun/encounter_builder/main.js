@@ -783,6 +783,16 @@ function renderStatBlock(monster) {
   if (regionalEffects) {
     statBlockHtml += `<h4>Regional Effects</h4><div>${regionalEffects}</div>`;
   }
+  // At the top of the stat block, after the monster name
+  const description = getProp(monster, 'description');
+  if (description) {
+    statBlockHtml += `<div class='monster-description'>${description}</div>`;
+  }
+  // At the bottom of the stat block
+  const notes = getProp(monster, 'notes');
+  if (notes) {
+    statBlockHtml += `<div class='monster-notes'><strong>Notes:</strong> ${notes}</div>`;
+  }
   // Update all references from 'img_url' to 'img url' for monster images
   // Use getProp(monster, 'img url') instead of monster.img_url or monster["img_url"]
   const imgUrl = getProp(monster, 'img url');

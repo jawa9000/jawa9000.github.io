@@ -218,6 +218,13 @@ $(() => { // jQuery's DOM ready shorthand
         $statBlockContainer.empty(); // Clear previous stats
         const $monsterDiv = $('<div></div>').addClass('stat-block');
 
+        // Description at the top if present, using section formatting
+        const description = getProp(monster, 'description');
+        let descriptionSection = '';
+        if (description) {
+            descriptionSection = `<hr>${createHtmlSection('Description', description)}`;
+        }
+
         // Associates clickable comma-separated list
         let associatesHtml = '';
         if (monster.associates && Array.isArray(monster.associates) && monster.associates.length > 0) {
@@ -246,6 +253,7 @@ $(() => { // jQuery's DOM ready shorthand
         $monsterDiv.html(`
             <h2>${monster.name}</h2>
             <p><em>${monster.size} ${monster.type}, ${monster.alignment}</em></p>
+            ${descriptionSection}
             <hr>
             ${createPropertyHtml('Armor Class', getProp(monster, 'armor class'))}
             ${createPropertyHtml('Hit Points', getProp(monster, 'hit points'))}
@@ -281,6 +289,7 @@ $(() => { // jQuery's DOM ready shorthand
             ${getProp(monster, 'bonus actions') ? `<hr>${createHtmlSection('Bonus Actions', getProp(monster, 'bonus actions'))}` : ''}
             ${getProp(monster, 'lair actions') ? `<hr>${createHtmlSection('Lair Actions', getProp(monster, 'lair actions'))}` : ''}
             ${getProp(monster, 'regional effects') ? `<hr>${createHtmlSection('Regional Effects', getProp(monster, 'regional effects'))}` : ''}
+            ${getProp(monster, 'notes') ? `<hr>${createHtmlSection('Notes', getProp(monster, 'notes'))}` : ''}
         `);
         
         // Update all references from 'img_url' to 'img url' for monster images
