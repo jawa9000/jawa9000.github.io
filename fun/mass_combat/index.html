@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5e Army Combat Simulator</title>
+    <link rel="stylesheet" href="army-sim.css">
+    <link href="../Running_Fantasy_Business/css/main.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="../js/RPG_navigation.js"></script>
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="monsters.js"></script>
+    <script src="army-sim.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Mass Combat Simulator</h1>
+        <section id="scenario-setup">
+            <h2>Scenario Setup</h2>
+            <div class="setup-columns">
+                <div>
+                    <h3>Army 1</h3>
+                    <div id="army1-editor"></div>
+                    <div id="army1-units"></div>
+                </div>
+                <div>
+                    <h3>Army 2</h3>
+                    <div id="army2-editor"></div>
+                    <div id="army2-units"></div>
+                </div>
+            </div>
+            <div class="setup-columns">
+                <div>
+                    <h3>Terrain</h3>
+                    <div id="terrain-editor"></div>
+                </div>
+            </div>
+            <button id="start-sim-btn">Start Combat</button>
+            <button id="pause-sim-btn" style="display:none;">Pause</button>
+            <button id="end-sim-btn" style="display:none;">End Simulation</button>
+        </section>
+        <section id="battlefield-section" style="display:none;">
+            <h2>Battlefield</h2>
+            <div id="battlefield"></div>
+        </section>
+        <section id="battle-log-section" style="display:none;">
+            <h2>Battle Log</h2>
+            <div id="battle-log"></div>
+        </section>
+    </div>
+</body>
+<script src="army-combat.js"></script>
+</html>
