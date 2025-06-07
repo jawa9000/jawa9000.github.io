@@ -165,16 +165,7 @@ Cranium Rat
 Daelkyr
 Daelkyr (Belashyrra, Dyrrn)
 Dao
-Darkling
-Darkling Elder
-Death Tyrant
-Deathlock
-Deathlock Mastermind
-Deathlock Wight
-Deathpact Angel
 Deep Dragon Wyrmling
-Deep gnome
-Deep gnome scout
 Deep rothe
 Deep Sashelas
 Deep Scion
@@ -184,21 +175,12 @@ Derro
 Derro Savant
 Devas
 Devil
-Devil's Ride
 Devkarin
 Devkarin lich
 Devourer
 Dhergoloth
 Dignitary
-Dimetrodon
-Dimir
 Dinosaurs (Clawfoot, Fastieth)
-Dire Troll
-Dispater
-Displacer Beast
-Diviner
-Diviner wizard
-Dolgaunt
 Dolphin
 Dolphin Delighter
 Draconians (various types listed in list, but stat blocks not specified which types)
@@ -209,16 +191,9 @@ Dwarf prospector
 Dybbuk
 Egg hunter (hatchling, adult)
 Eidolon
-Eladrin, Spring
-Eladrin, Summer
-Eladrin, Winter
-Elder Tempest
 Elemental General
 Elemental Prince of Evil Fire
 Emerald Dragon
-Empyrean
-Enchanter
-Enchanter wizard
 Enslaved Goblin
 Enslaved Troll
 Evoker
@@ -619,22 +594,7 @@ Steeder, Female
 Steeder, Male
 Steel predator
 Stegosaurus
-Stench kow
-Stone cursed
-Stone defender
-Stone giant
-Stone giant dreamwalker
-Stone Giant Everlasting One
-Stone Giant Jotun
-Stone Giant Stone Guard
-Stone Giant Stone Shaper
-Stone Giant Stormcaller
-Stone Giant Thane
-Stone Giant Thane of the Earthmother
-Storm Giant Quintessent
 Succubus
-Summer eladrin
-Summoned Earth Elemental
 Surtur
 Svirfneblin
 Svirfneblin scout
@@ -663,30 +623,11 @@ Trained Rust Monster
 Transmuter
 Transmuter wizard
 Trapper
-Tribal Archer
-Tribal Berserker
-Tribal Champion
-Tribal Chieftain
-Tribal Defender
-Tribal Elder
-Tribal Guardian
-Tribal Hunter
-Tribal Mystic
-Tribal Scout
-Tribal Shaman
-Tribal Warchief
-Tribal Warlock
-Tribal Warrior
 Tridrone
 Triton
 Troglodyte
-Troll Spirit
-Troll Venom
-Troll, Dire
 Ulitharid
 Undercity Medusa
-Unicorn
-Vampire mage
 Vampire pontiff
 Vampire spawn
 Vampiric mist
@@ -701,13 +642,6 @@ Vine blight
 War mage
 War Priest
 Warforged soldier
-Warlock
-Warlock of the Archfey
-Warlock of the Archfey/Fiend/Great Old One
-Warlock of the Fiend
-Warlock of the Great Old One
-Warlock of the Undying
-Warrior vampire
 Wastrilith
 Water weird
 Winged Thrull
@@ -721,7 +655,6 @@ Xvart
 Xvart Warlock of Raxivort
 Yagn
 Yagnoloth
-Yeth Hound
 Young remorhaz
 Yuan-ti abomination
 Yuan-ti Anathema
@@ -742,9 +675,3 @@ Yuan-ti Nightmare Speaker
 Yuan-ti Pit Master
 Yuan-ti Pureblood
 Yuan-ti sorcerer
-Zaeurl (elf werewolf)
-Zaratan
-Zariel
-Zegana
-Zuggtmoy 
-  */
