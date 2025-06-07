@@ -72,72 +72,19 @@ Once all these monsters are added, generate a PDF and add it back to this Notebo
 ## Monster list
 Check monsters.js to see if the following monsters are listed. If they are not, use a Google search "5e [monster name]" to find it, download a PDF of it, and use this Gemini Gem (https://gemini.google.com/gem/77b2f643d48c) to batch convert up to 10 monsters at a time. Use this prompt: "Convert these PDFs into a JSON object." Then, copy/paste into monsters.js at the end, remove the array brackets, and clean up anything that is amiss (like remove "[cite:...]", add associates, and check the newly added monsters in the monster_catalog.html list).
 
->> Something is wrong with "name": "Hobgoblin1", and "name": "Hobgoblin",
+>> about 100 monsters are missing their associates property.
 
-Amnizu
-Anarch
-Angry sorrowsworn
-Animated Breath
-Annis hag
-Antelope
-Apprentice
-Arcana caster
-Arcanaloth
-Archangel of Fury
-Archangel of Grace
-Archangel of Hope
-Archangel of Life
-Archangel of Strife
-Archangel of Thune
-Archangel of Wrath
-Archer
-Archon of the Dawn
-Archon of the Light
-Archon of the Shield
-Archon of the Sword
-Archon of the Triumvirate
-Arclight Phoenix
-Armanite
-Artificer
-Ash
-Asmodeus
-Astral Dreadnought
-Aurelia
-Aurochs
-Autumn eladrin
-Baalzebul
-Babau
-Bael
-Bahamut
-Balhannoth
-Banderhobb
-Baphomet
 Barbarian
 Bard
-Barghest
 Barlgura
-Battleforce Angel
 Beast
-Beholderkin
-Belial
 Berbalang
 Biomancer
 bjurer
-Blackguard
 Blistercoil Weird
-Blood Drinker Vampire
-Blood Witch
-Bloodfray Giant
 Blue slaad
-Bodak
 Boggle
-Bone naga
 Borborygmos
-Boros Legion
-Boros Legionnaire
-Boros Swiftblade
-Bounty hunter
-Brontosaurus
 Bronze scout
 Bulezau
 Bullywug
