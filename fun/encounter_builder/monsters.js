@@ -11482,40 +11482,6 @@ const monsters = [
     "img url": "https://5e.tools/img/FTD/Young%20Moonstone%20Dragon.webp",
   },
   {
-    name: "Adult Moonstone Dragon",
-    size: "Huge",
-    type: "Dragon",
-    alignment: "Neutral",
-    environments: ["Forest", "Mountain", "Dungeon"],
-    associates: ["Pixie", "Sprite"],
-    "armor class": "19 (natural armor)",
-    "hit points": "195 (17d12 + 85)",
-    speed: "40 ft. fly 80 ft.",
-    str: "20",
-    dex: "18",
-    con: "20",
-    int: "22",
-    wis: "20",
-    cha: "23",
-    "saving throws": "INT +11, WIS +10, CHA +11",
-    skills: "Perception +10, Persuasion +11, Stealth +9",
-    "condition immunities": "Charmed",
-    senses: "Blindsight 60 ft. Darkvision 120 ft. Passive Perception 20",
-    languages: ["Common", "Draconic", "Elvish", "Gnomish", "Sylvan"],
-    challenge: "15 (13,000 XP)",
-    traits:
-      "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
-    "number of attacks": "",
-    attacks: {},
-    actions:
-      "<p><em><strong>Multiattack.</strong></em> The dragon makes one Bite attack and two Claw attacks.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +10 to hit, reach 10 ft. one target. <em>Hit:</em> 16 (2d10 + 5) piercing damage plus 7 (2d6) radiant damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +10 to hit, reach 5 ft. one target. <em>Hit:</em> 12 (2d6 + 5) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +10 to hit, reach 15 ft. one target. <em>Hit:</em> 9 (1d8 + 5) bludgeoning damage. If the target is a creature, it must succeed on a DC 18 Strength saving throw or be knocked prone.</p><p><em><strong>Breath Weapon (Recharge 5-6).</strong></em> The dragon uses one of the following breath weapons:</p><ol><li><em>Dream Breath.</em> The dragon exhales mist in a 90-foot cone. Each creature in that area must succeed on a DC 18 Constitution saving throw or fall unconscious for 10 minutes. This effect ends for a creature if the creature takes damage or someone uses an action to wake it.</li><li><em>Moonlight Breath.</em> The dragon exhales a beam of moonlight in a 90-foot line that is 10 feet wide. Each creature in that area must make a DC 18 Dexterity saving throw, taking 49 (9d10) radiant damage on a failed save, or half as much damage on a successful one.</li></ol><p><em><strong>Spellcasting.</strong></em> The dragon casts one of the following spells, requiring no material components and using Charisma as the spellcasting ability (spell save DC 19):</p><p>At will: faerie fire<br>1/day each: calm emotions, invisibility, revivify</p>",
-    "legendary actions":
-      "<p>The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn.</p><p><em><strong>Tail.</strong></em> The dragon makes one Tail attack.</p><p><em><strong>Cast a Spell (Costs 2 Actions).</strong></em> The dragon uses Spellcasting.</p>",
-    "img url": "https://5e.tools/img/FTD/Adult%20Moonstone%20Dragon.webp",
-    "liar actions": "<p>On initiative count 20 (losing initiative ties), the dragon can take one of the following lair actions; the dragon can't take the same lair action two rounds in a row:</p><p><strong>Banish into Dream</strong>. The dragon targets a creature it can see within 120 feet of it and attempts to send that creature to a dream plane. The target must succeed on a DC 15 Charisma saving throw or be banished to a harmless demiplane until initiative count 20 on the next round. While there, the target is stunned. When the effect ends, the target reappears in the space it left or in the nearest unoccupied space.</p><p><strong>Compulsive Dance</strong>. The dragon targets a creature it can see in its lair, and a merry waltz begins to play that only the target can hear. The target must succeed on a DC 15 Intelligence saving throw or dance until initiative count 20 on the following round. The dancing creature is incapacitated and must use all its movement to dance.</p><p><strong>Disorienting Visions</strong>. Disorienting illusory images flit through the dragon's lair. Each creature in the lair must succeed on a DC 20 Wisdom saving throw or have disadvantage on ability checks until initiative count 20 on the following round.</p>",
-    "regional effects": "<p>The region surrounding a legendary moonstone dragon's lair is altered by the dragon's magic, creating one or more of the following effects:</p><p><strong>Dream Communication</strong>. Whenever a creature that can understand a language sleeps or enters a state of trance or reverie within 6 miles of the dragon's lair, the dragon can establish telepathic contact with that creature and converse with it in its dreams. The creature remembers its conversation with the dragon upon waking.</p><p><strong>Planar Transition</strong>. The veil between planes is thinned near a moonstone dragon's lair. Various portals link the Material Plane, the Feywild, and the Border Ethereal within 6 miles of the lair. Creatures can pass through a portal in either direction by spending 5 feet of movement.</p><p><strong>Portal Closure</strong>. If the dragon is reduced to 0 hit points, the portals near its lair close immediately, and the planar transition effect ends.</p><p>These effects last until the dragon dies or moves more than 6 miles from its lair.</p><p><strong>Customizing Dragons</strong></p><p>You can customize any dragon's stat block to reflect the dragon's unique character. Minor changes such as those below are easy to make and have no impact on a dragon's challenge rating.</p><p><strong>Languages</strong>. Most dragons prefer to speak Draconic but learn Common for dealing with allies and minions. But given their high Intelligence and long life span, dragons can easily learn additional languages. You can add languages to a dragon's stat block.</p><p><strong>Skills</strong>. Most dragons are proficient in the Perception and Stealth skills, and many dragons have additional skill proficiencies. As with languages, you can customize a dragon's skill list (even doubling their proficiency bonus with certain skills) to reflect particular interests and activities. You can also give a dragon tool proficiencies, particularly if the dragon spends time in Humanoid form.</p><p><em><strong>Other Traits and Actions</strong></em>. You can borrow traits and actions from other monsters to add unique flavor to a dragon. Consider these examples:</p><p><strong>Flyby. The dragon is an agile flier, quick to fly out of enemies' reach.</p><p><strong>The dragon doesn't provoke an opportunity attack when it flies out of an enemy's reach.</p><p><strong>Mimicry. Impersonating characters or their allies could be a fun trick for a crafty dragon.</p><p><strong>The dragon can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful DC 14 Wisdom (Insight) check.</p><p><strong>Rejuvenation. You might decide that dragons in your campaign, being an essential part of the Material Plane, are nearly impossible to destroy. A dragon's life essence might be preserved in the egg from which it first emerged, in its hoard, or in a cavernous hall at the center of the world, just as a lich's essence is hidden in a phylactery. If it has an essence-preserving object, a destroyed dragon gains a new body in 1d10 days, regaining all its hit points and becoming active again. The new body appears within 5 feet of the object.</p><p><strong>Special Senses</strong>. Most dragons have blindsight and darkvision. You might upgrade blindsight to truesight, or you could give a dragon with a burrowing speed tremorsense.</p>",
-  },
-  {
     name: "Ancient Moonstone Dragon",
     size: "Gargantuan",
     type: "Dragon",
@@ -16771,7 +16737,6 @@ const monsters = [
     ],
     reactions: "<p><em><strong>Instinctive Charm (Recharges after the Enchanter Casts an Enchantment Spell of 1st level or Higher).</strong></em> The enchanter tries to magically divert an attack made against it, provided that the attacker is within 30 feet of it and visible to it. The enchanter must decide to do so before the attack hits or misses. The attacker must make a DC 14 Wisdom saving throw. On a failed save, the attacker targets the creature closest to it, other than the enchanter or itself. If multiple creatures are closest, the attacker chooses which one to target.</p>"
   },
-  // >>
   {
     name: "Archer",
     size: "Medium",
@@ -18628,5 +18593,621 @@ const monsters = [
     actions: "<p><em><strong>Fist.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft., one target. <em>Hit:</em> 6 (1d6 + 3) bludgeoning damage plus 4 (1d8) necrotic damage.</p>",
     "img url": "https://www.5etools.com/img/MM/Bodak.png"
   },
+  {
+    "name": "Young Lunar Dragon",
+    "size": "Large",
+    "type": "Dragon",
+    "alignment": "Unaligned",
+    "environments": [
+      "Mountain",
+      "Coastal",
+      "Underdark"
+    ],
+    "associates": [
+      "Lunar Dragon"
+    ],
+    "armor class": "18 (natural armor)",
+    "hit points": "172 (15d10 + 90)",
+    "speed": "40 ft., fly 80 ft., swim 40 ft.",
+    "str": 20,
+    "dex": 12,
+    "con": 23,
+    "int": 16,
+    "wis": 15,
+    "cha": 18,
+    "saving throws": "Dex +5, Con +10, Wis +6, Cha +8",
+    "skills": "Perception +10, Stealth +5",
+    "damage immunities": "force, psychic",
+    "condition immunities": "charmed, frightened, paralyzed",
+    "senses": "blindsight 30 ft., darkvision 120 ft., passive Perception 20",
+    "languages": [
+      "Draconic"
+    ],
+    "challenge": "10 (5,900 XP)",
+    "traits": "<p><em><strong>Amphibious.</strong></em> The dragon can breathe air and water.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p><p><em><strong>Spellcasting.</strong></em> The dragon is a 10th-level spellcaster. Its spellcasting ability is Charisma (spell save DC 16, +8 to hit with spell attacks). It has the following paladin spells prepared:</p><ul><li>1st level (4 slots): <em>compelled duel, thunderous smite</em></li><li>2nd level (3 slots): <em>hold person, warding bond</em></li><li>3rd level (3 slots): <em>blinding smite, dispel magic</em></li><li>4th level (1 slot): <em>banishment</em></li></ul><p><em><strong>Telepathic Bond.</strong></em> While the dragon is on the Material Plane, it can communicate telepathically with any creature on the same plane within 1 mile of it. The creature must have an Intelligence score of at least 3.</p>",
+    "number of attacks": 2,
+    "attacks": [
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+9",
+        "reach": "10 ft.",
+        "target": "one target",
+        "hit": "16 (2d10 + 5)",
+        "damage type": "piercing"
+      },
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+9",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "12 (2d6 + 5)",
+        "damage type": "slashing"
+      },
+      {
+        "type": "Breath Weapon",
+        "recharge": "5-6",
+        "range": "60-foot cone",
+        "target": "creatures in the cone",
+        "hit": "49 (11d8) radiant damage",
+        "damage type": "radiant"
+      }
+    ],
+    "actions": "<p><em><strong>Multiattack.</strong></em> The dragon makes two attacks: one with its bite and one with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +9 to hit, reach 10 ft., one target. <em>Hit:</em> 16 (2d10 + 5) piercing damage.</p><p><em><strong>Claws.</strong></em> <em>Melee Weapon Attack:</em> +9 to hit, reach 5 ft., one target. <em>Hit:</em> 12 (2d6 + 5) slashing damage.</p><p><em><strong>Radiant Breath (Recharge 5–6).</strong></em> The dragon exhales radiant energy in a 60-foot cone. Each creature in that area must make a DC 18 Dexterity saving throw, taking 49 (11d8) radiant damage on a failed save, or half as much damage on a successful one.</p>",
+    "legendary actions": "<p>The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn.</p><p><em><strong>Detect.</strong></em> The dragon makes a Wisdom (Perception) check.</p><p><em><strong>Tail Attack.</strong></em> The dragon makes one tail attack.</p><p><em><strong>Wing Attack (Costs 2 Actions).</strong></em> The dragon beats its wings. Each creature within 10 feet of the dragon must succeed on a DC 18 Dexterity saving throw or take 12 (2d6 + 5) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.</p>"
+  },
+  {
+    "name": "Adult Moonstone Dragon",
+    "size": "Huge",
+    "type": "Dragon",
+    "alignment": "Chaotic Good",
+    "environments": [
+      "Forest",
+      "Mountain"
+    ],
+    "associates": [
+      "Faerie Dragon",
+      "Satyr",
+      "Eladrin",
+      "Centaur"
+    ],
+    "armor class": "19 (natural armor)",
+    "hit points": "207 (18d12 + 90)",
+    "speed": "40 ft., fly 80 ft.",
+    "str": 22,
+    "dex": 12,
+    "con": 21,
+    "int": 18,
+    "wis": 15,
+    "cha": 20,
+    "saving throws": "Dex +7, Con +11, Wis +8, Cha +11",
+    "skills": "Perception +14, Persuasion +11, Stealth +7",
+    "damage immunities": "psychic",
+    "condition immunities": "charmed, frightened, paralyzed",
+    "senses": "blindsight 60 ft., darkvision 120 ft., passive Perception 24",
+    "languages": [
+      "Common",
+      "Draconic",
+      "Sylvan",
+      "Telepathy 120 ft"
+    ],
+    "challenge": "13 (10,000 XP)",
+    "traits": "<p><em><strong>Amphibious.</strong></em> The dragon can breathe air and water.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p><p><em><strong>Moonlight Antler.</strong></em> The dragon's antlers shed bright moonlight in a 15-foot radius and dim moonlight for an additional 15 feet. This moonlight is sunlight for the purpose of effects that are harmed by sunlight.</p><p><em><strong>Innate Spellcasting.</strong></em> The dragon's innate spellcasting ability is Charisma (spell save DC 19). It can innately cast the following spells, requiring no material components:</p><ul><li>At will: <em>color spray, dancing lights, faerie fire</em></li><li>3/day each: <em>hypnotic pattern, moonbeam</em></li><li>1/day each: <em>dream, seeming</em></li></ul>",
+    "number of attacks": 2,
+    "attacks": [
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+12",
+        "reach": "15 ft.",
+        "target": "one target",
+        "hit": "18 (2d10 + 7)",
+        "damage type": "piercing"
+      },
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+12",
+        "reach": "10 ft.",
+        "target": "one target",
+        "hit": "14 (2d6 + 7)",
+        "damage type": "slashing"
+      },
+      {
+        "type": "Breath Weapon",
+        "recharge": "5-6",
+        "range": "60-foot cone",
+        "target": "creatures in the cone",
+        "hit": "55 (10d10) psychic damage",
+        "damage type": "psychic"
+      }
+    ],
+    "actions": "<p><em><strong>Multiattack.</strong></em> The dragon makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +12 to hit, reach 15 ft., one target. <em>Hit:</em> 18 (2d10 + 7) piercing damage plus 11 (2d10) psychic damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +12 to hit, reach 10 ft., one target. <em>Hit:</em> 14 (2d6 + 7) slashing damage.</p><p><em><strong>Sleep Breath (Recharge 5–6).</strong></em> The dragon exhales shimmering mist in a 60-foot cone. Each creature in that area must succeed on a DC 19 Constitution saving throw or fall unconscious for 10 minutes. This effect ends for a creature if it takes damage or if another creature uses an action to wake it.</p>",
+    "legendary actions": "<p>The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn.</p><p><em><strong>Detect.</strong></em> The dragon makes a Wisdom (Perception) check.</p><p><em><strong>Tail Attack.</strong></em> <em>Melee Weapon Attack:</em> +12 to hit, reach 15 ft., one target. <em>Hit:</em> 16 (2d8 + 7) bludgeoning damage.</p><p><em><strong>Wing Attack (Costs 2 Actions).</strong></em> The dragon beats its wings. Each creature within 15 feet of the dragon must succeed on a DC 20 Dexterity saving throw or take 14 (2d6 + 7) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.</p>",
+    "lair actions": "<p>On initiative count 20 (losing initiative ties), the dragon can take a lair action to cause one of the following effects; the dragon can't use the same effect two rounds in a row:</p><p><strong>Moonlight Burst.</strong> The dragon causes a burst of moonlight at a point it can see within 120 feet of it. Each creature in a 20-foot-radius sphere centered on that point must make a DC 15 Constitution saving throw, taking 10 (3d6) radiant damage on a failed save, or half as much damage on a successful one. Creatures that fail the saving throw are also blinded until the end of their next turn.</p><p><strong>Whispering Winds.</strong> Gusts of wind sweep through the lair, causing disorienting whispers. Each creature of the dragon's choice within the lair must succeed on a DC 15 Wisdom saving throw or have disadvantage on the next attack roll it makes before the end of its next turn.</p><p><strong>Faerie Ring.</strong> A shimmering circle of light appears on the ground within 60 feet of the dragon. The circle is 10 feet in diameter and lasts until initiative count 20 on the next round. Any creature that starts its turn in the circle has its movement reduced to 0 until the end of its turn.</p>",
+    "regional effects": "<p>The region containing a legendary moonstone dragon's lair is warped by the dragon's magic, which creates one or more of the following effects:</p><ul><li>Whenever a creature finishes a long rest within 6 miles of the lair, it gains the benefit of a <em>dream</em> spell as if cast by the dragon, and it can choose to wake up refreshed or gain inspiration.</li><li>The area within 1 mile of the lair is bathed in perpetual moonlight, regardless of the time of day or weather conditions. This moonlight is sunlight for the purpose of effects that are harmed by sunlight.</li><li>Fey creatures within 6 miles of the lair are unusually docile and friendly toward any creature that doesn't overtly threaten them.</li></ul><p>If the dragon dies, these effects fade over 1d10 days.</p>"
+  },
+  {
+    "name": "Adult Red Dracolich",
+    "size": "Huge",
+    "type": "Undead",
+    "alignment": "Chaotic Evil",
+    "environments": [
+      "Varies"
+    ],
+    "associates": [
+      "Wight",
+      "Mummy",
+      "Ghoul"
+    ],
+    "armor class": "19 (natural armor)",
+    "hit points": "256 (19d12 + 133)",
+    "speed": "40 ft., climb 40 ft., fly 80 ft.",
+    "str": 27,
+    "dex": 10,
+    "con": 24,
+    "int": 16,
+    "wis": 13,
+    "cha": 21,
+    "saving throws": "Dex +6, Con +13, Wis +7, Cha +11",
+    "skills": "Perception +13, Stealth +6",
+    "damage resistances": "necrotic",
+    "damage immunities": "fire, poison",
+    "condition immunities": "charmed, exhaustion, frightened, paralyzed, poisoned, prone",
+    "senses": "blindsight 60 ft., darkvision 120 ft., passive Perception 23",
+    "languages": [
+      "Common",
+      "Draconic"
+    ],
+    "challenge": "17 (18,000 XP)",
+    "traits": "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dracolich fails a saving throw, it can choose to succeed instead.</p><p><em><strong>Rejuvenation.</strong></em> If the dracolich is destroyed, it regains all its hit points in 1d10 days unless its phylactery is also destroyed. The dracolich's phylactery is typically a gemstone or other valuable object.</p><p><em><strong>Turn Resistance.</strong></em> The dracolich has advantage on saving throws against any effect that turns undead.</p><p><em><strong>Undead Nature.</strong></em> The dracolich doesn't require air, food, drink, or sleep.</p>",
+    "number of attacks": 3,
+    "attacks": [
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+14",
+        "reach": "15 ft.",
+        "target": "one target",
+        "hit": "19 (2d10 + 8)",
+        "damage type": "piercing"
+      },
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+14",
+        "reach": "10 ft.",
+        "target": "one target",
+        "hit": "15 (2d6 + 8)",
+        "damage type": "slashing"
+      },
+      {
+        "type": "Breath Weapon",
+        "recharge": "5-6",
+        "range": "60-foot cone",
+        "target": "creatures in the cone",
+        "hit": "63 (18d6) fire damage",
+        "damage type": "fire"
+      }
+    ],
+    "actions": "<p><em><strong>Multiattack.</strong></em> The dracolich makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 15 ft., one target. <em>Hit:</em> 19 (2d10 + 8) piercing damage plus 14 (4d6) necrotic damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 10 ft., one target. <em>Hit:</em> 15 (2d6 + 8) slashing damage.</p><p><em><strong>Fire Breath (Recharge 5–6).</strong></em> The dracolich exhales fire in a 60-foot cone. Each creature in that area must make a DC 21 Dexterity saving throw, taking 63 (18d6) fire damage on a failed save, or half as much damage on a successful one.</p>",
+    "legendary actions": "<p>The dracolich can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dracolich regains spent legendary actions at the start of its turn.</p><p><em><strong>Detect.</strong></em> The dracolich makes a Wisdom (Perception) check.</p><p><em><strong>Tail Attack.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 15 ft., one target. <em>Hit:</em> 17 (2d8 + 8) bludgeoning damage.</p><p><em><strong>Wing Attack (Costs 2 Actions).</strong></em> The dracolich beats its tattered wings. Each creature within 15 feet of the dracolich must succeed on a DC 22 Dexterity saving throw or take 15 (2d6 + 8) bludgeoning damage and be knocked prone. The dracolich can then fly up to half its flying speed.</p>",
+    "lair actions": "<p>On initiative count 20 (losing initiative ties), the dracolich can take a lair action to cause one of the following effects; the dracolich can't use the same effect two rounds in a row:</p><p><strong>Foul Cloud.</strong> A cloud of reeking gas fills a 20-foot-radius sphere centered on a point the dracolich can see within 120 feet of it. The cloud spreads around corners, and its area is heavily obscured. Each creature that starts its turn in the cloud must succeed on a DC 15 Constitution saving throw or be poisoned until the start of its next turn. A creature can move through the cloud without being affected. The cloud disperses at initiative count 20 on the next round.</p><p><strong>Grasping Claws.</strong> Skeletal claws erupt from the ground in a 20-foot square within 120 feet of the dracolich. Any creature in that area must succeed on a DC 15 Dexterity saving throw or be restrained. A creature can be freed by a successful DC 15 Strength check as an action. The claws recede into the ground on initiative count 20 on the next round.</p><p><strong>Necrotic Burst.</strong> The dracolich causes a burst of necrotic energy at a point it can see within 120 feet of it. Each creature in a 10-foot-radius sphere centered on that point must make a DC 15 Constitution saving throw, taking 10 (3d6) necrotic damage on a failed save, or half as much damage on a successful one.</p>",
+    "regional effects": "<p>The region containing a legendary red dracolich's lair is warped by the dracolich's magic, which creates one or more of the following effects:</p><ul><li>Undead creatures within 6 miles of the lair have advantage on saving throws against any effect that turns undead.</li><li>Within 1 mile of the lair, living creatures have nightmares and gain no benefit from finishing a long rest.</li><li>Small tremors and a smell of death fill the air within 6 miles of the lair.</li></ul><p>If the dracolich dies, these effects fade over 1d10 days.</p>"
+  },
+  {
+    "name": "Adult Sapphire Dragon",
+    "size": "Huge",
+    "type": "Dragon",
+    "alignment": "Lawful Neutral",
+    "environments": [
+      "Mountain",
+      "Underdark"
+    ],
+    "associates": [
+      "Giant Spider",
+      "Displacer Beast",
+      "Hook Horror"
+    ],
+    "armor class": "19 (natural armor)",
+    "hit points": "207 (18d12 + 90)",
+    "speed": "40 ft., burrow 30 ft., fly 80 ft.",
+    "str": 23,
+    "dex": 12,
+    "con": 21,
+    "int": 16,
+    "wis": 15,
+    "cha": 17,
+    "saving throws": "Dex +7, Con +11, Wis +8, Cha +9",
+    "skills": "Perception +14, Stealth +7",
+    "damage immunities": "force",
+    "condition immunities": "charmed, frightened, paralyzed",
+    "senses": "blindsight 60 ft., darkvision 120 ft., passive Perception 24",
+    "languages": [
+      "Common",
+      "Draconic"
+    ],
+    "challenge": "16 (15,000 XP)",
+    "traits": "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p><p><em><strong>Tunneler.</strong></em> The dragon can burrow through solid rock at half its burrowing speed and leaves a 10-foot-diameter tunnel in its wake.</p>",
+    "number of attacks": 3,
+    "attacks": [
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+12",
+        "reach": "15 ft.",
+        "target": "one target",
+        "hit": "18 (2d10 + 7)",
+        "damage type": "piercing"
+      },
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+12",
+        "reach": "10 ft.",
+        "target": "one target",
+        "hit": "14 (2d6 + 7)",
+        "damage type": "slashing"
+      },
+      {
+        "type": "Breath Weapon",
+        "recharge": "5-6",
+        "range": "60-foot cone",
+        "target": "creatures in the cone",
+        "hit": "55 (10d10) force damage",
+        "damage type": "force"
+      }
+    ],
+    "actions": "<p><em><strong>Multiattack.</strong></em> The dragon makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +12 to hit, reach 15 ft., one target. <em>Hit:</em> 18 (2d10 + 7) piercing damage plus 11 (2d10) force damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +12 to hit, reach 10 ft., one target. <em>Hit:</em> 14 (2d6 + 7) slashing damage.</p><p><em><strong>Sonic Breath (Recharge 5–6).</strong></em> The dragon exhales a blast of sonic energy in a 60-foot cone. Each creature in that area must make a DC 19 Constitution saving throw, taking 55 (10d10) force damage on a failed save, or half as much damage on a successful one.</p>",
+    "legendary actions": "<p>The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn.</p><p><em><strong>Detect.</strong></em> The dragon makes a Wisdom (Perception) check.</p><p><em><strong>Tail Attack.</strong></em> <em>Melee Weapon Attack:</em> +12 to hit, reach 15 ft., one target. <em>Hit:</em> 16 (2d8 + 7) bludgeoning damage.</p><p><em><strong>Wing Attack (Costs 2 Actions).</strong></em> The dragon beats its wings. Each creature within 15 feet of the dragon must succeed on a DC 20 Dexterity saving throw or take 14 (2d6 + 7) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.</p>",
+    "lair actions": "<p>On initiative count 20 (losing initiative ties), the dragon can take a lair action to cause one of the following effects; the dragon can't use the same effect two rounds in a row:</p><p><strong>Earthen Grasp.</strong> The ground within a 20-foot radius centered on a point the dragon can see within 120 feet of it becomes difficult terrain until initiative count 20 on the next round. Any creature that starts its turn in the area must succeed on a DC 15 Strength saving throw or be restrained. A creature can be freed by a successful DC 15 Strength check as an action.</p><p><strong>Sonic Resonance.</strong> The dragon causes the air within a 20-foot radius centered on a point it can see within 120 feet of it to vibrate intensely. Each creature in that area must make a DC 15 Constitution saving throw, taking 7 (2d6) force damage on a failed save, or half as much damage on a successful one.</p><p><strong>Stalagmites.</strong> Up to three stalagmites erupt from the floor in separate, unoccupied 5-foot squares within 60 feet of the dragon. Each stalagmite is 10 feet tall and provides half cover. A creature that is in a square where a stalagmite appears must succeed on a DC 15 Dexterity saving throw or take 10 (3d6) piercing damage and be pushed to an unoccupied space within 5 feet of the stalagmite. The stalagmites remain until the dragon uses this lair action again or until they are destroyed. A stalagmite has AC 15, 30 hit points, and is immune to poison and psychic damage.</p>",
+    "regional effects": "<p>The region containing a legendary sapphire dragon's lair is warped by the dragon's magic, which creates one or more of the following effects:</p><ul><li>Rock and earth within 6 miles of the lair groan and shift, making navigation difficult and increasing travel time by 50 percent.</li><li>Gems and minerals within 1 mile of the lair have a faint, almost imperceptible hum when held.</li><li>If a creature within 1 mile of the lair attempts to teleport, it has a 50 percent chance of appearing 1d4 × 10 feet in a random direction instead.</li></ul><p>If the dragon dies, these effects fade over 1d10 days.</p>"
+  },
+  {
+    "name": "Adult Solar Dragon",
+    "size": "Huge",
+    "type": "Dragon",
+    "alignment": "Chaotic Good",
+    "environments": [
+      "Desert",
+      "Mountain"
+    ],
+    "associates": [
+      "Phoenix",
+      "Giant Eagle",
+      "Couatl"
+    ],
+    "armor class": "19 (natural armor)",
+    "hit points": "256 (19d12 + 133)",
+    "speed": "40 ft., fly 80 ft.",
+    "str": 27,
+    "dex": 10,
+    "con": 24,
+    "int": 18,
+    "wis": 15,
+    "cha": 21,
+    "saving throws": "Dex +6, Con +13, Wis +8, Cha +11",
+    "skills": "Perception +14, Persuasion +11, Stealth +6",
+    "damage immunities": "fire, radiant",
+    "condition immunities": "blinded, charmed, frightened, paralyzed",
+    "senses": "blindsight 60 ft., darkvision 120 ft., passive Perception 24",
+    "languages": [
+      "Common",
+      "Draconic"
+    ],
+    "challenge": "18 (20,000 XP)",
+    "traits": "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p><p><em><strong>Illumination.</strong></em> The dragon sheds bright light in a 60-foot radius and dim light for an additional 60 feet.</p><p><em><strong>Radiant Consumption.</strong></em> When the dragon is hit by an attack, it sheds bright light in a 20-foot radius and dim light for an additional 20 feet until the end of its next turn. Any creature that starts its turn within the bright light takes 7 (2d6) radiant damage.</p>",
+    "number of attacks": 3,
+    "attacks": [
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+14",
+        "reach": "15 ft.",
+        "target": "one target",
+        "hit": "19 (2d10 + 8)",
+        "damage type": "piercing"
+      },
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+14",
+        "reach": "10 ft.",
+        "target": "one target",
+        "hit": "15 (2d6 + 8)",
+        "damage type": "slashing"
+      },
+      {
+        "type": "Breath Weapon",
+        "recharge": "5-6",
+        "range": "90-foot cone",
+        "target": "creatures in the cone",
+        "hit": "63 (18d6) radiant damage",
+        "damage type": "radiant"
+      }
+    ],
+    "actions": "<p><em><strong>Multiattack.</strong></em> The dragon makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 15 ft., one target. <em>Hit:</em> 19 (2d10 + 8) piercing damage plus 7 (2d6) radiant damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 10 ft., one target. <em>Hit:</em> 15 (2d6 + 8) slashing damage.</p><p><em><strong>Radiant Breath (Recharge 5–6).</strong></em> The dragon exhales radiant energy in a 90-foot cone. Each creature in that area must make a DC 21 Dexterity saving throw, taking 63 (18d6) radiant damage on a failed save, or half as much damage on a successful one.</p>",
+    "legendary actions": "<p>The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn.</p><p><em><strong>Detect.</strong></em> The dragon makes a Wisdom (Perception) check.</p><p><em><strong>Tail Attack.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 15 ft., one target. <em>Hit:</em> 17 (2d8 + 8) bludgeoning damage.</p><p><em><strong>Wing Attack (Costs 2 Actions).</strong></em> The dragon beats its wings. Each creature within 15 feet of the dragon must succeed on a DC 22 Dexterity saving throw or take 15 (2d6 + 8) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.</p>",
+    "lair actions": "<p>On initiative count 20 (losing initiative ties), the dragon can take a lair action to cause one of the following effects; the dragon can't use the same effect two rounds in a row:</p><p><strong>Blinding Flash.</strong> The dragon creates a blinding flash of light at a point it can see within 120 feet of it. Each creature in a 10-foot-radius sphere centered on that point must make a DC 15 Constitution saving throw or be blinded until the end of its next turn.</p><p><strong>Solar Ray.</strong> A searing beam of light shoots from a point the dragon can see within 120 feet of it in a 5-foot-wide, 60-foot-long line. Each creature in the line must make a DC 15 Dexterity saving throw, taking 14 (4d6) radiant damage on a failed save, or half as much damage on a successful one.</p><p><strong>Heat Shimmer.</strong> The air in a 20-foot-radius sphere centered on a point the dragon can see within 120 feet of it becomes a shimmering heat haze. The area is lightly obscured until initiative count 20 on the next round. Any creature that starts its turn in the area takes 7 (2d6) fire damage.</p>",
+    "regional effects": "<p>The region containing a legendary solar dragon's lair is warped by the dragon's magic, which creates one or more of the following effects:</p><ul><li>The area within 6 miles of the lair is unusually warm, with temperatures at least 10 degrees Fahrenheit higher than normal.</li><li>Creatures resting within 1 mile of the lair feel refreshed and gain a bonus of 1d4 to their next attack roll or saving throw.</li><li>Bright, flickering lights are seen in the sky within 6 miles of the lair, even during the day.</li></ul><p>If the dragon dies, these effects fade over 1d10 days.</p>"
+  },
+  {
+    "name": "Adult Time Dragon",
+    "size": "Huge",
+    "type": "Dragon",
+    "alignment": "Lawful Neutral",
+    "environments": [
+      "Varies"
+    ],
+    "associates": [
+      "Modron",
+      "Githzerai",
+      "Inevitables"
+    ],
+    "armor class": "19 (natural armor)",
+    "hit points": "229 (18d12 + 112)",
+    "speed": "40 ft., fly 80 ft.",
+    "str": 24,
+    "dex": 12,
+    "con": 23,
+    "int": 20,
+    "wis": 17,
+    "cha": 19,
+    "saving throws": "Dex +7, Con +12, Wis +9, Cha +10",
+    "skills": "History +11, Perception +15, Stealth +7",
+    "damage immunities": "none",
+    "condition immunities": "charmed, frightened, paralyzed",
+    "senses": "blindsight 60 ft., darkvision 120 ft., passive Perception 25",
+    "languages": [
+      "Common",
+      "Draconic"
+    ],
+    "challenge": "17 (18,000 XP)",
+    "traits": "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p><p><em><strong>Time Sense.</strong></em> The dragon can perfectly recall any past event it has seen or heard within the last 100 years. It also knows the exact time to the second, wherever it is.</p>",
+    "number of attacks": 3,
+    "attacks": [
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+13",
+        "reach": "15 ft.",
+        "target": "one target",
+        "hit": "19 (2d10 + 8)",
+        "damage type": "piercing"
+      },
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+13",
+        "reach": "10 ft.",
+        "target": "one target",
+        "hit": "15 (2d6 + 8)",
+        "damage type": "slashing"
+      },
+      {
+        "type": "Breath Weapon",
+        "recharge": "5-6",
+        "range": "60-foot cone",
+        "target": "creatures in the cone",
+        "hit": "55 (10d10) force damage",
+        "damage type": "force"
+      }
+    ],
+    "actions": "<p><em><strong>Multiattack.</strong></em> The dragon makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +13 to hit, reach 15 ft., one target. <em>Hit:</em> 19 (2d10 + 8) piercing damage plus 11 (2d10) force damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +13 to hit, reach 10 ft., one target. <em>Hit:</em> 15 (2d6 + 8) slashing damage.</p><p><em><strong>Temporal Breath (Recharge 5–6).</strong></em> The dragon exhales a blast of temporal energy in a 60-foot cone. Each creature in that area must make a DC 20 Wisdom saving throw. On a failed save, a creature takes 55 (10d10) force damage and is slowed until the end of its next turn. On a successful save, a creature takes half as much damage and is not slowed.</p>",
+    "legendary actions": "<p>The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn.</p><p><em><strong>Detect.</strong></em> The dragon makes a Wisdom (Perception) check.</p><p><em><strong>Tail Attack.</strong></em> <em>Melee Weapon Attack:</em> +13 to hit, reach 15 ft., one target. <em>Hit:</em> 17 (2d8 + 8) bludgeoning damage.</p><p><em><strong>Temporal Shift (Costs 2 Actions).</strong></em> The dragon momentarily shifts through time. Until the end of its next turn, it has advantage on Dexterity (Stealth) checks and attack rolls against it have disadvantage.</p>",
+    "lair actions": "<p>On initiative count 20 (losing initiative ties), the dragon can take a lair action to cause one of the following effects; the dragon can't use the same effect two rounds in a row:</p><p><strong>Time Warp.</strong> The dragon chooses a creature it can see within 120 feet of it. The target must succeed on a DC 15 Wisdom saving throw or its speed is halved until the end of its next turn.</p><p><strong>Temporal Acceleration.</strong> The dragon chooses itself or one creature it can see within 120 feet of it. The target can take one additional action on its next turn.</p><p><strong>Rewind.</strong> The dragon chooses one attack roll or saving throw made within the last round. The roll is re-rolled, and the dragon chooses which roll to use.</p>",
+    "regional effects": "<p>The region containing a legendary time dragon's lair is warped by the dragon's magic, which creates one or more of the following effects:</p><ul><li>Time flows strangely within 6 miles of the lair, causing small, localized areas where time speeds up or slows down. Creatures entering such an area must succeed on a DC 15 Wisdom saving throw or have their speed halved or doubled (dragon's choice) until the end of their next turn.</li><li>Divination spells cast within 1 mile of the lair have a 50 percent chance of providing misleading or fragmented information.</li><li>The sounds of distant past or future events can sometimes be heard within 6 miles of the lair.</li></ul><p>If the dragon dies, these effects fade over 1d10 days.</p>"
+  },
+  {
+    "name": "Ancient Dragon Turtle",
+    "size": "Gargantuan",
+    "type": "Dragon",
+    "alignment": "Unaligned",
+    "environments": [
+      "Underwater",
+      "Coastal"
+    ],
+    "associates": [
+      "Marid",
+      "Sahuagin"
+    ],
+    "armor class": "21 (natural armor)",
+    "hit points": "341 (22d20 + 110)",
+    "speed": "20 ft., swim 60 ft.",
+    "str": 28,
+    "dex": 10,
+    "con": 21,
+    "int": 10,
+    "wis": 12,
+    "cha": 12,
+    "saving throws": "Dex +6, Con +12, Wis +7, Cha +7",
+    "skills": "Perception +7",
+    "damage resistances": "fire",
+    "damage immunities": "none",
+    "condition immunities": "frightened, paralyzed",
+    "senses": "blindsight 60 ft., darkvision 120 ft., passive Perception 17",
+    "languages": [
+      "Aquan",
+      "Draconic"
+    ],
+    "challenge": "20 (25,000 XP)",
+    "traits": "<p><em><strong>Amphibious.</strong></em> The dragon turtle can breathe air and water.</p>",
+    "number of attacks": 3,
+    "attacks": [
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+16",
+        "reach": "20 ft.",
+        "target": "one target",
+        "hit": "26 (3d10 + 10)",
+        "damage type": "piercing"
+      },
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+16",
+        "reach": "15 ft.",
+        "target": "one target",
+        "hit": "23 (3d8 + 10)",
+        "damage type": "bludgeoning"
+      },
+      {
+        "type": "Breath Weapon",
+        "recharge": "5-6",
+        "range": "60-foot cone",
+        "target": "creatures in the cone",
+        "hit": "77 (22d6) fire damage",
+        "damage type": "fire"
+      }
+    ],
+    "actions": "<p><em><strong>Multiattack.</strong></em> The dragon turtle makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 20 ft., one target. <em>Hit:</em> 26 (3d10 + 10) piercing damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 15 ft., one target. <em>Hit:</em> 23 (3d8 + 10) bludgeoning damage.</p><p><em><strong>Steam Breath (Recharge 5–6).</strong></em> The dragon turtle exhales superheated steam in a 60-foot cone. Each creature in that area must make a DC 20 Constitution saving throw, taking 77 (22d6) fire damage on a failed save, or half as much damage on a successful one. Being underwater doesn't grant resistance against this damage.</p>",
+    "legendary actions": "<p>The dragon turtle can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon turtle regains spent legendary actions at the start of its turn.</p><p><em><strong>Detect.</strong></em> The dragon turtle makes a Wisdom (Perception) check.</p><p><em><strong>Tail Attack.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 20 ft., one target. <em>Hit:</em> 28 (3d10 + 10) bludgeoning damage. If the target is a creature, it must succeed on a DC 20 Strength saving throw or be pushed up to 15 feet away from the dragon turtle and knocked prone.</p><p><em><strong>Steam Cloud (Costs 2 Actions).</strong></em> The dragon turtle releases a cloud of scalding steam in a 15-foot radius centered on itself. The cloud spreads around corners, and its area is heavily obscured. Each creature that starts its turn in the cloud takes 10 (3d6) fire damage. The cloud lasts until initiative count 20 on the next round.</p>",
+    "lair actions": "<p>On initiative count 20 (losing initiative ties), the dragon turtle can take a lair action to cause one of the following effects; the dragon turtle can't use the same effect two rounds in a row:</p><p><strong>Geyser.</strong> A geyser erupts from a point on the floor or ceiling within 120 feet of the dragon turtle. Each creature in a 10-foot-radius, 30-foot-high cylinder centered on that point must make a DC 15 Dexterity saving throw, taking 14 (4d6) bludgeoning damage on a failed save, or half as much damage on a successful one. Creatures that fail the saving throw are also pushed up to 20 feet away from the geyser's origin.</p><p><strong>Strong Current.</strong> A strong current sweeps through the lair. Each creature of the dragon turtle's choice within 60 feet of it must succeed on a DC 15 Strength saving throw or be pushed up to 30 feet in a direction away from the dragon turtle.</p><p><strong>Scalding Mist.</strong> A cloud of scalding mist fills a 20-foot-radius sphere centered on a point the dragon turtle can see within 120 feet of it. The cloud spreads around corners, and its area is heavily obscured. Each creature that starts its turn in the cloud takes 7 (2d6) fire damage. The cloud lasts until initiative count 20 on the next round.</p>",
+    "regional effects": "<p>The region containing a legendary dragon turtle's lair is warped by the dragon turtle's magic, which creates one or more of the following effects:</p><ul><li>Water within 6 miles of the lair is unusually warm and filled with strange, churning currents.</li><li>Shipwrecks are common within 1 mile of the lair, and strange, valuable trinkets can sometimes be found among the wreckage.</li><li>The sound of deep, guttural roars can be heard within 6 miles of the lair, even when the dragon turtle is not present.</li></ul><p>If the dragon turtle dies, these effects fade over 1d10 days.</p>"
+  },
+  {
+    "name": "Ancient Emerald Dragon",
+    "size": "Gargantuan",
+    "type": "Dragon",
+    "alignment": "Lawful Neutral",
+    "environments": [
+      "Mountain",
+      "Underdark"
+    ],
+    "associates": [
+      "Earth Elemental",
+      "Gargoyle",
+      "Galeb Duhr"
+    ],
+    "armor class": "21 (natural armor)",
+    "hit points": "351 (18d20 + 162)",
+    "speed": "40 ft., burrow 40 ft., fly 80 ft.",
+    "str": 27,
+    "dex": 12,
+    "con": 29,
+    "int": 20,
+    "wis": 19,
+    "cha": 20,
+    "saving throws": "Dex +9, Con +17, Wis +12, Cha +13",
+    "skills": "Insight +12, Perception +19, Stealth +9",
+    "damage immunities": "psychic",
+    "condition immunities": "charmed, frightened, paralyzed",
+    "senses": "blindsight 60 ft., darkvision 120 ft., passive Perception 29",
+    "languages": [
+      "Common",
+      "Draconic"
+    ],
+    "challenge": "21 (33,000 XP)",
+    "traits": "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p><p><em><strong>Tunneler.</strong></em> The dragon can burrow through solid rock at half its burrowing speed and leaves a 10-foot-diameter tunnel in its wake.</p>",
+    "number of attacks": 3,
+    "attacks": [
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+16",
+        "reach": "20 ft.",
+        "target": "one target",
+        "hit": "26 (3d10 + 10)",
+        "damage type": "piercing"
+      },
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+16",
+        "reach": "15 ft.",
+        "target": "one target",
+        "hit": "23 (3d8 + 10)",
+        "damage type": "slashing"
+      },
+      {
+        "type": "Breath Weapon",
+        "recharge": "5-6",
+        "range": "90-foot cone",
+        "target": "creatures in the cone",
+        "hit": "77 (22d6) psychic damage",
+        "damage type": "psychic"
+      }
+    ],
+    "actions": "<p><em><strong>Multiattack.</strong></em> The dragon makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 20 ft., one target. <em>Hit:</em> 26 (3d10 + 10) piercing damage plus 13 (2d12) psychic damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 15 ft., one target. <em>Hit:</em> 23 (3d8 + 10) slashing damage.</p><p><em><strong>Emerald Breath (Recharge 5–6).</strong></em> The dragon exhales a wave of psychic energy in a 90-foot cone. Each creature in that area must make a DC 25 Intelligence saving throw, taking 77 (22d6) psychic damage on a failed save, or half as much damage on a successful one.</p>",
+    "legendary actions": "<p>The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn.</p><p><em><strong>Detect.</strong></em> The dragon makes a Wisdom (Perception) check.</p><p><em><strong>Tail Attack.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 20 ft., one target. <em>Hit:</em> 28 (3d10 + 10) bludgeoning damage. If the target is a creature, it must succeed on a DC 24 Strength saving throw or be knocked prone.</p><p><em><strong>Telekinetic Burst (Costs 2 Actions).</strong></em> The dragon creates a burst of telekinetic energy at a point it can see within 120 feet of it. Each creature in a 20-foot-radius sphere centered on that point must make a DC 21 Strength saving throw. On a failed save, a creature takes 13 (2d12) force damage and is pushed up to 20 feet away from the center of the sphere. On a successful save, a creature takes half as much damage and isn't pushed.</p>",
+    "lair actions": "<p>On initiative count 20 (losing initiative ties), the dragon can take a lair action to cause one of the following effects; the dragon can't use the same effect two rounds in a row:</p><p><strong>Psychic Feedback.</strong> The dragon emits a pulse of psychic energy. Each creature of the dragon's choice within 60 feet of it must succeed on a DC 15 Wisdom saving throw or take 10 (3d6) psychic damage.</p><p><strong>Earthen Grasp.</strong> Stone hands erupt from the ground in a 20-foot square within 120 feet of the dragon. Any creature in that area must succeed on a DC 15 Strength saving throw or be restrained. A creature can be freed by a successful DC 15 Strength check as an action. The hands recede into the ground on initiative count 20 on the next round.</p><p><strong>Disorienting Echo.</strong> The dragon creates a disorienting echo of sounds and whispers. Each creature of the dragon's choice within the lair must succeed on a DC 15 Wisdom saving throw or have disadvantage on the next attack roll it makes before the end of its next turn.</p>",
+    "regional effects": "<p>The region containing a legendary emerald dragon's lair is warped by the dragon's magic, which creates one or more of the following effects:</p><ul><li>Sounds within 6 miles of the lair are strangely muted, and echoes can be heard in places where they shouldn't exist.</li><li>Gems and precious metals within 1 mile of the lair subtly shift their coloration when viewed from different angles.</li><li>Creatures resting within 1 mile of the lair have vivid, often prophetic, dreams.</li></ul><p>If the dragon dies, these effects fade over 1d10 days.</p>"
+  },
+  {
+    "name": "Bard",
+    "size": "Medium",
+    "type": "Humanoid",
+    "alignment": "Any",
+    "environments": [
+      "Urban"
+    ],
+    "associates": [
+      "Any"
+    ],
+    "armor class": "15 (chain shirt)",
+    "hit points": "44 (8d8 + 8)",
+    "speed": "30 ft.",
+    "str": 11,
+    "dex": 14,
+    "con": 12,
+    "int": 10,
+    "wis": 13,
+    "cha": 16,
+    "saving throws": "Dex +4, Cha +5",
+    "skills": "Acrobatics +4, Perception +3, Performance +7",
+    "senses": "passive Perception 13",
+    "languages": [
+      "Common",
+      "Any two other languages"
+    ],
+    "challenge": "2 (450 XP)",
+    "traits": "<p><em><strong>Spellcasting.</strong></em> The bard is a 4th-level spellcaster. Its spellcasting ability is Charisma (spell save DC 13, +5 to hit with spell attacks). It has the following bard spells prepared:</p><ul><li>Cantrips (at will): <em>light, prestidigitation, vicious mockery</em></li><li>1st level (4 slots): <em>charm person, healing word, heroism, sleep</em></li><li>2nd level (3 slots): <em>hold person, invisibility, thunderwave</em></li></ul><p><em><strong>Song of Rest.</strong></em> The bard's performance can help revitalize allies during a short rest. Any ally who regains hit points by spending one or more Hit Dice during a short rest regains an extra 1d6 hit points.</p><p><em><strong>Taunt.</strong></em> As a bonus action, the bard can target one creature it can see within 30 feet of it. If the target can hear the bard, it must succeed on a DC 13 Charisma saving throw or have disadvantage on attack rolls until the start of the bard's next turn.</p>",
+    "number of attacks": 1,
+    "attacks": [
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+4",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "5 (1d6 + 2)",
+        "damage type": "piercing"
+      }
+    ],
+    "actions": "<p><em><strong>Shortsword.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft., one target. <em>Hit:</em> 5 (1d6 + 2) piercing damage.</p>",
+    "bonus actions": "<p><em><strong>Taunt.</strong></em> As a bonus action, the bard can target one creature it can see within 30 feet of it. If the target can hear the bard, it must succeed on a DC 13 Charisma saving throw or have disadvantage on attack rolls until the start of the bard's next turn.</p>"
+  },
+  {
+    "name": "Barlgura",
+    "size": "Large",
+    "type": "Fiend",
+    "alignment": "Chaotic Evil",
+    "environments": [
+      "Dungeon"
+    ],
+    "associates": [
+      "Demon"
+    ],
+    "armor class": "15 (natural armor)",
+    "hit points": "68 (8d10 + 24)",
+    "speed": "30 ft., climb 30 ft.",
+    "str": 18,
+    "dex": 15,
+    "con": 16,
+    "int": 7,
+    "wis": 14,
+    "cha": 10,
+    "saving throws": "Dex +5, Con +5",
+    "skills": "Perception +4, Stealth +5",
+    "damage resistances": "cold, fire, lightning",
+    "damage immunities": "poison",
+    "condition immunities": "poisoned",
+    "senses": "blindsight 30 ft., darkvision 120 ft., passive Perception 14",
+    "languages": [
+      "Abyssal",
+      "Telepathy 120 ft"
+    ],
+    "challenge": "5 (1,800 XP)",
+    "traits": "<p><em><strong>Controlled Fury.</strong></em> As a bonus action, the barlgura can make one melee weapon attack.</p><p><em><strong>Standing Leap.</strong></em> The barlgura's long jump is up to 40 feet and its high jump is up to 20 feet, with or without a running start.</p><p><em><strong>Innate Spellcasting.</strong></em> The barlgura's innate spellcasting ability is Wisdom (spell save DC 12). It can innately cast the following spells, requiring no material components:</p><ul><li>1/day each: <em>entangle, self-inflicted wounds, pass without trace</em></li></ul>",
+    "number of attacks": 2,
+    "attacks": [
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+7",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "10 (1d10 + 5)",
+        "damage type": "bludgeoning"
+      }
+    ],
+    "actions": "<p><em><strong>Multiattack.</strong></em> The barlgura makes two attacks: one with its bite and one with its fists.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft., one target. <em>Hit:</em> 9 (1d10 + 4) piercing damage.</p><p><em><strong>Fist.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft., one target. <em>Hit:</em> 10 (1d12 + 4) bludgeoning damage.</p>",
+    "bonus actions": "<p><em><strong>Controlled Fury.</strong></em> As a bonus action, the barlgura can make one melee weapon attack.</p>"
+  }
+  // >> 
 ];
 module.exports = monsters;

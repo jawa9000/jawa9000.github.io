@@ -88,18 +88,7 @@ Aberrant Zealot (Tentacled)
 Abhorrent Overlord
 Abyssal Chicken
 Abyssal Wretch
-Adult Emerald Dragon
-Adult Lunar Dragon
-Adult Moonstone Dragon
 Adult Oblex
-Adult Red Dracolich
-Adult Red Dragon
-Adult Sapphire Dragon
-Adult Silver Dragon
-Adult Solar Dragon
-Adult Time Dragon
-Adult Topaz Dragon
-Adult White Dragon
 Advanced Detention Drone
 Aerosaur
 Air
@@ -117,9 +106,6 @@ Ambush Drake
 Amethyst Greatwyrm
 Amphisbaena
 Anchorite of Talos
-Ancient Deep Dragon
-Ancient Dragon Turtle
-Ancient Emerald Dragon
 Ancient Lunar Dragon
 Ancient Sapphire Dragon
 Ancient Sea Serpent
