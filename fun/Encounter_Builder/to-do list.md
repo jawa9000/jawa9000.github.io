@@ -106,14 +106,6 @@ Ambush Drake
 Amethyst Greatwyrm
 Amphisbaena
 Anchorite of Talos
-Ancient Lunar Dragon
-Ancient Sapphire Dragon
-Ancient Sea Serpent
-Ancient Solar Dragon
-Ancient Time Dragon
-Android
-Anhko
-Animal Lord
 Animated Armor Detention Drone
 Animated Ballista
 Animated Broom
@@ -138,10 +130,8 @@ Apprentice
 Aquatic Ghoul
 Aquatic Troll
 Arasta
-Arch-hag
 Archaic
 Archelon
-Archpriest
 Armored Saber-Toothed Tiger
 Art  Mascot
 Ashen Animated Armor

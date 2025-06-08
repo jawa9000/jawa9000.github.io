@@ -19207,7 +19207,549 @@ const monsters = [
     ],
     "actions": "<p><em><strong>Multiattack.</strong></em> The barlgura makes two attacks: one with its bite and one with its fists.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft., one target. <em>Hit:</em> 9 (1d10 + 4) piercing damage.</p><p><em><strong>Fist.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft., one target. <em>Hit:</em> 10 (1d12 + 4) bludgeoning damage.</p>",
     "bonus actions": "<p><em><strong>Controlled Fury.</strong></em> As a bonus action, the barlgura can make one melee weapon attack.</p>"
+  },
+  {
+ "name": "Ancient Lunar Dragon",
+ "size": "Gargantuan",
+ "type": "Dragon",
+ "alignment": "Neutral Evil",
+ "environments": [
+  "Dungeon"
+ ],
+ "armor class": "18 (Natural Armor)",
+ "hit points": "297 (17d20 + 119)",
+ "speed": "40 ft., burrow 20 ft., fly 80 ft.",
+ "str": "27",
+ "dex": "12",
+ "con": "24",
+ "int": "12",
+ "wis": "15",
+ "cha": "17",
+ "saving throws": "CON +13, WIS +8, CHA +3, INT +1, STR +8, DEX +1",
+ "skills": "Perception +14, Stealth +13",
+ "damage immunities": "Cold",
+ "senses": "Darkvision 240 ft., Passive Perception 24",
+ "languages": [
+  "Draconic"
+ ],
+ "challenge": "19 (22,000 XP)",
+ "traits": "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead. </p><p><em><strong>Tunneler.</strong></em> The dragon can burrow through solid rock at half its burrowing speed and leaves a 20-foot-diameter tunnel in its wake. </p><p><em><strong>Unusual Nature.</strong></em> The dragon doesn't require air. </p>",
+ "number of attacks": 3,
+ "attacks": [
+  {
+   "type": "Melee Weapon Attack",
+   "to hit": "+14",
+   "reach": "15 ft.",
+   "target": "one target",
+   "hit": "15 (2d6 + 8) piercing damage plus 7 (2d6) cold damage",
+   "damage type": "piercing, cold"
+  },
+  {
+   "type": "Melee Weapon Attack",
+   "to hit": "+14",
+   "reach": "10 ft.",
+   "target": "one target",
+   "hit": "15 (2d6 + 8) slashing damage",
+   "damage type": "slashing"
+  },
+  {
+   "type": "Melee Weapon Attack",
+   "to hit": "+14",
+   "reach": "20 ft.",
+   "target": "one target",
+   "hit": "15 (2d6 + 8) bludgeoning damage",
+   "damage type": "bludgeoning"
   }
-  // >> 
+ ],
+ "actions": "<p><em><strong>Multiattack.</strong></em> The dragon makes one Bite attack and two Claw attacks.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 15 ft., one target.  <em>Hit:</em> 15 (2d6 + 8) piercing damage plus 7 (2d6) cold damage. </p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 10 ft., one target. <em>Hit:</em> 15 (2d6 + 8) slashing damage. </p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 20 ft., one target. <em>Hit:</em> 15 (2d6 + 8) bludgeoning damage. </p><p><em><strong>Cold Breath (Recharge 5-6).</strong></em> The dragon exhales a blast of frost in a 90-foot cone.  Each creature in the cone must make a DC 21 Constitution saving throw.  On a failed save, the creature takes 36 (8d8) cold damage, and its speed is reduced to 0 until the end of its next turn.  On a successful save, the creature takes half as much damage, and its speed isn't reduced. </p>",
+ "bonus actions": "<p><em><strong>Phase (3/Day).</strong></em> The dragon becomes partially incorporeal for as long as it maintains concentration on the effect (as if concentrating on a spell).  While partially incorporeal, the dragon has resistance to bludgeoning, piercing, and slashing damage. </p>",
+ "legendary actions": "<p>Legendary Action Uses: 3. Immediately after another creature's turn, The dragon can expend a use to take one of the following actions.  The dragon regains all expended uses at the start of each of its turns. </p><p><em><strong>Tail Attack.</strong></em> The dragon makes one Tail attack. </p><p><em><strong>Treacherous Ice.</strong></em> Magical ice covers the ground in a 20-foot radius centered on a point the dragon can see within 120 feet of itself.  The ice, which is difficult terrain for all creatures except lunar dragons, lasts for 10 minutes or until the dragon uses this legendary action again. </p><p><em><strong>Wing Attack (Costs 2 Actions).</strong></em> The dragon beats its wings.  Each creature within 15 feet of the dragon must succeed on a DC 21 Dexterity saving throw or take 12 (1d8 + 8) bludgeoning damage and be knocked prone.  The dragon can then fly up to half its speed without provoking opportunity attacks. </p>",
+ "lair actions": "<p>The cave complex where a lunar dragon makes its lair contains ample space for food, as well as one or more hidden chambers where the dragon keeps its treasure.  Depending on the composition and features of the moon, the lair might contain natural springs and heat vents, wild gardens, crystal formations, magical phenomena, or an ecosystem of lesser life forms that have adapted to living with the dragon. </p>",
+ "regional effects": "<p>The region containing an ancient or adult lunar dragon's lair is warped by the dragon's magic, which produces one or more of the following effects: </p><p><strong>Black Frost.</strong> A thin layer of black frost covers the ground, which kills all ordinary plants growing within 6 miles of the lair if the dragon is ancient, or within 3 miles if the dragon is an adult. </p><p><strong>Haunting Moan.</strong> A haunting sound gets louder or fainter (dragon's choice) the closer one gets to the lair.  The moan is audible 6 miles from the lair if the dragon is ancient, or 3 miles if the dragon is an adult. </p><p><strong>Moon Devils.</strong> Swirling funnels of dust and frost known as moon devils crisscross the area within 1 mile of the lair, intercepting other creatures they encounter.  A moon devil is a free-willed air elemental that deals cold damage instead of bludgeoning damage. </p><p>If the dragon dies, the moaning stops, the moon devils dissipate, and the black frost disappears over the course of 1d10 days, allowing plant life in the area to recover. </p>",
+ "img url": "https://i.imgur.com/example.png",
+ "description": "<p>Lunar dragons (also known as moon dragons or phase dragons) are capricious, xenophobic creatures that make their lairs inside desolate moons by burrowing through the rock.  Before laying eggs, a female lunar dragon stocks her lair with food;  she won't leave the lair again until the eggs hatch and the offspring are old enough to fend for themselves.  Lunar dragon eggs have stony shells that are pale white to light gray in color.  Lunar dragons are alabaster white when they hatch and gradually turn darker as they age.  Ancient moon dragons are the color of slate. </p><p>Lunar dragons enjoy depriving other creatures of treasure more than acquiring the treasure themselves.  Often found among the treasures in a lunar dragon's hoard are one or more spelljamming helms (see the Astral Adventurer's Guide) taken from vessels that dared to invade the dragon's territory.  A lunar dragon can become incorporeal, but not to the extent that it can pass through other creatures or solid objects.  In this semi-incorporeal state, roughly half of the dragon's body has a dark, indistinctly spectral form. </p>"
+},
+{
+ "name": "Ancient Sapphire Dragon",
+ "size": "Gargantuan",
+ "type": "Dragon",
+ "alignment": "Lawful Neutral",
+ "environments": [
+  "Underdark"
+ ],
+ "associates": [
+  "Emerald Dragon",
+  "Rock Gnome",
+  "Deep Gnome"
+ ],
+ "armor class": "20 (Natural Armor)",
+ "hit points": "370 (20d20 + 160)",
+ "speed": "40 ft., burrow 40 ft., climb 40 ft., fly 80 ft.",
+ "str": "27",
+ "dex": "14",
+ "con": "27",
+ "int": "21",
+ "wis": "19",
+ "cha": "20",
+ "saving throws": "DEX +9, CON +15, WIS +11, CHA +12",
+ "skills": "History +12, Perception +18, Persuasion +19, Stealth +9",
+ "damage resistances": "Lightning, Thunder",
+ "condition immunities": "Frightened",
+ "senses": "Blindsight 60 ft., Darkvision 120 ft., Passive Perception 28",
+ "languages": [
+  "Common",
+  "Draconic",
+  "Telepathy 120 ft."
+ ],
+ "challenge": "22 (41,000 XP, or 50,000 in lair; PB +7)",
+ "traits": "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead. </p><p><em><strong>Spider Climb.</strong></em> The dragon can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check. </p><p><em><strong>Tunneler.</strong></em> The dragon can burrow through solid rock at half its burrowing speed and can leave a 20-foot-diameter tunnel in its wake. </p>",
+ "number of attacks": 3,
+ "attacks": [
+  {
+   "type": "Melee Weapon Attack",
+   "to hit": "+15",
+   "reach": "15 ft.",
+   "target": "one target",
+   "hit": "19 (2d10 + 8) piercing damage plus 11 (2d10) thunder damage",
+   "damage type": "piercing, thunder"
+  },
+  {
+   "type": "Melee Weapon Attack",
+   "to hit": "+15",
+   "reach": "10 ft.",
+   "target": "one target",
+   "hit": "15 (2d6 + 8) slashing damage",
+   "damage type": "slashing"
+  }
+ ],
+ "actions": "<p><em><strong>Multiattack.</strong></em> The dragon makes one Bite attack and two Claw attacks. </p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +15 to hit, reach 15 ft., one target.  <em>Hit:</em> 19 (2d10 + 8) piercing damage plus 11 (2d10) thunder damage. </p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +15 to hit, reach 10 ft., one target. <em>Hit:</em> 15 (2d6 + 8) slashing damage. </p><p><em><strong>Debilitating Breath (Recharge 5-6).</strong></em> The dragon exhales a pulse of high-pitched, nearly inaudible sound in a 90-foot cone.  Each creature in that area must make a DC 23 Constitution saving throw.  On a failed save, the creature takes 55 (10d10) thunder damage and is incapacitated until the end of its next turn.  On a successful save, the creature takes half as much damage and isn't incapacitated. </p><p><em><strong>Spellcasting (Psionics).</strong></em> The dragon casts one of the following spells, requiring no spell components and using Intelligence as the spellcasting ability (spell save DC 20): </p><ul><li>1/day each: dissonant whispers, hold monster, meld into stone, telekinesis, teleport</li></ul>",
+ "bonus actions": "<p><em><strong>Change Shape.</strong></em> The dragon magically transforms into any creature that is Medium or Small, while retaining its game statistics (other than its size).  This transformation ends if the dragon is reduced to 0 hit points or uses a bonus action to end it. </p><p><em><strong>Psychic Step.</strong></em> The dragon magically teleports to an unoccupied space it can see within 60 feet of it. </p>",
+ "legendary actions": "<p>Legendary Action Uses: 3. Immediately after another creature's turn, The dragon can expend a use to take one of the following actions.  The dragon regains all expended uses at the start of each of its turns. </p><p><em><strong>Claw.</strong></em> The dragon makes one Claw attack. </p><p><em><strong>Psionics (Costs 2 Actions).</strong></em> The dragon uses Psychic Step or Spellcasting. </p><p><em><strong>Telekinetic Fling (Costs 3 Actions).</strong></em> The dragon chooses one Medium or smaller object that isn't being worn or carried that it can see within 60 feet of it, and it magically hurls the object at a creature it can see within 60 feet of the object.  The target must succeed on a DC 20 Dexterity saving throw or take 42 (12d6) bludgeoning damage. </p>",
+ "lair actions": "<p>On initiative count 20 (losing initiative ties), the dragon can take one of the following lair actions;  the dragon can't take the same lair action two rounds in a row: </p><p><em><strong>Awesome Thunder.</strong></em> A thunderous detonation of sound that can be heard up to 300 feet away surrounds one creature in the lair that the dragon can see.  That creature must succeed on a DC 15 Constitution saving throw or take 13 (3d8) thunder damage and be stunned until the end of its next turn. </p><p><em><strong>Beguiling Whisper.</strong></em> The dragon telepathically whispers to one creature within range of the dragon's telepathy.  The creature must succeed on a DC 15 Wisdom saving throw or be charmed by the dragon until initiative count 20 on the next round.  A creature charmed in this way obeys to the best of its ability any command the dragon issues that isn't directly harmful to the creature. </p><p><em><strong>Stone Passage.</strong></em> The dragon touches a section of stone up to 30 feet in any dimension.  The dragon can shape the stone to open or close a passage through a wall, as long as the wall is less than 10 feet thick. </p>",
+ "regional effects": "<p>The region surrounding a legendary sapphire dragon's lair is altered by the dragon's magic, creating one or more of the following effects: </p><p><em><strong>Crystal Profusion.</strong></em> Natural stone within 6 miles of the lair grows plentiful crystal formations and veins of sapphire gemstones, particularly underground. </p><p><em><strong>Stony Sight.</strong></em> Natural stone within 6 miles of the lair is a conduit for the dragon's psionic presence.  As an action, the dragon can cast the clairvoyance spell, requiring no spell components and targeting any natural stone formation in that region. </p><p><em><strong>Telepathic Enhancement.</strong></em> The dragon's psionic energy enhances the mental powers of other creatures.  Any creature capable of telepathic communication has its telepathy range doubled while within 1 mile of the lair.  This includes creatures with innate telepathy and magical telepathy such as the Rary's telepathic bond spell.</p><p><em><strong>Thriving Wildlife.</strong></em> Giant spiders (a sapphire dragon's favorite prey) are attracted to the area within 6 miles of the lair and settle there in large numbers. </p><p>If the dragon dies, the population of giant spiders in the region returns to normal levels over the course of 1d10 days.  The enhancement of telepathic abilities ends immediately.  The existing abundance of crystals and sapphires remains, but new ones form at a normal rate. </p>",
+ "img url": "https://imgur.com/gallery/example-image-link",
+ "description": "<p>The thunderous clash of conflict is part of the very nature of sapphire dragons.  Militant and territorial, they defend their lairs fiercely, ambushing intruders and plotting assaults against their rivals.  The sonic pulse of their breath weapon sows weakness, leaving the victims unable to fight back. </p><p>Sapphire dragons' scales and wing membranes show varied shades of blue, ranging from the light tones of a spring sky to the rich, crystalline azure of sapphire gems and compressed glacial ice.  In the light, the scales glitter and shine like luminous starbursts.  The dragons' psionic nature is evident in the horn and bone structures of their bodies.  Their tail barbs and horn tips are all separate pieces, but they float in place, held aloft by psychic energy while the dragons live.  These levitating horns and spines shift slightly with the dragons' moods, bobbing in amusement or flaring with anger. </p><p>The warlike sapphire dragons devise strategies and ambushes based on their ability to maneuver underground.  A sapphire dragon often refrains from striking immediately, preferring to assess intruders first in order to devise the most advantageous approach to dealing with them.  Sapphire dragons watch for signs of Aberrations and other creatures corrupted by the Far Realm.  They frequently ally with emerald dragons, drawing on their kin's knowledge of occult phenomena to track the influence of the Far Realm.  Armed with that knowledge, sapphire dragons stamp out alien influence before it spreads.  People who dwell or delve deep beneath the earth can easily find themselves at odds with a sapphire dragon if they cross into the dragon's territory.  But sapphire dragons sometimes forge peaceful relationships with rock gnomes or deep gnomes, relying on these folk to help protect the territory surrounding their lairs. </p><p>Sapphire dragons' favorite prizes are weapons and armor, records of military history and tactics, and magic items that protect against psychic damage or mental intrusion.  The centerpiece of a sapphire dragon's hoard is usually a cataloged, orderly collection of war gear, which can contain ancient relics of immense power.</p><p>Sapphire dragons make their homes in extensive cave systems.  As they grow older, they make increasingly complex renovations to their lairs, using their inherent magic and natural tunneling abilities to great effect.  Eventually, a sapphire dragon's lair is a dizzying honeycomb of hidden passages, deceptively thin walls, and secret chambers that allow the dragon to travel from one end to the other unseen by intruders.  The most secure lairs might feature no accessible entrances or exits at all, with the dragon relying on tunneling or shaping stone to come and go.  The challenge rating of a legendary sapphire dragon increases by 1 when it's encountered in its lair.</p>"
+},
+{
+ "name": "Ancient Sea Serpent",
+ "size": "Gargantuan",
+ "type": "Dragon",
+ "alignment": "Neutral",
+ "associates": [],
+ "environments": [
+  "Underwater",
+  "Coastal"
+ ],
+ "armor class": "17 (natural armor)",
+ "hit points": "170 (11d20 + 55)",
+ "speed": "20 ft., Swim 60 ft.",
+ "str": "24",
+ "dex": "15",
+ "con": "20",
+ "int": "13",
+ "wis": "16",
+ "cha": "12",
+ "saving throws": "STR +12, DEX +2, CON +10, INT +1, WIS +3, CHA +1",
+ "skills": "Perception +8, Stealth +7",
+ "damage immunities": "Cold",
+ "senses": "Darkvision 120 ft., Passive Perception 18",
+ "languages": [
+  "Common",
+  "Draconic"
+ ],
+ "challenge": "14 (11,500 XP; PB +5)",
+ "traits": "<p><em><strong>Amphibious.</strong></em> The sea serpent can breathe air and water. </p><p><em><strong>Legendary Resistance (2/Day).</strong></em> If the sea serpent fails a saving throw, it can choose to succeed instead. </p><p><em><strong>Siege Monster.</strong></em> The sea serpent deals double damage to objects and structures. </p>",
+ "number of attacks": 2,
+ "attacks": [
+  {
+   "type": "Melee Weapon Attack",
+   "to hit": "+12",
+   "reach": "15 ft.",
+   "target": "one target",
+   "hit": "20 (2d12 + 7) piercing damage plus 6 (1d12) cold damage",
+   "damage type": "piercing, cold"
+  },
+  {
+   "type": "Melee Weapon Attack",
+   "to hit": "+12",
+   "reach": "20 ft.",
+   "target": "one creature",
+   "hit": "29 (4d10 + 7) bludgeoning damage",
+   "damage type": "bludgeoning"
+  },
+  {
+   "type": "Melee Weapon Attack",
+   "to hit": "+12",
+   "reach": "20 ft.",
+   "target": "one target",
+   "hit": "13 (1d12 + 7) bludgeoning damage",
+   "damage type": "bludgeoning"
+  }
+ ],
+ "actions": "<p><em><strong>Multiattack.</strong></em> The sea serpent makes one Bite attack and one Constrict or Tail attack. </p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +12 to hit, reach 15 ft., one target. <em>Hit:</em> 20 (2d12 + 7) piercing damage plus 6 (1d12) cold damage. </p><p><em><strong>Constrict.</strong></em> <em>Melee Weapon Attack:</em> +12 to hit, reach 20 ft., one creature. <em>Hit:</em> 29 (4d10 + 7) bludgeoning damage, and the target is grappled (escape DC 20). Until this grapple ends, the target is restrained, and the sea serpent can't constrict another target. </p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +12 to hit, reach 20 ft., one target. <em>Hit:</em> 13 (1d12 + 7) bludgeoning damage. If the target is a creature, it must succeed on a DC 20 Strength saving throw or be pushed up to 30 feet away from the sea serpent and knocked prone. </p><p><em><strong>Rime Breath (Recharge 5-6).</strong></em> The sea serpent exhales a 60-foot cone of cold. Each creature in that area must make a DC 18 Constitution saving throw, taking 49 (9d10) cold damage on a failed save, or half as much damage on a successful one. </p>",
+ "legendary actions": "<p>Legendary Action Uses: 3. Immediately after another creature's turn, The ancient sea serpent can expend a use to take one of the following actions. The ancient sea serpent regains all expended uses at the start of each of its turns. </p><p><em><strong>Tail.</strong></em> The sea serpent makes one Tail attack. </p><p><em><strong>Bite (Costs 2 Actions).</strong></em> The sea serpent makes one Bite attack. </p>",
+ "description": "<p>Sea serpents rank alongside dragon turtles as some of the most feared predators of the deep and inspire many sailors' worst nightmares. Their strong fins propel them through the water at great speed. </p><p>Young sea serpents are agile hunters. They use reefs and natural camouflage to hide before they strike, picking off members of a ship's crew one by one.  Ancient sea serpents grow large enough to demolish whole ships, then feed at leisure on helpless sailors in the water.  At any age, a sea serpent attacks with terrible bites, a lashing tail, a constricting grip, and a frigid breath weapon that can leave sailors' corpses floating frozen amid the wreckage of their ships. </p><p>Sea serpents are as fiercely territorial as any other dragons, and they do not take kindly to ships passing over their domains without permission. Some can be appeased by offerings of treasure, but most demand that a ship's crew sacrifice one or more of their own. </p><p>Living amid the wreckage of sunken ships or in deep sea caves, sea serpents collect the cargo of the craft they sink, amassing great hoards of trade goods, sailors' trinkets, and pirates' booty. </p>"
+},
+{
+ "name": "Ancient Solar Dragon",
+ "size": "Gargantuan",
+ "type": "Dragon",
+ "alignment": "Neutral",
+ "associates": [],
+ "environments": [
+  "Varies"
+ ],
+ "armor class": "18 (natural armor)",
+ "hit points": "425 (23d20 + 184)",
+ "speed": "30 ft., Fly 120 ft. (hover)",
+ "str": "28",
+ "dex": "15",
+ "con": "26",
+ "int": "17",
+ "wis": "18",
+ "cha": "16",
+ "saving throws": "STR +9, DEX +9, CON +15, WIS +11, CHA +10",
+ "skills": "Perception +18, Stealth +9",
+ "damage immunities": "Radiant; Blinded",
+ "condition immunities": "Blinded",
+ "senses": "Darkvision 240 ft., Passive Perception 28",
+ "languages": [
+  "Draconic"
+ ],
+ "challenge": "21 (33,000 XP; PB +7)",
+ "traits": "<p><em><strong>Flyby.</strong></em> The dragon doesn't provoke opportunity attacks when it flies out of an enemy's reach.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p><p><em><strong>Nebulous Thoughts.</strong></em> Magical attempts to read the dragon's mind or glean its thoughts fail automatically.</p><p><em><strong>Siege Monster.</strong></em> The dragon deals double damage to objects and structures.</p><p><em><strong>Unusual Nature.</strong></em> The dragon doesn't require air.</p>",
+ "number of attacks": 3,
+ "attacks": [
+  {
+   "type": "Melee Weapon Attack",
+   "to hit": "+16",
+   "reach": "15 ft.",
+   "target": "one target",
+   "hit": "19 (2d10 + 9) piercing damage plus 18 (4d8) radiant damage",
+   "damage type": "piercing, radiant"
+  },
+  {
+   "type": "Melee Weapon Attack",
+   "to hit": "+16",
+   "reach": "10 ft.",
+   "target": "one target",
+   "hit": "16 (2d6 + 9) slashing damage",
+   "damage type": "slashing"
+  },
+  {
+   "type": "Ranged Spell Attack",
+   "to hit": "+11",
+   "reach": "120 ft.",
+   "target": "one target",
+   "hit": "14 (4d6) radiant damage",
+   "damage type": "radiant"
+  }
+ ],
+ "actions": "<p><em><strong>Multiattack.</strong></em> The dragon makes one Bite attack and two Claw attacks.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 15 ft., one target. <em>Hit:</em> 19 (2d10 + 9) piercing damage plus 18 (4d8) radiant damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 10 ft., one target. <em>Hit:</em> 16 (2d6 + 9) slashing damage.</p><p><em><strong>Solar Flare (Recharge 5-6).</strong></em> The dragon emits a blast of blinding light. Each creature in a 60-foot sphere centered on the dragon must make a DC 19 Constitution saving throw. On a failed save, a creature takes 55 (10d10) radiant damage and is blinded until the end of its next turn. On a successful save, a creature takes half as much damage and isn't blinded.</p><p><em><strong>Radiant Beam.</strong></em> <em>Ranged Spell Attack:</em> +11 to hit, range 120 ft., one target. <em>Hit:</em> 14 (4d6) radiant damage. If the target is a creature, it must succeed on a DC 19 Constitution saving throw or be blinded until the end of its next turn.</p>",
+ "bonus actions": "<p><em><strong>Blinding Presence.</strong></em> The dragon emits a flash of light. Each creature of the dragon's choice within 30 feet of it must succeed on a DC 19 Constitution saving throw or be blinded until the end of its next turn.</p>",
+ "legendary actions": "<p>Legendary Action Uses: 3. Immediately after another creature's turn, The dragon can expend a use to take one of the following actions. The dragon regains all expended uses at the start of each of its turns.</p><p><em><strong>Claw.</strong></em> The dragon makes one Claw attack.</p><p><em><strong>Radiant Beam (Costs 2 Actions).</strong></em> The dragon uses Radiant Beam.</p><p><em><strong>Blinding Presence (Costs 3 Actions).</strong></em> The dragon uses Blinding Presence.</p>",
+ "lair actions": "<p>On initiative count 20 (losing initiative ties), the dragon can take one of the following lair actions; the dragon can't take the same lair action two rounds in a row:</p><p><em><strong>Exploding Debris.</strong></em> The dragon causes a nearby object, such as a piece of an asteroid or an unattended piece of equipment, to explode. Each creature within 20 feet of the object must succeed on a DC 15 Dexterity saving throw or take 10 (3d6) bludgeoning damage.</p><p><em><strong>Gravity Flux.</strong></em> The dragon causes the gravity in a 30-foot-radius sphere within 120 feet of it to become warped. Each creature in that area must succeed on a DC 15 Strength saving throw or be knocked prone and have its speed reduced to 0 until the start of its next turn.</p><p><em><strong>Solar Fragment.</strong></em> The dragon conjures a fragment of solar energy that streaks toward a point within 120 feet of it. Each creature within 10 feet of that point must succeed on a DC 15 Dexterity saving throw or take 7 (2d6) fire damage and 7 (2d6) radiant damage.</p>",
+ "regional effects": "<p>The region surrounding a legendary solar dragon's lair is altered by the dragon's magic, creating one or more of the following effects:</p><p><em><strong>Light Manipulation.</strong></em> The dragon can, as a bonus action, create or dispel areas of bright light and dim light within 6 miles of its lair. The light extends up to 100 feet in any direction.</p><p><em><strong>Radiant Motifs.</strong></em> The natural environment within 6 miles of the lair is imbued with radiant energy, causing plants to sparkle, and crystals to glow with an inner light.</p><p><em><strong>Space Anomalies.</strong></em> Distortions in Wildspace appear within 1 mile of the lair. These anomalies cause disorientation. A creature that starts its turn in such an area must make a DC 15 Wisdom saving throw. On a failed save, the creature's speed is halved until the start of its next turn.</p><p><em><strong>Star-Gazing.</strong></em> The dragon's psionic presence can manifest in the minds of creatures who look at the stars within 6 miles of its lair. As an action, the dragon can cast the Scrying spell, requiring no spell components, and targeting any creature looking at the stars in that region.</p><p>If the dragon dies, the sparkling plants and glowing crystals fade over 1d10 days. The space anomalies dissipate immediately.</p>",
+ "description": "<p>Solar dragons, with their serpentine bodies and luminous, nebulous wings, are truly creatures of the void. These powerful and territorial carnivores claim entire Wildspace systems as their hunting grounds, feeding on space-dwelling creatures like kindori and scavvers. Unlike most dragons, solar dragons don't require air, making them perfectly suited for life in the airless expanse of Wildspace. They are generally wary of humanoids, viewing them as violent and tiresome. Trespassers in their lairs, especially those containing eggs, can expect fierce resistance. Solar dragon eggs are distinctive: obsidian black until close to hatching, when they become translucent, revealing the light of the unborn wyrmling's wings. They value food even more than treasure in Wildspace.</p>"
+},
+  {
+    "name": "Anhkolox",
+    "size": "Huge",
+    "type": "Undead",
+    "alignment": "Neutral Evil",
+    "associates": [],
+    "environments": [
+      "Varies"
+    ],
+    "armor class": "15 (natural armor)",
+    "hit points": "157 (15d12 + 60)",
+    "speed": "50 ft.",
+    "str": "22",
+    "dex": "11",
+    "con": "18",
+    "int": "4",
+    "wis": "14",
+    "cha": "2",
+    "skills": "Perception +6",
+    "damage immunities": "Poison",
+    "condition immunities": "Charmed, Exhaustion, Frightened, Poisoned",
+    "senses": "Darkvision 60 ft., Passive Perception 16",
+    "languages": "N/A",
+    "challenge": "9 (5,000 XP)",
+    "traits": "<p><em><strong>Unusual Nature.</strong></em> The anhkolox doesn't require air, food, drink, or sleep. </p>",
+    "number of attacks": 3,
+    "attacks": [
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+10",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "17 (2d10 + 6)",
+        "damage type": "piercing"
+      },
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+10",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "23 (5d6 + 6)",
+        "damage type": "piercing"
+      }
+    ],
+    "actions": "<p><em><strong>Multiattack.</strong></em> The anhkolox makes two Claw attacks and one Entrapping Rend attack. </p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +10 to hit, reach 5 ft., one target. <em>Hit:</em> 17 (2d10 + 6) piercing damage.  If the target is a Large or smaller creature, it must succeed on a DC 18 Strength saving throw or be pushed up to 20 feet in a horizontal direction of the anhkolox's choice. </p><p><em><strong>Entrapping Rend.</strong></em> <em>Melee Weapon Attack:</em> +10 to hit, reach 5 ft., one target.  <em>Hit:</em> 23 (5d6 + 6) piercing damage, and if the target is a Large or smaller creature, the target must succeed on a DC 18 Strength saving throw or be trapped in the anhkolox's rib cage and grappled (escape DC 18).  Until this grapple ends, the target is restrained, and the anhkolox can't use Entrapping Rend on another target. </p>",
+    "img url": "https://www.5etools.com/img/DSotDQ/Anhkolox.png",
+    "description": "<p>Anhkoloxes are vicious undead creatures created from the bones of bears and other beasts.  Their barbed bones grind and crack, often moving in seemingly impossible ways.  Anhkoloxes are driven by territorial instinct and a predatory urge to hunt and devour living prey.  They run on all fours and rear up onto their hind legs when they corner their quarry.  When they strike, they wallop foes about with their claws—they delight in knocking foes into pits full of jagged bones—and their barbed rib cage cracks open like a hunting trap to snap closed around a victim. </p>"
+  },
+  {
+    "name": "Arch-hag",
+    "size": "Large",
+    "type": "Fey",
+    "alignment": "Neutral Evil",
+    "environments": [
+      "Varies"
+    ],
+    "associates": [
+      "Hag"
+    ],
+    "armor class": "20",
+    "hit points": "333 (29d10 + 174)",
+    "speed": "40 ft.",
+    "str": "24",
+    "dex": "15",
+    "con": "23",
+    "int": "19",
+    "wis": "19",
+    "cha": "25",
+    "saving throws": "DEX +9, CON +6, WIS +11, CHA +7",
+    "skills": "Deception +14, Perception +11, Persuasion +21",
+    "damage resistances": "Cold, Fire, Psychic",
+    "condition immunities": "Charmed, Exhaustion, Frightened",
+    "senses": "Truesight 60 ft., Passive Perception 21",
+    "languages": "All",
+    "challenge": "21 (33,000 XP, or 41,000 in lair)",
+    "traits": "<p><em><strong>Coven Magic.</strong></em> While within 30 feet of at least two hag allies, the hag can cast one of the following spells, requiring no Material components, using the spell's normal casting time, and using Intelligence as the spellcasting ability (spell save DC 19): Augury, Find Familiar, Identify, Locate Object, Scrying, or Unseen Servant.  The hag must finish a Long Rest before using this trait to cast that spell again. </p><p><em><strong>Legendary Resistance (4/Day, or 5/Day in Lair).</strong></em> If the hag fails a saving throw, it can choose to succeed instead. </p><p><em><strong>Magic Resistance.</strong></em> The hag has Advantage on saving throws against spells and other magical effects. </p><p><em><strong>Spiteful Escape.</strong></em> When the hag drops to 0 Hit Points, it dies only if it is within 30 feet of its anathema (a thing the DM chooses as the hag's most hated thing).  Otherwise, the hag drops to 1 Hit Point and teleports to a harmless demiplane, and it can't return to the plane it left for 2d6 days.  When the hag teleports away, each creature within 60 feet of the space it left is cursed.  Until the curse ends, a creature has Disadvantage on ability checks and saving throws, and the hag knows its location anywhere in the multiverse. </p>",
+    "number of attacks": 2,
+    "attacks": [
+      {
+        "type": "Melee or Ranged Attack",
+        "to hit": "+14",
+        "reach": "10 ft. or range 60 ft.",
+        "hit": "17 (3d6 + 7)",
+        "damage type": "Force"
+      }
+    ],
+    "actions": "<p><em><strong>Multiattack.</strong></em> The hag makes two Spectral Claw attacks and uses Crackling Wave. </p><p><em><strong>Spectral Claw.</strong></em> <em>Melee or Ranged Attack Roll:</em> +14, reach 10 ft. or range 60 ft. <em>Hit:</em> 17 (3d6 + 7) Force damage.  If the target is a Large or smaller creature, it has the Prone condition. </p><p><em><strong>Crackling Wave.</strong></em> Dexterity Saving Throw: DC 22, each creature in a 60-foot Cone. Failure: 32 (5d12) Lightning damage. Success: Half damage.  Failure or Success: The target is cursed until the end of the hag's next turn.  The target can't take Reactions until the curse ends. </p><p><em><strong>Spellcasting.</strong></em> The hag casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 22): </p><ul><li>At will: Detect Thoughts, Dimension Door, Dispel Magic, Hypnotic Pattern</li><li>2/day each: Mass Suggestion, Modify Memory, Plane Shift</li></ul>",
+    "bonus actions": "<p><em><strong>Witch Strike.</strong></em> Each creature cursed by the hag and within 60 feet of it takes 14 (4d6) Lightning damage. </p>",
+    "reactions": "<p><em><strong>Tongue Twister.</strong></em> The hag casts Counterspell in response to that spell's trigger, using the same spellcasting ability as Spellcasting.  If the target fails its saving throw, it is cursed until the end of its next turn.  Until the curse ends, the target can't cast spells with a Verbal component, and when it speaks, it says the opposite of what it means. </p>",
+    "legendary actions": "<p>Legendary Action Uses: 3 (4 in Lair). Immediately after another creature's turn, The arch-hag can expend a use to take one of the following actions.  The arch-hag regains all expended uses at the start of each of its turns. </p><p><em><strong>Hag's Swipe.</strong></em> The hag makes one Spectral Claw attack. </p><p><em><strong>Malicious Magic.</strong></em> The hag uses Spellcasting to cast Dimension Door or Hypnotic Pattern.  The hag can't take this action again until the start of its next turn. </p>",
+    "lair actions": "<p>The region containing an arch-hag's lair is altered by its presence, creating the following effects:</p><p><em><strong>Lapsus Linguae.</strong></em> Creatures (excluding the hag and its allies) within 1 mile of the lair subtract 1d10 from any ability check they make when they take the Influence action. </p><p><em><strong>Meddlesome Magic.</strong></em> Whenever a creature other than the hag or its allies finishes a Long Rest while within 1 mile of the lair, the next time that creature casts a spell using a spell slot, it also casts Confusion centered on itself.  The spell uses the creature's spellcasting ability and doesn't require Concentration. </p><p>If the arch-hag is destroyed or moves its lair elsewhere, these effects end immediately. </p>",
+    "img url": "https://www.5etools.com/img/MM/Arch-hag.png",
+    "description": "<p>Immortal and unpredictable, arch-hags hoard secrets and strike magical bargains, altering fate to indulge their fickle whims.  These timeless schemers pursue the secrets of the multiverse and work strange magic in pursuit of their inscrutable goals.  Arch-hags are unpredictable, self-interested, and greedy, with bizarre fascinations and affectations. Nevertheless, they often make deals to further their plots.  These hags are fonts of secret knowledge, particularly lore regarding forbidden magic and multiversal secrets.  They might share their knowledge, but their secrets always have a price.  In trade for their secrets, arch-hags might request peculiar errands, valuable magic items, or preternatural currency, like one's memories, a year of one's life, or the ability to cry.  Most arch-hags avoid battle, but if forced to fight, they unleash dangerous magic, such as spectral claws, arcing lightning, and mind-bending spells.  An arch-hag can curse other magic-users, confounding the spellcasters' incantations and forcing the spellcasters to say the opposite of what they mean.  Even if an arch-hag is brought low, its preparations allow it to magically slip away and begin plotting its revenge.  Every arch-hag has a unique weakness tied to a fateful encounter the hag had in the past or something that embodies the antithesis of the hag's magic.  A hag goes out of its way to keep this vulnerability secret.  Although an arch-hag isn't physically harmed by its weakness, it can be destroyed only while its weakness is nearby.  Roll on or choose a result from the Arch-hag Anathemas table to inspire an arch-hag's weakness. </p>"
+  },
+  {
+    "name": "Archpriest",
+    "size": "Small or Medium",
+    "type": "Humanoid",
+    "alignment": "Neutral",
+    "associates": [],
+    "environments": [
+      "Varies"
+    ],
+    "armor class": "16",
+    "hit points": "240 (32d8 + 96)",
+    "speed": "30 ft.",
+    "str": "16",
+    "dex": "12",
+    "con": "17",
+    "int": "14",
+    "wis": "21",
+    "cha": "14",
+    "saving throws": "STR +7, DEX +1, CON +7, INT +6, WIS +9, CHA +2",
+    "skills": "Insight +9, Medicine +9, Perception +9, Religion +10",
+    "senses": "Passive Perception 19",
+    "languages": "Common plus two other languages",
+    "challenge": "12 (8,400 XP)",
+    "actions": "<p><em><strong>Multiattack.</strong></em> The archpriest makes three Radiant Burst attacks. </p><p><em><strong>Radiant Burst.</strong></em> Melee or Ranged Attack Roll: +9, reach 5 ft. or range 60 ft. <em>Hit:</em> 27 (4d10 + 5) Radiant damage. </p><p><em><strong>Holy Word (Recharge 4-6).</strong></em> Wisdom Saving Throw: DC 17, each enemy in a 20-foot Emanation originating from the archpriest.  <em>Failure:</em> 21 (6d6) Radiant damage, and the target has the Stunned condition until the end of the archpriest's next turn.  <em>Success:</em> Half damage only.</p><p><em><strong>Spellcasting.</strong></em> The archpriest casts one of the following spells, requiring no Material components and using Wisdom as the spellcasting ability (spell save DC 17):</p><ul><li>At will: Light, Thaumaturgy</li><li>1/day each: Flame Strike (level 6 version), Greater Restoration, Raise Dead, Zone of Truth</li></ul>",
+    "bonus actions": "<p><em><strong>Divine Aid (3/Day).</strong></em> The priest casts Bless, Dispel Magic, Healing Word, or Lesser Restoration, using the same spellcasting ability as Spellcasting. </p>",
+    "img url": "https://www.5etools.com/img/MM/Archpriest.png",
+    "description": "<p>By forging connections with divine beings and mastering mystical truths, archpriests become conduits for godly intentions and other supernatural forces.  Their magic allows them to work wonders, whether to share the benevolence of their faiths or to vent divine wrath.  Some archpriests attract vast followings as they claim to speak for divine forces, while others undertake personal spiritual journeys and seek to transcend mortal concerns. </p><p>Priests harness the power of faith to work miracles.  These religious adherents are as diverse as the faiths they follow.  Some obey gods and their servants, while others live by age-old creeds.  Belief guides priests' actions and their magic, which they use to shape the world in line with their ideologies. </p>"
+  },
+  {
+    "name": "Ancient Time Dragon",
+    "size": "Gargantuan",
+    "type": "Dragon",
+    "alignment": "Neutral",
+    "associates": [],
+    "environments": [
+      "Mountain",
+      "Wasteland"
+    ],
+    "armor class": "22 (Natural Armor)",
+    "hit points": "574 (28d20 + 280)",
+    "speed": "60 ft., burrow 60 ft., fly 120 ft., swim 60 ft.",
+    "str": "30",
+    "dex": "14",
+    "con": "30",
+    "int": "28",
+    "wis": "28",
+    "cha": "28",
+    "saving throws": "DEX +10, CON +17, WIS +16, CHA +16",
+    "skills": "History +17, Perception +23, Stealth +10",
+    "damage immunities": "Necrotic, Psychic, Radiant; Bludgeoning, Piercing, and Slashing from Nonmagical Attacks",
+    "condition immunities": "Charmed, Exhaustion, Frightened, Paralyzed, Stunned",
+    "senses": "Blindsight 90 ft., Darkvision 240 ft., Truesight 120 ft., Passive Perception 33",
+    "languages": [
+      "All",
+      "Telepathy 120 ft"
+    ],
+    "challenge": "30 (155,000 XP)",
+    "traits": "<p><em><strong>Innate Spellcasting (Psionics).</strong></em> The dragon's innate spellcasting ability is Wisdom (spell save DC 24). It can innately cast the following spells, requiring no components:</p><ul><li>At will: <em>clairvoyance, comprehend languages, detect magic, fabricate, legend lore, locate creature, locate object, Rary's telepathic bond, sending, tongues</em></li><li>3/day each: <em>dream, foresight, plane shift, scrying, teleport, time stop</em></li><li>1/day each: <em>astral projection, demiplane, gate, wish</em></li></ul><p><em><strong>Legendary Resistance (5/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p><p><em><strong>Limited Magic Immunity.</strong></em> The dragon can't be affected or detected by spells or other magical effects, except for the following conditions: if it chooses to be affected, if it casts a spell using a spell slot, or if the magical effect is a 9th-level spell. It has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Temporal Flux.</strong></em> Any creature that starts its turn within 30 feet of the dragon must succeed on a DC 25 Constitution saving throw or be affected by a random temporal effect for 1 minute or until the dragon is incapacitated. Roll a d4 and consult the following table:</p><p>1. The creature's speed is halved.</p><p>2. The creature has disadvantage on attack rolls and ability checks.</p><p>3. The creature can't take reactions.</p><p>4. The creature takes 22 (4d10) force damage at the start of each of its turns.</p><p>A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p>",
+    "number of attacks": 3,
+    "attacks": [
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+17",
+        "reach": "20 ft.",
+        "target": "one target",
+        "hit": "21 (2d10 + 10)",
+        "damage type": "bludgeoning"
+      },
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+17",
+        "reach": "15 ft.",
+        "target": "one target",
+        "hit": "17 (2d6 + 10)",
+        "damage type": "slashing"
+      },
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+17",
+        "reach": "20 ft.",
+        "target": "one target",
+        "hit": "28 (4d6 + 10)",
+        "damage type": "piercing"
+      }
+    ],
+    "actions": "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes one Bite attack, two Claw attacks, and one Tail attack.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +17 to hit, reach 20 ft., one target. <em>Hit:</em> 21 (2d10 + 10) piercing damage. If the target is a creature, it must succeed on a DC 25 Constitution saving throw or be afflicted by the Slow spell for 1 minute.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +17 to hit, reach 15 ft., one target. <em>Hit:</em> 17 (2d6 + 10) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +17 to hit, reach 20 ft., one target. <em>Hit:</em> 28 (4d6 + 10) piercing damage. If the target is a creature, it must succeed on a DC 25 Strength saving throw or be knocked prone.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 24 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Temporal Breath (Recharge 5-6).</strong></em> The dragon exhales a cone of raw temporal energy in a 90-foot cone. Each creature in that area must make a DC 25 Dexterity saving throw, taking 77 (14d10) force damage on a failed save, or half as much damage on a successful one. On a failed save, a creature is also affected by the Time Stop spell for 1d4 rounds (as if the dragon cast the spell on itself).</p>",
+    "reactions": "<p><em><strong>Temporal Rip.</strong></em> When a creature the dragon can see within 60 feet takes damage, the dragon can use its reaction to rewind time for that creature, causing the creature to regain 15 (2d10 + 4) hit points and the damage to be nullified. The dragon can use this reaction a number of times equal to its Wisdom modifier (once per turn).</p>",
+    "legendary actions": "<p>The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn.</p><p><em><strong>Detect.</strong></em> The dragon makes a Wisdom (Perception) check.</p><p><em><strong>Tail Attack.</strong></em> The dragon makes a Tail attack.</p><p><em><strong>Wing Attack (Costs 2 Actions).</strong></em> The dragon beats its wings. Each creature within 15 feet of the dragon must succeed on a DC 25 Dexterity saving throw or take 17 (2d6 + 10) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.</p>",
+    "lair actions": "<p>On initiative count 20 (losing initiative ties), the dragon can take a lair action to cause one of the following effects; the dragon can't use the same effect two rounds in a row:</p><ul><li>The dragon chooses a point it can see within 120 feet of it. All creatures within a 20-foot radius of that point must succeed on a DC 25 Wisdom saving throw or be affected by the Slow spell until initiative count 20 on the next round.</li><li>The dragon chooses a creature it can see within 60 feet of it. The creature must succeed on a DC 25 Constitution saving throw or be stunned until initiative count 20 on the next round.</li><li>The dragon creates a localized temporal distortion. All creatures within 30 feet of the dragon have their speed reduced to 0 until initiative count 20 on the next round.</li></ul>",
+    "regional effects": "<p>The region containing a legendary time dragon's lair is warped by the dragon's presence, which creates one or more of the following effects:</p><ul><li>Time flows strangely within 6 miles of the lair. Each creature within that area must succeed on a DC 25 Wisdom saving throw or experience brief temporal distortions, causing them to either lose their action or gain an extra action on their next turn (dragon's choice). A creature can only be affected by this effect once every 24 hours.</li><li>Localized pockets of temporal stasis appear within 1 mile of the lair. A creature that enters such a pocket for the first time on a turn or starts its turn there must succeed on a DC 25 Constitution saving throw or be paralyzed until the start of its next turn.</li><li>The dragon's temporal presence causes the land and structures within 10 miles of its lair to slowly regress to an earlier state. Buildings become older, ruins become intact, and plant life reverts to an earlier stage of growth.</li></ul><p>If the dragon dies, these effects fade over 1d10 days.</p>",
+    "img url": "https://www.5etools.com/img/VGM/Ancient Time Dragon.png",
+    "description": "<p>Time dragons are enigmatic and powerful creatures, beings of pure temporal energy that exist outside the normal flow of time. They are obsessed with the past, present, and future, often seeking to observe and manipulate key events to their own mysterious ends. Unlike other dragons, time dragons do not hoard material wealth; instead, they collect rare and unique moments in history, preserving them within their lairs as a form of temporal archive. They are intelligent and cunning, often employing intricate plans that unfold over centuries, making them difficult to predict or thwart. Ancient time dragons are rarely seen, preferring to observe from a distance or operate through proxies. When they do interact with the mortal world, their motives are often inscrutable, their actions seemingly random, but always serving a greater, unseen purpose within the fabric of time itself.</p>"
+  },
+  {
+    "name": "Android",
+    "size": "Medium",
+    "type": "Construct",
+    "alignment": "Lawful Neutral",
+    "associates": [],
+    "environments": [
+      "Urban"
+    ],
+    "armor class": "15 (Natural Armor)",
+    "hit points": "78 (12d8 + 24)",
+    "speed": "30 ft.",
+    "str": "16",
+    "dex": "14",
+    "con": "14",
+    "int": "12",
+    "wis": "10",
+    "cha": "8",
+    "saving throws": "STR +6, DEX +5",
+    "skills": "Perception +3, Stealth +5",
+    "damage resistances": "Bludgeoning, Piercing, and Slashing from Nonmagical Attacks",
+    "condition immunities": "Charmed, Exhaustion, Frightened, Paralyzed, Poisoned",
+    "senses": "Darkvision 60 ft., Passive Perception 13",
+    "languages": [
+      "Common",
+      "one other language"
+    ],
+    "challenge": "5 (1,800 XP)",
+    "traits": "<p><em><strong>Constructed Nature.</strong></em> The android doesn't require air, food, drink, or sleep.</p><p><em><strong>False Appearance.</strong></em> While the android remains motionless, it is indistinguishable from a normal humanoid.</p><p><em><strong>Integrated Weapon.</strong></em> The android's unarmed strike deals 1d6 + 3 bludgeoning damage. This attack is a magic weapon.</p>",
+    "number of attacks": 2,
+    "attacks": [
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+6",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "10 (2d6 + 3)",
+        "damage type": "bludgeoning"
+      },
+      {
+        "type": "Ranged Weapon Attack",
+        "to hit": "+5",
+        "reach": "80/320 ft.",
+        "target": "one target",
+        "hit": "9 (2d6 + 2)",
+        "damage type": "piercing"
+      }
+    ],
+    "actions": "<p><em><strong>Multiattack.</strong></em> The android makes two Integrated Weapon attacks or two Energy Pistol attacks.</p><p><em><strong>Integrated Weapon.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft., one target. <em>Hit:</em> 10 (2d6 + 3) bludgeoning damage.</p><p><em><strong>Energy Pistol.</strong></em> <em>Ranged Weapon Attack:</em> +5 to hit, range 80/320 ft., one target. <em>Hit:</em> 9 (2d6 + 2) piercing damage.</p>",
+    "img url": "https://www.5etools.com/img/MM/Android.png",
+    "description": "<p>Androids are artificial humanoids, intricate constructs designed to mimic organic life with uncanny accuracy. Created for a myriad of purposes, from labor and servitude to espionage and companionship, they possess advanced artificial intelligence that grants them a semblance of sentience and personality. While some androids are emotionless machines, others develop complex internal lives, experiencing emotions and desires similar to their biological counterparts. Their metallic skeletal structures are often covered by synthetic skin and hair, allowing them to blend seamlessly into humanoid societies. Many androids are equipped with integrated tools and weapons, making them versatile and formidable in various situations. Despite their often intricate designs, androids are still constructs at heart, subject to the commands of their creators or the programming instilled within them. However, some androids break free of their programming, embarking on journeys of self-discovery and challenging the very definitions of life and consciousness.</p>"
+  },
+  {
+    "name": "Animal Lord",
+    "size": "Medium",
+    "type": "Humanoid",
+    "alignment": "Any Alignment",
+    "environments": [
+      "Forest",
+      "Grassland",
+      "Jungle",
+      "Mountain",
+      "Swamp",
+      "Urban"
+    ],
+    "associates": [
+      "Animal"
+    ],
+    "armor class": "17 (Leather Armor, Shield)",
+    "hit points": "135 (18d8 + 54)",
+    "speed": "30 ft.",
+    "str": "18",
+    "dex": "16",
+    "con": "16",
+    "int": "14",
+    "wis": "20",
+    "cha": "18",
+    "saving throws": "STR +7, DEX +6, CON +6, WIS +8, CHA +7",
+    "skills": "Animal Handling +8, Nature +5, Perception +8, Survival +8",
+    "senses": "Passive Perception 18",
+    "languages": [
+      "Common",
+      "Sylvan",
+      "Terran"
+    ],
+    "challenge": "10 (5,900 XP)",
+    "traits": "<p><em><strong>Animal Empathy.</strong></em> The animal lord has advantage on all Charisma (Animal Handling) checks.</p><p><em><strong>Speak with Animals.</strong></em> The animal lord can communicate with animals as if they shared a common language.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the animal lord fails a saving throw, it can choose to succeed instead.</p><p><em><strong>Magic Resistance.</strong></em> The animal lord has advantage on saving throws against spells and other magical effects.</p>",
+    "number of attacks": 2,
+    "attacks": [
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+7",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "11 (2d6 + 4)",
+        "damage type": "piercing"
+      },
+      {
+        "type": "Ranged Weapon Attack",
+        "to hit": "+6",
+        "reach": "150/600 ft.",
+        "target": "one target",
+        "hit": "9 (1d8 + 3)",
+        "damage type": "piercing"
+      }
+    ],
+    "actions": "<p><em><strong>Multiattack.</strong></em> The animal lord makes two attacks.</p><p><em><strong>Spear.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft., one target. <em>Hit:</em> 11 (2d6 + 4) piercing damage, or 13 (2d8 + 4) piercing damage if used with two hands to make a melee attack.</p><p><em><strong>Longbow.</strong></em> <em>Ranged Weapon Attack:</em> +6 to hit, range 150/600 ft., one target. <em>Hit:</em> 9 (1d8 + 3) piercing damage.</p><p><em><strong>Command Animals (Recharge 5-6).</strong></em> The animal lord can magically command up to three beasts it can see within 60 feet of it. Each beast must succeed on a DC 16 Wisdom saving throw or be charmed by the animal lord for 1 minute. While charmed, the beast is friendly to the animal lord and obeys its verbal commands. If the animal lord or its companions harm the charmed beast, the effect ends. A charmed beast can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p><p><em><strong>Summon Animals (1/Day).</strong></em> The animal lord can magically summon 2d4 beasts of challenge rating 1/2 or lower, or 1d4 beasts of challenge rating 1, or one beast of challenge rating 2. The summoned beasts appear in unoccupied spaces within 60 feet of the animal lord and act as allies of the animal lord. They remain for 1 hour, until they drop to 0 hit points, or until the animal lord dies or dismisses them as a bonus action.</p>",
+    "legendary actions": "<p>The animal lord can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The animal lord regains spent legendary actions at the start of its turn.</p><p><em><strong>Move.</strong></em> The animal lord moves up to its speed without provoking opportunity attacks.</p><p><em><strong>Animal Command.</strong></em> The animal lord uses its Animal Empathy trait or makes a Wisdom (Animal Handling) check.</p><p><em><strong>Nature's Ally (Costs 2 Actions).</strong></em> The animal lord causes one beast within 60 feet of it that it can see to make one attack with its reaction.</p>",
+    "img url": "https://www.5etools.com/img/Bestiary/Animal%20Lord.png",
+    "description": "<p>Animal lords are powerful individuals who possess a deep connection to the natural world, particularly to animals. They are often chosen by primal spirits or fey powers to serve as protectors of the wild and its creatures. Animal lords can appear as any humanoid race, but they always exude an aura of wild majesty and untamed power. They are typically found in remote wilderness areas, living in harmony with the animals they protect and often acting as guardians against those who would exploit or harm the natural balance. While benevolent to nature, they can be fierce and relentless in their defense of the wild, calling upon their animal allies to overwhelm their foes. They are respected and revered by beasts, and can communicate with them effortlessly, often understanding the subtle nuances of animal behavior better than any scholar. Some animal lords lead reclusive lives, while others actively seek out those who threaten their domains, bringing the wrath of the wild down upon them.</p>"
+  }
 ];
+
 module.exports = monsters;
