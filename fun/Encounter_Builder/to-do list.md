@@ -74,93 +74,564 @@ Check monsters.js to see if the following monsters are listed. If they are not, 
 
 >> about 100 monsters are missing their associates property.
 
-Barbarian
-Bard
+Aarakocra Aeromancer
+Aarakocra Simulacrum
+Aarakocra Skirmisher
+Aarakocra Spelljammer
+Aartuk Elder
+Aartuk Starhorror
+Aartuk Weedling
+Aberrant Cultist
+Aberrant Spirit
+Aberrant Zealot
+Aberrant Zealot (Tentacled)
+Abhorrent Overlord
+Abyssal Chicken
+Abyssal Wretch
+Adult Emerald Dragon
+Adult Lunar Dragon
+Adult Moonstone Dragon
+Adult Oblex
+Adult Red Dracolich
+Adult Red Dragon
+Adult Sapphire Dragon
+Adult Silver Dragon
+Adult Solar Dragon
+Adult Time Dragon
+Adult Topaz Dragon
+Adult White Dragon
+Advanced Detention Drone
+Aerosaur
+Air
+Air  Myrmidon
+Akroan Hoplite
+Albino Dwarf Spirit Warrior
+Albino Dwarf Warrior
+Aldani (Lobsterfolk)
+Almiraj
+Alseid
+Altisaur
+Amber Golem
+Ambitious Assassin
+Ambush Drake
+Amethyst Greatwyrm
+Amphisbaena
+Anchorite of Talos
+Ancient Deep Dragon
+Ancient Dragon Turtle
+Ancient Emerald Dragon
+Ancient Lunar Dragon
+Ancient Sapphire Dragon
+Ancient Sea Serpent
+Ancient Solar Dragon
+Ancient Time Dragon
+Android
+Anhko
+Animal Lord
+Animated Armor Detention Drone
+Animated Ballista
+Animated Broom
+Animated Chained Library
+Animated Drow Statue
+Animated Flying Sword
+Animated Halberd
+Animated Jade Serpent
+Animated Object
+Animated Rug of Shering
+Animated Staff
+Animated Statue of Lolth
+Animated Stove
+Animated Table
+Animated Tile Chimera
+Animated Wand
+Animatronic Allosaurus
+Ankylosaurus Zombie
+Anvilwrought Raptor
+Aphemia
+Apprentice
+Aquatic Ghoul
+Aquatic Troll
+Arasta
+Arch-hag
+Archaic
+Archelon
+Archpriest
+Armored Saber-Toothed Tiger
+Art  Mascot
+Ashen Animated Armor
+Ashen Flying Sword
+Ashen Heir Anarchist
+Ashen Heir Assassin
+Ashen Heir Mage
+Ashen Heir Veteran
+Ashen Knight
+Ashen Rider
+Ashen Shambling Mound
+Ashen Veteran
+Ashen Warhorse
+Aspirant of the Comet
+Assassin Vine
+Asteria
+Astral Blight
+Astral Elf Aristocrat
+Astral Elf Commander
+Astral Elf Honor Guard
+Astral Elf Star Priest
+Astral Elf Warrior
+Athar Null
+Atropal
+Aurak Draconian
+Aurnozci
+Aurumach Rilmani
+Aurumvorax
+Aurumvorax Den Leader
+Autognome
+Avatar of Death
+Avoral Guardinal
+Awakened  Wasp
+Awakened Brown Bear
+Awakened Elk
+Awakened Rat
+Awakened White Moose
+Awakened Zurkhwood
+Axe of Mirabar Soldier
+Azer Pyromancer
+Azer Sentinel
+B'rohg
+Baaz Draconian
+Baernaloth
+Bag Jelly
+Bakunawa
+Bandit Crime Lord
+Bandit Deceiver
+Bariaur Wanderer
+Barkburr
 Barlgura
-Beast
-Berbalang
-Biomancer
+Barovian Commoner
+Barovian Scout
+Barovian Witch
+Barrowghast
+Battlehammer Dwarf
+Beder
+Beder Zombie
+Belashyrra
+Beledros Witherbloom
+Berserker Commander
+Bestial Spirit
+Big Xorn
 bjurer
+Black Earth Guard
+Black Earth Priest
+Black Gauntlet of Bane
+Black Greatwyrm
+Black Rose Bearer
+Blade Lieutenant
+Blade Scout
+Blazebear
+Bleak Cabal Void Soother
 Blistercoil Weird
+Blob of Annihilation
+Blood-Toll Harpy
+Bloodfray
+Blue Greatwyrm
 Blue slaad
+Bodytaker
 Boggle
+Bone Knight
+Bone Roc
+Bone Whelk
+Boneless
+Booyahg Booyahg Booyahg
+Booyahg Caster
+Booyahg Slave of the
+Booyahg Slave of the Arch
+Booyahg Slave of the Great Old One
+Booyahg Whip
+Booyahg Wielder
 Borborygmos
+Bore Worm
+Borthak
+Boss Augustus
+Boss Delour
+Bozak Draconian
+Brackish Trudge
+Brain Breaker
+Brain in a Jar
+Brass Greatwyrm
+Braxat
+Brazen Gorgon
+Breath Drinker
+Bridesmaid of Zuggtmoy
+Brigganock
+Broken King Antigonos
+Bronze Greatwyrm
+Bronze Sable
 Bronze scout
+Broom of Animated Attack
+Brown Scavver
+Brusipha
+Bugbear Gardener
+Bugbear Lieutenant
+Bugbear Stalker
+Bulette Pup
 Bulezau
 Bullywug
-Cadaver collector
+Bullywug Bog Sage
+Bullywug Croaker
+Bullywug Knight
+Bullywug Royal
+Bullywug Warrior
+Burnished Hart
+Burrowshark
+Cackler
+Cadaver Collector
+Cairnwight
 Cambion
+Campestri
+Canary
 Canoloth
+Canopic Golem
+Carnivorous Flower
+Carrion Crawler
+Carrion Ogre
+Carrionette
+Cataclysm
 Category 1 Krasis
 Category 2 Krasis
 Category 3 Krasis
 Catoblepas
+Cave Badger
 Cave Bear
 Cave Fisher
+Cdrith
+Centaur Mummy
+Centaur Trooper
+Centaur Warden
+Centipede
+Ceratops
+Chamberlain of Zuggtmoy
 Champion
+Champion of Gorm
+Champion of Madarua
+Champion of Usamigaras
+Changeling
+Chaos Quadrapod
+Chardalyn Berserker
+Chardalyn Dragon
 Chasme
 Chemister
+Child
+Chimeric Baboon
+Chimeric Cat
+Chimeric Fox
+Chimeric Hare
+Chimeric Rat
+Chimeric Weasel
 Chitine
 Choldrith
+Chuul Spore Servant
+Chwinga
+Chwinga Astronaut
+Cinder Hulk
+Citadel Spider
+Clawfoot
+Clay Gladiator
 Cleric
+Cloaker Mutate
+Clockwork Behir
+Clockwork Defender
+Clockwork Dragon
+Clockwork Mule
+Clockwork Observer
+Clockwork Stone Defender
+Cloud
+Cloud  Destiny Gambler
+Cloud  Ghost
+Cloud  Noble
+Cloud  of Evil Air
+Cloud  Smiling One
+Cockatrice Regent
+Cogwork Archivist
+Coldlight Walker
+Colossus
+Colossus of Akros
+Combat Robot
+Conservatory Student
+Copper Greatwyrm
+Coral Snake
 Corpse Flower
+Corrupted Avatar of Lurue
 Cosmotronic Blastseeker
 Couatls
 Cougar
 Counterflux Blastseeker
+Cradle of the Cloud Scion
+Cradle of the Fire Scion
+Cradle of the Frost Scion
+Cradle of the Hill Scion
+Cradle of the Stone Scion
+Cradle of the Storm Scion
+Crag Cat
 Cranium Rat
+Cranium Rat Squeaker
+Cranium Rat Squeaker Swarm
+Crawling Claw
+Crayfish
+Crimson Helmed Horror
+Crocodile
+Crow
+Crushing Wave Priest
+Crushing Wave Reaver
+Crystal Battleaxe
+Crystal Golem
+Crystal Greatwyrm
+Cultist Hierophant
+Cuprilach Rilmani
+Cyclops Oracle
+Cyclops Sentry
+Dabus
 Daelkyr
 Daelkyr (Belashyrra, Dyrrn)
+Daemogoth
+Daemogoth Titan
+Dancing Item
 Dao
+Dark Tide Knight
+Darkweaver
+Deadbark Dryad
+Deadstone Cleft Stone
+Death  Reaper
+Death  Shrouded One
+Death Cultist
+Death Knight Aspirant
+Death Slaad
+Death's Head
+Death's Head of Bhaal
+Deathwolf
+Decaton Modron
+Deck Defender
+Deep Crow
 Deep Dragon Wyrmling
+Deep hé
 Deep rothe
 Deep Sashelas
 Deep Scion
+Degloth
 Deinonychus
 Demon
+Demos Magen
 Derro
+Derro Apprentice
+Derro Raider
 Derro Savant
+Detached Shadow
 Devas
 Devil
 Devkarin
-Devkarin lich
+Devkarin Lich
 Devourer
 Dhergoloth
+Diatryma
 Dignitary
+Dining Table Mimic
+Dinosaur Skeleton
 Dinosaurs (Clawfoot, Fastieth)
+Dire Worg
+Disciple
+Displacer  Kitten
+Distended Corpse
+Dohwar
+Dolgrim
 Dolphin
 Dolphin Delighter
+Doomguard  Blade
+Doomguard Doom Lord
+Doomwake
+Draconian Dreadnought
+Draconian Foot Soldier
+Draconian Infiltrator
+Draconian Mage
+Draconian Mastermind
 Draconians (various types listed in list, but stat blocks not specified which types)
+Draconic Shard
+Draconic Spirit
+Dracophage Subject
+Dragon (Moonstone)
+Dragon Army Dragonnel
+Dragon Army Officer
+Dragon Army Soldier
+Dragon Hunter
+Dragon Tortoise
+Dragon Turtle Wyrmling
 Dragon Turtles (Young, Ancient)
+Dragonblood
+Dragonbone Golem
 Dragonborn
+Dragonborn of Bahamut
+Dragonborn of Sardior
+Dragonborn of Tiamat
+Dragonclaw
+Dragonfang
+Dragonflesh Abomination
+Dragonflesh Grafter
+Dragonfly
+Dragonsoul
+Dragonwing
+Drake Companion
+Dread Warrior
+Drow Acolyte
+Drow Bandit
+Drow Commander
+Drow Commoner
+Drow Cultist
+Drow Gunslinger
+Drow Noble
+Drow Scout
+Drow Spore Servant
+Drow Spy
+Drowned Ascetic
+Drowned Assassin
+Drowned Blade
+Drowned Master
+Dryad Spirit
+Duergar Alchemist
+Duergar Darkhaft
+Duergar Keeper of the Flame
+Duergar Spore Servant
+Duergar Spy
+Dullahan
+Dust Hulk
 Dwarf explorer
 Dwarf prospector
+Dwarf Skeleton
 Dybbuk
+Dyrrn
+Earth  Myrmidon
+Earth Elemental
+Eater of Hope
+Eater of Knowledge
+Eblis
+Echo of Demogorgon
 Egg hunter (hatchling, adult)
+Egg Hunter Adult
+Egg Hunter Hatchling
 Eidolon
+Elder  Lizard
+Elder Black Pudding
+Elder Brain
+Elder Brain Dragon
+Elder Oblex
+Eldritch Horror Hatchling
 Elemental General
+Elemental Myrmidon, Earth
+Elemental Myrmidon, Fire
+Elemental Myrmidon, Water
 Elemental Prince of Evil Fire
+Elise
+Emberhorn Minotaur
 Emerald Dragon
+Emerald Dragon Wyrmling
+Emerald Enclave Scout
+Emerald Greatwyrm
+Empyrean Iota
+Encephalon Cluster
+Encephalon Gemmule
+Enchanting Infiltrator
+Engineer
+Enormous Tentacle
 Enslaved Goblin
 Enslaved Troll
+Equinal Guardinal
+Esthetic
+Eternal Flame Guardian
+Eternal Flame Priest
+Ettin Ceremorph
+Euryale
+Evil Mage
 Evoker
-Evoker wizard
+Evoker Wizard
+Expeditious Messenger
+Expert
+Eye Monger
 Eyedrake
+Eyestalk of Gzemnid
 Faerie Dragon (Young)
+Faerie Dragon Adult
+Faerie Dragon Youth
+Falcon
+False Lich
+Farastu Demodand
+Fastieth
+Fate Hag
+Fated Shaker
+Fathomer
+Feathergale Knight
+Felbarren Dwarf
 Felidar
-Female steeder
+Female Steeder
+Fensir Devourer
+Fensir Skirmisher
+Feral Ashenwight
+Ferrumach Rilmani
 Fey
 Fiend
 Fighter
+Firbolg Primeval Warden
+Firbolg Wanderer
+Fire  Dreadnought
+Fire  Forgecaller
+Fire  Myrmidon
+Fire  of Evil Fire
+Fire  Royal Headsman
+Fire  Servant
+Fire Beetle
+Fire Hellion
+Firegaunt
+First-Year Student
+Fish
+Fist of Bane
+Five-Armed Troll
 Flail Snail
 Flame-kin (azer)
+Flamewrath
+Flaming Skeleton
+Fleecemane Lion
+Flesh Colossus
+Flesh Meld
 Flind
+Flitterstep Eidolon
+Flumph
 Flux Blastseeker
 Fluxcharger
+Fly
+Flying Dagger
 Flying Horror
+Flying Monkey
+Flying Rocking Horse
+Flying Shield
+Flying Spider
+Flying Staff
+Flying Trident
 Fomorian
+Fomorian Deep Crawler
+Fomorian Noble
+Fomorian Warlock of the Dark
+Four-Armed Gargoyle
+Four-Armed Statue
+Four-Armed Troll
+Fox
+Fractal Mascot
+Fraternity of Order Law Bender
 Fraz-Urb'luu
+Frogheh
+Frogheh Elder
 Froghemoth
+Frost  Ice Shaper
+Frost  of Evil Water
+Frost  Servant
+Frost  Skeleton
+Frost Druid
+Frost Giant
 Frost Giant Dreadnought
 Frost Giant Everlasting One
 Frost Giant Flame Lord
@@ -174,12 +645,24 @@ Frost Giant Thane of the Frostlands
 Frost Salamander
 Frost spider
 Frost wyrm
-Galeb duhr
+Frostmourn
+Fume Drake
+Fungal Servant
+Fury of Kostchtchie
+Gaj
+Galazeth Prismari
+Galeb Duhr
+Gallows Speaker
+Galvan Magen
 Galvanic Blastseeker
 Galvanice Weird
+Gargantua
+Gargantuan Rug of Shering
+Gas Spore Fungus
 Gauth
 Gazer
 Geryon
+Ghast Gravecaller
 Ghost of a Fallen Bard
 Ghost of a Fallen Cleric
 Ghost of a Fallen Druid
@@ -188,10 +671,8 @@ Ghost of a Fallen Ranger
 Ghost of a Fallen Rogue
 Ghost of a Fallen Sorcerer
 Ghost of a Fallen Wizard
+Ghostblade Eidolon
 Giant eel
-Topaz Dragon Ancient
-Topaz Dragon Adult
-Topaz Dragon Young
 Giant Poisonous Snakes
 Giant raven
 Giant seahorse
@@ -199,29 +680,81 @@ Giant skeleton
 Giant Spiders
 Giant squid
 Giant Strider
+Gibberling
 Giff
+Giff Shipmate
+Giff Shock Trooper
+Giff Warlord
+Gigant
+Gingwatzim
 Girallon
+Girallon Zombie
+Githyanki Buccaneer
+Githyanki Dracomancer
+Githyanki Star Seer
+Githyanki Xenomancer
+Githzerai Futurist
+Githzerai Psion
+Githzerai Traveler
+Githzerai Uniter
+Glass Pegasus
+Glasswork Golem
+Gloamwing
 Gloom weaver
+Gnoll Demoniac
 Gnoll Fang of Yeenoghu
 Gnoll Flesh Gnawer
 Gnoll Hunter
-Gnoll pack lord
+Gnoll Pack Lord
+Gnoll Tribal Shaman
+Gnoll Vampire
+Gnoll Warrior
 Gnoll Witherling
+Gnome Ceremorph
+Gnome Squidling
+Goblin Boss Archer
+Goblin Commoner
+Goblin Gang Member
+Goblin Hexer
+Goblin Minion
+Goblin Psi Brawler
+Goblin Psi Commander
 Goblin warlock
 Goblinoids
+Gold Greatwyrm
+Gold-Forged Sentinel
+Golden Stag
 Golgari
 Golgari agent
-Golgari shaman
+Golgari Shaman
 Golgari Swarm
 Golgari troll
+Goliath -Kin
+Goliath Warrior
+Goliath Werebear
+Goose
 Goristro
 Gorodan Ashford
+Gorzil's Gang Troglodyte
+Granite Juggernaut
+Graveyard Revenant
+Gray
 Gray Render
+Gray Scavver
 Gray Slaad
 Graz'zt
+Greater Death Dragon
 Greater Devil
+Greater Star Spawn Emissary
+Greater Zombie
+Green Greatwyrm
+Green Slaad
+Grell Psychic
+Gremishka
+Gremorly's Ghost
 Grick
 Grick alpha
+Grick Ancient
 Grick Broodmother
 Grick Hatchling
 Grick Hunter
@@ -237,6 +770,13 @@ Griffon (Fey)
 Griffon (Fiend)
 Griffon (Monstrosity)
 Griffon (Undead)
+Griffon Cavalry Rider
+Grim Champion of Bloodshed
+Grim Champion of Desolation
+Grim Champion of Pestilence
+Grinning Cat
+Grippli Warrior
+Groff
 Grung
 Grung Elite Warrior
 Grung Wildling
@@ -263,25 +803,88 @@ Gruul Sunder shaman
 Gruul Trog
 Gruul Viashino
 Guard (Thrall)
+Guard Captain
 Guard Drake
+Guardian
 Guardian giant
+Guardian of Gorm
+Guardian Portrait
 Guardinals
+Gulthias Blight
+Hadozee Explorer
+Hadozee Shipmate
+Hadozee Warrior
+Hadrosaurus
 Hag
 Hag (Annis, Bheur, Dusk, Green, Night)
 Hag Minion
+Hag of the Fetid Gaze
 Hag Servant
+Haint
+Halaster Horror
+Half-Blue Dragon Gladiator
+Half-Dragon
+Half-Green Dragon Assassin
 Half-ogre
+Half-Red Dragon Gladiator
+Hands of Havoc Fire Starter
+Hare
+Harengon Brigand
+Harengon Sniper
+Harmonium Captain
+Harmonium Peacekeeper
+Harpy Matriarch
+Harrow Hawk
+Harrow Hound
+Hashalaq Quori
+Haunting Revenant
+Hazvongel
+hé
+Headless Iron Golem
 Hellfire Engine
+Hellwasp
+Hellwasp Grub
 Helmed Horror
+Helmed Horror Detention Drone
+Heralds of Dust Remnant
 Herder
+Hertilod
+Hexton Modron
+Hierophant Medusa
+Hierophant of the Comet
+Hill  Avalancher
+Hill  Sergeant
+Hill  Servant
+Hill  Subchief
+Hippocamp
+Hippomus
 Hoard Mimic
+Hoard Scarab
 Hoard Scarab (base, Swarm)
 Homunculi
-Hook horror
+Homunculus Servant
+Hook Horror
+Hook Horror Spore Servant
+Horncaller
+Horrid
+Hound Archon
+Hound of Ill Omen
 Howler
+Howling Hatred Initiate
+Howling Hatred Priest
+Huge  Crab
 Huge Batterboar
+Huge Gray
+Huge Ochre Jelly
+Huge Polar Bear
+Huge Stone Golem
+Hulgaz
+Hulking Crab
+Hulking Shadow
 Humanoid Bicuspid
-Hungry sorrowsworn
+Hundred-Handed One
+Hungry Sorrowsworn
+Hurricane
 Hutijin
 Hybrid Brute
 Hybrid Flier
@@ -289,37 +892,101 @@ Hybrid Poisoner
 Hybrid Shocker
 Hybrid Spy
 Hydroloth
+Hypnos Magen
+Hythonia
 Ice mephits
-Elder Oblex
+Ice Piercer
+Ice Spider
+Ice Spider Queen
+Ice Troll
+Icewind Kobold
+Icewind Kobold Zombie
 Illithid
 Illithid Arcanist
 Illithid Elder Brain
-Elder Brain
 Illithid Lich
 Illithid Mind Flayer
 Illithid Psion
 Illithid Sorcerer
 Illithid Warlock
+Illithilich
 Illusionist
-Illusionist wizard
-Elemental Myrmidon, Earth
-Elemental Myrmidon, Fire
-Elemental Myrmidon, Water
+Illusionist Wizard
+Immortal Lotus Monk
+Incomplete Dragon Skeleton
 Incubus
 Indentured Spirit
+Infant Basilisk
+Infant Hook Horror
+Infected Elder Brain
+Infected Townsperson
 Infernal Engine
 Infernal War Machine
+Initiate of the Comet
+Inkling Mascot
+Inquisitor of the Mind Fire
+Inquisitor of the Sword
+Inquisitor of the Tome
+Inspired
 Intellect Devourer
+Intellect Snare
+Intelligent Black Pudding
 Iron cobra
+Iron Consul
+Iron Defender
+Ironscale Hydra
+ish  Spider
+ish Auger
+ish Flesh Golem
+ish Spirit
+Isolde
 Isperia
+Istarian Drone
 Iuz
+Ixitxachitl
+Ixitxachitl Cleric
+Jabberwock
 Jackalwere
+Jaculi
 Jaculis
+Jade  Spider
+Jammer Leech
 Jarad Vod Savo
+Jiangshi
 Juiblex
+Juvenile Eldritch Horror
+Juvenile Hook Horror
+Juvenile Kraken
+Juvenile Mimic
+Juvenile Shadow Dragon
+Kakkuu Spyder-
+Kalaman Soldier
+Kalaraq Quori
+Kalashtar
+Kamadan
+Kapak Draconian
+Karrnathi  Soldier
 Karrnathi undead soldier
+Keg Robot
+Kelpie
+Kelubar Demodand
+Kender Skirmisher
 Kenku
 Ki-rin
+Kiddywidget
+Kindori
+Knight of the Black Sword
+Knight of the Mithral Shield
+Knight of the Order
+Knucklehead Trout
+Koalinth
+Koalinth Sergeant
+Kobold Commoner
+Kobold Elite
+Kobold Tinkerer
+Kobold Vampire Spawn
+Koi Prawn
+Kolyarut
 Korred
 Kraken Hatchling
 Kraken Priest
@@ -327,286 +994,903 @@ Kraken Priestess
 Kraken Spawn
 Krasis (Category 1, 2, 3)
 Kraul
-Kraul death priest
-Kraul warrior
+Kraul Death Priest
+Kraul Warrior
 Krenko
 Krovod
 Kruthik
 Kruthik Adult
 Kruthik Hive Lord
 Kruthik Young
+Kuo- Archpriest
+Kuo- Monitor
+Kuo- Whip
 Kuo-toa
 Kuo-toa archpriest
 Kuo-toa monitor
 Kuo-toa whip
+Lacedon
+Lacedon Ghoul
 Lady Illmarrow
+Lampad
+Large Mimic
 Larloch
+Larva
+Lava Child
 Lawmage
 Lazav
+Leonin Iconoclast
+Leprechaun
+Lesser Death Dragon
+Lesser Mummy Lord
+Lesser Star Spawn Emissary
 Leucrotta
+Leucta
 Leviathan
 Levistus
+Lichen Lich
+Lightning Eel
+Lightning Golem
+Lightning Hulk
 Liondrake
-Undying councilor
-Undying soldier
+Living Bigby's Hand
+Living Blade of Disaster
+Living Burning Hands
+Living Cloudkill
+Living Demiplane
+Living Doll
+Living Iron Statue
+Living Lightning Bolt
+Living Portent
+Living Unseen Servant
 Lizard king/queen
 Lizardfolk (Viashino)
 Lizardfolk champion
+Lizardfolk Commoner
+Lizardfolk Geomancer
 Lizardfolk priest
 Lizardfolk Queen
+Lizardfolk Render
+Lizardfolk Scaleshield
 Lizardfolk scout
 Lizardfolk shaman
+Lizardfolk Sovereign
+Lizardfolk Subchief
 Lizardfolk tribe leader
 Lizardfolk warrior
-Lonely sorrowsworn
+Locathah
+Locathah Hunter
+Lonely Sorrowsworn
+Lonelywood Banshee
 Lord of Blades
 Lords of Dust
-Lost sorrowsworn
+Lords' Alliance Guard
+Lords' Alliance Spy
+Lored Apprentice
+Lored Pledgemage
+Lored Professor of Chaos
+Lored Professor of Order
+Lost Sorrowsworn
 Lost spirits
+Loup Garou
+low Dragon
+Lunar Dragon Wyrmling
 Lycanthrope
+Lynx
+lyphant
+Mad Golem
+Maelephant
+Mage Apprentice
+Mage Hunter
+Mage of Usamigaras
 Magewright
-Male steeder
+Malaxxix
+Male Steeder
+Malformed Kraken
+Mamh
 Mammon
 Mane
+Manes
+Manes Vaporspawn
+Mantrap
 Marid
 Martial Arts Adept
 Marut
+Maschin-i-Bozorg
 Master of Cruelties
+Master of Souls
+Master Sage
 Master Thief
 Maurezhi
 Maw Demon
+Maw of Yeenoghu
 Meazel
+Mechachimera
+Mechanical Bird
 Meenlock
+Megapede
+Meletian Hoplite
+Memory Web
 Mephit (Mud, Smoke)
 Mephit swarm
+Mercane
 Mercenary
+Mercykiller Bloodhound
+Merfolk Salvager
+Merfolk Scout
+Merfolk Skirmisher
+Merfolk Wavebender
 Merregon
 Merrenoloth
 Merrow
+Merrow Extortionist
+Metal Wasp
 Metallic Dragons
 Metallic Greatwyrm
+Metallic Peacekeeper
 Metallic Sentinels (various types listed in list, but stat blocks not specified which types)
 Metallic Warbler
+Mezzoloth
+Mighty Servant of Leuk-o
 Mimic
+Mimic Chair
 Mind Drinker Vampire
-Mind flayer arcanist
+Mind Flayer Arcanist
+Mind Flayer Clairvoyant
 Mind flayer lich (alhoon variant)
+Mind Flayer Nothic
+Mind Flayer Prophet
+Mind Flayer Psion
+Mind Mage
+Mind's Eye Matter Smith
 Mindwitness
+Minotaur Archaeologist
+Minotaur Infiltrator
+Minotaur Living Crystal Statue
+Minotaur of Baphomet
+Mirror Shade
+Mist Hulk
+Modron Duodrone
+Modron Monodrone
+Modron Pentadrone
+Modron Planar Incarnate
+Modron Quadrone
+Modron Tridrone
 Modrons
 Moloch
+Molten Magma Roper
 Molydeus
+Mongrelfolk
 Monk
+Monstrous Peryton
+Moonlight Guardian
+Mordakhesh
 Morkoth
+Mountain Goat
 Mouth of Grolantor
+Mud Hulk
 Mud mephit
+Murder Comet
+Murgaxor
+Musteval Guardinal
+Mutate
+Mutated Drow
 Myconid
 Myconid Adult
 Myconid Colony
 Myconid mushroom
-Myconid sovereign
+Myconid Sovereign
+Myconid Spore Servant
 Myconid Sprout
 Nabassu
 Naga
 Naga Bone
 Nagpa
+Naiad
 Narzugon
 Nature caster
 Nature Spirit
+Necic Centipede
+Necrichor
 Necromancer
-Necromancer wizard
-Needle blight
+Necromancer Wizard
+Necromite of Myrkul
+Needle Blight
+Neh-thalggu
 Neogi
 Neogi Hatchling
+Neogi Hatchling Swarm
 Neogi Master
+Neogi Pirate
+Neogi Void Hunter
 Neothelid
-Nightveil specter
+Nereid
+Night Blade
+Night Scavver
+Nightmare Shepherd
+Nightsea Chil-liren
+Nightveil Specter
 Nightwalker
 Nilbog
+Nimblewright
 Niv-Mizzet
 Nivix Cyclops
+Noble Prodigy
 Nomad
+Nonaton Modron
+Nosferatu
 Nupperibo
+Nycaloth
 Nymph
+Nyx-Fleece Ram
 Oaken bolter
 Oblex (Adult, Elder)
 Oblex Spawn
 Obzedat Ghost
+Octon Modron
+Oculorb
+Oddlewin
 Ogre Battering Ram
 Ogre Bolt Launcher
 Ogre Chain Brute
-Ogre howdah
+Ogre Goblin Hucker
+Ogre Howdah
+Ogre Skeleton
+Ogrillon Ogre
 Oinoloth
+Old Troglodyte
+One-Eyed Shiver
 Ooze
+Oracle
+Oracle of Strixhaven
+Orc Claw of Luthic
+Orc Commoner
+Oread
+Oriq Blood Mage
+Oriq Recruiter
 Orthon
 Orzhov
 Orzhov Giant
+Otherworldly Corrupter
+Otherworldly Steed
+Otyugh Mutate
 Ox
 Paladin
+Panopticus Wizard
+Paper Bird
+Paper Whirlwind
+Parasite-infested Behir
+Pari
+Pazrodine
+Peacock
+Pech
 Peddler
 Pegasi
+Performer
+Performer Legend
+Performer Maestro
 Peryton
+Pest Mascot
+Phantom Warrior
+Phantom Warrior (Archer)
+Phisarazu Spyder-
 Phoenix
+Phylaskia
 Piercer
+Pig
+Piranha
 Piranha beetles
-Pirate captain
+Pirate
+Pirate Admiral
+Pirate Bosun
+Pirate Captain
+Pirate Deck Wizard
+Pirate First Mate
+Pit
 Pit Spawn
-Vampire lord
+Pixie Wonderbringer
+Planar Incarnate
 Planetar
+Plasmoid Boss
+Plasmoid Explorer
+Plasmoid Warrior
+Podling
+Poison Weird
+Poltergeist
+Polukranos
 Precognitive Mage
+Priest Acolyte
+Priest of Osybus
 Priest of the Forgotten God
 Priest of the Old Faith
+Primeval Owlbear
 Primus
+Prismari Apprentice
+Prismari Pledgemage
+Prismari Professor of Expression
+Prismari Professor of Perfection
+Prophetess Dran
+Psionic Ashenwight
+Psionic Shambling Mound
+Psurlon
+Psurlon Leader
+Psurlon Ringer
+Psychic Gray
+Pterafolk
+Purple Wormling
 Quadrone
+Quadrone Detention Drone
 Quaggoth
 Quaggoth Spore Servant
 Quaggoth Thonot
+Quandrix Apprentice
+Quandrix Pledgemage
+Quandrix Professor of Substance
+Quandrix Professor of Theory
+Quavilithku Spyder-
+Questing Knight
 Quetzalcoatlus
 Quickling
+Radiant Idol
+Rak Tulkhesh
 Rakdos
 Rakdos Giant
 Rakdos Lampooner
 Rakdos One Eye
 Rakdos Performer
+Rakdos Performer, Blade Juggler
+Rakdos Performer, Fire Eater
+Rakdos Performer, High-Wire Acrobat
+Raklupis Spyder-
 Raktusk
+Ram
 Ranger
 Ravnica Guildless
+Razerblast
+Razorvine Blight
+Reaper of Bhaal
+Reaper Spirit
 Reckoner
+Red Greatwyrm
+Red Slaad
+Red Wizard
+Redbrand Ruffian
 Redcap
+Reflection
+Refraction of Ilvaash
+Regenerating Black Pudding
+Reghed Chieftain
+Reghed Great Warrior
+Reghed Shaman
+Reghed Warrior
+Regisaur
+Reigar
+Reindeer
+Relentless Impaler
+Relentless Juggernaut
+Relentless Slasher
+Relic Sloth
 Remorhaz (Young)
+Replica Duodrone
+Replica Monodrone
+Replica Pentadrone
+Replica Quadrone
+Replica Tridrone
 Retriever
+Returned Drifter
+Returned Kakomantis
+Returned Palamnite
+Returned Sentry
 Revenant
+Riding Lizard
+Riffler
+Rime Hulk
+Rip Tide Priest
+Riverine
+Rock Gnome Recluse
+Rocktopus
 Rogue
+ronic Blastseeker
+Rooster
 Rot troll
-Rubblebelt stalker
+Rowboat Mimic
+Rubblebelt Stalker
+Ruin Grinder
+Ruin Spider
+Runed Behir
+Runic Colossus
 Rutterkin
+Sacred Stone Monk
 Sahuagin Baron
-Sahuagin champion
+Sahuagin Blademaster
+Sahuagin Champion
+Sahuagin Coral Smasher
+Sahuagin Deep Diver
+Sahuagin Hatchling Swarm
+Sahuagin High Priestess
+Sahuagin Priest
 Sahuagin Priestess
 Sahuagin sea spawn
 Sahuagin shark
+Sahuagin Warrior
+Sahuagin Wave Shaper
+Salamander Fire Snake
+Salamander Inferno Master
 Salamanders
 Sapphire Dragon (various types listed in list, but stat blocks not specified which types)
+Sapphire Dragon Wyrmling
+Sapphire Sentinel
+Satyr Reveler
+Satyr Revelmaster
+Satyr Thornbearer
+Scaladar
 Scarecrow
+Scion of Grolantor
+Scion of Memnor
+Scion of Skoraeus
+Scion of Stronmaus
+Scion of Surtur
+Scion of Thrym
+Scorchbringer Guard
+Scout Captain
+Scrag
+Scufflecup Teacup
+Sea Eel
+Sea Elf
+Sea Elf Scout
+Sea Lion
 Sea Mare
 Sea Serpent
 Sea Serpents (Ancient, Young)
-Sea spawn
+Sea Spawn
+Seahorse
+Seal
 Selesnya
 Selesnya initiate
+Sentient Gray
+Sentient Ochre Jelly
+Septon Modron
+Sergeant
 Serra angel
 Servitor Thrull
+Setessan Hoplite
 Shadar-kai
 Shadar-kai Gloom Weaver
 Shadar-kai Shadow Dancer
 Shadar-kai Soul Monger
+Shadow Assassin
 Shadow dancer
 Shadow Horror
-Shadow mastiff
-Shadow mastiff alpha
+Shadow Mastiff
+Shadow Mastiff Alpha
+Shadow Spirit
+Shadrix Silverquill
+Shapechanged Roper
+Shard Shunner
+Shark
+Shark Skeleton
+Shator Demodand
+Sheep
+Shell Shark
+Shemeshka
+Shield Dwarf Guard
+Shield Dwarf Noble
 Shifter
 Shoosuva
+Shrieker Fungus
 Sibriex
 Sigil
 Silver dragon hatchling
+Silver Greatwyrm
+Silverquill Apprentice
+Silverquill Pledgemage
+Silverquill Professor of Radiance
+Silverquill Professor of Shadow
 Simic Hybrid
+Simic Merfolk
+Sir Jared
 Sire of Insanity
+Sivak Draconian
 Skein spider
+Skeletal Alchemist
+Skeletal Juggernaut
+Skeletal Knight
+Skeletal Rats
+Skeletal Riding Horse
+Skeletal Swarm
+Skeleton Key
 Skittering Horror
+Skitterwidget
+Skull Flier
+Skull Lasher of Myrkul
+Skum
 Skyjek Roc
 Skyswimmer
+Skyweaver
 Slaad (any, Blue, Death, Gray, Green, Red, Tadpole)
+Slaad Tadpole
+Sled Dog
 Slithering Tracker
-Smoke mephit
+Smoke Mephit
+Snail
 Snake
+Snake Horror
+Snapping Turtle
+Sneak
+Snow Golem
+Snow Leopard
+Snow Maiden
+Snowy Owlbear
+Society of Sensation Muse
+Solar Bastion Knight
+Solar Dragon Wyrmling
 Soldier
 Sorcerer
 Sorrowsworn, Wretched
+Soul Shaker
+Space Clown
+Space Eel
+Space Guppy
+Space Hamster
+Space Mollymawk
+Space Swine
 Spawn of Kyuss
+Spectral Cloud
 Spellcaster
 Spellcaster vampire
+Sperm Whale
 Sphinx
-Sphinx of judgment
+Sphinx of Judgment
+Sphinx of Lore
+Sphinx of Secrets
+Sphinx of Valor
+Sphinx of Wonder
 Spider Swarm
+Spiderdragon
 Spiderwebs
-Spined devil
+Spiked Tomb Guardian
+Spined Devil
+Spirit
+Spirit Statue Mascot
 Spirit Troll
+Spitting Mimic
+Splugoth the Returned
+Spore Servant Octopus
+Spotted Lion
 Spring eladrin
+Spy Master
+Squid
+Squire
+Ssurran Defiler
+Ssurran Poisoner
+Stalker of Baphomet
+Star Angler
 Star moth
 Star Spawn Grue
 Star Spawn Hulk
 Star Spawn Larva Mage
 Star Spawn Mangler
-Star spawn seer
+Star Spawn Seer
+Starlight Apparition
+Statue of Talos
+Statue of Vergadain
+Steaurus
 Steeder, Female
 Steeder, Male
-Steel predator
+Steel Defender
+Steel Predator
 Stegosaurus
+Stomping Foot
+Stone
+Stone  Dreamwalker
+Stone  of Evil Earth
+Stone  Rockspeaker
+Stone  Statue
+Stone Dragon Statue
+Stone Juggernaut
+Stone Warrior
+Stonecloak
+Stonemelder
+Storm
+Storm  Quintessent
+Storm  Skeleton
+Storm  Tempest Caller
+Storm Crab
+Storm Herald
+Stormcloak
+Strahd Zombie
+Strider
+Strigoi
+Strixhaven Campus Guide
+Su-monster
+Subterranean Lizard
 Succubus
+Sul Khatesh
+Sunder Shaman
+Sunfly
 Surtur
 Svirfneblin
 Svirfneblin scout
+Svirfneblin Wererat
 Swamp-bred chimera
+Swan
+Swarm of  Grubs
+Swarm of Animated Books
+Swarm of Books
+Swarm of Campestris
 Swarm of Cranium Rats
+Swarm of Crawling Claws
+Swarm of Dretches
+Swarm of Gibberlings
+Swarm of Gremishkas
+Swarm of Hoard Scarabs
+Swarm of Larvae
+Swarm of Lemures
+Swarm of Maggots
+Swarm of Mechanical Spiders
+Swarm of Piranhas
 Swarm of Rot Grubs
+Swarm of Scarabs
 Swarm of spiders
+Swarm of Stirges
+Swarm of Sunflies
+Swarm of Tiny Monstrosities
+Swarm of Venomous Snakes
+Swarm of Zombie Limbs
 Swarmkeeper ranger
+Swashbuckler
 Tabaxi
+Tabaxi Hunter
+Tabaxi Minstrel
+Tainted Servant of Tsathogga
+Talon
 Tanarukk
-Tarkanan assassin
+Tanazir Quandrix
+Tarkanan Assassin
+Tattooed Pit Champion
+Telepathic Pentacle
+Tempest Spirit
+Terracotta Warrior
 Tharizdun
+Thayan Apprentice
+Thayan Warrior
+The Bagman
+The Lord of Blades
+The Transient
 The Wretched
+Theran Chimera
+Theurgist
 Thief
-Thorny vegepygmy
+Thief Lord
+Thorn Slinger
+Thorny Vegepygmy
 Thought Spy
 Thri-keen
+Thri-kreen Gladiator
+Thri-kreen Hunter
+Thri-kreen Marauder
+Thri-kreen Mystic
+Thri-kreen Psion
+Thunder Skeleton
 Tiamat
+Tick
+Tidal Sorcerer
 Tiefling
+Tiefling Acrobat
+Time Dragon Wyrmling
+Tin Soldier
+Tiny Servant
+Titanothere
 Titivilus
+Tlacatecolo
+Tlexolotl
 Tlincalli
+Tomb Dwarf
+Tomb Guardian
+Tomb Tapper
+Topaz Dragon Adult
+Topaz Dragon Ancient
+Topaz Dragon Young
+Topaz Greatwyrm
 Tortle
 Tortle Druid
+Tough
+Tough Boss
+Tower Hand
+Tower Sage
 Townsfolk
 Trained Rust Monster
+Transcendent Order Conduit
+Transcendent Order Instinct
 Transmuter
-Transmuter wizard
+Transmuter Wizard
 Trapper
+Treant Sapling
+Tree
+Tree Blight
+Tressym
+Tri-flower Frond
+Tribal Warrior
+Tribal Warrior Spore Servant
 Tridrone
 Triton
+Triton Master of Waves
+Triton Shorestalker
 Troglodyte
+Troglodyte Champion of Laogzed
+Troll Amalgam
+Troll Limb
+Troll Mutate
+Tromokratis
+Trostani
+Tsucora Quori
+Two-Headed Cerberus
+Typhon
+Tyrannosaurus Zombie
 Ulitharid
+Ultroloth
 Undercity Medusa
+Underworld Cerberus
+Undying Councilor
+Undying Soldier
+Unspeakable Horror
+Urbane Magician
+Uthgardt Barbarian Leader
+Valenar Hawk
+Valenar Hound
+Valenar Steed
+Vampirate
+Vampirate Captain
+Vampirate Mage
+Vampire Familiar
+Vampire lord
+Vampire Nightbringer
 Vampire pontiff
 Vampire spawn
-Vampiric mist
+Vampire Umbral Lord
+Vampiric Ixitxachitl
+Vampiric Ixitxachitl Cleric
+Vampiric Jade Statue
+Vampiric Mind Flayer
+Vampiric Mist
 Vargouille
+Vargouille Reflection
+Vecna Impersonator
 Vegepygmy
 Vegepygmy Chief
+Vegepygmy Moldmaker
+Vegepygmy Scavenger
 Vegepygmy Thorny
+Vegepygmy Thorny Hunter
+Veiled Presence
 Velociraptor
+Velomachus Lored
 Venom troll
+Venomous Snake
+Verbeeg Longstrider
+Verbeeg Marauder
+Veteran of the Gauntlet
 Viashino
-Vine blight
+Vicious Warrior
+Vine Blight
+Violet Fungus Necrohulk
+Vistana Assassin
+Vistana Bandit
+Vistana Bandit Captain
+Vistana Commoner
+Vistana Guard
+Vistana Spy
+Vistana Thug
+Vlazok
+Void Scavver
+Walking Corpse
+Walking Statue of Waterdeep
+Walrus
 War mage
 War Priest
-Warforged soldier
+Warden Archon
+Warforged Soldier
+Warforged Titan
+Warforged Warrior
+Warlock of the
+Warlock of the Arch
+Warlock of the Council
+Warrior
+Warrior Commander
+Warrior Infantry
+Warrior of Madarua
+Warrior Veteran
+Wasp
+Wasteland Dragonnel
 Wastrilith
-Water weird
+Water
+Water  Myrmidon
+Water Weird
+Waverider Scoundrel
+Werebat
+Werejaguar
+Wereraven
+Wereshark Bloodrider
+Wereshark Chieftain
+Wereshark Shaman
+Werevulture
+Whirling Chandelier
+Whirlwyrm
+Whistler
+White Greatwyrm
+White Moray Eel
+Wild Dog
+Wildfire Spirit
+Will-o'-Wells
+Wine Weird
+Winged Bull
+Winged Lion
 Winged Thrull
 Winter eladrin
+Witch of the Woods
+Witchlight Hand (Medium)
+Witchlight Hand (Small)
+Witherbloom Apprentice
+Witherbloom Pledgemage
+Witherbloom Professor of Decay
+Witherbloom Professor of Growth
 Wizard
+Woe Strider
+Wolf Spider
+Wolf-in-Sheep's-Clothing
 Wolves
+Wood Elf
+Wood Elf Wizard
 Wood Woad
-Wretched sorrowsworn
+Wooden Donkey
+Worker Robot
+Wretched Sorrowsworn
 Wurm
+Wynling
 Xvart
+Xvart Speaker
 Xvart Warlock of Raxivort
+Y'demi
 Yagn
 Yagnoloth
-Young remorhaz
-Yuan-ti abomination
+Yak
+Yakfolk Priest
+Yakfolk Warrior
+Yellow Musk Creeper
+Yellow Musk Zombie
+Yeti Leader
+Yeti Tyke
+Yochlol
+Young Amethyst Dragon
+Young Basilisk
+Young Bulette
+Young Cloud
+Young Dragon Turtle
+Young Emerald Dragon
+Young Fire
+Young Frost
+Young Griffon (Medium)
+Young Griffon (Small)
+Young Griffon (Tiny)
+Young Hill
+Young Hook Horror
+Young Kruthik
+Young Lunar Dragon
+Young Ogre Servant
+Young Purple Worm
+Young Remorhaz
+Young Sapphire Dragon
+Young Sea Serpent
+Young Solar Dragon
+Young Time Dragon
+Young Troglodyte
+Young Wereraven
+Young Winter Wolf
+Yuan-ti Abomination
 Yuan-ti Anathema
 Yuan-ti Broodguard
 Yuan-ti guard
+Yuan-ti Infiltrator
 Yuan-ti malison
 Yuan-ti malison (bugbear)
 Yuan-ti malison (dragonborn)
@@ -620,5 +1904,15 @@ Yuan-ti malison (tiefling)
 Yuan-ti Mind Whisperer
 Yuan-ti Nightmare Speaker
 Yuan-ti Pit Master
+Yuan-ti Priest
 Yuan-ti Pureblood
 Yuan-ti sorcerer
+Zakya Rakshasa
+Zebra
+Zhent Martial Arts Adept
+Zhentarim Thug
+Zodar
+Zombie Clot
+Zombie Plague Spreader
+Zoog Trapper
+Zorbo
