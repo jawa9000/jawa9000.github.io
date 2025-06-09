@@ -19752,4 +19752,4 @@ const monsters = [
   }
 ];
 
-module.exports = monsters;
+// module.exports = monsters;
