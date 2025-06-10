@@ -1,0 +1,249 @@
+<html>
+    <head>
+        <!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-06DGRLH7V4"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', 'G-06DGRLH7V4');
+		</script>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+        <title>Encounter Generator</title>
+        <meta name='description' content='Monester Encounter Generator'>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <meta name="keywords" content="encounter, builder, javascript, random">
+        <meta name="author" content="Brian Immel">
+        <meta name="robots" content="index, follow">
+        <meta name="language" content="en-us">
+        <meta name="note" content="For Jimmy.">
+		<meta name="level" content="2">
+        <meta name="version" content="0.6.3">
+        <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+        <link href="../../css/normalize.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../Running_Fantasy_Business/main.css" rel="stylesheet" />
+        <script src="../../js/jquery-3.7.1.min.js"></script>
+        <script src="../js/RPG_navigation.js"></script>
+        <link href="../Running_Fantasy_Business/css/main.css" rel="stylesheet" />
+        <link href="style.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <h1>Monster Encounter Generator</h1>
+                    <p>Generate monster encounters from <span id="monsterCount"></span> creatures!</p>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <label>Number of PCs:</label>
+                    <input type="number" id="pcCount" step="1" min="1" max='10' value="1" />
+                    <br/>
+                    <label>PC's AVG level:</label>
+                    <input id="pcLevels" type='number' step='1' min='1' max='50' value='1' />
+                    <br/>
+                    <label>Encounter Difficulty:</label>
+                    <select id="difficulty">
+                        <option value="Any">Any</option>
+                        <option value="Easy">Easy</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Hard">Hard</option>
+                        <option value="Deadly">Deadly</option>
+                    </select>
+                    <label><span class="info-icon" title="Generator will attempt to create a series of monster encounters around this difficulty level.">ⓘ</span></label>
+                    <br/>
+                    <label>Environment:</label>
+                    <select id="environment">
+                        <optgroup label="Environment">
+                            <option value="Any" selected="selected">Any</option>
+                            <option value="Arctic">Arctic</option>
+                            <option value="Coastal">Coastal</option>
+                            <option value="Desert">Desert</option>
+                            <option value="Forest">Forest</option>
+                            <option value="Grassland">Grassland</option>
+                            <option value="Hill">Hill</option>
+                            <option value="Jungle">Jungle</option>
+                            <option value="Mountain">Mountain</option>
+                            <option value="Swamp">Swamp</option>
+                            <option value="Underdark">Underdark</option>
+                            <option value="Underwater">Underwater</option>
+                            <option value="Urban">Urban</option>
+                            <option value="Wasteland">Wasteland</option>
+                        </optgroup>
+                        <optgroup label="Planar">
+                            <option value="Abyssal">Abyss</option>
+                            <option value="Celestial">Celestial</option>
+                            <!-- <option value="Divine">Divine Plane</option> -->
+                            <option value="Ethereal">Ethereal</option>
+                            <option value="Infernal">Infernal</option>
+                            <option value="Lower Planes">Lower Planes</option>
+                            <option value="Negative Energy">Negative Energy</option>
+                            <option value="Pandemonium">Pandemonium</option>
+                            <!-- <option value="Positive Energy">Positive Energy</option> -->
+                            <!-- <option value="Primal">Primal</option> -->
+                            <option value="Shadowfell">Shadowfell</option>
+                            <option value="Upper Planes">Upper Planes</option><!-- <option value="Void">Void Plane</option> -->
+                        </optgroup>
+                        <optgroup label="Elemental">
+                            <option value="Elemental Air">Elemental Air</option>
+                            <option value="Elemental Earth">Elemental Earth</option>
+                            <option value="Elemental Fire">Elemental Fire</option>
+                            <option value="Elemental Water">Elemental Water</option>
+                        </optgroup>
+                    </select>
+                    <br/>
+                    <label>CR Min:</label>
+                    <select id="crMin">
+                    <option value="0">0</option>
+                    <option value="1/8">1/8</option>
+                    <option value="1/4">1/4</option>
+                    <option value="1/2">1/2</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                    <option value="26">26</option>
+                    <option value="27">27</option>
+                    <option value="28">28</option>
+                    <option value="29">29</option>
+                    <option value="30">30</option>
+                    </select>
+                    <label>CR Max:</label>
+                    <select id="crMax">
+                    <option value="30">30</option>
+                    <option value="29">29</option>
+                    <option value="28">28</option>
+                    <option value="27">27</option>
+                    <option value="26">26</option>
+                    <option value="25">25</option>
+                    <option value="24">24</option>
+                    <option value="23">23</option>
+                    <option value="22">22</option>
+                    <option value="21">21</option>
+                    <option value="20">20</option>
+                    <option value="19">19</option>
+                    <option value="18">18</option>
+                    <option value="17">17</option>
+                    <option value="16">16</option>
+                    <option value="15">15</option>
+                    <option value="14">14</option>
+                    <option value="13">13</option>
+                    <option value="12">12</option>
+                    <option value="11">11</option>
+                    <option value="10">10</option>
+                    <option value="9">9</option>
+                    <option value="8">8</option>
+                    <option value="7">7</option>
+                    <option value="6">6</option>
+                    <option value="5">5</option>
+                    <option value="4">4</option>
+                    <option value="3">3</option>
+                    <option value="2">2</option>
+                    <option value="1">1</option>
+                    <option value="1/2">1/2</option>
+                    <option value="1/4">1/4</option>
+                    <option value="1/8">1/8</option>
+                    <option value="0">0</option>
+                    </select>
+                    <br/>
+                    <label>Min Monsters:</label>
+                    <input type="number" id="minMonsters" min="1" max="20" value="1" />
+                    <label>Max Monsters:</label>
+                    <input type="number" id="maxMonsters" min="1" max="20" value="5" />
+                    <br/>
+                    <input type="checkbox" id="envDungeon" name="envDungeon" value="Dungeon">
+                    <label for="envDungeon">Dungeon <span class="info-icon" title="Creatures commonly found in dungeons.">ⓘ</span></label>
+                    <br/>
+                    <input type="checkbox" id="envVaries" name="envVaries" value="Varies">
+                    <label for="envVaries">Varies <span class="info-icon" title="Creatures that are hard to place in a specific location (like undead).">ⓘ</span></label>
+                    <br/>
+                    <label>Monster Type:</label>
+                    <select id="monsterType">
+                      <option value="Any" selected>Any</option>
+                      <option value="Aberration">Aberration</option>
+                      <option value="Beast">Beast</option>
+                      <option value="Celestial">Celestial</option>
+                      <option value="Construct">Construct</option>
+                      <option value="Dragon">Dragon</option>
+                      <option value="Elemental">Elemental</option>
+                      <option value="Fey">Fey</option>
+                      <option value="Fiend">Fiend</option>
+                      <option value="Giant">Giant</option>
+                      <option value="Humanoid">Humanoid</option>
+                      <option value="Monstrosity">Monstrosity</option>
+                      <option value="Ooze">Ooze</option>
+                      <option value="Plant">Plant</option>
+                      <option value="Undead">Undead</option>
+                      <!-- Add more types as needed -->
+                    </select>
+                    <br/>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <button>Generate Encounter</button>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <div id="encounterList"></div>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <div id="monsterStats"></div>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+        <!-- Add a legend for stat block sections -->
+<div id="stat-block-legend" style="display:none">
+  <h4>Stat Block Sections</h4>
+  <ul>
+    <li>Bonus Actions: Special actions a monster can take on its turn in addition to its normal action.</li>
+    <li>Lair Actions: Special actions a monster can take when in its lair, usually on initiative count 20.</li>
+  </ul>
+</div>
+        <script src="monsters.js"></script>
+        <script src="xp_thresholds.js"></script>
+        <script src="encounter_multipler.js"></script>
+        <script src="ability_score_modifier.js"></script>
+        <script src="main.js"></script>
+    </body>
+
+</html>
