@@ -308,7 +308,7 @@ const monsters = [
     challenge: "15 (13,000 XP)",
     traits:
       "<p><em><strong>Amphibious.</strong></em> The dragon can breathe air and water.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
-    "number of attacks": "",
+    "number of attacks": 3,
     attacks: {},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +12 to hit, reach 10 ft. one target. <em>Hit:</em> 18 (2d10 + 7) piercing damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +12 to hit, reach 5 ft. one target. <em>Hit:</em> 14 (2d6 + 7) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +12 to hit, reach 15 ft. one target. <em>Hit:</em> 16 (2d8 + 7) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 17 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Breath Weapons (Recharge 5–6).</strong></em> The dragon uses one of the following breath weapons.</p><p><em><strong>Lightning Breath.</strong></em> The dragon exhales lightning in a 90- foot line that is 5 feet wide. Each creature in that line must make a DC 19 Dexterity saving throw, taking 66 (12d10) lightning damage on a failed save, or half as much damage on a successful one.</p><p><em><strong>Repulsion Breath.</strong></em> The dragon exhales repulsion energy in a 30-foot cone. Each creature in that area must succeed on a DC 19 Strength saving throw. On a failed save, the creature is pushed 60 feet away from the dragon.</p><p><em><strong>Change Shape.</strong></em> The dragon magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the dragon's choice).</p><p>In a new form, the dragon retains its alignment, hit points, Hit Dice, ability to speak, proficiencies, Legendary Resistance, lair actions, and Intelligence, Wisdom, and Charisma scores, as well as this action. Its statistics and capabilities are otherwise replaced by those of the new form, except any class features or legendary actions of that form.</p>",
@@ -341,7 +341,7 @@ const monsters = [
     challenge: "14 (11,500 XP)",
     traits:
       "<p><em><strong>Legendary Resistance (3/Day)</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
-    "number of attacks": "",
+    "number of attacks": 3,
     attacks: {},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +11 to hit, reach 10 ft. one target. <em>Hit:</em> 17 (2d10 + 6) piercing damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +11 to hit, reach 5 ft. one target. <em>Hit:</em> 13 (2d6 + 6) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +11 to hit, reach 15 ft. one target. <em>Hit:</em> 15 (2d8 + 6) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 16 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Breath Weapons (Recharge 5–6).</strong></em> The dragon uses one of the following breath weapons.</p><p><em><strong>Acid Breath.</strong></em> The dragon exhales acid in an 60-foot line that is 5 feet wide. Each creature in that line must make a DC 18 Dexterity saving throw, taking 54 (12d8) acid damage on a failed save, or half as much damage on a successful one.</p><p><em><strong>Slowing Breath.</strong></em> The dragon exhales gas in a 60-foot cone. Each creature in that area must succeed on a DC 18 Constitution saving throw. On a failed save, the creature can't use reactions, its speed is halved, and it can't make more than one attack on its turn. In addition, the creature can use either an action or a bonus action on its turn, but not both. These effects last for 1 minute. The creature can repeat the saving throw at the end of each of its turns, ending the effect on itself with a successful save.</p>",
@@ -374,7 +374,7 @@ const monsters = [
     challenge: "17 (18,000 XP)",
     traits:
       "<p><em><strong>Amphibious.</strong></em> The dragon can breathe air and water.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
-    "number of attacks": "",
+    "number of attacks": 3,
     attacks: {},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 10 ft. one target. <em>Hit:</em> 19 (2d10 + 8) piercing damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 5 ft. one target. <em>Hit:</em> 15 (2d6 + 8) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 15 ft. one target. <em>Hit:</em> 17 (2d8 + 8) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 21 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Breath Weapons (Recharge 5–6).</strong></em> The dragon uses one of the following breath weapons.</p><p><em><strong>Fire Breath.</strong></em> The dragon exhales fire in a 60-foot cone. Each creature in that area must make a DC 21 Dexterity saving throw, taking 66 (12d10) fire damage on a failed save, or half as much damage on a successful one.</p><p><em><strong>Weakening Breath.</strong></em> The dragon exhales gas in a 60-foot cone. Each creature in that area must succeed on a DC 21 Strength saving throw or have disadvantage on Strength-based attack rolls, Strength checks, and Strength saving throws for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p><p><em><strong>Change Shape.</strong></em> The dragon magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the dragon's choice).</p><p>In a new form, the dragon retains its alignment, hit points, Hit Dice, ability to speak, proficiencies, Legendary Resistance, lair actions, and Intelligence, Wisdom, and Charisma scores, as well as this action. Its statistics and capabilities are otherwise replaced by those of the new form, except any class features or legendary actions of that form.</p>",
@@ -408,7 +408,7 @@ const monsters = [
     challenge: "15 (13,000 XP)",
     traits:
       "<p><em><strong>Amphibious.</strong></em> The dragon can breathe air and water.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
-    "number of attacks": "",
+    "number of attacks": 3,
     attacks: {},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +11 to hit, reach 10 ft. one target. <em>Hit:</em> 17 (2d10 + 6) piercing damage plus 7 (2d6) poison damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +11 to hit, reach 5 ft. one target. <em>Hit:</em> 13 (2d6 + 6) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +11 to hit, reach 15 ft. one target. <em>Hit:</em> 15 (2d8 + 6) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 16 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Poison Breath (Recharge 5–6).</strong></em> The dragon exhales poisonous gas in a 60-foot cone. Each creature in that area must make a DC 18 Constitution saving throw, taking 56 (16d6) poison damage on a failed save, or half as much damage on a successful one.</p>",
@@ -440,7 +440,7 @@ const monsters = [
     challenge: "17 (18,000 XP)",
     traits:
       "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
-    "number of attacks": "",
+    "number of attacks": 3,
     attacks: {},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 10 ft. one target. <em>Hit:</em> 19 (2d10 + 8) piercing damage plus 7 (2d6) fire damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 5 ft. one target. <em>Hit:</em> 15 (2d6 + 8) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 15 ft. one target. <em>Hit:</em> 17 (2d8 + 8) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 19 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Fire Breath (Recharge 5–6).</strong></em> The dragon exhales fire in a 60-foot cone. Each creature in that area must make a DC 21 Dexterity saving throw, taking 63 (18d6) fire damage on a failed save, or half as much damage on a successful one.</p>",
@@ -472,7 +472,7 @@ const monsters = [
     challenge: "16 (15,000 XP)",
     traits:
       "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
-    "number of attacks": "",
+    "number of attacks": 3,
     attacks: {},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +13 to hit, reach 10 ft. one target. <em>Hit:</em> 19 (2d10 + 8) piercing damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +13 to hit, reach 5 ft. one target. <em>Hit:</em> 15 (2d6 + 8) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +13 to hit, reach 15 ft. one target. <em>Hit:</em> 17 (2d8 + 8) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 18 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Breath Weapons (Recharge 5–6).</strong></em> The dragon uses one of the following breath weapons.</p><p><em><strong>Cold Breath.</strong></em> The dragon exhales an icy blast in a 60-foot cone. Each creature in that area must make a DC 20 Constitution saving throw, taking 58 (13d8) cold damage on a failed save, or half as much damage on a successful one.</p><p><em><strong>Paralyzing Breath.</strong></em> The dragon exhales paralyzing gas in a 60-foot cone. Each creature in that area must succeed on a DC 20 Constitution saving throw or be paralyzed for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p><p><em><strong>Change Shape.</strong></em> The dragon magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the dragon's choice).</p><p>In a new form, the dragon retains its alignment, hit points, Hit Dice, ability to speak, proficiencies, Legendary Resistance, lair actions, and Intelligence, Wisdom, and Charisma scores, as well as this action. Its statistics and capabilities are otherwise replaced by those of the new form, except any class features or legendary actions of that form.</p>",
@@ -504,7 +504,7 @@ const monsters = [
     challenge: "13 (10,000 XP)",
     traits:
       "<p><em><strong>Ice Walk.</strong></em> The dragon can move across and climb icy surfaces without needing to make an ability check. Additionally, difficult terrain composed of ice or snow doesn't cost it extra movement.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
-    "number of attacks": "",
+    "number of attacks": 3,
     attacks: {},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +11 to hit, reach 10 ft. one target. <em>Hit:</em> 17 (2d10 + 6) piercing damage plus 4 (1d8) cold damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +11 to hit, reach 5 ft. one target. <em>Hit:</em> 13 (2d6 + 6) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +11 to hit, reach 15 ft. one target. <em>Hit:</em> 15 (2d8 + 6) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 14 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Cold Breath (Recharge 5–6).</strong></em> The dragon exhales an icy blast in a 60-foot cone. Each creature in that area must make a DC 19 Constitution saving throw, taking 54 (12d8) cold damage on a failed save, or half as much damage on a successful one.</p>",
@@ -538,7 +538,7 @@ const monsters = [
     challenge: "5 (1,800 XP)",
     traits:
       "<p><em><strong>Air Form.</strong></em> The elemental can enter a hostile creature's space and stop there. It can move through a space as narrow as 1 inch wide without squeezing.</p>",
-    "number of attacks": "",
+    "number of attacks": 2,
     attacks: {},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The elemental makes two slam attacks.</p><p><em><strong>Slam.</strong></em> <em>Melee Weapon Attack:</em> +8 to hit, reach 5 ft. one target. <em>Hit:</em> 14 (2d8 + 5) bludgeoning damage.</p><p><em><strong>Whirlwind (Recharge 4–6).</strong></em> Each creature in the elemental's space must make a DC 13 Strength saving throw. On a failure, a target takes 15 (3d8 + 2) bludgeoning damage and is flung up 20 feet away from the elemental in a random direction and knocked prone. If a thrown target strikes an object, such as a wall or floor, the target takes 3 (1d6) bludgeoning damage for every 10 feet it was thrown. If the target is thrown at another creature, that creature must succeed on a DC 13 Dexterity saving throw or take the same damage and be knocked prone.</p><p>If the saving throw is successful, the target takes half the bludgeoning damage and isn't flung away or knocked prone.</p>",
@@ -596,7 +596,7 @@ const monsters = [
     challenge: "21 (33,000 XP)",
     traits:
       "<p><em><strong>Amphibious.</strong></em> The dragon can breathe air and water.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
-    "number of attacks": "",
+    "number of attacks": 3,
     attacks: {},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +15 to hit, reach 15 ft. one target. <em>Hit:</em> 19 (2d10 + 8) piercing damage plus 9 (2d8) acid damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +15 to hit, reach 10 ft. one target. <em>Hit:</em> 15 (2d6 + 8) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +15 to hit, reach 20 ft. one target. <em>Hit:</em> 17 (2d8 + 8) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 19 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Acid Breath (Recharge 5–6).</strong></em> The dragon exhales acid in a 90-foot line that is 10 feet wide. Each creature in that line must make a DC 22 Dexterity saving throw, taking 67 (15d8) acid damage on a failed save, or half as much damage on a successful one.</p>",
@@ -632,7 +632,7 @@ const monsters = [
     challenge: "23 (50,000 XP)",
     traits:
       "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
-    "number of attacks": "",
+    "number of attacks": 3,
     attacks: {},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 15 ft. one target. <em>Hit:</em> 20 (2d10 + 9) piercing damage plus 11 (2d10) lightning damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 10 ft. one target. <em>Hit:</em> 16 (2d6 + 9) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 20 ft. one target. <em>Hit:</em> 18 (2d8 + 9) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 20 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Lightning Breath (Recharge 5–6).</strong></em> The dragon exhales lightning in a 120-­-foot line that is 10 feet wide. Each creature in that line must make a DC 23 Dexterity saving throw, taking 88 (16d10) lightning damage on a failed save, or half as much damage on a successful one.</p>",
@@ -668,7 +668,7 @@ const monsters = [
     challenge: "20 (25,000 XP)",
     traits:
       "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
-    "number of attacks": "",
+    "number of attacks": 3,
     attacks: {},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 15 ft. one target. <em>Hit:</em> 19 (2d10 + 8) piercing damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 10 ft. one target. <em>Hit:</em> 15 (2d6 + 8) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 20 ft. one target. <em>Hit:</em> 17 (2d8 + 8) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 18 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Breath Weapons (Recharge 5–6).</strong></em> The dragon uses one of the following breath weapons: </p><p><em><strong>Fire Breath.</strong></em> The dragon exhales fire in an 90-foot line that is 10 feet wide. Each creature in that line must make a DC 21 Dexterity saving throw, taking 56 (16d6) fire damage on a failed save, or half as much damage on a successful one.</p><p><em><strong>Sleep Breath.</strong></em> The dragon exhales sleep gas in a 90-foot cone. Each creature in that area must succeed on a DC 21 Constitution saving throw or fall unconscious for 10 minutes. This effect ends for a creature if the creature takes damage or someone uses an action to wake it.</p><p><em><strong>Change Shape.</strong></em> The dragon magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the dragon's choice).</p><p>In a new form, the dragon retains its alignment, hit points, Hit Dice, ability to speak, proficiencies, Legendary Resistance, lair actions, and Intelligence, Wisdom, and Charisma scores, as well as this action. Its statistics and capabilities are otherwise replaced by those of the new form, except any class features or legendary actions of that form.</p>",
@@ -701,7 +701,7 @@ const monsters = [
     challenge: "22 (41,000 XP)",
     traits:
       "<p><em><strong>Amphibious.</strong></em> The dragon can breathe air and water.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
-    "number of attacks": "",
+    "number of attacks": 3,
     attacks: {},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 15 ft. one target. <em>Hit:</em> 20 (2d10 + 9) piercing damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 10 ft. one target. <em>Hit:</em> 16 (2d6 + 9) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 20 ft. one target. <em>Hit:</em> 18 (2d8 + 9) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 20 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Breath Weapons (Recharge 5–6).</strong></em> The dragon uses one of the following breath weapons.</p><p><em><strong>Lightning Breath.</strong></em> The dragon exhales lightning in a 120-foot line that is 10 feet wide. Each creature in that line must make a DC 23 Dexterity saving throw, taking 88 (16d10) lightning damage on a failed save, or half as much damage on a successful one.</p><p><em><strong>Repulsion Breath.</strong></em> The dragon exhales repulsion energy in a 30-foot cone. Each creature in that area must succeed on a DC 23 Strength saving throw. On a failed save, the creature is pushed 60 feet away from the dragon.</p><p><em><strong>Change Shape.</strong></em> The dragon magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the dragon's choice).</p><p>In a new form, the dragon retains its alignment, hit points, Hit Dice, ability to speak, proficiencies, Legendary Resistance, lair actions, and Intelligence, Wisdom, and Charisma scores, as well as this action. Its statistics and capabilities are otherwise replaced by those of the new form, except any class features or legendary actions of that form.</p>",
@@ -734,7 +734,7 @@ const monsters = [
     challenge: "21 (33,000 XP)",
     traits:
       "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
-    "number of attacks": "",
+    "number of attacks": 3,
     attacks: {},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +15 to hit, reach 15 ft. one target. <em>Hit:</em> 19 (2d10 + 8) piercing damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +15 to hit, reach 10 ft. one target. <em>Hit:</em> 15 (2d6 + 8) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +15 to hit, reach 20 ft. one target. <em>Hit:</em> 17 (2d8 + 8) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 19 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Breath Weapons (Recharge 5–6).</strong></em> The dragon uses one of the following breath weapons.</p><p><em><strong>Acid Breath.</strong></em> The dragon exhales acid in an 90-foot line that is 10 feet wide. Each creature in that line must make a DC 22 Dexterity saving throw, taking 63 (14d8) acid damage on a failed save, or half as much damage on a successful one.</p><p><em><strong>Slowing Breath.</strong></em> The dragon exhales gas in a 90-foot cone. Each creature in that area must succeed on a DC 22 Constitution saving throw. On a failed save, the creature can't use reactions, its speed is halved, and it can't make more than one attack on its turn. In addition, the creature can use either an action or a bonus action on its turn, but not both. These effects last for 1 minute. The creature can repeat the saving throw at the end of each of its turns, ending the effect on itself with a successful save.</p><p><em><strong>Change Shape.</strong></em> The dragon magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the dragon's choice).</p><p>In a new form, the dragon retains its alignment, hit points, Hit Dice, ability to speak, proficiencies, Legendary Resistance, lair actions, and Intelligence, Wisdom, and Charisma scores, as well as this action. Its statistics and capabilities are otherwise replaced by those of the new form, except any class features or legendary actions of that form.</p>",
@@ -767,7 +767,7 @@ const monsters = [
     challenge: "24 (62,000 XP)",
     traits:
       "<p><em><strong>Amphibious.</strong></em> The dragon can breathe air and water.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
-    "number of attacks": "",
+    "number of attacks": 3,
     attacks: {},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +17 to hit, reach 15 ft. one target. <em>Hit:</em> 21 (2d10 + 10) piercing damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +17 to hit, reach 10 ft. one target. <em>Hit:</em> 17 (2d6 + 10) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +17 to hit, reach 20 ft. one target. <em>Hit:</em> 19 (2d8 + 10) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 24 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Breath Weapons (Recharge 5–6).</strong></em> The dragon uses one of the following breath weapons.</p><p><em><strong>Fire Breath.</strong></em> The dragon exhales fire in a 90-foot cone. Each creature in that area must make a DC 24 Dexterity saving throw, taking 71 (13d10) fire damage on a failed save, or half as much damage on a successful one.</p><p><em><strong>Weakening Breath.</strong></em> The dragon exhales gas in a 90-foot cone. Each creature in that area must succeed on a DC 24 Strength saving throw or have disadvantage on Strength-based attack rolls, Strength checks, and Strength saving throws for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p><p><em><strong>Change Shape.</strong></em> The dragon magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the dragon's choice).</p><p>In a new form, the dragon retains its alignment, hit points, Hit Dice, ability to speak, proficiencies, Legendary Resistance, lair actions, and Intelligence, Wisdom, and Charisma scores, as well as this action. Its statistics and capabilities are otherwise replaced by those of the new form, except any class features or legendary actions of that form.</p>",
@@ -801,7 +801,7 @@ const monsters = [
     challenge: "22 (41,000 XP)",
     traits:
       "<p><em><strong>Amphibious.</strong></em> The dragon can breathe air and water.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
-    "number of attacks": "",
+    "number of attacks": 3,
     attacks: {},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +15 to hit, reach 15 ft. one target. <em>Hit:</em> 19 (2d10 + 8) piercing damage plus 10 (3d6) poison damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +15 to hit, reach 10 ft. one target. <em>Hit:</em> 22 (4d6 + 8) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +15 to hit, reach 20 ft. one target. <em>Hit:</em> 17 (2d8 + 8) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 19 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Poison Breath (Recharge 5–6).</strong></em> The dragon exhales poisonous gas in a 90-­-foot cone. Each creature in that area must make a DC 22 Constitution saving throw, taking 77 (22d6) poison damage on a failed save, or half as much damage on a successful one.</p>",
@@ -833,7 +833,7 @@ const monsters = [
     challenge: "24 (62,000 XP)",
     traits:
       "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
-    "number of attacks": "",
+    "number of attacks": 3,
     attacks: {},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +17 to hit, reach 15 ft. one target. <em>Hit:</em> 21 (2d10 + 10) piercing damage plus 14 (4d6) fire damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +17 to hit, reach 10 ft. one target. <em>Hit:</em> 17 (2d6 + 10) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +17 to hit, reach 20 ft. one target. <em>Hit:</em> 19 (2d8 + 10) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 21 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Fire Breath (Recharge 5–6).</strong></em> The dragon exhales fire in a 90-foot cone. Each creature in that area must make a DC 24 Dexterity saving throw, taking 91 (26d6) fire damage on a failed save, or half as much damage on a successful one.</p>",
@@ -865,7 +865,7 @@ const monsters = [
     challenge: "23 (50,000 XP)",
     traits:
       "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
-    "number of attacks": "",
+    "number of attacks": 3,
     attacks: {},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +17 to hit, reach 15 ft. one target. <em>Hit:</em> 21 (2d10 + 10) piercing damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +17 to hit, reach 10 ft. one target. <em>Hit:</em> 17 (2d6 + 10) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +17 to hit, reach 20 ft. one target. <em>Hit:</em> 19 (2d8 + 10) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 21 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Breath Weapons (Recharge 5–6).</strong></em> The dragon uses one of the following breath weapons.</p><p><em><strong>Cold Breath.</strong></em> The dragon exhales an icy blast in a 90-foot cone. Each creature in that area must make a DC 24 Constitution saving throw, taking 67 (15d8) cold damage on a failed save, or half as much damage on a successful one.</p><p><em><strong>Paralyzing Breath.</strong></em> The dragon exhales paralyzing gas in a 90-foot cone. Each creature in that area must succeed on a DC 24 Constitution saving throw or be paralyzed for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p><p><em><strong>Change Shape.</strong></em> The dragon magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the dragon's choice).</p><p>In a new form, the dragon retains its alignment, hit points, Hit Dice, ability to speak, proficiencies, Legendary Resistance, lair actions, and Intelligence, Wisdom, and Charisma scores, as well as this action. Its statistics and capabilities are otherwise replaced by those of the new form, except any class features or legendary actions of that form.</p>",
@@ -897,7 +897,7 @@ const monsters = [
     challenge: "20 (25,000 XP)",
     traits:
       "<p><em><strong>Ice Walk.</strong></em> The dragon can move across and climb icy surfaces without needing to make an ability check. Additionally, difficult terrain composed of ice or snow doesn't cost it extra movement.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
-    "number of attacks": "",
+    "number of attacks": 3,
     attacks: {},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 15 ft. one target. <em>Hit:</em> 19 (2d10 + 8) piercing damage plus 9 (2d8) cold damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 10 ft. one target. <em>Hit:</em> 15 (2d6 + 8) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 20 ft. one target. <em>Hit:</em> 17 (2d8 + 8) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 16 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Cold Breath (Recharge 5–6).</strong></em> The dragon exhales an icy blast in a 90-foot cone. Each creature in that area must make a DC 22 Constitution saving throw, taking 72 (16d8) cold damage on a failed save, or half as much damage on a successful one.</p>",
@@ -932,7 +932,7 @@ const monsters = [
     challenge: "17 (18,000 XP)",
     traits:
       "<p><em><strong>Inscrutable.</strong></em> The sphinx is immune to any effect that would sense its emotions or read its thoughts, as well as any divination spell that it refuses. Wisdom (Insight) checks made to ascertain the sphinx's intentions or sincerity have disadvantage.</p><p><em><strong>Magic Weapons.</strong></em> The sphinx's weapon attacks are magical.</p><p><em><strong>Spellcasting.</strong></em> The sphinx is a 12th-level spellcaster. Its spellcasting ability is Wisdom (spell save DC 18, +10 to hit with spell attacks). It requires no material components to cast its spells. The sphinx has the following cleric spells prepared: </p><p>Cantrips (at will): sacred flame, spare the dying, thaumaturgy </p><p>1st level (4 slots): command, detect evil and good, detect magic </p><p>2nd level (3 slots): lesser restoration, zone of truth </p><p>3rd level (3 slots): dispel magic, tongues </p><p>4th level (3 slots): banishment, freedom of movement </p><p>5th level (2 slots): flame strike, greater restoration </p><p>6th level (1 slot): heroes' feast</p>",
-    "number of attacks": "",
+    "number of attacks": 2,
     attacks: {},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The sphinx makes two claw attacks.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +12 to hit, reach 5 ft. one target. <em>Hit:</em> 17 (2d10 + 6) slashing damage.</p><p><em><strong>Roar (3/Day).</strong></em> The sphinx emits a magical roar. Each time it roars before finishing a long rest, the roar is louder and the effect is different, as detailed below. Each creature within 500 feet of the sphinx and able to hear the roar must make a saving throw.</p><p><em><strong>First Roar.</strong></em> Each creature that fails a DC 18 Wisdom saving throw is frightened for 1 minute. A frightened creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p><p><em><strong>Second Roar.</strong></em> Each creature that fails a DC 18 Wisdom saving throw is deafened and frightened for 1 minute. A frightened creature is paralyzed and can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p><p><em><strong>Third Roar.</strong></em> Each creature makes a DC 18 Constitution saving throw. On a failed save, a creature takes 44 (8d10) thunder damage and is knocked prone. On a successful save, the creature takes half as much damage and isn't knocked prone.</p>",
@@ -963,7 +963,7 @@ const monsters = [
     challenge: "1 (200 XP)",
     traits:
       "<p><em><strong>Antimagic Susceptibility.</strong></em> The armor is incapacitated while in the area of an antimagic field. If targeted by dispel magic, the armor must succeed on a Constitution saving throw against the caster's spell save DC or fall unconscious for 1 minute.</p><p><em><strong>False Appearance.</strong></em> While the armor remains motionless, it is indistinguishable from a normal suit of armor.</p>",
-    "number of attacks": "",
+    "number of attacks": 2,
     attacks: {},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The armor makes two melee attacks.</p><p><em><strong>Slam.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft. one target. <em>Hit:</em> 5 (1d6 + 2) bludgeoning damage.</p>",
@@ -1039,7 +1039,7 @@ const monsters = [
     senses: "Passive Perception 13",
     languages: ["N/A"],
     challenge: "1/2 (100 XP)",
-    "number of attacks": "",
+    "number of attacks": 2,
     attacks: {},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The ape makes two fist attacks.</p><p><em><strong>Fist.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft. one target. <em>Hit:</em> 6 (1d6 + 3) bludgeoning damage.</p><p><em><strong>Rock.</strong></em> <em>Ranged Weapon Attack:</em> +5 to hit, range 25/50 ft. one target. <em>Hit:</em> 6 (1d6 + 3) bludgeoning damage.</p>",
@@ -1098,7 +1098,7 @@ const monsters = [
     challenge: "8 (3,900 XP)",
     traits:
       "<p><em><strong>Assassinate.</strong></em> During its first turn, the assassin has advantage on attack rolls against any creature that hasn't taken a turn. Any hit the assassin scores against a surprised creature is a critical hit.</p><p><em><strong>Evasion.</strong></em> If the assassin is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, the assassin instead takes no damage if it succeeds on the saving throw, and only half damage if it fails.</p><p><em><strong>Sneak Attack.</strong></em> Once per turn, the assassin deals an extra 14 (4d6) damage when it hits a target with a weapon attack and has advantage on the attack roll, or when the target is within 5 feet of an ally of the assassin that isn't incapacitated and the assassin doesn't have disadvantage on the attack roll.</p>",
-    "number of attacks": "",
+    "number of attacks": 2,
     attacks: {},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The assassin makes two shortsword attacks.</p><p><em><strong>Shortsword.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft. one target. <em>Hit:</em> 6 (1d6 + 3) piercing damage, and the target must make a DC 15 Constitution saving throw, taking 24 (7d6) poison damage on a failed save, or half as much damage on a successful one.</p><p><em><strong>Light Crossbow.</strong></em> <em>Ranged Weapon Attack:</em> +6 to hit, range 80/320 ft. one target. <em>Hit:</em> 7 (1d8 + 3) piercing damage, and the target must make a DC 15 Constitution saving throw, taking 24 (7d6) poison damage on a failed save, or half as much damage on a successful one.</p>",
@@ -1127,7 +1127,7 @@ const monsters = [
     challenge: "0 (10 XP)",
     traits:
       "<p><em><strong>False Appearance.</strong></em> While the shrub remains motionless, it is indistinguishable from a normal shrub.</p>",
-    "number of attacks": "",
+    "number of attacks": 1,
     attacks: {},
     actions:
       "<p><em><strong>Rake.</strong></em> <em>Melee Weapon Attack:</em> +1 to hit, reach 5 ft. one target. <em>Hit:</em> 1 (1d4 − 1) slashing damage.</p>",
@@ -1156,7 +1156,7 @@ const monsters = [
     challenge: "2 (450 XP)",
     traits:
       "<p><em><strong>False Appearance.</strong></em> While the tree remains motionless, it is indistinguishable from a normal tree.</p>",
-    "number of attacks": "",
+    "number of attacks": 1,
     attacks: {},
     actions:
       "<p><em><strong>Slam.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 10 ft. one target. <em>Hit:</em> 14 (3d6 + 4) bludgeoning damage.</p>",
@@ -1181,7 +1181,7 @@ const monsters = [
     senses: "Passive Perception 10",
     languages: ["N/A"],
     challenge: "1/4 (50 XP)",
-    "number of attacks": "",
+    "number of attacks": 1,
     attacks: {},
     actions:
       "<p><em><strong>Beak.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft. one target. <em>Hit:</em> 6 (1d8 + 2) slashing damage.</p>",
@@ -1211,7 +1211,7 @@ const monsters = [
     challenge: "2 (450 XP)",
     traits:
       "<p><em><strong>Heated Body.</strong></em> A creature that touches the azer or hits it with a melee attack while within 5 feet of it takes 5 (1d10) fire damage.</p><p><em><strong>Heated Weapons.</strong></em> When the azer hits with a metal melee weapon, it deals an extra 3 (1d6) fire damage (included in the attack).</p><p><em><strong>Illumination.</strong></em> The azer sheds bright light in a 10-­foot radius and dim light for an additional 10 feet.</p>",
-    "number of attacks": "",
+    "number of attacks": 1,
     attacks: {},
     actions:
       "<p><em><strong>Warhammer.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft. one target. <em>Hit:</em> 7 (1d8 + 3) bludgeoning damage, or 8 (1d10 + 3) bludgeoning damage if used with two hands to make a melee attack, plus 3 (1d6) fire damage.</p>",
@@ -1238,7 +1238,7 @@ const monsters = [
     challenge: "0 (10 XP)",
     traits:
       "<p><em><strong>Pack Tactics.</strong></em> The baboon has advantage on an attack roll against a creature if at least one of the baboon's allies is within 5 feet of the creature and the ally isn't incapacitated.</p>",
-    "number of attacks": "",
+    "number of attacks": 1,
     attacks: {},
     actions:
       "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +1 to hit, reach 5 ft. one target. <em>Hit:</em> 1 (1d4 − 1) piercing damage.</p>",
@@ -1265,7 +1265,7 @@ const monsters = [
     challenge: "0 (10 XP)",
     traits:
       "<p><em><strong>Keen Smell.</strong></em> The badger has advantage on Wisdom (Perception) checks that rely on smell.</p>",
-    "number of attacks": "",
+    "number of attacks": 1,
     attacks: {},
     actions:
       "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +2 to hit, reach 5 ft. one target. <em>Hit:</em> 1 piercing damage.</p>",
@@ -14305,7 +14305,7 @@ const monsters = [
     challenge: "1/2 (100 XP)",
     traits:
       "<p><em><strong>Amphibious.</strong></em> The firenewt can breathe air and water.</p>",
-    "number of attacks": "",
+    "number of attacks": 2,
     attacks: {},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The firenewt makes two attacks with its scimitar.</p><p><em><strong>Scimitar.</strong></em> <em>Melee Weapon Attack:</em> +3 to hit, reach 5 ft., one target. <em>Hit:</em> 4 (1d6 + 1) slashing damage.</p><p><em><strong>Spit Fire (Recharges after a Short or Long Rest).</strong></em> The firenewt spits fire at a creature within 10 feet of it. The creature must make a DC 11 Dexterity saving throw, taking 9 (2d8) fire damage on a failed save, or half as much damage on a successful one.</p>",
@@ -14332,7 +14332,7 @@ const monsters = [
     challenge: "1 (200 XP)",
     traits:
       "<p><em><strong>Amphibious.</strong></em> The firenewt can breathe air and water.</p><p><em><strong>Devil's Sight.</strong></em> Magical darkness doesn't impede the firenewt's darkvision.</p><p><em><strong>Imix's Blessing.</strong></em> When the firenewt reduces an enemy to 0 hit points, the firenewt gains 5 temporary hit points.</p>",
-    "number of attacks": "",
+    "number of attacks": 3,
     attacks: {},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The firenewt makes three Morningstar or Fire Ray attacks.</p><p><em><strong>Morningstar.</strong></em> <em>Melee Weapon Attack:</em> +3 to hit, reach 5 ft., one target. <em>Hit:</em> 5 (1d8 + 1) piercing damage.</p><p><em><strong>Fire Ray.</strong></em> <em>Ranged Spell Attack:</em> +4 to hit, range 120 ft., one target. <em>Hit:</em> 5 (1d6 + 2) fire damage.</p><p><em><strong>Spellcasting.</strong></em> The firenewt casts one of the following spells, using Charisma as the spellcasting ability (spell save DC 12): At will: <em>guidance</em>, <em>light</em>, <em>mage armor</em>, <em>mage hand</em>, <em>prestidigitation</em>.</p>",
@@ -14361,7 +14361,7 @@ const monsters = [
     challenge: "18 (20,000 XP)",
     traits:
       "<p><em><strong>Fire Rune.</strong></em> The giant has a fire rune inscribed on a medallion or some other object in its possession. While holding or wearing the object bearing the rune, the giant can use its Magma Wave action and Furnace Armor bonus action. The object bearing the rune has AC 15; 40 hit points; and immunity to necrotic, poison, and psychic damage. The object regains all its hit points at the end of every turn, but it turns to dust if reduced to 0 hit points or when the giant dies. If the rune is destroyed, the giant can inscribe a fire rune on an object in its possession when it finishes a short or long rest.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the giant fails a saving throw, it can choose to succeed instead.</p>",
-    "number of attacks": "",
+    "number of attacks": 3,
     attacks: {},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The giant makes three Forge Hammer attacks or two Heated Rock attacks.</p><p><em><strong>Forge Hammer.</strong></em> <em>Melee Weapon Attack:</em> +13 to hit, reach 10 ft., one target. <em>Hit:</em> 20 (3d8 + 7) bludgeoning damage plus 9 (2d8) fire damage. (rest of description not provided in snippet)</p><p><em><strong>Heated Rock.</strong></em> <em>Ranged Weapon Attack:</em> +13 to hit, range 60/240 ft., one target. <em>Hit:</em> 25 (4d8 + 7) bludgeoning damage plus 9 (2d8) fire damage. (rest of description not provided in snippet)</p><p><em><strong>Magma Wave (Requires Fire Rune).</strong></em> The giant slams its forge hammer into the ground, causing a wave of magma to erupt in a 30-foot cone. Each creature in that area must make a DC 19 Dexterity saving throw, taking 45 (10d8) fire damage on a failed save, or half as much damage on a successful one. On a failed save, a creature is also encased in hardening magma and has the restrained condition. As an action, a creature can make a DC 19 Strength (Athletics) check, freeing itself or a creature within its reach from the rock on a success. The rock restraining each creature has AC 17; 20 hit points; and immunity to fire, poison, and psychic damage. On a successful save, a creature takes half as much damage only.</p>",
@@ -14390,7 +14390,7 @@ const monsters = [
     challenge: "10 (5,900 XP)",
     traits:
       "<p><em><strong>Shrapnel Explosion.</strong></em> When the giant drops to 0 hit points, its armor explodes, destroying the giant's body and scattering the armor as shrapnel. Creatures within 10 feet of the giant when its armor explodes must make a DC 18 Dexterity saving throw, taking 21 (6d6) piercing damage on a failed save, or half as much damage on a successful one.</p>",
-    "number of attacks": "",
+    "number of attacks": 2,
     attacks: {},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The giant makes two Searing Scepter attacks or two Bolt of Imix attacks.</p><p><em><strong>Searing Scepter.</strong></em> <em>Melee Weapon Attack:</em> +11 to hit, reach 10 ft., one target. <em>Hit:</em> 17 (3d6 + 7) bludgeoning damage plus 9 (2d8) fire damage, and the target is magically branded. While branded in this way, the target becomes visible if it's invisible, can't become invisible, and sheds dim light in a 5-foot radius. The brand disappears after 24 hours, or it can be removed from a creature or an object by any spell that ends a curse.</p><p><em><strong>Bolt of Imix.</strong></em> <em>Ranged Spell Attack:</em> +8 to hit, range 120 ft., one target. <em>Hit:</em> 20 (3d10 + 4) fire damage, and the target must succeed on a DC 16 Wisdom saving throw or have the frightened condition until the end of the target's next turn.</p>",
@@ -14400,14 +14400,8 @@ const monsters = [
  size: "Medium",
  type: "Construct",
  alignment: "Lawful Evil",
- environments: [
-  "Desert",
-  "Mountain",
-  "Urban"
- ],
- "associates": [
-  "Magic-wielder"
- ],
+ environments: ["Desert", "Mountain", "Urban"],
+ "associates": ["Magic-wielder"],
  "armor class": "17 (natural armor)",
  "hit points": "19 (3d8 + 4)",
  speed: "10 ft.",
@@ -14422,7 +14416,7 @@ const monsters = [
  "damage immunities": "Poison",
  "condition immunities": "Charmed, Exhaustion, Frightened, Petrified, Poisoned",
  senses: "Passive Perception 9",
- languages: "Languages it knew in life",
+ languages: ["Languages it knew in life"],
  challenge: "1 (200 XP)",
  traits: "<p><em><strong>Cunning Opportunist.</strong></em> The stone cursed has advantage on the attack rolls of opportunity attacks.</p><p><em><strong>False Appearance.</strong></em> While the stone cursed remains motionless, it is indistinguishable from a normal statue.</p>",
  "number of attacks": 1,
@@ -14445,12 +14439,7 @@ const monsters = [
     size: "Medium",
     type: "Construct",
     alignment: "Unaligned",
-    environments: [
-      "Forest",
-      "Grassland",
-      "Hill",
-      "Mountain"
-    ],
+    environments: ["Forest", "Grassland", "Hill", "Mountain"],
     "armor class": "16 (natural armor)",
     "hit points": "52 (7d8 + 21)",
     speed: "30 ft.",
@@ -14486,11 +14475,7 @@ const monsters = [
     size: "Huge",
     type: "Giant",
     alignment: "Chaotic Neutral",
-    environments: [
-      "Coastal",
-      "Hill",
-      "Mountain"
-    ],
+    environments: ["Coastal", "Hill", "Mountain"],
     "armor class": "18 (natural armor)",
     "hit points": "161 (14d12 + 70)",
     speed: "40 ft.",
@@ -14535,10 +14520,7 @@ const monsters = [
     size: "Huge",
     type: "Giant",
     alignment: "Chaotic Evil",
-    environments: [
-      "Arctic",
-      "Coastal"
-    ],
+    environments: ["Arctic", "Coastal"],
     "armor class": "15 (patchwork armor)",
     "hit points": "189 (14d12 + 98)",
     speed: "40 ft.",
@@ -14747,11 +14729,7 @@ const monsters = [
     size: "Huge",
     type: "Giant",
     alignment: "Chaotic Good",
-    environments: [
-      "Mountain",
-      "Coastal",
-      "Desert"
-    ],
+    environments: ["Mountain", "Coastal", "Desert"],
     "armor class": "12",
     "hit points": "230 (20d12 + 100)",
     speed: "50 ft., fly 50 ft. (hover), swim 50 ft.",
@@ -14902,12 +14880,7 @@ const monsters = [
     skills: "Perception +7, Stealth +8",
     "damage resistances": "Necrotic; Bludgeoning, Piercing, and Slashing from nonmagical attacks",
     senses: "Darkvision 120 ft., Passive Perception 17",
-    languages: [
-      "Languages it knew in life",
-      "Abyssal",
-      "Infernal",
-      "One of its choice"
-    ],
+    languages: ["Languages it knew in life", "Abyssal", "Infernal", "One of its choice"],
     challenge: "13 (10,000 XP)",
     traits: "<p><em><strong>Shapechanger.</strong></em> If the vampire isn't in sunlight or running water, it can use its action to polymorph into a Tiny bat or a Medium cloud of mist, or back into its true form. While in bat form, the vampire can't speak, its walking speed is 5 feet, and it has a flying speed of 30 feet. Its statistics, other than its size and speed, are unchanged. Anything it is wearing transforms with it, but nothing it is carrying does. It reverts to its true form if it dies. While in mist form, the vampire can't take any actions, speak, or manipulate objects. It is weightless, has a flying speed of 20 feet, can hover, and can enter a hostile creature's space and stop there. In either case, if air can pass through a space, the mist can. It has advantage on Strength, Dexterity, and Constitution saving throws, and it can't be grappled, prone, pushed, restrained, or stunned. It takes no damage from nonmagical attacks. It reverts to its true form if it dies.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the vampire fails a saving throw, it can choose to succeed instead.</p><p><em><strong>Misty Escape.</strong></em> When it drops to 0 hit points outside its resting place, the vampire transforms into a cloud of mist (as in the Shapechanger trait) instead of falling unconscious, provided that it isn't in sunlight or running water. If it can't transform, it is destroyed. While it has 0 hit points in mist form, it can't revert to its true form, and it must reach its resting place within 2 hours or be destroyed. Once in its resting place, it regains 1 hit point.</p><p><em><strong>Regeneration.</strong></em> The vampire regains 20 hit points at the start of its turn if it has at least 1 hit point and isn't in sunlight or running water. If the vampire takes radiant damage or damage from holy water, this trait doesn't function at the start of the vampire's next turn.</p><p><em><strong>Spider Climb.</strong></em> The vampire can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check.</p><p><em><strong>Vampire Weaknesses.</strong></em> The vampire has the following flaws:<ul><li>Forbiddance: The vampire can't enter a residence without an invitation from one of the occupants.</li><li>Harmed by Running Water: The vampire takes 20 acid damage if it ends its turn in running water.</li><li>Stake to the Heart: If a piercing weapon made of wood is driven into the vampire's heart while it is incapacitated in its resting place, the vampire is paralyzed until the stake is removed.</li><li>Sunlight Hypersensitivity: The vampire takes 20 radiant damage when it starts its turn in sunlight. While in sunlight, it has disadvantage on attack rolls and ability checks.</li></ul></p><p><em><strong>Spellcasting.</strong></em> The vampire is a 12th-level spellcaster. Its spellcasting ability is Intelligence (spell save DC 17, +9 to hit with spell attacks). The vampire has the following wizard spells prepared:<ul><li>Cantrips (at will): <em>chill touch</em>, <em>light</em>, <em>mage hand</em>, <em>prestidigitation</em>, <em>ray of frost</em></li><li>1st level (4 slots): <em>detect magic</em>, <em>fog cloud</em>, <em>longstrider</em>, <em>shield</em></li><li>2nd level (3 slots): <em>darkness</em>, <em>hold person</em>, <em>misty step</em></li><li>3rd level (3 slots): <em>animate dead</em>, <em>counterspell</em>, <em>fly</em></li><li>4th level (3 slots): <em>blight</em>, <em>dimension door</em>, <em>greater invisibility</em></li><li>5th level (2 slots): <em>cone of cold</em>, <em>dominate person</em></li><li>6th level (1 slot): <em>circle of death</em>, <em>flesh to stone</em></li></ul></p>",
     "number of attacks": 2,
@@ -14939,11 +14912,7 @@ const monsters = [
     size: "Huge",
     type: "Giant",
     alignment: "Chaotic Evil",
-    environments: [
-      "Forest",
-      "Hill",
-      "Mountain"
-    ],
+    environments: ["Forest", "Hill", "Mountain"],
     "associates": ["Troll"],
     "armor class": "15 (natural armor)",
     "hit points": "136 (13d12 + 52)",
@@ -14998,11 +14967,7 @@ const monsters = [
     size: "Large",
     type: "Giant",
     alignment: "Chaotic Evil",
-    environments: [
-      "Forest",
-      "Hill",
-      "Mountain"
-    ],
+    environments: ["Forest", "Hill", "Mountain"],
     "associates": ["Troll"],
     "armor class": "15 (natural armor)",
     "hit points": "94 (9d10 + 45)",
@@ -15049,11 +15014,7 @@ const monsters = [
     size: "Large",
     type: "Giant",
     alignment: "Chaotic Evil",
-    environments: [
-      "Forest",
-      "Hill",
-      "Mountain"
-    ],
+    environments: ["Forest", "Hill", "Mountain"],
     "associates": ["Troll"],
     "armor class": "15 (natural armor)",
     "hit points": "94 (9d10 + 45)",
@@ -15099,9 +15060,7 @@ const monsters = [
     size: "Small",
     type: "Humanoid",
     alignment: "Neutral Evil",
-    environments: [
-      "Dungeon"
-    ],
+    environments: ["Dungeon"],
     "associates": ["Goblin"],
     "armor class": "12 (leather armor)",
     "hit points": "22 (4d6 + 8)",
@@ -15148,11 +15107,7 @@ const monsters = [
     size: "Medium",
     type: "Humanoid",
     alignment: "Chaotic Evil",
-    environments: [
-      "Grassland",
-      "Hill",
-      "Wasteland"
-    ],
+    environments: ["Grassland", "Hill", "Wasteland"],
     "associates": ["Gnoll"],
     "armor class": "13 (leather armor)",
     "hit points": "38 (7d8 + 7)",
@@ -15188,11 +15143,7 @@ const monsters = [
     size: "Medium",
     type: "Humanoid",
     alignment: "Any",
-    environments: [
-      "Forest",
-      "Grassland",
-      "Hill"
-    ],
+    environments: ["Forest", "Grassland", "Hill"],
     "associates": ["Tribal warrior"],
     "armor class": "13 (leather armor)",
     "hit points": "22 (4d8 + 4)",
@@ -15237,12 +15188,7 @@ const monsters = [
     size: "Medium",
     type: "Humanoid",
     alignment: "Neutral Evil",
-    environments: [
-      "Forest",
-      "Grassland",
-      "Hill",
-      "Mountain"
-    ],
+    environments: ["Forest", "Grassland", "Hill", "Mountain"],
     "associates": ["Uthgardt tribal warrior"],
     "armor class": "13 (hide armor, shield)",
     "hit points": "66 (12d8 + 12)",
@@ -15255,10 +15201,7 @@ const monsters = [
     cha: "14",
     skills: "Medicine +6, Nature +3, Religion +3",
     senses: "Passive Perception 13",
-    languages: [
-      "Common",
-      "Giant"
-    ],
+    languages: ["Common", "Giant"],
     challenge: "4 (1,100 XP)",
     traits: "<p><em><strong>Spellcasting.</strong></em> The shaman is an 8th-level spellcaster. Its spellcasting ability is Wisdom (spell save DC 14, +6 to hit with spell attacks). It has the following cleric spells prepared:<ul><li>Cantrips (at will): <em>guidance</em>, <em>mending</em>, <em>resistance</em>, <em>sacred flame</em></li><li>1st level (4 slots): <em>bane</em>, <em>bless</em>, <em>command</em>, <em>cure wounds</em></li><li>2nd level (3 slots): <em>hold person</em>, <em>spiritual weapon</em>, <em>warding bond</em></li><li>3rd level (3 slots): <em>bestow curse</em>, <em>dispel magic</em>, <em>spirit guardians</em></li><li>4th level (2 slots): <em>death ward</em>, <em>guardian of faith</em></li></ul></p>",
     "number of attacks": 1,
@@ -15281,17 +15224,8 @@ const monsters = [
     size: "Medium",
     type: "Humanoid",
     alignment: "Any Alignment",
-    environments: [
-      "Forest",
-      "Grassland",
-      "Hill",
-      "Mountain"
-    ],
-    "associates": [
-      "Tribal chief",
-      "Tribal hunter",
-      "Shaman"
-    ],
+    environments: ["Forest", "Grassland", "Hill", "Mountain"],
+    "associates": ["Tribal chief", "Tribal hunter", "Shaman"],
     "armor class": "12 (leather armor, shield)",
     "hit points": "11 (2d8 + 2)",
     speed: "30 ft.",
@@ -15327,17 +15261,8 @@ const monsters = [
     type: "Humanoid",
     alignment: "Any Alignment",
     associates: [],
-    environments: [
-      "Forest",
-      "Grassland",
-      "Hill",
-      "Mountain"
-    ],
-    "associates": [
-      "Tribal warrior",
-      "Tribal hunter",
-      "Shaman"
-    ],
+    environments: ["Forest", "Grassland", "Hill", "Mountain"],
+    "associates": ["Tribal warrior", "Tribal hunter", "Shaman"],
     "armor class": "14 (hide armor, shield)",
     "hit points": "65 (10d8 + 20)",
     speed: "30 ft.",
@@ -15382,20 +15307,8 @@ const monsters = [
     size: "Medium",
     type: "Humanoid",
     alignment: "Any Alignment",
-    environments: [
-      "Arctic",
-      "Forest",
-      "Mountain",
-      "Swamp",
-      "Urban"
-    ],
-    "associates": [
-      "Boggle",
-      "Quickling",
-      "Redcap",
-      "Satyr",
-      "Sprite"
-    ],
+    environments: ["Arctic", "Forest", "Mountain", "Swamp", "Urban"],
+    "associates": ["Boggle", "Quickling", "Redcap", "Satyr", "Sprite"],
     "armor class": "13 (16 with mage armor)",
     "hit points": "67 (15d8)",
     speed: "30 ft.",
@@ -15409,9 +15322,7 @@ const monsters = [
     skills: "Arcana +2, Deception +6, Nature +2, Persuasion +6",
     "condition immunities": "Charmed",
     senses: "Passive Perception 11",
-    languages: [
-      "Any two languages (usually Sylvan)"
-    ],
+    languages: ["Any two languages (usually Sylvan)"],
     challenge: "4 (1,100 XP)",
     "number of attacks": 2,
     attacks: [
@@ -15433,16 +15344,8 @@ const monsters = [
     size: "Medium",
     type: "Humanoid",
     alignment: "Any Alignment",
-    environments: [
-      "Arctic",
-      "Desert",
-      "Underdark",
-      "Urban"
-    ],
-    "associates": [
-      "Imp",
-      "Quasit"
-    ],
+    environments: ["Arctic", "Desert", "Underdark", "Urban"],
+    "associates": ["Imp", "Quasit"],
     "armor class": "16 (with mage armor)",
     "hit points": "78 (12d8+24)",
     speed: "30 ft.",
@@ -15478,15 +15381,8 @@ const monsters = [
     size: "Medium",
     type: "Undead",
     alignment: "Lawful Evil",
-    environments: [
-      "Urban"
-    ],
-    "associates": [
-      "Vampire Spawn",
-      "Bat",
-      "Rat",
-      "Wolf"
-    ],
+    environments: ["Urban"],
+    "associates": ["Vampire Spawn", "Bat", "Rat", "Wolf"],
     "armor class": "1 (plate armor)",
     "hit points": "144 (17d8+68)",
     speed: "30 ft.",
@@ -15541,11 +15437,7 @@ const monsters = [
     type: "Fey",
     alignment: "Neutral Evil",
     associates: [],
-    environments: [
-      "Forest",
-      "Grassland",
-      "Hill"
-    ],
+    environments: ["Forest", "Grassland", "Hill"],
     "armor class": "14 natural armor",
     "hit points": "51 (6d10 + 18)",
     speed: "40 ft., Fly 40 ft. (hover)",
@@ -15582,11 +15474,7 @@ const monsters = [
     alignment: "Lawful Evil",
     associates: [],
     environments: ["Dungeon"],
-    "associates": [
-      "Bel",
-      "Lemure",
-      "Kostchtchie"
-    ],
+    "associates": ["Bel", "Lemure", "Kostchtchie"],
     "armor class": "21 (natural armor)",
     "hit points": "580 (40d10 + 360)",
     speed: "50 ft., fly 150 ft.",
@@ -15644,14 +15532,7 @@ const monsters = [
     type: "Elemental",
     alignment: "Neutral",
     associates: [],
-    environments: [
-      "Desert",
-      "Forest",
-      "Grassland",
-      "Hill",
-      "Mountain",
-      "Underdark"
-    ],
+    environments: ["Desert", "Forest", "Grassland", "Hill", "Mountain", "Underdark"],
     "armor class": "21 (natural armor)",
     "hit points": "307 (15d20 + 150)",
     speed: "40 ft., Swim 40 ft.",
@@ -15707,9 +15588,7 @@ const monsters = [
     type: "Fiend",
     alignment: "Lawful Evil",
     associates: [],
-    environments: [
-      "Dungeon"
-    ],
+    environments: ["Dungeon"],
     "armor class": "21 (natural armor)",
     "hit points": "580 (40d10 + 360)",
     speed: "50 ft., fly 150 ft.",
@@ -15725,10 +15604,7 @@ const monsters = [
     "damage immunities": "Necrotic, Poison",
     "condition immunities": "Charmed, Exhaustion, Frightened, Poisoned",
     senses: "Darkvision 120 ft., Passive Perception 26",
-    languages: [
-      "All",
-      "Telepathy 120 ft."
-    ],
+    languages: ["All", "Telepathy 120 ft."],
     challenge: "26 (90,000 XP)",
     traits: "<p><em><strong>Devil's Sight.</strong></em> Magical darkness doesn't impede Zariel's darkvision.</p><p><em><strong>Innate Spellcasting.</strong></em> Zariel's innate spellcasting ability is Charisma (spell save DC 26). She can innately cast the following spells, requiring no material components: </p><p>At will: alter self (can become Medium when changing her appearance), detect evil and good, fireball, invisibility (self only), wall of fire</p><p>3/day each: blade barrier, dispel evil and good, finger of death</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If Zariel fails a saving throw, she can choose to succeed instead.</p><p><em><strong>Magic Resistance.</strong></em> Zariel has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Magic Weapons.</strong></em> Zariel's weapon attacks are magical. When she hits with any weapon, the weapon deals an extra 36 (8d8) fire damage (included in the weapon attacks below).</p><p><em><strong>Regeneration.</strong></em> Zariel regains 20 hit points at the start of her turn. If she takes radiant damage, this trait doesn't function at the start of her next turn. Zariel dies only if she starts her turn with 0 hit points and doesn't regenerate.</p>",
     "number of attacks": 2,
@@ -15770,9 +15646,7 @@ const monsters = [
     type: "Humanoid",
     alignment: "Lawful Neutral",
     associates: [],
-    environments: [
-      "Underwater"
-    ],
+    environments: ["Underwater"],
     "armor class": "1X tural armor)",
     "hit points": "130 (20d8 + 40)",
     speed: "30 ft., swim 40 ft.",
@@ -15786,11 +15660,7 @@ const monsters = [
     skills: "Insight +9, Nature +10, Perception +9",
     "damage resistances": "Cold, Poison",
     senses: "Darkvision 60 ft., Passive Perception 19",
-    languages: [
-      "Common",
-      "Elvish",
-      "Merfolk"
-    ],
+    languages: ["Common", "Elvish", "Merfolk"],
     challenge: "16 (15,000 XP)",
     traits: "<p><em><strong>Amphibious.</strong></em> Zegana can breathe air and water.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If Zegana fails a saving throw, she can choose to succeed instead.</p><p><em><strong>Magic Resistance.</strong></em> Zegana has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Spellcasting.</strong></em> Zegana is a 15th-level Simic spellcaster. Her spellcasting ability is Intelligence (spell save DC 18, +10 to hit with spell attacks). She has the following wizard spells prepared: </p><p>Cantrips (at will): acid splash, druidcraft, ray of frost, shape water</p><p>1st level (4 slots): color spray, expeditious retreat, fog cloud, shield</p><p>2nd level (3 slots): enlarge/reduce, gust of wind</p><p>3rd level (3 slots): counterspell, fly, slow</p><p>4th level (3 slots): control water, ice storm, polymorph</p><p>5th level (2 slots): conjure elemental, creation</p><p>6th level (1 slot): move earth, wall of ice</p><p>7th level (1 slot): prismatic spray, teleport</p><p>8th level (1 slot): control weather, dominate monster</p>",
     "number of attacks": 1,
@@ -15814,9 +15684,7 @@ const monsters = [
     type: "Fiend",
     alignment: "Chaotic Evil",
     associates: [],
-    environments: [
-      "Varies"
-    ],
+    environments: ["Varies"],
     "armor class": "18 (natural armor)",
     "hit points": "304 (32d10 + 128)",
     speed: "30 ft.",
@@ -15832,10 +15700,7 @@ const monsters = [
     "damage immunities": "Poison",
     "condition immunities": "Charmed, Exhaustion, Frightened, Poisoned",
     senses: "Truesight 120 ft., Passive Perception 21",
-    languages: [
-      "All",
-      "Telepathy 120 ft."
-    ],
+    languages: ["All", "Telepathy 120 ft."],
     challenge: "23 (50,000 XP)",
     traits: "<p><em><strong>Innate Spellcasting.</strong></em> Zuggtmoy's spellcasting ability is Charisma (spell save DC 22). She can innately cast the following spells, requiring no material components: </p><p>At will: detect magic, locate animals or plants, ray of sickness</p><p>3/day each: dispel magic, ensnaring strike, entangle, plant growth</p><p>1/day each: etherealness, teleport</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If Zuggtmoy fails a saving throw, she can choose to succeed instead.</p><p><em><strong>Magic Resistance.</strong></em> Zuggtmoy has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Magic Weapons.</strong></em> Zuggtmoy's weapon attacks are magical.</p>",
     "number of attacks": "3",
@@ -15862,13 +15727,7 @@ const monsters = [
     type: "Humanoid",
     alignment: "Any Alignment",
     associates: [],
-    environments: [
-      "Arctic",
-      "Hill",
-      "Mountain",
-      "Underdark",
-      "Urban"
-    ],
+    environments: ["Arctic", "Hill", "Mountain", "Underdark", "Urban"],
     "armor class": "1 (with mage armor)",
     "hit points": "91 (14d8 + 28)",
     speed: "30 ft.",
@@ -15882,10 +15741,7 @@ const monsters = [
     skills: "Arcana +4, History +4",
     "damage resistances": "Psychic",
     senses: "Darkvision 60 ft., Passive Perception 11",
-    languages: [
-      "Any two languages",
-      "Telepathy 30 ft."
-    ],
+    languages: ["Any two languages", "Telepathy 30 ft."],
     challenge: "6 (2,300 XP)",
     traits: "<p><em><strong>Whispering Aura.</strong></em> At the start of each of the warlock's turns, each creature of its choice within 10 feet of it must succeed on a DC 15 Wisdom saving throw or take 10 (3d6) psychic damage, provided that the warlock isn't incapacitated.</p><p><em><strong>Spellcasting.</strong></em> The warlock casts one of the following spells, using Charisma as the spellcasting ability (spell save DC 15): </p><p>At will: detect magic, guidance, levitate, mage armor (self only), mage hand, minor illusion, prestidigitation</p><p>1/day each: arcane gate, detect thoughts, true seeing</p>",
     "number of attacks": 2,
@@ -15977,9 +15833,7 @@ const monsters = [
  type: "Undead",
  alignment: "Lawful Evil",
  associates: [],
- environments: [
-  "Underdark"
- ],
+ environments: ["Underdark"],
  "armor class": "19",
  "hit points": "195 (26d10 + 52)",
  speed: "5 ft., fly 40 ft. (hover)",
@@ -15994,10 +15848,7 @@ const monsters = [
  "damage immunities": "Poison",
  "condition immunities": "Charmed, Exhaustion, Paralyzed, Petrified, Poisoned, Prone",
  senses: "Darkvision 120 ft., Passive Perception 22",
- languages: [
-  "Deep Speech",
-  "Undercommon"
- ],
+ languages: ["Deep Speech", "Undercommon"],
  challenge: "14 (11,500 XP, or 13,000 in lair; PB +5)",
  traits: "<p><em><strong>Legendary Resistance (3/Day, or 4/Day in Lair).</strong></em> If the death tyrant fails a saving throw, it can choose to succeed instead.</p>",
  "number of attacks": "3",
@@ -16026,8 +15877,7 @@ const monsters = [
   alignment: "Lawful Evil",
   associates: [],
   environments: ["Varies"],
-  "armor class": "12 (15 with mage armor)",
-  "hit points": "36 (8d8)",
+  "armor class": "12 (15 with mage armor)", "hit points": "36 (8d8)",
   speed: "30 ft.",
   str: "11",
   dex: "15",
@@ -16035,27 +15885,17 @@ const monsters = [
   int: "14",
   wis: "12",
   cha: "16",
-  skills: "Arcana +4, History +4",
-  "damage resistances": "Necrotic; Bludgeoning, Piercing, and Slashing from nonmagical attacks that aren't silvered",
-  "damage immunities": "Poison",
-  "condition immunities": "Exhaustion, Poisoned",
+  skills: "Arcana +4, History +4", "damage resistances": "Necrotic; Bludgeoning, Piercing, and Slashing from nonmagical attacks that aren't silvered", "damage immunities": "Poison", "condition immunities": "Exhaustion, Poisoned",
   senses: "Darkvision 60 ft., Passive Perception 11",
   languages: ["Languages it knew in life"],
   challenge: "4 (1,100 XP)",
-  traits: "<p><em><strong>Innate Spellcasting.</strong></em> The deathlock's innate spellcasting ability is Charisma (spell save DC 13). It can innately cast the following spells, requiring no material components:</p><p>At will: detect magic, disguise self, mage armor</p><p><em><strong>Spellcasting.</strong></em> The deathlock is a 5th-level spellcaster. Its spellcasting ability is Charisma (spell save DC 13, +5 to hit with spell attacks). It regains its expended spell slots when it finishes a short or long rest. It knows the following warlock spells:</p><p>Cantrips (at will): chill touch, eldritch blast, mage hand</p><p>1st-3rd level (2 3rd-level slots): arms of Hadar, dispel magic, hold person, hunger of Hadar, invisibility, spider climb</p><p><em><strong>Turn Resistance.</strong></em> The deathlock has advantage on saving throws against any effect that turns undead.</p>",
-  "number of attacks": 1,
+  traits: "<p><em><strong>Innate Spellcasting.</strong></em> The deathlock's innate spellcasting ability is Charisma (spell save DC 13). It can innately cast the following spells, requiring no material components:</p><p>At will: detect magic, disguise self, mage armor</p><p><em><strong>Spellcasting.</strong></em> The deathlock is a 5th-level spellcaster. Its spellcasting ability is Charisma (spell save DC 13, +5 to hit with spell attacks). It regains its expended spell slots when it finishes a short or long rest. It knows the following warlock spells:</p><p>Cantrips (at will): chill touch, eldritch blast, mage hand</p><p>1st-3rd level (2 3rd-level slots): arms of Hadar, dispel magic, hold person, hunger of Hadar, invisibility, spider climb</p><p><em><strong>Turn Resistance.</strong></em> The deathlock has advantage on saving throws against any effect that turns undead.</p>", "number of attacks": 1,
   attacks: [
     {
-      type: "Melee Weapon Attack",
-      "to hit": "+4",
-      "reach": "5 ft.",
-      "target": "one target",
-      "hit": "9 (2d6 + 2)",
-      "damage type": "necrotic"
+      type: "Melee Weapon Attack", "to hit": "+4", "reach": "5 ft.", "target": "one target", "hit": "9 (2d6 + 2)", "damage type": "necrotic"
     }
   ],
-  actions: "<p><em><strong>Deathly Claw.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft., one target. <em>Hit:</em> 9 (2d6 + 2) necrotic damage.</p>",
-  "description": "<p>The forging of a pact between a warlock and a patron is no minor occasion-at least not for the warlock. The consequences of breaking that pact can be dire and, in some cases, lethal. A warlock who fails to live up to a bargain with an evil patron runs the risk of rising from the dead as a deathlock, a foul undead driven to serve its otherworldly patron from beyond the grave.</p><p>An extraordinarily powerful necromancer might also discover the dark methods of creating a deathlock and then bind it to service, acting in this respect as the deathlock's patron.</p><p>An overpowering urge to serve consumes the mind of a newly awakened deathlock. All goals and ambitions it had in life that don't please its patron fall away as its master's desires become the purpose that drives the deathlock. The creature immediately resumes work on its patron's behalf.</p>"
+  actions: "<p><em><strong>Deathly Claw.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft., one target. <em>Hit:</em> 9 (2d6 + 2) necrotic damage.</p>", "description": "<p>The forging of a pact between a warlock and a patron is no minor occasion-at least not for the warlock. The consequences of breaking that pact can be dire and, in some cases, lethal. A warlock who fails to live up to a bargain with an evil patron runs the risk of rising from the dead as a deathlock, a foul undead driven to serve its otherworldly patron from beyond the grave.</p><p>An extraordinarily powerful necromancer might also discover the dark methods of creating a deathlock and then bind it to service, acting in this respect as the deathlock's patron.</p><p>An overpowering urge to serve consumes the mind of a newly awakened deathlock. All goals and ambitions it had in life that don't please its patron fall away as its master's desires become the purpose that drives the deathlock. The creature immediately resumes work on its patron's behalf.</p>"
 },
   {
     name: "Deathlock Mastermind",
@@ -16063,9 +15903,7 @@ const monsters = [
     type: "Undead",
     alignment: "Lawful Evil",
     associates: [],
-    environments: [
-      "Urban"
-    ],
+    environments: ["Urban"],
     "armor class": "13 (16 with mage armor)",
     "hit points": "110 (20d8 + 20)",
     speed: "30 ft.",
@@ -16080,9 +15918,7 @@ const monsters = [
     "damage resistances": "Necrotic, Bludgeoning, Piercing, and Slashing from nonmagical attacks that aren't silvered",
     "condition immunities": "Exhaustion, Poisoned",
     senses: "Darkvision 120 ft. (including magical darkness), Passive Perception 14",
-    languages: [
-      "Languages it knew in life"
-    ],
+    languages: ["Languages it knew in life"],
     challenge: "8 (3,900 XP)",
     traits: "<p><em><strong>Innate Spellcasting.</strong></em> The deathlock's innate spellcasting ability is Charisma (spell save DC 14). It can innately cast the following spells, requiring no material components:</p><p>At will: detect magic, disguise self, mage armor</p><p><em><strong>Spellcasting.</strong></em> The deathlock is a 10th-level spellcaster. Its spellcasting ability is Charisma (spell save DC 14, +6 to hit with spell attacks). It regains its expended spell slots when it finishes a short or long rest. It knows the following warlock spells:</p><p>Cantrips (at will): chill touch, mage hand, minor illusion, poison spray</p><p>1st-5th level (2 5th-level slots): arms of Hadar, blight, counterspell, crown of madness, darkness, dimension door, dispel magic, fly, hold monster, invisibility</p><p><em><strong>Turn Resistance.</strong></em> The deathlock has advantage on saving throws against any effect that turns undead.</p>",
     "number of attacks": 2,
@@ -16113,9 +15949,7 @@ const monsters = [
     type: "Undead",
     alignment: "Lawful Evil",
     associates: [],
-    environments: [
-      "Varies"
-    ],
+    environments: ["Varies"],
     "armor class": "12 (15 with mage armor)",
     "hit points": "37 (5d8 + 15)",
     speed: "30 ft.",
@@ -16129,9 +15963,7 @@ const monsters = [
     "damage resistances": "Necrotic; Bludgeoning, Piercing, and Slashing from nonmagical attacks",
     "condition immunities": "Exhaustion, Poisoned",
     senses: "Darkvision 60 ft., Passive Perception 14",
-    languages: [
-      "Languages it knew in life"
-    ],
+    languages: ["Languages it knew in life"],
     challenge: "3 (700 XP)",
     traits: "<p><em><strong>Innate Spellcasting.</strong></em> The wight's innate spellcasting ability is Charisma (spell save DC 13). It can innately cast the following spells, requiring no verbal or material components:</p><p>At will: detect magic, disguise self, mage armor</p><p>1/day each: fear, hold person, misty step</p><p><em><strong>Sunlight Sensitivity.</strong></em> While in sunlight, the wight has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight.</p>",
     "number of attacks": 2,
@@ -16162,12 +15994,8 @@ const monsters = [
     type: "Celestial",
     alignment: "Lawful Evil",
     associates: [],
-    environments: [
-      "Dungeon"
-    ],
-    "associates": [
-      "Debtor"
-    ],
+    environments: ["Dungeon"],
+    "associates": ["Debtor"],
     "armor class": "18 (Natural Armor)",
     "hit points": "175 (27d8 + 54)",
     speed: "30 ft., fly 90 ft.",
@@ -16182,9 +16010,7 @@ const monsters = [
     "damage resistances": "Necrotic, Radiant; Bludgeoning, Piercing, and Slashing from nonmagical attacks",
     "condition immunities": "Charmed, Exhaustion, Frightened",
     senses: "Truesight 120 ft., Passive Perception 20",
-    languages: [
-      "All"
-    ],
+    languages: ["All"],
     challenge: "14 (11,500 XP)",
     traits: "<p><em><strong>Exploitation of the Debtors.</strong></em> As a bonus action, the angel targets a creature charmed by it that it can see within 30 feet of it. The angel deals 11 (2d10) necrotic damage to the target, and the angel gains temporary hit points equal to the damage dealt.</p><p><em><strong>Flyby.</strong></em> The angel doesn't provoke an opportunity attack when it flies out of an enemy's reach.</p><p><em><strong>Innate Spellcasting.</strong></em> The angel's innate spellcasting ability is Charisma (spell save DC 19, +11 to hit with spell attacks). The angel can innately cast the following spells, requiring no material components: </p><p>At will: command (as a 2nd-level spell), detect evil and good</p><p>3/day each: charm person (as a 5th-level spell), darkness, suggestion</p><p>1/day: raise dead</p><p><em><strong>Magic Resistance.</strong></em> The angel has advantage on saving throws against spells and other magical effects.</p>",
     "number of attacks": 2,
@@ -16207,25 +16033,8 @@ const monsters = [
     type: "Humanoid",
     alignment: "Unaligned",
     associates: [],
-    environments: [
-      "Underdark",
-      "Mountain"
-    ],
-    "associates": [
-      "Scout",
-      "Deep Gnome Scout",
-      "Forest Gnome Scout",
-      "Wood Elf Scout",
-      "Bloodhawk",
-      "Mastiff",
-      "Wolf",
-      "Strider",
-      "Cave Bear",
-      "Druid",
-      "Griffon",
-      "Saber-Toothed Tiger",
-      "Wood Elf Sharpshooter"
-    ],
+    environments: ["Underdark", "Mountain"],
+    "associates": ["Scout", "Deep Gnome Scout", "Forest Gnome Scout", "Wood Elf Scout", "Bloodhawk", "Mastiff", "Wolf", "Strider", "Cave Bear", "Druid", "Griffon", "Saber-Toothed Tiger", "Wood Elf Sharpshooter"],
     "armor class": "15 (leather)",
     "hit points": "19 (3d8 + 6; bloodied 9)",
     speed: "30 ft.",
@@ -16238,9 +16047,7 @@ const monsters = [
     "saving throws": "DEX +5",
     skills: "Nature +2, Perception +4 (+1d4), Stealth +5, Survival +4",
     senses: "passive Perception 16",
-    languages: [
-      "Any one"
-    ],
+    languages: ["Any one"],
     challenge: "1/2 (100 XP)",
     traits: "<p><em><strong>Keen Hearing and Sight.</strong></em> The scout has advantage on Perception checks that rely on hearing or sight.</p><p><em><strong>Camouflage.</strong></em> The scout has advantage on Stealth checks made to hide in rocky terrain.</p><p><em><strong>Deep Gnome Resistance.</strong></em> The scout has advantage on Intelligence, Wisdom, and Charisma saving throws against magic.</p><p><em><strong>Deep Gnome Magic.</strong></em> The deep gnome can innately cast <em>blindness/deafness</em> (blindness only), <em>disguise self</em>, and <em>nondetection</em> once per long rest without using material components, using Intelligence for their spellcasting ability.</p>",
     "number of attacks": 1,
@@ -16263,10 +16070,7 @@ const monsters = [
     type: "Beast",
     alignment: "Unaligned",
     associates: [],
-    environments: [
-      "Coastal",
-      "Swamp"
-    ],
+    environments: ["Coastal", "Swamp"],
     "armor class": "12 (natural armor)",
     "hit points": "19 (3d8 + 6)",
     speed: "30 ft., swim 20 ft.",
@@ -16300,12 +16104,8 @@ const monsters = [
     type: "Monstrosity",
     alignment: "Lawful Evil",
     associates: [],
-    environments: [
-      "Forest"
-    ],
-    "associates": [
-      "Blink Dog"
-    ],
+    environments: ["Forest"],
+    "associates": ["Blink Dog"],
     "armor class": "13 (natural armor)",
     "hit points": "85 (10d10 + 30)",
     speed: "40 ft.",
@@ -16339,9 +16139,7 @@ const monsters = [
     type: "Fiend",
     alignment: "Lawful Evil",
     associates: [],
-    environments: [
-      "Dungeon"
-    ],
+    environments: ["Dungeon"],
     "armor class": "21 (natural armor, wrought-iron tower)",
     "hit points": "412 (33d10 + 231)",
     speed: "30 ft.",
@@ -16357,13 +16155,7 @@ const monsters = [
     "damage immunities": "Fire, Poison",
     "condition immunities": "Charmed, Frightened, Poisoned",
     senses: "Darkvision 120 ft., Passive Perception 24",
-    languages: [
-      "Celestial",
-      "Common",
-      "Draconic",
-      "Infernal",
-      "Telepathy 120 ft."
-    ],
+    languages: ["Celestial", "Common", "Draconic", "Infernal", "Telepathy 120 ft."],
     challenge: "27 (105,000 XP)",
     traits: "<p><em><strong>Devil's Sight.</strong></em> Magical darkness doesn't impede Dispater's darkvision.</p><p><em><strong>Fear Aura.</strong></em> When a creature starts their turn within 120 feet of Dispater, they must succeed on a DC 22 Wisdom saving throw or have the frightened condition until they leave the aura. A creature that succeeds on the saving throw is immune to this effect for 1 hour.</p><p><em><strong>Fiendish Regeneration.</strong></em> Dispater regains 20 hit points at the start of his turn. If he takes radiant damage this trait doesn't function at the start of his next turn. Dispater dies only if he starts his turn with 0 hit points and is unable to regenerate.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If Dispater fails a saving throw, he can choose to succeed instead.</p><p><em><strong>Magic Resistance.</strong></em> Dispater has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Rust Metal.</strong></em> Any nonmagical weapon or ammunition made of metal that hits Dispater corrodes. After its hit, the weapon or ammunition is destroyed.</p>",
     "number of attacks": "4",
@@ -16397,9 +16189,7 @@ const monsters = [
     type: "Humanoid",
     alignment: "Any Alignment",
     associates: [],
-    environments: [
-      "Urban"
-    ],
+    environments: ["Urban"],
     "armor class": "12 (15 with mage armor)",
     "hit points": "90 (20d8)",
     speed: "30 ft.",
@@ -16482,10 +16272,7 @@ const monsters = [
     type: "Fey",
     alignment: "Chaotic Neutral",
     associates: [],
-    environments: [
-      "Forest",
-      "Grassland"
-    ],
+    environments: ["Forest", "Grassland"],
     "armor class": "17 (natural armor)",
     "hit points": "104 (16d8 + 32)",
     speed: "30 ft.",
@@ -16497,11 +16284,7 @@ const monsters = [
     cha: "18",
     "damage resistances": "Bludgeoning, Piercing, and Slashing from nonmagical attacks",
     senses: "Darkvision 60 ft., Passive Perception 10",
-    languages: [
-      "Common",
-      "Elvish",
-      "Sylvan"
-    ],
+    languages: ["Common", "Elvish", "Sylvan"],
     challenge: "10 (5,900 XP)",
     traits: "<p><em><strong>Joyful Presence (Recharge 4-6).</strong></em> As a bonus action, the eladrin can teleport up to 30 feet to an unoccupied space it can see.</p><p><em><strong>Innate Spellcasting.</strong></em> The eladrin’s innate spellcasting ability is Charisma (spell save DC 16). It can innately cast the spells, requiring no material components: </p><ul><li>At will: charm person, <em>Tasha's hideous laughter</em></li><li>3/day each: confusion, enthrall, suggestion</li><li>1/day each: hallucinatory terrain, Otto’s irresistible dance</li></ul><p><em><strong>Fey Step.</strong></em> Any non-eladrin creature that starts its turn within 60 feet of the eladrin must make a DC 16 Wisdom saving throw. On a failed save, the creature is charmed for 1 minute. On a successful save, the creature is immune to any eladrin's Joyful Presence for 24 hours. If the eladrin deals damage to the charmed creature, it can repeat the saving throw, ending the effect on a success.</p><p><em><strong>Magic Resistance.</strong></em> The eladrin has advantage on saving throws against spells and other magical effects.</p>",
     "number of attacks": 2,
@@ -16531,10 +16314,7 @@ const monsters = [
     type: "Fey",
     alignment: "Chaotic Neutral",
     associates: [],
-    environments: [
-      "Arctic",
-      "Forest"
-    ],
+    environments: ["Arctic", "Forest"],
     "armor class": "19 (natural armor)",
     "hit points": "127 (17d8 + 51)",
     speed: "30 ft.",
@@ -16546,11 +16326,7 @@ const monsters = [
     cha: "13",
     "damage resistances": "Cold; Bludgeoning, Piercing, and Slashing from nonmagical attacks",
     senses: "Darkvision 60 ft., Passive Perception 13",
-    languages: [
-      "Common",
-      "Elvish",
-      "Sylvan"
-    ],
+    languages: ["Common", "Elvish", "Sylvan"],
     challenge: "10 (5,900 XP)",
     traits: "<p><em><strong>Fey Step (Recharge 4-6).</strong></em> As a bonus action, the eladrin can teleport up to 30 feet to an unoccupied space it can see.</p><p><em><strong>Innate Spellcasting.</strong></em> The eladrin’s innate spellcasting ability is Intelligence (spell save DC 16). It can innately cast the following spells, requiring no material components: </p><ul><li>At will: fog cloud, gust of wind</li><li>1/day each: cone of cold, ice storm</li></ul><p><em><strong>Magic Resistance.</strong></em> The eladrin has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Sorrowful Presence.</strong></em> Any non-eladrin creature that starts its turn within 60 feet of the eladrin must make a DC 13 Wisdom saving throw. On a failed save, the creature is charmed for 1 minute. While charmed in this way, the creature has disadvantage on ability checks and saving throws. The charmed creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to any eladrin's Sorrowful Presence for the next 24 hours. Whenever the eladrin deals damage to the charmed creature, it can repeat the saving throw, ending the effect on itself on a success.</p>",
     "number of attacks": 2,
@@ -16581,13 +16357,7 @@ const monsters = [
     type: "Elemental",
     alignment: "Neutral",
     associates: [],
-    environments: [
-      "Arctic",
-      "Coastal",
-      "Grassland",
-      "Hill",
-      "Mountain"
-    ],
+    environments: ["Arctic", "Coastal", "Grassland", "Hill", "Mountain"],
     "armor class": "19",
     "hit points": "264 (16d20 + 96)",
     speed: "0 ft., fly 120 ft. (hover)",
@@ -16742,10 +16512,7 @@ const monsters = [
     size: "Medium",
     type: "Humanoid",
     alignment: "Any Alignment",
-    environments: [
-      "Forest",
-      "Urban"
-    ],
+    environments: ["Forest", "Urban"],
     "armor class": "16 (studded leather)",
     "hit points": "75 (10d8 + 30)",
     speed: "30 ft.",
@@ -16789,9 +16556,7 @@ const monsters = [
     type: "Celestial",
     alignment: "Lawful Good",
     associates: [],
-    environments: [
-      "Varies"
-    ],
+    environments: ["Varies"],
     "armor class": "17 (natural armor)",
     "hit points": "195 (17d12 + 85)",
     speed: "60 ft., fly 90 ft.",
@@ -16806,9 +16571,7 @@ const monsters = [
     "damage resistances": "Radiant",
     "condition immunities": "Exhaustion",
     senses: "Darkvision 120 ft., Passive Perception 19",
-    languages: [
-      "Common", "Celestial", "Can't speak"
-    ],
+    languages: ["Common", "Celestial", "Can't speak"],
     challenge: "15 (13,000 XP)",
     traits: "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If the archon fails a saving throw, it can choose to succeed instead.</p><p><em><strong>Magic Resistance.</strong></em> The archon has advantage on saving throws against spells and other magical effects.</p>",
     "number of attacks": 2,
@@ -16841,9 +16604,7 @@ const monsters = [
     type: "Celestial",
     alignment: "Lawful Good",
     associates: [],
-    environments: [
-      "Varies"
-    ],
+    environments: ["Varies"],
     "armor class": "18 (plate)",
     "hit points": "144 (17d8 + 68)",
     speed: "30 ft.",
@@ -16858,9 +16619,7 @@ const monsters = [
     "damage immunities": "Radiant",
     "condition immunities": "Charmed, Exhaustion, Frightened",
     senses: "Truesight 120 ft., Passive Perception 19",
-    languages: [
-      "All"
-    ],
+    languages: ["All"],
     challenge: "12 (8,400 XP)",
     traits: "<p><em><strong>Innate Spellcasting.</strong></em> The archon's spellcasting ability is Wisdom (spell save DC 17, +9 to hit with spell attacks). The archon can innately cast the following spells, requiring no material components:<br>At will: command, guiding bolt, spare the dying<br>1/day each: crusader's mantle, spirit guardians</p><p><em><strong>Magic Resistance.</strong></em> The archon has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Mount.</strong></em> If the archon isn't mounted, it can use a bonus action to magically teleport onto the creature serving as its mount, provided the archon and its mount are on the same plane of existence. When it teleports, the archon appears astride the mount, along with any equipment it is wearing or carrying. While mounted and not incapacitated, the archon can't be surprised, and both it and its mount have advantage on Dexterity saving throws. If the archon is reduced to 0 hit points while riding its mount, the mount is reduced to 0 hit points as well.</p><p><em><strong>Radiant Rebirth (Recharges after a Long Rest).</strong></em> If the archon is reduced to 0 hit points, it regains 30 hit points and springs back to its feet with a burst of radiance. Each creature of the archon's choice within 30 feet of it must succeed on a DC 16 Constitution saving throw, or the creature takes 13 (3d8) radiant damage and is blinded until the start of the archon's turn.</p>",
     "number of attacks": 2,
@@ -16885,13 +16644,8 @@ const monsters = [
     type: "Fiend",
     alignment: "Lawful Evil",
     associates: [],
-    environments: [
-      "Varies"
-    ],
-    "associates": [
-      "Bearded Devil",
-      "Barbed Devil"
-    ],
+    environments: ["Varies"],
+    "associates": ["Bearded Devil", "Barbed Devil"],
     "armor class": "21 (natural armor)",
     "hit points": "202 (27d8 + 81)",
     speed: "30 ft., fly 40 ft.",
@@ -16907,11 +16661,7 @@ const monsters = [
     "damage immunities": "Fire, Poison",
     "condition immunities": "Charmed, Poisoned",
     senses: "Darkvision 120 ft., Passive Perception 17",
-    languages: [
-      "Common",
-      "Infernal",
-      "Telepathy 1000 ft."
-    ],
+    languages: ["Common", "Infernal", "Telepathy 1000 ft."],
     challenge: "18 (20,000 XP)",
     traits: "<p><em><strong>Devil's Sight.</strong></em> Magical darkness doesn't impede the amnizu's darkvision.</p><p><em><strong>Innate Spellcasting.</strong></em> The amnizu's innate spellcasting ability is Intelligence (spell save DC 19, +11 to hit with spell attacks). The amnizu can innately cast the following spells, requiring no material components:<br>At will: charm person, command<br>3/day each: dominate person, fireball<br>1/day each: dominate monster, feeblemind</p><p><em><strong>Magic Resistance.</strong></em> The amnizu has advantage on saving throws against spells and other magical effects.</p>",
     "number of attacks": 2,
@@ -16944,9 +16694,7 @@ const monsters = [
     type: "Humanoid",
     alignment: "Chaotic Neutral",
     associates: [],
-    environments: [
-      "Urban"
-    ],
+    environments: ["Urban"],
     "armor class": "13 (hide armor)",
     "hit points": "11 (2d8 + 2)",
     speed: "30 ft.",
@@ -16982,10 +16730,7 @@ const monsters = [
     type: "Monstrosity",
     alignment: "Neutral Evil",
     associates: [],
-    environments: [
-      "Underdark",
-      "Urban"
-    ],
+    environments: ["Underdark", "Urban"],
     "armor class": "18 (natural armor)",
     "hit points": "255 (30d8 + 120)",
     speed: "30 ft.",
@@ -16998,9 +16743,7 @@ const monsters = [
     skills: "Perception +11",
     "damage resistances": "Bludgeoning, Piercing, and Slashing while in dim light or darkness",
     senses: "Darkvision 60 ft., Passive Perception 21",
-    languages: [
-      "Common"
-    ],
+    languages: ["Common"],
     challenge: "13 (10,000 XP)",
     traits: "<p><em><strong>Rising Anger.</strong></em> If another creature deals damage to the sorrowsworn, the sorrowsworn's attack rolls have advantage until the end of its next turn, and the first time it hits with a Hook attack on its next turn, the attack's target takes an extra 19 (3d12) psychic damage.<br>On its turn, the sorrowsworn has disadvantage on attack rolls if no other creature has dealt damage to it since the end of its last turn.</p><p><em><strong>Two Heads.</strong></em> The sorrowsworn has advantage on saving throws against being blinded, charmed, deafened, frightened, stunned, or knocked unconscious.</p>",
     "number of attacks": 2,
@@ -17024,9 +16767,7 @@ const monsters = [
     type: "Celestial",
     alignment: "Lawful Good",
     associates: [],
-    environments: [
-      "Varies"
-    ],
+    environments: ["Varies"],
     "armor class": "13",
     "hit points": "22 (5d6 + 5)",
     speed: "0 ft., fly 60 ft. (hover)",
@@ -17041,9 +16782,7 @@ const monsters = [
     "damage immunities": "Lightning, Radiant",
     "condition immunities": "Exhaustion, Grappled, Paralyzed, Prone, Restrained",
     senses: "Darkvision 120 ft., Passive Perception 13",
-    languages: [
-      "All"
-    ],
+    languages: ["All"],
     challenge: "2 (450 XP)",
     traits: "<p><em><strong>Aura of Menace.</strong></em> As long as the archon doesn't have the incapacitated condition, each creature of the archon's choice that starts its turn within 20 feet of the archon must make a DC 11 Wisdom saving throw. On a failed save, the creature has the frightened condition until the start of its next turn. On a successful save, the creature is immune to all archons' Aura of Menace for 24 hours.</p><p><em><strong>Illumination.</strong></em> The archon sheds bright light in a 30-foot radius and dim light for an additional 30 feet.</p><p><em><strong>Incorporeal Movement.</strong></em> The archon can move through creatures and objects as if they were difficult terrain. If it ends its turn inside an object, it takes 5 (1d10) force damage.</p>",
     "number of attacks": 2,
@@ -17068,9 +16807,7 @@ const monsters = [
     type: "Celestial",
     alignment: "Lawful Neutral",
     associates: [],
-    environments: [
-      "Varies"
-    ],
+    environments: ["Varies"],
     "armor class": "17 (natural armor)",
     "hit points": "136 (16d8 + 64)",
     speed: "30 ft., fly 90 ft.",
@@ -17085,10 +16822,7 @@ const monsters = [
     "damage resistances": "Radiant; Bludgeoning, Piercing, and Slashing from nonmagical attacks",
     "condition immunities": "Charmed, Exhaustion, Frightened",
     senses: "Darkvision 120 ft., Passive Perception 19",
-    languages: [
-      "All",
-      "Telepathy 120 ft."
-    ],
+    languages: ["All", "Telepathy 120 ft."],
     challenge: "10 (5,900 XP)",
     traits: "<p><em><strong>Angelic Weapons.</strong></em> The archon's weapon attacks are magical. When the archon hits with any weapon, the weapon deals an extra 3d8 radiant damage (included in the attack).</p><p><em><strong>Axiomatic Mind.</strong></em> The archon can't be compelled to act in a manner contrary to its nature or its understanding of justice.</p><p><em><strong>Innate Spellcasting.</strong></em> The archon's innate spellcasting ability is Charisma (spell save DC 17). The archon can innately cast the following spells, requiring only verbal components:<br>At will: detect evil and good<br>1/day each: destructive wave, geas</p><p><em><strong>Magic Resistance.</strong></em> The archon has advantage on saving throws against spells and other magical effects.</p><p><em><strong>One Being.</strong></em> Though it appears as a humanoid creature riding a mount, an archon is a single being. The \"rider\" can't be dismounted, and no other means can separate the two portions of the archon's being short of its death.</p>",
     "number of attacks": 2,
@@ -17120,9 +16854,7 @@ const monsters = [
     type: "Celestial",
     alignment: "Lawful Neutral",
     associates: [],
-    environments: [
-      "Urban"
-    ],
+    environments: ["Urban"],
     "armor class": "18 (plate armor)",
     "hit points": "144 (17d8 + 68)",
     speed: "30 ft.",
@@ -17137,9 +16869,7 @@ const monsters = [
     "damage resistances": "Bludgeoning, Piercing, and Slashing from nonmagical attacks",
     "condition immunities": "Charmed, Exhaustion, Frightened",
     senses: "Darkvision 120 ft., Passive Perception 20",
-    languages: [
-      "All"
-    ],
+    languages: ["All"],
     challenge: "14 (11,500 XP)",
     traits: "<p><em><strong>Innate Spellcasting.</strong></em> The archon's innate spellcasting ability is Wisdom (spell save DC 18, +10 to hit with spell attacks). The archon can innately cast the following spells, requiring no material components:<br>At will: calm emotions, command, compelled duel</p><p><em><strong>Mount.</strong></em> If the archon isn't mounted, it can use a bonus action to magically teleport onto the creature serving as its mount, provided the archon and its mount are on the same plane of existence. When it teleports, the archon appears astride the mount along with any equipment it is wearing or carrying. While mounted and not incapacitated, the archon can't be surprised, and both it and its mount gain advantage on Dexterity saving throws. If the archon is reduced to 0 hit points while riding its mount, the mount is reduced to 0 hit points as well.</p>",
     "bonus_actions": "<p><em><strong>Eye of the Law.</strong></em> As a bonus action, the archon can target a creature it can see within 120 feet of it and determine which laws that creature has broken in the last 24 hours.</p>",
@@ -17165,9 +16895,7 @@ const monsters = [
     type: "Elemental",
     alignment: "Neutral Evil",
     associates: [],
-    environments: [
-      "Dungeon"
-    ],
+    environments: ["Dungeon"],
     "armor class": "15 (natural armor; 17 cold form only)",
     "hit points": "95 (10d10 + 40)",
     speed: "30 ft., fly 30 ft. (hover)",
@@ -17181,9 +16909,7 @@ const monsters = [
     "damage_immunities": "Poison",
     "condition_immunities": "Exhaustion, Paralyzed, Petrified, Poisoned, Restrained, Unconscious",
     senses: "Darkvision 60 ft., Passive Perception 10",
-    languages: [
-      "Draconic", "Can't speak"
-    ],
+    languages: ["Draconic", "Can't speak"],
     challenge: "6 (2,300 XP)",
     traits: "<p><em><strong>Chromatic Form.</strong></em> When created, the animated breath takes one of five forms, matching its creator's breath weapon: Acid, Cold, Fire, Lightning, or Poison. This form determines the creature's AC, damage resistance, traits, and attacks.</p><p><em><strong>Fire Aura (Fire Form Only).</strong></em> At the start of each of the animated breath's turns, each creature within 5 feet of it takes 3 (1d6) fire damage, and flammable objects in the aura that aren't being worn or carried ignite. A creature that touches the animated breath or hits it with a melee attack takes 3 (1d6) fire damage.</p><p><em><strong>Putrid Aura (Acid and Poison Forms Only).</strong></em> A creature that starts its turn within 5 feet of the animated breath must succeed on a DC 15 Constitution saving throw or be poisoned until the start of its next turn. A creature that touches the animated breath or hits it with a melee attack takes 3 (1d6) acid damage.</p>",
     "bonus_actions": "<p><em><strong>Lightning Burst (Lightning Form Only).</strong></em> The animated breath magically teleports to an unoccupied space it can see within 30 feet of it. Each creature within 5 feet of the animated breath after it teleports takes 3 (1d6) lightning damage.</p>",
@@ -17207,14 +16933,8 @@ const monsters = [
     size: "Large",
     type: "Fey",
     alignment: "Chaotic Evil",
-    environments: [
-      "Hill",
-      "Mountain"
-    ],
-    "associates": [
-      "Ogre",
-      "Troll"
-    ],
+    environments: ["Hill", "Mountain"],
+    "associates": ["Ogre", "Troll"],
     "armor_class": "17 (natural armor)",
     "hit_points": "75 (10d10 + 20)",
     speed: "40 ft.",
@@ -17227,11 +16947,7 @@ const monsters = [
     skills: "Deception +5, Perception +5",
     "damage_resistances": "Cold; Bludgeoning, Piercing, and Slashing from nonmagical attacks",
     senses: "Darkvision 60 ft., Passive Perception 15",
-    languages: [
-      "Common",
-      "Giant",
-      "Sylvan"
-    ],
+    languages: ["Common", "Giant", "Sylvan"],
     challenge: "6 (2,300 XP, or 3,900 when part of a coven)",
     traits: "<p><em><strong>Innate Spellcasting.</strong></em> The hag's innate spellcasting ability is Charisma (spell save DC 13).  She can innately cast the following spells: </p><p>3/day each: disguise self (including the form of a Medium humanoid), fog cloud</p>",
     "number_of_attacks": "3",
@@ -17274,10 +16990,7 @@ const monsters = [
     type: "Beast",
     alignment: "Unaligned",
     associates: [],
-    environments: [
-      "Grassland",
-      "Hill"
-    ],
+    environments: ["Grassland", "Hill"],
     "armor_class": "15",
     "hit_points": "4 (1d8)",
     speed: "60 ft.",
@@ -17319,10 +17032,7 @@ const monsters = [
     type: "Humanoid",
     alignment: "Any Alignment",
     associates: [],
-    environments: [
-      "Urban",
-      "Dungeon"
-    ],
+    environments: ["Urban", "Dungeon"],
     "armor_class": "12",
     "hit_points": "33 (6d8 + 6)",
     speed: "30 ft.",
@@ -17335,9 +17045,7 @@ const monsters = [
     "saving_throws": "INT +4, WIS +1",
     skills: "History +6, Insight +3, Investigation +6",
     senses: "Passive Perception 11",
-    languages: [
-      "Common", "Any two languages"
-    ],
+    languages: ["Common", "Any two languages"],
     challenge: "2 (450 XP)",
     actions: "<p><em><strong>Scroll Bash.</strong></em> <em>Melee Spell Attack:</em> +4 to hit, reach 30 ft., one target.  <em>Hit:</em> 7 (1d10 + 2) bludgeoning damage plus 9 (2d8) thunder damage. </p><p><em><strong>Reduce to Memory (Recharge 6).</strong></em> Thundering golden energy erupts around a creature the apprentice can see within 90 feet of it.  The creature must make a DC 12 Constitution saving throw, taking 33 (6d10) thunder damage on a failed save, or half as much damage on a successful one.  A Construct has disadvantage on the saving throw. </p><p><em><strong>Spellcasting.</strong></em> The apprentice casts one of the following spells, requiring no material components and using Intelligence as the spellcasting ability (spell save DC 12):</p><p>At will: guidance, light</p><p>1/day each: comprehend languages, locate object, mage armor</p>",
     reactions: "<p><em><strong>Learn from the Past (2/Day).</strong></em> When another creature within 60 feet of the apprentice misses a target with an attack roll, the apprentice magically enables the attacker to reroll the attack roll.  It must use the new roll.</p>",
@@ -17350,9 +17058,7 @@ const monsters = [
     type: "Fiend",
     alignment: "Neutral Evil",
     associates: [],
-    environments: [
-      "Dungeon"
-    ],
+    environments: ["Dungeon"],
     "armor_class": "17 (natural armor)",
     "hit_points": "104 (16d8 + 32)",
     speed: "30 ft., fly 30 ft.",
@@ -17368,10 +17074,7 @@ const monsters = [
     "damage_immunities": "Acid, Poison",
     "condition_immunities": "Charmed, Poisoned",
     senses: "Truesight 120 ft., Passive Perception 17",
-    languages: [
-      "All",
-      "Telepathy 120 ft."
-    ],
+    languages: ["All", "Telepathy 120 ft."],
     challenge: "12 (8,400 XP)",
     traits: "<p><em><strong>Innate Spellcasting.</strong></em> The arcanaloth's innate spellcasting ability is Charisma (spell save DC 15).  The arcanaloth can innately cast the following spells, requiring no material components: </p><p>At will: alter self, darkness, heat metal, invisibility (self only), magic missile</p><p><em><strong>Magic Resistance.</strong></em> The arcanaloth has advantage on saving throws against spells and other magical effects. </p><p><em><strong>Magic Weapons.</strong></em> The arcanaloth's weapon attacks are magical. </p><p><em><strong>Spellcasting.</strong></em> The arcanaloth is a 16th-level spellcaster.  Its spellcasting ability is Intelligence (spell save DC 17, +9 to hit with spell attacks).  The arcanaloth has the following wizard spells prepared: </p><p>Cantrips (at will): fire bolt, mage hand, minor illusion, prestidigitation</p><p>1st level (4 slots): detect magic, identify, shield, Tenser's floating disk</p><p>2nd level (3 slots): detect thoughts, mirror image, phantasmal force, suggestion</p><p>3rd level (3 slots): counterspell, fear, fireball</p><p>4th level (3 slots): banishment, dimension door</p><p>5th level (2 slots): contact other plane, hold monster</p><p>6th level (1 slot): chain lightning</p><p>7th level (1 slot): finger of death</p><p>8th level (1 slot): mind blank</p>",
     attacks: [
@@ -17395,9 +17098,7 @@ const monsters = [
     type: "Elemental",
     alignment: "Chaotic Neutral",
     associates: [],
-    environments: [
-      "Mountain"
-    ],
+    environments: ["Mountain"],
     "armor_class": "16",
     "hit_points": "142 (19d8 + 57)",
     speed: "0 ft., fly 120 ft.",
@@ -17436,9 +17137,7 @@ const monsters = [
     type: "Fiend",
     alignment: "Chaotic Evil",
     associates: [],
-    environments: [
-      "Underdark"
-    ],
+    environments: ["Underdark"],
     "armor_class": "16 (natural armor)",
     "hit_points": "84 (8d10 + 40)",
     speed: "60 ft.",
@@ -17452,10 +17151,7 @@ const monsters = [
     "damage_immunities": "Poison",
     "condition_immunities": "Poisoned",
     senses: "Darkvision 120 ft., Passive Perception 11",
-    languages: [
-      "Abyssal",
-      "Telepathy 120 ft."
-    ],
+    languages: ["Abyssal", "Telepathy 120 ft."],
     challenge: "7 (2,900 XP)",
     traits: "<p><em><strong>Magic Resistance.</strong></em> The armanite has advantage on saving throws against spells and other magical effects. </p><p><em><strong>Magic Weapons.</strong></em> The armanite's weapon attacks are magical. </p>",
     "number_of_attacks": "3",
@@ -17495,9 +17191,7 @@ const monsters = [
     type: "Undead",
     alignment: "Neutral Evil",
     associates: [],
-    environments: [
-      "Varies"
-    ],
+    environments: ["Varies"],
     "armor_class": "8",
     "hit_points": "22 (3d8 + 9)",
     speed: "20 ft.",
@@ -17510,9 +17204,7 @@ const monsters = [
     "damage_immunities": "Poison",
     "condition_immunities": "Poisoned ",
     senses: "Darkvision 60 ft., Passive Perception 8",
-    languages: [
-      "Understands all languages it spoke in life but can't speak"
-    ],
+    languages: ["Understands all languages it spoke in life but can't speak"],
     challenge: "1/4 (50 XP)",
     traits: "<p><em><strong>Ash Cloud.</strong></em> When the zombie dies, it leaves a cloud of ash that lasts for 5 minutes but does not obscure vision. </p><p><em><strong>Undead Fortitude.</strong></em> If damage reduces the zombie to 0 hit points, it must make a Constitution saving throw with a DC of 5 + the damage taken, unless the damage is radiant or from a critical hit.  On a success, the zombie drops to 1 hit point instead. </p>",
     attacks: [
@@ -17534,9 +17226,7 @@ const monsters = [
     type: "Undead",
     alignment: "Neutral Evil",
     associates: [],
-    environments: [
-      "Wasteland"
-    ],
+    environments: ["Wasteland"],
     "armor_class": "15",
     "hit_points": "105 (14d10 + 28)",
     speed: "0 ft., fly 90 ft. (hover)",
@@ -17577,9 +17267,7 @@ const monsters = [
     type: "Fiend",
     alignment: "Lawful Evil",
     associates: [],
-    environments: [
-      "Dungeon"
-    ],
+    environments: ["Dungeon"],
     "armor_class": "22 (natural armor)",
     "hit_points": "725 (50d10 + 450)",
     speed: "30 ft., fly 120 ft. (hover)",
@@ -17595,10 +17283,7 @@ const monsters = [
     "damage_immunities": "Fire, Poison; Bludgeoning, Piercing, and Slashing from nonmagical attacks that aren't silvered",
     "condition_immunities": "Blinded, Charmed, Frightened, Paralyzed, Poisoned, Stunned",
     senses: "Darkvision 120 ft., Truesight 60 ft., Passive Perception 29",
-    languages: [
-      "All",
-      "Telepathy 120 ft."
-    ],
+    languages: ["All", "Telepathy 120 ft."],
     challenge: "30 (155,000 XP)",
     traits: "<p><em><strong>Antimagic Aura.</strong></em> Asmodeus has advantage on saving throws against spells and other magical effects. Spells of level 4 or lower can't damage Asmodeus. </p><p><em><strong>Fiendish Regeneration.</strong></em> Asmodeus regains 40 hit points at the start of his turn. If he takes radiant damage, this trait doesn't function at the start of his next turn.  Asmodeus dies only if he starts his turn with 0 hit points and doesn't regenerate.  If Asmodeus dies, his body regenerates, returning to life 13 (2d12) days later. </p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If Asmodeus fails a saving throw, he can choose to succeed instead. </p><p><em><strong>Submission Aura.</strong></em> When a creature moves to be within 120 feet of Asmodeus, they must succeed on a DC 24 Wisdom saving throw or have the frightened condition until they leave the aura.  While frightened, creatures kneel before Asmodeus, taking no actions unless he commands otherwise.  If Asmodeus deals damage to a kneeling creature, the creature's frightened condition ends.  A creature that succeeds the saving throw is immune to this effect for 1 hour. </p>",
     "number_of_attacks": "4",
@@ -17633,9 +17318,7 @@ const monsters = [
     type: "Monstrosity",
     alignment: "Unaligned",
     associates: [],
-    environments: [
-      "Dungeon"
-    ],
+    environments: ["Dungeon"],
     "armor_class": "20 (natural armor)",
     "hit_points": "297 (17d20 + 119)",
     speed: "15 ft., fly 80 ft. (hover)",
@@ -17683,10 +17366,7 @@ const monsters = [
     type: "Celestial",
     alignment: "Lawful Good",
     associates: [],
-    environments: [
-      "Urban",
-      "Dungeon"
-    ],
+    environments: ["Urban", "Dungeon"],
     "armor class": "22 (natural armor)",
     "hit points": "287 (25d8 + 175)",
     speed: "50 ft., fly 150 ft.",
@@ -17702,9 +17382,7 @@ const monsters = [
     "damage immunities": "Poison",
     "condition immunities": "Charmed, Exhaustion, Frightened, Paralyzed, Poisoned",
     senses: "Truesight 120 ft., Passive Perception 24",
-    languages: [
-      "All"
-    ],
+    languages: ["All"],
     challenge: "23 (XP 50,000)",
     traits: "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If Aurelia fails a saving throw, she can choose to succeed instead.</p><p><em><strong>Magic Resistance.</strong></em> Aurelia has advantage on saving throws against spells and other magical effects.</p>",
     "number of attacks": "3",
@@ -17731,14 +17409,8 @@ const monsters = [
     type: "Beast",
     alignment: "Unaligned",
     associates: [],
-    environments: [
-      "Grassland",
-      "Hill",
-      "Mountain"
-    ],
-    "associates": [
-      "Orc"
-    ],
+    environments: ["Grassland", "Hill", "Mountain"],
+    "associates": ["Orc"],
     "armor class": "11 (natural armor)",
     "hit points": "38 (4d10 + 16)",
     speed: "50 ft.",
@@ -17773,10 +17445,7 @@ const monsters = [
     type: "Fey",
     alignment: "Chaotic Neutral",
     associates: [],
-    environments: [
-      "Forest",
-      "Dungeon"
-    ],
+    environments: ["Forest", "Dungeon"],
     "armor class": "19 (natural armor)",
     "hit points": "127 (17d8 + 51)",
     speed: "30 ft.",
@@ -17789,11 +17458,7 @@ const monsters = [
     skills: "Insight +7, Medicine +7",
     "damage resistances": "Bludgeoning, Piercing, and Slashing from nonmagical attacks",
     senses: "Darkvision 60 ft., Passive Perception 13",
-    languages: [
-      "Common",
-      "Elvish",
-      "Sylvan"
-    ],
+    languages: ["Common", "Elvish", "Sylvan"],
     challenge: "10 (XP 5,900)",
     traits: "<p><em><strong>Enchanting Presence.</strong></em> Any non-eladrin creature that starts its turn within 60 feet of the eladrin must make a DC 16 Wisdom saving throw. On a failed save, the creature is charmed by the eladrin for 1 minute. On a successful save, the creature becomes immune to any eladrin's Enchanting Presence for 24 hours. Whenever the eladrin deals damage to the charmed creature, the creature can repeat the saving throw, ending the effect on itself on a success.</p><p><em><strong>Innate Spellcasting.</strong></em> The eladrin's innate spellcasting ability is Charisma (spell save DC 16). It can innately cast the following spells, requiring no material components:</p>At will: calm emotions, sleep<br>3/day each: cure wounds (as a 5th-level spell), lesser restoration<br>1/day each: greater restoration, heal, raise dead</p><p><em><strong>Magic Resistance.</strong></em> The eladrin has advantage on saving throws against spells and other magical effects.</p>",
     "number of attacks": 1,
@@ -17827,12 +17492,8 @@ const monsters = [
     type: "Fiend",
     alignment: "Lawful Evil",
     associates: [],
-    environments: [
-      "Dungeon"
-    ],
-    "associates": [
-      "Bone Devil"
-    ],
+    environments: ["Dungeon"],
+    "associates": ["Bone Devil"],
     "armor class": "19 (natural armor)",
     "hit points": "540 (40d12 + 280)",
     speed: "20 ft., burrow 20 ft., climb 20 ft.",
@@ -17848,10 +17509,7 @@ const monsters = [
     "damage immunities": "Fire, Poison",
     "condition immunities": "Charmed, Exhaustion, Frightened, Poisoned",
     senses: "Darkvision 120 ft., Tremorsense 10 ft., Passive Perception 17",
-    languages: [
-      "All",
-      "Telepathy 120 ft."
-    ],
+    languages: ["All", "Telepathy 120 ft."],
     challenge: "26 (XP 90,000)",
     traits: "<p><em><strong>Devil's Sight.</strong></em> Magical darkness doesn't impede Baalzebul's darkvision.</p><p><em><strong>Fiendish Regeneration.</strong></em> Baalzebul regains 20 hit points at the start of his turn. If he takes radiant damage this trait doesn't function at the start of his next turn. Baalzebul dies only if he starts his turn with 0 hit points and doesn't regenerate.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If Baalzebul fails a saving throw, he can choose to succeed instead.</p><p><em><strong>Lord of Flies.</strong></em> Insects don't attack Baalzebul, and he can issue orders to them.</p><p><em><strong>Magic Resistance.</strong></em> Baalzebul has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Stench of the Slug.</strong></em> A creature that starts its turn within 10 feet of Baalzebul must succeed on a DC 21 Constitution saving throw or have the poisoned condition until the start of its next turn. On a successful save, a creature is immune to this stench for 1 hour.</p>",
     "number of attacks": "3",
@@ -17877,10 +17535,7 @@ const monsters = [
     type: "Fiend",
     alignment: "Chaotic Evil",
     associates: [],
-    environments: [
-      "Underdark",
-      "Urban"
-    ],
+    environments: ["Underdark", "Urban"],
     "armor class": "16 (natural armor)",
     "hit points": "82 (11d8 + 33)",
     speed: "40 ft.",
@@ -17895,9 +17550,7 @@ const monsters = [
     "damage immunities": "Poison",
     "condition immunities": "Poisoned",
     senses: "Darkvision 120 ft., Passive Perception 15",
-    languages: [
-      "Abyssal"
-    ],
+    languages: ["Abyssal"],
     challenge: "4 (XP 1,100)",
     traits: "<p><em><strong>Innate Spellcasting.</strong></em> The babau's innate spellcasting ability is Wisdom (spell save DC 11). The babau can innately cast the following spells, requiring no material components:</p>At will: darkness, dispel magic, fear, heat metal, levitate</p>",
     "number of attacks": 2,
@@ -17929,9 +17582,7 @@ const monsters = [
     type: "Fiend",
     alignment: "Lawful Evil",
     associates: [],
-    environments: [
-      "Dungeon"
-    ],
+    environments: ["Dungeon"],
     "armor class": "18 (plate armor)",
     "hit points": "189 (18d10 + 90)",
     speed: "30 ft.",
@@ -17947,10 +17598,7 @@ const monsters = [
     "damage immunities": "Fire, Poison",
     "condition immunities": "Charmed, Exhaustion, Frightened, Poisoned",
     senses: "Truesight 120 ft., Passive Perception 23",
-    languages: [
-      "All",
-      "Telepathy 120 ft."
-    ],
+    languages: ["All", "Telepathy 120 ft."],
     challenge: "19 (XP 22,000)",
     traits: "<p><em><strong>Dreadful.</strong></em> Bael can use a bonus action to appear dreadful until the start of his next turn. Each creature, other than a devil, that starts its turn within 10 feet of Bael must succeed on a DC 22 Wisdom saving throw or be frightened until the start of the creature's next turn.</p><p><em><strong>Innate Spellcasting.</strong></em> Bael's innate spellcasting ability is Charisma (spell save DC 21, +13 to hit with spell attacks). He can innately cast the following spells, requiring no material components:<br>At will: alter self (can become Medium when changing his appearance), animate dead, charm person, detect magic, inflict wounds (as an 8th-level spell), invisibility (self only), major image<br>3/day each: counterspell, dispel magic, fly, suggestion, wall of fire<br>1/day each: dominate monster, symbol (stunning only)</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If Bael fails a saving throw, he can choose to succeed instead.</p><p><em><strong>Magic Resistance.</strong></em> Bael has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Magic Weapons.</strong></em> Bael's weapon attacks are magical.</p><p><em><strong>Regeneration.</strong></em> Bael regains 20 hit points at the start of his turn. If he takes cold or radiant damage, this trait doesn't function at the start of his next turn. Bael dies only if he starts his turn with 0 hit points and doesn't regenerate.</p>",
     "number of attacks": 2,
@@ -17975,11 +17623,7 @@ const monsters = [
     type: "Aberration",
     alignment: "Chaotic Evil",
     associates: [],
-    environments: [
-      "Coastal",
-      "Mountain",
-      "Underdark", "Shdadowfell"
-    ],
+    environments: ["Coastal", "Mountain", "Underdark", "Shdadowfell"],
     "armor class": "17 (natural armor)",
     "hit points": "114 (12d10 + 48)",
     speed: "25 ft., climb 25 ft.",
@@ -17993,10 +17637,7 @@ const monsters = [
     skills: "Perception +6",
     "condition immunities": "Blinded",
     senses: "Blindsight 500 ft. (blind beyond this radius), Passive Perception 16",
-    languages: [
-      "Understands Deep Speech",
-      "Telepathy 1 mile"
-    ],
+    languages: ["Understands Deep Speech", "Telepathy 1 mile"],
     challenge: "11 (XP 7,200)",
     traits: "<p><em><strong>Legendary Resistance (2/Day).</strong></em> If the balhannoth fails a saving throw, it can choose to succeed instead.</p>",
     "number of attacks": "4",
@@ -18031,14 +17672,8 @@ const monsters = [
     type: "Monstrosity",
     alignment: "Neutral Evil",
     associates: [],
-    environments: [
-      "Urban"
-    ],
-    "associates": [
-      "Hag",
-      "Fey",
-      "Fiend"
-    ],
+    environments: ["Urban"],
+    "associates": ["Hag", "Fey", "Fiend"],
     "armor class": "15 (natural armor)",
     "hit points": "84 (8d10 + 40)",
     speed: "30 ft.",
@@ -18084,14 +17719,8 @@ const monsters = [
     type: "Fiend",
     alignment: "Chaotic Evil",
     associates: [],
-    environments: [
-      "Dungeon"
-    ],
-    "associates": [
-      "Minotaur",
-      "Goristro",
-      "Quasit"
-    ],
+    environments: ["Dungeon"],
+    "associates": ["Minotaur", "Goristro", "Quasit"],
     "armor class": "22 (natural armor)",
     "hit points": "319 (22d12 + 176)",
     speed: "40 ft.",
@@ -18107,10 +17736,7 @@ const monsters = [
     "damage immunities": "Poison; Bludgeoning, Piercing, and Slashing that is nonmagical",
     "condition immunities": "Charmed, Exhaustion, Frightened, Poisoned",
     senses: "Truesight 120 ft., Passive Perception 24",
-    languages: [
-      "All",
-      "Telepathy 120 ft."
-    ],
+    languages: ["All", "Telepathy 120 ft."],
     challenge: "23 (XP 50,000)",
     traits: "<p><em><strong>Labyrinthine Recall.</strong></em> Baphomet can perfectly recall any path he has traveled, and he is immune to the maze spell.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If Baphomet fails a saving throw, he can choose to succeed instead.</p><p><em><strong>Magic Resistance.</strong></em> Baphomet has advantage on saving throws against spells and other magical effects.</p>",
     "number of attacks": "3",
@@ -18152,16 +17778,8 @@ const monsters = [
     size: "Large",
     type: "Fiend",
     alignment: "Neutral Evil",
-    environments: [
-      "Forest",
-      "Grassland",
-      "Hill",
-      "Mountain",
-      "Underdark"
-    ],
-    "associates": [
-      "Goblin"
-    ],
+    environments: ["Forest", "Grassland", "Hill", "Mountain", "Underdark"],
+    "associates": ["Goblin"],
     "armor class": "17 (natural armor)",
     "hit points": "90 (12d10 + 24)",
     speed: "60 ft. (30 ft. in goblin form)",
@@ -18176,13 +17794,7 @@ const monsters = [
     "damage immunities": "Acid, Poison",
     "condition immunities": "Poisoned",
     senses: "Blindsight 60 ft., Darkvision 60 ft., Passive Perception 15",
-    languages: [
-      "Abyssal",
-      "Common",
-      "Goblin",
-      "Infernal",
-      "telepathy 60 ft."
-    ],
+    languages: ["Abyssal", "Common", "Goblin", "Infernal", "telepathy 60 ft."],
     challenge: "4 (XP 1,100)",
     traits: "<p><em><strong>Shapechanger.</strong></em> The barghest can use its action to polymorph into a Small goblin or back into its true form. Other than its size and speed, its statistics are the same in each form. Any equipment it is wearing or carrying isn't transformed. The barghest reverts to its true form if it dies.</p><p><em><strong>Fire Banishment.</strong></em> When the barghest starts its turn engulfed in flames that are at least 10 feet high or wide, it must succeed on a DC 15 Charisma saving throw or be instantly banished to Gehenna. Instantaneous bursts of flame (such as a red dragon's breath or a fireball spell) don't have this effect on the barghest.</p><p><em><strong>Innate Spellcasting.</strong></em> The barghest's innate spellcasting ability is Charisma (spell save DC 12). It can innately cast the following spells, requiring no material components:<br>At will: levitate, minor illusion, pass without trace<br>1/day each: charm person, dimension door, suggestion</p><p><em><strong>Keen Smell.</strong></em> The barghest has advantage on Wisdom (Perception) checks that rely on smell.</p><p><em><strong>Soul Feeding.</strong></em> A barghest can feed on the corpse of a humanoid that it killed that has been dead for less than 10 minutes, devouring both flesh and soul in doing so. This feeding takes at least 1 minute, and it destroys the victim's body. The victim's soul is trapped in the barghest for 24 hours, after which time it is digested. If the barghest dies before the soul is digested, the soul is released. While a humanoid's soul is trapped in a barghest, any form of revival that could work has only a 50 percent chance of doing so, freeing the soul from the barghest if it is successful. Once a creature's soul is digested, however, no mortal magic can return that humanoid to life.</p>",
     "number of attacks": 1,
@@ -18598,14 +18210,8 @@ const monsters = [
     "size": "Large",
     "type": "Dragon",
     "alignment": "Unaligned",
-    "environments": [
-      "Mountain",
-      "Coastal",
-      "Underdark"
-    ],
-    "associates": [
-      "Lunar Dragon"
-    ],
+    "environments": ["Mountain", "Coastal", "Underdark"],
+    "associates": ["Lunar Dragon"],
     "armor class": "18 (natural armor)",
     "hit points": "172 (15d10 + 90)",
     "speed": "40 ft., fly 80 ft., swim 40 ft.",
@@ -18620,9 +18226,7 @@ const monsters = [
     "damage immunities": "force, psychic",
     "condition immunities": "charmed, frightened, paralyzed",
     "senses": "blindsight 30 ft., darkvision 120 ft., passive Perception 20",
-    "languages": [
-      "Draconic"
-    ],
+    "languages": ["Draconic"],
     "challenge": "10 (5,900 XP)",
     "traits": "<p><em><strong>Amphibious.</strong></em> The dragon can breathe air and water.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p><p><em><strong>Spellcasting.</strong></em> The dragon is a 10th-level spellcaster. Its spellcasting ability is Charisma (spell save DC 16, +8 to hit with spell attacks). It has the following paladin spells prepared:</p><ul><li>1st level (4 slots): <em>compelled duel, thunderous smite</em></li><li>2nd level (3 slots): <em>hold person, warding bond</em></li><li>3rd level (3 slots): <em>blinding smite, dispel magic</em></li><li>4th level (1 slot): <em>banishment</em></li></ul><p><em><strong>Telepathic Bond.</strong></em> While the dragon is on the Material Plane, it can communicate telepathically with any creature on the same plane within 1 mile of it. The creature must have an Intelligence score of at least 3.</p>",
     "number of attacks": 2,
@@ -18660,16 +18264,8 @@ const monsters = [
     "size": "Huge",
     "type": "Dragon",
     "alignment": "Chaotic Good",
-    "environments": [
-      "Forest",
-      "Mountain"
-    ],
-    "associates": [
-      "Faerie Dragon",
-      "Satyr",
-      "Eladrin",
-      "Centaur"
-    ],
+    "environments": ["Forest", "Mountain"],
+    "associates": ["Faerie Dragon", "Satyr", "Eladrin", "Centaur"],
     "armor class": "19 (natural armor)",
     "hit points": "207 (18d12 + 90)",
     "speed": "40 ft., fly 80 ft.",
@@ -18684,12 +18280,7 @@ const monsters = [
     "damage immunities": "psychic",
     "condition immunities": "charmed, frightened, paralyzed",
     "senses": "blindsight 60 ft., darkvision 120 ft., passive Perception 24",
-    "languages": [
-      "Common",
-      "Draconic",
-      "Sylvan",
-      "Telepathy 120 ft"
-    ],
+    "languages": ["Common", "Draconic", "Sylvan", "Telepathy 120 ft"],
     "challenge": "13 (10,000 XP)",
     "traits": "<p><em><strong>Amphibious.</strong></em> The dragon can breathe air and water.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p><p><em><strong>Moonlight Antler.</strong></em> The dragon's antlers shed bright moonlight in a 15-foot radius and dim moonlight for an additional 15 feet. This moonlight is sunlight for the purpose of effects that are harmed by sunlight.</p><p><em><strong>Innate Spellcasting.</strong></em> The dragon's innate spellcasting ability is Charisma (spell save DC 19). It can innately cast the following spells, requiring no material components:</p><ul><li>At will: <em>color spray, dancing lights, faerie fire</em></li><li>3/day each: <em>hypnotic pattern, moonbeam</em></li><li>1/day each: <em>dream, seeming</em></li></ul>",
     "number of attacks": 2,
@@ -18729,14 +18320,8 @@ const monsters = [
     "size": "Huge",
     "type": "Undead",
     "alignment": "Chaotic Evil",
-    "environments": [
-      "Varies"
-    ],
-    "associates": [
-      "Wight",
-      "Mummy",
-      "Ghoul"
-    ],
+    "environments": ["Varies"],
+    "associates": ["Wight", "Mummy", "Ghoul"],
     "armor class": "19 (natural armor)",
     "hit points": "256 (19d12 + 133)",
     "speed": "40 ft., climb 40 ft., fly 80 ft.",
@@ -18752,10 +18337,7 @@ const monsters = [
     "damage immunities": "fire, poison",
     "condition immunities": "charmed, exhaustion, frightened, paralyzed, poisoned, prone",
     "senses": "blindsight 60 ft., darkvision 120 ft., passive Perception 23",
-    "languages": [
-      "Common",
-      "Draconic"
-    ],
+    "languages": ["Common", "Draconic"],
     "challenge": "17 (18,000 XP)",
     "traits": "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dracolich fails a saving throw, it can choose to succeed instead.</p><p><em><strong>Rejuvenation.</strong></em> If the dracolich is destroyed, it regains all its hit points in 1d10 days unless its phylactery is also destroyed. The dracolich's phylactery is typically a gemstone or other valuable object.</p><p><em><strong>Turn Resistance.</strong></em> The dracolich has advantage on saving throws against any effect that turns undead.</p><p><em><strong>Undead Nature.</strong></em> The dracolich doesn't require air, food, drink, or sleep.</p>",
     "number of attacks": 3,
@@ -18795,15 +18377,8 @@ const monsters = [
     "size": "Huge",
     "type": "Dragon",
     "alignment": "Lawful Neutral",
-    "environments": [
-      "Mountain",
-      "Underdark"
-    ],
-    "associates": [
-      "Giant Spider",
-      "Displacer Beast",
-      "Hook Horror"
-    ],
+    "environments": ["Mountain", "Underdark"],
+    "associates": ["Giant Spider", "Displacer Beast", "Hook Horror"],
     "armor class": "19 (natural armor)",
     "hit points": "207 (18d12 + 90)",
     "speed": "40 ft., burrow 30 ft., fly 80 ft.",
@@ -18818,10 +18393,7 @@ const monsters = [
     "damage immunities": "force",
     "condition immunities": "charmed, frightened, paralyzed",
     "senses": "blindsight 60 ft., darkvision 120 ft., passive Perception 24",
-    "languages": [
-      "Common",
-      "Draconic"
-    ],
+    "languages": ["Common", "Draconic"],
     "challenge": "16 (15,000 XP)",
     "traits": "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p><p><em><strong>Tunneler.</strong></em> The dragon can burrow through solid rock at half its burrowing speed and leaves a 10-foot-diameter tunnel in its wake.</p>",
     "number of attacks": 3,
@@ -18861,15 +18433,8 @@ const monsters = [
     "size": "Huge",
     "type": "Dragon",
     "alignment": "Chaotic Good",
-    "environments": [
-      "Desert",
-      "Mountain"
-    ],
-    "associates": [
-      "Phoenix",
-      "Giant Eagle",
-      "Couatl"
-    ],
+    "environments": ["Desert", "Mountain"],
+    "associates": ["Phoenix", "Giant Eagle", "Couatl"],
     "armor class": "19 (natural armor)",
     "hit points": "256 (19d12 + 133)",
     "speed": "40 ft., fly 80 ft.",
@@ -18884,10 +18449,7 @@ const monsters = [
     "damage immunities": "fire, radiant",
     "condition immunities": "blinded, charmed, frightened, paralyzed",
     "senses": "blindsight 60 ft., darkvision 120 ft., passive Perception 24",
-    "languages": [
-      "Common",
-      "Draconic"
-    ],
+    "languages": ["Common", "Draconic"],
     "challenge": "18 (20,000 XP)",
     "traits": "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p><p><em><strong>Illumination.</strong></em> The dragon sheds bright light in a 60-foot radius and dim light for an additional 60 feet.</p><p><em><strong>Radiant Consumption.</strong></em> When the dragon is hit by an attack, it sheds bright light in a 20-foot radius and dim light for an additional 20 feet until the end of its next turn. Any creature that starts its turn within the bright light takes 7 (2d6) radiant damage.</p>",
     "number of attacks": 3,
@@ -18927,14 +18489,8 @@ const monsters = [
     "size": "Huge",
     "type": "Dragon",
     "alignment": "Lawful Neutral",
-    "environments": [
-      "Varies"
-    ],
-    "associates": [
-      "Modron",
-      "Githzerai",
-      "Inevitables"
-    ],
+    "environments": ["Varies"],
+    "associates": ["Modron", "Githzerai", "Inevitables"],
     "armor class": "19 (natural armor)",
     "hit points": "229 (18d12 + 112)",
     "speed": "40 ft., fly 80 ft.",
@@ -18949,10 +18505,7 @@ const monsters = [
     "damage immunities": "none",
     "condition immunities": "charmed, frightened, paralyzed",
     "senses": "blindsight 60 ft., darkvision 120 ft., passive Perception 25",
-    "languages": [
-      "Common",
-      "Draconic"
-    ],
+    "languages": ["Common", "Draconic"],
     "challenge": "17 (18,000 XP)",
     "traits": "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p><p><em><strong>Time Sense.</strong></em> The dragon can perfectly recall any past event it has seen or heard within the last 100 years. It also knows the exact time to the second, wherever it is.</p>",
     "number of attacks": 3,
@@ -18992,14 +18545,8 @@ const monsters = [
     "size": "Gargantuan",
     "type": "Dragon",
     "alignment": "Unaligned",
-    "environments": [
-      "Underwater",
-      "Coastal"
-    ],
-    "associates": [
-      "Marid",
-      "Sahuagin"
-    ],
+    "environments": ["Underwater", "Coastal"],
+    "associates": ["Marid", "Sahuagin"],
     "armor class": "21 (natural armor)",
     "hit points": "341 (22d20 + 110)",
     "speed": "20 ft., swim 60 ft.",
@@ -19015,10 +18562,7 @@ const monsters = [
     "damage immunities": "none",
     "condition immunities": "frightened, paralyzed",
     "senses": "blindsight 60 ft., darkvision 120 ft., passive Perception 17",
-    "languages": [
-      "Aquan",
-      "Draconic"
-    ],
+    "languages": ["Aquan", "Draconic"],
     "challenge": "20 (25,000 XP)",
     "traits": "<p><em><strong>Amphibious.</strong></em> The dragon turtle can breathe air and water.</p>",
     "number of attacks": 3,
@@ -19058,15 +18602,8 @@ const monsters = [
     "size": "Gargantuan",
     "type": "Dragon",
     "alignment": "Lawful Neutral",
-    "environments": [
-      "Mountain",
-      "Underdark"
-    ],
-    "associates": [
-      "Earth Elemental",
-      "Gargoyle",
-      "Galeb Duhr"
-    ],
+    "environments": ["Mountain", "Underdark"],
+    "associates": ["Earth Elemental", "Gargoyle", "Galeb Duhr"],
     "armor class": "21 (natural armor)",
     "hit points": "351 (18d20 + 162)",
     "speed": "40 ft., burrow 40 ft., fly 80 ft.",
@@ -19081,10 +18618,7 @@ const monsters = [
     "damage immunities": "psychic",
     "condition immunities": "charmed, frightened, paralyzed",
     "senses": "blindsight 60 ft., darkvision 120 ft., passive Perception 29",
-    "languages": [
-      "Common",
-      "Draconic"
-    ],
+    "languages": ["Common", "Draconic"],
     "challenge": "21 (33,000 XP)",
     "traits": "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p><p><em><strong>Tunneler.</strong></em> The dragon can burrow through solid rock at half its burrowing speed and leaves a 10-foot-diameter tunnel in its wake.</p>",
     "number of attacks": 3,
@@ -19124,12 +18658,8 @@ const monsters = [
     "size": "Medium",
     "type": "Humanoid",
     "alignment": "Any",
-    "environments": [
-      "Urban"
-    ],
-    "associates": [
-      "Any"
-    ],
+    "environments": ["Urban"],
+    "associates": ["Any"],
     "armor class": "15 (chain shirt)",
     "hit points": "44 (8d8 + 8)",
     "speed": "30 ft.",
@@ -19142,10 +18672,7 @@ const monsters = [
     "saving throws": "Dex +4, Cha +5",
     "skills": "Acrobatics +4, Perception +3, Performance +7",
     "senses": "passive Perception 13",
-    "languages": [
-      "Common",
-      "Any two other languages"
-    ],
+    "languages": ["Common", "Any two other languages"],
     "challenge": "2 (450 XP)",
     "traits": "<p><em><strong>Spellcasting.</strong></em> The bard is a 4th-level spellcaster. Its spellcasting ability is Charisma (spell save DC 13, +5 to hit with spell attacks). It has the following bard spells prepared:</p><ul><li>Cantrips (at will): <em>light, prestidigitation, vicious mockery</em></li><li>1st level (4 slots): <em>charm person, healing word, heroism, sleep</em></li><li>2nd level (3 slots): <em>hold person, invisibility, thunderwave</em></li></ul><p><em><strong>Song of Rest.</strong></em> The bard's performance can help revitalize allies during a short rest. Any ally who regains hit points by spending one or more Hit Dice during a short rest regains an extra 1d6 hit points.</p><p><em><strong>Taunt.</strong></em> As a bonus action, the bard can target one creature it can see within 30 feet of it. If the target can hear the bard, it must succeed on a DC 13 Charisma saving throw or have disadvantage on attack rolls until the start of the bard's next turn.</p>",
     "number of attacks": 1,
@@ -19167,12 +18694,8 @@ const monsters = [
     "size": "Large",
     "type": "Fiend",
     "alignment": "Chaotic Evil",
-    "environments": [
-      "Dungeon"
-    ],
-    "associates": [
-      "Demon"
-    ],
+    "environments": ["Dungeon"],
+    "associates": ["Demon"],
     "armor class": "15 (natural armor)",
     "hit points": "68 (8d10 + 24)",
     "speed": "30 ft., climb 30 ft.",
@@ -19188,10 +18711,7 @@ const monsters = [
     "damage immunities": "poison",
     "condition immunities": "poisoned",
     "senses": "blindsight 30 ft., darkvision 120 ft., passive Perception 14",
-    "languages": [
-      "Abyssal",
-      "Telepathy 120 ft"
-    ],
+    "languages": ["Abyssal", "Telepathy 120 ft"],
     "challenge": "5 (1,800 XP)",
     "traits": "<p><em><strong>Controlled Fury.</strong></em> As a bonus action, the barlgura can make one melee weapon attack.</p><p><em><strong>Standing Leap.</strong></em> The barlgura's long jump is up to 40 feet and its high jump is up to 20 feet, with or without a running start.</p><p><em><strong>Innate Spellcasting.</strong></em> The barlgura's innate spellcasting ability is Wisdom (spell save DC 12). It can innately cast the following spells, requiring no material components:</p><ul><li>1/day each: <em>entangle, self-inflicted wounds, pass without trace</em></li></ul>",
     "number of attacks": 2,
@@ -19213,9 +18733,7 @@ const monsters = [
  "size": "Gargantuan",
  "type": "Dragon",
  "alignment": "Neutral Evil",
- "environments": [
-  "Dungeon"
- ],
+ "environments": ["Dungeon"],
  "armor class": "18 (Natural Armor)",
  "hit points": "297 (17d20 + 119)",
  "speed": "40 ft., burrow 20 ft., fly 80 ft.",
@@ -19229,9 +18747,7 @@ const monsters = [
  "skills": "Perception +14, Stealth +13",
  "damage immunities": "Cold",
  "senses": "Darkvision 240 ft., Passive Perception 24",
- "languages": [
-  "Draconic"
- ],
+ "languages": ["Draconic"],
  "challenge": "19 (22,000 XP)",
  "traits": "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead. </p><p><em><strong>Tunneler.</strong></em> The dragon can burrow through solid rock at half its burrowing speed and leaves a 20-foot-diameter tunnel in its wake. </p><p><em><strong>Unusual Nature.</strong></em> The dragon doesn't require air. </p>",
  "number of attacks": 3,
@@ -19274,14 +18790,8 @@ const monsters = [
  "size": "Gargantuan",
  "type": "Dragon",
  "alignment": "Lawful Neutral",
- "environments": [
-  "Underdark"
- ],
- "associates": [
-  "Emerald Dragon",
-  "Rock Gnome",
-  "Deep Gnome"
- ],
+ "environments": ["Underdark"],
+ "associates": ["Emerald Dragon", "Rock Gnome", "Deep Gnome"],
  "armor class": "20 (Natural Armor)",
  "hit points": "370 (20d20 + 160)",
  "speed": "40 ft., burrow 40 ft., climb 40 ft., fly 80 ft.",
@@ -19296,11 +18806,7 @@ const monsters = [
  "damage resistances": "Lightning, Thunder",
  "condition immunities": "Frightened",
  "senses": "Blindsight 60 ft., Darkvision 120 ft., Passive Perception 28",
- "languages": [
-  "Common",
-  "Draconic",
-  "Telepathy 120 ft."
- ],
+ "languages": ["Common", "Draconic", "Telepathy 120 ft."],
  "challenge": "22 (41,000 XP, or 50,000 in lair; PB +7)",
  "traits": "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead. </p><p><em><strong>Spider Climb.</strong></em> The dragon can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check. </p><p><em><strong>Tunneler.</strong></em> The dragon can burrow through solid rock at half its burrowing speed and can leave a 20-foot-diameter tunnel in its wake. </p>",
  "number of attacks": 3,
@@ -19336,10 +18842,7 @@ const monsters = [
  "type": "Dragon",
  "alignment": "Neutral",
  "associates": [],
- "environments": [
-  "Underwater",
-  "Coastal"
- ],
+ "environments": ["Underwater", "Coastal"],
  "armor class": "17 (natural armor)",
  "hit points": "170 (11d20 + 55)",
  "speed": "20 ft., Swim 60 ft.",
@@ -19353,10 +18856,7 @@ const monsters = [
  "skills": "Perception +8, Stealth +7",
  "damage immunities": "Cold",
  "senses": "Darkvision 120 ft., Passive Perception 18",
- "languages": [
-  "Common",
-  "Draconic"
- ],
+ "languages": ["Common", "Draconic"],
  "challenge": "14 (11,500 XP; PB +5)",
  "traits": "<p><em><strong>Amphibious.</strong></em> The sea serpent can breathe air and water. </p><p><em><strong>Legendary Resistance (2/Day).</strong></em> If the sea serpent fails a saving throw, it can choose to succeed instead. </p><p><em><strong>Siege Monster.</strong></em> The sea serpent deals double damage to objects and structures. </p>",
  "number of attacks": 2,
@@ -19396,9 +18896,7 @@ const monsters = [
  "type": "Dragon",
  "alignment": "Neutral",
  "associates": [],
- "environments": [
-  "Varies"
- ],
+ "environments": ["Varies"],
  "armor class": "18 (natural armor)",
  "hit points": "425 (23d20 + 184)",
  "speed": "30 ft., Fly 120 ft. (hover)",
@@ -19413,9 +18911,7 @@ const monsters = [
  "damage immunities": "Radiant; Blinded",
  "condition immunities": "Blinded",
  "senses": "Darkvision 240 ft., Passive Perception 28",
- "languages": [
-  "Draconic"
- ],
+ "languages": ["Draconic"],
  "challenge": "21 (33,000 XP; PB +7)",
  "traits": "<p><em><strong>Flyby.</strong></em> The dragon doesn't provoke opportunity attacks when it flies out of an enemy's reach.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p><p><em><strong>Nebulous Thoughts.</strong></em> Magical attempts to read the dragon's mind or glean its thoughts fail automatically.</p><p><em><strong>Siege Monster.</strong></em> The dragon deals double damage to objects and structures.</p><p><em><strong>Unusual Nature.</strong></em> The dragon doesn't require air.</p>",
  "number of attacks": 3,
@@ -19458,9 +18954,7 @@ const monsters = [
     "type": "Undead",
     "alignment": "Neutral Evil",
     "associates": [],
-    "environments": [
-      "Varies"
-    ],
+    "environments": ["Varies"],
     "armor class": "15 (natural armor)",
     "hit points": "157 (15d12 + 60)",
     "speed": "50 ft.",
@@ -19474,7 +18968,7 @@ const monsters = [
     "damage immunities": "Poison",
     "condition immunities": "Charmed, Exhaustion, Frightened, Poisoned",
     "senses": "Darkvision 60 ft., Passive Perception 16",
-    "languages": "N/A",
+    "languages": ["N/A"],
     "challenge": "9 (5,000 XP)",
     "traits": "<p><em><strong>Unusual Nature.</strong></em> The anhkolox doesn't require air, food, drink, or sleep. </p>",
     "number of attacks": 3,
@@ -19505,12 +18999,8 @@ const monsters = [
     "size": "Large",
     "type": "Fey",
     "alignment": "Neutral Evil",
-    "environments": [
-      "Varies"
-    ],
-    "associates": [
-      "Hag"
-    ],
+    "environments": ["Varies"],
+    "associates": ["Hag"],
     "armor class": "20",
     "hit points": "333 (29d10 + 174)",
     "speed": "40 ft.",
@@ -19552,9 +19042,7 @@ const monsters = [
     "type": "Humanoid",
     "alignment": "Neutral",
     "associates": [],
-    "environments": [
-      "Varies"
-    ],
+    "environments": ["Varies"],
     "armor class": "16",
     "hit points": "240 (32d8 + 96)",
     "speed": "30 ft.",
@@ -19580,10 +19068,7 @@ const monsters = [
     "type": "Dragon",
     "alignment": "Neutral",
     "associates": [],
-    "environments": [
-      "Mountain",
-      "Wasteland"
-    ],
+    "environments": ["Mountain", "Wasteland"],
     "armor class": "22 (Natural Armor)",
     "hit points": "574 (28d20 + 280)",
     "speed": "60 ft., burrow 60 ft., fly 120 ft., swim 60 ft.",
@@ -19598,10 +19083,7 @@ const monsters = [
     "damage immunities": "Necrotic, Psychic, Radiant; Bludgeoning, Piercing, and Slashing from Nonmagical Attacks",
     "condition immunities": "Charmed, Exhaustion, Frightened, Paralyzed, Stunned",
     "senses": "Blindsight 90 ft., Darkvision 240 ft., Truesight 120 ft., Passive Perception 33",
-    "languages": [
-      "All",
-      "Telepathy 120 ft"
-    ],
+    "languages": ["All", "Telepathy 120 ft"],
     "challenge": "30 (155,000 XP)",
     "traits": "<p><em><strong>Innate Spellcasting (Psionics).</strong></em> The dragon's innate spellcasting ability is Wisdom (spell save DC 24). It can innately cast the following spells, requiring no components:</p><ul><li>At will: <em>clairvoyance, comprehend languages, detect magic, fabricate, legend lore, locate creature, locate object, Rary's telepathic bond, sending, tongues</em></li><li>3/day each: <em>dream, foresight, plane shift, scrying, teleport, time stop</em></li><li>1/day each: <em>astral projection, demiplane, gate, wish</em></li></ul><p><em><strong>Legendary Resistance (5/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p><p><em><strong>Limited Magic Immunity.</strong></em> The dragon can't be affected or detected by spells or other magical effects, except for the following conditions: if it chooses to be affected, if it casts a spell using a spell slot, or if the magical effect is a 9th-level spell. It has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Temporal Flux.</strong></em> Any creature that starts its turn within 30 feet of the dragon must succeed on a DC 25 Constitution saving throw or be affected by a random temporal effect for 1 minute or until the dragon is incapacitated. Roll a d4 and consult the following table:</p><p>1. The creature's speed is halved.</p><p>2. The creature has disadvantage on attack rolls and ability checks.</p><p>3. The creature can't take reactions.</p><p>4. The creature takes 22 (4d10) force damage at the start of each of its turns.</p><p>A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p>",
     "number of attacks": 3,
@@ -19645,9 +19127,7 @@ const monsters = [
     "type": "Construct",
     "alignment": "Lawful Neutral",
     "associates": [],
-    "environments": [
-      "Urban"
-    ],
+    "environments": ["Urban"],
     "armor class": "15 (Natural Armor)",
     "hit points": "78 (12d8 + 24)",
     "speed": "30 ft.",
@@ -19662,10 +19142,7 @@ const monsters = [
     "damage resistances": "Bludgeoning, Piercing, and Slashing from Nonmagical Attacks",
     "condition immunities": "Charmed, Exhaustion, Frightened, Paralyzed, Poisoned",
     "senses": "Darkvision 60 ft., Passive Perception 13",
-    "languages": [
-      "Common",
-      "one other language"
-    ],
+    "languages": ["Common", "One of its choice"],
     "challenge": "5 (1,800 XP)",
     "traits": "<p><em><strong>Constructed Nature.</strong></em> The android doesn't require air, food, drink, or sleep.</p><p><em><strong>False Appearance.</strong></em> While the android remains motionless, it is indistinguishable from a normal humanoid.</p><p><em><strong>Integrated Weapon.</strong></em> The android's unarmed strike deals 1d6 + 3 bludgeoning damage. This attack is a magic weapon.</p>",
     "number of attacks": 2,
@@ -19696,17 +19173,8 @@ const monsters = [
     "size": "Medium",
     "type": "Humanoid",
     "alignment": "Any Alignment",
-    "environments": [
-      "Forest",
-      "Grassland",
-      "Jungle",
-      "Mountain",
-      "Swamp",
-      "Urban"
-    ],
-    "associates": [
-      "Animal"
-    ],
+    "environments": ["Forest", "Grassland", "Jungle", "Mountain", "Swamp", "Urban"],
+    "associates": ["Animal"],
     "armor class": "17 (Leather Armor, Shield)",
     "hit points": "135 (18d8 + 54)",
     "speed": "30 ft.",
@@ -19719,11 +19187,7 @@ const monsters = [
     "saving throws": "STR +7, DEX +6, CON +6, WIS +8, CHA +7",
     "skills": "Animal Handling +8, Nature +5, Perception +8, Survival +8",
     "senses": "Passive Perception 18",
-    "languages": [
-      "Common",
-      "Sylvan",
-      "Terran"
-    ],
+    "languages": ["Common", "Sylvan", "Terran"],
     "challenge": "10 (5,900 XP)",
     "traits": "<p><em><strong>Animal Empathy.</strong></em> The animal lord has advantage on all Charisma (Animal Handling) checks.</p><p><em><strong>Speak with Animals.</strong></em> The animal lord can communicate with animals as if they shared a common language.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the animal lord fails a saving throw, it can choose to succeed instead.</p><p><em><strong>Magic Resistance.</strong></em> The animal lord has advantage on saving throws against spells and other magical effects.</p>",
     "number of attacks": 2,
