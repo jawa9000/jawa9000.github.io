@@ -35,21 +35,19 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <label for="percentage_dragonTip">Dragon's cut (%)</label>
-          <input id="percentage_dragonTip" type="number" min="0" step="1" max="100" value="50" />
-          <label for="percentage_minerTip">Miner's cut (%)</label>
-          <input id="percentage_minerTip" type="number" min="0" step="1" max="100" value="2" />
+          <label for="mineName">Mine Name:</label>
+          <input id="mineName" type="text" class="width250" placeholder="Enter mine name" />
+          <label for="mineLoadDropdown">Load Mine:</label>
+          <select id="mineLoadDropdown" class="width250"></select>
+          <button id="eraseMines" class="btn btn-danger">Erase All Mines</button>
+          <br />
+          <p>Mine Settings</p>
           <label for="percentage_mineUpkeep">Mine upkeep (%)</label>
           <input id="percentage_mineUpkeep" type="number" min="0" step="1" max="100" value="10" />
           <label for="percentage_miscExpenses">Mine expenses (%)</label>
           <input id="percentage_miscExpenses" type="number" min="0" step="1" max="100" value="6" />
           <label for="percentage_mineExpansion">Mine expansion (%)</label>
           <input id="percentage_mineExpansion" type="number" min="0" step="1" max="100" value="10" />
-          <br />
-          <label for="days">Days</label>
-          <input id="days" type="number" min="1" step="1" max="365" value="30"/>
-          <label for="minerCount"># of Miners</label>
-          <input id="minerCount" type="number" min="1" step="1" value="100" />
           <label for="mineQuality">Mine Quality:</label>
           <select name="mineQuality" id="mineQuality">
             <option value="dead">Dead</option>
@@ -57,8 +55,25 @@
             <option value="moderate" selected>Moderate</option>
             <option value="excellent">Excellent</option>
           </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <p>Mine Profit Settings</p>
+          <label for="percentage_dragonTip">Dragon's cut (%)</label>
+          <input id="percentage_dragonTip" type="number" min="0" step="1" max="100" value="50" />
+          <label for="percentage_minerTip">Miner's cut (%)</label>
+          <input id="percentage_minerTip" type="number" min="0" step="1" max="100" value="2" />
           <label for="mineOwnerCount"># of mine owners</label>
           <input id="mineOwnerCount" type="number" min="1" step="1" value="1" />
+          <br />
+          <p>Mine Simulation Settings</p>
+          <label for="days">Days</label>
+          <input id="days" type="number" min="1" step="1" max="365" value="30"/>
+          <label for="minerCount"># of Miners</label>
+          <input id="minerCount" type="number" min="1" step="1" value="100" />
+          
+          
           <button id="mine">Mine</button>
         </div>
       </div>
