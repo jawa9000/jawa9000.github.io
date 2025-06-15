@@ -106,6 +106,188 @@ $(function () {
             }
         }
 
+        // Mining events (excluding sabotage)
+        const miningEvents = [
+            {
+                name: 'Cave-In',
+                effect: function(context) {
+                    // Lose 30% of total output
+                    Object.values(context.minedOutputTotal).forEach(res => {
+                        res.tally = Math.round(res.tally * 0.7);
+                        res.count = Math.round(res.count * 0.7);
+                    });
+                    context.grandTotal = Math.round(context.grandTotal * 0.7);
+                    return 'Cave-In! Mining is interrupted and 30% of the output is lost.';
+                }
+            },
+            {
+                name: 'Rich Vein Discovered',
+                effect: function(context) {
+                    // Double output for one random material
+                    const keys = Object.keys(context.minedOutputTotal).filter(k => context.minedOutputTotal[k].count > 0);
+                    if (keys.length > 0) {
+                        const key = keys[Math.floor(Math.random() * keys.length)];
+                        context.minedOutputTotal[key].tally *= 2;
+                        context.minedOutputTotal[key].count *= 2;
+                        context.grandTotal *= 1.2; // Slight boost to total
+                        return `Rich Vein Discovered! Output for ${context.minedOutputTotal[key].name} is doubled.`;
+                    }
+                    return '';
+                }
+            },
+            {
+                name: 'Monster Attack',
+                effect: function(context) {
+                    // Lose 20% of miners for this run
+                    context.minerCount = Math.max(1, Math.round(context.minerCount * 0.8));
+                    return 'Monster Attack! Some miners are lost, reducing output.';
+                }
+            },
+            {
+                name: 'Equipment Failure',
+                effect: function(context) {
+                    // Reduce total output by 20%
+                    Object.values(context.minedOutputTotal).forEach(res => {
+                        res.tally = Math.round(res.tally * 0.8);
+                        res.count = Math.round(res.count * 0.8);
+                    });
+                    context.grandTotal = Math.round(context.grandTotal * 0.8);
+                    return 'Equipment Failure! Output is reduced by 20%.';
+                }
+            },
+            {
+                name: 'Ancient Artifact Found',
+                effect: function(context) {
+                    // Add a valuable artifact
+                    context.artifact = true;
+                    context.grandTotal += 1000;
+                    return 'Ancient Artifact Found! A rare item worth 1,000gp is added to the output.';
+                }
+            },
+            {
+                name: 'Flooded Shaft',
+                effect: function(context) {
+                    // Output is zero
+                    Object.values(context.minedOutputTotal).forEach(res => {
+                        res.tally = 0;
+                        res.count = 0;
+                    });
+                    context.grandTotal = 0;
+                    return 'Flooded Shaft! Mining is halted and no output is generated.';
+                }
+            },
+            {
+                name: 'Miner Strike',
+                effect: function(context) {
+                    // Reduce miner cut by 5%, increase output by 10%
+                    context.minerPct = Math.max(0, context.minerPct - 5);
+                    Object.values(context.minedOutputTotal).forEach(res => {
+                        res.tally = Math.round(res.tally * 1.1);
+                    });
+                    context.grandTotal = Math.round(context.grandTotal * 1.1);
+                    return 'Miner Strike! Miners demand higher pay, but output increases by 10%.';
+                }
+            },
+            {
+                name: 'Lucky Day',
+                effect: function(context) {
+                    // All outputs +10%
+                    Object.values(context.minedOutputTotal).forEach(res => {
+                        res.tally = Math.round(res.tally * 1.1);
+                    });
+                    context.grandTotal = Math.round(context.grandTotal * 1.1);
+                    return 'Lucky Day! All outputs are increased by 10%.';
+                }
+            },
+            {
+                name: 'Toxic Gas Leak',
+                effect: function(context) {
+                    // Reduce output by 15%
+                    Object.values(context.minedOutputTotal).forEach(res => {
+                        res.tally = Math.round(res.tally * 0.85);
+                        res.count = Math.round(res.count * 0.85);
+                    });
+                    context.grandTotal = Math.round(context.grandTotal * 0.85);
+                    return 'Toxic Gas Leak! Some miners are incapacitated, reducing output by 15%.';
+                }
+            },
+            {
+                name: 'Dragon Visit',
+                effect: function(context) {
+                    // Dragon takes an extra 10%
+                    context.dragonPct = (context.dragonPct || 0) + 10;
+                    return 'Dragon Visit! The dragon takes an extra 10% cut this run.';
+                }
+            },
+            {
+                name: 'Gem Rush',
+                effect: function(context) {
+                    // Double all gemstones
+                    Object.keys(context.minedOutputTotal).forEach(key => {
+                        if (/gem|spinel|diamond|ruby|sapphire|emerald|opal|topaz|garnet|aquamarine|jade|turquoise|amethyst|quartz|agate|bloodstone|citrine|jasper|moonstone|onyx|tourmaline|zircon|fluorite|obsidian|peridot|jacinth|alexandrite|malachite|azurite|carnelian|chrysopidate|lapis/i.test(key)) {
+                            context.minedOutputTotal[key].tally *= 2;
+                            context.minedOutputTotal[key].count *= 2;
+                        }
+                    });
+                    context.grandTotal = Math.round(context.grandTotal * 1.2);
+                    return 'Gem Rush! All gemstones found are doubled.';
+                }
+            },
+            {
+                name: 'New Tunnel Opened',
+                effect: function(context) {
+                    // Add a bonus material (e.g., platinum)
+                    if (context.minedOutputTotal['platinum']) {
+                        context.minedOutputTotal['platinum'].tally += 100;
+                        context.minedOutputTotal['platinum'].count += 1;
+                        context.grandTotal += 100;
+                        return 'New Tunnel Opened! Extra platinum is found.';
+                    }
+                    return '';
+                }
+            },
+            {
+                name: 'Legendary Discovery',
+                effect: function(context) {
+                    context.grandTotal += 5000;
+                    return 'Legendary Discovery! A legendary gem or ore worth 5,000gp is found!';
+                }
+            }
+        ];
+
+        // Mining event logic
+        let eventMsg = '';
+        const daysForEvent = days; // days is already defined in this scope
+        // Define which events are positive/helpful
+        const positiveEvents = [
+            'Rich Vein Discovered',
+            'Ancient Artifact Found',
+            'Lucky Day',
+            'Gem Rush',
+            'New Tunnel Opened',
+            'Legendary Discovery'
+        ];
+        let eligibleEvents = miningEvents;
+        if (daysForEvent < 7) {
+            // Exclude positive events if days < 7
+            eligibleEvents = miningEvents.filter(e => !positiveEvents.includes(e.name));
+        }
+        if (Math.random() < 0.1 && eligibleEvents.length > 0) { // 10% chance
+            const event = eligibleEvents[Math.floor(Math.random() * eligibleEvents.length)];
+            // Prepare context for event
+            const context = {
+                minedOutputTotal,
+                grandTotal,
+                minerCount,
+                minerPct,
+                dragonPct
+            };
+            eventMsg = event.effect(context);
+            // Sync back any changed values
+            grandTotal = context.grandTotal;
+            if (context.minerPct !== undefined) $('#percentage_minerTip').val(context.minerPct);
+            if (context.dragonPct !== undefined) $('#percentage_dragonTip').val(context.dragonPct);
+        }
         // Render output checkboxes, sorted by most value
         let outputHtml = '';
         Object.values(minedOutputTotal)
@@ -118,6 +300,13 @@ $(function () {
         $('#toggle, #showHide').prop('disabled', false);
         updateSummary();
         restoreCheckboxStates();
+        // Show event message if any
+        if (eventMsg) {
+            $('.event-message').remove(); // Remove any previous event message
+            $('#summary').prepend(`<div class="event-message" style="color:#b52b27;font-weight:bold;">${eventMsg}</div>`);
+        } else {
+            $('.event-message').remove(); // Remove previous event message if no event this run
+        }
     }
 
     function updateSummary() {

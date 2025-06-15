@@ -54,3 +54,9 @@ input, select, button {
 .btn-danger:hover {
     background-color: #b52b27;
 }
+.event-message {
+  opacity: 1 !important;
+  transition: none !important;
+  animation: none !important;
+  display: block !important;
+}
