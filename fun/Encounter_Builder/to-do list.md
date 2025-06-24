@@ -554,31 +554,8 @@ Fiend
 Fighter
 Firbolg Primeval Warden
 Firbolg Wanderer
-Fire  Dreadnought
-Fire  Forgecaller
-Fire  Myrmidon
-Fire  of Evil Fire
-Fire  Royal Headsman
-Fire  Servant
-Fire Beetle
-Fire Hellion
-Firegaunt
 First-Year Student
 Fish
-Fist of Bane
-Five-Armed Troll
-Flail Snail
-Flame-kin (azer)
-Flamewrath
-Flaming Skeleton
-Fleecemane Lion
-Flesh Colossus
-Flesh Meld
-Flind
-Flitterstep Eidolon
-Flumph
-Flux Blastseeker
-Fluxcharger
 Fly
 Flying Dagger
 Flying Horror
@@ -588,67 +565,22 @@ Flying Shield
 Flying Spider
 Flying Staff
 Flying Trident
-Fomorian
-Fomorian Deep Crawler
-Fomorian Noble
-Fomorian Warlock of the Dark
-Four-Armed Gargoyle
-Four-Armed Statue
-Four-Armed Troll
 Fox
-Fractal Mascot
-Fraternity of Order Law Bender
-Fraz-Urb'luu
-Frogheh
-Frogheh Elder
 Froghemoth
 Frost  Ice Shaper
 Frost  of Evil Water
 Frost  Servant
 Frost  Skeleton
-Frost Druid
-Frost Giant
-Frost Giant Dreadnought
-Frost Giant Everlasting One
-Frost Giant Flame Lord
-Frost Giant Hellbringer
-Frost Giant Invoker
-Frost Giant Pyre Guard
-Frost Giant Rune Carver
-Frost Giant Stormcaller
-Frost Giant Thane
-Frost Giant Thane of the Frostlands
 Frost Salamander
 Frost spider
 Frost wyrm
 Frostmourn
 Fume Drake
 Fungal Servant
-Fury of Kostchtchie
-Gaj
-Galazeth Prismari
-Galeb Duhr
-Gallows Speaker
-Galvan Magen
-Galvanic Blastseeker
-Galvanice Weird
 Gargantua
-Gargantuan Rug of Shering
-Gas Spore Fungus
 Gauth
 Gazer
 Geryon
-Ghast Gravecaller
-Ghost of a Fallen Bard
-Ghost of a Fallen Cleric
-Ghost of a Fallen Druid
-Ghost of a Fallen Paladin
-Ghost of a Fallen Ranger
-Ghost of a Fallen Rogue
-Ghost of a Fallen Sorcerer
-Ghost of a Fallen Wizard
-Ghostblade Eidolon
-Giant eel
 Giant Poisonous Snakes
 Giant raven
 Giant seahorse
@@ -657,8 +589,6 @@ Giant Spiders
 Giant squid
 Giant Strider
 Gibberling
-Giff
-Giff Shipmate
 Giff Shock Trooper
 Giff Warlord
 Gigant
@@ -746,16 +676,6 @@ Griffon (Fey)
 Griffon (Fiend)
 Griffon (Monstrosity)
 Griffon (Undead)
-Griffon Cavalry Rider
-Grim Champion of Bloodshed
-Grim Champion of Desolation
-Grim Champion of Pestilence
-Grinning Cat
-Grippli Warrior
-Groff
-Grung
-Grung Elite Warrior
-Grung Wildling
 Gruul
 Gruul Anarch
 Gruul Batterboar
@@ -796,27 +716,10 @@ Hag (Annis, Bheur, Dusk, Green, Night)
 Hag Minion
 Hag of the Fetid Gaze
 Hag Servant
-Haint
-Halaster Horror
-Half-Blue Dragon Gladiator
-Half-Dragon
-Half-Green Dragon Assassin
-Half-ogre
-Half-Red Dragon Gladiator
-Hands of Havoc Fire Starter
 Hare
-Harengon Brigand
-Harengon Sniper
-Harmonium Captain
-Harmonium Peacekeeper
-Harpy Matriarch
-Harrow Hawk
-Harrow Hound
 Hashalaq Quori
 Haunting Revenant
 Hazvongel
-hé
-Headless Iron Golem
 Hellfire Engine
 Hellwasp
 Hellwasp Grub
@@ -827,11 +730,6 @@ Herder
 Hertilod
 Hexton Modron
 Hierophant Medusa
-Hierophant of the Comet
-Hill  Avalancher
-Hill  Sergeant
-Hill  Servant
-Hill  Subchief
 Hippocamp
 Hippomus
 Hoard Mimic
@@ -845,38 +743,17 @@ Horncaller
 Horrid
 Hound Archon
 Hound of Ill Omen
-Howler
-Howling Hatred Initiate
-Howling Hatred Priest
 Huge  Crab
-Huge Batterboar
 Huge Gray
 Huge Ochre Jelly
 Huge Polar Bear
 Huge Stone Golem
-Hulgaz
-Hulking Crab
-Hulking Shadow
-Humanoid Bicuspid
-Hundred-Handed One
 Hungry Sorrowsworn
-Hurricane
-Hutijin
-Hybrid Brute
-Hybrid Flier
-Hybrid Poisoner
-Hybrid Shocker
-Hybrid Spy
-Hydroloth
-Hypnos Magen
-Hythonia
 Ice mephits
 Ice Piercer
 Ice Spider
 Ice Spider Queen
 Ice Troll
-Icewind Kobold
-Icewind Kobold Zombie
 Illithid
 Illithid Arcanist
 Illithid Elder Brain
@@ -888,33 +765,6 @@ Illithid Warlock
 Illithilich
 Illusionist
 Illusionist Wizard
-Immortal Lotus Monk
-Incomplete Dragon Skeleton
-Incubus
-Indentured Spirit
-Infant Basilisk
-Infant Hook Horror
-Infected Elder Brain
-Infected Townsperson
-Infernal Engine
-Infernal War Machine
-Initiate of the Comet
-Inkling Mascot
-Inquisitor of the Mind Fire
-Inquisitor of the Sword
-Inquisitor of the Tome
-Inspired
-Intellect Devourer
-Intellect Snare
-Intelligent Black Pudding
-Iron cobra
-Iron Consul
-Iron Defender
-Ironscale Hydra
-ish  Spider
-ish Auger
-ish Flesh Golem
-ish Spirit
 Isolde
 Isperia
 Istarian Drone
@@ -1327,38 +1177,17 @@ Razorvine Blight
 Reaper of Bhaal
 Reaper Spirit
 Reckoner
-Red Greatwyrm
-Red Slaad
-Red Wizard
-Redbrand Ruffian
-Redcap
-Reflection
-Refraction of Ilvaash
-Regenerating Black Pudding
-Reghed Chieftain
-Reghed Great Warrior
-Reghed Shaman
-Reghed Warrior
-Regisaur
-Reigar
-Reindeer
-Relentless Impaler
-Relentless Juggernaut
-Relentless Slasher
-Relic Sloth
 Remorhaz (Young)
 Replica Duodrone
 Replica Monodrone
 Replica Pentadrone
 Replica Quadrone
 Replica Tridrone
-Retriever
 Returned Drifter
 Returned Kakomantis
 Returned Palamnite
 Returned Sentry
 Revenant
-Riding Lizard
 Riffler
 Rime Hulk
 Rip Tide Priest
@@ -1376,42 +1205,12 @@ Ruin Spider
 Runed Behir
 Runic Colossus
 Rutterkin
-Sacred Stone Monk
-Sahuagin Baron
-Sahuagin Blademaster
-Sahuagin Champion
-Sahuagin Coral Smasher
-Sahuagin Deep Diver
-Sahuagin Hatchling Swarm
-Sahuagin High Priestess
-Sahuagin Priest
-Sahuagin Priestess
-Sahuagin sea spawn
-Sahuagin shark
-Sahuagin Warrior
-Sahuagin Wave Shaper
 Salamander Fire Snake
-Salamander Inferno Master
 Salamanders
 Sapphire Dragon (various types listed in list, but stat blocks not specified which types)
 Sapphire Dragon Wyrmling
-Sapphire Sentinel
-Satyr Reveler
-Satyr Revelmaster
-Satyr Thornbearer
 Scaladar
 Scarecrow
-Scion of Grolantor
-Scion of Memnor
-Scion of Skoraeus
-Scion of Stronmaus
-Scion of Surtur
-Scion of Thrym
-Scorchbringer Guard
-Scout Captain
-Scrag
-Scufflecup Teacup
-Sea Eel
 Sea Elf
 Sea Elf Scout
 Sea Lion
@@ -1421,70 +1220,23 @@ Sea Serpents (Ancient, Young)
 Sea Spawn
 Seahorse
 Seal
-Selesnya
-Selesnya initiate
-Sentient Gray
-Sentient Ochre Jelly
-Septon Modron
 Sergeant
 Serra angel
 Servitor Thrull
 Setessan Hoplite
-Shadar-kai
-Shadar-kai Gloom Weaver
-Shadar-kai Shadow Dancer
-Shadar-kai Soul Monger
-Shadow Assassin
-Shadow dancer
-Shadow Horror
-Shadow Mastiff
-Shadow Mastiff Alpha
-Shadow Spirit
-Shadrix Silverquill
-Shapechanged Roper
-Shard Shunner
 Shark
 Shark Skeleton
 Shator Demodand
 Sheep
 Shell Shark
-Shemeshka
-Shield Dwarf Guard
-Shield Dwarf Noble
 Shifter
 Shoosuva
 Shrieker Fungus
 Sibriex
 Sigil
 Silver dragon hatchling
-Silver Greatwyrm
-Silverquill Apprentice
-Silverquill Pledgemage
-Silverquill Professor of Radiance
-Silverquill Professor of Shadow
-Simic Hybrid
-Simic Merfolk
-Sir Jared
-Sire of Insanity
-Sivak Draconian
-Skein spider
-Skeletal Alchemist
-Skeletal Juggernaut
-Skeletal Knight
-Skeletal Rats
-Skeletal Riding Horse
-Skeletal Swarm
-Skeleton Key
-Skittering Horror
-Skitterwidget
-Skull Flier
-Skull Lasher of Myrkul
-Skum
 Skyjek Roc
-Skyswimmer
-Skyweaver
 Slaad (any, Blue, Death, Gray, Green, Red, Tadpole)
-Slaad Tadpole
 Sled Dog
 Slithering Tracker
 Smoke Mephit
@@ -1493,25 +1245,13 @@ Snake
 Snake Horror
 Snapping Turtle
 Sneak
-Snow Golem
-Snow Leopard
-Snow Maiden
-Snowy Owlbear
-Society of Sensation Muse
-Solar Bastion Knight
-Solar Dragon Wyrmling
 Soldier
 Sorcerer
-Sorrowsworn, Wretched
-Soul Shaker
-Space Clown
-Space Eel
 Space Guppy
 Space Hamster
 Space Mollymawk
 Space Swine
 Spawn of Kyuss
-Spectral Cloud
 Spellcaster
 Spellcaster vampire
 Sperm Whale
@@ -1522,14 +1262,10 @@ Sphinx of Secrets
 Sphinx of Valor
 Sphinx of Wonder
 Spider Swarm
-Spiderdragon
 Spiderwebs
-Spiked Tomb Guardian
-Spined Devil
 Spirit
 Spirit Statue Mascot
 Spirit Troll
-Spitting Mimic
 Splugoth the Returned
 Spore Servant Octopus
 Spotted Lion
@@ -1712,23 +1448,8 @@ Undying Soldier
 Unspeakable Horror
 Urbane Magician
 Uthgardt Barbarian Leader
-Valenar Hawk
-Valenar Hound
-Valenar Steed
-Vampirate
-Vampirate Captain
-Vampirate Mage
-Vampire Familiar
-Vampire lord
-Vampire Nightbringer
-Vampire pontiff
-Vampire spawn
-Vampire Umbral Lord
 Vampiric Ixitxachitl
 Vampiric Ixitxachitl Cleric
-Vampiric Jade Statue
-Vampiric Mind Flayer
-Vampiric Mist
 Vargouille
 Vargouille Reflection
 Vecna Impersonator
@@ -1768,7 +1489,6 @@ Warden Archon
 Warforged Soldier
 Warforged Titan
 Warforged Warrior
-Warlock of the
 Warlock of the Arch
 Warlock of the Council
 Warrior
@@ -1802,38 +1522,16 @@ Wine Weird
 Winged Bull
 Winged Lion
 Winged Thrull
-Winter eladrin
-Witch of the Woods
-Witchlight Hand (Medium)
-Witchlight Hand (Small)
-Witherbloom Apprentice
-Witherbloom Pledgemage
-Witherbloom Professor of Decay
-Witherbloom Professor of Growth
 Wizard
 Woe Strider
 Wolf Spider
 Wolf-in-Sheep's-Clothing
 Wolves
-Wood Elf
-Wood Elf Wizard
-Wood Woad
-Wooden Donkey
-Worker Robot
-Wretched Sorrowsworn
-Wurm
-Wynling
 Xvart
 Xvart Speaker
 Xvart Warlock of Raxivort
 Y'demi
 Yagn
-Yagnoloth
-Yak
-Yakfolk Priest
-Yakfolk Warrior
-Yellow Musk Creeper
-Yellow Musk Zombie
 Yeti Leader
 Yeti Tyke
 Yochlol
@@ -1862,33 +1560,3 @@ Young Time Dragon
 Young Troglodyte
 Young Wereraven
 Young Winter Wolf
-Yuan-ti Abomination
-Yuan-ti Anathema
-Yuan-ti Broodguard
-Yuan-ti guard
-Yuan-ti Infiltrator
-Yuan-ti malison
-Yuan-ti malison (bugbear)
-Yuan-ti malison (dragonborn)
-Yuan-ti malison (gnome)
-Yuan-ti malison (goblin)
-Yuan-ti malison (half-elf)
-Yuan-ti malison (hobgoblin)
-Yuan-ti malison (human)
-Yuan-ti malison (orc)
-Yuan-ti malison (tiefling)
-Yuan-ti Mind Whisperer
-Yuan-ti Nightmare Speaker
-Yuan-ti Pit Master
-Yuan-ti Priest
-Yuan-ti Pureblood
-Yuan-ti sorcerer
-Zakya Rakshasa
-Zebra
-Zhent Martial Arts Adept
-Zhentarim Thug
-Zodar
-Zombie Clot
-Zombie Plague Spreader
-Zoog Trapper
-Zorbo
