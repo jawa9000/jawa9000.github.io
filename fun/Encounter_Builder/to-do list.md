@@ -69,6 +69,13 @@ The following is a list of monsters that are not currently in the above list, bu
 
 Once all these monsters are added, generate a PDF and add it back to this NotebookLM (https://notebooklm.google.com/notebook/223209c0-31b1-4d76-890a-e6f5dc0719a1?pli=1).
 
+## convert to arrays
+The following properties need to be converted to arrays. Then update main.js, monster_catalog.js, and prompt in Gemini.
+"damage immunities"
+"condition immunities"
+"senses"
+"damage vulnerabilities"
+
 ## Monster list
 Check monsters.js to see if the following monsters are listed. If they are not, use a Google search "5e [monster name]" to find it, download a PDF of it, and use this Gemini Gem (https://gemini.google.com/gem/77b2f643d48c) to batch convert up to 10 monsters at a time. Use this prompt: "Convert these PDFs into a JSON object." Then, copy/paste into monsters.js at the end, remove the array brackets, and clean up anything that is amiss (like remove "[cite:...]", add associates, and check the newly added monsters in the monster_catalog.html list).
 
