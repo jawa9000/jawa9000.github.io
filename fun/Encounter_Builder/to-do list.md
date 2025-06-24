@@ -742,14 +742,6 @@ Hippomus
 Hoard Mimic
 Hoard Scarab
 Hoard Scarab (base, Swarm)
-Homunculi
-Homunculus Servant
-Hook Horror
-Hook Horror Spore Servant
-Horncaller
-Horrid
-Hound Archon
-Hound of Ill Omen
 Huge  Crab
 Huge Gray
 Huge Ochre Jelly
@@ -778,40 +770,7 @@ Istarian Drone
 Iuz
 Ixitxachitl
 Ixitxachitl Cleric
-Jabberwock
-Jackalwere
-Jaculi
-Jaculis
-Jade  Spider
-Jammer Leech
 Jarad Vod Savo
-Jiangshi
-Juiblex
-Juvenile Eldritch Horror
-Juvenile Hook Horror
-Juvenile Kraken
-Juvenile Mimic
-Juvenile Shadow Dragon
-Kakkuu Spyder-
-Kalaman Soldier
-Kalaraq Quori
-Kalashtar
-Kamadan
-Kapak Draconian
-Karrnathi  Soldier
-Karrnathi undead soldier
-Keg Robot
-Kelpie
-Kelubar Demodand
-Kender Skirmisher
-Kenku
-Ki-rin
-Kiddywidget
-Kindori
-Knight of the Black Sword
-Knight of the Mithral Shield
-Knight of the Order
-Knucklehead Trout
 Koalinth
 Koalinth Sergeant
 Kobold Commoner
