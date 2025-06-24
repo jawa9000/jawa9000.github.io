@@ -1259,20 +1259,16 @@ Steel Defender
 Steel Predator
 Stegosaurus
 Stomping Foot
-Stone
-Stone  Dreamwalker
-Stone  of Evil Earth
-Stone  Rockspeaker
-Stone  Statue
+Stone giant
+Stone giant Dreamwalker
+Stone giant of Evil Earth
+Stone giant Rockspeaker
+Stone giant Statue
 Stone Dragon Statue
 Stone Juggernaut
 Stone Warrior
 Stonecloak
 Stonemelder
-Storm
-Storm  Quintessent
-Storm  Skeleton
-Storm  Tempest Caller
 Storm Crab
 Storm Herald
 Stormcloak
@@ -1292,7 +1288,7 @@ Svirfneblin scout
 Svirfneblin Wererat
 Swamp-bred chimera
 Swan
-Swarm of  Grubs
+Swarm of giant Grubs
 Swarm of Animated Books
 Swarm of Books
 Swarm of Campestris
@@ -1394,15 +1390,11 @@ Tridrone
 Triton
 Triton Master of Waves
 Triton Shorestalker
-Troglodyte
-Troglodyte Champion of Laogzed
-Troll Amalgam
 Troll Limb
 Troll Mutate
 Tromokratis
 Trostani
 Tsucora Quori
-Two-Headed Cerberus
 Typhon
 Tyrannosaurus Zombie
 Ulitharid
@@ -1419,23 +1411,11 @@ Vampiric Ixitxachitl Cleric
 Vargouille
 Vargouille Reflection
 Vecna Impersonator
-Vegepygmy
-Vegepygmy Chief
-Vegepygmy Moldmaker
-Vegepygmy Scavenger
-Vegepygmy Thorny
-Vegepygmy Thorny Hunter
-Veiled Presence
-Velociraptor
-Velomachus Lored
-Venom troll
-Venomous Snake
 Verbeeg Longstrider
 Verbeeg Marauder
 Veteran of the Gauntlet
 Viashino
-Vicious Warrior
-Vine Blight
+
 Violet Fungus Necrohulk
 Vistana Assassin
 Vistana Bandit
@@ -1448,63 +1428,9 @@ Vlazok
 Void Scavver
 Walking Corpse
 Walking Statue of Waterdeep
-Walrus
-War mage
-War Priest
-Warden Archon
-Warforged Soldier
-Warforged Titan
-Warforged Warrior
-Warlock of the Arch
-Warlock of the Council
-Warrior
-Warrior Commander
-Warrior Infantry
-Warrior of Madarua
-Warrior Veteran
-Wasp
-Wasteland Dragonnel
-Wastrilith
-Water
-Water  Myrmidon
-Water Weird
-Waverider Scoundrel
-Werebat
-Werejaguar
-Wereraven
-Wereshark Bloodrider
-Wereshark Chieftain
-Wereshark Shaman
-Werevulture
-Whirling Chandelier
-Whirlwyrm
-Whistler
-White Greatwyrm
-White Moray Eel
-Wild Dog
-Wildfire Spirit
-Will-o'-Wells
-Wine Weird
-Winged Bull
-Winged Lion
-Winged Thrull
+
 Wizard
-Woe Strider
-Wolf Spider
-Wolf-in-Sheep's-Clothing
-Wolves
-Xvart
-Xvart Speaker
-Xvart Warlock of Raxivort
-Y'demi
-Yagn
-Yeti Leader
-Yeti Tyke
-Yochlol
-Young Amethyst Dragon
-Young Basilisk
-Young Bulette
-Young Cloud
+Young Cloud giant
 Young Dragon Turtle
 Young Emerald Dragon
 Young Fire
