@@ -21821,72 +21821,6 @@ const monsters = [
     "notes": "<p>You can customize any dragon's stat block to reflect its unique character, making minor changes like languages, skills, or adding other traits and actions without impacting its challenge rating. Most dragons prefer Draconic but learn Common for allies and minions. They can easily learn additional languages due to high Intelligence and long lifespan. Most dragons are proficient in Perception and Stealth, and can have additional skill proficiencies or tool proficiencies, especially in Humanoid form. Some traits that can be borrowed include Change Shape, allowing the dragon to polymorph into a Humanoid or beast (retaining alignment, HP, proficiencies, Legendary Resistance, lair actions, and Int, Wis, Cha scores), Flyby (no opportunity attacks when flying out of reach), Mimicry (can mimic sounds, discernible with a Wisdom (Insight) check), and Rejuvenation (essence preserved in an object, new body in 1d10 days if destroyed). Special senses like truesight or tremorsense can also be added or upgraded.</p>"
   },
   {
-    "name": "Ancient Silver Dragon",
-    "size": "Gargantuan",
-    "type": "Dragon",
-    "alignment": "Lawful Good",
-    "environments": [
-      "Mountain",
-      "Urban"
-    ],
-    "associates": [
-      "Humanoid",
-      "Human",
-      "Elf",
-      "Dwarf",
-      "Gold Dragon"
-    ],
-    "armor class": "22 (natural armor)",
-    "hit points": "487 (25d20 + 225)",
-    "speed": "40 ft., Fly 80 ft.",
-    "str": 30,
-    "dex": 10,
-    "con": 29,
-    "int": 18,
-    "wis": 15,
-    "cha": 23,
-    "saving throws": "STR +10, DEX +7, CON +16, INT +4, WIS +9, CHA +13",
-    "skills": "Arcana +11, History +11, Perception +16, Stealth +7",
-    "damage immunities": "Cold",
-    "senses": "Blindsight 60 ft., Darkvision 120 ft., Passive Perception 26",
-    "languages": "Common, Draconic",
-    "challenge": "23 (50,000 XP)",
-    "traits": "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
-    "number of attacks": 3,
-    "attacks": {
-      "Bite": {
-        "type": "Melee Weapon Attack",
-        "to hit": "+17",
-        "reach": "15 ft.",
-        "target": "one target",
-        "hit": "21 (2d10 + 10) piercing damage",
-        "damage type": "piercing"
-      },
-      "Claw": {
-        "type": "Melee Weapon Attack",
-        "to hit": "+17",
-        "reach": "10 ft.",
-        "target": "one target",
-        "hit": "17 (2d6 + 10) slashing damage",
-        "damage type": "slashing"
-      },
-      "Tail": {
-        "type": "Melee Weapon Attack",
-        "to hit": "+17",
-        "reach": "20 ft.",
-        "target": "one target",
-        "hit": "19 (2d8 + 10) bludgeoning damage",
-        "damage type": "bludgeoning"
-      }
-    },
-    "actions": "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> Melee Weapon Attack: +17 to hit, reach 15 ft., one target. Hit: 21 (2d10 + 10) piercing damage.</p><p><em><strong>Claw.</strong></em> Melee Weapon Attack: +17 to hit, reach 10 ft., one target. Hit: 17 (2d6 + 10) slashing damage.</p><p><em><strong>Tail.</strong></em> Melee Weapon Attack: +17 to hit, reach 20 ft., one target. Hit: 19 (2d8 + 10) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 21 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Breath Weapons (Recharge 5–6).</strong></em> The dragon uses one of the following breath weapons. <strong>Cold Breath.</strong> The dragon exhales an icy blast in a 90-foot cone. Each creature in that area must make a DC 24 Constitution saving throw, taking 67 (15d8) cold damage on a failed save, or half as much damage on a successful one. <strong>Paralyzing Breath.</strong> The dragon exhales paralyzing gas in a 90-foot cone. Each creature in that area must succeed on a DC 24 Constitution saving throw or be paralyzed for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p><p><em><strong>Change Shape.</strong></em> The dragon magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the dragon's choice). In a new form, the dragon retains its alignment, hit points, Hit Dice, ability to speak, proficiencies, Legendary Resistance, lair actions, and Intelligence, Wisdom, and Charisma scores, as well as this action. Its statistics and capabilities are otherwise replaced by those of the new form, except any class features or legendary actions of that form.</p>",
-    "legendary actions": "<p>Legendary Action Uses: 3. Immediately after another creature's turn, The dragon can expend a use to take one of the following actions. The dragon regains all expended uses at the start of each of its turns.</p><p><em><strong>Tail Attack.</strong></em> The dragon makes a tail attack.</p><p><em><strong>Wing Attack (Costs 2 Actions).</strong></em> The dragon beats its wings. Each creature within 15 feet of the dragon must succeed on a DC 25 Dexterity saving throw or take 17 (2d6 + 10) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.</p>",
-    "lair actions": "<p>On initiative count 20 (losing initiative ties), the dragon takes a lair action to cause one of the following effects:</p><p><strong>Fog Cloud.</strong> The dragon creates fog as if it had cast the fog cloud spell. The fog lasts until initiative count 20 on the next round.</p><p><strong>Cold Wind.</strong> A blisteringly cold wind blows through the lair near the dragon. Each creature within 120 feet of the dragon must succeed on a DC 15 Constitution saving throw or take 5 (1d10) cold damage. Gases and vapors are dispersed by the wind, and unprotected flames are extinguished. Protected flames, such as lanterns, have a 50 percent chance of being extinguished.</p><p><strong>Icy Grip (Optional).</strong> A sudden, supernatural chill fills the lair near the dragon. Each creature of the dragon's choice that it can see within 120 feet of it must succeed on a DC 15 Constitution saving throw or be restrained until initiative count 20 on the next round. Creatures that have resistance to cold damage have advantage on the saving throw; creatures that have immunity to cold damage succeed automatically.</p>",
-    "regional effects": "<p>The region containing a legendary silver dragon's lair is warped by the dragon's magic, which creates one or more of the following effects.</p><p><strong>Weather Alteration.</strong> Once per day, the dragon can alter the weather in a 6-mile radius centered on its lair. The dragon doesn't need to be outdoors; otherwise the effect is identical to the control weather spell.</p><p><strong>Buoyant Winds.</strong> Within 1 mile of the lair, winds buoy non-evil creatures that fall due to no act of the dragon's or its allies. Such creatures descend at a rate of 60 feet per round and take no falling damage.</p><p><strong>Solid Clouds.</strong> Given days or longer to work, the dragon can make clouds and fog within its lair as solid as stone, forming structures and other objects as it wishes.</p><p>If the dragon dies, changed weather reverts to normal, as described in the spell, and the other effects fade in 1d10 days.</p>",
-    "description": "<p>The friendliest and most social of the metallic dragons, silver dragons cheerfully assist good creatures in need. A silver dragon shimmers as if sculpted from pure metal, its face given a noble cast by its high eyes and sweeping beard-like chin spikes. A spiny frill rises high over its head, tracing down its neck to the tip of its tail. A silver wyrmling's scales are blue-gray with silver highlights. As the dragon approaches adulthood, its color gradually brightens until its individual scales are barely visible. As a silver dragon grows older, its pupils fade until its eyes resemble orbs of mercury. Silver dragons believe that living a moral life involves doing good deeds and ensuring that one's actions cause no undeserved harm to other sentient beings. They don't take it upon themselves to root out evil, as gold and bronze dragons do, but they will gladly oppose creatures that dare to commit evil acts or harm the innocent. Silver dragons enjoy the company of other silver dragons. Their only true friendships outside their own kin arise in the company of humanoids, and many silver dragons spend as much time in humanoid form as they do in draconic form. A silver dragon adopts a benign humanoid persona such as a kindly old sage or a young wanderer, and it often has mortal companions with whom it develops strong friendships. Silver dragons must step away from their humanoid lives on a regular basis, returning to their true forms to mate and rear offspring, or to tend to their hoards and personal affairs. Because many lose track of time while away, they sometimes return to find that their companions have grown old or died. Silver dragons often end up befriending several generations of humanoids within a single family as a result. Silver dragons befriend humanoids of all races, but shorter-lived races such as humans spark their curiosity in a way the longer-lived elves and dwarves don't. Humans have a drive and zest for life that silver dragons find fascinating. Silver dragons love to possess relics of humanoid history. This includes great piles of coins minted by current and fallen humanoid empires, as well as art objects and fine jewelry crafted by numerous races. Other treasures in their hoards can include intact ships, the remains of kings and queens, thrones, crown jewels of ancient empires, inventions and contraptions, and monoliths carried from the ruins of fallen cities. Silver dragons dwell among the clouds, making their lairs on secluded cold mountain peaks. Though many are comfortable in natural cavern complexes or abandoned mines, silver dragons covet the lost outposts of humanoid civilization, such as abandoned mountaintop citadels or remote towers raised by long-dead wizards.</p>",
-    "notes": "<p>You can customize any dragon's stat block to reflect its unique character, making minor changes like languages, skills, or adding other traits and actions without impacting its challenge rating. Most dragons prefer Draconic but learn Common for allies and minions. They can easily learn additional languages due to high Intelligence and long lifespan. Most dragons are proficient in Perception and Stealth, and can have additional skill proficiencies or tool proficiencies, especially in Humanoid form. Dragons can be given innate spellcasting abilities, with spell level limits based on their challenge rating or fixed at 7th level for some variants. Some traits that can be borrowed include Change Shape, allowing the dragon to polymorph into a Humanoid or beast (retaining alignment, HP, proficiencies, Legendary Resistance, lair actions, and Int, Wis, Cha scores), Flyby (no opportunity attacks when flying out of reach), Mimicry (can mimic sounds, discernible with a Wisdom (Insight) check), and Rejuvenation (essence preserved in an object, new body in 1d10 days if destroyed). Special senses like truesight or tremorsense can also be added or upgraded. Metallic dragons seek to preserve and protect, viewing themselves as one powerful race among many. They covet treasure not just out of greed, but also to investigate and collect, storing unclaimed relics that reflect their persona, history, and memories. They also protect other creatures from dangerous magic, sometimes secreting away powerful magic items and evil artifacts in their hoards. A metallic dragon can be persuaded to part with an item for the greater good. Bolder metallic dragons love to wander city streets in humanoid form to observe other cultures, while some prefer solitude. They have long memories and form opinions of humanoids based on previous contact with relatives, recognizing bloodlines by smell. Bahamut, the Platinum Dragon, is the chief deity of metallic dragons, often wandering the Material Plane in disguise. He rarely interferes with mortals except to thwart Tiamat. True dragons are winged reptiles of ancient lineage, known for cunning and greed, and possess innate magical power for their breath weapons. They are categorized as chromatic (selfish, evil) and metallic (noble, good). All true dragons covet wealth and typically stay close to their hoards. True dragons pass through four life stages: wyrmling (Medium, 5 years or less), young (Large, 6-100 years), adult (Huge, 101-800 years), and ancient (Gargantuan, 810 years or more).</p>"
-  },
-  {
     "name": "Ancient Topaz Dragon",
     "size": "Gargantuan",
     "type": "Dragon",
@@ -21950,6 +21884,75 @@ const monsters = [
     "notes": "<p>You can customize any dragon's stat block to reflect its unique character, making minor changes like languages, skills, or adding other traits and actions without impacting its challenge rating. Most dragons prefer Draconic but learn Common for allies and minions. They can easily learn additional languages due to high Intelligence and long lifespan. Most dragons are proficient in Perception and Stealth, and can have additional skill proficiencies or tool proficiencies, especially in Humanoid form. Some traits that can be borrowed include Change Shape, allowing the dragon to polymorph into a Humanoid or beast (retaining alignment, HP, proficiencies, Legendary Resistance, lair actions, and Int, Wis, Cha scores), Flyby (no opportunity attacks when flying out of reach), Mimicry (can mimic sounds, discernible with a Wisdom (Insight) check), and Rejuvenation (essence preserved in an object, new body in 1d10 days if destroyed). Special senses like truesight or tremorsense can also be added or upgraded. The challenge rating of a legendary topaz dragon increases by 1 when it's encountered in its lair. Topaz dragons rarely tolerate any company but their own, and they are usually indifferent at best even toward their own kind. Their unpredictability means that even if a creature proves itself useful, it shouldn't count on being safe from the dragon. However, they rarely go out of their way to fight other creatures, except for bronze dragons, for whom they bear an inexplicably intense hatred.</p>"
   },
   {
+    "name": "Ancient Silver Dragon",
+    "size": "Gargantuan",
+    "type": "Dragon",
+    "alignment": "Lawful Good",
+    "environments": [
+      "Mountain",
+      "Urban"
+    ],
+    "associates": [
+      "Humanoid",
+      "Gold Dragon",
+      "Bronze Dragon",
+      "Bahamut"
+    ],
+    "armor class": "22 (natural armor)",
+    "hit points": "487 (25d20 + 225)",
+    "speed": "40 ft., Fly 80 ft.",
+    "str": 30,
+    "dex": 10,
+    "con": 29,
+    "int": 18,
+    "wis": 15,
+    "cha": 23,
+    "saving throws": "STR +10, DEX +7, CON +16, INT +4, WIS +9, CHA +13",
+    "skills": "Arcana +11, History +11, Perception +16, Stealth +7",
+    "damage immunities": "Cold",
+    "senses": "Blindsight 60 ft., Darkvision 120 ft., Passive Perception 26",
+    "languages": [
+      "Common",
+      "Draconic"
+    ],
+    "challenge": "23 (50,000 XP)",
+    "traits": "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p><p><em><strong>Spellcasting (Psionics).</strong></em> The dragon can innately cast six spells, once per day each, requiring no material components. Each spell's level can be no higher than 7th. The dragon's spell save DC is DC 21, and it has +13 to hit with spell attacks. Suggested spells include: <em>beacon of hope</em>, <em>calm emotions</em>, <em>hold person</em>, <em>polymorph</em>, <em>teleport</em>, <em>zone of truth</em>, <em>Otiluke's freezing sphere</em>, <em>prismatic spray</em>, <em>wall of ice</em>, <em>contingency</em>, <em>arcane gate</em>.</p>",
+    "number of attacks": 3,
+    "attacks": [
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+17",
+        "reach": "15 ft.",
+        "target": "one target",
+        "hit": "21 (2d10 + 10)",
+        "damage type": "piercing"
+      },
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+17",
+        "reach": "10 ft.",
+        "target": "one target",
+        "hit": "17 (2d6 + 10)",
+        "damage type": "slashing"
+      },
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+17",
+        "reach": "20 ft.",
+        "target": "one target",
+        "hit": "19 (2d8 + 10)",
+        "damage type": "bludgeoning"
+      }
+    ],
+    "actions": "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +17 to hit, reach 15 ft., one target. <em>Hit:</em> 21 (2d10 + 10) piercing damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +17 to hit, reach 10 ft., one target. <em>Hit:</em> 17 (2d6 + 10) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +17 to hit, reach 20 ft., one target. <em>Hit:</em> 19 (2d8 + 10) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 21 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Breath Weapons (Recharge 5–6).</strong></em> The dragon uses one of the following breath weapons.<br><em>Cold Breath.</em> The dragon exhales an icy blast in a 90-foot cone. Each creature in that area must make a DC 24 Constitution saving throw, taking 67 (15d8) cold damage on a failed save, or half as much damage on a successful one.<br><em>Paralyzing Breath.</em> The dragon exhales paralyzing gas in a 90-foot cone. Each creature in that area must succeed on a DC 24 Constitution saving throw or be paralyzed for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p><p><em><strong>Change Shape.</strong></em> The dragon magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the dragon's choice).<br>In a new form, the dragon retains its alignment, hit points, Hit Dice, ability to speak, proficiencies, Legendary Resistance, lair actions, and Intelligence, Wisdom, and Charisma scores, as well as this action. Its statistics and capabilities are otherwise replaced by those of the new form, except any class features or legendary actions of that form.</p>",
+    "legendary actions": "<p>Legendary Action Uses: 3. Immediately after another creature's turn, The dragon can expend a use to take one of the following actions. The dragon regains all expended uses at the start of each of its turns.</p><p><em><strong>Tail Attack.</strong></em> The dragon makes a tail attack.</p><p><em><strong>Wing Attack (Costs 2 Actions).</strong></em> The dragon beats its wings. Each creature within 15 feet of the dragon must succeed on a DC 25 Dexterity saving throw or take 17 (2d6 + 10) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.</p>",
+    "lair actions": "<p>On initiative count 20 (losing initiative ties), the dragon takes a lair action to cause one of the following effects:</p><ul><li>The dragon creates fog as if it had cast the fog cloud spell. The fog lasts until initiative count 20 on the next round.</li><li>A blisteringly cold wind blows through the lair near the dragon. Each creature within 120 feet of the dragon must succeed on a DC 15 Constitution saving throw or take 5 (1d10) cold damage. Gases and vapors are dispersed by the wind, and unprotected flames are extinguished. Protected flames, such as lanterns, have a 50 percent chance of being extinguished.</li><li><strong>Icy Grip.</strong> A sudden, supernatural chill fills the lair near the dragon. Each creature of the dragon's choice that it can see within 120 feet of it must succeed on a DC 15 Constitution saving throw or be restrained until initiative count 20 on the next round. Creatures that have resistance to cold damage have advantage on the saving throw; creatures that have immunity to cold damage succeed automatically.</li></ul>",
+    "regional effects": "<p>The region containing a legendary silver dragon's lair is warped by the dragon's magic, which creates one or more of the following effects.</p><ul><li>Once per day, the dragon can alter the weather in a 6-mile radius centered on its lair. The dragon doesn't need to be outdoors; otherwise the effect is identical to the control weather spell.</li><li>Within 1 mile of the lair, winds buoy non-evil creatures that fall due to no act of the dragon's or its allies. Such creatures descend at a rate of 60 feet per round and take no falling damage.</li><li>Given days or longer to work, the dragon can make clouds and fog within its lair as solid as stone, forming structures and other objects as it wishes.</li></ul><p>If the dragon dies, changed weather reverts to normal, as described in the spell, and the other effects fade in 1d10 days.</p>",
+    "img url": "https://i.imgur.com/example.png",
+    "notes": "<p>Dragons can be customized with additional languages, skills (even doubling proficiency bonus for certain skills), and tool proficiencies. They can also acquire traits and actions from other monsters, such as Change Shape at a younger age, Flyby to avoid opportunity attacks, Mimicry for impersonation, Rejuvenation to return to life near an essence-preserving object, or upgraded special senses like truesight or tremorsense.</p>",
+    "description": "<p>Silver dragons are the friendliest and most social of the metallic dragons, known for cheerfully assisting good creatures in need. They shimmer as if sculpted from pure metal, with noble faces, high eyes, sweeping beard-like chin spikes, and a spiny frill along their heads and necks. Wyrmlings have blue-gray scales with silver highlights, which brighten as they age, eventually making individual scales barely visible. Their pupils fade to resemble orbs of mercury.</p><p>Silver dragons believe in living a moral life by doing good deeds and ensuring no undeserved harm to sentient beings. Unlike gold and bronze dragons, they don't actively root out evil but readily oppose creatures that commit evil acts or harm the innocent. They enjoy the company of other silver dragons, and their only true friendships outside their kin are with humanoids. Many spend as much time in humanoid form as in draconic form, adopting benign personas like kindly old sages or young wanderers and forming strong friendships with mortals. They regularly return to their true forms for mating, rearing offspring, or tending to hoards, sometimes returning to find companions have aged or died, leading to friendships across generations of humanoids. They are particularly fascinated by shorter-lived races like humans due to their drive and zest for life.</p><p>Silver dragons love to hoard relics of humanoid history, including coins from various empires, art objects, fine jewelry, intact ships, royal remains, thrones, crown jewels, inventions, contraptions, and monoliths from fallen cities. Their lairs are typically among the clouds on secluded cold mountain peaks, often natural cavern complexes, abandoned mines, or coveted lost outposts of humanoid civilization like mountaintop citadels or remote towers.</p><p>As metallic dragons, they seek to preserve and protect, viewing themselves as a powerful race with a place in the world. Their coveting of treasure is driven by a desire to investigate and collect unclaimed relics, and their hoards reflect their persona, history, and memories. They also protect other creatures from dangerous magic, sometimes secreting away powerful magic items and evil artifacts. They can be persuaded to part with items for the greater good. Bolder silver dragons may wander cities in humanoid form to observe local culture and cuisine. They possess long memories and form opinions of humanoids based on past contact with relatives, recognizing bloodlines by smell. Their chief deity is Bahamut, the Platinum Dragon. True dragons are ancient, powerful winged reptiles known for cunning and greed, with innate magic fueling their breath weapons. They are divided into chromatic (selfish, evil) and metallic (noble, good) categories. All true dragons covet wealth and pass through four life stages: wyrmling (Medium, 5 years or less), young (Large, 6–100 years), adult (Huge, 101–800 years), and ancient (Gargantuan, 801 years or more).</p>"
+  },
+  {
     "name": "Greater Death Dragon",
     "size": "Huge",
     "type": "Undead",
@@ -21975,12 +21978,15 @@ const monsters = [
     "damage immunities": "Necrotic, Poison",
     "condition immunities": "Exhaustion, Poisoned",
     "senses": "Blindsight 60 ft., Darkvision 120 ft., Passive Perception 17",
-    "languages": "Common, Draconic",
+    "languages": [
+      "Common",
+      "Draconic"
+    ],
     "challenge": "14 (11,500 XP)",
     "traits": "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p><p><em><strong>Unusual Nature.</strong></em> The dragon doesn't require air, food, drink, or sleep.</p>",
     "number of attacks": 3,
-    "attacks": {
-      "Bite": {
+    "attacks": [
+      {
         "type": "Melee Weapon Attack",
         "to hit": "+11",
         "reach": "10 ft.",
@@ -21988,18 +21994,19 @@ const monsters = [
         "hit": "17 (2d10 + 6) piercing damage plus 4 (1d8) necrotic damage",
         "damage type": "piercing, necrotic"
       },
-      "Claw": {
+      {
         "type": "Melee Weapon Attack",
         "to hit": "+11",
         "reach": "5 ft.",
         "target": "one target",
-        "hit": "10 (1d8 + 6) slashing damage",
+        "hit": "10 (1d8 + 6)",
         "damage type": "slashing"
       }
-    },
-    "actions": "<p><em><strong>Multiattack.</strong></em> The dragon makes one Bite attack and two Claw attacks.</p><p><em><strong>Bite.</strong></em> Melee Weapon Attack: +11 to hit, reach 10 ft., one target. Hit: 17 (2d10 + 6) piercing damage plus 4 (1d8) necrotic damage. If the target is a Large or smaller creature, it is grappled (escape DC 19). Until this grapple ends, the target is restrained, and the dragon can't bite a different target.</p><p><em><strong>Claw.</strong></em> Melee Weapon Attack: +11 to hit, reach 5 ft. one target. Hit: 10 (1d8 + 6) slashing damage.</p><p><em><strong>Cataclysmic Breath (Recharge 5–6).</strong></em> The dragon exhales a wave of ghostly purple flames in a 60-foot cone. Each creature in that area must make a DC 18 Dexterity saving throw, taking 45 (10d8) necrotic damage on a failed save, or half as much damage on a successful one. A creature dies if the breath reduces it to 0 hit points. Additionally, any Medium or smaller Humanoid killed by the breath's damage, as well as every corpse of such a creature within the cone, becomes a zombie (see the Monster Manual) under the dragon's control. The zombie acts on the dragon's initiative but immediately after the dragon's turn. Absent any other command, the zombie tries to kill any non-Undead creature it encounters.</p>",
+    ],
+    "actions": "<p><em><strong>Multiattack.</strong></em> The dragon makes one Bite attack and two Claw attacks.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +11 to hit, reach 10 ft., one target. <em>Hit:</em> 17 (2d10 + 6) piercing damage plus 4 (1d8) necrotic damage. If the target is a Large or smaller creature, it is grappled (escape DC 19). Until this grapple ends, the target is restrained, and the dragon can't bite a different target.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +11 to hit, reach 5 ft. one target. <em>Hit:</em> 10 (1d8 + 6) slashing damage.</p><p><em><strong>Cataclysmic Breath (Recharge 5–6).</strong></em> The dragon exhales a wave of ghostly purple flames in a 60-foot cone. Each creature in that area must make a DC 18 Dexterity saving throw, taking 45 (10d8) necrotic damage on a failed save, or half as much damage on a successful one. A creature dies if the breath reduces it to 0 hit points. Additionally, any Medium or smaller Humanoid killed by the breath's damage, as well as every corpse of such a creature within the cone, becomes a zombie (see the Monster Manual) under the dragon's control. The zombie acts on the dragon's initiative but immediately after the dragon's turn. Absent any other command, the zombie tries to kill any non-Undead creature it encounters.</p>",
     "legendary actions": "<p>Legendary Action Uses: 3. Immediately after another creature's turn, The greater death dragon can expend a use to take one of the following actions. The greater death dragon regains all expended uses at the start of each of its turns.</p><p><em><strong>Claw.</strong></em> The dragon makes one Claw attack.</p><p><em><strong>Cataclysmic Rush (Costs 2 Actions).</strong></em> The dragon moves up to half its flying speed without provoking opportunity attacks, carrying with it any creatures it is grappling. During this move, if it enters the space of a Medium or smaller creature, that creature takes 4 (1d8) necrotic damage. A creature can take this damage only once per turn.</p>",
-    "description": "<p>Some death dragons manage to retain almost all of their former selves, albeit twisted by their state of being. These greater death dragons scheme to achieve their ends, all the while amassing and jealously guarding treasure hoards as they did in life. In battle, they are deadly foes, channeling the Cataclysmic fire that limns their bones and fuels their breath. They take cruel delight in snatching foes in their jaws, rushing into the air, then dropping the snared creatures to their doom.</p><p>Death dragons are the Undead skeletal remains of metallic or chromatic dragons, infused with the lingering fires of the Cataclysm by foul magic. Rarely, death dragons arise when a dragon meets its end in a way that torments its soul and consumes it with a need for vengeance. Regardless of how it arose, a death dragon retains a shadow of its former personality. The stronger the death dragon, the more it fights the hate consuming it, holding on to some vestige of its memories. A death dragon's bones burn with violet Cataclysmic fire, which it can unleash in a horrific mockery of the breath weapon it possessed in life. The breath snuffs out life force and infuses undeath into corpses it touches. These zombies burn with Cataclysmic fire and serve the death dragon's will, typically going on rampages to destroy all living creatures in sight.</p>"
+    "img url": "https://i.imgur.com/example.png",
+    "description": "<p>Some death dragons manage to retain almost all of their former selves, albeit twisted by their state of being. These greater death dragons scheme to achieve their ends, all the while amassing and jealously guarding treasure hoards as they did in life. In battle, they are deadly foes, channeling the Cataclysmic fire that limns their bones and fuels their breath. They take cruel delight in snatching foes in their jaws, rushing into the air, then dropping the snared creatures to their doom.</p><p>Death dragons are the Undead skeletal remains of metallic or chromatic dragons, infused with the lingering fires of the Cataclysm by foul magic. Rarely, they can arise when a dragon meets its end in a way that torments its soul and consumes it with a need for vengeance. Regardless of how it arose, a death dragon retains a shadow of its former personality. The stronger the death dragon, the more it fights the hate consuming it, holding on to some vestige of its memories. A death dragon's bones burn with violet Cataclysmic fire, which it can unleash in a horrific mockery of the breath weapon it possessed in life. This breath snuffs out life force and infuses undeath into corpses it touches. These newly formed zombies burn with Cataclysmic fire and serve the death dragon's will, typically going on rampages to destroy all living creatures in sight.</p>"
   },
   {
     "name": "Lesser Death Dragon",
@@ -22027,12 +22034,14 @@ const monsters = [
     "damage immunities": "Necrotic, Poison",
     "condition immunities": "Exhaustion, Poisoned",
     "senses": "Blindsight 30 ft., Darkvision 60 ft., Passive Perception 14",
-    "languages": "Understands Common and Draconic but can't speak",
+    "languages": [
+      "Understands Common and Draconic but can't speak"
+    ],
     "challenge": "10 (5,900 XP)",
     "traits": "<p><em><strong>Unusual Nature.</strong></em> The dragon doesn't require air, food, drink, or sleep.</p>",
     "number of attacks": 3,
-    "attacks": {
-      "Bite": {
+    "attacks": [
+      {
         "type": "Melee Weapon Attack",
         "to hit": "+9",
         "reach": "10 ft.",
@@ -22040,17 +22049,18 @@ const monsters = [
         "hit": "14 (2d8 + 5) piercing damage plus 4 (1d8) necrotic damage",
         "damage type": "piercing, necrotic"
       },
-      "Claw": {
+      {
         "type": "Melee Weapon Attack",
         "to hit": "+9",
         "reach": "5 ft.",
         "target": "one target",
-        "hit": "8 (1d6 + 5) slashing damage",
+        "hit": "8 (1d6 + 5)",
         "damage type": "slashing"
       }
-    },
-    "actions": "<p><em><strong>Multiattack.</strong></em> The dragon makes one Bite attack and two Claw attacks.</p><p><em><strong>Bite.</strong></em> Melee Weapon Attack: +9 to hit, reach 10 ft., one target. Hit: 14 (2d8 + 5) piercing damage plus 4 (1d8) necrotic damage.</p><p><em><strong>Claw.</strong></em> Melee Weapon Attack: +9 to hit, reach 5 ft. one target. Hit: 8 (1d6 + 5) slashing damage. If the target is a Medium or smaller creature, it is grappled (escape DC 15). Until this grapple ends, the target is restrained. The dragon has two claws, each of which can grapple one target.</p><p><em><strong>Cataclysmic Breath (Recharge 5–6).</strong></em> The dragon exhales a wave of ghostly purple flames in a 30-foot cone. Each creature in that area must make a DC 16 Dexterity saving throw, taking 36 (8d8) necrotic damage on a failed save, or half as much damage on a successful one. A creature dies if the breath reduces it to 0 hit points. Additionally, any Medium or smaller Humanoid killed by the breath's damage, as well as every corpse of such a creatures within the cone, becomes a zombie (see the Monster Manual) under the dragon's control. The zombie acts on the dragon's initiative but immediately after the dragon's turn. Absent any other command, the zombie tries to kill any non-Undead creature it encounters.</p>",
-    "description": "<p>Most death dragons are pale imitations of their former selves. They remember flashes and echoes, and sometimes things or creatures they encounter painfully remind them of what they once had. These fleeting moments of lucidity quickly burn away in rage and anguish, driving the dragons to destroy the would-be memento.</p><p>Death dragons are the Undead skeletal remains of metallic or chromatic dragons, infused with the lingering fires of the Cataclysm by foul magic. Rarely, death dragons arise when a dragon meets its end in a way that torments its soul and consumes it with a need for vengeance. Regardless of how it arose, a death dragon retains a shadow of its former personality. The stronger the death dragon, the more it fights the hate consuming it, holding on to some vestige of its memories. A death dragon's bones burn with violet Cataclysmic fire, which it can unleash in a horrific mockery of the breath weapon it possessed in life. The breath snuffs out life force and infuses undeath into corpses it touches. These zombies burn with Cataclysmic fire and serve the death dragon's will, typically going on rampages to destroy all living creatures in sight.</p>"
+    ],
+    "actions": "<p><em><strong>Multiattack.</strong></em> The dragon makes one Bite attack and two Claw attacks.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +9 to hit, reach 10 ft., one target. <em>Hit:</em> 14 (2d8 + 5) piercing damage plus 4 (1d8) necrotic damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +9 to hit, reach 5 ft. one target. <em>Hit:</em> 8 (1d6 + 5) slashing damage. If the target is a Medium or smaller creature, it is grappled (escape DC 15). Until this grapple ends, the target is restrained. The dragon has two claws, each of which can grapple one target.</p><p><em><strong>Cataclysmic Breath (Recharge 5–6).</strong></em> The dragon exhales a wave of ghostly purple flames in a 30-foot cone. Each creature in that area must make a DC 16 Dexterity saving throw, taking 36 (8d8) necrotic damage on a failed save, or half as much damage on a successful one. A creature dies if the breath reduces it to 0 hit points. Additionally, any Medium or smaller Humanoid killed by the breath's damage, as well as every corpse of such a creatures within the cone, becomes a zombie (see the Monster Manual) under the dragon's control. The zombie acts on the dragon's initiative but immediately after the dragon's turn. Absent any other command, the zombie tries to kill any non-Undead creature it encounters.</p>",
+    "img url": "https://i.imgur.com/example.png",
+    "description": "<p>Most death dragons are pale imitations of their former selves. They remember flashes and echoes, and sometimes things or creatures they encounter painfully remind them of what they once had. These fleeting moments of lucidity quickly burn away in rage and anguish, driving the dragons to destroy the would-be memento.</p><p>Death dragons are the Undead skeletal remains of metallic or chromatic dragons, infused with the lingering fires of the Cataclysm by foul magic. Rarely, they can arise when a dragon meets its end in a way that torments its soul and consumes it with a need for vengeance. Regardless of how it arose, a death dragon retains a shadow of its former personality. The stronger the death dragon, the more it fights the hate consuming it, holding on to some vestige of its memories. A death dragon's bones burn with violet Cataclysmic fire, which it can unleash in a horrific mockery of the breath weapon it possessed in life. This breath snuffs out life force and infuses undeath into corpses it touches. These newly formed zombies burn with Cataclysmic fire and serve the death dragon's will, typically going on rampages to destroy all living creatures in sight.</p>"
   },
   {
     "name": "Lunar Dragon Wyrmling",
@@ -22058,10 +22068,8 @@ const monsters = [
     "type": "Dragon",
     "alignment": "Lawful Evil",
     "environments": [
-      "Wasteland",
       "Dungeon"
     ],
-    "associates": [],
     "armor class": "15 (natural armor)",
     "hit points": "37 (5d8 + 15)",
     "speed": "40 ft., Burrow 10 ft., Fly 40 ft.",
@@ -22075,12 +22083,14 @@ const monsters = [
     "skills": "Perception +4, Stealth +5",
     "damage immunities": "Cold",
     "senses": "Darkvision 120 ft., Passive Perception 14",
-    "languages": "Draconic",
+    "languages": [
+      "Draconic"
+    ],
     "challenge": "2 (450 XP)",
     "traits": "<p><em><strong>Tunneler.</strong></em> The dragon can burrow through solid rock at half its burrowing speed and leaves a 5-foot-diameter tunnel in its wake.</p><p><em><strong>Unusual Nature.</strong></em> The dragon doesn't require air.</p>",
     "number of attacks": 1,
-    "attacks": {
-      "Bite": {
+    "attacks": [
+      {
         "type": "Melee Weapon Attack",
         "to hit": "+4",
         "reach": "5 ft.",
@@ -22088,10 +22098,11 @@ const monsters = [
         "hit": "5 (1d6 + 2) piercing damage plus 3 (1d6) cold damage",
         "damage type": "piercing, cold"
       }
-    },
-    "actions": "<p><em><strong>Bite.</strong></em> Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) piercing damage plus 3 (1d6) cold damage.</p><p><em><strong>Cold Breath (Recharge 5–6).</strong></em> The dragon exhales a blast of frost in a 15-foot cone. Each creature in the cone must make a DC 13 Constitution saving throw. On a failed save, the creature takes 13 (3d8) cold damage, and its speed is halved until the end of its next turn. On a successful save, the creature takes half as much damage, and its speed isn't reduced.</p>",
+    ],
+    "actions": "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft., one target. <em>Hit:</em> 5 (1d6 + 2) piercing damage plus 3 (1d6) cold damage.</p><p><em><strong>Cold Breath (Recharge 5–6).</strong></em> The dragon exhales a blast of frost in a 15-foot cone. Each creature in the cone must make a DC 13 Constitution saving throw. On a failed save, the creature takes 13 (3d8) cold damage, and its speed is halved until the end of its next turn. On a successful save, the creature takes half as much damage, and its speed isn't reduced.</p>",
     "bonus actions": "<p><em><strong>Phase (2/Day).</strong></em> The dragon becomes partially incorporeal for as long as it maintains concentration on the effect (as if concentrating on a spell). While partially incorporeal, the dragon has resistance to bludgeoning, piercing, and slashing damage.</p>",
-    "description": "<p>Lunar dragons (also known as moon dragons or phase dragons) are capricious, xenophobic creatures that make their lairs inside desolate moons by burrowing through the rock. Before laying eggs, a female lunar dragon stocks her lair with food; she won't leave the lair again until the eggs hatch and the offspring are old enough to fend for themselves. Lunar dragon eggs have stony shells that are pale white to light gray in color. Lunar dragons are alabaster white when they hatch and gradually turn darker as they age. Ancient moon dragons are the color of slate. Lunar dragons enjoy depriving other creatures of treasure more than acquiring the treasure themselves. Often found among the treasures in a lunar dragon's hoard are one or more spelljamming helms (see the Astral Adventurer's Guide) taken from vessels that dared to invade the dragon's territory. A lunar dragon can become incorporeal, but not to the extent that it can pass through other creatures or solid objects. In this semi-incorporeal state, roughly half of the dragon's body has a dark, indistinctly spectral form.</p>"
+    "img url": "https://i.imgur.com/example.png",
+    "description": "<p>Lunar dragons, also known as moon dragons or phase dragons, are capricious, xenophobic creatures that make their lairs inside desolate moons by burrowing through the rock.</p><p>Before laying eggs, a female lunar dragon stocks her lair with food and will not leave until the eggs hatch and the offspring are old enough to fend for themselves. Lunar dragon eggs have stony shells that are pale white to light gray in color. Wyrmlings are alabaster white when they hatch and gradually turn darker as they age, with ancient moon dragons becoming the color of slate.</p><p>Lunar dragons enjoy depriving other creatures of treasure more than acquiring treasure themselves. Their hoards often contain one or more spelljamming helms taken from vessels that dared to invade their territory. A lunar dragon can become partially incorporeal, but not to the extent that it can pass through other creatures or solid objects. In this semi-incorporeal state, roughly half of the dragon's body has a dark, indistinctly spectral form.</p>"
   },
   {
     "name": "Sapphire Dragon Wyrmling",
@@ -22102,14 +22113,20 @@ const monsters = [
       "Underdark"
     ],
     "associates": [
+      "Emerald Dragon",
+      "Rock Gnome",
+      "Deep Gnome",
       "Gelatinous Cube",
       "Ochre Jelly",
       "Minotaur",
       "Grell",
-      "Drow Warrior",
+      "Drow",
       "Phase Spider",
       "Specter",
-      "Wraith"
+      "Wraith",
+      "Galeb Duhr",
+      "Hobgoblin Warlord",
+      "Kuo-Toa"
     ],
     "armor class": "16 (natural armor)",
     "hit points": "45 (6d8 + 18)",
@@ -22125,12 +22142,15 @@ const monsters = [
     "damage resistances": "Lightning, Thunder",
     "condition immunities": "Frightened",
     "senses": "Blindsight 30 ft., Darkvision 120 ft., Passive Perception 15",
-    "languages": "Draconic, telepathy 120 ft.",
+    "languages": [
+      "Draconic",
+      "Telepathy 120 ft"
+    ],
     "challenge": "3 (700 XP)",
     "traits": "<p><em><strong>Spider Climb.</strong></em> The dragon can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check.</p><p><em><strong>Tunneler.</strong></em> The dragon can burrow through solid rock at half its burrowing speed and can leave a 5-foot-diameter tunnel in its wake.</p>",
     "number of attacks": 1,
-    "attacks": {
-      "Bite": {
+    "attacks": [
+      {
         "type": "Melee Weapon Attack",
         "to hit": "+5",
         "reach": "5 ft.",
@@ -22138,10 +22158,11 @@ const monsters = [
         "hit": "8 (1d10 + 3) piercing damage plus 3 (1d6) thunder damage",
         "damage type": "piercing, thunder"
       }
-    },
-    "actions": "<p><em><strong>Bite.</strong></em> Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 8 (1d10 + 3) piercing damage plus 3 (1d6) thunder damage.</p><p><em><strong>Debilitating Breath (Recharge 5–6).</strong></em> The dragon exhales a pulse of high-pitched, nearly inaudible sound in a 15-foot cone. Each creature in that area must make a DC 13 Constitution saving throw. On a failed save, the creature takes 22 (4d10) thunder damage and is incapacitated until the end of its next turn. On a successful save, the creature takes half as much damage and isn't incapacitated.</p><p><em><strong>Spellcasting (Psionics).</strong></em> The dragon casts one of the following spells, requiring no spell components and using Intelligence as the spellcasting ability: 1/day each: alarm, Tenser's floating disk</p>",
-    "description": "<p>The thunderous clash of conflict is part of the very nature of sapphire dragons. Militant and territorial, they defend their lairs fiercely, ambushing intruders and plotting assaults against their rivals. The sonic pulse of their breath weapon sows weakness, leaving the victims unable to fight back. Sapphire dragons' scales and wing membranes show varied shades of blue, ranging from the light tones of a spring sky to the rich, crystalline azure of sapphire gems and compressed glacial ice. In the light, the scales glitter and shine like luminous starbursts. The dragons' psionic nature is evident in the horn and bone structures of their bodies. Their tail barbs and horn tips are all separate pieces, but they float in place, held aloft by psychic energy while the dragons live. These levitating horns and spines shift slightly with the dragons' moods, bobbing in amusement or flaring with anger. The warlike sapphire dragons devise strategies and ambushes based on their ability to maneuver underground. A sapphire dragon often refrains from striking immediately, preferring to assess intruders first in order to devise the most advantageous approach to dealing with them. Sapphire dragons watch for signs of Aberrations and other creatures corrupted by the Far Realm. They frequently ally with emerald dragons, drawing on their kin's knowledge of occult phenomena to track the influence of the Far Realm. Armed with that knowledge, sapphire dragons stamp out alien influence before it spreads. People who dwell or delve deep beneath the earth can easily find themselves at odds with a sapphire dragon if they cross into the dragon's territory. But sapphire dragons sometimes forge peaceful relationships with rock gnomes or deep gnomes, relying on these folk to help protect the territory surrounding their lairs. Sapphire dragons' favorite prizes are weapons and armor, records of military history and tactics, and magic items that protect against psychic damage or mental intrusion. The centerpiece of a sapphire dragon's hoard is usually a cataloged, orderly collection of war gear, which can contain ancient relics of immense power. Sapphire dragons' make their homes in extensive cave systems. As they grow older, they make increasingly complex renovations to their lairs, using their inherent magic and natural tunneling abilities to great effect. Eventually, a sapphire dragon's lair is a dizzying honeycomb of hidden passages, deceptively thin walls, and secret chambers that allow the dragon to travel from one end to the other unseen by intruders. The most secure lairs might feature no accessible entrances or exits at all, with the dragon relying on tunneling or shaping stone to come and go.</p>",
-    "notes": "<p>You can customize any dragon's stat block to reflect its unique character, making minor changes like languages, skills, or adding other traits and actions without impacting its challenge rating. Most dragons prefer Draconic but learn Common for allies and minions. They can easily learn additional languages due to high Intelligence and long lifespan. Most dragons are proficient in Perception and Stealth, and can have additional skill proficiencies or tool proficiencies, especially in Humanoid form. Some traits that can be borrowed include Change Shape, allowing the dragon to polymorph into a Humanoid or beast (retaining alignment, HP, proficiencies, Legendary Resistance, lair actions, and Int, Wis, Cha scores), Flyby (no opportunity attacks when flying out of reach), Mimicry (can mimic sounds, discernible with a Wisdom (Insight) check), and Rejuvenation (essence preserved in an object, new body in 1d10 days if destroyed). Special senses like truesight or tremorsense can also be added or upgraded. Sapphire dragons are generally solitary creatures. On the rare occasion that one forms nonhostile relationships, it is almost always to bolster the defenses of the dragon's lair and hoard.</p>"
+    ],
+    "actions": "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft., one target. <em>Hit:</em> 8 (1d10 + 3) piercing damage plus 3 (1d6) thunder damage.</p><p><em><strong>Debilitating Breath (Recharge 5–6).</strong></em> The dragon exhales a pulse of high-pitched, nearly inaudible sound in a 15-foot cone. Each creature in that area must make a DC 13 Constitution saving throw. On a failed save, the creature takes 22 (4d10) thunder damage and is incapacitated until the end of its next turn. On a successful save, the creature takes half as much damage and isn't incapacitated.</p><p><em><strong>Spellcasting (Psionics).</strong></em> The dragon casts one of the following spells, requiring no spell components and using Intelligence as the spellcasting ability: 1/day each: <em>alarm</em>, <em>Tenser's floating disk</em></p>",
+    "img url": "https://i.imgur.com/example.png",
+    "notes": "<p>Dragons can be customized with additional languages, skills (even doubling proficiency bonus for certain skills), and tool proficiencies. They can also acquire traits and actions from other monsters, such as Change Shape at a younger age, Flyby to avoid opportunity attacks, Mimicry for impersonation, Rejuvenation to return to life near an essence-preserving object, or upgraded special senses like truesight or tremorsense. Sapphire dragons have specific personality traits and ideals (Solitude, Preservation, Knowledge, Order, Preparation, Companionship) that can inspire their portrayal, and a variety of adventure hooks exist involving them, such as advising monarchies, seeking aid against mind flayers, or testing lair defenses. They are generally solitary but form nonhostile relationships to bolster lair defenses. Young sapphire dragons may practice martial skills, train golems, or control giant spider populations.</p>",
+    "description": "<p>The thunderous clash of conflict is part of the very nature of sapphire dragons. They are militant and territorial, fiercely defending their lairs, ambushing intruders, and plotting assaults against rivals. The sonic pulse of their breath weapon sows weakness, leaving victims unable to fight back.</p><p>Sapphire dragons' scales and wing membranes display varied shades of blue, from spring sky tones to rich, crystalline azure, glittering and shining like luminous starbursts in the light. Their psionic nature is evident in the horn and bone structures of their bodies; their tail barbs and horn tips are separate pieces that float in place, held aloft by psychic energy while the dragons live, shifting slightly with the dragons' moods.</p><p>Warlike sapphire dragons devise strategies and ambushes based on their ability to maneuver underground. They often assess intruders before striking to determine the most advantageous approach. They actively watch for signs of Aberrations and creatures corrupted by the Far Realm, frequently allying with emerald dragons to track and stamp out alien influence. While they may clash with those who delve deep beneath the earth, they sometimes forge peaceful relationships with rock gnomes or deep gnomes to help protect their lair territories.</p><p>Sapphire dragons prize weapons and armor, military history records and tactics, and magic items that protect against psychic damage or mental intrusion. The centerpiece of their hoard is typically an organized collection of war gear, which can include ancient relics of immense power.</p>"
   },
   {
     "name": "Silver Dragon Wyrmling",
@@ -22154,10 +22175,9 @@ const monsters = [
     ],
     "associates": [
       "Humanoid",
-      "Human",
-      "Elf",
-      "Dwarf",
-      "Gold Dragon"
+      "Gold Dragon",
+      "Bronze Dragon",
+      "Bahamut"
     ],
     "armor class": "17 (natural armor)",
     "hit points": "45 (6d8 + 18)",
@@ -22172,23 +22192,26 @@ const monsters = [
     "skills": "Perception +4, Stealth +2",
     "damage immunities": "Cold",
     "senses": "Blindsight 10 ft., Darkvision 60 ft., Passive Perception 14",
-    "languages": "Draconic",
+    "languages": [
+      "Draconic"
+    ],
     "challenge": "2 (450 XP)",
-    "traits": "<p><em><strong>Keen Sight.</strong></em> The griffon has advantage on Wisdom (Perception) checks that rely on sight.</p>",
+    "traits": "<p><em><strong>Spellcasting (Psionics).</strong></em> This dragon can innately cast four spells, once per day each, requiring no material components. Each spell's level can be no higher than 3rd. The dragon's spell save DC is DC 16, and it has +8 to hit with spell attacks. Suggested spells include: <em>beacon of hope</em>, <em>calm emotions</em>, <em>hold person</em>, <em>zone of truth</em>, <em>sleet storm</em>, <em>protection from energy</em>, <em>catnap</em>, <em>locate object</em>, <em>identify</em>, <em>Leomund's tiny hut</em>.</p>",
     "number of attacks": 1,
-    "attacks": {
-      "Bite": {
+    "attacks": [
+      {
         "type": "Melee Weapon Attack",
         "to hit": "+6",
         "reach": "5 ft.",
         "target": "one target",
-        "hit": "9 (1d10 + 4) piercing damage",
+        "hit": "9 (1d10 + 4)",
         "damage type": "piercing"
       }
-    },
-    "actions": "<p><em><strong>Bite.</strong></em> Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 9 (1d10 + 4) piercing damage.</p><p><em><strong>Breath Weapons (Recharge 5–6).</strong></em> The dragon uses one of the following breath weapons. <strong>Cold Breath.</strong> The dragon exhales an icy blast in a 15-foot cone. Each creature in that area must make a DC 13 Constitution saving throw, taking 18 (4d8) cold damage on a failed save, or half as much damage on a successful one. <strong>Paralyzing Breath.</strong> The dragon exhales paralyzing gas in a 15-foot cone. Each creature in that area must succeed on a DC 13 Constitution saving throw or be paralyzed for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p>",
-    "description": "<p>The friendliest and most social of the metallic dragons, silver dragons cheerfully assist good creatures in need. A silver dragon shimmers as if sculpted from pure metal, its face given a noble cast by its high eyes and sweeping beard-like chin spikes. A spiny frill rises high over its head, tracing down its neck to the tip of its tail. A silver wyrmling's scales are blue-gray with silver highlights. As the dragon approaches adulthood, its color gradually brightens until its individual scales are barely visible. As a silver dragon grows older, its pupils fade until its eyes resemble orbs of mercury. Silver dragons believe that living a moral life involves doing good deeds and ensuring that one's actions cause no undeserved harm to other sentient beings. They don't take it upon themselves to root out evil, as gold and bronze dragons do, but they will gladly oppose creatures that dare to commit evil acts or harm the innocent. Silver dragons enjoy the company of other silver dragons. Their only true friendships outside their own kin arise in the company of humanoids, and many silver dragons spend as much time in humanoid form as they do in draconic form. A silver dragon adopts a benign humanoid persona such as a kindly old sage or a young wanderer, and it often has mortal companions with whom it develops strong friendships. Silver dragons must step away from their humanoid lives on a regular basis, returning to their true forms to mate and rear offspring, or to tend to their hoards and personal affairs. Because many lose track of time while away, they sometimes return to find that their companions have grown old or died. Silver dragons often end up befriending several generations of humanoids within a single family as a result. Silver dragons befriend humanoids of all races, but shorter-lived races such as humans spark their curiosity in a way the longer-lived elves and dwarves don't. Humans have a drive and zest for life that silver dragons find fascinating. Silver dragons love to possess relics of humanoid history. This includes great piles of coins minted by current and fallen humanoid empires, as well as art objects and fine jewelry crafted by numerous races. Other treasures in their hoards can include intact ships, the remains of kings and queens, thrones, crown jewels of ancient empires, inventions and contraptions, and monoliths carried from the ruins of fallen cities. Silver dragons dwell among the clouds, making their lairs on secluded cold mountain peaks. Though many are comfortable in natural cavern complexes or abandoned mines, silver dragons covet the lost outposts of humanoid civilization, such as abandoned mountaintop citadels or remote towers raised by long-dead wizards.</p>",
-    "notes": "<p>You can customize any dragon's stat block to reflect its unique character, making minor changes like languages, skills, or adding other traits and actions without impacting its challenge rating. Most dragons prefer Draconic but learn Common for allies and minions. They can easily learn additional languages due to high Intelligence and long lifespan. Most dragons are proficient in Perception and Stealth, and can have additional skill proficiencies or tool proficiencies, especially in Humanoid form. Dragons can be given innate spellcasting abilities, with spell level limits based on their challenge rating or fixed at 3rd level for some variants. Some traits that can be borrowed include Change Shape, allowing the dragon to polymorph into a Humanoid or beast (retaining alignment, HP, proficiencies, Legendary Resistance, lair actions, and Int, Wis, Cha scores), Flyby (no opportunity attacks when flying out of reach), Mimicry (can mimic sounds, discernible with a Wisdom (Insight) check), and Rejuvenation (essence preserved in an object, new body in 1d10 days if destroyed). Special senses like truesight or tremorsense can also be added or upgraded. Metallic dragons seek to preserve and protect, viewing themselves as one powerful race among many. They covet treasure not just out of greed, but also to investigate and collect, storing unclaimed relics that reflect their persona, history, and memories. They also protect other creatures from dangerous magic, sometimes secreting away powerful magic items and evil artifacts in their hoards. A metallic dragon can be persuaded to part with an item for the greater good. Bolder metallic dragons love to wander city streets in humanoid form to observe other cultures, while some prefer solitude. They have long memories and form opinions of humanoids based on previous contact with relatives, recognizing bloodlines by smell. Bahamut, the Platinum Dragon, is the chief deity of metallic dragons, often wandering the Material Plane in disguise. He rarely interferes with mortals except to thwart Tiamat. True dragons are winged reptiles of ancient lineage, known for cunning and greed, and possess innate magical power for their breath weapons. They are categorized as chromatic (selfish, evil) and metallic (noble, good). All true dragons covet wealth and typically stay close to their hoards. True dragons pass through four life stages: wyrmling (Medium, 5 years or less), young (Large, 6-100 years), adult (Huge, 101-800 years), and ancient (Gargantuan, 801 years or more).</p>"
+    ],
+    "actions": "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft., one target. <em>Hit:</em> 9 (1d10 + 4) piercing damage.</p><p><em><strong>Breath Weapons (Recharge 5–6).</strong></em> The dragon uses one of the following breath weapons.<br><em>Cold Breath.</em> The dragon exhales an icy blast in a 15-foot cone. Each creature in that area must make a DC 13 Constitution saving throw, taking 18 (4d8) cold damage on a failed save, or half as much damage on a successful one.<br><em>Paralyzing Breath.</em> The dragon exhales paralyzing gas in a 15-foot cone. Each creature in that area must succeed on a DC 13 Constitution saving throw or be paralyzed for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p>",
+    "img url": "https://i.imgur.com/example.png",
+    "notes": "<p>Dragons can be customized with additional languages, skills (even doubling proficiency bonus for certain skills), and tool proficiencies. They can also acquire traits and actions from other monsters, such as Change Shape at a younger age, Flyby to avoid opportunity attacks, Mimicry for impersonation, Rejuvenation to return to life near an essence-preserving object, or upgraded special senses like truesight or tremorsense.</p>",
+    "description": "<p>Silver dragons are the friendliest and most social of the metallic dragons, known for cheerfully assisting good creatures in need. They shimmer as if sculpted from pure metal, with noble faces, high eyes, sweeping beard-like chin spikes, and a spiny frill along their heads and necks. A silver wyrmling's scales are blue-gray with silver highlights, which brighten as the dragon approaches adulthood until individual scales are barely visible. As a silver dragon grows older, its pupils fade until its eyes resemble orbs of mercury.</p><p>Silver dragons believe in living a moral life by doing good deeds and ensuring no undeserved harm to sentient beings. Unlike gold and bronze dragons, they don't actively root out evil but readily oppose creatures that commit evil acts or harm the innocent. They enjoy the company of other silver dragons, and their only true friendships outside their kin are with humanoids. Many spend as much time in humanoid form as in draconic form, adopting benign personas like kindly old sages or young wanderers and forming strong friendships with mortals. They regularly return to their true forms for mating, rearing offspring, or tending to hoards, sometimes returning to find companions have aged or died, leading to friendships across generations of humanoids. They are particularly fascinated by shorter-lived races like humans due to their drive and zest for life.</p><p>Silver dragons love to hoard relics of humanoid history, including coins from various empires, art objects, fine jewelry, intact ships, royal remains, thrones, crown jewels, inventions, contraptions, and monoliths from fallen cities. Their lairs are typically among the clouds on secluded cold mountain peaks, often natural cavern complexes, abandoned mines, or coveted lost outposts of humanoid civilization like mountaintop citadels or remote towers.</p><p>As metallic dragons, they seek to preserve and protect, viewing themselves as a powerful race with a place in the world. Their coveting of treasure is driven by a desire to investigate and collect unclaimed relics, and their hoards reflect their persona, history, and memories. They also protect other creatures from dangerous magic, sometimes secreting away powerful magic items and evil artifacts. They can be persuaded to part with items for the greater good. Bolder silver dragons may wander cities in humanoid form to observe local culture and cuisine. They possess long memories and form opinions of humanoids based on past contact with relatives, recognizing bloodlines by smell. Their chief deity is Bahamut, the Platinum Dragon. True dragons are ancient, powerful winged reptiles known for cunning and greed, with innate magic fueling their breath weapons. They are divided into chromatic (selfish, evil) and metallic (noble, good) categories. All true dragons covet wealth and pass through four life stages: wyrmling (Medium, 5 years or less), young (Large, 6–100 years), adult (Huge, 101–800 years), and ancient (Gargantuan, 801 years or more).</p>"
   },
   {
     "name": "Solar Dragon Wyrmling",
@@ -22196,12 +22219,11 @@ const monsters = [
     "type": "Dragon",
     "alignment": "Neutral",
     "environments": [
-      "Wasteland"
+      "Varies"
     ],
     "associates": [
       "Kindori",
-      "Scavver",
-      "Humanoid"
+      "Scavver"
     ],
     "armor class": "15 (natural armor)",
     "hit points": "51 (6d8 + 24)",
@@ -22217,12 +22239,14 @@ const monsters = [
     "damage immunities": "Radiant",
     "condition immunities": "Blinded",
     "senses": "Darkvision 120 ft., Passive Perception 15",
-    "languages": "Draconic",
+    "languages": [
+      "Draconic"
+    ],
     "challenge": "3 (700 XP)",
     "traits": "<p><em><strong>Flyby.</strong></em> The dragon doesn't provoke opportunity attacks when it flies out of an enemy's reach.</p><p><em><strong>Unusual Nature.</strong></em> The dragon doesn't require air.</p>",
     "number of attacks": 2,
-    "attacks": {
-      "Bite": {
+    "attacks": [
+      {
         "type": "Melee Weapon Attack",
         "to hit": "+5",
         "reach": "5 ft.",
@@ -22230,17 +22254,18 @@ const monsters = [
         "hit": "6 (1d6 + 3) piercing damage plus 3 (1d6) radiant damage",
         "damage type": "piercing, radiant"
       },
-      "Tail": {
+      {
         "type": "Melee Weapon Attack",
         "to hit": "+5",
         "reach": "10 ft.",
         "target": "one target",
-        "hit": "5 (1d4 + 3) bludgeoning damage",
+        "hit": "5 (1d4 + 3)",
         "damage type": "bludgeoning"
       }
-    },
-    "actions": "<p><em><strong>Multiattack.</strong></em> The dragon makes one Bite attack and one Tail attack.</p><p><em><strong>Bite.</strong></em> Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 6 (1d6 + 3) piercing damage plus 3 (1d6) radiant damage.</p><p><em><strong>Tail.</strong></em> Melee Weapon Attack: +5 to hit, reach 10 ft., one target. Hit: 5 (1d4 + 3) bludgeoning damage.</p><p><em><strong>Photonic Breath (Recharge 5–6).</strong></em> The dragon exhales a flashing mote of radiant energy that travels to a point the dragon can see within 120 feet of itself, then blossoms into a 10-foot-radius sphere centered on that point. Each creature in the sphere must make a DC 14 Constitution saving throw, taking 22 (4d10) radiant damage on a failed save, or half as much damage on a successful one.</p>",
-    "description": "<p>A solar dragon (also known as a radiant dragon or a sun dragon) is born in the heart of a star. It divides of the vessel's weapons before realizing its error and veering away. A wise or experienced captain won't take the dragon's approach as a sign of hostility. Solar dragons that are fired upon have been known to batter the offending ships to flinders. Solar dragons are territorial carnivores, and they behave accordingly. A young solar dragon might lay claim to an asteroid belt, where food is relatively plentiful, while an ancient solar dragon might consider an entire Wildspace system its hunting ground. They tend to give a wide berth to Humanoid folk, whom they find violent and tiresome. Trespassers who are detected in a solar dragon's lair can expect to be met with resistance, followed by hostility, especially if the lair contains eggs. A solar dragon egg has an obsidian shell, shiny black and opaque. When an egg is close to hatching, the shell becomes translucent, allowing the light from the unborn wyrmling's wings to shine through.</p>"
+    ],
+    "actions": "<p><em><strong>Multiattack.</strong></em> The dragon makes one Bite attack and one Tail attack.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft., one target. <em>Hit:</em> 6 (1d6 + 3) piercing damage plus 3 (1d6) radiant damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 10 ft., one target. <em>Hit:</em> 5 (1d4 + 3) bludgeoning damage.</p><p><em><strong>Photonic Breath (Recharge 5–6).</strong></em> The dragon exhales a flashing mote of radiant energy that travels to a point the dragon can see within 120 feet of itself, then blossoms into a 10-foot-radius sphere centered on that point. Each creature in the sphere must make a DC 14 Constitution saving throw, taking 22 (4d10) radiant damage on a failed save, or half as much damage on a successful one.</p>",
+    "img url": "https://i.imgur.com/example.png",
+    "description": "<p>A solar dragon, also known as a radiant dragon or a sun dragon, is born in the heart of a star. Outside its lair, it divides its time between patrolling its territory and hunting for food. It has a serpentine body, a pair of ventral limbs ending in long fins, nebulous wings that emit light, and gleaming, multicolored scales. It can see clearly even in blindingly bright light.</p><p>While solar dragons are fond of treasure like all dragons, they value food even more in the airless void of Wildspace. They typically feed on kindori, scavvers, and other space-dwelling wildlife. A solar dragon might mistake a distant spelljamming ship for possible prey, coming within range of the vessel's weapons before realizing its error and veering away. A wise or experienced captain would not interpret the dragon's approach as hostility, as solar dragons that are fired upon have been known to batter offending ships to flinders.</p><p>Solar dragons are territorial carnivores, and they behave accordingly. A young solar dragon might claim an asteroid belt where food is relatively plentiful, while an ancient solar dragon might consider an entire Wildspace system its hunting ground. They tend to keep a wide berth from Humanoid folk, whom they find violent and tiresome. Trespassers detected in a solar dragon's lair can expect to be met with resistance, followed by hostility, especially if eggs are present. A solar dragon egg has an obsidian shell that is shiny black and opaque. When an egg is close to hatching, its shell becomes translucent, allowing the light from the unborn wyrmling's wings to shine through.</p>"
   },
   {
     "name": "Treant Sapling",
@@ -22263,46 +22288,101 @@ const monsters = [
     "wis": 12,
     "cha": 10,
     "saving throws": "STR +3, DEX -1, CON +2, INT +1, WIS +1, CHA +0",
-    "skills": "N/A",
     "damage vulnerabilities": "Fire",
     "damage resistances": "Bludgeoning, Piercing",
     "senses": "Passive Perception 11",
-    "languages": "Common, Druidic, Elvish, Sylvan",
+    "languages": [
+      "Common",
+      "Druidic",
+      "Elvish",
+      "Sylvan"
+    ],
     "challenge": "2 (450 XP)",
     "traits": "<p><em><strong>False Appearance.</strong></em> If the treant is motionless at the start of combat, it has advantage on its initiative roll. Moreover, if a creature hasn't observed the treant move or act, that creature must succeed on a DC 18 Intelligence (Investigation) check to discern that the treant is animate.</p>",
     "number of attacks": 2,
-    "attacks": {
-      "Slam": {
+    "attacks": [
+      {
         "type": "Melee Weapon Attack",
         "to hit": "+5",
         "reach": "5 ft.",
         "target": "one target",
-        "hit": "8 (1d10 + 3) bludgeoning damage",
+        "hit": "8 (1d10 + 3)",
         "damage type": "bludgeoning"
       },
-      "Rock": {
+      {
         "type": "Ranged Weapon Attack",
         "to hit": "+5",
         "range": "20/60 ft.",
         "target": "one target",
-        "hit": "14 (2d10 + 3) bludgeoning damage",
+        "hit": "14 (2d10 + 3)",
         "damage type": "bludgeoning"
       }
-    },
-    "actions": "<p><em><strong>Multiattack.</strong></em> The treant makes two Slam attacks.</p><p><em><strong>Slam.</strong></em> Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 8 (1d10 + 3) bludgeoning damage.</p><p><em><strong>Rock.</strong></em> Ranged Weapon Attack: +5 to hit, range 20/60 ft., one target. Hit: 14 (2d10 + 3) bludgeoning damage.</p><p><em><strong>Animate Trees (1/Day).</strong></em> The treant magically animates one or two trees it can see within 60 feet of it. These trees have the same statistics as an awakened tree (see the Monster Manual), except they can't speak. An animated tree acts as an ally of the treant. The tree remains animate for 1 day or until it dies, until the treant dies or is more than 120 feet from the tree, or until the treant takes a bonus action to turn it back into an inanimate tree. The tree then takes root if possible.</p>"
+    ],
+    "actions": "<p><em><strong>Multiattack.</strong></em> The treant makes two Slam attacks.</p><p><em><strong>Slam.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft., one target. <em>Hit:</em> 8 (1d10 + 3) bludgeoning damage.</p><p><em><strong>Rock.</strong></em> <em>Ranged Weapon Attack:</em> +5 to hit, range 20/60 ft., one target. <em>Hit:</em> 14 (2d10 + 3) bludgeoning damage.</p><p><em><strong>Animate Trees (1/Day).</strong></em> The treant magically animates one or two trees it can see within 60 feet of it. These trees have the same statistics as an awakened tree (see the Monster Manual), except they can't speak. An animated tree acts as an ally of the treant. The tree remains animate for 1 day or until it dies, until the treant dies or is more than 120 feet from the tree, or until the treant takes a bonus action to turn it back into an inanimate tree. The tree then takes root if possible.</p>",
+    "img url": "https://i.imgur.com/example.png"
   },
   {
-    "name": "Tree Blight", // ?? messed up
-    },
+    "name": "Tree Blight",
+    "size": "Huge",
+    "type": "Plant",
+    "alignment": "Neutral Evil",
+    "environments": [
+      "Forest"
+    ],
+    "associates": [
+      "Blight",
+      "Tree Blight",
+      "Treant"
+    ],
+    "armor class": "15 (natural armor)",
+    "hit points": "92 (8d12 + 40)",
+    "speed": "30 ft.",
+    "str": 23,
+    "dex": 10,
+    "con": 20,
+    "int": 6,
+    "wis": 10,
+    "cha": 3,
+    "saving throws": "STR +6, DEX +0, CON +5, INT -2, WIS +0, CHA -4",
+    "condition immunities": "Blinded, Deafened",
+    "senses": "Blindsight 60 ft. (blind beyond this radius), Passive Perception 10",
+    "languages": [
+      "Understands Common and Druidic but doesn't speak"
+    ],
+    "challenge": "7 (2,900 XP)",
+    "traits": "<p><em><strong>False Appearance.</strong></em> While the blight remains motionless, it is indistinguishable from a dead tree.</p><p><em><strong>Siege Monster.</strong></em> The blight deals double damage to objects and structures.</p>",
+    "number of attacks": 2,
+    "attacks": [
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+9",
+        "reach": "15 ft.",
+        "target": "one target",
+        "hit": "16 (3d6 + 6)",
+        "damage type": "bludgeoning"
+      },
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+9",
+        "reach": "15 ft.",
+        "target": "one creature not grappled by the blight",
+        "hit": "The target is grappled (escape DC 15). Until the grapple ends, the target takes 9 (1d6 + 6) bludgeoning damage at the start of each of its turns. The root has AC 15 and can be severed by dealing 6 slashing damage or more to it at once. Cutting the root doesn't hurt the blight, but ends the grapple.",
+        "damage type": "bludgeoning"
+      }
+    ],
+    "actions": "<p><em><strong>Multiattack.</strong></em> The blight makes one Branch attack and one Grasping Root attack.</p><p><em><strong>Branch.</strong></em> <em>Melee Weapon Attack:</em> +9 to hit, reach 15 ft., one target. <em>Hit:</em> 16 (3d6 + 6) bludgeoning damage.</p><p><em><strong>Grasping Root.</strong></em> <em>Melee Weapon Attack:</em> +9 to hit, reach 15 ft., one creature not grappled by the blight. <em>Hit:</em> The target is grappled (escape DC 15). Until the grapple ends, the target takes 9 (1d6 + 6) bludgeoning damage at the start of each of its turns. The root has AC 15 and can be severed by dealing 6 slashing damage or more to it at once. Cutting the root doesn't hurt the blight, but ends the grapple.</p>",
+    "bonus actions": "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +9 to hit, reach 5 ft., one creature grappled by the blight. <em>Hit:</em> 19 (3d8 + 6) piercing damage.</p>",
+    "img url": "https://i.imgur.com/example.png",
+    "description": "<p>Tree blights are a particularly enormous variety of blights, appearing as dead trees about 30 feet tall. They have spongy wooden flesh, thorny branches, and rubbery roots that trail behind them. Their sap is blood, and they are so saturated with it that they do not catch fire easily.</p><p>These vicious carnivores feed on warm-blooded prey and take perverse delight in causing carnage. They strike with their heavy branches and crush prey to death with their roots. They can open their gaping, tooth-filled mouths to bite creatures caught in their roots. While their roots can be severed, doing so does not harm the blight itself. A tree blight will often fight alongside other kinds of blights, but it harbors a strong hatred for other tree blights and treants, and the feeling is mutual.</p>"
+  },
   {
     "name": "Young Cloud Giant",
     "size": "Huge",
     "type": "Giant",
     "alignment": "Chaotic Evil",
     "environments": [
-      "Mountain"
+      "Varies"
     ],
-    "associates": [],
     "armor class": "13 (natural armor)",
     "hit points": "105 (10d12 + 40)",
     "speed": "40 ft.",
@@ -22315,32 +22395,77 @@ const monsters = [
     "saving throws": "STR +5, DEX -1, CON +4, INT +0, WIS +1, CHA +1",
     "skills": "Insight +4, Perception +4",
     "senses": "Passive Perception 14",
-    "languages": "Common, Giant",
+    "languages": [
+      "Common",
+      "Giant"
+    ],
     "challenge": "5 (1,800 XP)",
     "number of attacks": 2,
-    "attacks": {
-      "Greatclub": {
+    "attacks": [
+      {
         "type": "Melee Weapon Attack",
         "to hit": "+8",
         "reach": "10 ft.",
         "target": "one target",
-        "hit": "18 (3d8 + 5) bludgeoning damage",
+        "hit": "18 (3d8 + 5)",
         "damage type": "bludgeoning"
       },
-      "Rock": {
+      {
         "type": "Ranged Weapon Attack",
         "to hit": "+8",
         "range": "60/240 ft.",
         "target": "one target",
-        "hit": "21 (3d10 + 5) bludgeoning damage",
+        "hit": "21 (3d10 + 5)",
         "damage type": "bludgeoning"
       }
-    },
-    "actions": "<p><em><strong>Multiattack.</strong></em> The giant makes two greatclub attacks.</p><p><em><strong>Greatclub.</strong></em> Melee Weapon Attack: +8 to hit, reach 10 ft., one target. Hit: 18 (3d8 + 5) bludgeoning damage.</p><p><em><strong>Rock.</strong></em> Ranged Weapon Attack: +8 to hit, range 60/240 ft., one target. Hit: 21 (3d10 + 5) bludgeoning damage.</p>"
+    ],
+    "actions": "<p><em><strong>Multiattack.</strong></em> The giant makes two greatclub attacks.</p><p><em><strong>Greatclub.</strong></em> <em>Melee Weapon Attack:</em> +8 to hit, reach 10 ft., one target. <em>Hit:</em> 18 (3d8 + 5) bludgeoning damage.</p><p><em><strong>Rock.</strong></em> <em>Ranged Weapon Attack:</em> +8 to hit, range 60/240 ft., one target. <em>Hit:</em> 21 (3d10 + 5) bludgeoning damage.</p>"
   },
   {
-    "name": "Young Fire Giant", // ?? messed up
-    
+    "name": "Young Fire Giant",
+    "size": "Large",
+    "type": "Giant",
+    "alignment": "Chaotic Evil",
+    "environments": [
+      "Varies"
+    ],
+    "armor class": "11 (hide armor)",
+    "hit points": "59 (7d10 + 21)",
+    "speed": "40 ft.",
+    "str": 19,
+    "dex": 8,
+    "con": 16,
+    "int": 5,
+    "wis": 7,
+    "cha": 7,
+    "saving throws": "STR +4, DEX -1, CON +3, INT -3, WIS -2, CHA -2",
+    "damage immunities": "Fire",
+    "senses": "Darkvision 60 ft., Passive Perception 8",
+    "languages": [
+      "Common",
+      "Giant"
+    ],
+    "challenge": "2 (450 XP)",
+    "number of attacks": 1,
+    "attacks": [
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+6",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "13 (2d8 + 4)",
+        "damage type": "bludgeoning"
+      },
+      {
+        "type": "Melee or Ranged Weapon Attack",
+        "to hit": "+6",
+        "reach": "5 ft. or range 30/120 ft.",
+        "target": "one target",
+        "hit": "11 (2d6 + 4)",
+        "damage type": "piercing"
+      }
+    ],
+    "actions": "<p><em><strong>Greatclub.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft., one target. <em>Hit:</em> 13 (2d8 + 4) bludgeoning damage.</p><p><em><strong>Javelin.</strong></em> <em>Melee or Ranged Weapon Attack:</em> +6 to hit, reach 5 ft. or range 30/120 ft., one target. <em>Hit:</em> 11 (2d6 + 4) piercing damage.</p>"
   },
   {
     "name": "Young Frost Giant",
@@ -22363,21 +22488,34 @@ const monsters = [
     "wis": 7,
     "cha": 7,
     "saving throws": "STR +4, DEX -1, CON +3, INT -3, WIS -2, CHA -2",
-    "skills": "N/A",
     "damage immunities": "Cold",
     "senses": "Darkvision 60 ft., Passive Perception 8",
-    "languages": "Common, Giant",
+    "languages": [
+      "Common",
+      "Giant"
+    ],
     "challenge": "2 (450 XP)",
     "number of attacks": 1,
-    "attacks": {
-      "Greatclub": {
+    "attacks": [
+      {
         "type": "Melee Weapon Attack",
         "to hit": "+6",
         "reach": "5 ft.",
         "target": "one target",
-        "hit": "13 (2d8 + 4) Attack: +6 to hit, reach 5 ft., one target. Hit: 13 (2d8 + 4) bludgeoning damage.</p><p><em><strong>Javelin.</strong></em> Melee or Ranged Weapon Attack: +6 to hit, reach 5 ft. or range 30/120 ft., one target. Hit: 11 (2d6 + 4) piercing damage.</p>"
+        "hit": "13 (2d8 + 4)",
+        "damage type": "bludgeoning"
+      },
+      {
+        "type": "Melee or Ranged Weapon Attack",
+        "to hit": "+6",
+        "reach": "5 ft. or range 30/120 ft.",
+        "target": "one target",
+        "hit": "11 (2d6 + 4)",
+        "damage type": "piercing"
       }
-    }
+    ],
+    "actions": "<p><em><strong>Greatclub.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft., one target. <em>Hit:</em> 13 (2d8 + 4) bludgeoning damage.</p><p><em><strong>Javelin.</strong></em> <em>Melee or Ranged Weapon Attack:</em> +6 to hit, reach 5 ft. or range 30/120 ft., one target. <em>Hit:</em> 11 (2d6 + 4) piercing damage.</p>",
+    "description": "<p>Frost giant hunters scour the icy wastes for remorhaz nests and eggs. They prize young remorhazes, which can be trained from hatching to obey commands and guard the giants' icy citadels.</p>"
   },
   {
     "name": "Young Griffon (Medium)",
@@ -22385,10 +22523,8 @@ const monsters = [
     "type": "Monstrosity",
     "alignment": "Unaligned",
     "environments": [
-      "Mountain",
-      "Grassland"
+      "Varies"
     ],
-    "associates": [],
     "armor class": "12",
     "hit points": "32 (5d6 + 15)",
     "speed": "30 ft., Fly 80 ft.",
@@ -22401,15 +22537,167 @@ const monsters = [
     "saving throws": "STR +1, DEX +2, CON +3, INT -4, WIS +1, CHA -1",
     "skills": "Perception +5",
     "senses": "Darkvision 60 ft., Passive Perception 15",
-    "languages": "N/A",
+    "languages": [
+      "N/A"
+    ],
     "challenge": "1 (200 XP)",
     "traits": "<p><em><strong>Keen Sight.</strong></em> The griffon has advantage on Wisdom (Perception) checks that rely on sight.</p>",
-    // "number of attacks": ??
-    "actions": "<p><em><strong>Multiattack.</strong></em> The griffon makes two attacks: one with its beak and one with its claws.</p><p><em><strong>Beak.</strong></em> Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 4 (1d6 + 1) piercing damage.</p><p><em><strong>Claws.</strong></em> Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 6 (2d4 + 1) slashing damage.</p>",
+    "number of attacks": 2,
+    "attacks": [
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+3",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "4 (1d6 + 1)",
+        "damage type": "piercing"
+      },
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+3",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "6 (2d4 + 1)",
+        "damage type": "slashing"
+      }
+    ],
+    "actions": "<p><em><strong>Multiattack.</strong></em> The griffon makes two attacks: one with its beak and one with its claws.</p><p><em><strong>Beak.</strong></em> <em>Melee Weapon Attack:</em> +3 to hit, reach 5 ft., one target. <em>Hit:</em> 4 (1d6 + 1) piercing damage.</p><p><em><strong>Claws.</strong></em> <em>Melee Weapon Attack:</em> +3 to hit, reach 5 ft., one target. <em>Hit:</em> 6 (2d4 + 1) slashing damage.</p>",
+    "img url": "https://i.imgur.com/example.png",
     "description": "<p>A griffon is a ferocious avian carnivore with the muscular body of a lion and the head, forelegs, and wings of an eagle.</p>"
   },
   {
-    "name": "Young Griffon (Small)", // ?? messed up
+    "name": "Young Griffon (Small)",
+    "size": "Small",
+    "type": "Monstrosity",
+    "alignment": "Unaligned",
+    "environments": [
+      "Varies"
+    ],
+    "armor class": "12",
+    "hit points": "13 (2d6 + 6)",
+    "speed": "30 ft., Fly 80 ft.",
+    "str": 8,
+    "dex": 15,
+    "con": 16,
+    "int": 2,
+    "wis": 13,
+    "cha": 8,
+    "saving throws": "STR -1, DEX +2, CON +3, INT -4, WIS +1, CHA -1",
+    "skills": "Perception +5",
+    "senses": "Darkvision 60 ft., Passive Perception 15",
+    "languages": [
+      "N/A"
+    ],
+    "challenge": "1/4 (50 XP)",
+    "traits": "<p><em><strong>Keen Sight.</strong></em> The griffon has advantage on Wisdom (Perception) checks that rely on sight.</p>",
+    "number of attacks": 2,
+    "attacks": [
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+1",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "2 (1d4)",
+        "damage type": "piercing"
+      },
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+1",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "2 (1d4)",
+        "damage type": "slashing"
+      }
+    ],
+    "actions": "<p><em><strong>Multiattack.</strong></em> The griffon makes two attacks: one with its beak and one with its claws.</p><p><em><strong>Beak.</strong></em> <em>Melee Weapon Attack:</em> +1 to hit, reach 5 ft., one target. <em>Hit:</em> 2 (1d4) piercing damage.</p><p><em><strong>Claws.</strong></em> <em>Melee Weapon Attack:</em> +1 to hit, reach 5 ft., one target. <em>Hit:</em> 2 (1d4) slashing damage.</p>",
+    "img url": "https://i.imgur.com/example.png",
+    "description": "<p>A griffon is a ferocious avian carnivore with the muscular body of a lion and the head, forelegs, and wings of an eagle.</p>"
+  },
+  {
+    "name": "Young Griffon (Tiny)",
+    "size": "Tiny",
+    "type": "Monstrosity",
+    "alignment": "Unaligned",
+    "environments": [
+      "Varies"
+    ],
+    "armor class": "12",
+    "hit points": "5 (1d4 + 3)",
+    "speed": "30 ft., Fly 40 ft.",
+    "str": 2,
+    "dex": 15,
+    "con": 16,
+    "int": 2,
+    "wis": 13,
+    "cha": 8,
+    "saving throws": "STR -4, DEX +2, CON +3, INT -4, WIS +1, CHA -1",
+    "skills": "Perception +5",
+    "senses": "Darkvision 60 ft., Passive Perception 15",
+    "languages": [
+      "N/A"
+    ],
+    "challenge": "0 (10 XP)",
+    "traits": "<p><em><strong>Keen Sight.</strong></em> The griffon has advantage on Wisdom (Perception) checks that rely on sight.</p>",
+    "number of attacks": 2,
+    "attacks": [
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+0",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "1",
+        "damage type": "piercing"
+      },
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+0",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "1",
+        "damage type": "slashing"
+      }
+    ],
+    "actions": "<p><em><strong>Multiattack.</strong></em> The griffon makes two attacks: one with its beak and one with its claws.</p><p><em><strong>Beak.</strong></em> <em>Melee Weapon Attack:</em> +0 to hit, reach 5 ft., one target. <em>Hit:</em> 1 piercing damage.</p><p><em><strong>Claws.</strong></em> <em>Melee Weapon Attack:</em> +0 to hit, reach 5 ft., one target. <em>Hit:</em> 1 slashing damage.</p>",
+    "img url": "https://i.imgur.com/example.png",
+    "description": "<p>A griffon is a ferocious avian carnivore with the muscular body of a lion and the head, forelegs, and wings of an eagle.</p>"
+  },
+  {
+    "name": "Young Hook Horror",
+    "size": "Small",
+    "type": "Monstrosity",
+    "alignment": "Neutral",
+    "environments": [
+      "Underdark"
+    ],
+    "armor class": "11 (natural armor)",
+    "hit points": "11 (2d6 + 4)",
+    "speed": "15 ft., Climb 15 ft.",
+    "str": 12,
+    "dex": 10,
+    "con": 15,
+    "int": 6,
+    "wis": 12,
+    "cha": 7,
+    "saving throws": "STR +1, DEX +0, CON +2, INT -2, WIS +1, CHA -2",
+    "skills": "Perception +3",
+    "senses": "Blindsight 60 ft., Darkvision 120 ft., Passive Perception 13",
+    "languages": [
+      "Hook Horror"
+    ],
+    "challenge": "1/4 (50 XP)",
+    "traits": "<p><em><strong>Echolocation.</strong></em> The hook horror can't use its blindsight while deafened.</p><p><em><strong>Keen Hearing.</strong></em> The hook horror has advantage on Wisdom (Perception) checks that rely on hearing.</p>",
+    "number of attacks": 2,
+    "attacks": [
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+3",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "3 (1d4 + 1)",
+        "damage type": "piercing"
+      }
+    ],
+    "actions": "<p><em><strong>Multiattack.</strong></em> The hook horror makes two hook attacks.</p><p><em><strong>Hook.</strong></em> <em>Melee Weapon Attack:</em> +3 to hit, reach 5 ft., one target. <em>Hit:</em> 3 (1d4 + 1) piercing damage.</p>"
   },
   {
     "name": "Young Kruthik",
@@ -22437,45 +22725,483 @@ const monsters = [
     "wis": 10,
     "cha": 6,
     "saving throws": "STR +1, DEX +3, CON +1, INT -3, WIS +0, CHA -2",
-    "skills": "N/A",
     "senses": "Darkvision 30 ft., Tremorsense 60 ft., Passive Perception 10",
-    "languages": "Kruthik",
+    "languages": [
+      "Kruthik"
+    ],
     "challenge": "1/8 (25 XP)",
     "traits": "<p><em><strong>Keen Smell.</strong></em> The kruthik has advantage on Wisdom (Perception) checks that rely on smell.</p><p><em><strong>Pack Tactics.</strong></em> The kruthik has advantage on an attack roll against a creature if at least one of the kruthik's allies is within 5 feet of the creature and the ally isn't incapacitated.</p><p><em><strong>Tunneler.</strong></em> The kruthik can burrow through solid rock at half its burrowing speed and leaves a 2½-foot-diameter tunnel in its wake.</p>",
     "number of attacks": 1,
-    "attacks": {
-      "Stab": {
+    "attacks": [
+      {
         "type": "Melee Weapon Attack",
         "to hit": "+5",
         "reach": "5 ft.",
         "target": "one target",
-        "hit": "5 (1d4 + 3) piercing damage",
+        "hit": "5 (1d4 + 3)",
         "damage type": "piercing"
       }
-    },
-    "actions": "<p><em><strong>Stab.</strong></em> Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 5 (1d4 + 3) piercing damage.</p>",
-    "description": "<p>Kruthiks hatch from eggs laid by female adults. Each egg is about the size of an adult human's head and hatches within a month. Tiny kruthik hatchlings are harmless, rarely stray far from the nest, and feed primarily on offal and one another. Within a month, the survivors become young kruthiks large enough to hunt and defend themselves. Kruthiks are chitin-covered reptiles that hunt in packs and nest in sprawling subterranean warrens. They are attracted to sources of heat, such as dwarven forges and pools of molten lava, and carve out lairs as close to such locations as possible. As they burrow through the earth, they leave behind tunnels—evidence that is often the first clue to the nearby presence of a kruthik their own dead as a warning and avoid areas where many other kruthiks have died. Slaying a sufficient number of kruthiks in one area might cause the remaining hive members to move elsewhere. Although they can feed on carrion, kruthiks prefer live prey. They kill enemies by impaling them on their spiked limbs, then grind up the flesh and bones with mandibles strong enough to chew rock. When several kruthiks gang up on a single foe, they become frenzied and even more lethal. Kruthiks abide the presence of constructs, elementals, oozes, and undead, and use such creatures to help guard their hive. Kruthiks are smart enough to barricade some tunnels and dig new ones that keep their neighbors away from their eggs.</p>"
+    ],
+    "actions": "<p><em><strong>Stab.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft., one target. <em>Hit:</em> 5 (1d4 + 3) piercing damage.</p>",
+    "img url": "https://i.imgur.com/example.png",
+    "description": "<p>Kruthiks are chitin-covered reptiles that hunt in packs and nest in sprawling subterranean warrens. They are attracted to sources of heat, such as dwarven forges and pools of molten lava, and carve out lairs as close to such locations as possible. As they burrow through the earth, they leave behind tunnels, which often serve as the first clue to the nearby presence of a kruthik hive. They also incorporate preexisting underground chambers into their lairs when possible.</p><p>Kruthiks communicate with one another through a series of hisses and chittering noises, which can often be heard in advance of an attack. When their lair is invaded, kruthik guards send out an alarm by rapidly tapping the stone floor with their sharp legs. In addition to an acute sense of smell, kruthiks can see in the dark and detect vibrations in the earth around them. They interpret the scent of their own dead as a warning and avoid areas where many other kruthiks have died; slaying a sufficient number in one area might cause the remaining hive members to relocate.</p><p>Although they can feed on carrion, kruthiks prefer live prey. They kill enemies by impaling them on their spiked limbs, then grind up the flesh and bones with mandibles strong enough to chew rock. When several kruthiks gang up on a single foe, they become frenzied and even more lethal. Kruthiks tolerate the presence of constructs, elementals, oozes, and undead, using such creatures to help guard their hive. They are smart enough to barricade some tunnels and dig new ones to keep their neighbors away from their eggs. Young kruthiks are survivors from eggs, roughly the size of an adult human's head, that hatch within a month. Tiny hatchlings are harmless, remain near the nest, and feed on offal and each other. Within a month, the survivors become young kruthiks large enough to hunt and defend themselves.</p>"
   },
   {
-    "name": "Young Lunar Dragon", // ?? messed up
+    "name": "Young Ogre Servant",
+    "size": "Medium",
+    "type": "Giant",
+    "alignment": "Chaotic Evil",
+    "environments": [
+      "Varies"
+    ],
+    "armor class": "13 (hide armor)",
+    "hit points": "15 (2d8 + 6)",
+    "speed": "30 ft.",
+    "str": 16,
+    "dex": 12,
+    "con": 16,
+    "int": 7,
+    "wis": 11,
+    "cha": 10,
+    "saving throws": "STR +3, DEX +1, CON +3, INT -2, WIS +0, CHA +0",
+    "skills": "Intimidation +2",
+    "senses": "Darkvision 60 ft., Passive Perception 10",
+    "languages": [
+      "Common",
+      "Orc"
+    ],
+    "challenge": "1/2 (100 XP)",
+    "traits": "<p><em><strong>Aggressive.</strong></em> As a bonus action, the ogre can move up to its speed toward a hostile creature that it can see.</p>",
+    "number of attacks": 1,
+    "attacks": [
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+5",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "9 (1d12 + 3)",
+        "damage type": "slashing"
+      },
+      {
+        "type": "Melee or Ranged Weapon Attack",
+        "to hit": "+5",
+        "reach": "5 ft. or range 30/120 ft.",
+        "target": "one target",
+        "hit": "6 (1d6 + 3)",
+        "damage type": "piercing"
+      }
+    ],
+    "actions": "<p><em><strong>Greataxe.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft., one target. <em>Hit:</em> 9 (1d12 + 3) slashing damage.</p><p><em><strong>Javelin.</strong></em> <em>Melee or Ranged Weapon Attack:</em> +5 to hit, reach 5 ft. or range 30/120 ft., one target. <em>Hit:</em> 6 (1d6 + 3) piercing damage.</p>"
   },
   {
-    "name": "Young Ogre Servant", // >> ?? messed up
+    "name": "Young Purple Worm",
+    "size": "Gargantuan",
+    "type": "Monstrosity",
+    "alignment": "Unaligned",
+    "environments": [
+      "Underdark"
+    ],
+    "armor class": "18 (natural armor)",
+    "hit points": "184 (15d20 + 90)",
+    "speed": "50 ft., Burrow 30 ft.",
+    "str": 28,
+    "dex": 7,
+    "con": 22,
+    "int": 1,
+    "wis": 8,
+    "cha": 4,
+    "saving throws": "STR +9, DEX -2, CON +11, INT -5, WIS +4, CHA -3",
+    "senses": "Blindsight 30 ft., Tremorsense 60 ft., Passive Perception 9",
+    "languages": [
+      "N/A"
+    ],
+    "challenge": "13 (10,000 XP)",
+    "traits": "<p><em><strong>Tunneler.</strong></em> The worm can burrow through solid rock at half its burrow speed and leaves a 10-foot-diameter tunnel in its wake.</p>",
+    "number of attacks": 2,
+    "attacks": [
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+14",
+        "reach": "10 ft.",
+        "target": "one target",
+        "hit": "22 (3d8 + 9)",
+        "damage type": "piercing"
+      },
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+14",
+        "reach": "10 ft.",
+        "target": "one creature",
+        "hit": "19 (3d6 + 9) piercing damage, and the target must make a DC 19 Constitution saving throw, taking 42 (12d6) poison damage on a failed save, or half as much damage on a successful one",
+        "damage type": "piercing, poison"
+      }
+    ],
+    "actions": "<p><em><strong>Multiattack.</strong></em> The worm makes two attacks: one with its bite and one with its stinger.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 10 ft., one target. <em>Hit:</em> 22 (3d8 + 9) piercing damage. If the target is a Large or smaller creature, it must succeed on a DC 19 Dexterity saving throw or be swallowed by the worm. A swallowed creature is blinded and restrained, it has total cover against attacks and other effects outside the worm, and it takes 21 (6d6) acid damage at the start of each of the worm's turns. If the worm takes 30 damage or more on a single turn from a creature inside it, the worm must succeed on a DC 21 Constitution saving throw at the end of that turn or regurgitate all swallowed creatures, which fall prone in a space within 10 feet of the worm. If the worm dies, a swallowed creature is no longer restrained by it and can escape from the corpse by using 20 feet of movement, exiting prone.</p><p><em><strong>Tail Stinger.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 10 ft., one creature. <em>Hit:</em> 19 (3d6 + 9) piercing damage, and the target must make a DC 19 Constitution saving throw, taking 42 (12d6) poison damage on a failed save, or half as much damage on a successful one.</p>"
   },
   {
-    "name": "Young Remorhaz", // >> ?? messed up
+    "name": "Young Remorhaz",
+    "size": "Large",
+    "type": "Monstrosity",
+    "alignment": "Unaligned",
+    "environments": [
+      "Arctic"
+    ],
+    "associates": [
+      "Frost Giant"
+    ],
+    "armor class": "14 (natural armor)",
+    "hit points": "93 (11d10 + 33)",
+    "speed": "30 ft., Burrow 30 ft.",
+    "str": 18,
+    "dex": 13,
+    "con": 17,
+    "int": 3,
+    "wis": 10,
+    "cha": 4,
+    "saving throws": "STR +4, DEX +1, CON +3, INT -4, WIS +0, CHA -3",
+    "damage immunities": "Cold, Fire",
+    "senses": "Darkvision 60 ft., Tremorsense 60 ft., Passive Perception 10",
+    "languages": [
+      "N/A"
+    ],
+    "challenge": "5 (1,800 XP)",
+    "traits": "<p><em><strong>Heated Body.</strong></em> A creature that touches the remorhaz or hits it with a melee attack while within 5 feet of it takes 7 (2d6) fire damage.</p>",
+    "number of attacks": 1,
+    "attacks": [
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+6",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "20 (3d10 + 4) piercing damage plus 7 (2d6) fire damage",
+        "damage type": "piercing, fire"
+      }
+    ],
+    "actions": "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft., one target. <em>Hit:</em> 20 (3d10 + 4) piercing damage plus 7 (2d6) fire damage.</p>",
+    "img url": "https://i.imgur.com/example.png",
+    "description": "<p>A remorhaz bursts from beneath the snow and ice in a cloud of steam, its body pulsing with internal fire. It has wing-like fins flaring from the back of its head and a wide mouth brimming with jagged teeth.</p><p>Remorhazes live in arctic climates, preying on elk, polar bears, and other creatures in their territory. They cannot tolerate warm weather, having adapted to the cold by generating furnace-like heat within their bodies. When hunting, a remorhaz burrows deep below the snow and ice, lying in wait for faint vibrations from creatures moving above. While hidden, it can lower its body temperature to prevent melting its cover. Frost giant hunters search the icy wastes for remorhaz nests and eggs. They value young remorhazes, which can be trained from hatching to obey commands and guard the giants' icy citadels. Unlike fully grown specimens, young remorhazes gnaw on their victims instead of swallowing them whole.</p>"
   },
   {
-    "name": "Young Sapphire Dragon", // ?? messed up
+    "name": "Young Sapphire Dragon",
+    "size": "Large",
+    "type": "Dragon",
+    "alignment": "Lawful Neutral",
+    "environments": [
+      "Underdark"
+    ],
+    "associates": [
+      "Emerald Dragon",
+      "Rock Gnome",
+      "Deep Gnome",
+      "Mind Flayer",
+      "Giant Spider",
+      "Hobgoblin Warlord",
+      "Kuo-Toa",
+      "Berserker Spirit",
+      "Clay Golem",
+      "Galeb Duhr",
+      "Drow Cultist",
+      "Phase Spider"
+    ],
+    "armor class": "17 (natural armor)",
+    "hit points": "157 (15d10 + 75)",
+    "speed": "40 ft., Burrow 20 ft., Climb 40 ft., Fly 80 ft.",
+    "str": 21,
+    "dex": 14,
+    "con": 20,
+    "int": 16,
+    "wis": 15,
+    "cha": 16,
+    "saving throws": "STR +5, DEX +6, CON +9, INT +3, WIS +6, CHA +7",
+    "skills": "History +7, Perception +10, Persuasion +11, Stealth +6",
+    "damage resistances": "Lightning, Thunder",
+    "condition immunities": "Frightened",
+    "senses": "Blindsight 30 ft., Darkvision 120 ft., Passive Perception 20",
+    "languages": [
+      "Common",
+      "Draconic",
+      "Telepathy 120 ft"
+    ],
+    "challenge": "9 (5,000 XP)",
+    "traits": "<p><em><strong>Spider Climb.</strong></em> The dragon can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check.</p><p><em><strong>Tunneler.</strong></em> The dragon can burrow through solid rock at half its burrowing speed and can leave a 10-foot-diameter tunnel in its wake.</p>",
+    "number of attacks": 3,
+    "attacks": [
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+9",
+        "reach": "10 ft.",
+        "target": "one target",
+        "hit": "16 (2d10 + 5) piercing damage plus 4 (1d8) thunder damage",
+        "damage type": "piercing, thunder"
+      },
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+9",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "8 (1d6 + 5)",
+        "damage type": "slashing"
+      }
+    ],
+    "actions": "<p><em><strong>Multiattack.</strong></em> The dragon makes one Bite attack and two Claw attacks.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +9 to hit, reach 10 ft., one target. <em>Hit:</em> 16 (2d10 + 5) piercing damage plus 4 (1d8) thunder damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +9 to hit, reach 5 ft., one target. <em>Hit:</em> 8 (1d6 + 5) slashing damage.</p><p><em><strong>Debilitating Breath (Recharge 5–6).</strong></em> The dragon exhales a pulse of high-pitched, nearly inaudible sound in a 30-foot cone. Each creature in that area must make a DC 17 Constitution saving throw. On a failed save, the creature takes 33 (6d10) thunder damage and is incapacitated until the end of its next turn. On a successful save, the creature takes half as much damage and isn't incapacitated.</p><p><em><strong>Spellcasting (Psionics).</strong></em> The dragon casts one of the following spells, requiring no spell components and using Intelligence as the spellcasting ability (spell save DC 15): 1/day each: <em>dissonant whispers</em>, <em>hold person</em>, <em>meld into stone</em></p>",
+    "img url": "https://i.imgur.com/example.png",
+    "notes": "<p>Dragons can be customized with additional languages, skills (even doubling proficiency bonus for certain skills), and tool proficiencies. They can also acquire traits and actions from other monsters, such as Change Shape at a younger age, Flyby to avoid opportunity attacks, Mimicry for impersonation, Rejuvenation to return to life near an essence-preserving object, or upgraded special senses like truesight or tremorsense. Sapphire dragons have specific personality traits and ideals (Solitude, Preservation, Knowledge, Order, Preparation, Companionship) that can inspire their portrayal, and a variety of adventure hooks exist involving them, such as advising monarchies, seeking aid against mind flayers, or testing lair defenses. They are generally solitary but form nonhostile relationships to bolster lair defenses. Young sapphire dragons may practice martial skills, train golems, or control giant spider populations.</p>",
+    "description": "<p>The thunderous clash of conflict is part of the very nature of sapphire dragons. They are militant and territorial, fiercely defending their lairs, ambushing intruders, and plotting assaults against rivals. The sonic pulse of their breath weapon sows weakness, leaving victims unable to fight back.</p><p>Sapphire dragons' scales and wing membranes display varied shades of blue, from spring sky tones to rich, crystalline azure, glittering and shining like luminous starbursts in the light. Their psionic nature is evident in the horn and bone structures of their bodies; their tail barbs and horn tips are separate pieces that float in place, held aloft by psychic energy while the dragons live, shifting slightly with the dragons' moods.</p><p>Warlike sapphire dragons devise strategies and ambushes based on their ability to maneuver underground. They often assess intruders before striking to determine the most advantageous approach. They actively watch for signs of Aberrations and creatures corrupted by the Far Realm, frequently allying with emerald dragons to track and stamp out alien influence. While they may clash with those who delve deep beneath the earth, they sometimes forge peaceful relationships with rock gnomes or deep gnomes to help protect their lair territories.</p><p>Sapphire dragons prize weapons and armor, military history records and tactics, and magic items that protect against psychic damage or mental intrusion. The centerpiece of their hoard is typically an organized collection of war gear, which can include ancient relics of immense power.</p>"
   },
   {
-    "name": "Young Silver Dragon", // ?? messed up
+    "name": "Young Sea Serpent",
+    "size": "Huge",
+    "type": "Dragon",
+    "alignment": "Neutral",
+    "environments": [
+      "Coastal",
+      "Underwater"
+    ],
+    "armor class": "16 (natural armor)",
+    "hit points": "123 (13d12 + 39)",
+    "speed": "10 ft., Swim 40 ft.",
+    "str": 19,
+    "dex": 12,
+    "con": 17,
+    "int": 11,
+    "wis": 13,
+    "cha": 10,
+    "saving throws": "STR +7, DEX +1, CON +6, INT +0, WIS +1, CHA +0",
+    "skills": "Perception +4, Stealth +4",
+    "damage immunities": "Cold",
+    "senses": "Darkvision 120 ft., Passive Perception 14",
+    "languages": [
+      "Common",
+      "Draconic"
+    ],
+    "challenge": "8 (3,900 XP)",
+    "traits": "<p><em><strong>Amphibious.</strong></em> The sea serpent can breathe air and water.</p><p><em><strong>Siege Monster.</strong></em> The sea serpent deals double damage to objects and structures.</p>",
+    "number of attacks": 2,
+    "attacks": [
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+7",
+        "reach": "10 ft.",
+        "target": "one target",
+        "hit": "15 (2d10 + 4) piercing damage plus 5 (1d10) cold damage",
+        "damage type": "piercing, cold"
+      },
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+7",
+        "reach": "20 ft.",
+        "target": "one creature",
+        "hit": "22 (4d8 + 4) bludgeoning damage. If the target is Large or smaller, it is grappled (escape DC 15). Until this grapple ends, the target is restrained, and the sea serpent can't constrict another target.",
+        "damage type": "bludgeoning"
+      },
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+7",
+        "reach": "15 ft.",
+        "target": "one target",
+        "hit": "9 (1d10 + 4) bludgeoning damage. If the target is a creature, it must succeed on a DC 15 Strength saving throw or be pushed up to 20 feet away and knocked prone.",
+        "damage type": "bludgeoning"
+      }
+    ],
+    "actions": "<p><em><strong>Multiattack.</strong></em> The sea serpent makes one Bite attack and one Constrict or Tail attack.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 10 ft., one target. <em>Hit:</em> 15 (2d10 + 4) piercing damage plus 5 (1d10) cold damage.</p><p><em><strong>Constrict.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 20 ft., one creature. <em>Hit:</em> 22 (4d8 + 4) bludgeoning damage. If the target is Large or smaller, it is grappled (escape DC 15). Until this grapple ends, the target is restrained, and the sea serpent can't constrict another target.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 15 ft., one target. <em>Hit:</em> 9 (1d10 + 4) bludgeoning damage. If the target is a creature, it must succeed on a DC 15 Strength saving throw or be pushed up to 20 feet away and knocked prone.</p><p><em><strong>Rime Breath (Recharge 5–6).</strong></em> The sea serpent exhales a 30-foot cone of cold. Each creature in that area must make a DC 14 Constitution saving throw, taking 38 (7d10) cold damage on a failed save, or half as much damage on a successful one.</p>",
+    "img url": "https://i.imgur.com/example.png",
+    "description": "<p>Sea serpents rank alongside dragon turtles as some of the most feared predators of the deep, inspiring many sailors' worst nightmares. Their strong fins propel them through the water at great speed.</p><p>Young sea serpents are agile hunters. They use reefs and natural camouflage to hide before striking, picking off members of a ship's crew one by one. Ancient sea serpents grow large enough to demolish entire ships, then feed at leisure on helpless sailors in the water. At any age, a sea serpent attacks with terrible bites, a lashing tail, a constricting grip, and a frigid breath weapon that can leave sailors' corpses floating frozen amid the wreckage of their ships.</p><p>Sea serpents are as fiercely territorial as any other dragons and do not take kindly to ships passing over their domains without permission. Some can be appeased by offerings of treasure, but most demand that a ship's crew sacrifice one or more of their own. Living amid the wreckage of sunken ships or in deep sea caves, sea serpents collect the cargo of the crafts they sink, amassing great hoards of trade goods, sailors' trinkets, and pirates' booty.</p>"
   },
   {
-    "name": "Young Solar Dragon", // ?? messed up
+    "name": "Young Silver Dragon",
+    "size": "Large",
+    "type": "Dragon",
+    "alignment": "Lawful Good",
+    "environments": [
+      "Mountain",
+      "Urban"
+    ],
+    "associates": [
+      "Humanoid",
+      "Gold Dragon",
+      "Bronze Dragon",
+      "Bahamut"
+    ],
+    "armor class": "18 (natural armor)",
+    "hit points": "168 (16d10 + 80)",
+    "speed": "40 ft., Fly 80 ft.",
+    "str": 23,
+    "dex": 10,
+    "con": 21,
+    "int": 14,
+    "wis": 11,
+    "cha": 19,
+    "saving throws": "STR +6, DEX +4, CON +9, INT +2, WIS +4, CHA +8",
+    "skills": "Arcana +6, History +6, Perception +8, Stealth +4",
+    "damage immunities": "Cold",
+    "senses": "Blindsight 30 ft., Darkvision 120 ft., Passive Perception 18",
+    "languages": [
+      "Common",
+      "Draconic"
+    ],
+    "challenge": "9 (5,000 XP)",
+    "traits": "<p><em><strong>Spellcasting (Psionics).</strong></em> This dragon can innately cast four spells, once per day each, requiring no material components. Each spell's level can be no higher than 3rd. The dragon's spell save DC is DC 16, and it has +8 to hit with spell attacks. Suggested spells include: <em>beacon of hope</em>, <em>calm emotions</em>, <em>hold person</em>, <em>zone of truth</em>, <em>sleet storm</em>, <em>protection from energy</em>, <em>catnap</em>, <em>locate object</em>, <em>identify</em>, <em>Leomund's tiny hut</em>.</p>",
+    "number of attacks": 3,
+    "attacks": [
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+10",
+        "reach": "10 ft.",
+        "target": "one target",
+        "hit": "17 (2d10 + 6)",
+        "damage type": "piercing"
+      },
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+10",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "13 (2d6 + 6)",
+        "damage type": "slashing"
+      }
+    ],
+    "actions": "<p><em><strong>Multiattack.</strong></em> The dragon makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +10 to hit, reach 10 ft., one target. <em>Hit:</em> 17 (2d10 + 6) piercing damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +10 to hit, reach 5 ft., one target. <em>Hit:</em> 13 (2d6 + 6) slashing damage.</p><p><em><strong>Breath Weapons (Recharge 5–6).</strong></em> The dragon uses one of the following breath weapons.<br><em>Cold Breath.</em> The dragon exhales an icy blast in a 30-foot cone. Each creature in that area must make a DC 17 Constitution saving throw, taking 54 (12d8) cold damage on a failed save, or half as much damage on a successful one.<br><em>Paralyzing Breath.</em> The dragon exhales paralyzing gas in a 30-foot cone. Each creature in that area must succeed on a DC 17 Constitution saving throw or be paralyzed for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p>",
+    "img url": "https://i.imgur.com/example.png",
+    "notes": "<p>Dragons can be customized with additional languages, skills (even doubling proficiency bonus for certain skills), and tool proficiencies. They can also acquire traits and actions from other monsters, such as Change Shape at a younger age, Flyby to avoid opportunity attacks, Mimicry for impersonation, Rejuvenation to return to life near an essence-preserving object, or upgraded special senses like truesight or tremorsense.</p>",
+    "description": "<p>Silver dragons are the friendliest and most social of the metallic dragons, known for cheerfully assisting good creatures in need. They shimmer as if sculpted from pure metal, with noble faces, high eyes, sweeping beard-like chin spikes, and a spiny frill along their heads and necks. A silver wyrmling's scales are blue-gray with silver highlights, which brighten as the dragon approaches adulthood until individual scales are barely visible. As a silver dragon grows older, its pupils fade until its eyes resemble orbs of mercury.</p><p>Silver dragons believe in living a moral life by doing good deeds and ensuring no undeserved harm to sentient beings. Unlike gold and bronze dragons, they don't actively root out evil but readily oppose creatures that commit evil acts or harm the innocent. They enjoy the company of other silver dragons, and their only true friendships outside their kin are with humanoids. Many spend as much time in humanoid form as in draconic form, adopting benign personas like kindly old sages or young wanderers and forming strong friendships with mortals. They regularly return to their true forms for mating, rearing offspring, or tending to hoards, sometimes returning to find companions have aged or died, leading to friendships across generations of humanoids. They are particularly fascinated by shorter-lived races like humans due to their drive and zest for life.</p><p>Silver dragons love to hoard relics of humanoid history, including coins from various empires, art objects, fine jewelry, intact ships, royal remains, thrones, crown jewels, inventions, contraptions, and monoliths from fallen cities. Their lairs are typically among the clouds on secluded cold mountain peaks, often natural cavern complexes, abandoned mines, or coveted lost outposts of humanoid civilization like mountaintop citadels or remote towers.</p><p>As metallic dragons, they seek to preserve and protect, viewing themselves as a powerful race with a place in the world. Their coveting of treasure is driven by a desire to investigate and collect unclaimed relics, and their hoards reflect their persona, history, and memories. They also protect other creatures from dangerous magic, sometimes secreting away powerful magic items and evil artifacts. They can be persuaded to part with items for the greater good. Bolder silver dragons may wander cities in humanoid form to observe local culture and cuisine. They prefer to stay away from civilization but can become out of touch with current events. They possess long memories and form opinions of humanoids based on past contact with relatives, recognizing bloodlines by smell. Their chief deity is Bahamut, the Platinum Dragon. True dragons are ancient, powerful winged reptiles known for cunning and greed, with innate magic fueling their breath weapons. They are divided into chromatic (selfish, evil) and metallic (noble, good) categories. All true dragons covet wealth and pass through four life stages: wyrmling (Medium, 5 years or less), young (Large, 6–100 years), adult (Huge, 101–800 years), and ancient (Gargantuan, 801 years or more).</p>"
   },
   {
-    "name": "Young Topaz Dragon", // ?? messed up
+    "name": "Young Troglodyte",
+    "size": "Small",
+    "type": "Humanoid",
+    "alignment": "Lawful Evil",
+    "environments": [
+      "Underdark"
+    ],
+    "armor class": "12",
+    "hit points": "5 (2d6 - 2)",
+    "speed": "30 ft.",
+    "str": 7,
+    "dex": 15,
+    "con": 9,
+    "int": 8,
+    "wis": 7,
+    "cha": 8,
+    "saving throws": "STR -2, DEX +2, CON -1, INT -1, WIS -2, CHA -1",
+    "senses": "Darkvision 60 ft., Passive Perception 8",
+    "languages": [
+      "Common",
+      "Draconic"
+    ],
+    "challenge": "1/8 (25 XP)",
+    "traits": "<p><em><strong>Pack Tactics.</strong></em> The troglodyte has advantage on an attack roll against a creature if at least one of the troglodyte's allies is within 5 feet of the creature and the ally isn't incapacitated.</p><p><em><strong>Sunlight Sensitivity.</strong></em> While in sunlight, the troglodyte has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight.</p>",
+    "number of attacks": 1,
+    "attacks": [
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+4",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "4 (1d4 + 2)",
+        "damage type": "piercing"
+      },
+      {
+        "type": "Ranged Weapon Attack",
+        "to hit": "+4",
+        "range": "30/120 ft.",
+        "target": "one target",
+        "hit": "4 (1d4 + 2)",
+        "damage type": "bludgeoning"
+      }
+    ],
+    "actions": "<p><em><strong>Dagger.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft., one target. <em>Hit:</em> 4 (1d4 + 2) piercing damage.</p><p><em><strong>Sling.</strong></em> <em>Ranged Weapon Attack:</em> +4 to hit, range 30/120 ft., one target. <em>Hit:</em> 4 (1d4 + 2) bludgeoning damage.</p>"
+  },
+  {
+    "name": "Young Wereraven",
+    "size": "Small",
+    "type": "Humanoid",
+    "alignment": "Lawful Good",
+    "environments": [
+      "Varies"
+    ],
+    "armor class": "12",
+    "hit points": "7 (2d6)",
+    "speed": "30 ft. (fly 50 ft. in raven and hybrid forms)",
+    "str": 10,
+    "dex": 15,
+    "con": 11,
+    "int": 13,
+    "wis": 15,
+    "cha": 14,
+    "saving throws": "STR +0, DEX +2, CON +0, INT +1, WIS +2, CHA +2",
+    "skills": "Insight +4, Perception +6",
+    "senses": "Passive Perception 16",
+    "languages": [
+      "Common (can't speak in raven form)"
+    ],
+    "challenge": "2 (450 XP)",
+    "traits": "<p><em><strong>Shapechanger.</strong></em> The wereraven can use its action to polymorph into a raven-humanoid hybrid or into a raven, or back into its human form. Its statistics, other than its size, are the same in each form. Any equipment it is wearing or carrying isn't transformed. It reverts to its human form if it dies.</p><p><em><strong>Mimicry.</strong></em> The wereraven can mimic simple sounds it has heard, such as a person whispering, a baby crying, or an animal chittering. A creature that hears the sounds can tell they are imitations with a successful DC 10 Wisdom (Insight) check.</p><p><em><strong>Regeneration.</strong></em> The wereraven regains 10 hit points at the start of its turn. If the wereraven takes damage from a silvered weapon or a spell, this trait doesn't function at the start of the wereraven's next turn. The wereraven dies only if it starts its turn with 0 hit points and doesn't regenerate.</p>",
+    "number of attacks": 2,
+    "attacks": [
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+4",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "1 piercing damage in raven form, or 4 (1d4 + 2) piercing damage in hybrid form",
+        "damage type": "piercing"
+      },
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+4",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "5 (1d6 + 2)",
+        "damage type": "piercing"
+      },
+      {
+        "type": "Ranged Weapon Attack",
+        "to hit": "+4",
+        "range": "30/120 ft.",
+        "target": "one target",
+        "hit": "5 (1d6 + 2)",
+        "damage type": "piercing"
+      }
+    ],
+    "actions": "<p><em><strong>Multiattack (Human or Hybrid Form Only).</strong></em> The wereraven makes two weapon attacks, one of which can be with its hand crossbow.</p><p><em><strong>Beak (Raven or Hybrid Form Only).</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft., one target. <em>Hit:</em> 1 piercing damage in raven form, or 4 (1d4 + 2) piercing damage in hybrid form. If the target is humanoid, it must succeed on a DC 10 Constitution saving throw or be cursed with wereraven lycanthropy.</p><p><em><strong>Shortsword (Human or Hybrid Form Only).</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft., one target. <em>Hit:</em> 5 (1d6 + 2) piercing damage.</p><p><em><strong>Hand Crossbow (Human or Hybrid Form Only).</strong></em> <em>Ranged Weapon Attack:</em> +4 to hit, range 30/120 ft., one target. <em>Hit:</em> 5 (1d6 + 2) piercing damage.</p>"
+  },
+  {
+    "name": "Young Winter Wolf",
+    "size": "Large",
+    "type": "Beast",
+    "alignment": "Unaligned",
+    "environments": [
+      "Arctic"
+    ],
+    "armor class": "14 (natural armor)",
+    "hit points": "37 (5d10 + 10)",
+    "speed": "50 ft.",
+    "str": 17,
+    "dex": 15,
+    "con": 15,
+    "int": 3,
+    "wis": 12,
+    "cha": 7,
+    "saving throws": "STR +3, DEX +2, CON +2, INT -4, WIS +1, CHA -2",
+    "skills": "Perception +3, Stealth +4",
+    "senses": "Passive Perception 13",
+    "languages": [
+      "N/A"
+    ],
+    "challenge": "1 (200 XP)",
+    "traits": "<p><em><strong>Keen Hearing and Smell.</strong></em> The wolf has advantage on Wisdom (Perception) checks that rely on hearing or smell.</p><p><em><strong>Pack Tactics.</strong></em> The wolf has advantage on an attack roll against a creature if at least one of the wolf's allies is within 5 feet of the creature and the ally isn't incapacitated.</p>",
+    "number of attacks": 1,
+    "attacks": [
+      {
+        "type": "Melee Weapon Attack",
+        "to hit": "+5",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "10 (2d6 + 3) piercing damage. If the target is a creature, it must succeed on a DC 13 Strength saving throw or be knocked prone.",
+        "damage type": "piercing"
+      }
+    ],
+    "actions": "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft., one target. <em>Hit:</em> 10 (2d6 + 3) piercing damage. If the target is a creature, it must succeed on a DC 13 Strength saving throw or be knocked prone.</p>"
   }
 ];
 
