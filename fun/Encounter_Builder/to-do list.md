@@ -300,7 +300,6 @@ Champion of Usamigaras
 Changeling
 Chaos Quadrapod
 Chardalyn Berserker
-Chardalyn Dragon
 Chasme
 Chemister
 Child
@@ -323,7 +322,6 @@ Cleric
 Cloaker Mutate
 Clockwork Behir
 Clockwork Defender
-Clockwork Dragon
 Clockwork Mule
 Clockwork Observer
 Clockwork Stone Defender
@@ -394,7 +392,6 @@ Deathwolf
 Decaton Modron
 Deck Defender
 Deep Crow
-Deep Dragon Wyrmling
 Deep hé
 Deep rothe
 Deep Sashelas
@@ -439,27 +436,6 @@ Draconians (various types listed in list, but stat blocks not specified which ty
 Draconic Shard
 Draconic Spirit
 Dracophage Subject
-Dragon (Moonstone)
-Dragon Army Dragonnel
-Dragon Army Officer
-Dragon Army Soldier
-Dragon Hunter
-Dragon Tortoise
-Dragon Turtle Wyrmling
-Dragon Turtles (Young, Ancient)
-Dragonblood
-Dragonbone Golem
-Dragonborn
-Dragonborn of Bahamut
-Dragonborn of Sardior
-Dragonborn of Tiamat
-Dragonclaw
-Dragonfang
-Dragonflesh Abomination
-Dragonflesh Grafter
-Dragonfly
-Dragonsoul
-Dragonwing
 Drake Companion
 Dread Warrior
 Drow Acolyte
@@ -502,7 +478,6 @@ Eidolon
 Elder  Lizard
 Elder Black Pudding
 Elder Brain
-Elder Brain Dragon
 Elder Oblex
 Eldritch Horror Hatchling
 Elemental General
@@ -512,8 +487,6 @@ Elemental Myrmidon, Water
 Elemental Prince of Evil Fire
 Elise
 Emberhorn Minotaur
-Emerald Dragon
-Emerald Dragon Wyrmling
 Emerald Enclave Scout
 Emerald Greatwyrm
 Empyrean Iota
@@ -538,9 +511,6 @@ Expert
 Eye Monger
 Eyedrake
 Eyestalk of Gzemnid
-Faerie Dragon (Young)
-Faerie Dragon Adult
-Faerie Dragon Youth
 Falcon
 False Lich
 Farastu Demodand
@@ -656,7 +626,7 @@ Gray Render
 Gray Scavver
 Gray Slaad
 Graz'zt
-Greater Death Dragon
+
 Greater Devil
 Greater Star Spawn Emissary
 Greater Zombie
@@ -674,15 +644,6 @@ Grick Hunter
 Grick Matriarch
 Grick Youngling
 Grick Zookeeper
-Griffon (Aberrant)
-Griffon (Celestial)
-Griffon (construct)
-Griffon (Dragon)
-Griffon (Elemental)
-Griffon (Fey)
-Griffon (Fiend)
-Griffon (Monstrosity)
-Griffon (Undead)
 Gruul
 Gruul Anarch
 Gruul Batterboar
@@ -813,7 +774,6 @@ Lawmage
 Lazav
 Leonin Iconoclast
 Leprechaun
-Lesser Death Dragon
 Lesser Mummy Lord
 Lesser Star Spawn Emissary
 Leucrotta
@@ -865,8 +825,6 @@ Lored Professor of Order
 Lost Sorrowsworn
 Lost spirits
 Loup Garou
-low Dragon
-Lunar Dragon Wyrmling
 Lycanthrope
 Lynx
 lyphant
@@ -1173,8 +1131,6 @@ Runic Colossus
 Rutterkin
 Salamander Fire Snake
 Salamanders
-Sapphire Dragon (various types listed in list, but stat blocks not specified which types)
-Sapphire Dragon Wyrmling
 Scaladar
 Scarecrow
 Sea Elf
@@ -1200,7 +1156,6 @@ Shoosuva
 Shrieker Fungus
 Sibriex
 Sigil
-Silver dragon hatchling
 Skyjek Roc
 Slaad (any, Blue, Death, Gray, Green, Red, Tadpole)
 Sled Dog
@@ -1257,26 +1212,6 @@ Steeder, Female
 Steeder, Male
 Steel Defender
 Steel Predator
-Stegosaurus
-Stomping Foot
-Stone giant
-Stone giant Dreamwalker
-Stone giant of Evil Earth
-Stone giant Rockspeaker
-Stone giant Statue
-Stone Dragon Statue
-Stone Juggernaut
-Stone Warrior
-Stonecloak
-Stonemelder
-Storm Crab
-Storm Herald
-Stormcloak
-Strahd Zombie
-Strider
-Strigoi
-Strixhaven Campus Guide
-Su-monster
 Subterranean Lizard
 Succubus
 Sul Khatesh
@@ -1351,7 +1286,6 @@ Tick
 Tidal Sorcerer
 Tiefling
 Tiefling Acrobat
-Time Dragon Wyrmling
 Tin Soldier
 Tiny Servant
 Titanothere
@@ -1362,9 +1296,6 @@ Tlincalli
 Tomb Dwarf
 Tomb Guardian
 Tomb Tapper
-Topaz Dragon Adult
-Topaz Dragon Ancient
-Topaz Dragon Young
 Topaz Greatwyrm
 Tortle
 Tortle Druid
@@ -1379,9 +1310,7 @@ Transcendent Order Instinct
 Transmuter
 Transmuter Wizard
 Trapper
-Treant Sapling
 Tree
-Tree Blight
 Tressym
 Tri-flower Frond
 Tribal Warrior
@@ -1415,7 +1344,6 @@ Verbeeg Longstrider
 Verbeeg Marauder
 Veteran of the Gauntlet
 Viashino
-
 Violet Fungus Necrohulk
 Vistana Assassin
 Vistana Bandit
@@ -1428,27 +1356,6 @@ Vlazok
 Void Scavver
 Walking Corpse
 Walking Statue of Waterdeep
-
 Wizard
-Young Cloud giant
-Young Dragon Turtle
-Young Emerald Dragon
-Young Fire
-Young Frost
-Young Griffon (Medium)
-Young Griffon (Small)
-Young Griffon (Tiny)
-Young Hill
-Young Hook Horror
-Young Kruthik
-Young Lunar Dragon
-Young Ogre Servant
-Young Purple Worm
-Young Remorhaz
-Young Sapphire Dragon
-Young Sea Serpent
-Young Solar Dragon
-Young Time Dragon
-Young Troglodyte
-Young Wereraven
-Young Winter Wolf
+
+
