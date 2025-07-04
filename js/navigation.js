@@ -3,15 +3,16 @@
  */
 
 var pageName = $("title").text(); // get the name of the page
+// console.log("page name: " + pageName);
 var url = document.URL;
 var meta = $('meta[name=level]').attr("content");
+// console.log('meta: ' + meta);
 var message = ""; // variable that will render the navigation bar
 
 // ** will need to add other sub directory sniffers here **
 
 // ** note to self: start using the meta elements to determine level and thus add the correct levels to relative link to. **
 var tutorialSuffix = "";
-
 if (meta) {
 	switch(meta) {
 		case "1":
@@ -41,6 +42,7 @@ if (meta) {
 		}
 	}
 }
+//console.log(tutorialSuffix);
 message += '<div class="container-fluid">'; // build main container for navigation
 
 // Brand and toggle get grouped for better mobile display
@@ -56,7 +58,6 @@ if (pageName.toLowerCase().indexOf("tutorial") > -1) {
 }
 */
 
-// ** rewrite this so its a little more agnostic of the pageName
 if (pageName == "Home" || pageName == "Fun Web Projects" || pageName == "Games" || pageName == "Tutorials" || pageName.indexOf("Tutorials") > -1 || pageName.indexOf("Portfolio") > -1 ||  pageName == "Resume" || meta) {
 	message += '<a class="navbar-brand" href="' + tutorialSuffix + 'index.html">';
 	message += '<img src="' + tutorialSuffix + 'images/logo.png" class="logo" title="Jawa9000 Home" alt="Jawa9000 Home" />';
@@ -76,10 +77,10 @@ if (pageName == "Home") {
 if (pageName == "Home" || pageName == "Fun Web Projects" || pageName == "Games" || pageName == "Tutorials" || pageName.toLowerCase().indexOf("tutorial") > 0 || pageName.indexOf("Portfolio") > 0 || pageName == "Resume" || meta) {
 	message += '<a href="' + tutorialSuffix + 'index.html">Home</a>';
 }
-if (pageName == "Fun Web Projects" || pageName == "Games" || pageName == "Current Weather") {
+if (pageName == "Fun Web Projects" || pageName == "Current Weather") {
 	message += '<li class="active"><a href="fun.html">Fun</a></li>';
-}
-if (pageName == "Games") {
+} else if (pageName == "Games") {
+	message += '<li><a href="' + tutorialSuffix + 'fun.html">Fun</a></li>';
 	message += '<li class="active"><a href="games.html">Games</a></li>';
 } else {
 	message += '<li><a href="' + tutorialSuffix + 'fun.html">Fun</a></li>';
@@ -98,6 +99,13 @@ message += '<ul class="dropdown-menu">';
 message += '<li><a href="' + tutorialSuffix + 'tutorials.html#home">Tutorials</a></li>';
 message += '<li><a href="' + tutorialSuffix + 'tutorials.html#web">Web</a></li>';
 message += '<li><a href="' + tutorialSuffix + 'tutorials.html#writing">Technical Writing</a></li>';
+message += '<li><a href="' + tutorialSuffix + 'tutorials.html#Animation">Animation</a></li>';
+message += '<li><a href="' + tutorialSuffix + 'tutorials.html#Animation-Setup">Animation Setup</a></li>';
+message += '<li><a href="' + tutorialSuffix + 'tutorials.html#Cloth">Cloth</a></li>';
+message += '<li><a href="' + tutorialSuffix + 'tutorials.html#Rendering">Rendering</a></li>';
+message += '<li><a href="' + tutorialSuffix + 'tutorials.html#Texturing">Texturing</a></li>';
+message += '<li><a href="' + tutorialSuffix + 'tutorials.html#Theory-Reference">Theory & Reference</a></li>';
+message += '<li><a href="' + tutorialSuffix + 'tutorials.html#Workshop">Workshop</a></li>';
 message += '</ul></li>';
 // Portfolio link
 if (pageName.indexOf("Portfolio") > 0) {
@@ -108,9 +116,9 @@ if (pageName.indexOf("Portfolio") > 0) {
 message += '<a href="' + tutorialSuffix + 'portfolio.html" class="dropdown-toggle" data-toggle="dropdown">Portfolio<span class="caret"></span></a>';
 message += '<ul class="dropdown-menu">';
 // ** when a new portfolio category has been created, add it here as a page link **
-message += '<li><a href="' + tutorialSuffix + 'Writing_Samples/index.html">Writing Samples</a></li>';
 message += '<li><a href="' + tutorialSuffix + 'portfolio-2d.html">2D</a></li>';
 message += '<li><a href="' + tutorialSuffix + 'portfolio-3d.html">3D</a></li>';
+message += '<li><a href="' + tutorialSuffix + 'portfolio-web.html">Web</a></li>';
 message += '</ul></li>';
 // Resume link
 if (pageName == "Resume") {
@@ -125,6 +133,14 @@ message += '<li class="socialLinkedIn">';
 message += '<a href="http://www.linkedin.com/pub/brian-immel/2/914/b5b/" target="_blank">'; // linkedin link
 message += '<img src="' + tutorialSuffix + 'images/social/glyphicons_social/png/glyphicons_social_17_linked_in.png" title="Visit Brian&#39s LinkedIn page" alt="Visit Brian&#39s LinkedIn page">';
 message += '</a></li>';
+message += '<li class="socialTwitter">';
+message += '<a href="https://twitter.com/jawa9000" target="_blank">'; // Twitter link
+message += '<img src="' + tutorialSuffix + 'images/social/glyphicons_social/png/glyphicons_social_31_twitter.png" title="Visit Brian&#39s Twitter page" alt="Visit Brian&#39s Twitter page">';
+message += '</a></li>';
+message += '<li class="socialJSFiddle" >';
+message += '<a href="http://jsfiddle.net/user/jawa9000/fiddles/" target="_blank">'; // JSFiddle link
+message += '<img src="' + tutorialSuffix + 'images/social/glyphicons_social/png/jsfiddle.png" title="Visit Brian&#39s JSFiddle page" alt="Visit Brian&#39s JSFiddle page">';
+message += '</a></li>';
 message += '<li class="socialGithub" >';
 message += '<a href="https://github.com/jawa9000" target="_blank">'; // github link
 message += '<img src="' + tutorialSuffix + 'images/social/github.png" title="Visit Brian&#39s Github page" alt="Visit Brian&#39s Github page">';
@@ -135,7 +151,7 @@ message += '<img src="' + tutorialSuffix + 'images/social/glyphicons_social/png/
 message += '</a></li>';
 // email link
 message += '<li>';
-message += '<a href="mailto:jawa9000@gmail.com?Subject=General&#160;Request&#160;,&#160;Comment&#160;,&#160;or&#160;Question">';
+message += '<a href="mailto:brian@jawa9000.com?Subject=General&#160;Request&#160;,&#160;Comment&#160;,&#160;or&#160;Question">';
 message += '<img src="' + tutorialSuffix + 'images/social/glyphicons_social/png/glyphicons_social_39_e-mail.png" title="Email Brian" alt="Email Brian">';
 message += '</a>';
 message += '</li></ul></div></div>';
