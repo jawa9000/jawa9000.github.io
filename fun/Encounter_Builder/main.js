@@ -820,3 +820,70 @@ function renderStatBlock(monster) {
   statBlockHtml += `</div><hr class="monster-separator">`;
   return statBlockHtml;
 }
+
+// Remember settings across sessions
+const STORAGE_KEY = 'encounter_builder_state';
+
+// Save all input/select/checkbox values and the encounter list
+function saveEncounterState() {
+    const state = {};
+    // Save all input, select, and checkbox values
+    document.querySelectorAll('input, select').forEach(el => {
+        if (el.type === 'checkbox') {
+            state[el.id] = el.checked;
+        } else {
+            state[el.id] = el.value;
+        }
+    });
+    // Save the generated monsters list HTML
+    const encounterList = document.getElementById('encounterList');
+    if (encounterList) {
+        state.encounterListHTML = encounterList.innerHTML;
+    }
+    // Save the monster stats HTML
+    const monsterStats = document.getElementById('monsterStats');
+    if (monsterStats) {
+        state.monsterStatsHTML = monsterStats.innerHTML;
+    }
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+}
+
+// Restore all input/select/checkbox values and the encounter list
+function restoreEncounterState() {
+    const state = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+    Object.keys(state).forEach(key => {
+        if (key === 'encounterListHTML') {
+            const encounterList = document.getElementById('encounterList');
+            if (encounterList) encounterList.innerHTML = state.encounterListHTML;
+        } else if (key === 'monsterStatsHTML') {
+            const monsterStats = document.getElementById('monsterStats');
+            if (monsterStats) monsterStats.innerHTML = state.monsterStatsHTML;
+        } else {
+            const el = document.getElementById(key);
+            if (el) {
+                if (el.type === 'checkbox') {
+                    el.checked = !!state[key];
+                } else {
+                    el.value = state[key];
+                }
+            }
+        }
+    });
+}
+
+// Save on any input/select/checkbox change
+document.addEventListener('DOMContentLoaded', function() {
+    restoreEncounterState();
+    document.querySelectorAll('input, select').forEach(el => {
+        el.addEventListener('change', saveEncounterState);
+        el.addEventListener('input', saveEncounterState);
+    });
+    // Also save when the Generate Encounter button is clicked
+    const genBtn = document.querySelector('button');
+    if (genBtn) {
+        genBtn.addEventListener('click', function() {
+            // Delay to allow main.js to update the encounter list
+            setTimeout(saveEncounterState, 100);
+        });
+    }
+});
