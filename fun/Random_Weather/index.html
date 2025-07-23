@@ -9,7 +9,7 @@
     <meta name="keywords" content="treasure, javascript, random" />
     <meta name="author" content="Brian Immel" />
     <meta name="level" content="2" />
-    <meta name="version" content="0.1.0" />
+    <meta name="version" content="0.2.0" />
     <link rel="shortcut icon" href="../../assets/ico/favicon.ico" />
     <link href="../../css/normalize.css" rel="stylesheet" />
     <link
@@ -27,6 +27,28 @@
       <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-10">
+          <div class="center" style="margin-bottom: 1em;">
+            <label for="seasonSelect">Season:</label>
+            <select id="seasonSelect">
+              <option value="spring">Spring</option>
+              <option value="summer">Summer</option>
+              <option value="autumn">Autumn</option>
+              <option value="winter">Winter</option>
+            </select>
+            <label for="regionSelect" style="margin-left:1em;">Region:</label>
+            <select id="regionSelect">
+              <option value="temperate">Temperate</option>
+              <option value="arctic">Arctic</option>
+              <option value="desert">Desert</option>
+              <option value="tropical">Tropical</option>
+              <option value="mountain">Mountain</option>
+              <option value="coastal">Coastal</option>
+            </select>
+            <label for="nearWater" style="margin-left:1em;">
+              <input type="checkbox" id="nearWater" />
+              Within 50 miles of a body of water?
+            </label>
+          </div>
           <div class="center">
             <button id="oneDay">One Day Forecast</button>
             <button id="sevenDays">Seven Day Forecast</button>
@@ -50,20 +72,164 @@
         });
 
         $("#sevenDays").click(() => {
+          // 30% chance of a weather pattern affecting the forecast
+          let patternActive = Math.random() < 0.3;
+          let pattern = null;
+          let patternStart = 0;
+          let patternLength = 0;
+          let patternDesc = "";
+
+          // Get selected season
+          const season = $("#seasonSelect").val();
+
+          // Define possible patterns, with season influence
+          const patterns = [
+            // Spring: more rain and some snow
+            {
+              name: "Spring Showers",
+              desc: "Spring brings frequent rain and occasional snow.",
+              season: "spring",
+              apply: (dayObj) => {
+                dayObj.precipitation = 20;
+                dayObj.wind = 10 + rollDie(5);
+                dayObj.temperature = Math.max(1, dayObj.temperature - rollDie(3)); // can be chilly
+              }
+            },
+            // Summer: more heat
+            {
+              name: "Heat Wave",
+              desc: "A summer heat wave brings high temperatures, no wind, and muggy weather.",
+              season: "summer",
+              apply: (dayObj) => {
+                dayObj.temperature = 20;
+                dayObj.wind = 1;
+                dayObj.precipitation = 15; // muggy, some chance of rain
+              }
+            },
+            // Autumn: windy and rainy
+            {
+              name: "Autumn Storms",
+              desc: "Autumn storms bring wind and rain.",
+              season: "autumn",
+              apply: (dayObj) => {
+                dayObj.wind = 20;
+                dayObj.precipitation = 18 + rollDie(3);
+                dayObj.temperature = Math.max(1, dayObj.temperature - rollDie(2));
+              }
+            },
+            // Winter: cold and snow
+            {
+              name: "Winter Freeze",
+              desc: "A winter freeze brings unseasonably cold, snowy, and windy weather.",
+              season: "winter",
+              apply: (dayObj) => {
+                dayObj.temperature = 1;
+                dayObj.wind = 20;
+                dayObj.precipitation = 20; // heavy snow
+              }
+            },
+            // Any season: fog bank
+            {
+              name: "Fog Bank",
+              desc: "A fog bank rolls in, bringing foggy, damp, and calm conditions.",
+              season: "any",
+              apply: (dayObj) => {
+                dayObj.wind = 1;
+                dayObj.precipitation = 15;
+                dayObj.fog = true;
+              }
+            }
+          ];
+
+          // Filter patterns for the current season or "any"
+          const seasonPatterns = patterns.filter(p => p.season === season || p.season === "any");
+
+          if (patternActive) {
+            pattern = seasonPatterns[Math.floor(Math.random() * seasonPatterns.length)];
+            patternLength = Math.floor(Math.random() * 3) + 3; // 3-5 days
+            patternStart = Math.floor(Math.random() * (8 - patternLength)); // so it fits in 7 days
+            patternDesc = `<b>Weather Pattern:</b> ${pattern.desc} (Days ${patternStart + 1} to ${patternStart + patternLength})<br/>`;
+          }
+
           let weatherReports = "<p>";
+          if (patternActive) weatherReports += patternDesc;
+
           for (let day = 1; day <= 7; day++) {
-            weatherReports += generateWeatherReport(day);
+            // Generate base weather
+            let base = getBaseWeatherObj();
+            // Apply pattern if in range
+            if (patternActive && day > patternStart && day <= patternStart + patternLength) {
+              pattern.apply(base);
+              // If pattern sets fog, force fog
+              weatherReports += generateWeatherReport(day, base, !!base.fog);
+            } else {
+              weatherReports += generateWeatherReport(day, base);
+            }
           }
           weatherReports += "</p>";
           $("#weatherOutput").html(weatherReports);
         });
 
-        const generateWeatherReport = (day) => {
-          const temperature = rollDie(20);
-          const wind = rollDie(20);
-          const precipitation = rollDie(20);
-          let temperatureDescription = "";
+        // Influence tables for temperature, wind, and precipitation
+        const weatherInfluence = {
+          spring:    { temp: 0, wind: 0, precip: 1 },
+          summer:    { temp: 2, wind: 0, precip: -1 },
+          autumn:    { temp: -1, wind: 1, precip: 0 },
+          winter:    { temp: -3, wind: 1, precip: 0 },
+          temperate: { temp: 0, wind: 0, precip: 0 },
+          arctic:    { temp: -8, wind: 2, precip: 0 },
+          desert:    { temp: 6, wind: 1, precip: -3 },
+          tropical:  { temp: 4, wind: 0, precip: 2 },
+          mountain:  { temp: -4, wind: 2, precip: 1 },
+          coastal:   { temp: 0, wind: 1, precip: 2 }
+        };
 
+        // Helper to generate base weather object for a day
+        function getBaseWeatherObj() {
+          const season = $("#seasonSelect").val();
+          const region = $("#regionSelect").val();
+          const tempMod = (weatherInfluence[season]?.temp || 0) + (weatherInfluence[region]?.temp || 0);
+          const windMod = (weatherInfluence[season]?.wind || 0) + (weatherInfluence[region]?.wind || 0);
+          const precipMod = (weatherInfluence[season]?.precip || 0) + (weatherInfluence[region]?.precip || 0);
+
+          let temperature = rollDie(20) + tempMod;
+          let wind = rollDie(20) + windMod;
+          let precipitation = rollDie(20) + precipMod;
+
+          // Clamp values to 1-20
+          temperature = Math.max(1, Math.min(20, temperature));
+          wind = Math.max(1, Math.min(20, wind));
+          precipitation = Math.max(1, Math.min(20, precipitation));
+
+          return { temperature, wind, precipitation };
+        }
+
+        // Update generateWeatherReport to accept a base weather object and forceFog flag
+        const generateWeatherReport = (day, baseWeather, forceFog = false) => {
+          const nearWater = $("#nearWater").is(":checked");
+          let temperature, wind, precipitation;
+          if (baseWeather) {
+            temperature = baseWeather.temperature;
+            wind = baseWeather.wind;
+            precipitation = baseWeather.precipitation;
+          } else {
+            // fallback for one-day forecast
+            const season = $("#seasonSelect").val();
+            const region = $("#regionSelect").val();
+            const tempMod = (weatherInfluence[season]?.temp || 0) + (weatherInfluence[region]?.temp || 0);
+            const windMod = (weatherInfluence[season]?.wind || 0) + (weatherInfluence[region]?.wind || 0);
+            const precipMod = (weatherInfluence[season]?.precip || 0) + (weatherInfluence[region]?.precip || 0);
+
+            temperature = rollDie(20) + tempMod;
+            wind = rollDie(20) + windMod;
+            precipitation = rollDie(20) + precipMod;
+
+            temperature = Math.max(1, Math.min(20, temperature));
+            wind = Math.max(1, Math.min(20, wind));
+            precipitation = Math.max(1, Math.min(20, precipitation));
+          }
+
+          let temperatureDescription = "";
           if (temperature <= 14) {
             temperatureDescription = "Temperature is normal for the season.";
           } else if (temperature >= 15 && temperature <= 17) {
@@ -73,29 +239,41 @@
           }
 
           let windDescription = "";
-          
-          if (wind <= 14) {
+          if (wind <= 10) {
             windDescription = "Calm wind.";
-          } else if (wind >= 15 && wind <= 17) {
+          } else if (wind >= 11 && wind <= 14) {
             windDescription = "Light wind.";
+          } else if (wind >= 15 && wind <= 17) {
+            windDescription = "Moderate wind.";
           } else {
             windDescription = "Strong wind.";
           }
 
           let precipitationDescription = "";
-
           if (precipitation <= 14) {
             precipitationDescription = "No precipitation.";
-          } else if (precipitation >= 15 && precipitation <= 17) {
-            precipitationDescription = "Light rain or snowfall.";
           } else {
-            precipitationDescription = "Heavy rain or snowfall.";
+            // Determine type: rain or snow (simple logic: if temp <= 8, it's snow; else rain)
+            let type = (temperature <= 8) ? "snowfall" : "rainfall";
+            // Determine intensity
+            let intensityRoll = rollDie(3);
+            let intensity = "";
+            if (intensityRoll === 1) intensity = "Light";
+            else if (intensityRoll === 2) intensity = "Moderate";
+            else intensity = "Heavy";
+            precipitationDescription = `${intensity} ${type}.`;
           }
 
-          if (day) { // Only include the day number for multiple days
-            return `<span>Day ${day}: ${temperatureDescription} ${windDescription} ${precipitationDescription}</span><br/>`;
+          // Fog logic if near water or forced by pattern
+          let fogDescription = "";
+          if (forceFog || (nearWater && Math.random() < 0.2)) {
+            fogDescription = " Foggy conditions present.";
+          }
+
+          if (day) {
+            return `<span>Day ${day}: ${temperatureDescription} ${windDescription} ${precipitationDescription}${fogDescription}</span><br/>`;
           } else {
-            return `<p>${temperatureDescription} ${windDescription} ${precipitationDescription}</p>`;
+            return `<p>${temperatureDescription} ${windDescription} ${precipitationDescription}${fogDescription}</p>`;
           }
         };
 
