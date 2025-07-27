@@ -4,6 +4,8 @@ let bastion = null;
 let facilities = [];
 let bp = 0;
 let turnLog = [];
+// --- Add this near the top, after let bastion = null; ---
+let bastionList = [];
 
 // --- Character Management ---
 $('#characterForm').on('submit', function(e) {
@@ -41,8 +43,9 @@ $('#bastionForm').on('submit', function(e) {
         quality: $('#bastionQuality').val(),
         traits: $('#bastionTraits').val().split(',').map(s => s.trim()).filter(Boolean)
     };
-    localStorage.setItem('bastion_bastion', JSON.stringify(bastion));
+    saveFullBastionState();
     updateBastionSummary();
+    populateBastionDropdown();
 });
 function updateBastionSummary() {
     if (!bastion) return;
@@ -194,6 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     renderFacilityCheckboxes();
     loadTurnLog();
+    populateBastionDropdown();
 });
 document.getElementById('turnForm').addEventListener('submit', function(e) {
     e.preventDefault();
@@ -288,6 +292,8 @@ function resolveBastionTurn() {
     if (turnLog.length > 50) turnLog = turnLog.slice(-50); // keep last 50
     saveTurnLog();
     renderTurnLog();
+    // --- Clear BP results ---
+    document.getElementById('bpResults').innerHTML = '';
 }
 function resolveBastionEvent() {
     // Simple event table
@@ -313,7 +319,18 @@ document.getElementById('spendMagicItemBtn').addEventListener('click', function(
     localStorage.setItem('bastion_character', JSON.stringify(character));
     updateCharacterSummary();
     document.getElementById('bpResults').innerHTML = 'You spent 20 BP for a magic item!';
+    // --- Add to turn log ---
+    const now = new Date();
+    turnLog.push({
+        date: now.toLocaleString(),
+        result: 'Spent 20 BP for a magic item.'
+    });
+    if (turnLog.length > 50) turnLog = turnLog.slice(-50);
+    saveTurnLog();
+    renderTurnLog();
+    updateBPButtons();
 });
+
 document.getElementById('spendCharismaBtn').addEventListener('click', function() {
     if (bp < 10) { alert('Not enough BP!'); return; }
     bp -= 10;
@@ -321,7 +338,18 @@ document.getElementById('spendCharismaBtn').addEventListener('click', function()
     localStorage.setItem('bastion_character', JSON.stringify(character));
     updateCharacterSummary();
     document.getElementById('bpResults').innerHTML = 'You spent 10 BP for Charisma advantage!';
+    // --- Add to turn log ---
+    const now = new Date();
+    turnLog.push({
+        date: now.toLocaleString(),
+        result: 'Spent 10 BP for Charisma advantage.'
+    });
+    if (turnLog.length > 50) turnLog = turnLog.slice(-50);
+    saveTurnLog();
+    renderTurnLog();
+    updateBPButtons();
 });
+
 document.getElementById('spendResurrectBtn').addEventListener('click', function() {
     if (bp < 100) { alert('Not enough BP!'); return; }
     bp -= 100;
@@ -329,6 +357,16 @@ document.getElementById('spendResurrectBtn').addEventListener('click', function(
     localStorage.setItem('bastion_character', JSON.stringify(character));
     updateCharacterSummary();
     document.getElementById('bpResults').innerHTML = 'You spent 100 BP to return to life!';
+    // --- Add to turn log ---
+    const now = new Date();
+    turnLog.push({
+        date: now.toLocaleString(),
+        result: 'Spent 100 BP to return to life.'
+    });
+    if (turnLog.length > 50) turnLog = turnLog.slice(-50);
+    saveTurnLog();
+    renderTurnLog();
+    updateBPButtons();
 });
 function saveFacilities() {
     localStorage.setItem('bastion_facilities', JSON.stringify(facilities));
@@ -430,3 +468,245 @@ $('#clearHistoryBtn').on('click', function() {
         location.reload();
     }
 });
+
+// --- Utility to get all bastion keys from localStorage ---
+function getAllBastionKeys() {
+    const keys = [];
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (key.startsWith('bastion_bastion_')) keys.push(key);
+    }
+    return keys;
+}
+
+// --- Populate the bastion dropdown ---
+function populateBastionDropdown() {
+    const select = document.getElementById('bastionLoadSelect');
+    // Save the current selection
+    const prevValue = select.value;
+    select.innerHTML = '';
+    const keys = getAllBastionKeys();
+    if (!keys.length) {
+        select.innerHTML = '<option value="">(No saved bastions)</option>';
+        return;
+    }
+    keys.forEach(key => {
+        const bastionObj = JSON.parse(localStorage.getItem(key));
+        const name = bastionObj && bastionObj.name ? bastionObj.name : key.replace('bastion_bastion_', '');
+        const opt = document.createElement('option');
+        opt.value = key;
+        opt.textContent = name;
+        select.appendChild(opt);
+    });
+    // Restore the previous selection if possible
+    if (prevValue && keys.includes(prevValue)) {
+        select.value = prevValue;
+    }
+}
+
+// --- Save bastion with unique key (by name) ---
+function saveBastionWithName() {
+    if (!bastion || !bastion.name) return;
+    const key = 'bastion_bastion_' + bastion.name.replace(/\s+/g, '_');
+    localStorage.setItem(key, JSON.stringify(bastion));
+    populateBastionDropdown();
+}
+
+// --- Load bastion by key ---
+function loadBastionByKey(key) {
+    const data = localStorage.getItem(key);
+    if (!data) return;
+    bastion = JSON.parse(data);
+    updateBastionSummary();
+    // Also update form fields
+    $('#bastionName').val(bastion.name);
+    $('#bastionType').val(bastion.type);
+    $('#bastionSize').val(bastion.size);
+    $('#bastionQuality').val(bastion.quality);
+    $('#bastionTraits').val(bastion.traits.join(', '));
+}
+
+// --- Hook up the dropdown and button ---
+document.addEventListener('DOMContentLoaded', () => {
+    // Load from localStorage
+    const charData = localStorage.getItem('bastion_character');
+    if (charData) {
+        character = JSON.parse(charData);
+        bp = character.bp;
+        updateCharacterSummary();
+    }
+    const bastionData = localStorage.getItem('bastion_bastion');
+    if (bastionData) {
+        bastion = JSON.parse(bastionData);
+        updateBastionSummary();
+    }
+    const facData = localStorage.getItem('bastion_facilities');
+    if (facData) {
+        facilities = JSON.parse(facData);
+        updateFacilitiesList();
+    }
+    maintainOptionsDiv = document.getElementById('maintainOptions');
+    const bastionOrderInput = document.getElementById('bastionOrder');
+    bastionOrderInput.addEventListener('change', () => {
+        const order = bastionOrderInput.value;
+        if (order === 'Maintain') {
+            maintainOptionsDiv.style.display = 'block';
+        } else {
+            maintainOptionsDiv.style.display = 'none';
+        }
+    });
+    renderFacilityCheckboxes();
+    loadTurnLog();
+    populateBastionDropdown();
+    document.getElementById('loadBastionBtn').addEventListener('click', function() {
+        const key = document.getElementById('bastionLoadSelect').value;
+        if (key) loadFullBastionState(key);
+    });
+});
+$(function() {
+    populateBastionDropdown();
+    setupAutoSave();
+});
+
+// Save state on any button, input, or checkbox change/click
+function setupAutoSave() {
+    // Save on any button click (except Load Bastion and Spend BP buttons, which have custom logic)
+    $('button:not(#loadBastionBtn):not(#spendMagicItemBtn):not(#spendCharismaBtn):not(#spendResurrectBtn)').on('click', saveFullBastionState);
+    // Save on any input or select change
+    $('input, select, textarea').on('change input', saveFullBastionState);
+    // Save on any checkbox click
+    $('input[type=checkbox]').on('click', saveFullBastionState);
+}
+
+function saveFullBastionState() {
+    if (!bastion || !bastion.name) return;
+    const key = 'bastion_bastion_' + bastion.name.replace(/\s+/g, '_');
+    const state = {
+        character,
+        bastion,
+        facilities,
+        turnLog,
+        bp
+    };
+    localStorage.setItem(key, JSON.stringify(state));
+    populateBastionDropdown();
+    updateBPButtons(); // <-- Add this line
+}
+
+function loadFullBastionState(key) {
+    const data = localStorage.getItem(key);
+    if (!data) return;
+    const state = JSON.parse(data);
+    // Restore all state
+    character = state.character || null;
+    bastion = state.bastion || null;
+    facilities = state.facilities || [];
+    turnLog = state.turnLog || [];
+    bp = state.bp || (character ? character.bp : 0);
+
+    // Update UI
+    updateCharacterSummary();
+    updateBastionSummary();
+    updateFacilitiesList();
+    renderFacilityCheckboxes();
+    renderTurnLog();
+
+    // Update all input fields with loaded data
+    if (character) {
+        $('#charName').val(character.name);
+        $('#charLevel').val(character.level);
+        $('#charGold').val(character.gold);
+        $('#charBP').val(character.bp);
+    }
+    if (bastion) {
+        $('#bastionName').val(bastion.name);
+        $('#bastionType').val(bastion.type);
+        $('#bastionSize').val(bastion.size);
+        $('#bastionQuality').val(bastion.quality);
+        $('#bastionTraits').val(bastion.traits.join(', '));
+    }
+    // Facilities checkboxes
+    renderFacilityCheckboxes();
+
+    // If you have any other custom checkboxes or fields, update them here as well
+    // Example: update order select and maintain options if present
+    if (bastion && bastion.order) {
+        $('#bastionOrder').val(bastion.order).trigger('change');
+    }
+    // If you have checkboxes for facilities, update their checked state
+    facilities.forEach(fac => {
+        $(`input[type=checkbox][value="${fac.name}"]`).prop('checked', true);
+    });
+    // Update BP fields if needed
+    $('#charBP').val(bp);
+
+    updateBPButtons(); // <-- Add this line
+}
+
+// --- Also call updateBPButtons after any BP spend ---
+document.getElementById('spendMagicItemBtn').addEventListener('click', function() {
+    if (bp < 20) { alert('Not enough BP!'); return; }
+    bp -= 20;
+    if (character) character.bp = bp;
+    localStorage.setItem('bastion_character', JSON.stringify(character));
+    updateCharacterSummary();
+    document.getElementById('bpResults').innerHTML = 'You spent 20 BP for a magic item!';
+    // --- Add to turn log ---
+    const now = new Date();
+    turnLog.push({
+        date: now.toLocaleString(),
+        result: 'Spent 20 BP for a magic item.'
+    });
+    if (turnLog.length > 50) turnLog = turnLog.slice(-50);
+    saveTurnLog();
+    renderTurnLog();
+    updateBPButtons();
+});
+document.getElementById('spendCharismaBtn').addEventListener('click', function() {
+    if (bp < 10) { alert('Not enough BP!'); return; }
+    bp -= 10;
+    if (character) character.bp = bp;
+    localStorage.setItem('bastion_character', JSON.stringify(character));
+    updateCharacterSummary();
+    document.getElementById('bpResults').innerHTML = 'You spent 10 BP for Charisma advantage!';
+    // --- Add to turn log ---
+    const now = new Date();
+    turnLog.push({
+        date: now.toLocaleString(),
+        result: 'Spent 10 BP for Charisma advantage.'
+    });
+    if (turnLog.length > 50) turnLog = turnLog.slice(-50);
+    saveTurnLog();
+    renderTurnLog();
+    updateBPButtons();
+});
+document.getElementById('spendResurrectBtn').addEventListener('click', function() {
+    if (bp < 100) { alert('Not enough BP!'); return; }
+    bp -= 100;
+    if (character) character.bp = bp;
+    localStorage.setItem('bastion_character', JSON.stringify(character));
+    updateCharacterSummary();
+    document.getElementById('bpResults').innerHTML = 'You spent 100 BP to return to life!';
+    // --- Add to turn log ---
+    const now = new Date();
+    turnLog.push({
+        date: now.toLocaleString(),
+        result: 'Spent 100 BP to return to life.'
+    });
+    if (turnLog.length > 50) turnLog = turnLog.slice(-50);
+    saveTurnLog();
+    renderTurnLog();
+    updateBPButtons();
+});
+
+// --- Call updateBPButtons on page load ---
+$(function() {
+    populateBastionDropdown();
+    setupAutoSave();
+    updateBPButtons(); // <-- Add this line
+});
+function updateBPButtons() {
+    $('#spendMagicItemBtn').prop('disabled', bp < 20);
+    $('#spendCharismaBtn').prop('disabled', bp < 10);
+    $('#spendResurrectBtn').prop('disabled', bp < 100);
+}
