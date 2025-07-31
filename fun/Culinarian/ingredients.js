@@ -16,7 +16,7 @@ let ingredients = [
     "Purchase Price": "50 gp",
     "Harvesting": {
       "Required Kit": [
-        "Enchanted knife"
+        "Knife (Enchanted)"
       ]
     },
     "Cooking": {
@@ -118,8 +118,8 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "knife",
-        "butchering tools",
-        "alchemist's kit"
+        "Butcher's Tools",
+        "Alchemist's Kit"
       ]
     },
     "Preparation": {
@@ -197,7 +197,7 @@ let ingredients = [
     "Purchase Price": "1 gp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ]
     },
     "Cooking": {
@@ -247,7 +247,7 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit",
+        "Herbalism Kit",
         "poisoner's kit"
       ]
     },
@@ -265,7 +265,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Year around"
@@ -330,7 +330,7 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Summer"
@@ -356,7 +356,7 @@ let ingredients = [
     "Purchase Price": "1 gp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Late Summer",
@@ -380,7 +380,7 @@ let ingredients = [
     "Purchase Price": "50 gp",
     "Harvesting": {
       "Required Kit": [
-        "Specialized tools for organ harvesting"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -440,12 +440,12 @@ let ingredients = [
   },
   {
     "Name": "Apple Bark",
-    "Description": "Bark from the apple tree taken in early spring.",
+    "Description": "Bark from the apple tree taken in Early Spring.",
     "Ingredient Type": "Plant-based",
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Year around"
@@ -495,7 +495,7 @@ let ingredients = [
         "Herbalism Kit"
       ],
       "Seasons": [
-        "late Summer",
+        "Late Summer",
         "Early Autumn"
       ]
     },
@@ -544,7 +544,7 @@ let ingredients = [
         "Herbalism Kit"
       ],
       "Seasons": [
-        "late Summer",
+        "Late Summer",
         "Autumn"
       ]
     },
@@ -564,7 +564,7 @@ let ingredients = [
     "Purchase Price": "1 gp",
     "Harvesting": {
       "Required Kit": [
-        "tools for breaking/collecting rocks"
+        "Pick"
       ]
     },
     "Cooking": {
@@ -633,7 +633,7 @@ let ingredients = [
     "Purchase Price": "5 gp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit",
+        "Herbalism Kit",
         "poisoner's kit"
       ]
     },
@@ -659,7 +659,7 @@ let ingredients = [
     "Purchase Price": "1 gp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ]
     },
     "Cooking": {
@@ -708,7 +708,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit",
+        "Herbalism Kit",
         "knife"
       ],
       "Seasons": [
@@ -824,7 +824,7 @@ let ingredients = [
         "Herbalism Kit"
       ],
       "Seasons": [
-        "late Summer",
+        "Late Summer",
         "Early Autumn"
       ]
     },
@@ -876,7 +876,7 @@ let ingredients = [
     "Purchase Price": "1 gp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Year around"
@@ -898,7 +898,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Spring"
@@ -1014,7 +1014,7 @@ let ingredients = [
     "Purchase Price": "1 gp",
     "Harvesting": {
       "Required Kit": [
-        "container"
+        "Container(s)"
       ]
     },
     "Cooking": {
@@ -1034,7 +1034,7 @@ let ingredients = [
     "Purchase Price": "1 gp",
     "Harvesting": {
       "Required Kit": [
-        "container"
+        "Container(s)"
       ],
       "Seasons": [
         "Autumn"
@@ -1072,16 +1072,16 @@ let ingredients = [
     "Purchase Price": "3 gp",
     "Harvesting": {
       "Required Kit": [
-        "Butcher's Tools (Masterwork)",
+        "Butcher's Tools (Enchanted)",
         "Arcane Focus",
         "Preservation Salts",
-        "Large Insulated Containers"
+        "Large Container(s)"
       ]
     },
     "Cooking": {
       "Required Kit": [
-        "Cook's Utensils (Masterwork)",
-        "Alchemist's Supplies",
+        "Cook's Utensils (Enchanted)",
+        "Alchemist's Kit",
         "Magical Heat Source"
       ]
     },
@@ -1123,7 +1123,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ]
     },
     "Cooking": {
@@ -1143,7 +1143,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Summer"
@@ -1163,7 +1163,7 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit",
+        "Herbalism Kit",
         "poisoner's kit"
       ]
     },
@@ -1197,16 +1197,16 @@ let ingredients = [
     "Purchase Price": "3 gp",
     "Harvesting": {
       "Required Kit": [
-        "Butcher's Tools (Masterwork)",
+        "Butcher's Tools (Enchanted)",
         "Arcane Focus",
         "Preservation Salts",
-        "Large Insulated Containers"
+        "Large Container(s)"
       ]
     },
     "Cooking": {
       "Required Kit": [
-        "Cook's Utensils (Masterwork)",
-        "Alchemist's Supplies",
+        "Cook's Utensils (Enchanted)",
+        "Alchemist's Kit",
         "Magical Heat Source"
       ]
     },
@@ -1222,7 +1222,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Year around"
@@ -1241,7 +1241,7 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ]
     },
     "Preparation": {
@@ -1258,7 +1258,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "container"
+        "Container(s)"
       ]
     },
     "Cooking": {
@@ -1277,7 +1277,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Year around"
@@ -1314,7 +1314,7 @@ let ingredients = [
     "Purchase Price": "3 gp",
     "Harvesting": {
       "Required Kit": [
-        "Butcher tools"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -1336,7 +1336,7 @@ let ingredients = [
     "Purchase Price": "3 sp",
     "Harvesting": {
       "Required Kit": [
-        "Butcher tools"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -1360,7 +1360,7 @@ let ingredients = [
     "Purchase Price": "3 gp",
     "Harvesting": {
       "Required Kit": [
-        "Butcher tools"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -1414,10 +1414,10 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
-        "late Summer",
+        "Late Summer",
         "Autumn"
       ]
     },
@@ -1441,7 +1441,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Year around"
@@ -1467,7 +1467,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "mid Summer"
@@ -1486,7 +1486,7 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ]
     },
     "Cooking": {
@@ -1505,7 +1505,7 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Butcher’s kit"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -1556,7 +1556,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Spring",
@@ -1579,7 +1579,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Year-round"
@@ -1602,7 +1602,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Year around"
@@ -1624,7 +1624,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Year around"
@@ -1646,7 +1646,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Year around"
@@ -1681,8 +1681,8 @@ let ingredients = [
     "Purchase Price": "50 gp",
     "Harvesting": {
       "Required Kit": [
-        "Alchemist's Supplies",
-        "Padded Container"
+        "Alchemist's Kit",
+        "Container(s)"
       ]
     },
     "Cooking": {
@@ -1706,7 +1706,7 @@ let ingredients = [
     "Purchase Price": "15 gp",
     "Harvesting": {
       "Required Kit": [
-        "Butcher’s kit"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -1733,7 +1733,7 @@ let ingredients = [
     "Purchase Price": "20 gp",
     "Harvesting": {
       "Required Kit": [
-        "Butcher’s kit"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -1756,7 +1756,7 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Year around"
@@ -1786,7 +1786,8 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Butcher’s kit"
+        "Butcher's Tools",
+        "Feather Plucker"
       ]
     },
     "Cooking": {
@@ -1812,7 +1813,8 @@ let ingredients = [
     "Purchase Price": "3 sp",
     "Harvesting": {
       "Required Kit": [
-        "Butcher’s kit"
+        "Butcher's Tools",
+        "Feather Plucker"
       ]
     },
     "Cooking": {
@@ -1832,7 +1834,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Spring",
@@ -1859,10 +1861,10 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
-        "late Autumn",
+        "Late Autumn",
         "early Winter"
       ]
     },
@@ -1885,10 +1887,10 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
-        "late Summer",
+        "Late Summer",
         "Early Autumn"
       ]
     },
@@ -1911,7 +1913,7 @@ let ingredients = [
     "Purchase Price": "1 gp",
     "Harvesting": {
       "Required Kit": [
-        "container"
+        "Container(s)"
       ]
     },
     "Cooking": {
@@ -1930,7 +1932,7 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Butcher’s kit"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -1949,7 +1951,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "mid Spring"
@@ -1972,7 +1974,7 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Year around"
@@ -2002,7 +2004,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ]
     },
     "Cooking": {
@@ -2025,8 +2027,8 @@ let ingredients = [
     "Purchase Price": "1 gp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit",
-        "container"
+        "Herbalism Kit",
+        "Container(s)"
       ]
     },
     "Cooking": {
@@ -2048,7 +2050,7 @@ let ingredients = [
     "Purchase Price": "50 gp",
     "Harvesting": {
       "Required Kit": [
-        "Butcher’s kit"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -2068,10 +2070,10 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
-        "late Summer"
+        "Late Summer"
       ]
     },
     "Cooking": {
@@ -2094,7 +2096,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Spring",
@@ -2117,7 +2119,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "late Spring",
@@ -2135,7 +2137,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Year around"
@@ -2161,10 +2163,10 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
-        "early Spring"
+        "Early Spring"
       ]
     },
     "Cooking": {
@@ -2189,7 +2191,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Spring",
@@ -2223,7 +2225,6 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Alchemist's Kit",
         "Knife",
         "Alchemist's Kit"
       ]
@@ -2250,16 +2251,16 @@ let ingredients = [
     "Purchase Price": "3 gp",
     "Harvesting": {
       "Required Kit": [
-        "Butcher's Tools (Masterwork)",
+        "Butcher's Tools (Enchanted)",
         "Arcane Focus",
         "Preservation Salts",
-        "Large Insulated Containers"
+        "Large Container(s)"
       ]
     },
     "Cooking": {
       "Required Kit": [
-        "Cook's Utensils (Masterwork)",
-        "Alchemist's Supplies",
+        "Cook's Utensils (Enchanted)",
+        "Alchemist's Kit",
         "Magical Heat Source"
       ]
     },
@@ -2275,7 +2276,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ]
     },
     "Cooking": {
@@ -2298,7 +2299,7 @@ let ingredients = [
     "Purchase Price": "1 gp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ]
     },
     "Cooking": {
@@ -2325,7 +2326,7 @@ let ingredients = [
     "Purchase Price": "50 gp",
     "Harvesting": {
       "Required Kit": [
-        "Butcher’s kit"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -2349,7 +2350,7 @@ let ingredients = [
     "Purchase Price": "5 gp",
     "Harvesting": {
       "Required Kit": [
-        "Butcher’s kit"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -2376,7 +2377,7 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Butcher’s kit"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -2400,7 +2401,7 @@ let ingredients = [
     "Purchase Price": "3 sp",
     "Harvesting": {
       "Required Kit": [
-        "Butcher’s kit"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -2423,7 +2424,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "early Autumn"
@@ -2451,7 +2452,7 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Butcher’s kit"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -2471,10 +2472,10 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
-        "late Autumn"
+        "Late Autumn"
       ]
     },
     "Cooking": {
@@ -2496,7 +2497,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Year around"
@@ -2523,7 +2524,7 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit",
+        "Herbalism Kit",
         "poisoner's kit"
       ],
       "Seasons": [
@@ -2547,7 +2548,7 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Butcher’s kit"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -2566,11 +2567,11 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "mid Summer",
-        "late Summer"
+        "Late Summer"
       ]
     },
     "Cooking": {
@@ -2592,7 +2593,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ]
     }
   },
@@ -2606,7 +2607,7 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ]
     },
     "Cooking": {
@@ -2629,7 +2630,7 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "container"
+        "Container(s)"
       ]
     },
     "Cooking": {
@@ -2651,7 +2652,7 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ]
     },
     "Expiration": "The prepared herb expires after 1 month."
@@ -2789,7 +2790,7 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Butcher’s tools"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -2829,7 +2830,7 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Butcher’s tools"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -2874,7 +2875,7 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Butcher’s tools"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -2952,7 +2953,7 @@ let ingredients = [
     "Purchase Price": "50 gp",
     "Harvesting": {
       "Required Kit": [
-        "Butcher’s tools"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -2974,7 +2975,7 @@ let ingredients = [
     "Purchase Price": "3 sp",
     "Harvesting": {
       "Required Kit": [
-        "Butcher’s tools"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -2997,7 +2998,7 @@ let ingredients = [
     "Purchase Price": "3 sp",
     "Harvesting": {
       "Required Kit": [
-        "Butcher’s tools"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -3048,7 +3049,7 @@ let ingredients = [
     "Purchase Price": "3 gp",
     "Harvesting": {
       "Required Kit": [
-        "Butcher’s tools"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -3072,7 +3073,7 @@ let ingredients = [
     "Purchase Price": "3 sp",
     "Harvesting": {
       "Required Kit": [
-        "Butcher’s tools"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -3109,16 +3110,16 @@ let ingredients = [
     "Purchase Price": "50 gp",
     "Harvesting": {
       "Required Kit": [
-        "Butcher's Tools (Masterwork)",
+        "Butcher's Tools (Enchanted)",
         "Arcane Focus",
         "Preservation Salts",
-        "Large Insulated Containers"
+        "Large Container(s)"
       ]
     },
     "Cooking": {
       "Required Kit": [
-        "Cook's Utensils (Masterwork)",
-        "Alchemist's Supplies",
+        "Cook's Utensils (Enchanted)",
+        "Alchemist's Kit",
         "Magical Heat Source"
       ]
     },
@@ -3139,7 +3140,7 @@ let ingredients = [
     "Purchase Price": "3 gp",
     "Harvesting": {
       "Required Kit": [
-        "Butcher’s tools"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -3187,7 +3188,7 @@ let ingredients = [
         "Herbalism Kit"
       ],
       "Seasons": [
-        "late Summer",
+        "Late Summer",
         "Early Autumn"
       ]
     },
@@ -3257,7 +3258,7 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Butcher’s tools"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -3280,7 +3281,7 @@ let ingredients = [
     "Purchase Price": "5 gp",
     "Harvesting": {
       "Required Kit": [
-        "Container",
+        "Container(s)",
         "Alchemist's Kit"
       ]
     },
@@ -3345,7 +3346,7 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Butcher’s tools"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -3393,7 +3394,7 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Butcher’s tools"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -3466,7 +3467,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "digging tools (like a small shovel or trowel)",
+        "Digging Tools (like a small shovel or trowel)",
         "Herbalism Kit"
       ]
     },
@@ -3536,7 +3537,7 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit",
+        "Herbalism Kit",
         "Apothecary's kit"
       ],
       "Seasons": [
@@ -3563,7 +3564,7 @@ let ingredients = [
     "Purchase Price": "1 gp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ]
     },
     "Cooking": {
@@ -3587,7 +3588,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Spring",
@@ -3611,7 +3612,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Year around"
@@ -3637,15 +3638,10 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Summer"
-      ]
-    },
-    "Cooking": {
-      "Required Kit": [
-        "Not applicable, as this is an herbal preparation (infusion)."
       ]
     }
   },
@@ -3663,10 +3659,10 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
-        "late Summer"
+        "Late Summer"
       ]
     },
     "Cooking": {
@@ -3726,7 +3722,7 @@ let ingredients = [
   },
   {
     "Name": "Evergreen Needles",
-    "Description": "Needles from evergreen trees.",
+    "Description": "Needles from evergreen trees. Can be brewed into a vitamin-rich tea.",
     "Ingredient Type": "Plant-based",
     "Locations": [
       "Arctic",
@@ -3734,21 +3730,13 @@ let ingredients = [
       "Hill",
       "Mountain"
     ],
-    "Effects": [
-      "Can be brewed into a vitamin-rich tea."
-    ],
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Year-round"
-      ]
-    },
-    "Cooking": {
-      "Required Kit": [
-        "Not applicable, as it is brewed as a tea."
       ]
     }
   },
@@ -3766,7 +3754,7 @@ let ingredients = [
     "Purchase Price": "5 gp",
     "Harvesting": {
       "Required Kit": [
-        "Alchemist's Supplies"
+        "Alchemist's Kit"
       ]
     },
     "Cooking": {
@@ -3840,7 +3828,7 @@ let ingredients = [
     "Purchase Price": "20 gp",
     "Harvesting": {
       "Required Kit": [
-        "Alchemist's Supplies",
+        "Alchemist's Kit",
         "Heat-Resistant Gloves",
         "Chisel"
       ]
@@ -3850,7 +3838,7 @@ let ingredients = [
         "Cook's Utensils",
         "Mortar and Pestle",
         "Crucible",
-        "High-Temperature Heat Source"
+        "Magical Heat Source"
       ]
     }
   },
@@ -3920,8 +3908,7 @@ let ingredients = [
       "Method": "Used as a seasoning",
       "Required Kit": [
         "Cook's Utensils",
-        "Mortar and Pestle",
-        "Grinding Stone"
+        "Mortar and Pestle"
       ]
     }
   },
@@ -3985,7 +3972,7 @@ let ingredients = [
         "Herbalism Kit"
       ],
       "Seasons": [
-        "late Summer",
+        "Late Summer",
         "Early Autumn"
       ]
     },
@@ -4035,7 +4022,7 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Knife",
-        "general butchering tools"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -4077,7 +4064,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Spring",
@@ -4098,15 +4085,12 @@ let ingredients = [
     "Locations": [
       "Jungle"
     ],
-    "Effects": [
-      "Rumored to grant immense knowledge or madness."
-    ],
     "Purchase Price": "20 gp",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Magical Ward (e.g., dispelling focus)",
-        "Sealed Container"
+        " (e.g., dispelling focus)",
+        "Container(s)"
       ]
     },
     "Cooking": {
@@ -4129,7 +4113,7 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Thick gloves"
+        "Thick Gloves"
       ],
       "Seasons": [
         "Spring",
@@ -4141,7 +4125,7 @@ let ingredients = [
       "Method": "Needs to be cooked to remove the sting.",
       "Required Kit": [
         "Cook's Utensils",
-        "Large Pot (for boiling)"
+        "Pot, Large"
       ]
     }
   },
@@ -4162,7 +4146,7 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Knife",
-        "general butchering tools"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -4187,7 +4171,7 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Knife",
-        "general butchering tools"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -4209,7 +4193,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Winter"
@@ -4281,7 +4265,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Year around"
@@ -4306,7 +4290,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "containers"
+        "Container(s)"
       ],
       "Seasons": [
         "Year around"
@@ -4329,7 +4313,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Year around"
@@ -4359,7 +4343,7 @@ let ingredients = [
       "Required Kit": [
         "Herbalism Kit",
         "Scoop",
-        "Sealed Containers"
+        "Container(s)"
       ]
     },
     "Cooking": {
@@ -4383,7 +4367,7 @@ let ingredients = [
     "Purchase Price": "1 gp",
     "Harvesting": {
       "Required Kit": [
-        "Alchemist’s Kit"
+        "Alchemist's Kit"
       ]
     }
   },
@@ -4401,8 +4385,8 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit",
-        "Tools for breaking/collecting rocks or minerals",
-        "A container"
+        "Pick",
+        "Container(s)"
       ]
     },
     "Cooking": {
@@ -4426,7 +4410,7 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Mason's Tools (or a sturdy pick/chisel)"
+        "Mason's Tools"
       ]
     },
     "Cooking": {
@@ -4452,14 +4436,14 @@ let ingredients = [
     "Purchase Price": "3 gp",
     "Harvesting": {
       "Required Kit": [
-        "Chisel Kit",
+        "Chisel",
         "Arcane Dissection Kit"
       ]
     },
     "Cooking": {
       "Method": "Requires specific magical preparation to render it into a palatable, gritty substance.",
       "Required Kit": [
-        "Forge-Chef's Kit",
+        "Cook's Utensils",
         "Mortar and Pestle"
       ]
     }
@@ -4471,20 +4455,17 @@ let ingredients = [
     "Locations": [
       "Hill"
     ],
-    "Effects": [
-      "Provides a source of protein."
-    ],
     "Purchase Price": "3 sp",
     "Harvesting": {
       "Required Kit": [
-        "Reinforced butchering tools",
+        "Butcher's Tools",
         "Mason's Tools"
       ]
     },
     "Cooking": {
       "Method": "Requires cooking.",
       "Required Kit": [
-        "Heavy-Duty Cook's Utensils"
+        "Cook's Utensils"
       ]
     }
   },
@@ -4502,7 +4483,7 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Container"
+        "Container(s)"
       ]
     },
     "Cooking": {
@@ -4522,16 +4503,16 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Reinforced Herbalism Kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
-        "early Spring",
+        "Early Spring",
         "mid Spring"
       ]
     },
     "Cooking": {
       "Required Kit": [
-        "Heavy-Duty Cook's Utensils"
+        "Cook's Utensils"
       ]
     }
   },
@@ -4550,7 +4531,7 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Sharp Knife"
+        "Knife"
       ],
       "Seasons": [
         "Summer",
@@ -4587,7 +4568,7 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Containers"
+        "Container(s)"
       ]
     },
     "Cooking": {
@@ -4611,12 +4592,12 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Alchemist's Supplies"
+        "Alchemist's Kit"
       ]
     },
     "Cooking": {
       "Required Kit": [
-        "Alchemist's Supplies"
+        "Alchemist's Kit"
       ]
     }
   },
@@ -4710,15 +4691,14 @@ let ingredients = [
     "Purchase Price": "3 sp",
     "Harvesting": {
       "Required Kit": [
-        "Butcher's Tools (Heavy-Duty)",
-        "Bone Saw",
-        "Large Knife"
+        "Butcher's Tools",
+        "Bone Saw"
       ]
     },
     "Cooking": {
       "Required Kit": [
         "Cook's Utensils",
-        "Large Roasting Spit/Pot"
+        "Pot, Large"
       ]
     }
   },
@@ -4739,8 +4719,7 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
-        "Bone Saw",
-        "Large Knife"
+        "Bone Saw"
       ]
     },
     "Cooking": {
@@ -4762,8 +4741,8 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
-        "Sharp Knife",
-        "Large Bag"
+        "Knife",
+        "Bag, Large"
       ]
     },
     "Cooking": {
@@ -4785,14 +4764,13 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
-        "Large Knife",
         "Bone Saw"
       ]
     },
     "Cooking": {
       "Required Kit": [
         "Cook's Utensils",
-        "Large Roasting Pit/Pot"
+        "Pot, Large"
       ]
     }
   },
@@ -4807,8 +4785,7 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
-        "Bone Saw",
-        "Large Knife"
+        "Bone Saw"
       ]
     },
     "Cooking": {
@@ -4830,14 +4807,13 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
-        "Large Knife",
         "Bone Saw"
       ]
     },
     "Cooking": {
       "Required Kit": [
         "Cook's Utensils",
-        "Large Roasting Pit/Pot"
+        "Pot, Large"
       ]
     }
   },
@@ -4852,15 +4828,13 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
-        "Heavy Cleaver",
-        "Large Knife",
-        "Durable Container"
+        "Container(s)"
       ]
     },
     "Cooking": {
       "Required Kit": [
         "Cook's Utensils",
-        "Large Pot (for boiling/steaming)"
+        "Pot, Large"
       ]
     }
   },
@@ -4878,15 +4852,12 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Butcher's Tools",
-        "Long Knife",
-        "Skinning Knife"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
       "Required Kit": [
-        "Cook's Utensils",
-        "Large Skillet/Grill"
+        "Cook's Utensils"
       ]
     }
   },
@@ -4901,15 +4872,14 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
-        "Heavy Cleaver",
         "Shell Cracker",
-        "Large Container"
+        "Container(s)"
       ]
     },
     "Cooking": {
       "Required Kit": [
         "Cook's Utensils",
-        "Large Pot (for boiling/steaming)"
+        "Pot, Large"
       ]
     }
   },
@@ -4924,15 +4894,14 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
-        "Heavy Cleaver",
         "Shell Cracker",
-        "Large Container"
+        "Container(s)"
       ]
     },
     "Cooking": {
       "Required Kit": [
         "Cook's Utensils",
-        "Large Pot (for boiling/steaming)"
+        "Pot, Large"
       ]
     }
   },
@@ -4949,7 +4918,7 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
-        "Sharp Knife",
+        "Knife",
         "Feather Plucker"
       ]
     },
@@ -4971,15 +4940,13 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
-        "Sharp Knife",
-        "Skinning Knife"
       ]
     },
     "Cooking": {
       "Method": "Must be cooked properly.",
       "Required Kit": [
         "Cook's Utensils",
-        "Grilling Rack/Smoking Kit"
+        "Grilling Rack", "Smoking Kit"
       ]
     }
   },
@@ -4996,8 +4963,8 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
-        "Sharp Knife",
-        "Large Bag"
+        "Knife",
+        "Bag, Large"
       ]
     },
     "Cooking": {
@@ -5017,15 +4984,12 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Butcher's Tools",
-        "Skinning Knife",
-        "Large Knife"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
       "Required Kit": [
-        "Cook's Utensils",
-        "Grilling Rack/Roasting Pan"
+        "Cook's Utensils"
       ]
     }
   },
@@ -5040,15 +5004,13 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
-        "Large Knife",
-        "Cleaver",
-        "Large Container"
+        "Container(s)"
       ]
     },
     "Cooking": {
       "Required Kit": [
         "Cook's Utensils",
-        "Large Pot (for boiling/braising)"
+        "Pot, Large"
       ]
     }
   },
@@ -5063,7 +5025,7 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
-        "Sharp Knife",
+        "Knife",
         "Feather Plucker"
       ]
     },
@@ -5085,14 +5047,13 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
-        "Fillet Knife",
-        "Large Container"
+        "Container(s)"
       ]
     },
     "Cooking": {
       "Required Kit": [
         "Cook's Utensils",
-        "Frying Pan/Grill"
+        "Frying Pan"
       ]
     }
   },
@@ -5108,14 +5069,13 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
-        "Small Knife",
-        "Large Bag"
+        "Bag, Large"
       ]
     },
     "Cooking": {
       "Required Kit": [
         "Cook's Utensils",
-        "Roasting Pan/Stew Pot"
+        "Roasting Pan"
       ]
     }
   },
@@ -5130,16 +5090,15 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
-        "Heavy Cleaver",
         "Shell Cracker",
-        "Durable Container"
+        "Container(s)"
       ]
     },
     "Cooking": {
       "Method": "Edible after careful preparation.",
       "Required Kit": [
         "Cook's Utensils",
-        "Large Pot (for boiling/steaming)"
+        "Pot, Large"
       ]
     }
   },
@@ -5154,16 +5113,15 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
-        "Heavy Cleaver",
         "Shell Cracker",
-        "Durable Container"
+        "Container(s)"
       ]
     },
     "Cooking": {
       "Method": "Edible after removing venom glands.",
       "Required Kit": [
         "Cook's Utensils",
-        "Large Pot (for boiling/steaming)"
+        "Pot, Large"
       ]
     }
   },
@@ -5177,15 +5135,14 @@ let ingredients = [
     "Purchase Price": "3 gp",
     "Harvesting": {
       "Required Kit": [
-        "Butcher's Tools (Heavy-Duty)",
+        "Butcher's Tools",
         "Bone Saw",
-        "Large Knife"
       ]
     },
     "Cooking": {
       "Required Kit": [
         "Cook's Utensils",
-        "Large Roasting Pit/Pot"
+        "Pot, Large"
       ]
     }
   },
@@ -5199,15 +5156,13 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Butcher's Tools",
-        "Long Knife",
-        "Skinning Knife"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
       "Required Kit": [
         "Cook's Utensils",
-        "Grilling Rack/Smoking Kit"
+        "Grilling Rack", "Smoking Kit"
       ]
     }
   },
@@ -5222,15 +5177,15 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
-        "Small Knife",
-        "Large Bag",
+
+        "Bag, Large",
         "Disinfectant"
       ]
     },
     "Cooking": {
       "Required Kit": [
         "Cook's Utensils",
-        "Large Pot (for boiling/stewing)",
+        "Pot, Large",
         "Purifying Agents"
       ]
     }
@@ -5246,15 +5201,13 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
-        "Heavy Cleaver",
-        "Fillet Knife",
-        "Large Container"
+        "Container(s)"
       ]
     },
     "Cooking": {
       "Required Kit": [
         "Cook's Utensils",
-        "Grilling Rack/Smoking Kit"
+        "Grilling Rack", "Smoking Kit"
       ]
     }
   },
@@ -5269,15 +5222,14 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
-        "Heavy Cleaver",
-        "Durable Container"
+        "Container(s)"
       ]
     },
     "Cooking": {
       "Method": "Must be cooked.",
       "Required Kit": [
         "Cook's Utensils",
-        "Large Pot (for boiling/steaming)"
+        "Pot, Large"
       ]
     }
   },
@@ -5296,16 +5248,14 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
-        "Heavy Cleaver",
-        "Durable Container",
-        "Darkvision Goggles"
+        "Container(s)",
       ]
     },
     "Cooking": {
       "Method": "Must be cooked.",
       "Required Kit": [
         "Cook's Utensils",
-        "Large Pot (for boiling/steaming)"
+        "Pot, Large"
       ]
     }
   },
@@ -5320,16 +5270,15 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
-        "Hammer-like tool",
         "Scoop",
-        "Large Container"
+        "Container(s)"
       ]
     },
     "Cooking": {
       "Method": "Edible after extensive pounding and boiling.",
       "Required Kit": [
         "Cook's Utensils",
-        "Large Pot (for boiling/pounding)"
+        "Pot, Large"
       ]
     }
   },
@@ -5345,14 +5294,14 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
-        "Sharp Knife",
+        "Knife",
         "Feather Plucker"
       ]
     },
     "Cooking": {
       "Required Kit": [
         "Cook's Utensils",
-        "Long-Boiling Pot"
+        "Pot"
       ]
     }
   },
@@ -5370,15 +5319,13 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
-        "Heavy Cleaver",
-        "Large Knife",
-        "Durable Container"
+        "Container(s)"
       ]
     },
     "Cooking": {
       "Required Kit": [
         "Cook's Utensils",
-        "Large Pot (for boiling/braising)"
+        "Pot, Large"
       ]
     }
   },
@@ -5393,8 +5340,7 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Axe/Machete",
-        "Large Bag/Cart"
+        "Bag, Large"
       ],
       "Seasons": [
         "Summer",
@@ -5403,8 +5349,8 @@ let ingredients = [
     },
     "Cooking": {
       "Required Kit": [
-        "Cook's Utensils (Heavy-Duty)",
-        "Large Pot/Cauldron"
+        "Cook's Utensils",
+        "Pot, Large"
       ]
     },
     "Notes": "Requires significant effort to harvest and prepare."
@@ -5420,7 +5366,7 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Small Trowel",
+        "Trowel",
         "Brush"
       ],
       "Seasons": [
@@ -5430,7 +5376,7 @@ let ingredients = [
     "Cooking": {
       "Required Kit": [
         "Cook's Utensils",
-        "Grater"
+        "Mortar and Pestle"
       ]
     }
   },
@@ -5470,9 +5416,9 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Alchemist's Supplies",
-        "Insulated Containers",
-        "Scoop/Ladle"
+        "Alchemist's Kit",
+        "Container(s)",
+        "Scoop"
       ]
     },
     "Cooking": {
@@ -5494,7 +5440,7 @@ let ingredients = [
       "Required Kit": [
         "Herbalism Kit",
         "Knife",
-        "Insulated Bag"
+        "Bag"
       ],
       "Seasons": [
         "Winter"
@@ -5522,11 +5468,11 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Small Shears",
+        "Shears",
         "Basket"
       ],
       "Seasons": [
-        "late Summer"
+        "Late Summer"
       ]
     },
     "Cooking": {
@@ -5550,7 +5496,7 @@ let ingredients = [
       "Required Kit": [
         "Herbalism Kit",
         "Fine Net",
-        "Sealed Transparent Container"
+        "Container(s)"
       ]
     },
     "Cooking": {
@@ -5574,9 +5520,9 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Fine Knife",
-        "Sealed Container",
-        "Mask/Respirator"
+        "Knife",
+        "Container(s)",
+        "Mask"
       ]
     },
     "Cooking": {
@@ -5601,14 +5547,14 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Alchemist's Supplies",
+        "Alchemist's Kit",
         "Chisel",
-        "Padded Container"
+        "Container(s)"
       ]
     },
     "Cooking": {
       "Required Kit": [
-        "Alchemist's Supplies",
+        "Alchemist's Kit",
         "Mortar and Pestle",
         "Non-Reactive Cookware"
       ]
@@ -5628,8 +5574,8 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Fine Knife",
-        "Breathable Basket"
+        "Knife",
+        "Basket"
       ],
       "Seasons": [
         "Autumn"
@@ -5655,8 +5601,8 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Fine Knife",
-        "Breathable Basket"
+        "Knife",
+        "Basket"
       ],
       "Seasons": [
         "Autumn"
@@ -5683,13 +5629,13 @@ let ingredients = [
       "Required Kit": [
         "Butcher's Tools",
         "Knife",
-        "Large Bag"
+        "Bag, Large"
       ]
     },
     "Cooking": {
       "Required Kit": [
         "Cook's Utensils",
-        "Long-Boiling Pot"
+        "Pot"
       ]
     }
   },
@@ -5706,10 +5652,10 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Alchemist's Supplies",
-        "Small Scoop",
-        "Fine Sieve",
-        "Sealed Container"
+        "Alchemist's Kit",
+        "Scoop",
+        "Bag",
+        "Container(s)"
       ]
     },
     "Cooking": {
@@ -5737,7 +5683,7 @@ let ingredients = [
       "Required Kit": [
         "Butcher's Tools",
         "Knife",
-        "Large Bag"
+        "Bag, Large"
       ],
       "Seasons": [
         "Year around"
@@ -5746,7 +5692,7 @@ let ingredients = [
     "Cooking": {
       "Required Kit": [
         "Cook's Utensils",
-        "Roasting Pan/Stew Pot"
+        "Roasting Pan"
       ]
     }
   },
@@ -5767,7 +5713,7 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Trowel/Knife",
+        "Trowel",
         "Basket"
       ],
       "Seasons": [
@@ -5795,8 +5741,9 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Small Knife",
-        "Basket/Bag"
+        "Knife",
+        "Basket",
+        "Bag"
       ],
       "Seasons": [
         "Autumn"
@@ -5825,13 +5772,13 @@ let ingredients = [
       "Required Kit": [
         "Butcher's Tools",
         "Knife",
-        "Large Bag"
+        "Bag, Large"
       ]
     },
     "Cooking": {
       "Required Kit": [
         "Cook's Utensils",
-        "Long-Boiling Pot"
+        "Pot"
       ]
     }
   },
@@ -5849,11 +5796,12 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Basket/Bag",
-        "Poisoner's Kit (for identification)"
+        "Basket",
+        "Bag",
+        "Poisoner's Kit"
       ],
     "Seasons": [
-        "late Summer"
+        "Late Summer"
       ]
     },
     "Cooking": {
@@ -5878,13 +5826,13 @@ let ingredients = [
       "Required Kit": [
         "Butcher's Tools",
         "Knife",
-        "Insulated Bag"
+        "Bag"
       ]
     },
     "Cooking": {
       "Required Kit": [
         "Cook's Utensils",
-        "Long-Boiling Pot"
+        "Pot"
       ]
     }
   },
@@ -5903,17 +5851,17 @@ let ingredients = [
     "Purchase Price": "50 gp",
     "Harvesting": {
       "Required Kit": [
-        "Butcher's Tools (Masterwork)",
+        "Butcher's Tools (Enchanted)",
         "Arcane Focus",
         "Preservation Salts",
-        "Large Insulated Containers"
+        "Large Container(s)"
       ]
     },
     "Cooking": {
       "Method": "Can be cooked, boiled, fried, or dried.",
       "Required Kit": [
-        "Cook's Utensils (Masterwork)",
-        "Alchemist's Supplies",
+        "Cook's Utensils (Enchanted)",
+        "Alchemist's Kit",
         "Magical Heat Source"
       ]
     },
@@ -5937,10 +5885,10 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Alchemist's Supplies",
+        "Alchemist's Kit",
         "Mason's Tools",
         "Mortar and Pestle",
-        "Sealed Container"
+        "Container(s)"
       ]
     },
     "Cooking": {
@@ -5968,16 +5916,15 @@ let ingredients = [
     "Purchase Price": "3 gp",
     "Harvesting": {
       "Required Kit": [
-        "Butcher's Tools (Heavy-Duty)",
+        "Butcher's Tools",
         "Bone Saw",
-        "Large Knife"
       ]
     },
     "Cooking": {
       "Method": "Requires extensive cooking to be palatable.",
       "Required Kit": [
         "Cook's Utensils",
-        "Large Pressure Cooker/Long-Boiling Pot"
+        "Pot, Large"
       ]
     }
   },
@@ -5995,7 +5942,7 @@ let ingredients = [
     "Purchase Price": "50 gp",
     "Harvesting": {
       "Required Kit": [
-        "butchering tools"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -6024,16 +5971,16 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Alchemist's Supplies",
-        "Sealed Containers (acid-resistant)",
-        "Scoop/Ladle"
+        "Alchemist's Kit",
+        "Container(s)",
+        "Scoop"
       ]
     },
     "Cooking": {
       "Method": "It can be eaten raw or used as a soup base.",
       "Required Kit": [
         "Cook's Utensils",
-        "Large Non-Reactive Pot",
+        "Pot, Large",
         "Fine Strainer"
       ]
     },
@@ -6054,17 +6001,17 @@ let ingredients = [
     "Purchase Price": "3 gp",
     "Harvesting": {
       "Required Kit": [
-        "Butcher's Tools (Masterwork)",
+        "Butcher's Tools (Enchanted)",
         "Arcane Focus",
         "Preservation Salts",
-        "Large Insulated Containers"
+        "Large Container(s)"
       ]
     },
     "Cooking": {
       "Method": "It can be cooked, boiled, fried, or dried.",
       "Required Kit": [
-        "Cook's Utensils (Masterwork)",
-        "Alchemist's Supplies",
+        "Cook's Utensils (Enchanted)",
+        "Alchemist's Kit",
         "Magical Heat Source"
       ]
     }
@@ -6084,15 +6031,15 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
-        "Alchemist's Supplies",
+        "Alchemist's Kit",
         "Ritual Components",
-        "Sealed Containers"
+        "Container(s)"
       ]
     },
     "Cooking": {
       "Required Kit": [
         "Cook's Utensils",
-        "Cauldron",
+        "Pot, Large",
         "Distillation Apparatus"
       ]
     }
@@ -6113,7 +6060,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Containers"
+        "Container(s)"
       ]
     },
     "Cooking": {
@@ -6137,7 +6084,7 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "knife",
-        "general butchering tools"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -6188,7 +6135,7 @@ let ingredients = [
       "Required Kit": [
         "Herbalism Kit",
         "Fine Clippers",
-        "Breathable Basket"
+        "Basket"
       ],
       "Seasons": [
         "Spring"
@@ -6217,7 +6164,8 @@ let ingredients = [
     "Purchase Price": "3 gp",
     "Harvesting": {
       "Required Kit": [
-        "butchering tools"
+        "Butcher's Tools",
+        "Feather Plucker"
       ]
     },
     "Cooking": {
@@ -6241,7 +6189,7 @@ let ingredients = [
     "Purchase Price": "3 sp",
     "Harvesting": {
       "Required Kit": [
-        "container"
+        "Container(s)"
       ],
       "Seasons": [
         "Spring"
@@ -6263,18 +6211,18 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Basket (padded)",
+        "Basket",
         "Durable Gloves"
       ],
       "Seasons": [
-        "late Autumn"
+        "Late Autumn"
       ]
     },
     "Cooking": {
       "Method": "It can be eaten directly as a berry.",
       "Required Kit": [
         "Cook's Utensils",
-        "Large Pot/Pan"
+        "Pot, Large/Pan"
       ]
     }
   },
@@ -6292,7 +6240,7 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Autumn"
@@ -6319,7 +6267,7 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "knife",
-        "butchering tools"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -6343,7 +6291,7 @@ let ingredients = [
     "Purchase Price": "3 sp",
     "Harvesting": {
       "Required Kit": [
-        "butchering tools"
+        "Butcher's Tools"
       ],
       "Seasons": [
         "Autumn"
@@ -6367,10 +6315,11 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Basket/Bag"
+        "Basket",
+        "Bag"
       ],
       "Seasons": [
-        "late Summer"
+        "Late Summer"
       ]
     },
     "Cooking": {
@@ -6395,7 +6344,7 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "knife",
-        "general butchering tools"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -6419,7 +6368,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit",
+        "Herbalism Kit",
         "knife"
       ],
       "Seasons": [
@@ -6445,7 +6394,7 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Summer"
@@ -6468,7 +6417,7 @@ let ingredients = [
     "Purchase Price": "3 sp",
     "Harvesting": {
       "Required Kit": [
-        "Butchering tools",
+        "Butcher's Tools",
         "Knife",
         "Cook's Utensils"
       ]
@@ -6493,7 +6442,7 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ]
     },
     "Cooking": {
@@ -6512,7 +6461,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Container"
+        "Container(s)"
       ],
       "Seasons": [
         "Year around"
@@ -6534,7 +6483,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "mid Summer"
@@ -6577,7 +6526,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Autumn"
@@ -6601,7 +6550,7 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Knife",
-        "general butchering tools"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -6622,7 +6571,7 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Knife",
-        "general butchering tools"
+        "Butcher's Tools"
       ],
       "Seasons": [
         "Year around"
@@ -6648,7 +6597,7 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Knife",
-        "general butchering tools"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -6698,7 +6647,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Tools for collecting clay"
+        "Trowel"
       ],
       "Seasons": [
         "Year around"
@@ -6721,7 +6670,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Autumn"
@@ -6744,7 +6693,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit",
+        "Herbalism Kit",
         "Knife"
       ],
       "Seasons": [
@@ -6858,8 +6807,8 @@ let ingredients = [
     "Purchase Price": "15 gp",
     "Harvesting": {
       "Required Kit": [
-        "Butchering tools",
-        "containers"
+        "Butcher's Tools",
+        "Container(s)"
       ]
     },
     "Cooking": {
@@ -6914,7 +6863,7 @@ let ingredients = [
     "Purchase Price": "15 gp",
     "Harvesting": {
       "Required Kit": [
-        "General butchering tools"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -6944,7 +6893,7 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Tools for grinding or collecting"
+        "Mortar and Pestle",
       ]
     },
     "Cooking": {
@@ -6967,7 +6916,7 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Year around"
@@ -6987,7 +6936,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit",
+        "Herbalism Kit",
         "knife"
       ],
       "Seasons": [
@@ -7013,8 +6962,8 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit",
-        "digging tools"
+        "Herbalism Kit",
+        "Digging Tools"
       ],
       "Seasons": [
         "Autumn"
@@ -7036,7 +6985,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit",
+        "Herbalism Kit",
         "knife"
       ],
       "Seasons": [
@@ -7062,7 +7011,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit",
+        "Herbalism Kit",
         "knife"
       ],
       "Seasons": [
@@ -7086,7 +7035,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Year around"
@@ -7160,7 +7109,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Autumn"
@@ -7253,8 +7202,9 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Small Knife",
-        "Basket/Bag"
+        "Knife",
+        "Basket",
+        "Bag"
       ],
       "Seasons": [
         "Summer"
@@ -7280,8 +7230,8 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Small Scraper",
-        "Sealed Container"
+        "Scraper",
+        "Container(s)"
       ],
       "Seasons": [
         "Autumn"
@@ -7306,10 +7256,11 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Basket/Bag"
+        "Basket",
+        "Bag"
       ],
       "Seasons": [
-        "late Summer"
+        "Late Summer"
       ]
     },
     "Cooking": {
@@ -7332,7 +7283,7 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Spring"
@@ -7356,7 +7307,7 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Spring"
@@ -7423,15 +7374,15 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Fishing Net/Trap",
+        "Fishing Net",
         "Knife",
-        "container"
+        "Container(s)"
       ]
     },
     "Cooking": {
       "Required Kit": [
         "Cook's Utensils",
-        "Steaming Pot/Grill"
+        "Pot"
       ]
     }
   },
@@ -7491,7 +7442,7 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Year around"
@@ -7540,7 +7491,7 @@ let ingredients = [
     "Purchase Price": "1 gp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Summer"
@@ -7560,7 +7511,7 @@ let ingredients = [
     "Purchase Price": "3 sp",
     "Harvesting": {
       "Required Kit": [
-        "Bone saw"
+        "Bone Saw"
       ]
     },
     "Cooking": {
@@ -7584,7 +7535,7 @@ let ingredients = [
     "Purchase Price": "3 sp",
     "Harvesting": {
       "Required Kit": [
-        "Butchering tools"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -7604,9 +7555,8 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism Kit (Reinforced)",
-        "Axe/Machete",
-        "Large Cart/Sled"
+        "Herbalism Kit",
+        "Container(s)"
       ],
       "Seasons": [
         "Autumn"
@@ -7614,8 +7564,8 @@ let ingredients = [
     },
     "Cooking": {
       "Required Kit": [
-        "Cook's Utensils (Heavy-Duty)",
-        "Large Pot/Cauldron"
+        "Cook's Utensils",
+        "Pot, Large"
       ]
     }
   },
@@ -7654,7 +7604,8 @@ let ingredients = [
       "Required Kit": [
         "Herbalism Kit",
         "Knife",
-        "Basket/Bag"
+        "Basket",
+        "Bag"
       ],
       "Seasons": [
         "Summer"
@@ -7711,7 +7662,7 @@ let ingredients = [
     "Purchase Price": "3 sp",
     "Harvesting": {
       "Required Kit": [
-        "Butchering tools"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -7737,7 +7688,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Spring"
@@ -7757,13 +7708,13 @@ let ingredients = [
       "Required Kit": [
         "Butcher's Tools",
         "Knife",
-        "Container"
+        "Container(s)"
       ]
     },
     "Cooking": {
       "Required Kit": [
         "Cook's Utensils",
-        "Grilling Rack/Smoking Kit"
+        "Grilling Rack", "Smoking Kit"
       ]
     }
   },
@@ -7778,7 +7729,8 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Pry Bar/Chisel",
+        "Pry Bar",
+        "Chisel",
         "Waterproof Bag"
       ]
     },
@@ -7802,9 +7754,9 @@ let ingredients = [
     "Purchase Price": "5 gp",
     "Harvesting": {
       "Required Kit": [
-        "Alchemist's Supplies",
+        "Alchemist's Kit",
         "Chisel",
-        "Sealed Container",
+        "Container(s)",
         "Underwater Breathing Apparatus"
       ]
     },
@@ -7813,7 +7765,7 @@ let ingredients = [
     },
     "Cooking": {
       "Required Kit": [
-        "Alchemist's Supplies",
+        "Alchemist's Kit",
         "Mortar and Pestle",
         "Non-Reactive Cookware"
       ]
@@ -7831,13 +7783,13 @@ let ingredients = [
       "Required Kit": [
         "Butcher's Tools",
         "Knife",
-        "Container"
+        "Container(s)"
       ]
     },
     "Cooking": {
       "Required Kit": [
         "Cook's Utensils",
-        "Long-Boiling Pot"
+        "Pot"
       ]
     }
   },
@@ -7852,7 +7804,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "A mill or mortar and pestle"
+        "mortar and pestle"
       ],
       "Seasons": [
         "Summer"
@@ -7881,9 +7833,9 @@ let ingredients = [
     "Purchase Price": "50 gp",
     "Harvesting": {
       "Required Kit": [
-        "Alchemist's Supplies",
-        "Heavy Cleaver/Chisel",
-        "Sealed Container"
+        "Alchemist's Kit",
+        "Chisel",
+        "Container(s)"
       ]
     },
     "Preparation": {
@@ -7891,7 +7843,7 @@ let ingredients = [
     },
     "Cooking": {
       "Required Kit": [
-        "Alchemist's Supplies",
+        "Alchemist's Kit",
         "Mortar and Pestle",
         "Non-Reactive Cookware"
       ]
@@ -7911,8 +7863,8 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Small Scraper",
-        "Sealed Container"
+        "Scraper",
+        "Container(s)"
       ],
       "Seasons": [
         "Autumn"
@@ -7942,15 +7894,14 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
-        "Heavy Cleaver",
-        "Durable Container"
+        "Container(s)"
       ]
     },
     "Cooking": {
       "Method": "Must be thoroughly cooked.",
       "Required Kit": [
         "Cook's Utensils",
-        "Large Pot (for thorough cooking)"
+        "Pot, Large"
       ]
     },
     "Notes": "A large mimic served with butter is a true feast. Mimics are crustacean-like and revert to their true forms if killed."
@@ -7977,9 +7928,9 @@ let ingredients = [
     "Purchase Price": "15 gp",
     "Harvesting": {
       "Required Kit": [
-        "Alchemist's Supplies",
-        "Fine Scalpel",
-        "Preservation Vials",
+        "Alchemist's Kit",
+        "Knife",
+        "Vials",
         "Psychic Dampeners"
       ]
     },
@@ -7990,7 +7941,7 @@ let ingredients = [
       "Required Kit": [
         "Cook's Utensils",
         "Non-Reactive Cookware",
-        "Alchemist's Supplies"
+        "Alchemist's Kit"
       ]
     },
     "Notes": "Mind flayer tentacles are an acquired taste, but some people consider them a delicacy."
@@ -8007,7 +7958,8 @@ let ingredients = [
       "Required Kit": [
         "Herbalism Kit",
         "Scraper",
-        "Basket/Bag"
+        "Basket",
+        "Bag"
       ],
       "Seasons": [
         "Year around"
@@ -8031,7 +7983,7 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Small Trowel",
+        "Trowel",
         "Waterproof Bag"
       ],
       "Seasons": [
@@ -8054,15 +8006,15 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Pry Tool (for shells)",
+        "Pry Bar",
         "Knife",
-        "Container"
+        "Container(s)"
       ]
     },
     "Cooking": {
       "Required Kit": [
         "Cook's Utensils",
-        "Steaming Pot/Grill"
+        "Pot"
       ]
     }
   },
@@ -8083,8 +8035,8 @@ let ingredients = [
     "Purchase Price": "20 gp",
     "Harvesting": {
       "Required Kit": [
-        "Alchemist's Supplies",
-        "Sealed Glass Bottles",
+        "Alchemist's Kit",
+        "Container(s)",
         "Ethereal Net/Scoop"
       ]
     },
@@ -8113,7 +8065,8 @@ let ingredients = [
       "Required Kit": [
         "Herbalism Kit",
         "Scraper",
-        "Basket/Bag"
+        "Basket",
+        "Bag"
       ],
       "Seasons": [
         "Year around"
@@ -8136,8 +8089,9 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Small Knife",
-        "Basket/Bag"
+        "Knife",
+        "Basket",
+        "Bag"
       ],
       "Seasons": [
         "Year around"
@@ -8160,10 +8114,11 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Basket/Bag"
+        "Basket",
+        "Bag"
       ],
       "Seasons": [
-        "late Summer"
+        "Late Summer"
       ]
     },
     "Cooking": {
@@ -8184,7 +8139,7 @@ let ingredients = [
       "Required Kit": [
         "Butcher's Tools",
         "Knife",
-        "Large Bag"
+        "Bag, Large"
       ],
       "Seasons": [
         "Autumn"
@@ -8193,7 +8148,7 @@ let ingredients = [
     "Cooking": {
       "Required Kit": [
         "Cook's Utensils",
-        "Long-Boiling Pot"
+        "Pot"
       ]
     }
   },
@@ -8209,7 +8164,8 @@ let ingredients = [
       "Required Kit": [
         "Herbalism Kit",
         "Shears",
-        "Basket/Bag"
+        "Basket",
+        "Bag"
       ],
       "Seasons": [
         "mid Summer"
@@ -8232,7 +8188,7 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Shovel/Trowel",
+        "Trowel",
         "Waterproof Bag"
       ],
       "Seasons": [
@@ -8258,7 +8214,7 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Fine Net/Sieve",
+        "Fine Net",
         "Waterproof Bag"
       ],
       "Seasons": [
@@ -8286,7 +8242,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Autumn",
@@ -8308,7 +8264,8 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Basket/Bag"
+        "Basket",
+        "Bag"
       ],
       "Seasons": [
         "Early Summer"
@@ -8338,9 +8295,9 @@ let ingredients = [
     "Purchase Price": "50 gp",
     "Harvesting": {
       "Required Kit": [
-        "Alchemist's Supplies",
+        "Alchemist's Kit",
         "Fine Brush",
-        "Sealed Containers",
+        "Container(s)",
         "Ritual Components"
       ]
     },
@@ -8349,7 +8306,7 @@ let ingredients = [
     },
     "Cooking": {
       "Required Kit": [
-        "Alchemist's Supplies",
+        "Alchemist's Kit",
         "Mortar and Pestle",
         "Non-Reactive Cookware"
       ]
@@ -8371,8 +8328,8 @@ let ingredients = [
       "Required Kit": [
         "Herbalism Kit",
         "Thick Gloves",
-        "Sealed Containers",
-        "Poisoner's Kit (for identification)"
+        "Container(s)",
+        "Poisoner's Kit"
       ],
       "Seasons": [
         "Summer"
@@ -8396,14 +8353,13 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
-        "Large Knife",
         "Bone Saw"
       ]
     },
     "Cooking": {
       "Required Kit": [
         "Cook's Utensils",
-        "Long-Boiling Pot",
+        "Pot",
         "Purifying Agents"
       ]
     }
@@ -8421,7 +8377,8 @@ let ingredients = [
         "Herbalism Kit",
         "Thick Gloves",
         "Tongs",
-        "Basket/Bag"
+        "Basket",
+        "Bag"
       ],
       "Seasons": [
         "Summer"
@@ -8448,7 +8405,7 @@ let ingredients = [
       "Required Kit": [
         "Herbalism Kit",
         "Fine Brush",
-        "Sealed Spore Bag",
+        "Container(s)",
         "Mask/Respirator"
       ],
       "Seasons": [
@@ -8479,7 +8436,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit",
+        "Herbalism Kit",
         "Wisdom (Survival) check"
       ],
       "Seasons": [
@@ -8509,7 +8466,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit",
+        "Herbalism Kit",
         "Wisdom (Survival) check"
       ],
       "Seasons": [
@@ -8537,7 +8494,7 @@ let ingredients = [
     "Purchase Price": "50 gp",
     "Harvesting": {
       "Required Kit": [
-        "Butchering tools"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -8559,7 +8516,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Year around"
@@ -8573,7 +8530,7 @@ let ingredients = [
   },
   {
     "Name": "Oat grass",
-    "Description": "Grass from the oat crop picked in the late summer or early autumn.",
+    "Description": "Grass from the oat crop picked in the Late Summer or early autumn.",
     "Ingredient Type": "Plant-based",
     "Locations": [
       "Grassland"
@@ -8585,7 +8542,7 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Late Summer",
@@ -8603,7 +8560,7 @@ let ingredients = [
     "Purchase Price": "1 gp",
     "Harvesting": {
       "Required Kit": [
-        "Tools for breaking/collecting rock"
+        "Pick"
       ]
     },
     "Preparation": {
@@ -8612,7 +8569,7 @@ let ingredients = [
     "Cooking": {
       "Required Kit": [
         "Cook's Utensils",
-        "Mortar and pestle or similar grinding tools"
+        "Mortar and Pestle"
       ]
     }
   },
@@ -8628,7 +8585,7 @@ let ingredients = [
       "Required Kit": [
         "Fishing Net",
         "Knife",
-        "Container"
+        "Container(s)"
       ],
       "Seasons": [
         "Year around"
@@ -8654,7 +8611,7 @@ let ingredients = [
         "Waterproof Bag"
       ],
       "Seasons": [
-        "late Summer"
+        "Late Summer"
       ]
     },
     "Cooking": {
@@ -8682,7 +8639,7 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "containers"
+        "Container(s)"
       ]
     },
     "Cooking": {
@@ -8709,7 +8666,7 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Butchering tools"
+        "Butcher's Tools"
       ],
       "Seasons": [
         "Year around"
@@ -8731,7 +8688,7 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Digging tools"
+        "Digging Tools"
       ],
       "Seasons": [
         "Spring"
@@ -8759,7 +8716,7 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Butchering tools"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -8783,7 +8740,7 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Containers"
+        "Container(s)"
       ]
     },
     "Cooking": {
@@ -8804,8 +8761,9 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Small Knife",
-        "Basket/Bag"
+        "Knife",
+        "Basket",
+        "Bag"
       ],
       "Seasons": [
         "Summer"
@@ -8837,7 +8795,7 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Butchering tools"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -8856,7 +8814,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Containers"
+        "Container(s)"
       ],
       "Seasons": [
         "Summer"
@@ -8883,7 +8841,7 @@ let ingredients = [
     "Purchase Price": "3 sp",
     "Harvesting": {
       "Required Kit": [
-        "Butchering tools"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -8916,7 +8874,7 @@ let ingredients = [
     "Purchase Price": "3 sp",
     "Harvesting": {
       "Required Kit": [
-        "Butchering tools"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -8936,7 +8894,7 @@ let ingredients = [
     "Purchase Price": "3 sp",
     "Harvesting": {
       "Required Kit": [
-        "Knife or general butchering tools"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -8957,7 +8915,8 @@ let ingredients = [
       "Required Kit": [
         "Herbalism Kit",
         "Knife",
-        "Basket/Bag"
+        "Basket",
+        "Bag"
       ],
       "Seasons": [
         "Summer",
@@ -8982,7 +8941,8 @@ let ingredients = [
       "Required Kit": [
         "Herbalism Kit",
         "Knife",
-        "Basket/Bag"
+        "Basket",
+        "Bag"
       ],
       "Seasons": [
         "Autumn"
@@ -9005,8 +8965,9 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Trowel/Digging Stick",
-        "Basket/Bag"
+        "Trowel",
+        "Basket",
+        "Bag"
       ],
       "Seasons": [
         "Autumn"
@@ -9028,15 +8989,15 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Pry Tool",
+        "Pry Bar",
         "Knife",
-        "Container"
+        "Container(s)"
       ]
     },
     "Cooking": {
       "Required Kit": [
         "Cook's Utensils",
-        "Steaming Pot/Grill"
+        "Pot"
       ]
     }
   },
@@ -9055,7 +9016,7 @@ let ingredients = [
       "Required Kit": [
         "Herbalism Kit",
         "Fine Net",
-        "Sealed Container"
+        "Container(s)"
       ],
       "Seasons": [
         "Summer"
@@ -9064,7 +9025,7 @@ let ingredients = [
     "Cooking": {
       "Required Kit": [
         "Cook's Utensils",
-        "Small Pot (for infusions)"
+        "Pot"
       ]
     }
   },
@@ -9085,7 +9046,7 @@ let ingredients = [
     "Purchase Price": "5 gp",
     "Harvesting": {
       "Required Kit": [
-        "Alchemist's Ki"
+        "Alchemist's Kit"
       ]
     },
     "Preparation": {
@@ -9110,7 +9071,7 @@ let ingredients = [
     "Purchase Price": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Winter"
@@ -9138,7 +9099,7 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Knife",
-        "general butchering tools"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -9157,7 +9118,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Summer"
@@ -9180,7 +9141,7 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Knife",
-        "general butchering tools"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -9201,7 +9162,8 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Basket/Bag"
+        "Basket",
+        "Bag"
       ],
       "Seasons": [
         "Summer"
@@ -9249,7 +9211,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Year-round"
@@ -9271,7 +9233,7 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Knife",
-        "general butchering tools"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -9290,7 +9252,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Summer"
@@ -9344,7 +9306,7 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Summer"
@@ -9372,7 +9334,7 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Poisoner's Kit",
-        "Fine Scalpel",
+        "Knife",
         "Sealed Vials",
         "Thick Gloves"
       ]
@@ -9382,7 +9344,7 @@ let ingredients = [
     },
     "Cooking": {
       "Required Kit": [
-        "Alchemist's Supplies",
+        "Alchemist's Kit",
         "Distillation Apparatus",
         "Non-Reactive Cookware"
       ]
@@ -9404,8 +9366,8 @@ let ingredients = [
       "Required Kit": [
         "Poisoner's Kit",
         "Herbalism Kit",
-        "Fine Knife",
-        "Sealed Container",
+        "Knife",
+        "Container(s)",
         "Mask/Respirator"
       ],
       "Seasons": [
@@ -9417,7 +9379,7 @@ let ingredients = [
     },
     "Cooking": {
       "Required Kit": [
-        "Alchemist's Supplies",
+        "Alchemist's Kit",
         "Distillation Apparatus",
         "Non-Reactive Cookware"
       ]
@@ -9440,7 +9402,7 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Knife",
-        "general butchering tools"
+        "Butcher's Tools"
       ]
     },
     "Preparation": {
@@ -9468,7 +9430,7 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Knife",
-        "general butchering tools"
+        "Butcher's Tools"
       ]
     },
     "Preparation": {
@@ -9497,7 +9459,7 @@ let ingredients = [
       "Required Kit": [
         "Herbalism Kit",
         "Scoop",
-        "Sealed Container"
+        "Container(s)"
       ],
       "Seasons": [
         "mid Summer"
@@ -9522,10 +9484,10 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
-        "late Summer"
+        "Late Summer"
       ]
     },
     "Cooking": {
@@ -9545,8 +9507,9 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Trowel/Digging Stick",
-        "Basket/Bag"
+        "Trowel",
+        "Basket",
+        "Bag"
       ],
       "Seasons": [
         "Early Summer"
@@ -9569,10 +9532,10 @@ let ingredients = [
     "Purchase Price": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Tools to handle spines"
+        "Plucking Tools"
       ],
       "Seasons": [
-        "late Summer"
+        "Late Summer"
       ]
     },
     "Preparation": {
@@ -9598,7 +9561,7 @@ let ingredients = [
     "PurchasePrice": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Mid Autumn"
@@ -9626,8 +9589,9 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Small Knife",
-        "Basket/Bag"
+        "Knife",
+        "Basket",
+        "Bag"
       ],
       "Seasons": [
         "mid Summer"
@@ -9649,7 +9613,7 @@ let ingredients = [
     "PurchasePrice": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "A knife"
+        "knife"
       ],
       "Seasons": [
         "Year around"
@@ -9674,9 +9638,9 @@ let ingredients = [
     "PurchasePrice": "15 gp",
     "Harvesting": {
       "Required Kit": [
-        "Alchemist's Supplies",
-        "Fine Scalpel",
-        "Preservation Vials",
+        "Alchemist's Kit",
+        "Knife",
+        "Vials",
         "Ritual Components"
       ]
     },
@@ -9685,7 +9649,7 @@ let ingredients = [
     },
     "Cooking": {
       "Required Kit": [
-        "Alchemist's Supplies",
+        "Alchemist's Kit",
         "Non-Reactive Cookware",
         "Magical Heat Source"
       ]
@@ -9705,9 +9669,8 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Lead-Lined Gloves",
-        "Geiger Counter (optional)",
-        "Sealed Container (radiation-proof)"
+        "Heavy Gloves",
+        "Container(s)"
       ],
       "Seasons": [
         "Year around"
@@ -9715,7 +9678,7 @@ let ingredients = [
     },
     "Cooking": {
       "Required Kit": [
-        "Alchemist's Supplies",
+        "Alchemist's Kit",
         "Distillation Apparatus",
         "Non-Reactive Cookware"
       ]
@@ -9734,9 +9697,9 @@ let ingredients = [
     "PurchasePrice": "5 gp",
     "Harvesting": {
       "Required Kit": [
-        "Alchemist's Supplies",
+        "Alchemist's Kit",
         "Fine Net",
-        "Sealed Containers (pressure-resistant)"
+        "Container(s)"
       ],
       "Seasons": [
         "Year around"
@@ -9745,8 +9708,8 @@ let ingredients = [
     "Cooking": {
       "Method": "Boiling for at least 20 minutes.",
       "Required Kit": [
-        "Alchemist's Supplies",
-        "Pressure Cooker",
+        "Alchemist's Kit",
+        "Pot",
         "Non-Reactive Cookware"
       ]
     },
@@ -9764,7 +9727,7 @@ let ingredients = [
       "Required Kit": [
         "Herbalism Kit",
         "Tapping Tools",
-        "Sealed Containers"
+        "Container(s)"
       ],
       "Seasons": [
         "Year around"
@@ -9788,7 +9751,8 @@ let ingredients = [
       "Required Kit": [
         "Herbalism Kit",
         "Knife",
-        "Basket/Bag"
+        "Basket",
+        "Bag"
       ],
       "Seasons": [
         "early Autumn"
@@ -9812,11 +9776,12 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Small Trowel",
-        "Basket/Bag"
+        "Trowel",
+        "Basket",
+        "Bag"
       ],
       "Seasons": [
-        "early Spring"
+        "Early Spring"
       ]
     },
     "Cooking": {
@@ -9889,10 +9854,10 @@ let ingredients = [
     "PurchasePrice": "50 gp",
     "Harvesting": {
       "Required Kit": [
-        "Butcher's Tools (Masterwork)",
+        "Butcher's Tools (Enchanted)",
         "Arcane Focus",
         "Heat-Resistant Gloves",
-        "Large Insulated Containers"
+        "Large Container(s)"
       ]
     },
     "Preparation": {
@@ -9901,9 +9866,9 @@ let ingredients = [
     "Cooking": {
       "Method": "Can be cooked, boiled, fried, or dried.",
       "Required Kit": [
-        "Cook's Utensils (Masterwork)",
-        "Alchemist's Supplies",
-        "Forge/Magical Heat Source"
+        "Cook's Utensils (Enchanted)",
+        "Alchemist's Kit",
+        "Magical Heat Source"
       ]
     },
     "Notes": "Eating dragon parts, raw or cooked, is \"almost sacrilegious\" due to their value to wizards and alchemists."
@@ -9929,7 +9894,7 @@ let ingredients = [
     },
     "Cooking": {
       "Required Kit": [
-        "Alchemist's Supplies",
+        "Alchemist's Kit",
         "Non-Reactive Cookware"
       ]
     }
@@ -9955,7 +9920,7 @@ let ingredients = [
     "Cooking": {
       "Required Kit": [
         "Cook's Utensils",
-        "Smoking/Drying Rack"
+        "Drying Rack"
       ]
     }
   },
@@ -9974,10 +9939,9 @@ let ingredients = [
     "PurchasePrice": "3 gp",
     "Harvesting": {
       "Required Kit": [
-        "Alchemist's Supplies",
-        "Insulated Tools",
-        "Cryo-Chamber/Freezing Agents",
-        "Durable Container"
+        "Alchemist's Kit",
+        "Freezing Agents",
+        "Container(s)"
       ]
     },
     "Preparation": {
@@ -9986,8 +9950,7 @@ let ingredients = [
     "Cooking": {
       "Required Kit": [
         "Cook's Utensils",
-        "Freezing/Chilling Apparatus (for slicing)",
-        "Grilling Surface (for quick searing)"
+        "Chilling Apparatus"
       ]
     },
     "Notes": "A slain remorhaz's spine glows red-hot for days and can be used as a cooking surface or impromptu forge."
@@ -10002,9 +9965,9 @@ let ingredients = [
     "PurchasePrice": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Pry Tool",
+        "Pry Bar",
         "Knife",
-        "Container"
+        "Container(s)"
       ],
       "Seasons": [
         "Year around"
@@ -10013,7 +9976,7 @@ let ingredients = [
     "Cooking": {
       "Required Kit": [
         "Cook's Utensils",
-        "Steaming Pot/Grill"
+        "Pot"
       ]
     }
   },
@@ -10032,7 +9995,8 @@ let ingredients = [
       "Required Kit": [
         "Herbalism Kit",
         "Scraper",
-        "Basket/Bag"
+        "Basket",
+        "Bag"
       ],
       "Seasons": [
         "Year around"
@@ -10055,8 +10019,9 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Small Shears",
-        "Basket/Bag"
+        "Shears",
+        "Basket",
+        "Bag"
       ],
       "Seasons": [
         "Year around"
@@ -10080,7 +10045,7 @@ let ingredients = [
       "Required Kit": [
         "Herbalism Kit",
         "Scraper",
-        "Sealed Container"
+        "Container(s)"
       ],
       "Seasons": [
         "Year-round"
@@ -10103,8 +10068,9 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Trowel/Digging Stick",
-        "Basket/Bag"
+        "Trowel",
+        "Basket",
+        "Bag"
       ],
       "Seasons": [
         "Mid Autumn"
@@ -10162,10 +10128,11 @@ let ingredients = [
       "Required Kit": [
         "Herbalism Kit",
         "Shears",
-        "Basket/Bag"
+        "Basket",
+        "Bag"
       ],
       "Seasons": [
-        "late Autumn"
+        "Late Autumn"
       ]
     },
     "Cooking": {
@@ -10186,7 +10153,8 @@ let ingredients = [
       "Required Kit": [
         "Herbalism Kit",
         "Shears",
-        "Basket/Bag"
+        "Basket",
+        "Bag"
       ],
       "Seasons": [
         "Spring"
@@ -10213,8 +10181,8 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Small Knife",
-        "Sealed Container"
+        "Knife",
+        "Container(s)"
       ],
       "Seasons": [
         "Year around"
@@ -10237,9 +10205,7 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
-        "Heavy Cleaver",
-        "Non-Corrosive Knife",
-        "Durable Container"
+        "Container(s)"
       ]
     },
     "Cooking": {
@@ -10262,7 +10228,8 @@ let ingredients = [
         "Herbalism Kit",
         "Tongs",
         "Thick Gloves",
-        "Basket/Bag"
+        "Basket",
+        "Bag"
       ],
       "Seasons": [
         "mid Summer"
@@ -10289,7 +10256,7 @@ let ingredients = [
     "PurchasePrice": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "A knife",
+        "knife",
         "Cook's Utensils"
       ]
     },
@@ -10317,13 +10284,13 @@ let ingredients = [
       "Required Kit": [
         "Butcher's Tools",
         "Knife",
-        "Container"
+        "Container(s)"
       ]
     },
     "Cooking": {
       "Required Kit": [
         "Cook's Utensils",
-        "Long-Boiling Pot"
+        "Pot"
       ]
     }
   },
@@ -10341,7 +10308,7 @@ let ingredients = [
     "PurchasePrice": "3 gp",
     "Harvesting": {
       "Required Kit": [
-        "A knife",
+        "knife",
         "Cook's Utensils"
       ]
     },
@@ -10369,8 +10336,8 @@ let ingredients = [
       "Required Kit": [
         "Butcher's Tools",
         "Heat-Resistant Gloves",
-        "Sharp Knife",
-        "Insulated Container"
+        "Knife",
+        "Container(s)"
       ]
     },
     "Preparation": {
@@ -10378,8 +10345,7 @@ let ingredients = [
     },
     "Cooking": {
       "Required Kit": [
-        "Cook's Utensils",
-        "High-Temperature Grill/Pan"
+        "Cook's Utensils"
       ]
     },
     "Duration": "Fire resistance lasts for 1d4 hours."
@@ -10396,7 +10362,7 @@ let ingredients = [
     "PurchasePrice": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Year around"
@@ -10420,7 +10386,7 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Net/Rake",
+        "Net",
         "Waterproof Bag"
       ],
       "Seasons": [
@@ -10445,7 +10411,7 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Small Shears",
+        "Shears",
         "Basket"
       ],
       "Seasons": [
@@ -10468,7 +10434,7 @@ let ingredients = [
     "PurchasePrice": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "early Autumn"
@@ -10498,7 +10464,7 @@ let ingredients = [
         "Digging Tools"
       ],
       "Seasons": [
-        "late Summer"
+        "Late Summer"
       ]
     },
     "Cooking": {
@@ -10520,7 +10486,7 @@ let ingredients = [
     "PurchasePrice": "1 gp",
     "Harvesting": {
       "Required Kit": [
-        "Container",
+        "Container(s)",
         "Alchemist's Kit"
       ],
       "Seasons": [
@@ -10550,16 +10516,15 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
-        "Sharp Knife",
+        "Knife",
         "Ritual Components",
-        "Sealed Containers"
+        "Container(s)"
       ]
     },
     "Cooking": {
       "Required Kit": [
         "Cook's Utensils",
-        "Magical Heat Source",
-        "Infusion Vessels"
+        "Magical Heat Source"
       ]
     }
   },
@@ -10573,7 +10538,7 @@ let ingredients = [
     "PurchasePrice": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Year around"
@@ -10595,7 +10560,7 @@ let ingredients = [
     "PurchasePrice": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Year around"
@@ -10619,10 +10584,10 @@ let ingredients = [
       "Required Kit": [
         "Herbalism Kit",
         "Thick Gloves",
-        "Sealed Container"
+        "Container(s)"
       ],
       "Seasons": [
-        "late Summer"
+        "Late Summer"
       ]
     },
     "Cooking": {
@@ -10643,8 +10608,9 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Small Knife",
-        "Basket/Bag"
+        "Knife",
+        "Basket",
+        "Bag"
       ],
       "Seasons": [
         "mid Summer"
@@ -10666,7 +10632,7 @@ let ingredients = [
     "PurchasePrice": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "A knife"
+        "knife"
       ],
       "Seasons": [
         "Year around"
@@ -10692,15 +10658,15 @@ let ingredients = [
     "PurchasePrice": "15 gp",
     "Harvesting": {
       "Required Kit": [
-        "Alchemist's Supplies",
-        "Fine Scalpel",
-        "Preservation Vials",
+        "Alchemist's Kit",
+        "Knife",
+        "Vials",
         "Ritual Components"
       ]
     },
     "Cooking": {
       "Required Kit": [
-        "Alchemist's Supplies",
+        "Alchemist's Kit",
         "Non-Reactive Cookware"
       ]
     }
@@ -10717,8 +10683,9 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Small Knife",
-        "Basket/Bag"
+        "Knife",
+        "Basket",
+        "Bag"
       ],
       "Seasons": [
         "Early Summer"
@@ -10742,8 +10709,9 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Small Knife",
-        "Basket/Bag"
+        "Knife",
+        "Basket",
+        "Bag"
       ],
       "Seasons": [
         "mid Summer"
@@ -10767,8 +10735,9 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Small Knife",
-        "Basket/Bag"
+        "Knife",
+        "Basket",
+        "Bag"
       ],
       "Seasons": [
         "Early Summer"
@@ -10794,9 +10763,8 @@ let ingredients = [
     "PurchasePrice": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Geologist's Tools",
-        "Small Scoop",
-        "Sealed Container"
+        "Scoop",
+        "Container(s)"
       ],
       "Seasons": [
         "Year around"
@@ -10824,7 +10792,7 @@ let ingredients = [
     "PurchasePrice": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "A knife"
+        "knife"
       ]
     },
     "Cooking": {
@@ -10844,7 +10812,7 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Net/Rake",
+        "Net",
         "Waterproof Bag"
       ],
       "Seasons": [
@@ -10872,7 +10840,7 @@ let ingredients = [
     "PurchasePrice": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "A knife"
+        "knife"
       ],
       "Seasons": [
         "Year around"
@@ -10895,7 +10863,7 @@ let ingredients = [
     "PurchasePrice": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Year around"
@@ -10918,7 +10886,7 @@ let ingredients = [
     "PurchasePrice": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Year around"
@@ -10940,7 +10908,7 @@ let ingredients = [
     "PurchasePrice": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Year around"
@@ -10971,7 +10939,7 @@ let ingredients = [
     "PurchasePrice": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "A knife"
+        "knife"
       ]
     },
     "Cooking": {
@@ -10992,7 +10960,7 @@ let ingredients = [
     "PurchasePrice": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Container",
+        "Container(s)",
         "Scoop"
       ],
       "Seasons": [
@@ -11016,7 +10984,7 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Trowel/Digging Stick",
+        "Trowel",
         "Bag",
         "Disinfectant"
       ],
@@ -11044,7 +11012,7 @@ let ingredients = [
     "PurchasePrice": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Year around"
@@ -11070,7 +11038,7 @@ let ingredients = [
     "PurchasePrice": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Year around"
@@ -11096,8 +11064,9 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Small Trowel",
-        "Basket/Bag"
+        "Trowel",
+        "Basket",
+        "Bag"
       ],
       "Seasons": [
         "mid Summer"
@@ -11127,8 +11096,9 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Small Knife",
-        "Basket/Bag"
+        "Knife",
+        "Basket",
+        "Bag"
       ],
       "Seasons": [
         "mid Spring"
@@ -11136,7 +11106,7 @@ let ingredients = [
     },
     "Cooking": {
       "Required Kit": [
-        "Cook's Utensils (for infusions)"
+        "Cook's Utensils"
       ]
     }
   },
@@ -11157,16 +11127,16 @@ let ingredients = [
     "PurchasePrice": "3 gp",
     "Harvesting": {
       "Required Kit": [
-        "Butcher's Tools (Masterwork)",
+        "Butcher's Tools (Enchanted)",
         "Arcane Focus",
         "Preservation Salts",
-        "Large Insulated Containers"
+        "Large Container(s)"
       ]
     },
     "Cooking": {
       "Required Kit": [
-        "Cook's Utensils (Masterwork)",
-        "Alchemist's Supplies",
+        "Cook's Utensils",
+        "Alchemist's Kit",
         "Magical Heat Source"
       ]
     },
@@ -11186,10 +11156,10 @@ let ingredients = [
     "PurchasePrice": "5 gp",
     "Harvesting": {
       "Required Kit": [
-        "Alchemist's Supplies",
-        "Fine Chisel",
+        "Alchemist's Kit",
+        "Chisel",
         "Mortar and Pestle",
-        "Sealed Container"
+        "Container(s)"
       ],
       "Seasons": [
         "Year around"
@@ -11200,7 +11170,7 @@ let ingredients = [
     },
     "Cooking": {
       "Required Kit": [
-        "Alchemist's Supplies",
+        "Alchemist's Kit",
         "Non-Reactive Cookware"
       ]
     }
@@ -11216,8 +11186,8 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Fine Net/Cloth",
-        "Sealed Container"
+        "Fine Net",
+        "Container(s)"
       ],
       "Seasons": [
         "mid Spring"
@@ -11242,7 +11212,7 @@ let ingredients = [
     "PurchasePrice": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Early Summer"
@@ -11271,7 +11241,7 @@ let ingredients = [
     "PurchasePrice": "3 gp",
     "Harvesting": {
       "Required Kit": [
-        "A knife"
+        "knife"
       ],
       "Seasons": [
         "Year around"
@@ -11296,7 +11266,7 @@ let ingredients = [
       "Required Kit": [
         "Herbalism Kit",
         "Scoop",
-        "Sealed Container"
+        "Container(s)"
       ],
       "Seasons": [
         "Mid Autumn"
@@ -11304,8 +11274,7 @@ let ingredients = [
     },
     "Cooking": {
       "Required Kit": [
-        "Cook's Utensils",
-        "Whisk"
+        "Cook's Utensils"
       ]
     }
   },
@@ -11320,8 +11289,8 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Trowel/Digging Stick",
-        "Insulated Bag"
+        "Trowel",
+        "Bag"
       ],
       "Seasons": [
         "Mid Winter"
@@ -11344,8 +11313,8 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Weaver's Tools",
-        "Fine Scissors",
-        "Sealed Container"
+        "Knife",
+        "Container(s)"
       ]
     },
     "Cooking": {
@@ -11368,16 +11337,16 @@ let ingredients = [
     "PurchasePrice": "1 gp",
     "Harvesting": {
       "Required Kit": [
-        "Alchemist's Supplies",
-        "Fine Brush",
+        "Alchemist's Kit",
+        "Brush",
         "Sealed Vials",
         "Delicate Net"
       ]
     },
     "Cooking": {
       "Required Kit": [
-        "Alchemist's Supplies",
-        "Fine Sieve",
+        "Alchemist's Kit",
+        "Bag",
         "Non-Reactive Cookware"
       ]
     }
@@ -11423,7 +11392,7 @@ let ingredients = [
     "PurchasePrice": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "A knife"
+        "knife"
       ]
     },
     "Cooking": {
@@ -11443,7 +11412,7 @@ let ingredients = [
     "PurchasePrice": "1 gp",
     "Harvesting": {
       "Required Kit": [
-        "container"
+        "Container(s)"
       ]
     },
     "Preparation": {
@@ -11469,10 +11438,10 @@ let ingredients = [
     "PurchasePrice": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Alchemist's Supplies",
+        "Alchemist's Kit",
         "Mason's Tools",
         "Mortar and Pestle",
-        "Sealed Container"
+        "Container(s)"
       ]
     },
     "Preparation": {
@@ -11497,7 +11466,7 @@ let ingredients = [
     "PurchasePrice": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Year around"
@@ -11519,7 +11488,7 @@ let ingredients = [
     "PurchasePrice": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Mid Autumn"
@@ -11547,16 +11516,16 @@ let ingredients = [
     "PurchasePrice": "50 gp",
     "Harvesting": {
       "Required Kit": [
-        "Butcher's Tools (Masterwork)",
+        "Butcher's Tools (Enchanted)",
         "Arcane Focus",
         "Ritual Components",
-        "Large Insulated Containers"
+        "Large Container(s)"
       ]
     },
     "Cooking": {
       "Required Kit": [
-        "Cook's Utensils (Masterwork)",
-        "Alchemist's Supplies",
+        "Cook's Utensils (Enchanted)",
+        "Alchemist's Kit",
         "Magical Heat Source"
       ]
     }
@@ -11571,7 +11540,7 @@ let ingredients = [
     "PurchasePrice": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Late Spring",
@@ -11593,8 +11562,9 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Small Trowel/Knife",
-        "Basket/Bag"
+        "Trowel",
+        "Basket",
+        "Bag"
       ],
       "Seasons": [
         "Year around"
@@ -11617,8 +11587,9 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Shovel/Trowel",
-        "Basket/Bag"
+        "Trowel",
+        "Basket",
+        "Bag"
       ],
       "Seasons": [
         "Year around"
@@ -11667,17 +11638,16 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Machete/Heavy Knife",
-        "Basket/Bag"
+        "Basket",
+        "Bag"
       ],
       "Seasons": [
-        "late Summer"
+        "Late Summer"
       ]
     },
     "Cooking": {
       "Required Kit": [
-        "Cook's Utensils",
-        "Press/Juicer"
+        "Cook's Utensils"
       ]
     }
   },
@@ -11694,9 +11664,9 @@ let ingredients = [
     "PurchasePrice": "1 gp",
     "Harvesting": {
       "Required Kit": [
-        "Alchemist's Supplies",
+        "Alchemist's Kit",
         "Chisel",
-        "Sealed Container"
+        "Container(s)"
       ]
     },
     "Cooking": {
@@ -11721,7 +11691,7 @@ let ingredients = [
     "PurchasePrice": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "mid Summer"
@@ -11747,8 +11717,9 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Small Knife",
-        "Basket/Bag"
+        "Knife",
+        "Basket",
+        "Bag"
       ],
       "Seasons": [
         "Early Summer"
@@ -11773,8 +11744,8 @@ let ingredients = [
     "PurchasePrice": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Container",
-        "Small Scoop"
+        "Container(s)",
+        "Scoop"
       ],
       "Seasons": [
         "Year around"
@@ -11823,7 +11794,7 @@ let ingredients = [
     "PurchasePrice": "5 cp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "mid Spring"
@@ -11847,7 +11818,7 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Container"
+        "Container(s)"
       ],
       "Seasons": [
         "Early Summer"
@@ -11875,7 +11846,7 @@ let ingredients = [
     "PurchasePrice": "1 gp",
     "Harvesting": {
       "Required Kit": [
-        "Herbalism kit"
+        "Herbalism Kit"
       ],
       "Seasons": [
         "Early Summer"
@@ -11925,7 +11896,7 @@ let ingredients = [
     "PurchasePrice": "1 gp",
     "Harvesting": {
       "Required Kit": [
-        "Container",
+        "Container(s)",
         "Alchemist's Kit"
       ],
       "Seasons": [
@@ -11953,7 +11924,7 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Shovel/Trowel",
+        "Trowel",
         "Knife"
       ],
       "Seasons": [
@@ -11963,7 +11934,7 @@ let ingredients = [
     "Cooking": {
       "Required Kit": [
         "Cook's Utensils",
-        "Long-Boiling Pot"
+        "Pot"
       ]
     }
   },
@@ -11978,11 +11949,12 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Shovel/Trowel",
-        "Basket/Bag"
+        "Trowel",
+        "Basket",
+        "Bag"
       ],
       "Seasons": [
-        "late Summer/Early Autumn"
+        "Late Summer/Early Autumn"
       ]
     },
     "Cooking": {
@@ -12002,10 +11974,11 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Basket/Bag"
+        "Basket",
+        "Bag"
       ],
       "Seasons": [
-        "late Summer"
+        "Late Summer"
       ]
     },
     "Cooking": {
@@ -12030,7 +12003,7 @@ let ingredients = [
       "Required Kit": [
         "Herbalism Kit",
         "Thick Gloves",
-        "Knife/Shears"
+        "Knife"
       ],
       "Seasons": [
         "Spring/Autumn"
@@ -12039,7 +12012,7 @@ let ingredients = [
     "Cooking": {
       "Required Kit": [
         "Cook's Utensils",
-        "Long-Boiling Pot"
+        "Pot"
       ]
     }
   },
@@ -12057,7 +12030,7 @@ let ingredients = [
       "Required Kit": [
         "Herbalism Kit",
         "Thick Gloves",
-        "Knife/Shears"
+        "Knife"
       ],
       "Seasons": [
         "Summer"
@@ -12082,14 +12055,14 @@ let ingredients = [
     "PurchasePrice": "1 gp",
     "Harvesting": {
       "Required Kit": [
-        "Alchemist's Supplies",
+        "Alchemist's Kit",
         "Chisel",
-        "Sealed Container (shock-resistant)"
+        "Container(s)"
       ]
     },
     "Cooking": {
       "Required Kit": [
-        "Alchemist's Supplies",
+        "Alchemist's Kit",
         "Mortar and Pestle",
         "Non-Reactive Cookware"
       ]
@@ -12105,9 +12078,9 @@ let ingredients = [
     "PurchasePrice": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Alchemist's Supplies",
+        "Alchemist's Kit",
         "Scoop",
-        "Sealed Container",
+        "Container(s)",
         "Waterproof Bag"
       ],
       "Seasons": [
@@ -12135,7 +12108,7 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Small Knife",
+        "Knife",
         "Waterproof Bag"
       ],
       "Seasons": [
@@ -12160,7 +12133,8 @@ let ingredients = [
       "Required Kit": [
         "Herbalism Kit",
         "Knife",
-        "Basket/Bag"
+        "Basket",
+        "Bag"
       ],
       "Seasons": [
         "Summer"
@@ -12191,10 +12165,10 @@ let ingredients = [
       "Required Kit": [
         "Herbalism Kit",
         "Tapping Tools",
-        "Sealed Containers"
+        "Container(s)"
       ],
       "Seasons": [
-        "early Spring"
+        "Early Spring"
       ]
     },
     "Cooking": {
@@ -12216,8 +12190,8 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Fishing Net",
-        "Small Scoop",
-        "Sealed Container (brine-proof)"
+        "Scoop",
+        "Container(s)"
       ],
       "Seasons": [
         "Spring"
@@ -12271,14 +12245,14 @@ let ingredients = [
       "Required Kit": [
         "Butcher's Tools",
         "Knife",
-        "Large Bag",
+        "Bag, Large",
         "Disinfectant"
       ]
     },
     "Cooking": {
       "Required Kit": [
         "Cook's Utensils",
-        "Long-Boiling Pot",
+        "Pot",
         "Purifying Agents"
       ]
     }
@@ -12291,7 +12265,7 @@ let ingredients = [
       "Wasteland"
     ],
     "Effects": [
-      "If cooked properly, roll a 1d6. If a 1 is rolled, specific \"Troll Table\" results apply. This can include:",
+      "If cooked properly, roll a 1d6. If a 1 is rolled, specific results apply. This can include:",
       "1-3. Crush: Take 1d6 damage and develop a splitting headache.",
       "4-6. Blast: Flung 1d4x10 feet in a random direction, taking 1d6 damage per 10 feet traveled.",
       "7-8. Burst: Swap Intelligence characteristics with the nearest adjacent living creature larger than a dog for 1d6 days. On a failed save, the effect is permanent.",
@@ -12301,16 +12275,16 @@ let ingredients = [
     "PurchasePrice": "3 sp",
     "Harvesting": {
       "Required Kit": [
-        "Butcher's Tools (Heavy-Duty)",
-        "Fire Source (for cauterization)",
-        "Sealed Containers"
+        "Butcher's Tools",
+        "Fire Source",
+        "Container(s)"
       ]
     },
     "Cooking": {
       "Required Kit": [
         "Cook's Utensils",
-        "Forge/Intense Heat Source",
-        "Alchemist's Supplies (for stabilization)"
+        "Intense Heat Source",
+        "Alchemist's Kit"
       ]
     }
   },
@@ -12325,9 +12299,9 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Small Trowel",
+        "Trowel",
         "Fine Brush",
-        "Breathable Basket"
+        "Basket"
       ],
       "Seasons": [
         "Autumn/Winter"
@@ -12350,11 +12324,12 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Basket/Bag",
+        "Basket",
+        "Bag",
         "Insulated Gloves"
       ],
       "Seasons": [
-        "late Summer"
+        "Late Summer"
       ]
     },
     "Cooking": {
@@ -12381,7 +12356,7 @@ let ingredients = [
       "Required Kit": [
         "Butcher's Tools",
         "Knife",
-        "Plucking Tools"
+        "Feather Plucker"
       ]
     },
     "Cooking": {
@@ -12409,7 +12384,7 @@ let ingredients = [
       "Required Kit": [
         "Butcher's Tools",
         "Knife",
-        "Plucking Tools"
+        "Feather Plucker"
       ]
     },
     "Cooking": {
@@ -12430,7 +12405,6 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Bark Scraper",
         "Drying Rack"
       ],
       "Seasons": [
@@ -12453,15 +12427,14 @@ let ingredients = [
     "PurchasePrice": "3 sp",
     "Harvesting": {
       "Required Kit": [
-        "Butcher's Tools (Heavy-Duty)",
+        "Butcher's Tools",
         "Bone Saw",
-        "Large Knife"
       ]
     },
     "Cooking": {
       "Required Kit": [
         "Cook's Utensils",
-        "Roasting Spit/Large Pot"
+        "Roasting Spit/Pot, Large"
       ]
     },
     "Notes": "Considered a \"dungeon delicacy\"."
@@ -12478,7 +12451,7 @@ let ingredients = [
       "Required Kit": [
         "Alchemist's Kit",
         "Chisel",
-        "Container"
+        "Container(s)"
       ]
     },
     "Cooking": {
@@ -12500,16 +12473,16 @@ let ingredients = [
     "PurchasePrice": "50 gp",
     "Harvesting": {
       "Required Kit": [
-        "Alchemist's Supplies",
-        "Fine Chisel",
+        "Alchemist's Kit",
+        "Chisel",
         "Mortar and Pestle",
-        "Sealed Container (pure/blessed)"
+        "Container(s)"
       ]
     },
     "Cooking": {
       "Required Kit": [
-        "Alchemist's Supplies",
-        "Non-Reactive Cookware (for mixing)"
+        "Alchemist's Kit",
+        "Non-Reactive Cookware"
       ]
     }
   },
@@ -12526,10 +12499,10 @@ let ingredients = [
     "PurchasePrice": "50 gp",
     "Harvesting": {
       "Required Kit": [
-        "Alchemist's Supplies",
-        "Fine Scalpel",
+        "Alchemist's Kit",
+        "Knife",
         "Ritual Components",
-        "Sealed Container (dark/blessed)"
+        "Container(s)"
       ]
     },
     "Cooking": {},
@@ -12548,7 +12521,7 @@ let ingredients = [
     "PurchasePrice": "50 gp",
     "Harvesting": {
       "Required Kit": [
-        "Alchemist's Supplies",
+        "Alchemist's Kit",
         "Fine Clippers",
         "Sealed Vials",
         "Mask/Respirator"
@@ -12559,7 +12532,7 @@ let ingredients = [
     },
     "Cooking": {
       "Required Kit": [
-        "Alchemist's Supplies",
+        "Alchemist's Kit",
         "Distillation Apparatus",
         "Non-Reactive Cookware"
       ]
@@ -12577,13 +12550,13 @@ let ingredients = [
       "Required Kit": [
         "Butcher's Tools",
         "Knife",
-        "Durable Container"
+        "Container(s)"
       ]
     },
     "Cooking": {
       "Required Kit": [
         "Cook's Utensils",
-        "Long-Boiling Pot"
+        "Pot"
       ]
     }
   },
@@ -12599,7 +12572,8 @@ let ingredients = [
       "Required Kit": [
         "Herbalism Kit",
         "Scraper",
-        "Basket/Bag"
+        "Basket",
+        "Bag"
       ],
       "Seasons": [
         "Year around"
@@ -12622,15 +12596,15 @@ let ingredients = [
     "PurchasePrice": "1 sp",
     "Harvesting": {
       "Required Kit": [
-        "Butcher's Tools (Heavy-Duty)",
-        "Blubber Knife",
-        "Large Containers"
+        "Butcher's Tools",
+        "Knife",
+        "Container(s)"
       ]
     },
     "Cooking": {
       "Required Kit": [
         "Cook's Utensils",
-        "Rendering Pot"
+        "Pot, Large"
       ]
     }
   },
@@ -12645,11 +12619,11 @@ let ingredients = [
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Scoop/Net",
+        "Scoop",
         "Waterproof Bag"
       ],
       "Seasons": [
-        "late Summer/Early Autumn"
+        "Late Summer/Early Autumn"
       ]
     },
     "Cooking": {
@@ -12674,10 +12648,10 @@ let ingredients = [
     "PurchasePrice": "1 gp",
     "Harvesting": {
       "Required Kit": [
-        "Alchemist's Supplies",
+        "Alchemist's Kit",
         "Fine Net",
         "Sealed Vials",
-        "Insulated Container"
+        "Container(s)"
       ]
     },
     "Cooking": {}
@@ -12689,7 +12663,7 @@ let ingredients = [
     "Locations": ["Underwater", "Swamp"],
     "Purchase Price": "5 cp",
     "Harvesting": {
-      "Required Kit": ["Herbalism Kit", "Scoop/Net", "Waterproof Bag"]
+      "Required Kit": ["Herbalism Kit", "Scoop", "Waterproof Bag"]
     },
     "Seasons": ["Summer", "Early Autumn"],
     "Cooking": {
@@ -12731,9 +12705,9 @@ let ingredients = [
     "Locations": ["Forest"],
     "Purchase Price": "1 sp",
     "Harvesting": {
-      "Required Kit": ["Herbalism Kit", "Tapping Tools", "Sealed Containers"]
+      "Required Kit": ["Herbalism Kit", "Tapping Tools", "Container(s)"]
     },
-    "Seasons": ["early Spring"],
+    "Seasons": ["Early Spring"],
     "Cooking": {
       "Required Kit": ["Cook's Utensils"]
     }
@@ -12751,11 +12725,11 @@ let ingredients = [
     ],
     "Purchase Price": "3 gp",
     "Harvesting": {
-      "Required Kit": ["Butcher's Tools (Masterwork)", "Arcane Focus", "Insulated Gloves", "Large Insulated Containers"]
+      "Required Kit": ["Butcher's Tools (Enchanted)", "Arcane Focus", "Insulated Gloves", "Large Container(s)"]
     },
     "Cooking": {
       "Method": "Can be cooked, boiled, fried, or dried.",
-      "Required Kit": ["Cook's Utensils (Masterwork)", "Alchemist's Supplies", "Magical Heat Source (for melting ice)"]
+      "Required Kit": ["Cook's Utensils (Enchanted)", "Alchemist's Kit", "Magical Heat Source"]
     },
     "Duration": "Culinary benefits from expert preparation last until the creature finishes a long rest or after 24 hours, whichever comes first.",
     "Notes": "Its flesh tastes of 'raw magic,' feels heavy but flakes like fish, and consuming it can result in cosmetic improvements like no cavities, better breath, vanishing bald spots, and improved eyesight, making one feel like 'the after picture in a thousand internet ads'. Eating dragon parts, raw or cooked, is 'almost sacrilegious' due to their value to wizards and alchemists."
@@ -12781,7 +12755,8 @@ let ingredients = [
     "Locations": ["Grassland", "Urban", "Wasteland"],
     "Purchase Price": "5 cp",
     "Harvesting": {
-      "Required Kit": ["Herbalism Kit", "Shears", "Basket/Bag"]
+      "Required Kit": ["Herbalism Kit", "Shears", "Basket",
+        "Bag"]
     },
     "Seasons": ["Summer", "Early Autumn"],
     "Cooking": {
@@ -12795,7 +12770,8 @@ let ingredients = [
     "Locations": ["Forest", "Hill", "Urban"],
     "Purchase Price": "5 cp",
     "Harvesting": {
-      "Required Kit": ["Herbalism Kit", "Basket/Bag"]
+      "Required Kit": ["Herbalism Kit", "Basket",
+        "Bag"]
     },
     "Seasons": ["Autumn"],
     "Cooking": {
@@ -12809,7 +12785,8 @@ let ingredients = [
     "Locations": ["Coastal", "Forest", "Grassland", "Hill"],
     "Purchase Price": "5 cp",
     "Harvesting": {
-      "Required Kit": ["Herbalism Kit", "Knife", "Basket/Bag"]
+      "Required Kit": ["Herbalism Kit", "Knife", "Basket",
+        "Bag"]
     },
     "Seasons": ["Spring"],
     "Cooking": {
@@ -12823,7 +12800,8 @@ let ingredients = [
     "Locations": ["Arctic", "Coastal", "Forest", "Grassland", "Hill", "Jungle", "Mountain", "Swamp", "Urban"],
     "Purchase Price": "5 cp",
     "Harvesting": {
-      "Required Kit": ["Herbalism Kit", "Basket/Bag"]
+      "Required Kit": ["Herbalism Kit", "Basket",
+        "Bag"]
     },
     "Seasons": ["Summer", "Late Summer"],
     "Cooking": {
@@ -12837,7 +12815,8 @@ let ingredients = [
     "Locations": ["Mountain"],
     "Purchase Price": "5 cp",
     "Harvesting": {
-      "Required Kit": ["Herbalism Kit", "Small Trowel", "Basket/Bag"]
+      "Required Kit": ["Herbalism Kit", "Trowel", "Basket",
+        "Bag"]
     },
     "Seasons": ["Summer"],
     "Cooking": {
@@ -12851,7 +12830,8 @@ let ingredients = [
     "Locations": ["Coastal", "Forest", "Grassland", "Hill", "Jungle", "Swamp", "Urban", "Wasteland"],
     "Purchase Price": "5 cp",
     "Harvesting": {
-      "Required Kit": ["Herbalism Kit", "Trowel/Digging Stick", "Basket/Bag"]
+      "Required Kit": ["Herbalism Kit", "Trowel", "Basket",
+        "Bag"]
     },
     "Seasons": ["Autumn"],
     "Cooking": {
@@ -12865,9 +12845,9 @@ let ingredients = [
     "Locations": ["Grassland"],
     "Purchase Price": "5 cp",
     "Harvesting": {
-      "Required Kit": ["Herbalism Kit", "Scythe/Shears", "Grain Bag"]
+      "Required Kit": ["Herbalism Kit", "Shears", "Bag"]
     },
-    "Seasons": ["late Summer"],
+    "Seasons": ["Late Summer"],
     "Cooking": {
       "Required Kit": ["Cook's Utensils", "Grain Mill"]
     }
@@ -12879,9 +12859,10 @@ let ingredients = [
     "Locations": ["Forest", "Grassland", "Hill", "Urban"],
     "Purchase Price": "5 cp",
     "Harvesting": {
-      "Required Kit": ["Herbalism Kit", "Shears", "Basket/Bag"]
+      "Required Kit": ["Herbalism Kit", "Shears", "Basket",
+        "Bag"]
     },
-    "Seasons": ["late Summer", "Early Autumn"],
+    "Seasons": ["Late Summer", "Early Autumn"],
     "Cooking": {
       "Required Kit": ["Cook's Utensils"]
     }
@@ -12893,9 +12874,10 @@ let ingredients = [
     "Locations": ["Hill"],
     "Purchase Price": "5 cp",
     "Harvesting": {
-      "Required Kit": ["Herbalism Kit", "Small Trowel", "Basket/Bag"]
+      "Required Kit": ["Herbalism Kit", "Trowel", "Basket",
+        "Bag"]
     },
-    "Seasons": ["early Spring"],
+    "Seasons": ["Early Spring"],
     "Cooking": {
       "Required Kit": ["Cook's Utensils"]
     }
@@ -12907,7 +12889,8 @@ let ingredients = [
     "Locations": ["Forest", "Grassland", "Urban", "Wasteland"],
     "Purchase Price": "5 cp",
     "Harvesting": {
-      "Required Kit": ["Herbalism Kit", "Small Knife", "Basket/Bag"]
+      "Required Kit": ["Herbalism Kit", "Small Knife", "Basket",
+        "Bag"]
     },
     "Seasons": ["Summer"],
     "Cooking": {
@@ -12921,7 +12904,7 @@ let ingredients = [
     "Locations": ["Forest"],
     "Purchase Price": "5 cp",
     "Harvesting": {
-      "Required Kit": ["Herbalism Kit", "Fine Knife", "Breathable Basket"]
+      "Required Kit": ["Herbalism Kit", "Knife", "Basket"]
     },
     "Seasons": ["Spring", "Autumn"],
     "Cooking": {
@@ -12936,7 +12919,8 @@ let ingredients = [
     "Locations": ["Coastal"],
     "Purchase Price": "5 cp",
     "Harvesting": {
-      "Required Kit": ["Herbalism Kit", "Small Knife", "Basket/Bag"]
+      "Required Kit": ["Herbalism Kit", "Small Knife", "Basket",
+        "Bag"]
     },
     "Seasons": ["Spring"],
     "Cooking": {
@@ -12950,7 +12934,8 @@ let ingredients = [
     "Locations": ["Hill"],
     "Purchase Price": "5 cp",
     "Harvesting": {
-      "Required Kit": ["Herbalism Kit", "Small Knife", "Basket/Bag"]
+      "Required Kit": ["Herbalism Kit", "Small Knife", "Basket",
+        "Bag"]
     },
     "Seasons": ["Spring", "Autumn"],
     "Cooking": {
@@ -12964,7 +12949,8 @@ let ingredients = [
     "Locations": ["Forest", "Grassland", "Hill", "Urban"],
     "Purchase Price": "5 cp",
     "Harvesting": {
-      "Required Kit": ["Herbalism Kit", "Small Knife", "Basket/Bag"]
+      "Required Kit": ["Herbalism Kit", "Small Knife", "Basket",
+        "Bag"]
     },
     "Seasons": ["Spring"],
     "Cooking": {
@@ -12978,7 +12964,8 @@ let ingredients = [
     "Locations": ["Grassland", "Urban", "Wasteland"],
     "Purchase Price": "5 cp",
     "Harvesting": {
-      "Required Kit": ["Herbalism Kit", "Small Trowel", "Basket/Bag"]
+      "Required Kit": ["Herbalism Kit", "Trowel", "Basket",
+        "Bag"]
     },
     "Seasons": ["Spring"],
     "Cooking": {
@@ -12992,7 +12979,8 @@ let ingredients = [
     "Locations": ["Hill"],
     "Purchase Price": "5 cp",
     "Harvesting": {
-      "Required Kit": ["Herbalism Kit", "Small Trowel", "Basket/Bag"]
+      "Required Kit": ["Herbalism Kit", "Trowel", "Basket",
+        "Bag"]
     },
     "Seasons": ["Spring"],
     "Cooking": {
@@ -13006,9 +12994,10 @@ let ingredients = [
     "Locations": ["Mountain"],
     "Purchase Price": "5 cp",
     "Harvesting": {
-      "Required Kit": ["Herbalism Kit", "Trowel/Digging Stick", "Basket/Bag"]
+      "Required Kit": ["Herbalism Kit", "Trowel", "Basket",
+        "Bag"]
     },
-    "Seasons": ["late Summer", "Early Autumn"],
+    "Seasons": ["Late Summer", "Early Autumn"],
     "Cooking": {
       "Required Kit": ["Cook's Utensils"]
     }
@@ -13020,7 +13009,8 @@ let ingredients = [
     "Locations": ["Arctic", "Grassland", "Hill", "Mountain"],
     "Purchase Price": "5 cp",
     "Harvesting": {
-      "Required Kit": ["Herbalism Kit", "Knife", "Basket/Bag"]
+      "Required Kit": ["Herbalism Kit", "Knife", "Basket",
+        "Bag"]
     },
     "Seasons": ["Spring"],
     "Cooking": {
@@ -13034,9 +13024,9 @@ let ingredients = [
     "Locations": ["Swamp", "Underwater"],
     "Purchase Price": "5 cp",
     "Harvesting": {
-      "Required Kit": ["Herbalism Kit", "Scythe/Shears", "Grain Bag"]
+      "Required Kit": ["Herbalism Kit", "Shears", "Bag"]
     },
-    "Seasons": ["late Summer"],
+    "Seasons": ["Late Summer"],
     "Cooking": {
       "Required Kit": ["Cook's Utensils", "Grain Mill"]
     }
@@ -13048,10 +13038,10 @@ let ingredients = [
     "Locations": ["Hill"],
     "Purchase Price": "1 sp",
     "Harvesting": {
-      "Required Kit": ["Butcher's Tools", "Knife", "Large Bag"]
+      "Required Kit": ["Butcher's Tools", "Knife", "Bag, Large"]
     },
     "Cooking": {
-      "Required Kit": ["Cook's Utensils", "Roasting Pan/Stew Pot"]
+      "Required Kit": ["Cook's Utensils", "Roasting Pan"]
     }
   },
   {
@@ -13061,7 +13051,8 @@ let ingredients = [
     "Locations": ["Forest", "Grassland", "Urban"],
     "Purchase Price": "5 cp",
     "Harvesting": {
-      "Required Kit": ["Herbalism Kit", "Small Shears", "Basket/Bag"]
+      "Required Kit": ["Herbalism Kit", "Shears", "Basket",
+        "Bag"]
     },
     "Seasons": ["Summer"],
     "Cooking": {
@@ -13070,7 +13061,7 @@ let ingredients = [
   },
   {
     "Name": "Will-o'-wisp Smoke (congealed)",
-    "Description": "A very rare occurrence where a Will-o'-wisp's ethereal smoke congeals into a stable, edible form in eerie, magically charged bogs.",
+    "Description": "A very rare occurrence where a Will-o'-wisp's ethereal smoke congeals into a stable, edible form in eerie, magically charged bogs. Must be stored in light-proof vials to prevent it from dissipating.",
     "Ingredient Type": "Non-Meat and Non-Plant Edible Ingredients",
     "Locations": ["Forest", "Swamp"],
     "Effects": [
@@ -13078,13 +13069,13 @@ let ingredients = [
     ],
     "Purchase Price": "5 gp",
     "Harvesting": {
-      "Required Kit": ["Alchemist's Supplies", "Fine Net", "Sealed Vials (light-proof)", "Ritual Components"]
+      "Required Kit": ["Alchemist's Kit", "Fine Net", "Sealed Vials", "Ritual Components"]
     },
     "Preparation": {
       "Method": "Congealed."
     },
     "Cooking": {
-      "Required Kit": ["Alchemist's Supplies", "Non-Reactive Cookware"]
+      "Required Kit": ["Alchemist's Kit", "Non-Reactive Cookware"]
     }
   },
   {
@@ -13097,7 +13088,7 @@ let ingredients = [
     ],
     "Purchase Price": "1 gp",
     "Harvesting": {
-      "Required Kit": ["Herbalism Kit", "Fine Knife", "Sealed Transparent Container"]
+      "Required Kit": ["Herbalism Kit", "Knife", "Container(s)"]
     },
     "Cooking": {
       "Required Kit": ["Cook's Utensils"]
@@ -13113,7 +13104,7 @@ let ingredients = [
     ],
     "Purchase Price": "5 cp",
     "Harvesting": {
-      "Required Kit": ["Herbalism Kit", "Bark Scraper", "Drying Rack"]
+      "Required Kit": ["Herbalism Kit", "Drying Rack"]
     },
     "Seasons": ["Autumn", "Winter", "Spring"],
     "Preparation": {
@@ -13131,7 +13122,7 @@ let ingredients = [
     ],
     "Purchase Price": "1 gp",
     "Harvesting": {
-      "Required Kit": ["Alchemist's Supplies", "Fine Net", "Sealed Vials", "Delicate Brush"]
+      "Required Kit": ["Alchemist's Kit", "Fine Net", "Sealed Vials", "Brush"]
     }
   },
   {
@@ -13141,7 +13132,8 @@ let ingredients = [
     "Locations": ["Grassland"],
     "Purchase Price": "5 cp",
     "Harvesting": {
-      "Required Kit": ["Herbalism Kit", "Small Trowel", "Basket/Bag"]
+      "Required Kit": ["Herbalism Kit", "Trowel", "Basket",
+        "Bag"]
     },
     "Seasons": ["Spring"],
     "Cooking": {
@@ -13155,9 +13147,9 @@ let ingredients = [
     "Locations": ["Forest"],
     "Purchase Price": "1 gp",
     "Harvesting": {
-      "Required Kit": ["Herbalism Kit", "Thick Gloves", "Sealed Container"]
+      "Required Kit": ["Herbalism Kit", "Thick Gloves", "Container(s)"]
     },
-    "Seasons": ["late Autumn", "Early Winter"]
+    "Seasons": ["Late Autumn", "Early Winter"]
   },
   {
     "Name": "Winter Wolf Steak",
@@ -13166,10 +13158,10 @@ let ingredients = [
     "Locations": ["Arctic"],
     "Purchase Price": "3 sp",
     "Harvesting": {
-      "Required Kit": ["Butcher's Tools", "Knife", "Insulated Bag"]
+      "Required Kit": ["Butcher's Tools", "Knife", "Bag"]
     },
     "Cooking": {
-      "Required Kit": ["Cook's Utensils", "Roasting Pan/Grill"]
+      "Required Kit": ["Cook's Utensils", "Roasting Pan"]
     }
   },
   {
@@ -13179,7 +13171,7 @@ let ingredients = [
     "Locations": ["Forest"],
     "Purchase Price": "5 cp",
     "Harvesting": {
-      "Required Kit": ["Herbalism Kit", "Scoop", "Sealed Container"]
+      "Required Kit": ["Herbalism Kit", "Scoop", "Container(s)"]
     },
     "Seasons": ["Autumn", "Winter"],
     "Cooking": {
@@ -13193,10 +13185,10 @@ let ingredients = [
     "Locations": ["Grassland", "Hill"],
     "Purchase Price": "1 sp",
     "Harvesting": {
-      "Required Kit": ["Butcher's Tools", "Knife", "Large Bag"]
+      "Required Kit": ["Butcher's Tools", "Knife", "Bag, Large"]
     },
     "Cooking": {
-      "Required Kit": ["Cook's Utensils", "Roasting Pan/Stew Pot"]
+      "Required Kit": ["Cook's Utensils", "Roasting Pan"]
     }
   },
   {
@@ -13206,7 +13198,8 @@ let ingredients = [
     "Locations": ["Desert", "Hill", "Wasteland"],
     "Purchase Price": "5 cp",
     "Harvesting": {
-      "Required Kit": ["Herbalism Kit", "Basket/Bag"]
+      "Required Kit": ["Herbalism Kit", "Basket",
+        "Bag"]
     },
     "Seasons": ["Summer", "Autumn"],
     "Cooking": {
@@ -13220,7 +13213,7 @@ let ingredients = [
     "Locations": ["Mountain"],
     "Purchase Price": "1 gp",
     "Harvesting": {
-      "Required Kit": ["Poisoner's Kit", "Herbalism Kit", "Thick Gloves", "Sealed Container"]
+      "Required Kit": ["Poisoner's Kit", "Herbalism Kit", "Thick Gloves", "Container(s)"]
     },
     "Seasons": ["Autumn"]
   },
@@ -13231,10 +13224,10 @@ let ingredients = [
     "Locations": ["Arctic", "Desert", "Forest", "Jungle", "Mountain", "Swamp", "Underdark", "Wasteland"],
     "Purchase Price": "3 gp",
     "Harvesting": {
-      "Required Kit": ["Butcher's Tools", "Large Knife", "Skinning Knife"]
+      "Required Kit": ["Butcher's Tools"]
     },
     "Cooking": {
-      "Required Kit": ["Cook's Utensils", "Long-Boiling Pot"]
+      "Required Kit": ["Cook's Utensils", "Pot"]
     }
   },
   {
@@ -13247,13 +13240,13 @@ let ingredients = [
     ],
     "Purchase Price": "1 gp",
     "Harvesting": {
-      "Required Kit": ["Alchemist's Supplies", "Chisel", "Sealed Container"]
+      "Required Kit": ["Alchemist's Kit", "Chisel", "Container(s)"]
     },
     "Preparation": {
       "Method": "Must be dissolved in water."
     },
     "Cooking": {
-      "Required Kit": ["Alchemist's Supplies", "Mortar and Pestle", "Non-Reactive Cookware"]
+      "Required Kit": ["Alchemist's Kit", "Mortar and Pestle", "Non-Reactive Cookware"]
     }
   },
   {
@@ -13263,10 +13256,10 @@ let ingredients = [
     "Locations": ["Underdark"],
     "Purchase Price": "5 cp",
     "Harvesting": {
-      "Required Kit": ["Alchemist's Supplies", "Mason's Tools", "Mortar and Pestle", "Sealed Container"]
+      "Required Kit": ["Alchemist's Kit", "Mason's Tools", "Mortar and Pestle", "Container(s)"]
     },
     "Cooking": {
-      "Required Kit": ["Alchemist's Supplies", "Non-Reactive Cookware"]
+      "Required Kit": ["Alchemist's Kit", "Non-Reactive Cookware"]
     }
   },
   {
@@ -13276,10 +13269,10 @@ let ingredients = [
     "Locations": ["Mountain", "Underdark"],
     "Purchase Price": "3 gp",
     "Harvesting": {
-      "Required Kit": ["Butcher's Tools (Heavy-Duty)", "Diamond-Edged Scalpel", "Durable Container"]
+      "Required Kit": ["Butcher's Tools (Enchanted)", "Container(s)"]
     },
     "Cooking": {
-      "Required Kit": ["Cook's Utensils", "Pressure Cooker/Long-Boiling Pot"]
+      "Required Kit": ["Cook's Utensils", "Pot"]
     }
   },
   {
@@ -13306,10 +13299,10 @@ let ingredients = [
     ],
     "Purchase Price": "15 gp",
     "Harvesting": {
-      "Required Kit": ["Butcher's Tools (Heavy-Duty)", "Insulated Gloves", "Sharp Knife", "Insulated Container"]
+      "Required Kit": ["Butcher's Tools", "Insulated Gloves", "Knife", "Container(s)"]
     },
     "Cooking": {
-      "Required Kit": ["Cook's Utensils", "High-Temperature Grill/Forge"]
+      "Required Kit": ["Cook's Utensils"]
     }
   },
   {
@@ -13323,7 +13316,7 @@ let ingredients = [
     ],
     "Purchase Price": "1 gp",
     "Harvesting": {
-      "Required Kit": ["Herbalism Kit", "Insulated Gloves", "Sealed Container", "Mask/Respirator"]
+      "Required Kit": ["Herbalism Kit", "Insulated Gloves", "Container(s)", "Mask/Respirator"]
     },
     "Seasons": ["Winter"],
     "Cooking": {
@@ -13337,7 +13330,8 @@ let ingredients = [
     "Locations": ["Wasteland"],
     "Purchase Price": "5 cp",
     "Harvesting": {
-      "Required Kit": ["Herbalism Kit", "Knife/Shears", "Basket/Bag"]
+      "Required Kit": ["Herbalism Kit", "Knife", "Basket",
+        "Bag"]
     },
     "Seasons": ["Summer"],
     "Cooking": {
@@ -13358,11 +13352,11 @@ let ingredients = [
     ],
     "Purchase Price": "15 gp",
     "Harvesting": {
-      "Required Kit": ["Butcher's Tools", "Disinfectant", "Sealed Containers", "Protective Gloves"]
+      "Required Kit": ["Butcher's Tools", "Disinfectant", "Container(s)", "Protective Gloves"]
     },
     "Cooking": {
       "Method": "Morbidly cooked to theoretically \"sterilize\" it.",
-      "Required Kit": ["Cook's Utensils", "Long-Boiling Pot", "Purifying Agents"]
+      "Required Kit": ["Cook's Utensils", "Pot", "Purifying Agents"]
     },
     "Duration": "Queasiness and gassiness: Lasts \"the rest of the day\".",
     "Notes": "It is \"morbidly cooked to theoretically 'sterilize' it\". The raw zombie flesh is described as \"disgusting, rotting pork\"."
