@@ -4574,7 +4574,7 @@ let ingredients = [
     "Cooking": {
       "Method": "Can be eaten raw or used as a soup base. If cooked, it can be cooked into a soup.",
       "Required Kit": [
-        "Cast iron pot",
+        "Pot",
         "Cook's Utensils"
       ]
     }
@@ -6054,7 +6054,7 @@ let ingredients = [
       "Urban"
     ],
     "Effects": [
-      "If properly cooked in a cast iron pot, it becomes a \"nutritious green soup\".",
+      "If properly cooked in a Pot, it becomes a \"nutritious green soup\".",
       "As a \"nutritious green soup\", it provides sustenance, and can potentially heal 1 HP or an additional HP (on a d6 roll of 6), or causing queasiness and gassiness (on a d6 roll of 1 with a failed Constitution save)."
     ],
     "Purchase Price": "5 cp",
@@ -6064,7 +6064,7 @@ let ingredients = [
       ]
     },
     "Cooking": {
-      "Method": "It must be \"properly cooked in a cast iron pot\".",
+      "Method": "It must be \"properly cooked in a Pot\".",
       "Required Kit": [
         "Cook's Utensils"
       ]
@@ -8645,7 +8645,7 @@ let ingredients = [
     "Cooking": {
       "Method": "Can be cooked into a soup.",
       "Required Kit": [
-        "Cast iron pot",
+        "Pot",
         "Cook's Utensils"
       ]
     },
