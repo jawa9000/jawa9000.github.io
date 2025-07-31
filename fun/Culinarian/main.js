@@ -45,16 +45,114 @@ function renderIngredient(ingredient) {
     return html;
 }
 
+
+// --- Filter UI Setup ---
+function createDropdown(id, label, options) {
+    const select = document.createElement('select');
+    select.id = id;
+    select.innerHTML = `<option value="">All</option>` + options.map(opt => `<option value="${opt}">${opt}</option>`).join('');
+    const wrapper = document.createElement('label');
+    wrapper.style.marginRight = '1em';
+    wrapper.textContent = label + ': ';
+    wrapper.appendChild(select);
+    return wrapper;
+}
+
+function getUniqueValues(key, subkey) {
+    const set = new Set();
+    ingredients.forEach(ing => {
+        if (subkey && ing[key] && Array.isArray(ing[key][subkey])) {
+            ing[key][subkey].forEach(val => set.add(val));
+        } else if (Array.isArray(ing[key])) {
+            ing[key].forEach(val => set.add(val));
+        } else if (ing[key]) {
+            set.add(ing[key]);
+        }
+    });
+    return Array.from(set).sort();
+}
+
+function setupFilters() {
+    let filterDiv = document.getElementById('ingredientFilters');
+    if (!filterDiv) {
+        filterDiv = document.createElement('div');
+        filterDiv.id = 'ingredientFilters';
+        document.body.insertBefore(filterDiv, document.body.firstChild);
+    }
+    filterDiv.innerHTML = '';
+
+    // Ingredient Type
+    const typeOptions = getUniqueValues('Ingredient Type');
+    filterDiv.appendChild(createDropdown('filterType', 'Type', typeOptions));
+
+    // Locations
+    const locationOptions = getUniqueValues('Locations');
+    filterDiv.appendChild(createDropdown('filterLocation', 'Location', locationOptions));
+
+    // Harvesting Kit
+    const harvestingOptions = getUniqueValues('Harvesting', 'Required Kit');
+    filterDiv.appendChild(createDropdown('filterHarvest', 'Harvesting Kit', harvestingOptions));
+
+    // Cooking Kit
+    const cookingOptions = getUniqueValues('Cooking', 'Required Kit');
+    filterDiv.appendChild(createDropdown('filterCooking', 'Cooking Kit', cookingOptions));
+
+    // Seasons
+    const seasonOptions = getUniqueValues('Seasons');
+    filterDiv.appendChild(createDropdown('filterSeason', 'Season', seasonOptions));
+
+    // Listen for changes
+    ['filterType', 'filterLocation', 'filterHarvest', 'filterCooking', 'filterSeason'].forEach(id => {
+        document.getElementById(id).addEventListener('change', filterAndRenderIngredients);
+    });
+}
+
+// --- Filtering Logic ---
+function filterAndRenderIngredients() {
+    let filtered = ingredients.slice();
+
+    const type = document.getElementById('filterType').value;
+    const loc = document.getElementById('filterLocation').value;
+    const harvest = document.getElementById('filterHarvest').value;
+    const cook = document.getElementById('filterCooking').value;
+    const season = document.getElementById('filterSeason').value;
+
+    if (type) filtered = filtered.filter(ing => ing['Ingredient Type'] === type);
+    if (loc) filtered = filtered.filter(ing => (ing.Locations || []).includes(loc));
+    if (harvest) filtered = filtered.filter(ing =>
+        (ing.Harvesting && Array.isArray(ing.Harvesting['Required Kit']) && ing.Harvesting['Required Kit'].includes(harvest))
+    );
+    if (cook) filtered = filtered.filter(ing =>
+        (ing.Cooking && Array.isArray(ing.Cooking['Required Kit']) && ing.Cooking['Required Kit'].includes(cook))
+    );
+    if (season) filtered = filtered.filter(ing =>
+        (ing.Seasons && Array.isArray(ing.Seasons) && ing.Seasons.includes(season))
+    );
+
+    renderIngredients(filtered);
+}
+
+// --- Ingredient Rendering (uses your existing renderIngredient) ---
+function renderIngredients(list) {
+    const container = document.getElementById('json-output');
+    if (!list.length) {
+        container.innerHTML = '<em>No ingredients found.</em>';
+        return;
+    }
+    container.innerHTML = list.map(renderIngredient).join('\n');
+}
+
+// --- Initialize on page load ---
 document.addEventListener('DOMContentLoaded', function() {
     if (typeof ingredients !== 'undefined' && Array.isArray(ingredients)) {
+        setupFilters();
         // Sort by Name property alphabetically
         const sortedIngredients = [...ingredients].sort((a, b) => {
             if (a.Name < b.Name) return -1;
             if (a.Name > b.Name) return 1;
             return 0;
         });
-        const html = sortedIngredients.map(renderIngredient).join('\n');
-        document.getElementById('json-output').innerHTML = html;
+        renderIngredients(sortedIngredients);
     } else {
         document.getElementById('json-output').textContent = 'No ingredients data found.';
     }
