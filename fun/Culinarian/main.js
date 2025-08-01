@@ -61,13 +61,24 @@ function createDropdown(id, label, options) {
 function getUniqueValues(key, subkey) {
     const set = new Set();
     ingredients.forEach(ing => {
+        let values = [];
         if (subkey && ing[key] && Array.isArray(ing[key][subkey])) {
-            ing[key][subkey].forEach(val => set.add(val));
+            values = ing[key][subkey];
         } else if (Array.isArray(ing[key])) {
-            ing[key].forEach(val => set.add(val));
+            values = ing[key];
+        } else if (subkey && ing[key] && ing[key][subkey]) {
+            values = [ing[key][subkey]];
         } else if (ing[key]) {
-            set.add(ing[key]);
+            values = [ing[key]];
         }
+        values.forEach(val => {
+            if (typeof val === 'string') {
+                set.add(val);
+            } else if (val && typeof val === 'object' && typeof val.name === 'string') {
+                set.add(val.name);
+            }
+            // Ignore objects without a string or .name property
+        });
     });
     return Array.from(set).sort();
 }
@@ -100,6 +111,35 @@ function setupFilters() {
     // Seasons
     const seasonOptions = getUniqueValues('Seasons');
     filterDiv.appendChild(createDropdown('filterSeason', 'Season', seasonOptions));
+
+    // --- Add Random Ingredient Button ---
+    const randomBtn = document.createElement('button');
+    randomBtn.textContent = 'Pick Random Ingredient';
+    randomBtn.style.marginLeft = '1em';
+    randomBtn.onclick = function () {
+        // Get selected Location and Season
+        const loc = document.getElementById('filterLocation').value;
+        const season = document.getElementById('filterSeason').value;
+
+        // Filter ingredients by Location and Season only
+        let filtered = ingredients.slice();
+        if (loc) filtered = filtered.filter(ing => (ing.Locations || []).includes(loc));
+        if (season) filtered = filtered.filter(ing => (ing.Seasons || []).includes(season));
+
+        // Pick random ingredient
+        if (filtered.length > 0) {
+            const randomIngredient = filtered[Math.floor(Math.random() * filtered.length)];
+            renderIngredients([randomIngredient]);
+        } else {
+            renderIngredients([]);
+        }
+
+        // Reset all other dropdowns to "All"
+        ['filterType', 'filterHarvest', 'filterCooking'].forEach(id => {
+            document.getElementById(id).selectedIndex = 0;
+        });
+    };
+    filterDiv.appendChild(randomBtn);
 
     // Listen for changes
     ['filterType', 'filterLocation', 'filterHarvest', 'filterCooking', 'filterSeason'].forEach(id => {
