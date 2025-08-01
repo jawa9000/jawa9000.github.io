@@ -13,7 +13,7 @@ let ingredients = [
       "Alternatively, they can use an action to expend two uses to cast lesser restoration.",
       "If prepared by an expert, the consumer gains temporary benefits: when using a healing spell or potion, they restore an amount of hit points equal to their proficiency bonus to the maximum possible value on the die."
     ],
-    "Purchase Price": "50 gp",
+    "Purchase Price": "50 gp per unit",
     "Harvesting": {
       "Required Kit": [
         "Knife (Enchanted)"
@@ -39,10 +39,10 @@ let ingredients = [
       "If prepared by an expert, the consumer gains temporary benefits: they gain proficiency in one Intelligence skill they are not proficient with (or expertise if already proficient), OR they gain darkvision to a range of 30 feet, allowing them to see through magical darkness.",
       "Based on other aberration brains, it might also temporarily enhance psychic abilities or grant minor psionic resistance."
     ],
-    "Purchase Price": "50 gp",
+    "Purchase Price": "50 gp per pound",
     "Harvesting": {
       "Required Kit": [
-        "knife"
+        "Knife"
       ]
     },
     "Cooking": {
@@ -67,10 +67,10 @@ let ingredients = [
       "When the consumer deals damage to a creature within 20 feet for the first first time in a turn, they can deal an additional 3 psychic damage to the target (no action required).",
       "If prepared by an expert, the consumer gains temporary benefits: they gain proficiency in one Intelligence skill they are not proficient with (or expertise if already proficient), OR they gain darkvision to a range of 30 feet, allowing them to see through magical darkness."
     ],
-    "Purchase Price": "15 gp",
+    "Purchase Price": "15 gp per pound",
     "Harvesting": {
       "Required Kit": [
-        "knife"
+        "Knife"
       ]
     },
     "Cooking": {
@@ -91,7 +91,7 @@ let ingredients = [
       "Additionally, they have a 1d4 bonus to any check or saving throw against becoming grappled or restrained.",
       "When the consumer makes an ability check or saving throw to end an effect that renders them grappled or restrained, they can use a reaction to automatically succeed on the check or save."
     ],
-    "Purchase Price": "20 gp",
+    "Purchase Price": "20 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Cook's Utensils"
@@ -114,10 +114,10 @@ let ingredients = [
       "When a creature within 20 feet of the consumer makes an attack or saving throw, the consumer can use their reaction to reduce that creature’s roll by 1d4.",
       "When a creature within 10 feet of the consumer hits them with an attack, the consumer can use a reaction to deal cold or fire damage (their choice) equal to 1d8 + their Intelligence modifier to the attacker."
     ],
-    "Purchase Price": "50 gp",
+    "Purchase Price": "50 gp per pound",
     "Harvesting": {
       "Required Kit": [
-        "knife",
+        "Knife",
         "Butcher's Tools",
         "Alchemist's Kit"
       ]
@@ -140,10 +140,10 @@ let ingredients = [
     "Locations": [
       "Underwater"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
-        "knife"
+        "Knife"
       ]
     },
     "Cooking": {
@@ -165,7 +165,7 @@ let ingredients = [
     "Effects": [
       "The consumer gains a +1 bonus to any Constitution saving throw they make."
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Knife",
@@ -194,7 +194,7 @@ let ingredients = [
       "When prepared as an infusion and ingested: At the beginning of the consumer's next turn, they gain a +1 bonus to Armor Class if they are wearing no armor or light armor. This bonus lasts for 10 rounds.",
       "This herb has no effect when used again on the same creature until that creature completes a short rest."
     ],
-    "Purchase Price": "1 gp",
+    "Purchase Price": "1 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -214,7 +214,7 @@ let ingredients = [
     "Effects": [
       "The consumer gains a +1 bonus to any Constitution saving throw they make."
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Knife",
@@ -234,7 +234,7 @@ let ingredients = [
   },
   {
     "Name": "Alfirin",
-    "Description": "Nectar from a bell-like flower of many colors that grows on the tombs of Men.",
+    "Description": "Nectar from a bell-like flower of many colors that grows on the tombs.",
     "Ingredient Type": "Plant-based",
     "Locations": [
       "Desert"
@@ -244,11 +244,11 @@ let ingredients = [
       "Simultaneously, the creature must make a DC 10 Constitution saving throw. On a failed save, the creature gains vulnerability to necrotic and psychic damage for 1 hour.",
       "This herb has no effect if used again on the same creature before it completes a short rest."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per flower",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "poisoner's kit"
+        "Poisoner's Kit"
       ]
     },
     "Cooking": {
@@ -262,7 +262,7 @@ let ingredients = [
     "Locations": [
       "Urban"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -284,7 +284,7 @@ let ingredients = [
     "Locations": [
       "Swamp"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Knife"
@@ -304,7 +304,7 @@ let ingredients = [
     "Locations": [
       "Mountain"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Knife",
@@ -327,7 +327,7 @@ let ingredients = [
     "Locations": [
       "Mountain"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -353,7 +353,7 @@ let ingredients = [
       "Upon ingesting its powder, starting at the beginning of the creature's next turn, their next spell cast will require spending one less spell level. This effect lasts for 30 minutes.",
       "This herb's effect cannot be used again on the same creature until they complete a long rest."
     ],
-    "Purchase Price": "1 gp",
+    "Purchase Price": "1 gp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -377,7 +377,7 @@ let ingredients = [
     "Effects": [
       "Consuming this can temporarily grant insights into the fears of others or induce crippling psychic visions."
     ],
-    "Purchase Price": "50 gp",
+    "Purchase Price": "50 gp per unit",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools"
@@ -401,11 +401,11 @@ let ingredients = [
       "It provides sustenance.",
       "The Ankheg Ichor, derived from it, causes a creature in contact with it to make a DC 13 Constitution saving throw or be Poisoned and Paralyzed for 1 minute, repeating the save at the end of each turn."
     ],
-    "Purchase Price": "3 sp",
+    "Purchase Price": "3 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Poisoner's Kit",
-        "knife",
+        "Knife",
         "Cook's Utensils"
       ]
     },
@@ -422,7 +422,7 @@ let ingredients = [
     "Locations": [
       "Grassland"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Knife",
@@ -442,7 +442,7 @@ let ingredients = [
     "Name": "Apple Bark",
     "Description": "Bark from the apple tree taken in Early Spring.",
     "Ingredient Type": "Plant-based",
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -462,7 +462,7 @@ let ingredients = [
     "Locations": [
       "Arctic"
     ],
-    "Purchase Price": "1 gp",
+    "Purchase Price": "1 gp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Knife",
@@ -488,7 +488,7 @@ let ingredients = [
     "Effects": [
       "Provides warmth and a slight temporary resistance to cold damage."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Knife",
@@ -513,7 +513,7 @@ let ingredients = [
     "Locations": [
       "Arctic"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Knife",
@@ -537,7 +537,7 @@ let ingredients = [
     "Locations": [
       "Swamp"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Knife",
@@ -561,7 +561,7 @@ let ingredients = [
     "Locations": [
       "Wasteland"
     ],
-    "Purchase Price": "1 gp",
+    "Purchase Price": "1 gp per unit",
     "Harvesting": {
       "Required Kit": [
         "Pick"
@@ -583,7 +583,7 @@ let ingredients = [
     "Effects": [
       "Provides a dry, smoky taste and minor fire resistance."
     ],
-    "Purchase Price": "1 gp",
+    "Purchase Price": "1 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit"
@@ -602,7 +602,7 @@ let ingredients = [
     "Locations": [
       "Wasteland"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Knife",
@@ -630,11 +630,11 @@ let ingredients = [
       "Beasts of these types that approach within 15 feet of the creature must make a DC 15 Constitution check; on a failed save, they have the frightened condition.",
       "In addition, the creature has disadvantage to Wisdom (Animal Handling) checks with beasts of these types."
     ],
-    "Purchase Price": "5 gp",
+    "Purchase Price": "5 gp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "poisoner's kit"
+        "Poisoner's Kit"
       ]
     },
     "Cooking": {
@@ -656,7 +656,7 @@ let ingredients = [
       "Inhalant (inhaled): After smoking for five minutes, the creature gains 5 (1d10) temporary hit points which last for 30 minutes. This effect cannot be combined with any other effect that grants temporary hit points. This herb has no effect when used again on the creature until the creature completes a long rest.",
       "Poultice (contact): When prepared and applied to a creature's wounds for 2 minutes, the creature has all poison effects neutralized, the poisoned condition is removed, all normal diseases are cured, all curses are removed, all spells affecting the creature are dispelled, all ability scores are restored, and the creature is restored to half their maximum hit points if they have less than that amount. This herb has no effect when used again on the creature until the creature completes a long rest."
     ],
-    "Purchase Price": "1 gp",
+    "Purchase Price": "1 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -681,7 +681,7 @@ let ingredients = [
       "Hemi Apotheosis: As Eyes of Light, but selective, allowing normal vision and ignoring the Wisdom Save requirement. Gain +2 to all Stats, +10 HP, and an ironclad ego, becoming \"almost among the gods\".",
       "Apotheosis: As Hemi Apotheosis, plus you glow like a candle and hover 2 inches off the ground. You learn the command spell."
     ],
-    "Purchase Price": "20 gp",
+    "Purchase Price": "20 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit"
@@ -705,11 +705,11 @@ let ingredients = [
     "Effects": [
       "A significant food source."
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "knife"
+        "Knife"
       ],
       "Seasons": [
         "Spring",
@@ -729,7 +729,7 @@ let ingredients = [
     "Locations": [
       "Jungle"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -756,7 +756,7 @@ let ingredients = [
       "When a creature within 20 feet of the consumer makes an attack or saving throw, the consumer can use their reaction to reduce that creature’s roll by 1d4.",
       "When a creature within 10 feet of the consumer hits them with an attack, the consumer can use a reaction to deal cold or fire damage (their choice) equal to 1d8 + their Intelligence modifier to the attacker."
     ],
-    "Purchase Price": "50 gp",
+    "Purchase Price": "50 gp per unit",
     "Harvesting": {
       "Required Kit": []
     },
@@ -773,7 +773,7 @@ let ingredients = [
     "Locations": [
       "Coastal"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -795,11 +795,11 @@ let ingredients = [
     "Locations": [
       "Desert"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Thick Gloves"
+        "Gloves, Thick"
       ],
       "Seasons": [
         "Summer"
@@ -818,7 +818,7 @@ let ingredients = [
     "Locations": [
       "Coastal"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -850,10 +850,10 @@ let ingredients = [
       "Gains a +1 bonus to Strength checks.",
       "As a bonus action, Strength attack and damage rolls gain a +1 bonus until the start of their next turn."
     ],
-    "Purchase Price": "3 sp",
+    "Purchase Price": "3 sp per pound",
     "Harvesting": {
       "Required Kit": [
-        "knife"
+        "Knife"
       ]
     },
     "Cooking": {
@@ -873,7 +873,7 @@ let ingredients = [
     "Effects": [
       "Eating it provides a subtle, temporary, internal glow or highlights bioluminescent features for a short time."
     ],
-    "Purchase Price": "1 gp",
+    "Purchase Price": "1 gp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -895,7 +895,7 @@ let ingredients = [
     "Locations": [
       "Arctic"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -925,10 +925,10 @@ let ingredients = [
       "If prepared by an expert:",
       "Gains a +1 bonus to Strength checks."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per unit",
     "Harvesting": {
       "Required Kit": [
-        "knife"
+        "Knife"
       ]
     },
     "Cooking": {
@@ -954,10 +954,10 @@ let ingredients = [
       "If prepared by an expert:",
       "Gains a +1 bonus to Strength checks."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
-        "knife"
+        "Knife"
       ]
     },
     "Cooking": {
@@ -981,10 +981,10 @@ let ingredients = [
       "Gains a +2 bonus to Intimidation (Charisma) checks and saving throws against becoming frightened.",
       "Damage reduced by 2 when taking Acid damage."
     ],
-    "Purchase Price": "3 gp",
+    "Purchase Price": "3 gp per pound",
     "Harvesting": {
       "Required Kit": [
-        "knife"
+        "Knife"
       ]
     },
     "Cooking": {
@@ -1011,7 +1011,7 @@ let ingredients = [
       "Grants a 1d4 bonus to any check or saving throw against being grappled or restrained.",
       "The consumer can use a reaction to automatically succeed on an ability check or saving throw to end an effect that renders them grappled or restrained."
     ],
-    "Purchase Price": "1 gp",
+    "Purchase Price": "1 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Container(s)"
@@ -1031,7 +1031,7 @@ let ingredients = [
     "Locations": [
       "Mountain"
     ],
-    "Purchase Price": "1 gp",
+    "Purchase Price": "1 gp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Container(s)"
@@ -1069,13 +1069,13 @@ let ingredients = [
       "Scaleskin: Tough, segmented skin, cannot wear armor, AC or Defense like chainmail.",
       "Dragon Vision: Gain Darkvision and ability to hypnotize small mammals by staring."
     ],
-    "Purchase Price": "3 gp",
+    "Purchase Price": "3 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools (Enchanted)",
         "Arcane Focus",
         "Preservation Salts",
-        "Large Container(s)"
+        "Container(s), Large"
       ]
     },
     "Cooking": {
@@ -1100,10 +1100,10 @@ let ingredients = [
       "On a d6 roll of 2-5: No extra effect.",
       "On a d6 roll of 6: \"Delicious!\" Heal 1 HP, or 1 additional HP."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
-        "knife"
+        "Knife"
       ]
     },
     "Cooking": {
@@ -1120,7 +1120,7 @@ let ingredients = [
     "Locations": [
       "Swamp"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -1140,7 +1140,7 @@ let ingredients = [
       "Mountain",
       "Swamp"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -1160,11 +1160,11 @@ let ingredients = [
     "Name": "Bramble of the Hills",
     "Description": "Bramble with foot-long thorns and shriveled, brownish leaves.",
     "Ingredient Type": "Plant-based",
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "poisoner's kit"
+        "Poisoner's Kit"
       ]
     },
     "Cooking": {
@@ -1194,13 +1194,13 @@ let ingredients = [
       "Scaleskin: Tough, segmented skin, cannot wear armor, AC is the same as chainmail.",
       "Dragon Vision: Gain darkvision and ability to hypnotize small mammals by staring."
     ],
-    "Purchase Price": "3 gp",
+    "Purchase Price": "3 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools (Enchanted)",
         "Arcane Focus",
         "Preservation Salts",
-        "Large Container(s)"
+        "Container(s), Large"
       ]
     },
     "Cooking": {
@@ -1219,7 +1219,7 @@ let ingredients = [
     "Locations": [
       "Jungle"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -1238,7 +1238,7 @@ let ingredients = [
     "Name": "Brethil",
     "Description": "Bark harvested from the brethil (alder) tree during the late spring or early summer.",
     "Ingredient Type": "Plant-based",
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -1255,7 +1255,7 @@ let ingredients = [
     "Locations": [
       "Urban"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Container(s)"
@@ -1274,7 +1274,7 @@ let ingredients = [
     "Locations": [
       "Jungle"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -1311,7 +1311,7 @@ let ingredients = [
       "Scaleskin: Tough, segmented skin, cannot wear armor, AC similar to chainmail.",
       "Dragon Vision: Gain darkvision and ability to hypnotize small mammals by staring."
     ],
-    "Purchase Price": "3 gp",
+    "Purchase Price": "3 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools"
@@ -1333,7 +1333,7 @@ let ingredients = [
       "Hill",
       "Mountain"
     ],
-    "Purchase Price": "3 sp",
+    "Purchase Price": "3 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools"
@@ -1357,7 +1357,7 @@ let ingredients = [
       "The spicy flavor might cause panic.",
       "This ingredient has no other special effects."
     ],
-    "Purchase Price": "3 gp",
+    "Purchase Price": "3 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools"
@@ -1384,7 +1384,7 @@ let ingredients = [
       "When prepared as a salve, it provides healing.",
       "It provides 4d4 + 4 hit points when used as a salve."
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -1411,7 +1411,7 @@ let ingredients = [
       "When ingested, it provides the effect of an antitoxin and a +1 bonus to Constitution saving throws against mushroom-based poisons for the next 5 minutes.",
       "When applied to the eyes, it removes the blinded condition."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -1438,7 +1438,7 @@ let ingredients = [
     "Effects": [
       "This ingredient has no special effects beyond its stimulating quality."
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -1464,7 +1464,7 @@ let ingredients = [
     "Effects": [
       "Provides hydration."
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -1483,7 +1483,7 @@ let ingredients = [
       "Swamp",
       "Underdark"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -1502,7 +1502,7 @@ let ingredients = [
     "Locations": [
       "Desert"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools"
@@ -1529,7 +1529,7 @@ let ingredients = [
       "There's a 1-in-10 chance to find 1d10 copper pieces or jewelry of equivalent value in a cyst-like sack, with a 10% chance of finding 1d10 gold pieces instead when harvesting.",
       "There's also a 50% chance that consumption causes queasiness and gassiness, losing any meal benefits."
     ],
-    "Purchase Price": "3 sp",
+    "Purchase Price": "3 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Poisoner's Kit"
@@ -1553,7 +1553,7 @@ let ingredients = [
       "Urban",
       "Wasteland"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -1576,7 +1576,7 @@ let ingredients = [
     "Locations": [
       "Underdark"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -1599,7 +1599,7 @@ let ingredients = [
     "Locations": [
       "Underdark"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -1621,7 +1621,7 @@ let ingredients = [
     "Locations": [
       "Underdark"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -1643,7 +1643,7 @@ let ingredients = [
     "Locations": [
       "Underdark"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -1678,7 +1678,7 @@ let ingredients = [
     "Effects": [
       "Grants a surge of courage and clarity upon consumption."
     ],
-    "Purchase Price": "50 gp",
+    "Purchase Price": "50 gp per unit",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit",
@@ -1703,7 +1703,7 @@ let ingredients = [
     "Effects": [
       "Rumored to grant temporary speed or endurance."
     ],
-    "Purchase Price": "15 gp",
+    "Purchase Price": "15 gp per unit",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools"
@@ -1730,7 +1730,7 @@ let ingredients = [
       "5-7: Causes a \"Spellburst,\" requiring a Save versus Wis.On failure, the consumer takes 1 damage.",
       "8-10: Inflicts a \"Strong Positive Emotion\" (Joy, Hope, Excitement, Friendship, True Love, or Charity) for 1 minute."
     ],
-    "Purchase Price": "20 gp",
+    "Purchase Price": "20 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools"
@@ -1753,7 +1753,7 @@ let ingredients = [
     "Effects": [
       "Eating it can grant a minor, temporary camouflaging effect."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -1783,11 +1783,11 @@ let ingredients = [
       "On a d6 roll of 2-5: No extra effect.",
       "On a d6 roll of 6: \"Delicious!\" Heal 1 HP."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
-        "Feather Plucker"
+        "Plucking Tools"
       ]
     },
     "Cooking": {
@@ -1810,11 +1810,11 @@ let ingredients = [
       "On a d6 roll of 2-5: No extra effect.",
       "On a d6 roll of 6: \"Delicious!\" Heal 1 HP."
     ],
-    "Purchase Price": "3 sp",
+    "Purchase Price": "3 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
-        "Feather Plucker"
+        "Plucking Tools"
       ]
     },
     "Cooking": {
@@ -1831,7 +1831,7 @@ let ingredients = [
       "Mountain",
       "Urban"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -1858,7 +1858,7 @@ let ingredients = [
     "Effects": [
       "Provide a refreshing, cooling sensation."
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -1884,7 +1884,7 @@ let ingredients = [
     "Effects": [
       "Imparts intense heat/spice."
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -1910,7 +1910,7 @@ let ingredients = [
     "Effects": [
       "Ingesting it can provide a fleeting burst of a specific elemental energy (fire, lightning, or acid)."
     ],
-    "Purchase Price": "1 gp",
+    "Purchase Price": "1 gp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Container(s)"
@@ -1929,7 +1929,7 @@ let ingredients = [
     "Locations": [
       "Underdark"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools"
@@ -1948,7 +1948,7 @@ let ingredients = [
     "Locations": [
       "Desert"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -1971,7 +1971,7 @@ let ingredients = [
     "Locations": [
       "Wasteland"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -2001,7 +2001,7 @@ let ingredients = [
       "If 2 lbs or more are ingested, the consumer must make a Constitution saving throw. On a failed save, the creature is bedridden for 1 week. On a successful save, the creature is fully healed and gains +2 permanent hit points.",
       "If a second meal of 2 lbs or more is attempted, the consumer must make a Death saving throw. On a successful save for the second meal, the consumer permanently gains +2 Strength and +2 Constitution, their weight triples, and they can no longer swim or run."
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -2024,7 +2024,7 @@ let ingredients = [
     "Effects": [
       "Said to improve precision."
     ],
-    "Purchase Price": "1 gp",
+    "Purchase Price": "1 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -2047,7 +2047,7 @@ let ingredients = [
     "Effects": [
       "Nutritional Value: The consumer gains a 1d4 bonus to Strength checks and saving throws. Additionally, they can use a bonus action to gain a 1d6 bonus to their next attack and damage roll before the start of their next turn."
     ],
-    "Purchase Price": "50 gp",
+    "Purchase Price": "50 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools"
@@ -2067,7 +2067,7 @@ let ingredients = [
       "Arctic",
       "Mountain"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -2093,7 +2093,7 @@ let ingredients = [
       "Coastal",
       "Urban"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -2116,7 +2116,7 @@ let ingredients = [
     "Locations": [
       "Coastal"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -2134,7 +2134,7 @@ let ingredients = [
     "Locations": [
       "Jungle"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -2160,7 +2160,7 @@ let ingredients = [
     "Effects": [
       "Upon ingestion, the creature gains the effect of an antitoxin for 2 minutes. It grants advantage to all saving throws against disease for 1 hour."
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -2188,7 +2188,7 @@ let ingredients = [
       "Coastal",
       "Urban"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -2222,7 +2222,7 @@ let ingredients = [
       "If the consumer misses an attack roll or fails an ability check, they can use their reaction to add a +2 bonus to the roll, potentially turning a miss into a hit or a failed check into a success.",
       "If the construct is made of edible materials, consuming it grants temporary hit points equal to the consumer's proficiency bonus and resistance to bludgeoning, piercing, and slashing damage from nonmagical attacks."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per part/ounce/core",
     "Harvesting": {
       "Required Kit": [
         "Knife",
@@ -2248,13 +2248,13 @@ let ingredients = [
       "It can provide resistance to acid damage.",
       "The meal can also grant a fly speed equal to the consumer's walking speed, or allow the consumer to exhale a 15-foot cone of acid damage as a bonus action. This breath weapon deals a number of d6s equal to the consumer's proficiency bonus on a failed Dexterity saving throw, or half as much on a success."
     ],
-    "Purchase Price": "3 gp",
+    "Purchase Price": "3 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools (Enchanted)",
         "Arcane Focus",
         "Preservation Salts",
-        "Large Container(s)"
+        "Container(s), Large"
       ]
     },
     "Cooking": {
@@ -2273,7 +2273,7 @@ let ingredients = [
     "Locations": [
       "Underwater"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -2296,7 +2296,7 @@ let ingredients = [
     "Effects": [
       "When highly diluted or properly processed, it can be used as a potent, searing seasoning in food."
     ],
-    "Purchase Price": "1 gp",
+    "Purchase Price": "1 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -2323,7 +2323,7 @@ let ingredients = [
       "Allows the consumer to cast cure wounds as an action (using their Intelligence for spellcasting.",
       "Healing: Can reduce radiant damage taken, and can provide cure wounds or lesser restoration effects."
     ],
-    "Purchase Price": "50 gp",
+    "Purchase Price": "50 gp per unit",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools"
@@ -2347,7 +2347,7 @@ let ingredients = [
       "Rumored to provide \"fleeting insights or minor protective wards\".",
       "Grants a reaction to reduce radiant damage taken by 1d8, and a +3 bonus to Charisma (Persuasion) checks."
     ],
-    "Purchase Price": "5 gp",
+    "Purchase Price": "5 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools"
@@ -2374,7 +2374,7 @@ let ingredients = [
       "On a d6 roll of 2-5: No extra effect.",
       "On a d6 roll of 6: \"Delicious!\" The consumer heals 1 HP, or 1 additional HP."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools"
@@ -2398,7 +2398,7 @@ let ingredients = [
       "On a d6 roll of 2-5: No extra effect.",
       "On a d6 roll of 6: \"Delicious!\" The consumer heals 1 HP, or 1 additional HP."
     ],
-    "Purchase Price": "3 sp",
+    "Purchase Price": "3 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools"
@@ -2421,7 +2421,7 @@ let ingredients = [
       "Hill",
       "Urban"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -2449,7 +2449,7 @@ let ingredients = [
       "On a d6 roll of 2-5: No extra effect.",
       "On a d6 roll of 6: \"Delicious!\" The consumer heals 1 HP, or 1 additional HP."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools"
@@ -2469,7 +2469,7 @@ let ingredients = [
     "Locations": [
       "Swamp"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -2494,7 +2494,7 @@ let ingredients = [
     "Effects": [
       "Can be steeped for medicinal purposes in dire situations. The exact medicinal effect is not specified."
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -2521,11 +2521,11 @@ let ingredients = [
       "When ingested as an infusion, the creature regains 5 (2d4) hit points at the beginning of their next turn.",
       "After ingesting the infusion, the creature must make a DC 10 Constitution saving throw. On a failed save, the creature is charmed by the first creature that speaks to it in a language it is proficient with."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "poisoner's kit"
+        "Poisoner's Kit"
       ],
       "Seasons": [
         "Year around"
@@ -2545,7 +2545,7 @@ let ingredients = [
     "Locations": [
       "Jungle"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools"
@@ -2564,7 +2564,7 @@ let ingredients = [
     "Locations": [
       "Arctic"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -2590,7 +2590,7 @@ let ingredients = [
     "Effects": [
       "When consumed, it provides a brief burst of clarity and awareness."
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -2604,7 +2604,7 @@ let ingredients = [
     "Locations": [
       "Underdark"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -2627,7 +2627,7 @@ let ingredients = [
       "Underdark",
       "Wasteland"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Container(s)"
@@ -2649,7 +2649,7 @@ let ingredients = [
     "Effects": [
       "When applied liberally to the skin and clothes, the creature takes on the mild scent of fresh earth. For 2 hours, other creatures have disadvantage of detecting the creature by scent."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -2671,7 +2671,7 @@ let ingredients = [
     "Effects": [
       "Roots can be prepared as a Tonic to provide 2d4 + 2 hit points of healing."
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -2694,7 +2694,7 @@ let ingredients = [
     "Effects": [
       "When inhaled, it can cause minor hallucinations. When cooked, it imparts a deep, earthy flavor."
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -2717,7 +2717,7 @@ let ingredients = [
       "Poison (Inhaled): Causes 2d6 damage per round.",
       "Ingested: Can cause 1 level of exhaustion every 12 hours."
     ],
-    "Purchase Price": "1 gp",
+    "Purchase Price": "1 gp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -2739,7 +2739,7 @@ let ingredients = [
     "Effects": [
       "Provides good sustenance."
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -2758,7 +2758,7 @@ let ingredients = [
     "Locations": [
       "Underwater"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -2787,7 +2787,7 @@ let ingredients = [
       "5-7: Delicious! Heal 1 HP, or 1 additional HP.",
       "8-10: Parasitic Antlers: Two antlers grow from the top of your head, usable as improvised weapons."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools"
@@ -2807,7 +2807,7 @@ let ingredients = [
     "Effects": [
       "Consuming it can briefly enhance one's intimidation."
     ],
-    "Purchase Price": "5 gp",
+    "Purchase Price": "5 gp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -2827,7 +2827,7 @@ let ingredients = [
     "Effects": [
       "Edible in extreme desperation, provides sustenance despite being unpleasant and disturbing."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools"
@@ -2849,7 +2849,7 @@ let ingredients = [
     "Effects": [
       "When brewed as a tea, it helps alleviate dehydration."
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -2872,7 +2872,7 @@ let ingredients = [
     "Effects": [
       "Provides sustenance."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools"
@@ -2892,7 +2892,7 @@ let ingredients = [
     "Effects": [
       "When dissolved slowly, it offers a sharp, metallic taste and trace minerals."
     ],
-    "Purchase Price": "1 gp",
+    "Purchase Price": "1 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit"
@@ -2912,7 +2912,7 @@ let ingredients = [
     "Locations": [
       "Desert"
     ],
-    "Purchase Price": "1 gp",
+    "Purchase Price": "1 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -2950,7 +2950,7 @@ let ingredients = [
       "When consumed, it is said to grant temporary radiant energy to attacks or a brief moment of prophetic insight.",
       "When used as an ingredient, the consumer can use a reaction to reduce radiant damage taken by 1d8. Additionally, the consumer gains a +3 bonus to Charisma (Persuasion) checks."
     ],
-    "Purchase Price": "50 gp",
+    "Purchase Price": "50 gp per unit",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools"
@@ -2972,7 +2972,7 @@ let ingredients = [
     "Effects": [
       "Provides sustenance."
     ],
-    "Purchase Price": "3 sp",
+    "Purchase Price": "3 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools"
@@ -2995,7 +2995,7 @@ let ingredients = [
     "Effects": [
       "Provides sustenance and is highly energizing."
     ],
-    "Purchase Price": "3 sp",
+    "Purchase Price": "3 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools"
@@ -3017,7 +3017,7 @@ let ingredients = [
     "Effects": [
       "Edible, provides sustenance."
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -3046,7 +3046,7 @@ let ingredients = [
       "1-9: No extra effect.",
       "10: Displaced. The consumer permanently appears 3 feet from their actual position. If this means they are inside another object, they must Save vs Constitution or take 1d6 damage per minute until no longer inside the object. When casting a spell, they must Save vs Constitution or the spell manifests 3 feet away in a random direction, potentially causing it to fail."
     ],
-    "Purchase Price": "3 gp",
+    "Purchase Price": "3 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools"
@@ -3070,7 +3070,7 @@ let ingredients = [
     "Effects": [
       "Provides sustenance."
     ],
-    "Purchase Price": "3 sp",
+    "Purchase Price": "3 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools"
@@ -3107,13 +3107,13 @@ let ingredients = [
       "Green Dragon Meat: May cause discomfort but can provide a fleeting resistance to acid.",
       "Gold Dragon Meat: Possesses purifying and restorative properties, potentially healing wounds or removing minor ailments."
     ],
-    "Purchase Price": "50 gp",
+    "Purchase Price": "50 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools (Enchanted)",
         "Arcane Focus",
         "Preservation Salts",
-        "Large Container(s)"
+        "Container(s), Large"
       ]
     },
     "Cooking": {
@@ -3137,7 +3137,7 @@ let ingredients = [
       "Provides substantial sustenance and minor aquatic adaptation.",
       "A soup made from Dragon Turtle bonds everyone who eats it together in friendship, preventing serious arguments and promoting compromises for 1 week."
     ],
-    "Purchase Price": "3 gp",
+    "Purchase Price": "3 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools"
@@ -3159,7 +3159,7 @@ let ingredients = [
     "Effects": [
       "Imbues a temporary resistance to fire."
     ],
-    "Purchase Price": "5 gp",
+    "Purchase Price": "5 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -3182,7 +3182,7 @@ let ingredients = [
     "Effects": [
       "Imparts intense heat/spice."
     ],
-    "Purchase Price": "1 gp",
+    "Purchase Price": "1 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -3208,7 +3208,7 @@ let ingredients = [
     "Effects": [
       "Rumored to have strengthening properties."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -3237,7 +3237,7 @@ let ingredients = [
       "Fire Plague: A rose-orange powder baked into bread/pastry. Eating it requires a DC 14 Constitution saving throw. On a failed save, the consumer takes 1d6 fire and 1d6 necrotic damage, becomes poisoned, and gets necrotic skin patches. While poisoned, they have vivid hallucinations concerning death.",
       "Magic's Bane: A clear, colorless potion that, when it contacts a creature's blood, forces a DC 14 Wisdom saving throw. On a failed save, the creature's ability to cast spells is disrupted for 1 minute, requiring a DC 10 Arcana check to use spells."
     ],
-    "Purchase Price": "5 gp",
+    "Purchase Price": "5 gp per unit",
     "Harvesting": {
       "Required Kit": [
         "Poisoner's Kit"
@@ -3255,7 +3255,7 @@ let ingredients = [
     "Locations": [
       "Underdark"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools"
@@ -3278,7 +3278,7 @@ let ingredients = [
       "Provides minimal sustenance.",
       "Can temporarily enhance darkvision or grant a brief resistance to psychic charm."
     ],
-    "Purchase Price": "5 gp",
+    "Purchase Price": "5 gp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Container(s)",
@@ -3301,7 +3301,7 @@ let ingredients = [
     "Effects": [
       "When consumed, it is said to temporarily connect one to nature and potentially grant minor plant manipulation abilities."
     ],
-    "Purchase Price": "5 gp",
+    "Purchase Price": "5 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -3323,7 +3323,7 @@ let ingredients = [
     "Effects": [
       "Consuming it provides a brief, minor healing effect."
     ],
-    "Purchase Price": "5 gp",
+    "Purchase Price": "5 gp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -3343,7 +3343,7 @@ let ingredients = [
     "Effects": [
       "Provides sustenance."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools"
@@ -3365,11 +3365,11 @@ let ingredients = [
     "Effects": [
       "Edible, provides sustenance, and is good for drying."
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "knife"
+        "Knife"
       ],
       "Seasons": [
         "Year around"
@@ -3391,7 +3391,7 @@ let ingredients = [
     "Effects": [
       "Provides sustenance and is a reliable protein source."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools"
@@ -3413,7 +3413,7 @@ let ingredients = [
     "Effects": [
       "Provides sustenance and is highly nutritious."
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -3439,7 +3439,7 @@ let ingredients = [
     "Effects": [
       "Provides sustenance."
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -3464,10 +3464,10 @@ let ingredients = [
     "Effects": [
       "Provides sustenance."
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
-        "Digging Tools (like a small shovel or trowel)",
+        "Trowel",
         "Herbalism Kit"
       ]
     },
@@ -3487,7 +3487,7 @@ let ingredients = [
     "Effects": [
       "When consumed, it provides a faint sense of weightlessness or quiet."
     ],
-    "Purchase Price": "1 gp",
+    "Purchase Price": "1 gp per unit",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit"
@@ -3510,7 +3510,7 @@ let ingredients = [
     "Effects": [
       "Offers a strong mineral taste and grounding sensation. It can provide mineral sustenance and enhance physical endurance when infused as grit."
     ],
-    "Purchase Price": "1 gp",
+    "Purchase Price": "1 gp per unit",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit"
@@ -3534,7 +3534,7 @@ let ingredients = [
       "When used as a \"Salve\" (whole fungus), it provides healing (4d4 + 4 hit points).",
       "When processed into \"Powder\" (whole fungus), it can stabilize the dying."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -3561,7 +3561,7 @@ let ingredients = [
     "Effects": [
       "Consuming its petals is said to improve hearing temporarily."
     ],
-    "Purchase Price": "1 gp",
+    "Purchase Price": "1 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -3585,7 +3585,7 @@ let ingredients = [
       "Underdark",
       "Urban"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -3609,7 +3609,7 @@ let ingredients = [
     "Locations": [
       "Underwater"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -3635,7 +3635,7 @@ let ingredients = [
       "After ingesting the infusion, at the beginning of the creature's next turn they gain a +1 bonus to initiative and a -1 penalty to all Intelligence checks.",
       "This herb is used to heighten awareness and has no effect if used again on the same creature until they complete a short rest."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -3656,7 +3656,7 @@ let ingredients = [
       "Hill",
       "Urban"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -3685,7 +3685,7 @@ let ingredients = [
     "Effects": [
       "Consumed for a brief mental clarity or alertness. As a ingredient, it can provide temporary hit points (equal to proficiency bonus) and resistance to non-magical bludgeoning, piercing, and slashing damage. It also offers a +2 bonus to missed attack rolls or failed ability checks."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per unit",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit"
@@ -3707,7 +3707,7 @@ let ingredients = [
     "Effects": [
       "Consuming it might grant a brief, unsettling aura of justice or a temporary resistance to charm, but can also instill a sense of righteous fury."
     ],
-    "Purchase Price": "50 gp",
+    "Purchase Price": "50 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit",
@@ -3730,7 +3730,7 @@ let ingredients = [
       "Hill",
       "Mountain"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -3751,7 +3751,7 @@ let ingredients = [
       "Ingesting a tiny amount of this dust can cause minor, temporary illusions or a sense of whimsical detachment.",
       "When consumed, it provides a fleeting sensation of levity or a minor, temporary illusionary ability."
     ],
-    "Purchase Price": "5 gp",
+    "Purchase Price": "5 gp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit"
@@ -3773,7 +3773,7 @@ let ingredients = [
     "Effects": [
       "When consumed, it is said to have minor illusionary properties."
     ],
-    "Purchase Price": "1 gp",
+    "Purchase Price": "1 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -3800,7 +3800,7 @@ let ingredients = [
       "It can also cause a creature to be \"Poisoned, Sleep in 5 min\".",
       "Ingestion (raw): Can cause 1d6 poison damage."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -3825,11 +3825,11 @@ let ingredients = [
     "Effects": [
       "Potentially grants temporary fortitude against elemental damage."
     ],
-    "Purchase Price": "20 gp",
+    "Purchase Price": "20 gp per unit",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit",
-        "Heat-Resistant Gloves",
+        "Gloves, Heat-Resistant",
         "Chisel"
       ]
     },
@@ -3852,7 +3852,7 @@ let ingredients = [
     "Effects": [
       "It is rumored to grant brief levitation."
     ],
-    "Purchase Price": "20 gp",
+    "Purchase Price": "20 gp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -3871,7 +3871,7 @@ let ingredients = [
     "Locations": [
       "Urban"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -3897,7 +3897,7 @@ let ingredients = [
       "As a seasoning, it imparts a \"gritty, toughening\" quality.",
       "It is also noted for its \"sharp edges,\" implying potential use as an improvised weapon."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -3923,7 +3923,7 @@ let ingredients = [
     "Effects": [
       "Its petals, when dried and powdered, can be used as a powerful, but off-putting, seasoning."
     ],
-    "Purchase Price": "1 gp",
+    "Purchase Price": "1 gp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -3944,7 +3944,7 @@ let ingredients = [
     "Locations": [
       "Forest"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -3966,7 +3966,7 @@ let ingredients = [
     "Locations": [
       "Urban"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -3995,7 +3995,7 @@ let ingredients = [
       "Direct consumption: It provides a burst of heat and mild fire resistance when crushed.",
       "As ingredient: Can be used to brew a Potion of Fire Breath, which allows the user to exhale fire for damage. It can also be used to craft a Potion of Resistance (Fire), granting fire resistance."
     ],
-    "Purchase Price": "1 gp",
+    "Purchase Price": "1 gp per unit",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit"
@@ -4018,7 +4018,7 @@ let ingredients = [
     "Effects": [
       "Provides extreme internal warmth when consumed."
     ],
-    "Purchase Price": "3 gp",
+    "Purchase Price": "3 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Knife",
@@ -4041,7 +4041,7 @@ let ingredients = [
     "Effects": [
       "A creature subjected to this poison must make a DC 10 Constitution saving throw at the beginning of their next turn. On a failed save, the creature is paralyzed."
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -4061,7 +4061,7 @@ let ingredients = [
     "Locations": [
       "Forest"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -4085,11 +4085,10 @@ let ingredients = [
     "Locations": [
       "Jungle"
     ],
-    "Purchase Price": "20 gp",
+    "Purchase Price": "20 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        " (e.g., dispelling focus)",
         "Container(s)"
       ]
     },
@@ -4109,11 +4108,11 @@ let ingredients = [
     "Effects": [
       "Highly nutritious."
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Thick Gloves"
+        "Gloves, Thick"
       ],
       "Seasons": [
         "Spring",
@@ -4142,7 +4141,7 @@ let ingredients = [
       "On a d6 roll of 2-5, there is no extra effect.",
       "On a d6 roll of 6, the meal is delicious."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Knife",
@@ -4167,7 +4166,7 @@ let ingredients = [
       "Incredibly filling.",
       "Retains a subtle coolness even when cooked."
     ],
-    "Purchase Price": "15 gp",
+    "Purchase Price": "15 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Knife",
@@ -4190,7 +4189,7 @@ let ingredients = [
     "Effects": [
       "Provides minimal sustenance and helps with cold."
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -4216,7 +4215,7 @@ let ingredients = [
     "Effects": [
       "Imparts a subtly spicy, numbing flavor when used as seasoning."
     ],
-    "Purchase Price": "1 gp",
+    "Purchase Price": "1 gp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit",
@@ -4239,7 +4238,7 @@ let ingredients = [
     "Effects": [
       "After ingesting the oil, at the beginning of the creature's next turn, they must make a DC 10 Constitution check. On a failed save, the creature falls unconscious for 2 (1d4) minutes. This herb has no effect when used again on the creature until the creature completes a short rest."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -4262,7 +4261,7 @@ let ingredients = [
     "Effects": [
       "Can be edible or poisonous."
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -4287,7 +4286,7 @@ let ingredients = [
     "Effects": [
       "Can be used as thickeners or minor food additives."
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Container(s)"
@@ -4310,7 +4309,7 @@ let ingredients = [
     "Locations": [
       "Underdark"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -4338,7 +4337,7 @@ let ingredients = [
     "Effects": [
       "Can be used as a thickener or as a last-resort food source."
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -4364,7 +4363,7 @@ let ingredients = [
     "Effects": [
       "Provides a grounding sensation."
     ],
-    "Purchase Price": "1 gp",
+    "Purchase Price": "1 gp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit"
@@ -4381,7 +4380,7 @@ let ingredients = [
     "Effects": [
       "Rumored to provide minor strength."
     ],
-    "Purchase Price": "1 gp",
+    "Purchase Price": "1 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit",
@@ -4406,7 +4405,7 @@ let ingredients = [
     "Effects": [
       "Surprisingly nutritious when cooked."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -4433,7 +4432,7 @@ let ingredients = [
     "Effects": [
       "Provides sustenance and resilience."
     ],
-    "Purchase Price": "3 gp",
+    "Purchase Price": "3 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Chisel",
@@ -4455,7 +4454,7 @@ let ingredients = [
     "Locations": [
       "Hill"
     ],
-    "Purchase Price": "3 sp",
+    "Purchase Price": "3 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -4479,7 +4478,7 @@ let ingredients = [
     "Effects": [
       "Can temporarily enhance stone-shaping abilities or resist petrification."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -4500,7 +4499,7 @@ let ingredients = [
       "Forest",
       "Urban"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -4527,7 +4526,7 @@ let ingredients = [
     "Effects": [
       "Edible and nutritious."
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -4565,7 +4564,7 @@ let ingredients = [
       "As an ooze ingredient, the consumer reduces any acid or poison damage they take by 1d4. Additionally, they have a 1d4 bonus to any check or saving throw against becoming grappled or restrained.",
       "When the consumer makes an ability check or saving throw to end an effect that renders them grappled or restrained, they can use a reaction to automatically succeed on the check or save."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Container(s)"
@@ -4589,7 +4588,7 @@ let ingredients = [
     "Effects": [
       "Offers minor magical resistance for a short duration when consumed."
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit"
@@ -4614,7 +4613,7 @@ let ingredients = [
       "Provides vile sustenance and a fleeting resistance to paralysis. Carries a high risk of disease and moral corruption.",
       "If eaten raw, the consumer must make a saving throw versus Con (DC of monster’s DC + 5) or begin to crave the flesh of the dead and become a ghoul in 24 hours (no cure)."
     ],
-    "Purchase Price": "50 gp",
+    "Purchase Price": "50 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -4640,7 +4639,7 @@ let ingredients = [
     "Effects": [
       "Can provide sustenance in desperate times."
     ],
-    "Purchase Price": "3 sp",
+    "Purchase Price": "3 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -4665,11 +4664,11 @@ let ingredients = [
     "Effects": [
       "Said to provide a brief boost of necrotic energy if consumed."
     ],
-    "Purchase Price": "5 gp",
+    "Purchase Price": "5 gp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Thick Gloves"
+        "Gloves, Thick"
       ]
     },
     "Cooking": {
@@ -4688,7 +4687,7 @@ let ingredients = [
     "Effects": [
       "Very filling."
     ],
-    "Purchase Price": "3 sp",
+    "Purchase Price": "3 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -4715,7 +4714,7 @@ let ingredients = [
     "Effects": [
       "Very filling."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -4737,7 +4736,7 @@ let ingredients = [
     "Locations": [
       "Underdark"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -4760,7 +4759,7 @@ let ingredients = [
       "Arctic",
       "Hill"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -4781,7 +4780,7 @@ let ingredients = [
     "Locations": [
       "Underdark"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -4803,7 +4802,7 @@ let ingredients = [
     "Locations": [
       "Underdark"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -4824,7 +4823,7 @@ let ingredients = [
     "Locations": [
       "Underdark"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -4849,7 +4848,7 @@ let ingredients = [
     "Effects": [
       "Very filling."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools"
@@ -4868,7 +4867,7 @@ let ingredients = [
     "Locations": [
       "Coastal"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -4890,7 +4889,7 @@ let ingredients = [
     "Locations": [
       "Underwater"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -4914,12 +4913,12 @@ let ingredients = [
       "Hill",
       "Mountain"
     ],
-    "Purchase Price": "3 sp",
+    "Purchase Price": "3 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
         "Knife",
-        "Feather Plucker"
+        "Plucking Tools"
       ]
     },
     "Cooking": {
@@ -4936,7 +4935,7 @@ let ingredients = [
     "Locations": [
       "Underwater"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -4959,7 +4958,7 @@ let ingredients = [
       "Jungle",
       "Swamp"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -4981,7 +4980,7 @@ let ingredients = [
     "Locations": [
       "Swamp"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools"
@@ -5000,7 +4999,7 @@ let ingredients = [
     "Locations": [
       "Underwater"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -5021,12 +5020,12 @@ let ingredients = [
     "Locations": [
       "Arctic"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
         "Knife",
-        "Feather Plucker"
+        "Plucking Tools"
       ]
     },
     "Cooking": {
@@ -5043,7 +5042,7 @@ let ingredients = [
     "Locations": [
       "Underwater"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -5065,7 +5064,7 @@ let ingredients = [
       "Underdark",
       "Wasteland"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -5086,7 +5085,7 @@ let ingredients = [
     "Locations": [
       "Wasteland"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -5109,7 +5108,7 @@ let ingredients = [
     "Locations": [
       "Desert"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -5132,7 +5131,7 @@ let ingredients = [
     "Locations": [
       "Coastal"
     ],
-    "Purchase Price": "3 gp",
+    "Purchase Price": "3 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -5153,7 +5152,7 @@ let ingredients = [
     "Locations": [
       "Underwater"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools"
@@ -5173,11 +5172,10 @@ let ingredients = [
     "Locations": [
       "Urban"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
-
         "Bag, Large",
         "Disinfectant"
       ]
@@ -5197,7 +5195,7 @@ let ingredients = [
     "Locations": [
       "Underwater"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -5218,7 +5216,7 @@ let ingredients = [
     "Locations": [
       "Urban"
     ],
-    "Purchase Price": "3 sp",
+    "Purchase Price": "3 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -5244,7 +5242,7 @@ let ingredients = [
       "Swamp",
       "Underdark"
     ],
-    "Purchase Price": "3 sp",
+    "Purchase Price": "3 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -5266,7 +5264,7 @@ let ingredients = [
     "Locations": [
       "Coastal"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -5290,12 +5288,12 @@ let ingredients = [
       "Hill",
       "Wasteland"
     ],
-    "Purchase Price": "3 sp",
+    "Purchase Price": "3 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
         "Knife",
-        "Feather Plucker"
+        "Plucking Tools"
       ]
     },
     "Cooking": {
@@ -5315,7 +5313,7 @@ let ingredients = [
     "Effects": [
       "Very filling."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -5336,7 +5334,7 @@ let ingredients = [
     "Locations": [
       "Grassland"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -5362,7 +5360,7 @@ let ingredients = [
     "Locations": [
       "Jungle"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -5391,7 +5389,7 @@ let ingredients = [
       "Consuming it can temporarily boost intelligence or charisma, but may whisper insidious suggestions into the mind.",
       "If prepared by an expert, when a creature within 20 feet of the consumer makes an attack or saving throw, the consumer can use their reaction to reduce that creature’s roll by 1d4. When a creature within 10 feet of the consumer hits them with an attack, the consumer can use a reaction to deal cold or fire damage (their choice) equal to 1d8 + their Intelligence modifier to the attacker."
     ],
-    "Purchase Price": "50 gp",
+    "Purchase Price": "50 gp per unit",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit"
@@ -5413,7 +5411,7 @@ let ingredients = [
     "Effects": [
       "Provides sustenance and hydration."
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit",
@@ -5435,7 +5433,7 @@ let ingredients = [
     "Locations": [
       "Arctic"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -5464,7 +5462,7 @@ let ingredients = [
     "Effects": [
       "Edible"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -5491,7 +5489,7 @@ let ingredients = [
     "Effects": [
       "Provides a subtle, temporary glow and minor resistance to pressure."
     ],
-    "Purchase Price": "1 gp",
+    "Purchase Price": "1 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -5516,7 +5514,7 @@ let ingredients = [
     "Effects": [
       "Causes mild disorientation but can be used as a hallucinogenic seasoning."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -5544,7 +5542,7 @@ let ingredients = [
     "Effects": [
       "Consuming it can induce minor disorientation but also offer a brief sense of hidden knowledge."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per unit",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit",
@@ -5570,7 +5568,7 @@ let ingredients = [
     "Effects": [
       "Provides a small amount of light and is edible."
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -5597,7 +5595,7 @@ let ingredients = [
     "Effects": [
       "Edible and bioluminescent."
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -5624,7 +5622,7 @@ let ingredients = [
       "Hill",
       "Wasteland"
     ],
-    "Purchase Price": "3 sp",
+    "Purchase Price": "3 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -5649,7 +5647,7 @@ let ingredients = [
     "Effects": [
       "Primarily functions as a vibrant, tangy seasoning."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit",
@@ -5678,7 +5676,7 @@ let ingredients = [
       "On a d6 roll of 2-5, there is no extra effect.",
       "On a d6 roll of 6, it is delicious and heals 1 HP, or 1 additional HP."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -5709,7 +5707,7 @@ let ingredients = [
     "Effects": [
       "Edible when young."
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -5737,7 +5735,7 @@ let ingredients = [
     "Effects": [
       "While not particularly tasty, it is a reliable source of sustenance."
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -5767,7 +5765,7 @@ let ingredients = [
       "Urban",
       "Wasteland"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -5792,7 +5790,7 @@ let ingredients = [
     "Effects": [
       "Sometimes edible, sometimes mildly poisonous."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -5821,7 +5819,7 @@ let ingredients = [
     "Effects": [
       "Primarily a sustenance source for monstrous humanoids or in dire survival."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -5848,13 +5846,13 @@ let ingredients = [
       "Provides permanent positive cosmetic changes.",
       "As a ingredient, it grants resistance to the dragon's damage type, a fly speed equal to walking speed, or the ability to exhale a 15-foot cone of elemental damage as a bonus action, requiring a Dexterity saving throw (taking a number of d6 equal to proficiency bonus on a failed save, half on a success)."
     ],
-    "Purchase Price": "50 gp",
+    "Purchase Price": "50 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools (Enchanted)",
         "Arcane Focus",
         "Preservation Salts",
-        "Large Container(s)"
+        "Container(s), Large"
       ]
     },
     "Cooking": {
@@ -5882,7 +5880,7 @@ let ingredients = [
       "When the consumer rolls below 10 on an attack roll, ability check, or saving throw, they can use a reaction to instead get a 10. Lasts for one hour.",
       "It can provide temporary hit points equal to the consumer's proficiency bonus and resistance to bludgeoning, piercing, and slashing damage from non-magical attacks for 1 hour."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit",
@@ -5913,7 +5911,7 @@ let ingredients = [
       "Requires extensive cooking to be palatable. Gorgon steaks are \"Normal Meat,\" which means they can potentially heal 1 HP or an additional HP (on a d6 roll of 6), or cause queasiness and gassiness (on a d6 roll of 1 with a failed Constitution save).",
       "Gorgon milk (not the meat) is very nutritious and provides total immunity to poison for 1 hour after ingestion."
     ],
-    "Purchase Price": "3 gp",
+    "Purchase Price": "3 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -5939,7 +5937,7 @@ let ingredients = [
       "Drinking it is said to temporarily grant immense physical resilience and destructive power, but at the cost of refined thought.",
       "If prepared by an expert: when a creature within 20 feet of the consumer makes an attack or saving throw, the consumer can use their reaction to reduce that creature’s roll by 1d4; when a creature within 10 feet of the consumer hits them with an attack, the consumer can use a reaction to deal cold or fire damage (their choice) equal to 1d8 + their Intelligence modifier to the attacker."
     ],
-    "Purchase Price": "50 gp",
+    "Purchase Price": "50 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools"
@@ -5968,7 +5966,7 @@ let ingredients = [
       "If prepared by an expert, the consumer reduces any acid or poison damage they take by 1dThey also gain a 1d4 bonus to any check or saving throw against becoming grappled or restrained.",
       "When the consumer makes an ability check or saving throw to end an effect that renders them grappled or restrained, they can use a reaction to automatically succeed on the check or save."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit",
@@ -5998,13 +5996,13 @@ let ingredients = [
       "Consuming it might cause discomfort but can provide a fleeting resistance to acid.",
       "This ingredient can grant resistance to the dragon's damage type (Acid for Green Dragon). Alternatively, it can grant a fly speed equal to walking speed, or allow the consumer to exhale a 15-foot cone of acid damage as a bonus action, dealing a number of d6s equal to the consumer's proficiency bonus on a failed Dexterity saving throw, or half as much on a success."
     ],
-    "Purchase Price": "3 gp",
+    "Purchase Price": "3 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools (Enchanted)",
         "Arcane Focus",
         "Preservation Salts",
-        "Large Container(s)"
+        "Container(s), Large"
       ]
     },
     "Cooking": {
@@ -6027,7 +6025,7 @@ let ingredients = [
     "Effects": [
       "This ingredient grants fleeting knowledge of secrets or the ability to mimic voices. It"
     ],
-    "Purchase Price": "50 gp",
+    "Purchase Price": "50 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -6057,7 +6055,7 @@ let ingredients = [
       "If properly cooked in a Pot, it becomes a \"nutritious green soup\".",
       "As a \"nutritious green soup\", it provides sustenance, and can potentially heal 1 HP or an additional HP (on a d6 roll of 6), or causing queasiness and gassiness (on a d6 roll of 1 with a failed Constitution save)."
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Container(s)"
@@ -6080,10 +6078,10 @@ let ingredients = [
     "Effects": [
       "It is a source of protein and some claim it dulls sensitivity to pain temporarily."
     ],
-    "Purchase Price": "3 sp",
+    "Purchase Price": "3 sp per pound",
     "Harvesting": {
       "Required Kit": [
-        "knife",
+        "Knife",
         "Butcher's Tools"
       ]
     },
@@ -6107,11 +6105,10 @@ let ingredients = [
     "Effects": [
       "It is a reliable source of protein in dangerous subterranean environments."
     ],
-    "Purchase Price": "3 sp",
+    "Purchase Price": "3 sp per pound",
     "Harvesting": {
       "Required Kit": [
-        "knife",
-        "other cutting tools"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -6130,7 +6127,7 @@ let ingredients = [
     "Effects": [
       "Its petals, when eaten, are said to sharpen senses slightly."
     ],
-    "Purchase Price": "1 gp",
+    "Purchase Price": "1 gp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -6161,11 +6158,11 @@ let ingredients = [
       "If cooked over a pure coal fire, it gains a +2 bonus to the roll for these effects.",
       "It also whitewashes your teeth."
     ],
-    "Purchase Price": "3 gp",
+    "Purchase Price": "3 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
-        "Feather Plucker"
+        "Plucking Tools"
       ]
     },
     "Cooking": {
@@ -6186,7 +6183,7 @@ let ingredients = [
     "Effects": [
       "It is highly nutritious. This ingredient"
     ],
-    "Purchase Price": "3 sp",
+    "Purchase Price": "3 sp per unit",
     "Harvesting": {
       "Required Kit": [
         "Container(s)"
@@ -6208,11 +6205,11 @@ let ingredients = [
     "Locations": [
       "Urban"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Basket",
-        "Durable Gloves"
+        "Gloves, Durable"
       ],
       "Seasons": [
         "Late Autumn"
@@ -6222,7 +6219,7 @@ let ingredients = [
       "Method": "It can be eaten directly as a berry.",
       "Required Kit": [
         "Cook's Utensils",
-        "Pot, Large/Pan"
+        "Pot, Large"
       ]
     }
   },
@@ -6237,7 +6234,7 @@ let ingredients = [
       "Eating it can cause minor poison damage.",
       "It might also offer a temporary resistance to a specific poison type or a brief burst of strange energy."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -6263,10 +6260,10 @@ let ingredients = [
       "It is used as a toughening agent in dishes.",
       "It imparts a subtle, wild flavor."
     ],
-    "Purchase Price": "3 sp",
+    "Purchase Price": "3 sp per ounce",
     "Harvesting": {
       "Required Kit": [
-        "knife",
+        "Knife",
         "Butcher's Tools"
       ]
     },
@@ -6288,7 +6285,7 @@ let ingredients = [
     "Effects": [
       "This ingredient It is considered \"Normal Meat\", so after consumption, there is a chance to heal 1 HP or an additional HP (on a d6 roll of 6), or conversely, to become queasy and gassy (on a d6 roll of 1 with a failed Constitution save)."
     ],
-    "Purchase Price": "3 sp",
+    "Purchase Price": "3 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools"
@@ -6311,7 +6308,7 @@ let ingredients = [
     "Locations": [
       "Grassland"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -6340,10 +6337,10 @@ let ingredients = [
     "Effects": [
       "If \"carefully prepared\" to neutralize toxins, it would likely yield the effects of \"Normal Meat\": potentially healing 1 HP or an additional HP (on a d6 roll of 6), or causing queasiness and gassiness (on a d6 roll of 1 with a failed Constitution save). If not properly prepared, it is \"highly poisonous\"."
     ],
-    "Purchase Price": "3 gp",
+    "Purchase Price": "3 gp per pound",
     "Harvesting": {
       "Required Kit": [
-        "knife",
+        "Knife",
         "Butcher's Tools"
       ]
     },
@@ -6365,11 +6362,11 @@ let ingredients = [
       "Hill",
       "Urban"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "knife"
+        "Knife"
       ],
       "Seasons": [
         "Autumn"
@@ -6391,7 +6388,7 @@ let ingredients = [
     "Effects": [
       "Provides a cooling sensation when eaten."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -6414,7 +6411,7 @@ let ingredients = [
       "Forest",
       "Hill"
     ],
-    "Purchase Price": "3 sp",
+    "Purchase Price": "3 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -6439,7 +6436,7 @@ let ingredients = [
       "It is very filling.",
       "This ingredient can also be used for a Potion of Flying."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -6458,7 +6455,7 @@ let ingredients = [
     "Locations": [
       "Hill"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Container(s)"
@@ -6480,7 +6477,7 @@ let ingredients = [
     "Locations": [
       "Hill"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -6504,7 +6501,7 @@ let ingredients = [
       "Forest",
       "Hill"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Knife"
@@ -6523,7 +6520,7 @@ let ingredients = [
     "Locations": [
       "Forest"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -6546,7 +6543,7 @@ let ingredients = [
     "Locations": [
       "Underdark"
     ],
-    "Purchase Price": "3 sp",
+    "Purchase Price": "3 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Knife",
@@ -6567,7 +6564,7 @@ let ingredients = [
       "Grassland",
       "Hill"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Knife",
@@ -6593,7 +6590,7 @@ let ingredients = [
     "Effects": [
       "Edible, but carries immense moral implications."
     ],
-    "Purchase Price": "3 sp",
+    "Purchase Price": "3 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Knife",
@@ -6623,11 +6620,10 @@ let ingredients = [
       "Hydra’s Power: As Hydra’s Venom, and the consumer permanently gains +1 Strength and Dexterity.",
       "Hydra’s Blessing: As Hydra’s Power, and the consumer also regenerates 1d6 hit points per round. If a limb is lost, it regrows in 1d6 days (with a 1-in-10 chance of ending in mouths). If decapitated, the consumer can make a saving throw to grow two new heads."
     ],
-    "Purchase Price": "50 gp",
+    "Purchase Price": "50 gp per unit",
     "Harvesting": {
       "Required Kit": [
-        "Knife",
-        "other cutting tools"
+        "Butcher's Tools"
       ]
     },
     "Cooking": {
@@ -6644,7 +6640,7 @@ let ingredients = [
     "Locations": [
       "Underwater"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Trowel"
@@ -6667,7 +6663,7 @@ let ingredients = [
     "Locations": [
       "Underwater"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -6690,7 +6686,7 @@ let ingredients = [
     "Locations": [
       "Arctic"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -6716,10 +6712,10 @@ let ingredients = [
     "Effects": [
       "Provides a fleeting burst of invigorating cold energy when consumed."
     ],
-    "Purchase Price": "1 gp",
+    "Purchase Price": "1 gp per ounce",
     "Harvesting": {
       "Required Kit": [
-        "container to collect"
+        "Container(s)"
       ]
     },
     "Cooking": {
@@ -6736,7 +6732,7 @@ let ingredients = [
     "Effects": [
       "Provides a cooling sensation or minor ice resistance when consumed."
     ],
-    "Purchase Price": "1 gp",
+    "Purchase Price": "1 gp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Chisel"
@@ -6758,7 +6754,7 @@ let ingredients = [
     "Effects": [
       "Tastes distinctly of mint and provides a temporary cooling effect when ingested."
     ],
-    "Purchase Price": "1 gp",
+    "Purchase Price": "1 gp per unit",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit"
@@ -6780,7 +6776,7 @@ let ingredients = [
       "Can be used as a powerful, pungent seasoning.",
       "Eating one alive automatically inflicts the curse of the ignimbrite mite and 8 damage."
     ],
-    "Purchase Price": "1 gp",
+    "Purchase Price": "1 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit"
@@ -6804,7 +6800,7 @@ let ingredients = [
       "Consuming it might grant minor darkvision, a brief surge of cunning, or a sense of unease.",
       "If prepared by an expert (Fiend ingredient), the consumer gains a 1d4 bonus to Strength checks and saving throws, and can use a bonus action to gain a 1d6 bonus to their next attack and damage roll before the start of their next turn."
     ],
-    "Purchase Price": "15 gp",
+    "Purchase Price": "15 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -6829,10 +6825,10 @@ let ingredients = [
       "Provides a burning sensation and temporary fire resistance when consumed.",
       "If prepared by an expert, the consumer gains a 1d4 bonus to Strength checks and saving throws, and can use a bonus action to gain a 1d6 bonus to their next attack and damage roll before the start of their next turn."
     ],
-    "Purchase Price": "5 gp",
+    "Purchase Price": "5 gp per unit",
     "Harvesting": {
       "Required Kit": [
-        "tools for breaking or collecting rock"
+        "Pick"
       ]
     },
     "Cooking": {
@@ -6860,7 +6856,7 @@ let ingredients = [
       "Additionally, when the consumer takes psychic damage, they can use a reaction to reduce it by 1d4 points.",
       "They can also speak telepathically to any creature within 30 feet who also consumed the same meal."
     ],
-    "Purchase Price": "15 gp",
+    "Purchase Price": "15 gp per unit",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools"
@@ -6890,7 +6886,7 @@ let ingredients = [
       "When the consumer misses an attack roll or fails an ability check, they can use their reaction to add a +2 bonus to the roll.",
       "When the consumer rolls below 10 on an attack roll, ability check, or saving throw, they can use a reaction to instead get a 10."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Mortar and Pestle",
@@ -6913,7 +6909,7 @@ let ingredients = [
       "Can be consumed for basic sustenance.",
       "Comes with risks."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -6933,11 +6929,11 @@ let ingredients = [
     "Locations": [
       "Jungle"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "knife"
+        "Knife"
       ],
       "Seasons": [
         "Summer"
@@ -6950,7 +6946,7 @@ let ingredients = [
     }
   },
   {
-    "Name": "Jerusalem Artichoke (Sunchoke)",
+    "Name": "Sunchoke",
     "Description": "A tuber, often found in disturbed soil on hills.",
     "Ingredient Type": "Plant-based",
     "Locations": [
@@ -6959,7 +6955,7 @@ let ingredients = [
       "Hill",
       "Urban"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -6982,11 +6978,11 @@ let ingredients = [
     "Locations": [
       "Jungle"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "knife"
+        "Knife"
       ],
       "Seasons": [
         "Summer"
@@ -7008,11 +7004,11 @@ let ingredients = [
       "Hill",
       "Mountain"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "knife"
+        "Knife"
       ],
       "Seasons": [
         "Autumn"
@@ -7032,7 +7028,7 @@ let ingredients = [
       "Coastal",
       "Underwater"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -7061,7 +7057,7 @@ let ingredients = [
       "The consumer gains a +3 bonus to Charisma (Persuasion) checks. Lasts for one minute.",
       "As an action, the consumer can cast cure wounds (using their Intelligence for the spellcasting ability), expending additional uses to increase the spell's level."
     ],
-    "Purchase Price": "50 gp",
+    "Purchase Price": "50 gp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit",
@@ -7087,7 +7083,7 @@ let ingredients = [
     "Locations": [
       "Underdark"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Knife"
@@ -7106,7 +7102,7 @@ let ingredients = [
     "Locations": [
       "Jungle"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -7128,7 +7124,7 @@ let ingredients = [
     "Locations": [
       "Underwater"
     ],
-    "Purchase Price": "1 gp",
+    "Purchase Price": "1 gp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit"
@@ -7154,11 +7150,10 @@ let ingredients = [
       "As a bonus action, the consumer can gain a climb or swim speed equal to their walking speed until the end of their next turn.",
       "Effects last for one minute."
     ],
-    "Purchase Price": "50 gp",
+    "Purchase Price": "50 gp per pound",
     "Harvesting": {
       "Required Kit": [
-        "Knife",
-        "other cutting tools"
+        "Knife"
       ]
     },
     "Cooking": {
@@ -7175,7 +7170,7 @@ let ingredients = [
     "Locations": [
       "Underwater"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Knife"
@@ -7198,7 +7193,7 @@ let ingredients = [
       "Urban",
       "Wasteland"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -7226,7 +7221,7 @@ let ingredients = [
     "Effects": [
       "Said to aid in alertness."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -7252,7 +7247,7 @@ let ingredients = [
       "Forest",
       "Mountain"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -7280,7 +7275,7 @@ let ingredients = [
       "When prepared as an infusion and ingested, at the beginning of the consumer's next turn, the frightened condition is removed, and the consumer gains advantage on all saving throws against being frightened for 30 minutes.",
       "This herb has no effect if used again on the same creature until they complete a short rest."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -7304,7 +7299,7 @@ let ingredients = [
       "Consumer's exhaustion level is reduced by one.",
       "This herb has no effect if used again on the creature until it completes a long rest."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -7324,11 +7319,11 @@ let ingredients = [
     "Locations": [
       "Swamp"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
-        "knife",
-        "cook's utensils"
+        "Knife",
+        "Cook's Utensils"
       ]
     },
     "Cooking": {
@@ -7346,11 +7341,11 @@ let ingredients = [
       "Jungle",
       "Swamp"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
-        "knife",
-        "cook's utensils"
+        "Knife",
+        "Cook's Utensils"
       ]
     },
     "Cooking": {
@@ -7371,7 +7366,7 @@ let ingredients = [
       "There's a 1-in-6 chance of healing 1 HP, or 1 additional HP.",
       "There's also a 1-in-6 chance of becoming queasy and gassy (requiring a Constitution saving throw or losing any meal benefits)."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Fishing Net",
@@ -7390,7 +7385,7 @@ let ingredients = [
     "Name": "Lotus Seeds",
     "Description": "Prized for their subtle, starchy sweetness and creamy texture when cooked. They can be incorporated into various dishes, from savory stir-fries and soups to sweet desserts and confections. Beyond their culinary uses, some culinarians believe they possess calming properties, aiding in focus and inner peace during stressful cooking endeavors.",
     "Ingredient Type": "Plant-based",
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -7413,7 +7408,7 @@ let ingredients = [
       "Swamp",
       "Underwater"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -7439,7 +7434,7 @@ let ingredients = [
       "When a creature drinks the infusion, at the beginning of their next turn they regain 4 (2d4) hit points.",
       "This herb has no effect when used again on the creature until it completes a long rest."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -7466,7 +7461,7 @@ let ingredients = [
     "Effects": [
       "Provides internal warmth and minor fire resistance."
     ],
-    "Purchase Price": "1 gp",
+    "Purchase Price": "1 gp per unit",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit"
@@ -7488,7 +7483,7 @@ let ingredients = [
     "Effects": [
       "After ingesting the powder, the creature must make a DC 10 Constitution saving throw. On a failed save, the creature is affected for 10 minutes as if the spell Suggestion was cast on them. This herb has no effect when used again on the same creature until the creature completes a short rest."
     ],
-    "Purchase Price": "1 gp",
+    "Purchase Price": "1 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -7508,7 +7503,7 @@ let ingredients = [
     "Locations": [
       "Arctic"
     ],
-    "Purchase Price": "3 sp",
+    "Purchase Price": "3 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Bone Saw"
@@ -7532,7 +7527,7 @@ let ingredients = [
       "On a d6 roll of 2-5: No extra effect.",
       "On a d6 roll of 6: Delicious! Consumer heals 1 HP, or 1 additional HP."
     ],
-    "Purchase Price": "3 sp",
+    "Purchase Price": "3 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools"
@@ -7552,7 +7547,7 @@ let ingredients = [
     "Locations": [
       "Arctic"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -7580,7 +7575,7 @@ let ingredients = [
       "When a creature within 20 feet of the consumer makes an attack or saving throw, the consumer can use their reaction to reduce that creature’s roll by 1d4.",
       "When a creature within 10 feet of the consumer hits them with an attack, the consumer can use a reaction to deal cold or fire damage (their choice) equal to 1d8 + their Intelligence modifier to the attacker."
     ],
-    "Purchase Price": "3 gp",
+    "Purchase Price": "3 gp per unit",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit"
@@ -7599,7 +7594,7 @@ let ingredients = [
     "Locations": [
       "Jungle"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -7624,12 +7619,12 @@ let ingredients = [
     "Locations": [
       "Jungle"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
         "Knife",
-        "Waterproof Bag"
+        "Bag, Waterproof"
       ],
       "Seasons": [
         "Summer"
@@ -7654,12 +7649,12 @@ let ingredients = [
       "On a d6 roll of 1: Consumer must make a Constitution saving throw or lose any benefit from the meal, and spend the rest of the day queasy and gassy.",
       "On a d6 roll of 2-5: No extra effect.",
       "On a d6 roll of 6: Delicious! Consumer heals 1 HP, or 1 additional HP.",
-      "Unless boiled in a silver pot, consuming Manticore meat requires a d10 roll for additional effects:",
+      "Consuming Manticore meat requires a d10 roll for additional effects:",
       "1-3: Rumours. Make up 1 rumour about each other player. Players secretly vote on 1 rumour. That rumour becomes believed, although it is not necessarily true.",
       "4-7: Spite. Make a Save or hate a random nearby person for the next 7 days. Consumers will not kill them, but would not mind seeing them die. Consumers can attempt this Save once per round.",
       "8-10: Lies. Consumers cannot tell the truth, unless the truth would be more devastating than any lie or omission. This effect ends only if the consumer spends the night in a church."
     ],
-    "Purchase Price": "3 sp",
+    "Purchase Price": "3 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools"
@@ -7668,8 +7663,7 @@ let ingredients = [
     "Cooking": {
       "Method": "Requires cooking",
       "Required Kit": [
-        "Cook's Utensils",
-        "silver pot (if attempting to avoid negative effects)"
+        "Cook's Utensils"
       ]
     },
     "Notes": "Manticores are surly, hateful creatures, full of secrets and spite."
@@ -7685,7 +7679,7 @@ let ingredients = [
       "After ingesting this juice, at the beginning of the creature's next turn they gain the effect of drinking an antitoxin which lasts for 2 minutes.",
       "This herb has no effect when used again on the creature until the creature completes a long rest."
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -7703,7 +7697,7 @@ let ingredients = [
     "Locations": [
       "Underwater"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -7725,13 +7719,13 @@ let ingredients = [
     "Locations": [
       "Coastal"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
         "Pry Bar",
         "Chisel",
-        "Waterproof Bag"
+        "Bag, Waterproof"
       ]
     },
     "Cooking": {
@@ -7751,7 +7745,7 @@ let ingredients = [
     "Effects": [
       "Can provide a temporary boost to swimming speed."
     ],
-    "Purchase Price": "5 gp",
+    "Purchase Price": "5 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit",
@@ -7778,7 +7772,7 @@ let ingredients = [
     "Locations": [
       "Coastal"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -7801,10 +7795,10 @@ let ingredients = [
       "Desert",
       "Wasteland"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
-        "mortar and pestle"
+        "Mortar and Pestle"
       ],
       "Seasons": [
         "Summer"
@@ -7830,7 +7824,7 @@ let ingredients = [
       "When a creature within 20 feet of the consumer makes an attack or saving throw, the consumer can use their reaction to reduce that creature’s roll by 1d4.",
       "When a creature within 10 feet of the consumer hits them with an attack, the consumer can use a reaction to deal cold or fire damage (their choice) equal to 1d8 + their Intelligence modifier to the attacker."
     ],
-    "Purchase Price": "50 gp",
+    "Purchase Price": "50 gp per unit",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit",
@@ -7859,7 +7853,7 @@ let ingredients = [
       "Underdark",
       "Urban"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -7890,7 +7884,7 @@ let ingredients = [
       "On a d6 roll of 2-5: No extra effect.",
       "On a d6 roll of 6: Delicious! Consumer heals 1 HP, or 1 additional HP."
     ],
-    "Purchase Price": "3 gp",
+    "Purchase Price": "3 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -7925,7 +7919,7 @@ let ingredients = [
       "The consumer can speak telepathically to any creature within 30 feet who also consumed the same meal, provided they share a language.",
       "When the consumer deals damage to a creature within 20 feet for the first time in a turn, they can deal an additional 3 psychic damage to the target (no action required)."
     ],
-    "Purchase Price": "15 gp",
+    "Purchase Price": "15 gp per unit",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit",
@@ -7953,7 +7947,7 @@ let ingredients = [
     "Locations": [
       "Hill"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -7979,12 +7973,12 @@ let ingredients = [
       "Mountain",
       "Swamp"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
         "Trowel",
-        "Waterproof Bag"
+        "Bag, Waterproof"
       ],
       "Seasons": [
         "Summer"
@@ -8003,7 +7997,7 @@ let ingredients = [
     "Locations": [
       "Coastal"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Pry Bar",
@@ -8032,12 +8026,12 @@ let ingredients = [
       "10: Vast Vistas. Save vs Wis (DC of Mondmilch's CR) or go permanently insane. If consumer passes the saving throw, the consumer can choose to weigh as much as a feather, can only be harmed by silver weapons and magical weapons, spells targeting consumer have a 1-in-6 chance of reflecting back at their casters, the consumer does not age.",
       "All these Vast Vistas effects come at a price: Consumers will inflict terror and fear whenever possible."
     ],
-    "Purchase Price": "20 gp",
+    "Purchase Price": "20 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit",
         "Container(s)",
-        "Ethereal Net/Scoop"
+        "Ethereal Net"
       ]
     },
     "Preparation": {
@@ -8060,7 +8054,7 @@ let ingredients = [
       "Urban",
       "Wasteland"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -8085,7 +8079,7 @@ let ingredients = [
     "Locations": [
       "Forest"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -8110,7 +8104,7 @@ let ingredients = [
     "Locations": [
       "Hill"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -8134,7 +8128,7 @@ let ingredients = [
     "Locations": [
       "Mountain"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -8159,7 +8153,7 @@ let ingredients = [
     "Locations": [
       "Mountain"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -8184,12 +8178,12 @@ let ingredients = [
     "Locations": [
       "Swamp"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
         "Trowel",
-        "Waterproof Bag"
+        "Bag, Waterproof"
       ],
       "Seasons": [
         "Spring"
@@ -8210,12 +8204,12 @@ let ingredients = [
       "Mountain",
       "Swamp"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
         "Fine Net",
-        "Waterproof Bag"
+        "Bag, Waterproof"
       ],
       "Seasons": [
         "Summer"
@@ -8239,7 +8233,7 @@ let ingredients = [
       "When prepared as a Pill, it provides healing of 8d4 + 8 hit points.",
       "When prepared as a Decoction, it heals 1 level of exhaustion."
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -8260,7 +8254,7 @@ let ingredients = [
       "Hill",
       "Urban"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -8292,7 +8286,7 @@ let ingredients = [
       "1-2: Painful Lesions. Take 1d6 damage and lose any benefit from the meal.",
       "3-4: Mummy Visions. Make a save versus Wisdom (DC 18) or permanently lose 1d6 Wisdom. If the consumer passes the saving throw, the consumer spends the next 1d6 minutes in a swirling vision of the ancient past, where treasure and secrets may be revealed."
     ],
-    "Purchase Price": "50 gp",
+    "Purchase Price": "50 gp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit",
@@ -8323,11 +8317,11 @@ let ingredients = [
     "Effects": [
       "Can cause minor mutations or strange, temporary effects."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Thick Gloves",
+        "Gloves, Thick",
         "Container(s)",
         "Poisoner's Kit"
       ],
@@ -8349,7 +8343,7 @@ let ingredients = [
     "Locations": [
       "Wasteland"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -8371,11 +8365,11 @@ let ingredients = [
     "Locations": [
       "Wasteland"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Thick Gloves",
+        "Gloves, Thick",
         "Tongs",
         "Basket",
         "Bag"
@@ -8400,13 +8394,13 @@ let ingredients = [
     "Effects": [
       "Can grant minor, temporary fungal communication."
     ],
-    "Purchase Price": "1 gp",
+    "Purchase Price": "1 gp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
         "Fine Brush",
         "Container(s)",
-        "Mask/Respirator"
+        "Mask"
       ],
       "Seasons": [
         "Autumn"
@@ -8433,11 +8427,10 @@ let ingredients = [
       "Swamp",
       "Urban"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Wisdom (Survival) check"
       ],
       "Seasons": [
         "Spring"
@@ -8446,7 +8439,7 @@ let ingredients = [
     "Cooking": {
       "Method": "Leaves are edible when cooked.",
       "Required Kit": [
-        "Cook's utensils"
+        "Cook's Utensils"
       ]
     }
   },
@@ -8463,11 +8456,11 @@ let ingredients = [
       "Swamp",
       "Urban"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Wisdom (Survival) check"
+        
       ],
       "Seasons": [
         "Spring"
@@ -8475,7 +8468,7 @@ let ingredients = [
     },
     "Cooking": {
       "Required Kit": [
-        "Cook's utensils"
+        "Cook's Utensils"
       ]
     }
   },
@@ -8491,7 +8484,7 @@ let ingredients = [
       "When a creature within 20 feet of the consumer makes an attack or saving throw, the consumer can use their reaction to reduce that creature’s roll by 1d4.",
       "When a creature within 10 feet of the consumer hits them with an attack, the consumer can use a reaction to deal cold or fire damage (their choice) equal to 1d8 + their Intelligence modifier to the attacker."
     ],
-    "Purchase Price": "50 gp",
+    "Purchase Price": "50 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools"
@@ -8513,7 +8506,7 @@ let ingredients = [
     "Effects": [
       "Ability to filter impurities from water."
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -8539,7 +8532,7 @@ let ingredients = [
       "When ingested as an infusion, at the beginning of the consumer's next turn, they regain 1 point to their Constitution ability score.",
       "This effect cannot be used again on the same creature until they complete a long rest."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -8557,7 +8550,7 @@ let ingredients = [
     "Locations": [
       "Mountain"
     ],
-    "Purchase Price": "1 gp",
+    "Purchase Price": "1 gp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Pick"
@@ -8580,7 +8573,7 @@ let ingredients = [
     "Locations": [
       "Coastal"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Fishing Net",
@@ -8604,11 +8597,11 @@ let ingredients = [
     "Locations": [
       "Underwater"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Waterproof Bag"
+        "Bag, Waterproof"
       ],
       "Seasons": [
         "Late Summer"
@@ -8636,7 +8629,7 @@ let ingredients = [
       "They also gain a 1d4 bonus to any check or saving throw against becoming grappled or restrained.",
       "When the consumer makes an ability check or saving throw to end an effect that renders them grappled or restrained, they can use a reaction to automatically succeed on the check or save."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Container(s)"
@@ -8663,7 +8656,7 @@ let ingredients = [
       "On a d6 roll of 2-5: No extra effect.",
       "On a d6 roll of 6: Delicious! Heal 1 HP, or 1 additional HP."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools"
@@ -8685,7 +8678,7 @@ let ingredients = [
     "Locations": [
       "Hill"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Digging Tools"
@@ -8713,7 +8706,7 @@ let ingredients = [
       "On a d6 roll of 2-5: No extra effect.",
       "On a d6 roll of 6: Delicious! Heal 1 HP, or 1 additional HP."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools"
@@ -8737,7 +8730,7 @@ let ingredients = [
       "They gain a 1d4 bonus to any check or saving throw against becoming grappled or restrained.",
       "When the consumer makes an ability check or saving throw to end an effect that renders them grappled or restrained, they can use a reaction to automatically succeed on the check or save."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Container(s)"
@@ -8757,7 +8750,7 @@ let ingredients = [
     "Locations": [
       "Coastal"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -8792,7 +8785,7 @@ let ingredients = [
       "On a d6 roll of 2-5: No extra effect.",
       "On a d6 roll of 6: Delicious! Heal 1 HP, or 1 additional HP."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools"
@@ -8811,7 +8804,7 @@ let ingredients = [
     "Locations": [
       "Jungle"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Container(s)"
@@ -8838,7 +8831,7 @@ let ingredients = [
       "On a d6 roll of 2-5: No extra effect.",
       "On a d6 roll of 6: Delicious! Heal 1 HP, or 1 additional HP."
     ],
-    "Purchase Price": "3 sp",
+    "Purchase Price": "3 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools"
@@ -8871,7 +8864,7 @@ let ingredients = [
       "On a 9: Owlbear’s Strength. Consumer gains +2 Strength for 1d6 hours.",
       "On a 10: Fortified. Consumer permanently gains +1 Strength and +1 HP. They also grow a few feathers or quills."
     ],
-    "Purchase Price": "3 sp",
+    "Purchase Price": "3 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools"
@@ -8891,7 +8884,7 @@ let ingredients = [
     "Locations": [
       "Jungle"
     ],
-    "Purchase Price": "3 sp",
+    "Purchase Price": "3 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools"
@@ -8910,7 +8903,7 @@ let ingredients = [
     "Locations": [
       "Jungle"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -8936,7 +8929,7 @@ let ingredients = [
     "Locations": [
       "Forest"
     ],
-    "Purchase Price": "1 gp",
+    "Purchase Price": "1 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -8961,7 +8954,7 @@ let ingredients = [
     "Locations": [
       "Mountain"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -8986,7 +8979,7 @@ let ingredients = [
     "Locations": [
       "Coastal"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Pry Bar",
@@ -9011,7 +9004,7 @@ let ingredients = [
     "Effects": [
       "Said to have minor healing properties."
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -9043,7 +9036,7 @@ let ingredients = [
       "Additionally, the consumer gains a +3 bonus to Charisma (Persuasion) checks.",
       "As an action, the consumer can cast cure wounds (using their Intelligence for the spellcasting ability)."
     ],
-    "Purchase Price": "5 gp",
+    "Purchase Price": "5 gp per unit",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit"
@@ -9068,7 +9061,7 @@ let ingredients = [
     "Effects": [
       "Consuming it might offer a brief cooling effect or help preserve other foods."
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -9095,7 +9088,7 @@ let ingredients = [
       "If prepared by an expert: The consumer gains blindsight up to a range of 10 feet and darkvision up to a range of 30 feet.",
       "As a bonus action, the consumer can gain a climb or swim speed equal to their walking speed until the end of their next turn."
     ],
-    "Purchase Price": "3 gp",
+    "Purchase Price": "3 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Knife",
@@ -9115,7 +9108,7 @@ let ingredients = [
     "Locations": [
       "Swamp"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -9137,7 +9130,7 @@ let ingredients = [
     "Locations": [
       "Urban"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Knife",
@@ -9158,7 +9151,7 @@ let ingredients = [
       "Urban",
       "Wasteland"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -9182,7 +9175,7 @@ let ingredients = [
     "Locations": [
       "Coastal"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -9208,7 +9201,7 @@ let ingredients = [
       "Forest",
       "Mountain"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -9229,7 +9222,7 @@ let ingredients = [
       "Jungle",
       "Underwater"
     ],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Knife",
@@ -9249,7 +9242,7 @@ let ingredients = [
     "Locations": [
       "Jungle"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -9276,7 +9269,7 @@ let ingredients = [
       "If prepared by an expert (Fiend ingredient): When a creature within 20 feet of the consumer makes an attack or saving throw, the consumer can use their reaction to reduce that creature’s roll by 1d4.",
       "When a creature within 10 feet of the consumer hits them with an attack, the consumer can use a reaction to deal cold or fire damage (their choice) equal to 1d8 + their Intelligence modifier to the attacker."
     ],
-    "Purchase Price": "50 gp",
+    "Purchase Price": "50 gp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit"
@@ -9303,7 +9296,7 @@ let ingredients = [
       "Urban",
       "Wasteland"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -9330,13 +9323,13 @@ let ingredients = [
       "If prepared by an expert: The consumer gains a +1 bonus to Strength checks.",
       "When the consumer hits with a weapon attack and rolls for damage, they can use a reaction to reroll the damage and take the higher result."
     ],
-    "Purchase Price": "5 gp",
+    "Purchase Price": "5 gp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Poisoner's Kit",
         "Knife",
         "Sealed Vials",
-        "Thick Gloves"
+        "Gloves, Thick"
       ]
     },
     "Preparation": {
@@ -9361,14 +9354,14 @@ let ingredients = [
     "Effects": [
       "A very diluted extract might have medicinal uses (antivenom for mild poisons, or a potent anesthetic)."
     ],
-    "Purchase Price": "1 gp",
+    "Purchase Price": "1 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Poisoner's Kit",
         "Herbalism Kit",
         "Knife",
         "Container(s)",
-        "Mask/Respirator"
+        "Mask"
       ],
       "Seasons": [
         "Mid Autumn"
@@ -9398,7 +9391,7 @@ let ingredients = [
       "If prepared by an expert: The consumer gains a +1 bonus to Strength checks.",
       "When the consumer hits with a weapon attack and rolls for damage, they can use a reaction to reroll the damage and take the higher result."
     ],
-    "Purchase Price": "3 sp",
+    "Purchase Price": "3 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Knife",
@@ -9426,7 +9419,7 @@ let ingredients = [
       "The consumer gains a +1 bonus to Strength checks.",
       "When the consumer hits with a weapon attack and rolls for damage, they can use a reaction to reroll the damage and take the higher result."
     ],
-    "Purchase Price": "3 sp",
+    "Purchase Price": "3 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Knife",
@@ -9454,7 +9447,7 @@ let ingredients = [
       "Can provide a small amount of filtered (or contaminated) water, or be used as a natural sponge.",
       "This ingredient has no other special effects."
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -9481,7 +9474,7 @@ let ingredients = [
     "Locations": [
       "Grassland"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -9503,7 +9496,7 @@ let ingredients = [
     "Locations": [
       "Grassland"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -9529,7 +9522,7 @@ let ingredients = [
       "Desert",
       "Wasteland"
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Plucking Tools"
@@ -9558,7 +9551,7 @@ let ingredients = [
       "Spores can be used as a mild irritant or thickening agent.",
       "This ingredient has no other special effects."
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -9585,7 +9578,7 @@ let ingredients = [
       "Urban",
       "Wasteland"
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -9610,10 +9603,10 @@ let ingredients = [
     "Locations": [
       "Underdark"
     ],
-    "PurchasePrice": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
-        "knife"
+        "Knife"
       ],
       "Seasons": [
         "Year around"
@@ -9635,7 +9628,7 @@ let ingredients = [
     "Effects": [
       "Grants temporary invisibility or a minor, fleeting familiar bond, often associated with a mischievous or malevolent spirit."
     ],
-    "PurchasePrice": "15 gp",
+    "Purchase Price": "15 gp per unit",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit",
@@ -9665,11 +9658,11 @@ let ingredients = [
     "Effects": [
       "Can cause minor mutations or strange, temporary effects."
     ],
-    "PurchasePrice": "1 gp",
+    "Purchase Price": "1 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Heavy Gloves",
+        "Gloves, Protective",
         "Container(s)"
       ],
       "Seasons": [
@@ -9694,7 +9687,7 @@ let ingredients = [
     "Effects": [
       "Can produce \"emergency module\" copies, where a smaller radiolarian bursts from the consumer's chest in 1d6 hours, glowing and moving fast."
     ],
-    "PurchasePrice": "5 gp",
+    "Purchase Price": "5 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit",
@@ -9722,7 +9715,7 @@ let ingredients = [
     "Locations": [
       "Jungle"
     ],
-    "PurchasePrice": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -9746,7 +9739,7 @@ let ingredients = [
     "Locations": [
       "Jungle"
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -9772,7 +9765,7 @@ let ingredients = [
       "Forest",
       "Hill"
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -9801,7 +9794,7 @@ let ingredients = [
       "As Normal Meat, on a d6 roll of 1, the consumer must make a Constitution saving throw or lose any benefit from the meal and spend the rest of the day queasy and gassy; on a roll of 2-5, there is no extra effect; on a roll of 6, it is delicious and heals 1 HP.",
       "If properly cooked and prepared, add a +1 bonus to the roll."
     ],
-    "PurchasePrice": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Knife"
@@ -9826,7 +9819,7 @@ let ingredients = [
     "Effects": [
       "As Normal Meat, it would generally follow the same effects as Rat Meat."
     ],
-    "PurchasePrice": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Knife"
@@ -9851,13 +9844,13 @@ let ingredients = [
       "If prepared by an expert (Fiend ingredient), the consumer gains the resistance to the dragon's damage type (Fire for Red Dragon).",
       "Alternatively, it can grant a fly speed equal to current walking speed, or the ability to exhale a 15-foot cone of elemental damage (Lightning damage for Blue Dragon) as a bonus action, requiring a Dexterity saving throw (taking a number of d6 equal to proficiency bonus on a failed save, half on a success)."
     ],
-    "PurchasePrice": "50 gp",
+    "Purchase Price": "50 gp per unit",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools (Enchanted)",
         "Arcane Focus",
-        "Heat-Resistant Gloves",
-        "Large Container(s)"
+        "Gloves, Heat-Resistant",
+        "Container(s), Large"
       ]
     },
     "Preparation": {
@@ -9884,7 +9877,7 @@ let ingredients = [
     "Effects": [
       "Grants temporary ferocity or brief resistance to fear."
     ],
-    "PurchasePrice": "15 gp",
+    "Purchase Price": "15 gp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -9909,7 +9902,7 @@ let ingredients = [
     "Effects": [
       "As Normal Meat, it would generally follow the same effects: on a d6 roll of 1, the consumer must make a Constitution saving throw or lose any benefit from the meal and spend the rest of the day queasy and gassy; on a roll of 2-5, there is no extra effect; on a roll of 6, it is delicious and heals 1 HP."
     ],
-    "PurchasePrice": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -9936,7 +9929,7 @@ let ingredients = [
       "Prized for its internal heat.",
       "As Normal Meat, it would generally follow the same effects: on a d6 roll of 1, the consumer must make a Constitution saving throw or lose any benefit from the meal and spend the rest of the day queasy and gassy; on a roll of 2-5, there is no extra effect; on a roll of 6, it is delicious and heals 1 HP."
     ],
-    "PurchasePrice": "3 gp",
+    "Purchase Price": "3 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit",
@@ -9962,7 +9955,7 @@ let ingredients = [
     "Locations": [
       "Underdark"
     ],
-    "PurchasePrice": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Pry Bar",
@@ -9990,7 +9983,7 @@ let ingredients = [
       "Underdark",
       "Wasteland"
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -10015,7 +10008,7 @@ let ingredients = [
     "Locations": [
       "Urban"
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -10040,7 +10033,7 @@ let ingredients = [
     "Locations": [
       "Urban"
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -10064,7 +10057,7 @@ let ingredients = [
     "Locations": [
       "Forest"
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -10094,11 +10087,10 @@ let ingredients = [
       "Surprisingly nutritious.",
       "Can impart a very minor, fleeting sense of grip or adherence."
     ],
-    "PurchasePrice": "3 sp",
+    "Purchase Price": "3 sp per pound",
     "Harvesting": {
       "Required Kit": [
-        "Knife",
-        "other cutting tools"
+        "Butcher's Tools",
       ]
     },
     "Preparation": {
@@ -10123,7 +10115,7 @@ let ingredients = [
       "Mountain",
       "Urban"
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per ounce",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -10148,7 +10140,7 @@ let ingredients = [
     "Locations": [
       "Wasteland"
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -10173,11 +10165,7 @@ let ingredients = [
     "Locations": [
       "Wasteland"
     ],
-    "Effects": [
-      "Said to impart a slight toughening effect.",
-      "This ingredient has no other special effects."
-    ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -10201,7 +10189,7 @@ let ingredients = [
     "Locations": [
       "Wasteland"
     ],
-    "PurchasePrice": "3 sp",
+    "Purchase Price": "3 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -10222,12 +10210,12 @@ let ingredients = [
     "Locations": [
       "Desert"
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
         "Tongs",
-        "Thick Gloves",
+        "Gloves, Thick",
         "Basket",
         "Bag"
       ],
@@ -10253,10 +10241,10 @@ let ingredients = [
       "On a roll of 2-5, there is no extra effect; on a roll of 6",
       "It is delicious and heals 1 HP."
     ],
-    "PurchasePrice": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
-        "knife",
+        "Knife",
         "Cook's Utensils"
       ]
     },
@@ -10279,7 +10267,7 @@ let ingredients = [
       "On a roll of 2-5, there is no extra effect.",
       "On a roll of 6, it is delicious and heals 1 HP."
     ],
-    "PurchasePrice": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -10305,10 +10293,10 @@ let ingredients = [
       "Provides some warmth.",
       "If prepared by an expert (Fiend ingredient), the consumer gains the following culinary benefit: When a creature within 20 feet of the consumer makes an attack or saving throw, the consumer can use their reaction to reduce that creature’s roll by 1d4. This effect lasts until the creature finishes a long rest or after 24 hours, whichever comes first."
     ],
-    "PurchasePrice": "3 gp",
+    "Purchase Price": "3 gp per pound",
     "Harvesting": {
       "Required Kit": [
-        "knife",
+        "Knife",
         "Cook's Utensils"
       ]
     },
@@ -10331,11 +10319,11 @@ let ingredients = [
     "Effects": [
       "Provides internal warmth and minor fire resistance."
     ],
-    "PurchasePrice": "1 gp",
+    "Purchase Price": "1 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
-        "Heat-Resistant Gloves",
+        "Gloves, Heat-Resistant",
         "Knife",
         "Container(s)"
       ]
@@ -10359,7 +10347,7 @@ let ingredients = [
       "Desert",
       "Wasteland"
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -10376,18 +10364,19 @@ let ingredients = [
     }
   },
   {
+    // >> pick up here: continue reviewing the per pound value of prices and decide if that is right or if it needs to be an ounce or an unit.
     "Name": "Saltmarsh Eelgrass",
     "Description": "Can be woven into a crude rope or eaten as a last resort. This fibrous, briny plant, often found clinging to submerged rocks and shipwrecks, is renowned for its vibrant emerald hue and subtly metallic, umami-rich flavor, making it a sought-after delicacy among culinarians.",
     "Ingredient Type": "Plant-based",
     "Locations": [
       "Coastal"
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
         "Net",
-        "Waterproof Bag"
+        "Bag, Waterproof"
       ],
       "Seasons": [
         "Year around"
@@ -10407,7 +10396,7 @@ let ingredients = [
       "Coastal",
       "Underwater"
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -10431,7 +10420,7 @@ let ingredients = [
     "Locations": [
       "Coastal"
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -10457,7 +10446,7 @@ let ingredients = [
       "Stores water.",
       "This ingredient has no other special effects."
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -10483,7 +10472,7 @@ let ingredients = [
     "Effects": [
       "Can be used as a potent, earthy seasoning, or cause hallucinations if overused."
     ],
-    "PurchasePrice": "1 gp",
+    "Purchase Price": "1 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Container(s)",
@@ -10512,7 +10501,7 @@ let ingredients = [
     "Effects": [
       "Said to inspire joy, alleviate despair, or grant a brief charming presence."
     ],
-    "PurchasePrice": "3 gp",
+    "Purchase Price": "3 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -10535,7 +10524,7 @@ let ingredients = [
     "Locations": [
       "Wasteland"
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -10557,7 +10546,7 @@ let ingredients = [
     "Locations": [
       "Wasteland"
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -10579,11 +10568,11 @@ let ingredients = [
     "Locations": [
       "Desert"
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Thick Gloves",
+        "Gloves, Thick",
         "Container(s)"
       ],
       "Seasons": [
@@ -10604,7 +10593,7 @@ let ingredients = [
       "Coastal",
       "Urban"
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -10629,10 +10618,10 @@ let ingredients = [
     "Locations": [
       "Underwater"
     ],
-    "PurchasePrice": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
-        "knife"
+        "Knife"
       ],
       "Seasons": [
         "Year around"
@@ -10655,7 +10644,7 @@ let ingredients = [
       "Said to grant terrifying insight into others' fears or bestow temporary amphibian qualities.",
       "If prepared by an expert, the consumer gains the following culinary benefits: Nutritional Value: The consumer gains blindsight up to a range of 10 feet and darkvision up to a range of 30 feet. This effect lasts until the creature finishes a long rest or after 24 hours, whichever comes first."
     ],
-    "PurchasePrice": "15 gp",
+    "Purchase Price": "15 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit",
@@ -10679,7 +10668,7 @@ let ingredients = [
       "Coastal",
       "Urban"
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -10705,7 +10694,7 @@ let ingredients = [
       "Coastal",
       "Urban"
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -10731,7 +10720,7 @@ let ingredients = [
       "Coastal",
       "Urban"
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -10760,7 +10749,7 @@ let ingredients = [
       "Forest",
       "Wasteland"
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Scoop",
@@ -10789,10 +10778,10 @@ let ingredients = [
       "On a roll of 2-5, there is no extra effect; on a roll of 6.",
       "It is delicious and heals 1 HP."
     ],
-    "PurchasePrice": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
-        "knife"
+        "Knife"
       ]
     },
     "Cooking": {
@@ -10808,12 +10797,12 @@ let ingredients = [
     "Locations": [
       "Underwater"
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
         "Net",
-        "Waterproof Bag"
+        "Bag, Waterproof"
       ],
       "Seasons": [
         "Year around"
@@ -10837,10 +10826,10 @@ let ingredients = [
       "On a roll of 2-5, there is no extra effect.",
       "On a roll of 6, it is delicious and heals 1 HP."
     ],
-    "PurchasePrice": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
-        "knife"
+        "Knife"
       ],
       "Seasons": [
         "Year around"
@@ -10860,7 +10849,7 @@ let ingredients = [
     "Locations": [
       "Coastal"
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -10883,7 +10872,7 @@ let ingredients = [
       "Mountain",
       "Hill"
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -10905,7 +10894,7 @@ let ingredients = [
     "Locations": [
       "Urban"
     ],
-    "PurchasePrice": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -10936,10 +10925,10 @@ let ingredients = [
       "On a roll of 2-5, there is no extra effect; on a d6 roll of 6.",
       "It is Delicious! and heals 1 HP or 1 additional HP."
     ],
-    "PurchasePrice": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
-        "knife"
+        "Knife"
       ]
     },
     "Cooking": {
@@ -10957,7 +10946,7 @@ let ingredients = [
     "Locations": [
       "Urban"
     ],
-    "PurchasePrice": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Container(s)",
@@ -10980,7 +10969,7 @@ let ingredients = [
     "Locations": [
       "Urban"
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -11009,7 +10998,7 @@ let ingredients = [
     "Effects": [
       "Eating it can grant a brief, minor proficiency in Stealth checks in dim light or darkness. The effect lasts 1 hour."
     ],
-    "PurchasePrice": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -11035,7 +11024,7 @@ let ingredients = [
       "Swamp",
       "Urban"
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -11060,7 +11049,7 @@ let ingredients = [
     "Locations": [
       "Hill"
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -11092,7 +11081,7 @@ let ingredients = [
     "Effects": [
       "Used for minor wound healing."
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -11124,13 +11113,13 @@ let ingredients = [
       "Gains resistance to the dragon's damage type (Cold for Silver Dragon) for one hour.",
       "Alternatively, it can grant a fly speed equal to current walking speed, or the ability to exhale a 15-foot cone of elemental damage (Cold damage for Silver Dragon) as a bonus action, requiring a Dexterity saving throw (taking a number of d6 equal to proficiency bonus on a failed save, half on a success). Can only be used once."
     ],
-    "PurchasePrice": "3 gp",
+    "Purchase Price": "3 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools (Enchanted)",
         "Arcane Focus",
         "Preservation Salts",
-        "Large Container(s)"
+        "Container(s), Large"
       ]
     },
     "Cooking": {
@@ -11153,7 +11142,7 @@ let ingredients = [
     "Effects": [
       "When ground into a powder, it can be used as a powerful, but temporary, vocal enhancer."
     ],
-    "PurchasePrice": "5 gp",
+    "Purchase Price": "5 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit",
@@ -11182,7 +11171,7 @@ let ingredients = [
     "Locations": [
       "Grassland"
     ],
-    "PurchasePrice": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -11209,7 +11198,7 @@ let ingredients = [
     "Effects": [
       "Said to aid in breathing at high elevations."
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -11238,10 +11227,10 @@ let ingredients = [
       "The consumer gains blindsight up to a range of 10 feet and darkvision up to a range of 30 feet.",
       "This effect lasts until the creature finishes a long rest or after 24 hours, whichever comes first."
     ],
-    "PurchasePrice": "3 gp",
+    "Purchase Price": "3 gp per pound",
     "Harvesting": {
       "Required Kit": [
-        "knife"
+        "Knife"
       ],
       "Seasons": [
         "Year around"
@@ -11261,7 +11250,7 @@ let ingredients = [
     "Locations": [
       "Swamp"
     ],
-    "PurchasePrice": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -11285,7 +11274,7 @@ let ingredients = [
     "Locations": [
       "Arctic"
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -11309,7 +11298,7 @@ let ingredients = [
     "Locations": [
       "Underdark"
     ],
-    "PurchasePrice": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Weaver's Tools",
@@ -11334,7 +11323,7 @@ let ingredients = [
     "Effects": [
       "Provides a fleeting sensation of levity or a minor, temporary illusionary ability."
     ],
-    "PurchasePrice": "1 gp",
+    "Purchase Price": "1 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit",
@@ -11363,11 +11352,11 @@ let ingredients = [
     "Effects": [
       "Provides internal warmth and hydration."
     ],
-    "PurchasePrice": "1 gp",
+    "Purchase Price": "1 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit",
-        "suitable container"
+        "Container(s)"
       ]
     },
     "Cooking": {
@@ -11389,10 +11378,10 @@ let ingredients = [
       "On a roll of 2-5, there is no extra effect; on a roll of 6.",
       "It is delicious and heals 1 HP."
     ],
-    "PurchasePrice": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
-        "knife"
+        "Knife"
       ]
     },
     "Cooking": {
@@ -11409,7 +11398,7 @@ let ingredients = [
     "Locations": [
       "Mountain"
     ],
-    "PurchasePrice": "1 gp",
+    "Purchase Price": "1 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Container(s)"
@@ -11435,7 +11424,7 @@ let ingredients = [
       "1-3 on d6: If the consumer misses an attack roll or fails an ability check, they can use their reaction to add a +2 bonus to the roll, potentially turning a miss into a hit or a failed check into a success. This effect lasts until the creature finishes a long rest or after 24 hours, whichever comes first.",
       "4-6 on d6: The consumer gains temporary hit points equal to their proficiency bonus and resistance to bludgeoning, piercing, and slashing damage from non-magical attacks for 1 hour."
     ],
-    "PurchasePrice": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit",
@@ -11463,7 +11452,7 @@ let ingredients = [
       "Mountain",
       "Underdark"
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -11485,7 +11474,7 @@ let ingredients = [
     "Locations": [
       "Hill"
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -11513,13 +11502,13 @@ let ingredients = [
       "The consumer gains a 1d4 bonus to Strength checks and saving throws.",
       "Consumer can use a bonus action to gain a 1d6 bonus to their next attack and damage roll before the start of their next turn. This effect lasts until the creature finishes a long rest or after 24 hours, whichever comes first."
     ],
-    "PurchasePrice": "50 gp",
+    "Purchase Price": "50 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools (Enchanted)",
         "Arcane Focus",
         "Ritual Components",
-        "Large Container(s)"
+        "Container(s), Large"
       ]
     },
     "Cooking": {
@@ -11537,7 +11526,7 @@ let ingredients = [
     "Locations": [
       "Grassland"
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -11558,7 +11547,7 @@ let ingredients = [
     "Locations": [
       "Urban"
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -11583,7 +11572,7 @@ let ingredients = [
     "Locations": [
       "Underdark"
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -11612,7 +11601,7 @@ let ingredients = [
       "Can temporarily enhance charisma or manipulative abilities, but at a severe moral or psychological cost.",
       "If prepared by an expert (Fiend ingredient), the consumer gains the following culinary benefits: Nutritional Value: When a creature within 20 feet of the consumer makes an attack or saving throw, the consumer can use their reaction to reduce that creature’s roll by 1d4. This effect lasts until the creature finishes a long rest or after 24 hours, whichever comes first."
     ],
-    "PurchasePrice": "50 gp",
+    "Purchase Price": "50 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit",
@@ -11634,7 +11623,7 @@ let ingredients = [
     "Description": "A tall, perennial grass primarily cultivated in tropical and subtropical regions for its sweet, fibrous stalks. These stalks are the main source of sugar, and their juice can also be fermented to produce alcoholic beverages like rum or distilled into ethanol. In a culinary context, it can be used fresh for its subtly sweet flavor or processed into various forms of sugar for a wide range of dishes.",
     "Ingredient Type": "Plant-based",
     "Locations": [],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -11661,7 +11650,7 @@ let ingredients = [
     "Effects": [
       "Can be used as a powerful seasoning, but too much is toxic."
     ],
-    "PurchasePrice": "1 gp",
+    "Purchase Price": "1 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit",
@@ -11688,7 +11677,7 @@ let ingredients = [
       "It can be rehydrated or ground into a thickening agent.",
       "This ingredient has no other special effects."
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -11713,7 +11702,7 @@ let ingredients = [
     "Locations": [
       "Grassland"
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -11741,7 +11730,7 @@ let ingredients = [
     "Effects": [
       "Chewing on them provides a subtle, refreshing effervescence and mineral boost."
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Container(s)",
@@ -11763,12 +11752,12 @@ let ingredients = [
     "Effects": [
       "Said to possess minor restorative properties."
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
         "Fine Net",
-        "Waterproof Bag",
+        "Bag, Waterproof",
         "Underwater Breathing Apparatus"
       ],
       "Seasons": [
@@ -11791,7 +11780,7 @@ let ingredients = [
     "Effects": [
       "When brewed as a tea, it can help with fatigue."
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -11814,7 +11803,7 @@ let ingredients = [
     "Effects": [
       "Eating its petals provides a minor boost to endurance in hot environments, or its concentrated nectar can be extracted."
     ],
-    "PurchasePrice": "1 gp",
+    "Purchase Price": "1 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -11843,7 +11832,7 @@ let ingredients = [
     "Effects": [
       "Eating its petals provides a minor boost to endurance in hot environments."
     ],
-    "PurchasePrice": "1 gp",
+    "Purchase Price": "1 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit"
@@ -11866,12 +11855,12 @@ let ingredients = [
       "Jungle",
       "Swamp"
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
         "Knife",
-        "Waterproof Bag"
+        "Bag, Waterproof"
       ],
       "Seasons": [
         "Year around"
@@ -11893,7 +11882,7 @@ let ingredients = [
     "Effects": [
       "It can be crushed and sprinkled as a pungent, mind-altering seasoning."
     ],
-    "PurchasePrice": "1 gp",
+    "Purchase Price": "1 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Container(s)",
@@ -11920,7 +11909,7 @@ let ingredients = [
     "Locations": [
       "Jungle"
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -11945,7 +11934,7 @@ let ingredients = [
     "Locations": [
       "Jungle"
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -11970,7 +11959,7 @@ let ingredients = [
     "Locations": [
       "Desert"
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -11998,11 +11987,11 @@ let ingredients = [
       "Urban",
       "Wasteland"
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Thick Gloves",
+        "Gloves, Thick",
         "Knife"
       ],
       "Seasons": [
@@ -12025,11 +12014,11 @@ let ingredients = [
       "Hill",
       "Wasteland"
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
-        "Thick Gloves",
+        "Gloves, Thick",
         "Knife"
       ],
       "Seasons": [
@@ -12052,7 +12041,7 @@ let ingredients = [
     "Effects": [
       "Can cause a temporary \"buzz\" of static energy, useful for minor electrical effects."
     ],
-    "PurchasePrice": "1 gp",
+    "Purchase Price": "1 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit",
@@ -12075,13 +12064,13 @@ let ingredients = [
     "Locations": [
       "Coastal"
     ],
-    "PurchasePrice": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit",
         "Scoop",
         "Container(s)",
-        "Waterproof Bag"
+        "Bag, Waterproof"
       ],
       "Seasons": [
         "Summer"
@@ -12104,12 +12093,12 @@ let ingredients = [
     "Effects": [
       "When consumed, can help with minor cuts and scrapes."
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
         "Knife",
-        "Waterproof Bag"
+        "Bag, Waterproof"
       ],
       "Seasons": [
         "Summer"
@@ -12128,7 +12117,7 @@ let ingredients = [
     "Locations": [
       "Grassland"
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -12160,7 +12149,7 @@ let ingredients = [
       "Mountain",
       "Urban"
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -12186,7 +12175,7 @@ let ingredients = [
       "Coastal",
       "Underwater"
     ],
-    "PurchasePrice": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Fishing Net",
@@ -12213,12 +12202,12 @@ let ingredients = [
     "Effects": [
       "Rumored to allow temporary water breathing."
     ],
-    "PurchasePrice": "5 gp",
+    "Purchase Price": "5 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
         "Fine Net",
-        "Waterproof Bag",
+        "Bag, Waterproof",
         "Underwater Breathing Apparatus"
       ],
       "Seasons": [
@@ -12240,7 +12229,7 @@ let ingredients = [
       "Swamp",
       "Underdark"
     ],
-    "PurchasePrice": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -12272,7 +12261,7 @@ let ingredients = [
       "9. Troll Sprouts: Permanently gain +1 Strength and +1 HP, hair falls out and is replaced by repulsive black bristles; if a limb is lost, there is a 1-in-6 chance it will crawl away and grow into a troll-like version of you.",
       "10. Troll Ascendance: Permanently gain +1 Strength and +1 HP, and regeneration (1 HP/turn), but slowly become a ravenous troll over 1d6 days. The effect of becoming a troll can be cured by using a Remove Curse spell."
     ],
-    "PurchasePrice": "3 sp",
+    "Purchase Price": "3 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -12283,7 +12272,7 @@ let ingredients = [
     "Cooking": {
       "Required Kit": [
         "Cook's Utensils",
-        "Intense Heat Source",
+        "Heat Source",
         "Alchemist's Kit"
       ]
     }
@@ -12295,7 +12284,7 @@ let ingredients = [
     "Locations": [
       "Underdark"
     ],
-    "PurchasePrice": "1 gp",
+    "Purchase Price": "1 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -12320,13 +12309,13 @@ let ingredients = [
     "Locations": [
       "Arctic"
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
         "Basket",
         "Bag",
-        "Insulated Gloves"
+        "Gloves, Insulated"
       ],
       "Seasons": [
         "Late Summer"
@@ -12351,12 +12340,12 @@ let ingredients = [
       "On a roll of 2-5, there is no extra effect.",
       "On a roll of 6, it is delicious and heals 1 HP."
     ],
-    "PurchasePrice": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
         "Knife",
-        "Feather Plucker"
+        "Plucking Tools"
       ]
     },
     "Cooking": {
@@ -12379,12 +12368,12 @@ let ingredients = [
       "On a roll of 2-5, there is no extra effect.",
       "On a roll of 6, it is delicious and heals 1 HP."
     ],
-    "PurchasePrice": "3 sp",
+    "Purchase Price": "3 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
         "Knife",
-        "Feather Plucker"
+        "Plucking Tools"
       ]
     },
     "Cooking": {
@@ -12401,7 +12390,7 @@ let ingredients = [
     "Locations": [
       "Forest"
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -12424,7 +12413,7 @@ let ingredients = [
       "When roasted in its shell, it is considered Normal Meat.",
       "If the eyes are eaten, the consumer must make a saving throw or permanently lose 1d6 Intelligence."
     ],
-    "PurchasePrice": "3 sp",
+    "Purchase Price": "3 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -12434,7 +12423,7 @@ let ingredients = [
     "Cooking": {
       "Required Kit": [
         "Cook's Utensils",
-        "Roasting Spit/Pot, Large"
+        "Pot, Large"
       ]
     },
     "Notes": "Considered a \"dungeon delicacy\"."
@@ -12446,7 +12435,7 @@ let ingredients = [
     "Locations": [
       "Underdark"
     ],
-    "PurchasePrice": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit",
@@ -12470,7 +12459,7 @@ let ingredients = [
     "Effects": [
       "Provides healing or purification properties when mixed with food/drink."
     ],
-    "PurchasePrice": "50 gp",
+    "Purchase Price": "50 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit",
@@ -12496,7 +12485,7 @@ let ingredients = [
     "Effects": [
       "If consumed in a ritual of dark power, it is rumored to grant temporary regeneration or a boost to Charisma (Intimidation), but almost guarantees vampiric urges, a profound curse, or spiritual corruption."
     ],
-    "PurchasePrice": "50 gp",
+    "Purchase Price": "50 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit",
@@ -12518,13 +12507,13 @@ let ingredients = [
     "Effects": [
       "When purified and consumed, it can temporarily grant immunity to its spores or a brief, intoxicating sense of freedom."
     ],
-    "PurchasePrice": "50 gp",
+    "Purchase Price": "50 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit",
         "Fine Clippers",
         "Sealed Vials",
-        "Mask/Respirator"
+        "Mask"
       ]
     },
     "Preparation": {
@@ -12545,7 +12534,7 @@ let ingredients = [
     "Locations": [
       "Desert"
     ],
-    "PurchasePrice": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -12567,7 +12556,7 @@ let ingredients = [
     "Locations": [
       "Urban"
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
@@ -12593,7 +12582,7 @@ let ingredients = [
       "Arctic",
       "Coastal"
     ],
-    "PurchasePrice": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": [
         "Butcher's Tools",
@@ -12615,12 +12604,12 @@ let ingredients = [
     "Locations": [
       "Underwater"
     ],
-    "PurchasePrice": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": [
         "Herbalism Kit",
         "Scoop",
-        "Waterproof Bag"
+        "Bag, Waterproof"
       ],
       "Seasons": [
         "Late Summer/Early Autumn"
@@ -12645,7 +12634,7 @@ let ingredients = [
     "Effects": [
       "Refreshing and hydrating."
     ],
-    "PurchasePrice": "1 gp",
+    "Purchase Price": "1 gp per pound",
     "Harvesting": {
       "Required Kit": [
         "Alchemist's Kit",
@@ -12661,9 +12650,9 @@ let ingredients = [
     "Description": "Roots (rhizomes) and seeds are edible.",
     "Ingredient Type": "Plant-based",
     "Locations": ["Underwater", "Swamp"],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
-      "Required Kit": ["Herbalism Kit", "Scoop", "Waterproof Bag"]
+      "Required Kit": ["Herbalism Kit", "Scoop", "Bag, Waterproof"]
     },
     "Seasons": ["Summer", "Early Autumn"],
     "Cooking": {
@@ -12675,9 +12664,9 @@ let ingredients = [
     "Description": "Leafy green found in wet areas.",
     "Ingredient Type": "Plant-based",
     "Locations": ["Jungle", "Underwater"],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
-      "Required Kit": ["Herbalism Kit", "Small Knife", "Waterproof Bag"]
+      "Required Kit": ["Herbalism Kit", "Knife", "Bag, Waterproof"]
     },
     "Seasons": ["Summer"],
     "Cooking": {
@@ -12689,9 +12678,9 @@ let ingredients = [
     "Description": "Peppery aquatic green.",
     "Ingredient Type": "Plant-based",
     "Locations": ["Coastal", "Forest", "Grassland", "Urban", "Underwater"],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
-      "Required Kit": ["Herbalism Kit", "Small Knife", "Waterproof Bag"]
+      "Required Kit": ["Herbalism Kit", "Knife", "Bag, Waterproof"]
     },
     "Seasons": ["Spring", "Summer"],
     "Cooking": {
@@ -12703,7 +12692,7 @@ let ingredients = [
     "Description": "Sweet, clear sap from certain ancient trees, good for energy.",
     "Ingredient Type": "Plant-based",
     "Locations": ["Forest"],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": ["Herbalism Kit", "Tapping Tools", "Container(s)"]
     },
@@ -12723,9 +12712,9 @@ let ingredients = [
       "If prepared by an expert, it can grant resistance to the dragon's damage type (Cold for White Dragon).",
       "Cosmetic improvements: no cavities, better breath, vanishing bald spots, and improved eyesight."
     ],
-    "Purchase Price": "3 gp",
+    "Purchase Price": "3 gp per pound",
     "Harvesting": {
-      "Required Kit": ["Butcher's Tools (Enchanted)", "Arcane Focus", "Insulated Gloves", "Large Container(s)"]
+      "Required Kit": ["Butcher's Tools (Enchanted)", "Arcane Focus", "Gloves, Insulated", "Container(s), Large"]
     },
     "Cooking": {
       "Method": "Can be cooked, boiled, fried, or dried.",
@@ -12743,7 +12732,7 @@ let ingredients = [
       "Has a 15% chance of briefly granting necrotic resistance or a chilling aura.",
       "Has a 40% chance of inflicting soul-draining effects and a lasting connection to death."
     ],
-    "Purchase Price": "15 gp",
+    "Purchase Price": "15 gp per pound",
     "Harvesting": {
       "Required Kit": ["Alchemist's Kit"]
     }
@@ -12753,7 +12742,7 @@ let ingredients = [
     "Description": "Leaves are edible greens, seeds are grain-like.",
     "Ingredient Type": "Plant-based",
     "Locations": ["Grassland", "Urban", "Wasteland"],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": ["Herbalism Kit", "Shears", "Basket",
         "Bag"]
@@ -12768,7 +12757,7 @@ let ingredients = [
     "Description": "Smaller and tarter than cultivated apples, but edible.",
     "Ingredient Type": "Plant-based",
     "Locations": ["Forest", "Hill", "Urban"],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": ["Herbalism Kit", "Basket",
         "Bag"]
@@ -12783,7 +12772,7 @@ let ingredients = [
     "Description": "Can be found on sunny slopes.",
     "Ingredient Type": "Plant-based",
     "Locations": ["Coastal", "Forest", "Grassland", "Hill"],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": ["Herbalism Kit", "Knife", "Basket",
         "Bag"]
@@ -12798,7 +12787,7 @@ let ingredients = [
     "Description": "Blueberries, huckleberries, raspberries, blackberries, strawberries, lingonberries, cloudberries, elderberries, hawthorn berries, etc. common to many hillside habitats.",
     "Ingredient Type": "Plant-based",
     "Locations": ["Arctic", "Coastal", "Forest", "Grassland", "Hill", "Jungle", "Mountain", "Swamp", "Urban"],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": ["Herbalism Kit", "Basket",
         "Bag"]
@@ -12813,7 +12802,7 @@ let ingredients = [
     "Description": "Roots are edible, seeds used for flavor.",
     "Ingredient Type": "Plant-based",
     "Locations": ["Mountain"],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": ["Herbalism Kit", "Trowel", "Basket",
         "Bag"]
@@ -12828,7 +12817,7 @@ let ingredients = [
     "Description": "The wild ancestor of the carrot, the root is edible (though smaller and woodier).",
     "Ingredient Type": "Plant-based",
     "Locations": ["Coastal", "Forest", "Grassland", "Hill", "Jungle", "Swamp", "Urban", "Wasteland"],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": ["Herbalism Kit", "Trowel", "Basket",
         "Bag"]
@@ -12843,7 +12832,7 @@ let ingredients = [
     "Description": "Wild wheat, barley, oats, etc..",
     "Ingredient Type": "Plant-based",
     "Locations": ["Grassland"],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": ["Herbalism Kit", "Shears", "Bag"]
     },
@@ -12857,7 +12846,7 @@ let ingredients = [
     "Description": "Often found climbing on trees and shrubs on hillsides.",
     "Ingredient Type": "Plant-based",
     "Locations": ["Forest", "Grassland", "Hill", "Urban"],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": ["Herbalism Kit", "Shears", "Basket",
         "Bag"]
@@ -12872,7 +12861,7 @@ let ingredients = [
     "Description": "A pungent, flavorful wild onion found in rocky soil.",
     "Ingredient Type": "Plant-based",
     "Locations": ["Hill"],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": ["Herbalism Kit", "Trowel", "Basket",
         "Bag"]
@@ -12887,9 +12876,9 @@ let ingredients = [
     "Description": "Various species of wild lettuce, some bitter but edible.",
     "Ingredient Type": "Plant-based",
     "Locations": ["Forest", "Grassland", "Urban", "Wasteland"],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
-      "Required Kit": ["Herbalism Kit", "Small Knife", "Basket",
+      "Required Kit": ["Herbalism Kit", "Knife", "Basket",
         "Bag"]
     },
     "Seasons": ["Summer"],
@@ -12902,7 +12891,7 @@ let ingredients = [
     "Description": "Morels, Chanterelles, Bolete species, Oyster mushrooms (identification is critical).",
     "Ingredient Type": "Fungal",
     "Locations": ["Forest"],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": ["Herbalism Kit", "Knife", "Basket"]
     },
@@ -12917,9 +12906,9 @@ let ingredients = [
     "Description": "Some species thrive in coastal conditions.",
     "Ingredient Type": "Plant-based",
     "Locations": ["Coastal"],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
-      "Required Kit": ["Herbalism Kit", "Small Knife", "Basket",
+      "Required Kit": ["Herbalism Kit", "Knife", "Basket",
         "Bag"]
     },
     "Seasons": ["Spring"],
@@ -12932,9 +12921,9 @@ let ingredients = [
     "Description": "Pungent greens.",
     "Ingredient Type": "Plant-based",
     "Locations": ["Hill"],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
-      "Required Kit": ["Herbalism Kit", "Small Knife", "Basket",
+      "Required Kit": ["Herbalism Kit", "Knife", "Basket",
         "Bag"]
     },
     "Seasons": ["Spring", "Autumn"],
@@ -12947,9 +12936,9 @@ let ingredients = [
     "Description": "Pungent leaves and flowers.",
     "Ingredient Type": "Plant-based",
     "Locations": ["Forest", "Grassland", "Hill", "Urban"],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
-      "Required Kit": ["Herbalism Kit", "Small Knife", "Basket",
+      "Required Kit": ["Herbalism Kit", "Knife", "Basket",
         "Bag"]
     },
     "Seasons": ["Spring"],
@@ -12962,7 +12951,7 @@ let ingredients = [
     "Description": "Various wild species with onion or garlic flavors.",
     "Ingredient Type": "Plant-based",
     "Locations": ["Grassland", "Urban", "Wasteland"],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": ["Herbalism Kit", "Trowel", "Basket",
         "Bag"]
@@ -12977,7 +12966,7 @@ let ingredients = [
     "Description": "Growing in rocky or well-drained soil.",
     "Ingredient Type": "Plant-based",
     "Locations": ["Hill"],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": ["Herbalism Kit", "Trowel", "Basket",
         "Bag"]
@@ -12992,7 +12981,7 @@ let ingredients = [
     "Description": "Ancestral forms of potatoes found in high altitudes.",
     "Ingredient Type": "Plant-based",
     "Locations": ["Mountain"],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": ["Herbalism Kit", "Trowel", "Basket",
         "Bag"]
@@ -13007,7 +12996,7 @@ let ingredients = [
     "Description": "Tart stalks that can be cooked into dishes.",
     "Ingredient Type": "Plant-based",
     "Locations": ["Arctic", "Grassland", "Hill", "Mountain"],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": ["Herbalism Kit", "Knife", "Basket",
         "Bag"]
@@ -13022,7 +13011,7 @@ let ingredients = [
     "Description": "Grains from aquatic grass (grown in shallow water).",
     "Ingredient Type": "Plant-based",
     "Locations": ["Swamp", "Underwater"],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": ["Herbalism Kit", "Shears", "Bag"]
     },
@@ -13036,7 +13025,7 @@ let ingredients = [
     "Description": "Lean, mild, and common.",
     "Ingredient Type": "Meat-based",
     "Locations": ["Hill"],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": ["Butcher's Tools", "Knife", "Bag, Large"]
     },
@@ -13049,7 +13038,7 @@ let ingredients = [
     "Description": "Various species of vetch produce small pea-like pods.",
     "Ingredient Type": "Plant-based",
     "Locations": ["Forest", "Grassland", "Urban"],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": ["Herbalism Kit", "Shears", "Basket",
         "Bag"]
@@ -13067,7 +13056,7 @@ let ingredients = [
     "Effects": [
       "Might offer a fleeting, unsettling glow and temporary stealth benefits in darkness."
     ],
-    "Purchase Price": "5 gp",
+    "Purchase Price": "5 gp per pound",
     "Harvesting": {
       "Required Kit": ["Alchemist's Kit", "Fine Net", "Sealed Vials", "Ritual Components"]
     },
@@ -13086,7 +13075,7 @@ let ingredients = [
     "Effects": [
       "Improved night vision for a short time when consumed."
     ],
-    "Purchase Price": "1 gp",
+    "Purchase Price": "1 gp per pound",
     "Harvesting": {
       "Required Kit": ["Herbalism Kit", "Knife", "Container(s)"]
     },
@@ -13102,7 +13091,7 @@ let ingredients = [
     "Effects": [
       "When ingested as an infusion, at the beginning of the consumer's next turn, the creature regains 5 (2d4) hit points."
     ],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": ["Herbalism Kit", "Drying Rack"]
     },
@@ -13120,7 +13109,7 @@ let ingredients = [
     "Effects": [
       "Provides a brief burst of speed or lightness."
     ],
-    "Purchase Price": "1 gp",
+    "Purchase Price": "1 gp per pound",
     "Harvesting": {
       "Required Kit": ["Alchemist's Kit", "Fine Net", "Sealed Vials", "Brush"]
     }
@@ -13130,7 +13119,7 @@ let ingredients = [
     "Description": "A wild onion with a strong, pungent flavor.",
     "Ingredient Type": "Plant-based",
     "Locations": ["Grassland"],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": ["Herbalism Kit", "Trowel", "Basket",
         "Bag"]
@@ -13145,9 +13134,9 @@ let ingredients = [
     "Description": "A shrub with small, green flowers and an orange-red fruit which can be toxic. If improperly prepared, it can be toxic.",
     "Ingredient Type": "Plant-based",
     "Locations": ["Forest"],
-    "Purchase Price": "1 gp",
+    "Purchase Price": "1 gp per pound",
     "Harvesting": {
-      "Required Kit": ["Herbalism Kit", "Thick Gloves", "Container(s)"]
+      "Required Kit": ["Herbalism Kit", "Gloves, Thick", "Container(s)"]
     },
     "Seasons": ["Late Autumn", "Early Winter"]
   },
@@ -13156,7 +13145,7 @@ let ingredients = [
     "Description": "Lean, tough, but flavorful meat.",
     "Ingredient Type": "Meat-based",
     "Locations": ["Arctic"],
-    "Purchase Price": "3 sp",
+    "Purchase Price": "3 sp per pound",
     "Harvesting": {
       "Required Kit": ["Butcher's Tools", "Knife", "Bag"]
     },
@@ -13169,7 +13158,7 @@ let ingredients = [
     "Description": "A gelatinous, orange-yellow fungus that grows on dead wood. Edible but bland, primarily used for its unusual texture or as a base for flavorings.",
     "Ingredient Type": "Fungal",
     "Locations": ["Forest"],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": ["Herbalism Kit", "Scoop", "Container(s)"]
     },
@@ -13183,7 +13172,7 @@ let ingredients = [
     "Description": "Tough, gamey, but provides good sustenance.",
     "Ingredient Type": "Meat-based",
     "Locations": ["Grassland", "Hill"],
-    "Purchase Price": "1 sp",
+    "Purchase Price": "1 sp per pound",
     "Harvesting": {
       "Required Kit": ["Butcher's Tools", "Knife", "Bag, Large"]
     },
@@ -13196,7 +13185,7 @@ let ingredients = [
     "Description": "Small, orange-red berries.",
     "Ingredient Type": "Plant-based",
     "Locations": ["Desert", "Hill", "Wasteland"],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": ["Herbalism Kit", "Basket",
         "Bag"]
@@ -13211,9 +13200,9 @@ let ingredients = [
     "Description": "A tall plant with large, purple flowers.",
     "Ingredient Type": "Plant-based",
     "Locations": ["Mountain"],
-    "Purchase Price": "1 gp",
+    "Purchase Price": "1 gp per pound",
     "Harvesting": {
-      "Required Kit": ["Poisoner's Kit", "Herbalism Kit", "Thick Gloves", "Container(s)"]
+      "Required Kit": ["Poisoner's Kit", "Herbalism Kit", "Gloves, Thick", "Container(s)"]
     },
     "Seasons": ["Autumn"]
   },
@@ -13222,7 +13211,7 @@ let ingredients = [
     "Description": "Gamey, tough, often infused with a faint sulfurous taste. Provides substantial sustenance.",
     "Ingredient Type": "Meat-based",
     "Locations": ["Arctic", "Desert", "Forest", "Jungle", "Mountain", "Swamp", "Underdark", "Wasteland"],
-    "Purchase Price": "3 gp",
+    "Purchase Price": "3 gp per pound",
     "Harvesting": {
       "Required Kit": ["Butcher's Tools"]
     },
@@ -13238,7 +13227,7 @@ let ingredients = [
     "Effects": [
       "Rumored to enhance stamina when dissolved in water."
     ],
-    "Purchase Price": "1 gp",
+    "Purchase Price": "1 gp per pound",
     "Harvesting": {
       "Required Kit": ["Alchemist's Kit", "Chisel", "Container(s)"]
     },
@@ -13254,7 +13243,7 @@ let ingredients = [
     "Description": "While the Xorn creature itself is stone, fine, edible stone chips or mineral secretions might be harvested from it, offering a taste of pure earth and grounding properties.",
     "Ingredient Type": "Non-Meat and Non-Plant Edible Ingredients",
     "Locations": ["Underdark"],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": ["Alchemist's Kit", "Mason's Tools", "Mortar and Pestle", "Container(s)"]
     },
@@ -13267,7 +13256,7 @@ let ingredients = [
     "Description": "Specific internal organs from a Xorn might be edible after careful extraction, providing a distinct mineral flavor and grounding properties.",
     "Ingredient Type": "Meat-based",
     "Locations": ["Mountain", "Underdark"],
-    "Purchase Price": "3 gp",
+    "Purchase Price": "3 gp per pound",
     "Harvesting": {
       "Required Kit": ["Butcher's Tools (Enchanted)", "Container(s)"]
     },
@@ -13280,7 +13269,7 @@ let ingredients = [
     "Description": "Various starchy tubers.",
     "Ingredient Type": "Plant-based",
     "Locations": ["Jungle"],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": ["Herbalism Kit", "Digging Tools"]
     },
@@ -13297,9 +13286,9 @@ let ingredients = [
     "Effects": [
       "Said to provide temporary resistance to cold and a surge of primal strength when properly prepared."
     ],
-    "Purchase Price": "15 gp",
+    "Purchase Price": "15 gp per pound",
     "Harvesting": {
-      "Required Kit": ["Butcher's Tools", "Insulated Gloves", "Knife", "Container(s)"]
+      "Required Kit": ["Butcher's Tools", "Gloves, Insulated", "Knife", "Container(s)"]
     },
     "Cooking": {
       "Required Kit": ["Cook's Utensils"]
@@ -13314,9 +13303,9 @@ let ingredients = [
       "When broken open, it releases a cloud of frosty spores that can momentarily disorient or lightly frost creatures.",
       "Eating it might grant a slight breath-holding boost in cold water."
     ],
-    "Purchase Price": "1 gp",
+    "Purchase Price": "1 gp per pound",
     "Harvesting": {
-      "Required Kit": ["Herbalism Kit", "Insulated Gloves", "Container(s)", "Mask/Respirator"]
+      "Required Kit": ["Herbalism Kit", "Gloves, Insulated", "Container(s)", "Mask"]
     },
     "Seasons": ["Winter"],
     "Cooking": {
@@ -13328,7 +13317,7 @@ let ingredients = [
     "Description": "Various edible parts, very drought-tolerant.",
     "Ingredient Type": "Plant-based",
     "Locations": ["Wasteland"],
-    "Purchase Price": "5 cp",
+    "Purchase Price": "5 cp per pound",
     "Harvesting": {
       "Required Kit": ["Herbalism Kit", "Knife", "Basket",
         "Bag"]
@@ -13350,9 +13339,9 @@ let ingredients = [
       "On consumption (equivalent to a d6 roll of 2): There is no extra effect. Due to the -4 penalty, this is the only other possible outcome, meaning no healing benefits are gained.",
       "May need to make a saving throw to avoid becoming a ghoul if several meals of it are consumed."
     ],
-    "Purchase Price": "15 gp",
+    "Purchase Price": "15 gp per pound",
     "Harvesting": {
-      "Required Kit": ["Butcher's Tools", "Disinfectant", "Container(s)", "Protective Gloves"]
+      "Required Kit": ["Butcher's Tools", "Disinfectant", "Container(s)", "Gloves, Protective"]
     },
     "Cooking": {
       "Method": "Morbidly cooked to theoretically \"sterilize\" it.",
