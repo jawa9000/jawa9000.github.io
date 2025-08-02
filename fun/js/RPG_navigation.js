@@ -1,6 +1,7 @@
 $(document).ready(function() {
     const urls = [ // update this list with new RGP tools are added.
-      "../Apothecary/index.html, Apothecary",
+      // "../Apothecary/index.html, Apothecary",
+      "../Culinarian/index.html, Culinarian",
       "../Critical_Hit_Fumble/index.html, Criticals",
       "../Dragon_Generator/index.html, Dragon Gen",
       "../Encounter_Builder/monster_catalog.html, Monster Catalog",
