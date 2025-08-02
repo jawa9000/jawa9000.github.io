@@ -92,6 +92,30 @@ function setupFilters() {
     }
     filterDiv.innerHTML = '';
 
+    // --- Add Search Input with Auto-fill ---
+    const searchWrapper = document.createElement('label');
+    searchWrapper.style.marginRight = '1em';
+    searchWrapper.textContent = 'Search: ';
+    const searchInput = document.createElement('input');
+    searchInput.type = 'text';
+    searchInput.id = 'ingredientSearch';
+    searchInput.setAttribute('autocomplete', 'off');
+    searchInput.style.width = '200px';
+
+    // Create datalist for auto-fill
+    const dataList = document.createElement('datalist');
+    dataList.id = 'ingredientSuggestions';
+    searchInput.setAttribute('list', 'ingredientSuggestions');
+    // Fill datalist with ingredient names
+    if (typeof ingredients !== 'undefined' && Array.isArray(ingredients)) {
+        dataList.innerHTML = ingredients.map(ing =>
+            `<option value="${ing.Name}"></option>`
+        ).join('');
+    }
+    searchWrapper.appendChild(searchInput);
+    searchWrapper.appendChild(dataList);
+    filterDiv.appendChild(searchWrapper);
+
     // Ingredient Type
     const typeOptions = getUniqueValues('Ingredient Type');
     filterDiv.appendChild(createDropdown('filterType', 'Type', typeOptions));
@@ -144,6 +168,19 @@ function setupFilters() {
     // Listen for changes
     ['filterType', 'filterLocation', 'filterHarvest', 'filterCooking', 'filterSeason'].forEach(id => {
         document.getElementById(id).addEventListener('change', filterAndRenderIngredients);
+    });
+
+    // Listen for search input
+    searchInput.addEventListener('input', function () {
+        const query = searchInput.value.trim().toLowerCase();
+        if (!query) {
+            filterAndRenderIngredients();
+            return;
+        }
+        const filtered = ingredients.filter(ing =>
+            ing.Name && ing.Name.toLowerCase().includes(query)
+        );
+        renderIngredients(filtered);
     });
 }
 
