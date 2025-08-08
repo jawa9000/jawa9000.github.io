@@ -47,7 +47,7 @@ let samples = {
         title: 'Financial Record Endpoint',
         htmlLink: 'Financial_Record_Endpoint.html',
         pdfLink: 'Financial_Record_Endpoint.pdf',
-        description: 'foo',
+        description: 'This API endpoint allows users to create, read, update, and delete financial records. It supports various operations such as adding new records, retrieving existing records, updating records, and deleting records. The endpoint is designed to be flexible and user-friendly, making it easy for developers to integrate financial record management into their applications.',
         labels: ['API'],
         projectDetails: {
             audience: 'Entry-level developers and internal testers.',
