@@ -45,19 +45,19 @@
           </p>
           <h2>Critical Hit and Fumble Sections</h2>
           <p>
-            Both sections share the same two core features: a **Random** option
-            to generate an outcome and a **Submit** option to finalize a
-            result. The **Critical Hit** section is for high-impact results,
-            while the **Fumble** section is for low-impact or negative outcomes.
+            Both sections share the same two core features: a <strong>Random</strong> option
+            to generate an outcome and a <strong>Submit</strong> option to finalize a
+            result. The <strong>Critical Hit</strong> section is for high-impact results,
+            while the <strong>Fumble</strong> section is for low-impact or negative outcomes.
           </p>
           <h3>Random Roll Generation</h3>
           <p>
-            The **Random** button generates a roll without needing any user
+            The <strong>Random</strong> button generates a roll without needing any user
             input. Simply click it to get a result.
           </p>
           <h3>Submitting a Roll</h3>
           <p>
-            The **Submit** button processes the currently displayed or selected
+            The <strong>Submit</strong> button processes the currently displayed or selected
             outcome. Click it to finalize the result.
           </p>
           <h2>JavaScript Explained</h2>
@@ -205,12 +205,12 @@
               >const result = findResult(criticalHitTable, roll);</span
             ><br />
             <span class="indent1">if (result) {</span><br />
-            <span class="indent2">let description = `Roll: ${roll}<br />`;</span
+            <span class="indent2">let description = `Roll: ${roll}`;</span
             ><br />
             <span class="indent2">for (const key in result) {</span><br />
             <span class="indent3">if (key !== "% Roll") {</span><br />
             <span class="indent4"
-              >description += `${key}: ${result[key]}<br />`;</span
+              >description += `${key}: ${result[key]}`;</span
             ><br />
             <span class="indent3">}</span><br />
             <span class="indent2">}</span><br />
@@ -232,12 +232,12 @@
               >const result = findResult(fumbleTable, roll);</span
             ><br />
             <span class="indent1">if (result) {</span><br />
-            <span class="indent2">let description = `Roll: ${roll}<br />`;</span
+            <span class="indent2">let description = `Roll: ${roll}`;</span
             ><br />
             <span class="indent2">for (const key in result) {</span><br />
             <span class="indent3">if (key !== "% Roll") {</span><br />
             <span class="indent4"
-              >description += `${key}: ${result[key]}<br />`;</span
+              >description += `${key}: ${result[key]}`;</span
             ><br />
             <span class="indent3">}</span><br />
             <span class="indent2">}</span><br />
