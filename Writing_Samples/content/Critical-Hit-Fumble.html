@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-06DGRLH7V4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-06DGRLH7V4");
+    </script>
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico" />
+    <title>Critical Hit and Fumble Roller Overview</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="../../css/bootstrap.css" rel="stylesheet" />
+    <link href="../../css/tutorials.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles/main.css" type="text/css" />
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+          <h1>Critical Hit and Fumble Roller Overview</h1>
+          <p>
+            Created by <span class="author"> Brian Immel</span>, last modified
+            on Aug 27, 2025
+          </p>
+          <toc></toc>
+          <p>
+            This guide describes the user interface and core functionality of
+            the <strong><a href="../../fun/Critical_Hit_Fumble/index.html">Critical Hit and Fumble Roller</a></strong> application. It
+            breaks down the application's interactive elements and their use, so
+            you can understand and operate its features effectively.
+          </p>
+          <h2>Application Overview</h2>
+          <p>
+            The Critical Hit and Fumble Roller provides specific outcomes based
+            on user input or random generation. The application divides its
+            functionality into two independent sections:
+            <strong>Critical Hit</strong> and <strong>Fumble</strong>.
+          </p>
+          <h2>Critical Hit and Fumble Sections</h2>
+          <p>
+            Both sections share the same two core features: a **Random** option
+            to generate an outcome and a **Submit** option to finalize a
+            result. The **Critical Hit** section is for high-impact results,
+            while the **Fumble** section is for low-impact or negative outcomes.
+          </p>
+          <h3>Random Roll Generation</h3>
+          <p>
+            The **Random** button generates a roll without needing any user
+            input. Simply click it to get a result.
+          </p>
+          <h3>Submitting a Roll</h3>
+          <p>
+            The **Submit** button processes the currently displayed or selected
+            outcome. Click it to finalize the result.
+          </p>
+          <h2>JavaScript Explained</h2>
+          <p>
+            This section details the JavaScript code that handles roll
+            calculations and displays results. It covers selecting HTML
+            elements, using event listeners for user interaction, and
+            implementing logic to process roll values.
+          </p>
+          <h3>HTML Element Selection</h3>
+          <p>
+            This code gets programmatic access to specific HTML elements using
+            their unique IDs.
+          </p>
+          <code class="block">
+            const criticalHitBtn = document.getElementById('criticalHitBtn');<br />
+            const fumbleBtn = document.getElementById('fumbleBtn');<br />
+            const criticalHitDiv = document.getElementById('criticalHit');<br />
+            const fumbleDiv = document.getElementById('fumble');<br />
+            const criticalHitRandomBtn = document.getElementById('criticalHitRandom');<br />
+            const criticalHitInput = document.getElementById('criticalHitInput');<br />
+            const criticalHitSubmitBtn = document.getElementById('criticalHitSubmit');<br />
+            const criticalHitResultDiv = document.getElementById('criticalHitResult');<br />
+            const fumbleRandomBtn = document.getElementById('fumbleRandom');<br />
+            const fumbleInput = document.getElementById('fumbleInput');<br />
+            const fumbleSubmitBtn = document.getElementById('fumbleSubmit');<br />
+            const fumbleResultDiv = document.getElementById('fumbleResult');
+          </code>
+          <p>
+            <strong>Explanation</strong><br />This code initializes constants that store
+            references to HTML elements by their ID. This is essential for
+            JavaScript to interact with the page's buttons, inputs, and display
+            areas.
+          </p>
+          <h3>Event Listeners for Section Toggling</h3>
+          <p>
+            These listeners switch the visibility of the Critical Hit and
+            Fumble sections. Clicking a button makes its corresponding section
+            visible while hiding the other.
+          </p>
+          <h4>Critical Hit Button Listener</h4>
+          <code class="block">
+            criticalHitBtn.addEventListener('click', () => {<br />
+            <span class="indent1">criticalHitDiv.style.display = 'block';</span
+            ><br />
+            <span class="indent1">fumbleDiv.style.display = 'none';</span><br />
+            });
+          </code>
+          <h4>Fumble Button Listener</h4>
+          <code class="block">
+            fumbleBtn.addEventListener('click', () => {<br />
+            <span class="indent1">fumbleDiv.style.display = 'block';</span
+            ><br />
+            <span class="indent1">criticalHitDiv.style.display = 'none';</span
+            ><br />
+            });
+          </code>
+          <h3>Event Listeners for Roll Generation and Submission</h3>
+          <p>
+            These listeners handle generating and processing roll values for both
+            critical hits and fumbles. The code for both sections is similar.
+          </p>
+          <h4>Random Roll Button Listener</h4>
+          <p>This listener generates a random roll.</p>
+          <code class="block">
+            criticalHitRandomBtn.addEventListener('click', () => {<br />
+            <span class="indent1"
+              >const roll = Math.floor(Math.random() * 100) + 1;</span
+            ><br />
+            <span class="indent1">criticalHitInput.value = roll;</span><br />
+            <span class="indent1">displayCriticalHitResult(roll);</span><br />
+            });
+          </code>
+          <p>
+            <strong>Explanation</strong><br />When the button is clicked, a random integer
+            between 1 and 100 is generated and put into the input field. The
+            system then calls the corresponding display function to process and
+            show the result.
+          </p>
+          <h4>Submit Button Listener</h4>
+          <p>This listener processes rolls from the input field.</p>
+          <code class="block">
+            criticalHitSubmitBtn.addEventListener('click', () => {<br />
+            <span class="indent1"
+              >const roll = parseInt(criticalHitInput.value);</span
+            ><br />
+            <span class="indent1">if (roll >= 1 && roll <= 100) {</span><br />
+            <span class="indent2">displayCriticalHitResult(roll);</span><br />
+            <span class="indent1">} else {</span><br />
+            <span class="indent2"
+              >criticalHitResultDiv.textContent = "Please enter a number between
+              1 and 100.";</span
+            ><br />
+            <span class="indent1">}</span><br />
+            });
+          </code>
+          <p>
+            <strong>Explanation</strong><br />When clicked, the code converts the input value to an
+            integer. It validates the roll is between 1 and 100. If valid, it
+            calls the display function. Otherwise, it shows an error message.
+          </p>
+          <h3>Utility Function: findResult</h3>
+          <p>
+            This function finds an entry in a data table that matches a given
+            roll value. It can handle both single numbers and ranges.
+          </p>
+          <code class="block">
+            function findResult(table, roll) {<br />
+            <span class="indent1">for (let i = 0; i < table.length; i++) {</span
+            ><br />
+            <span class="indent2"
+              >const range = table[i]["% Roll"].split("-");</span
+            ><br />
+            <span class="indent2">if (range.length === 1) {</span><br />
+            <span class="indent3">if (parseInt(range[0]) === roll) {</span
+            ><br />
+            <span class="indent4">return table[i];</span><br />
+            <span class="indent3">}</span><br />
+            <span class="indent2">} else if (range.length === 2) {</span><br />
+            <span class="indent3">const min = parseInt(range[0]);</span><br />
+            <span class="indent3">const max = parseInt(range[1]);</span><br />
+            <span class="indent3">if (roll >= min && roll <= max) {</span><br />
+            <span class="indent4">return table[i];</span><br />
+            <span class="indent3">}</span><br />
+            <span class="indent2">}</span><br />
+            <span class="indent1">}</span><br />
+            <span class="indent1">return null;</span><br />
+            }
+          </code>
+          <p>
+            <strong>Explanation</strong><br />The function iterates through a table, checking the
+            "% Roll" property of each entry. It returns the matching entry if
+            found, otherwise it returns null.
+          </p>
+          <h3>Display Functions</h3>
+          <p>
+            These functions format and display the results for critical hit and
+            fumble rolls.
+          </p>
+          <h4>displayCriticalHitResult Function</h4>
+          <p>This function displays the result for a critical hit.</p>
+          <code class="block">
+            function displayCriticalHitResult(roll) {<br />
+            <span class="indent1"
+              >const result = findResult(criticalHitTable, roll);</span
+            ><br />
+            <span class="indent1">if (result) {</span><br />
+            <span class="indent2">let description = `Roll: ${roll}<br />`;</span
+            ><br />
+            <span class="indent2">for (const key in result) {</span><br />
+            <span class="indent3">if (key !== "% Roll") {</span><br />
+            <span class="indent4"
+              >description += `${key}: ${result[key]}<br />`;</span
+            ><br />
+            <span class="indent3">}</span><br />
+            <span class="indent2">}</span><br />
+            <span class="indent2"
+              >criticalHitResultDiv.innerHTML = description;</span
+            ><br />
+            <span class="indent1">} else {</span><br />
+            <span class="indent2"
+              >criticalHitResultDiv.textContent = "No result found.";</span
+            ><br />
+            <span class="indent1">}</span><br />
+            }
+          </code>
+          <h4>displayFumbleResult Function</h4>
+          <p>This function displays the result for a fumble.</p>
+          <code class="block">
+            function displayFumbleResult(roll) {<br />
+            <span class="indent1"
+              >const result = findResult(fumbleTable, roll);</span
+            ><br />
+            <span class="indent1">if (result) {</span><br />
+            <span class="indent2">let description = `Roll: ${roll}<br />`;</span
+            ><br />
+            <span class="indent2">for (const key in result) {</span><br />
+            <span class="indent3">if (key !== "% Roll") {</span><br />
+            <span class="indent4"
+              >description += `${key}: ${result[key]}<br />`;</span
+            ><br />
+            <span class="indent3">}</span><br />
+            <span class="indent2">}</span><br />
+            <span class="indent2">fumbleResultDiv.innerHTML = description;</span
+            ><br />
+            <span class="indent1">} else {</span><br />
+            <span class="indent2"
+              >fumbleResultDiv.textContent = "No result found.";</span
+            ><br />
+            <span class="indent1">}</span><br />
+            }
+          </code>
+          <p>
+            <strong>Explanation</strong><br />Both functions work the same way. They accept a roll,
+            look it up in their respective tables (critical or fumble) using
+            `findResult()`, and then display the formatted result. If no match
+            is found, they show a "No result found" message.
+          </p>
+          <div class="col-md-1"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="../../js/toc_generator.js"></script>
+</html>

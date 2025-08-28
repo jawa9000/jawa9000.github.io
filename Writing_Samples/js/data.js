@@ -43,6 +43,19 @@ let samples = {
     //         other: ''
     //     }
     // },
+    '': {
+        title: 'Critical Hit and Fumble Roller Overview',
+        htmlLink: 'Critical-Hit-Fumble.html',
+        pdfLink: 'Critical_Hit_Fumble.pdf',
+        description: 'This guide provides a concise tutorial on the user interface and core JavaScript functionality of the Critical Hit and Fumble Roller application.',
+        labels: ['Guide', 'Code Sample'],
+        projectDetails: {
+            audience: 'Entry-level JavaScript developers.',
+            starNotes: 'Over the years of GM\'ing various RPGs, I found myself frequently needing to look up critical hit and fumble tables in various online resources. To streamline this process, I decided to create a web application that would allow me to quickly roll for critical hits and fumbles without having to flip through multiple resources. I designed the app to be user-friendly and customizable. After developing the app using HTML, CSS, and JavaScript, I documented its features and functionality in this overview to help my son understand what it looks like to document one\'s code. The documentation includes instructions on how to use the app, as well as details about its development process. This project not only improved my coding skills but also provided a valuable tool for fellow GMs in the RPG community.',
+            projectNotes: 'This overview was created to document the features of the Critical Hit and Fumble Roller app I created for RPG GMs. It was created using HTML, CSS, and JavaScript.',
+            change: 'I\'d add screenshots of the app in use.'
+        }
+    },
     'Financial Record Endpoint': {
         title: 'Financial Record Endpoint',
         htmlLink: 'Financial_Record_Endpoint.html',
