@@ -134,25 +134,13 @@ message += '<li class="socialLinkedIn">';
 message += '<a href="http://www.linkedin.com/pub/brian-immel/2/914/b5b/" target="_blank">'; // linkedin link
 message += '<img src="' + tutorialSuffix + 'images/social/glyphicons_social/png/glyphicons_social_17_linked_in.png" title="Visit Brian&#39s LinkedIn page" alt="Visit Brian&#39s LinkedIn page">';
 message += '</a></li>';
-message += '<li class="socialTwitter">';
-message += '<a href="https://twitter.com/jawa9000" target="_blank">'; // Twitter link
-message += '<img src="' + tutorialSuffix + 'images/social/glyphicons_social/png/glyphicons_social_31_twitter.png" title="Visit Brian&#39s Twitter page" alt="Visit Brian&#39s Twitter page">';
-message += '</a></li>';
-message += '<li class="socialJSFiddle" >';
-message += '<a href="http://jsfiddle.net/user/jawa9000/fiddles/" target="_blank">'; // JSFiddle link
-message += '<img src="' + tutorialSuffix + 'images/social/glyphicons_social/png/jsfiddle.png" title="Visit Brian&#39s JSFiddle page" alt="Visit Brian&#39s JSFiddle page">';
-message += '</a></li>';
 message += '<li class="socialGithub" >';
 message += '<a href="https://github.com/jawa9000" target="_blank">'; // github link
 message += '<img src="' + tutorialSuffix + 'images/social/github.png" title="Visit Brian&#39s Github page" alt="Visit Brian&#39s Github page">';
 message += '</a></li>';
-message += '<li class="socialFlickr">';
-message += '<a href="https://www.flickr.com/photos/jawa9000/" target="_blank">'; // flickr link
-message += '<img src="' + tutorialSuffix + 'images/social/glyphicons_social/png/glyphicons_social_35_flickr.png" title="Visit Brian&#39s Flickr page" alt="Visit Brian&#39s Flickr page">';
-message += '</a></li>';
 // email link
 message += '<li>';
-message += '<a href="mailto:brian@jawa9000.com?Subject=General&#160;Request&#160;,&#160;Comment&#160;,&#160;or&#160;Question">';
+message += '<a href="mailto:brianimmeltw@outlook.com?Subject=General&#160;Request&#160;,&#160;Comment&#160;,&#160;or&#160;Question">';
 message += '<img src="' + tutorialSuffix + 'images/social/glyphicons_social/png/glyphicons_social_39_e-mail.png" title="Email Brian" alt="Email Brian">';
 message += '</a>';
 message += '</li></ul></div></div>';
