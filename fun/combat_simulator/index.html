@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D&D Combat Simulator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../Encounter_Builder/monsters.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>D&D 5e Combat Simulator</h1>
+            <div class="controls">
+                <button id="newCombat" class="btn btn-primary">New Combat</button>
+                <button id="addCharacter" class="btn btn-secondary">Add Character</button>
+                <button id="addMonster" class="btn btn-secondary">Add Monster</button>
+                <button id="rollInitiative" class="btn btn-accent">Roll Initiative</button>
+                <div class="team-controls">
+                    <span class="team-label">View:</span>
+                    <button id="switchTeamA" class="btn btn-team team-a">Team A</button>
+                    <button id="switchTeamB" class="btn btn-team team-b">Team B</button>
+                    <button id="switchAll" class="btn btn-team team-all">All Teams</button>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="combat-area">
+                <div class="initiative-tracker">
+                    <h2>Initiative Order</h2>
+                    <div id="initiativeList" class="initiative-list">
+                        <p class="no-combatants">No combatants in combat</p>
+                    </div>
+                </div>
+
+                <div class="combat-actions">
+                    <h2>Combat Actions</h2>
+                    <div class="current-turn">
+                        <div id="currentCombatant" class="current-combatant">
+                            <p>No active combatant</p>
+                        </div>
+                        <div class="action-buttons">
+                            <button id="attackBtn" class="btn btn-action" disabled>Attack</button>
+                            <button id="castSpellBtn" class="btn btn-action" disabled>Cast Spell</button>
+                            <button id="dodgeBtn" class="btn btn-action" disabled>Dodge</button>
+                            <button id="endTurnBtn" class="btn btn-action" disabled>End Turn</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="character-panel">
+                <h2>Characters & Monsters</h2>
+                <div id="characterList" class="character-list">
+                    <p class="no-characters">No characters added yet</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="combat-log">
+            <h2>Combat Log</h2>
+            <div id="combatLog" class="log-content">
+                <p>Combat log will appear here...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Character Creation Modal -->
+    <div id="characterModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add Character</h2>
+            <form id="characterForm">
+                <div class="form-group">
+                    <label for="charName">Name:</label>
+                    <input type="text" id="charName" required>
+                </div>
+                <div class="form-group">
+                    <label for="charType">Type:</label>
+                    <select id="charType" required>
+                        <option value="player">Player Character</option>
+                        <option value="monster">Monster</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="charAC">Armor Class:</label>
+                    <input type="number" id="charAC" min="1" max="30" required>
+                </div>
+                <div class="form-group">
+                    <label for="charHP">Hit Points:</label>
+                    <input type="number" id="charHP" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="charMaxHP">Max Hit Points:</label>
+                    <input type="number" id="charMaxHP" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="charInitiative">Initiative Bonus:</label>
+                    <input type="number" id="charInitiative" min="-5" max="20" value="0">
+                </div>
+                <div class="form-group">
+                    <label for="charAttackBonus">Attack Bonus:</label>
+                    <input type="number" id="charAttackBonus" min="-5" max="20" value="0">
+                </div>
+                <div class="form-group">
+                    <label for="charDamage">Damage Dice:</label>
+                    <input type="text" id="charDamage" placeholder="1d8+3" value="1d6">
+                </div>
+                <div class="form-group">
+                    <label for="charSpeed">Speed (ft):</label>
+                    <input type="number" id="charSpeed" min="0" value="30">
+                </div>
+                <div class="form-group">
+                    <label for="charTeam">Team:</label>
+                    <select id="charTeam" required>
+                        <option value="Team A">Team A</option>
+                        <option value="Team B">Team B</option>
+                        <option value="Neutral">Neutral</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Add Character</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Monster Selection Modal -->
+    <div id="monsterModal" class="modal">
+        <div class="modal-content monster-modal">
+            <span class="close">&times;</span>
+            <h2>Select Monster</h2>
+            <div class="monster-search">
+                <input type="text" id="monsterSearch" placeholder="Search monsters..." />
+                <select id="monsterFilter">
+                    <option value="">All Types</option>
+                    <option value="Aberration">Aberration</option>
+                    <option value="Beast">Beast</option>
+                    <option value="Celestial">Celestial</option>
+                    <option value="Construct">Construct</option>
+                    <option value="Dragon">Dragon</option>
+                    <option value="Elemental">Elemental</option>
+                    <option value="Fey">Fey</option>
+                    <option value="Fiend">Fiend</option>
+                    <option value="Giant">Giant</option>
+                    <option value="Humanoid">Humanoid</option>
+                    <option value="Monstrosity">Monstrosity</option>
+                    <option value="Ooze">Ooze</option>
+                    <option value="Plant">Plant</option>
+                    <option value="Undead">Undead</option>
+                </select>
+                <div class="team-selection">
+                    <label for="monsterTeam">Add to Team:</label>
+                    <select id="monsterTeam">
+                        <option value="Team A">Team A</option>
+                        <option value="Team B">Team B</option>
+                        <option value="Neutral">Neutral</option>
+                    </select>
+                </div>
+            </div>
+            <div id="monsterList" class="monster-list">
+                <!-- Monster list will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Attack Modal -->
+    <div id="attackModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Attack</h2>
+            <div class="attack-details">
+                <p><strong>Attacker:</strong> <span id="attackerName"></span></p>
+                <p><strong>Target:</strong> <span id="targetName"></span></p>
+                <div class="dice-rolls">
+                    <div class="roll-result">
+                        <label>Attack Roll:</label>
+                        <span id="attackRoll">Rolling...</span>
+                    </div>
+                    <div class="roll-result">
+                        <label>Damage:</label>
+                        <span id="damageRoll">Rolling...</span>
+                    </div>
+                </div>
+                <div class="attack-result">
+                    <p id="attackResult"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
