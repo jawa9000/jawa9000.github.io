@@ -1,12 +1,8 @@
 ## Do to list
 
 Add the following mechanics:
-- interface to add multiples of the same monster
 - Advantage/Disadvantage on attack rolls
-- Critical hits (double damage dice)
-- Death saving throws
 - More detailed turn order display (e.g., showing conditions, HP bars)
-- Initiative ties resolved by Dexterity or roll-off
 - Initiative bonuses from feats or abilities
 - Conditions (e.g., stunned, poisoned) that affect combatants
 - keep track of used reactions (e.g., opportunity attacks)
@@ -18,6 +14,7 @@ Add the following mechanics:
 - More detailed damage types (e.g., slashing, fire, necrotic)
 - dropping to 0 HP and dying state
 - opportunity attacks
+- Death saving throws
 - dropping to 0 hp and regenation
 - bonus actions (attacks, spells, abilities)
 - effects of invisibility on combat
