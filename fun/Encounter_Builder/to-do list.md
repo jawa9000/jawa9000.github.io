@@ -1357,5 +1357,3 @@ Void Scavver
 Walking Corpse
 Walking Statue of Waterdeep
 Wizard
-
-
