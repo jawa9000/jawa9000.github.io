@@ -53,6 +53,10 @@ class CombatSimulator {
                 this.closeModals();
             }
         });
+
+        // Remove Team Monsters buttons
+        $('#removeTeamAMonsters').click(() => this.removeMonstersFromTeam('Team A'));
+        $('#removeTeamBMonsters').click(() => this.removeMonstersFromTeam('Team B'));
     }
 
     // Character Management
@@ -67,14 +71,31 @@ class CombatSimulator {
 
     openMonsterSelectionModal() {
         $('#monsterModal').show();
-        
+
         // Use current team filter if it's a specific team, otherwise default to Team A
         const defaultTeam = (this.currentTeamFilter !== 'All Teams') ? this.currentTeamFilter : 'Team A';
         $('#monsterTeam').val(defaultTeam);
         this.selectedMonsterTeam = defaultTeam;
         this.updateMonsterModalHeader();
-        console.log('Modal opened, team set to:', this.selectedMonsterTeam); // Debug log
         this.populateMonsterList();
+
+        // Add input for number of monsters if not present
+        if ($('#monsterCountInput').length === 0) {
+            $('#monsterModal .modal-content').append(`
+                <div style="margin-top:10px;">
+                    <label for="monsterCountInput">Number to Add:</label>
+                    <input type="number" id="monsterCountInput" min="1" value="1" style="width:60px; margin-left:5px;">
+                    <button id="addMonsterBtn" class="btn btn-primary" style="margin-left:10px;">Add Monster(s)</button>
+                </div>
+            `);
+        }
+
+        // Remove previous click handler to avoid duplicates
+        $('#addMonsterBtn').off('click');
+        // Add click handler for adding monsters
+        $('#addMonsterBtn').on('click', () => this.addSelectedMonster());
+        // Track selected monster index
+        this.selectedMonsterIndex = null;
     }
 
     updateMonsterModalHeader() {
@@ -121,7 +142,11 @@ class CombatSimulator {
                 </div>
             `);
 
-            monsterItem.click(() => this.selectMonster(monster, index));
+            monsterItem.click(() => {
+                $('.monster-item').removeClass('selected');
+                monsterItem.addClass('selected');
+                this.selectedMonsterIndex = index; // Track selected monster
+            });
             container.append(monsterItem);
         });
     }
@@ -129,20 +154,30 @@ class CombatSimulator {
     selectMonster(monsterData, index) {
         // Remove previous selection
         $('.monster-item').removeClass('selected');
-        
+
         // Add selection to clicked item
         $(`.monster-item[data-index="${index}"]`).addClass('selected');
-        
+
         // Use the tracked team variable
         console.log('Selected team:', this.selectedMonsterTeam); // Debug log
-        
-        // Convert monster data to combat format and add to combatants
-        const monster = this.convertMonsterToCombatant(monsterData);
-        monster.team = this.selectedMonsterTeam; // Use the tracked team value
-        this.combatants.push(monster);
+
+        // Get number of monsters to add
+        let count = parseInt($('#monsterCountInput').val());
+        if (isNaN(count) || count < 1) count = 1;
+
+        for (let i = 0; i < count; i++) {
+            // Convert monster data to combat format and add to combatants
+            const monster = this.convertMonsterToCombatant(monsterData);
+            monster.team = this.selectedMonsterTeam; // Use the tracked team value
+            // If adding multiples, append a number to the name
+            if (count > 1) {
+                monster.name = `${monster.name} #${i + 1}`;
+            }
+            this.combatants.push(monster);
+            this.logMessage(`${monster.name} has been added to ${monster.team}.`);
+        }
         this.updateCharacterList();
         this.closeModals();
-        this.logMessage(`${monster.name} has been added to ${monster.team}.`);
     }
 
     convertMonsterToCombatant(monsterData) {
@@ -334,7 +369,6 @@ class CombatSimulator {
         };
 
         this.combatants.push(character);
-        this.updateCharacterList();
         this.closeModals();
         this.resetCharacterForm();
         this.logMessage(`${character.name} has been added to the combat.`);
@@ -356,11 +390,21 @@ class CombatSimulator {
         this.combatRound = 0;
         this.initiativeOrder = [];
         
-        // Reset all combatants
-        this.combatants.forEach(combatant => {
-            combatant.initiative = null;
-            combatant.conditions = [];
-        });
+        // Clear all combatants (characters and monsters)
+        this.combatants = [];
+        
+        // Reset selected monster index and team
+        this.selectedMonsterIndex = null;
+        this.selectedMonsterTeam = 'Team A';
+        this.currentTeamFilter = 'All Teams';
+
+        // Reset UI forms and filters if needed
+        this.resetCharacterForm();
+        $('#monsterSearch').val('');
+        $('#monsterFilter').val('');
+        $('#monsterTeam').val('Team A');
+        $('#switchAll').addClass('active');
+        $('.btn-team').removeClass('active');
         
         this.updateDisplay();
         this.logMessage('New combat session started. Add characters and roll initiative to begin.');
@@ -380,23 +424,39 @@ class CombatSimulator {
             }
         });
 
-        // Sort by initiative (highest first)
+        // Sort by initiative, breaking ties by dexterity, then by a roll-off
         this.initiativeOrder = this.combatants
             .filter(c => !c.isDead)
-            .sort((a, b) => b.initiative - a.initiative);
+            .sort((a, b) => {
+                if (b.initiative !== a.initiative) {
+                    return b.initiative - a.initiative;
+                }
+                // Initiative tie: break by dexterity
+                if ((b.dex || 0) !== (a.dex || 0)) {
+                    return (b.dex || 0) - (a.dex || 0);
+                }
+                // Still tied: roll-off
+                const aRoll = Math.floor(Math.random() * 20) + 1;
+                const bRoll = Math.floor(Math.random() * 20) + 1;
+                this.logMessage(`Initiative tie between ${a.name} and ${b.name}: ${a.name} rolls ${aRoll}, ${b.name} rolls ${bRoll}`);
+                return bRoll - aRoll;
+            });
 
-        this.combatActive = true;
-        this.currentTurnIndex = 0;
-        this.combatRound = 1;
-        
-        // Reset attacks for the first turn
-        this.resetAttacksForCurrentTurn();
-        
-        this.updateInitiativeList();
-        this.updateCurrentTurn();
-        this.updateActionButtons();
-        this.logMessage(`Combat Round ${this.combatRound} begins!`);
-    }
+    this.combatActive = true;
+    this.currentTurnIndex = 0;
+    this.combatRound = 1;
+    
+    // Reset attacks for the first turn
+    this.resetAttacksForCurrentTurn();
+    
+    this.updateInitiativeList();
+    this.updateCurrentTurn();
+    this.updateActionButtons();
+    this.logMessage(`Combat Round ${this.combatRound} begins!`);
+
+    // Enable Simulate Battle button
+    $('#simulateBattleBtn').prop('disabled', false);
+}
 
     endTurn() {
         if (!this.combatActive) return;
@@ -449,92 +509,43 @@ class CombatSimulator {
         this.performAttack(currentCombatant, targets[0]);
     }
 
-    performAttack(attacker, target) {
-        // Use remaining attacks, not total attacks
-        const attacksToMake = Math.min(attacker.attacksRemaining, attacker.numberOfAttacks || 1);
-        let totalDamage = 0;
-        let attackResults = [];
-        let criticalHits = 0;
-        let hits = 0;
-        let misses = 0;
-
-        // Perform attacks
-        for (let i = 0; i < attacksToMake; i++) {
-            const attackRoll = this.rollDice(20) + attacker.attackBonus;
-            const isCritical = attackRoll === 20 + attacker.attackBonus;
-            const isCriticalMiss = attackRoll === 1 + attacker.attackBonus;
-
-            let attackResult = '';
-            let damage = 0;
-
-            if (isCriticalMiss) {
-                attackResult = `Attack ${i + 1}: Critical Miss!`;
-                misses++;
-            } else if (isCritical || attackRoll >= target.ac) {
-                // Hit!
-                damage = this.rollDamage(attacker.damage);
-                if (isCritical) {
-                    damage = this.rollDamage(attacker.damage) + this.rollDamage(attacker.damage);
-                    attackResult = `Attack ${i + 1}: Critical Hit! (${attackRoll}) - ${damage} damage`;
-                    criticalHits++;
-                } else {
-                    attackResult = `Attack ${i + 1}: Hit! (${attackRoll}) - ${damage} damage`;
-                    hits++;
-                }
-                totalDamage += damage;
+    performAttack(attacker, target, attack) {
+        // If attack is not provided, use the first available attack from attacker
+        if (!attack) {
+            if (attacker.attacks && typeof attacker.attacks === 'object') {
+                attack = Object.values(attacker.attacks)[0];
             } else {
-                attackResult = `Attack ${i + 1}: Miss! (${attackRoll})`;
-                misses++;
+                // Fallback to a default attack
+                attack = { "to hit": "+0", hit: "1d6" };
             }
-
-            attackResults.push(attackResult);
         }
 
-        // Update display
-        $('#attackRoll').text(`${attacksToMake} attack${attacksToMake > 1 ? 's' : ''} made`);
-        $('#damageRoll').text(totalDamage);
+        const rawRoll = this.rollDice(20);
+        const attackBonus = attack["to hit"] ? parseInt(attack["to hit"]) : 0;
+        const attackRoll = rawRoll + attackBonus;
+        let isCritical = false;
+        let damage = this.rollDamage(attack.hit);
 
-        // Create summary result
-        let summaryResult = '';
-        if (totalDamage > 0) {
-            summaryResult = `${attacker.name} (${attacker.team}) makes ${attacksToMake} attack${attacksToMake > 1 ? 's' : ''}: ${hits} hit${hits !== 1 ? 's' : ''}${criticalHits > 0 ? `, ${criticalHits} critical hit${criticalHits !== 1 ? 's' : ''}` : ''}${misses > 0 ? `, ${misses} miss${misses !== 1 ? 'es' : ''}` : ''}. Total damage: ${totalDamage}`;
-            $('#attackResult').text(summaryResult).css('color', totalDamage > 0 ? '#27ae60' : '#e74c3c');
+        // Check for critical hit (natural 20 on the d20)
+        if (rawRoll === 20) {
+            isCritical = true;
+            damage *= 2;
+            this.logMessage(`CRITICAL HIT! ${attacker.name} rolls a natural 20 against ${target.name} and deals ${damage} damage!`);
         } else {
-            summaryResult = `${attacker.name} (${attacker.team}) makes ${attacksToMake} attack${attacksToMake > 1 ? 's' : ''} but all miss!`;
-            $('#attackResult').text(summaryResult).css('color', '#e74c3c');
-        }
-
-        // Apply damage
-        if (totalDamage > 0) {
-            target.hp = Math.max(0, target.hp - totalDamage);
-            if (target.hp === 0) {
-                target.isDead = true;
-                this.logMessage(`${target.name} has been defeated!`, 'critical');
-                this.updateInitiativeList();
+            this.logMessage(`${attacker.name} attacks ${target.name} with ${attackRoll >= target.ac ? "a hit" : "a miss"} (roll: ${attackRoll}).`);
+            if (attackRoll >= target.ac) {
+                this.logMessage(`${attacker.name} deals ${damage} damage to ${target.name}.`);
             }
         }
 
-        // Reduce remaining attacks
-        attacker.attacksRemaining -= attacksToMake;
-        this.logMessage(`${attacker.name} has ${attacker.attacksRemaining} attack${attacker.attacksRemaining !== 1 ? 's' : ''} remaining.`);
-
-        // Log detailed results
-        this.logMessage(summaryResult, totalDamage > 0 ? 'attack' : 'attack');
-        if (attacksToMake > 1) {
-            attackResults.forEach(result => {
-                this.logMessage(`  ${result}`, 'attack');
-            });
-        }
-
-        this.updateCharacterList();
-        this.updateActionButtons();
-
-        // Auto-advance turn if no attacks remaining
-        if (attacker.attacksRemaining <= 0) {
-            this.logMessage(`${attacker.name} has used all their attacks. Turn ends automatically.`);
-            setTimeout(() => {
-                this.endTurn();
-            }, 1000); // Small delay to let user see the result
+        // Apply damage if hit
+        if (attackRoll >= target.ac) {
+            target.hp -= damage;
+            if (target.hp <= 0) {
+                target.isDead = true;
+                this.logMessage(`${target.name} drops to 0 HP and is defeated!`);
+            }
+            this.updateDisplay();
         }
     }
 
@@ -645,51 +656,50 @@ class CombatSimulator {
     }
 
     updateCharacterList() {
-        const container = $('#characterList');
+        const container = $('.character-panel');
         container.empty();
 
-        if (this.combatants.length === 0) {
-            container.append('<p class="no-characters">No characters added yet</p>');
-            return;
+        // Filter combatants by current team filter
+        let filteredCombatants = this.combatants;
+        if (this.currentTeamFilter !== 'All Teams') {
+            filteredCombatants = this.combatants.filter(c => c.team === this.currentTeamFilter);
         }
 
-        // Filter combatants by team
-        const filteredCombatants = this.combatants.filter(combatant => {
-            if (this.currentTeamFilter === 'All Teams') return true;
-            return combatant.team === this.currentTeamFilter;
-        });
-
-        if (filteredCombatants.length === 0) {
-            container.append(`<p class="no-characters">No characters in ${this.currentTeamFilter}</p>`);
-            return;
-        }
-
-        filteredCombatants.forEach(combatant => {
-            const hpPercentage = (combatant.hp / combatant.maxHp) * 100;
+        filteredCombatants.forEach((combatant, index) => {
             const teamClass = combatant.team.toLowerCase().replace(' ', '-');
-            const characterItem = $(`
-                <div class="character-item ${combatant.isDead ? 'dead' : ''} ${teamClass}">
-                    <h3>${combatant.name} (${combatant.type}) <span class="team-indicator ${teamClass}">${combatant.team}</span></h3>
-                    <div class="character-stats">
-                        <div>AC: ${combatant.ac}</div>
-                        <div>HP: ${combatant.hp}/${combatant.maxHp}</div>
-                        <div>Initiative: ${combatant.initiative || 'Not rolled'}</div>
-                        <div>Speed: ${combatant.speed}ft</div>
-                        <div>Attacks: ${combatant.attacksRemaining || 0}/${combatant.numberOfAttacks || 1}</div>
-                    </div>
-                    <div class="hp-container">
-                        <div class="hp-bar">
-                            <div class="hp-fill" style="width: ${hpPercentage}%"></div>
-                            <div class="hp-text">${combatant.hp}/${combatant.maxHp}</div>
-                        </div>
-                    </div>
-                    <div class="character-actions">
-                        <button class="btn btn-small btn-primary" onclick="combatSim.removeCharacter(${combatant.id})">Remove</button>
-                        <button class="btn btn-small btn-secondary" onclick="combatSim.healCharacter(${combatant.id})">Heal</button>
-                    </div>
+            const combatantDiv = $(`
+                <div class="combatant ${teamClass}" data-index="${index}">
+                    <span class="combatant-name">${combatant.name}</span>
+                    <span class="combatant-team"> (${combatant.team})</span>
+                    <button class="add-multiple-btn" style="margin-left:10px;">Add More</button>
+                    <button class="remove-monster-btn" style="margin-left:5px; color:#fff; background:#e74c3c; border:none; padding:2px 8px; border-radius:3px;">Remove</button>
                 </div>
             `);
-            container.append(characterItem);
+
+            // Add More button
+            combatantDiv.find('.add-multiple-btn').click(() => {
+                const count = parseInt(prompt(`How many more "${combatant.name}" would you like to add?`, "1"));
+                if (isNaN(count) || count < 1) return;
+
+                for (let i = 0; i < count; i++) {
+                    let baseName = combatant.name.replace(/\s#\d+$/, '');
+                    let newCombatant = { ...combatant, name: `${baseName} #${this.combatants.length + 1}` };
+                    this.combatants.push(newCombatant);
+                    this.logMessage(`${newCombatant.name} has been added to ${newCombatant.team}.`);
+                }
+                this.updateCharacterList();
+            });
+
+            // Remove button
+            combatantDiv.find('.remove-monster-btn').click(() => {
+                this.combatants = this.combatants.filter((c, i) => i !== index);
+                this.initiativeOrder = this.initiativeOrder.filter((c, i) => i !== index);
+                this.updateCharacterList();
+                this.updateInitiativeList();
+                this.logMessage(`${combatant.name} has been removed from ${combatant.team}.`);
+            });
+
+            container.append(combatantDiv);
         });
     }
 
@@ -697,20 +707,22 @@ class CombatSimulator {
         const container = $('#initiativeList');
         container.empty();
 
-        if (this.initiativeOrder.length === 0) {
+        // If initiative hasn't been rolled, show all combatants
+        let list = this.initiativeOrder.length > 0 ? this.initiativeOrder : this.combatants;
+
+        if (list.length === 0) {
             container.append('<p class="no-combatants">No combatants in combat</p>');
             return;
         }
 
-        this.initiativeOrder.forEach((combatant, index) => {
+        list.forEach((combatant, index) => {
             const isCurrentTurn = this.combatActive && index === this.currentTurnIndex;
             const teamClass = combatant.team.toLowerCase().replace(' ', '-');
-            console.log(`Creating initiative item for ${combatant.name}, team: ${combatant.team}, teamClass: ${teamClass}`);
             const initiativeItem = $(`
                 <div class="initiative-item ${isCurrentTurn ? 'current-turn' : ''} ${combatant.isDead ? 'dead' : ''} ${teamClass}">
                     <div class="name">${combatant.name} <span class="team-indicator ${teamClass}">${combatant.team}</span></div>
                     <div class="stats">
-                        <span>Initiative: ${combatant.initiative}</span>
+                        <span>Initiative: ${combatant.initiative !== null ? combatant.initiative : '-'}</span>
                         <span>AC: ${combatant.ac}</span>
                         <span>HP: ${combatant.hp}/${combatant.maxHp}</span>
                         <span>Attacks: ${combatant.attacksRemaining || 0}/${combatant.numberOfAttacks || 1}</span>
@@ -766,7 +778,50 @@ class CombatSimulator {
             this.updateDisplay();
         }
     }
+
+    addSelectedMonster() {
+        const index = this.selectedMonsterIndex;
+        if (index === null || typeof monsters[index] === 'undefined') {
+            alert('Please select a monster first.');
+            return;
+        }
+        const monsterData = monsters[index];
+        let count = parseInt($('#monsterCountInput').val());
+        if (isNaN(count) || count < 1) count = 1;
+
+        for (let i = 0; i < count; i++) {
+            const monster = this.convertMonsterToCombatant(monsterData);
+            monster.team = this.selectedMonsterTeam;
+            if (count > 1) {
+                monster.name = `${monster.name} #${i + 1}`;
+            }
+            this.combatants.push(monster);
+            this.logMessage(`${monster.name} has been added to ${monster.team}.`);
+        }
+        this.updateCharacterList();
+        this.closeModals();
+    }
+
+    removeMonstersFromTeam(team) {
+        const beforeCount = this.combatants.length;
+        this.combatants = this.combatants.filter(c => !(c.type === 'monster' && c.team === team));
+        const afterCount = this.combatants.length;
+        this.initiativeOrder = this.initiativeOrder.filter(c => !(c.type === 'monster' && c.team === team));
+        this.updateDisplay();
+        this.logMessage(`Removed ${beforeCount - afterCount} monster(s) from ${team}.`);
+    }
 }
+
+// Returns the ability modifier for a given score (e.g., dexterity)
+function getAbilityModifier(score) {
+    score = parseInt(score, 10);
+    if (isNaN(score)) return 0;
+    return Math.floor((score - 10) / 2);
+}
+
+// Example usage:
+// getAbilityModifier(14) // returns 2
+// getAbilityModifier(8)  // returns -1
 
 // Fallback monster data if external file fails to load
 const FALLBACK_MONSTERS = [
@@ -845,7 +900,7 @@ let combatSim;
 $(document).ready(() => {
     // Add Simulate Battle button to controls
     if ($('#simulateBattleBtn').length === 0) {
-        $('<button id="simulateBattleBtn" class="btn btn-danger" style="margin-left:10px;">Simulate Battle</button>')
+        $('<button id="simulateBattleBtn" class="btn btn-action" style="margin-left:10px;" disabled>Simulate Battle</button>')
             .insertAfter('#attackBtn');
     }
     combatSim = new CombatSimulator();
