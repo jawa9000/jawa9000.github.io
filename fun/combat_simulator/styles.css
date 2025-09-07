@@ -52,7 +52,6 @@ header h1 {
     font-size: 16px;
     font-weight: 600;
     transition: all 0.3s ease;
-    text-transform: uppercase;
     letter-spacing: 1px;
 }
 
@@ -118,18 +117,18 @@ header h1 {
     color: white;
 }
 
-.team-a:hover {
+/* .team-a:hover {
     background: linear-gradient(45deg, #c0392b, #a93226);
-}
+} */
 
 .team-b {
     background: linear-gradient(45deg, #3498db, #2980b9);
     color: white;
 }
 
-.team-b:hover {
+/* .team-b:hover {
     background: linear-gradient(45deg, #2980b9, #21618c);
-}
+} */
 
 .team-all {
     background: linear-gradient(45deg, #95a5a6, #7f8c8d);
@@ -236,7 +235,6 @@ header h1 {
     align-items: center;
     padding: 10px 15px;
     margin: 5px 0;
-    background: white;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
