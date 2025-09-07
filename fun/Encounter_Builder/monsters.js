@@ -10295,7 +10295,7 @@ const monsters = [
     challenge: "11 (7,200 XP)",
     traits:
       "<p><em><strong>Fey Ancestry.</strong></em> The soul monger has advantage on saving throws against being charmed, and magic can't put it to sleep.</p><p><em><strong>Innate Spellcasting.</strong></em> The soul monger's innate spellcasting ability is Intelligence (spell save DC 16, +8 to hit with spell attacks). It can innately cast the following spells, requiring no material components:<br>At will: chill touch, poison spray<br>1/day each: bestow curse, chain lightning, finger of death, gaseous form, phantasmal killer, seeming</p><p><em><strong>Magic Resistance.</strong></em> The soul monger has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Soul Thirst.</strong></em> When the soul monger reduces a creature to 0 hit points, the soul monger can gain temporary hit points equal to half the creature's hit point maximum. While the soul monger has temporary hit points from this ability, it has advantage on attack rolls.</p><p><em><strong>Weight of Ages.</strong></em> Any beast or humanoid, other than a shadar-kai, that starts its turn within 5 feet of the soul monger has its speed reduced by 20 feet until the start of that creature's next turn.</p>",
-    "number of attacks": 3
+    "number of attacks": 3,
     attacks: {},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The soul monger makes two phantasmal dagger attacks.</p><p><em><strong>Phantasmal Dagger.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft. one target. <em>Hit:</em> 13 (4d4 + 3) piercing damage plus 19 (3d12) necrotic damage, and the target has disadvantage on saving throws until the start of the soul monger's next turn.</p><p><em><strong>Wave of Weariness (Recharge 4-6).</strong></em> The soul monger emits weariness in a 60-foot cube. Each creature in that area must make a DC 16 Constitution saving throw. On a failed save, a creature takes 45 (10d8) psychic damage and suffers 1 level of exhaustion. On a successful save, it takes 22 (5d8) psychic damage.</p>",
@@ -13849,7 +13849,7 @@ const monsters = [
     challenge: "12 (8,400 XP)",
     traits:
       "<p><em><strong>Flyby.</strong></em> The angel doesn't provoke an opportunity attack when it flies out of an enemy's reach.</p><p><em><strong>Innate Spellcasting.</strong></em> The angel's innate spellcasting ability is Charisma (spell save DC 18, +10 to hit with spell attacks). The angel can innately cast the following spells, requiring no material components: <br/>3/day each: compelled duel, guiding bolt (as a 5th-level spell)<br/>1/day each: daylight, fireball (as a 6th-level spell)</p><p><em><strong>Magic Resistance</strong></em>. The angel has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Relentless (Recharges after a Short or Long Rest)</strong></em>. If the angel takes 21 damage or less that would reduce it to 0 hit points, it is reduced to 1 hit point instead.</p>",
-    "number of attacks": 2
+    "number of attacks": 2,
     attacks: {},
     actions:
       "<p><em><strong>Multiattack</strong></em>. The angel makes two melee attacks.</p><p><em><strong>Longsword</strong></em>. Melee Weapon Attack: +10 to hit, reach 5 ft., one target. Hit: 10 (1d8 + 6) slashing damage, or 11 (1d10 + 6) slashing damage if used with two hands, plus 22 (5d8) fire or radiant damage (angel's choice).</p>",
@@ -19218,4 +19218,4 @@ const monsters = [
   }
 ];
 
-module.exports = monsters;
+// module.exports = monsters;
