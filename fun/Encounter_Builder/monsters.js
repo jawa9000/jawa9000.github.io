@@ -1096,7 +1096,32 @@ const monsters = [
     traits:
       "<p><em><strong>Amphibious.</strong></em> The dragon can breathe air and water.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
     "number of attacks": 3,
-    attacks: {},
+    "attacks": [
+{
+"type": "Melee Weapon Attack",
+"to hit": "+17",
+"reach": "15 ft.",
+"target": "one target",
+"hit": "21 (2d10 + 10)",
+"damage type": "piercing"
+},
+{
+"type": "Melee Weapon Attack",
+"to hit": "+17",
+"reach": "10 ft.",
+"target": "one target",
+"hit": "17 (2d6 + 10)",
+"damage type": "slashing"
+},
+{
+"type": "Melee Weapon Attack",
+"to hit": "+17",
+"reach": "20 ft.",
+"target": "one target",
+"hit": "19 (2d8 + 10)",
+"damage type": "bludgeoning"
+}
+],
     actions:
       "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +17 to hit, reach 15 ft. one target. <em>Hit:</em> 21 (2d10 + 10) piercing damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +17 to hit, reach 10 ft. one target. <em>Hit:</em> 17 (2d6 + 10) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +17 to hit, reach 20 ft. one target. <em>Hit:</em> 19 (2d8 + 10) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 24 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Breath Weapons (Recharge 5–6).</strong></em> The dragon uses one of the following breath weapons.</p><p><em><strong>Fire Breath.</strong></em> The dragon exhales fire in a 90-foot cone. Each creature in that area must make a DC 24 Dexterity saving throw, taking 71 (13d10) fire damage on a failed save, or half as much damage on a successful one.</p><p><em><strong>Weakening Breath.</strong></em> The dragon exhales gas in a 90-foot cone. Each creature in that area must succeed on a DC 24 Strength saving throw or have disadvantage on Strength-based attack rolls, Strength checks, and Strength saving throws for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p><p><em><strong>Change Shape.</strong></em> The dragon magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the dragon's choice).</p><p>In a new form, the dragon retains its alignment, hit points, Hit Dice, ability to speak, proficiencies, Legendary Resistance, lair actions, and Intelligence, Wisdom, and Charisma scores, as well as this action. Its statistics and capabilities are otherwise replaced by those of the new form, except any class features or legendary actions of that form.</p>",
     "legendary actions":
@@ -1130,7 +1155,32 @@ const monsters = [
     traits:
       "<p><em><strong>Amphibious.</strong></em> The dragon can breathe air and water.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
     "number of attacks": 3,
-    attacks: {},
+    "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+15",
+                    "reach": "15 ft.",
+                    "target": "one target",
+                    "hit": "19 (2d10 + 8)",
+                    "damage type": "piercing, poison"
+                },
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+15",
+                    "reach": "10 ft.",
+                    "target": "one target",
+                    "hit": "22 (4d6 + 8)",
+                    "damage type": "slashing"
+                },
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+15",
+                    "reach": "20 ft.",
+                    "target": "one target",
+                    "hit": "17 (2d8 + 8)",
+                    "damage type": "bludgeoning"
+                }
+            ],
     actions:
       "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +15 to hit, reach 15 ft. one target. <em>Hit:</em> 19 (2d10 + 8) piercing damage plus 10 (3d6) poison damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +15 to hit, reach 10 ft. one target. <em>Hit:</em> 22 (4d6 + 8) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +15 to hit, reach 20 ft. one target. <em>Hit:</em> 17 (2d8 + 8) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 19 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Poison Breath (Recharge 5–6).</strong></em> The dragon exhales poisonous gas in a 90-­-foot cone. Each creature in that area must make a DC 22 Constitution saving throw, taking 77 (22d6) poison damage on a failed save, or half as much damage on a successful one.</p>",
     "legendary actions":
@@ -1162,7 +1212,32 @@ const monsters = [
     traits:
       "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
     "number of attacks": 3,
-    attacks: {},
+    "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+17",
+                    "reach": "15 ft.",
+                    "target": "one target",
+                    "hit": "21 (2d10 + 10)",
+                    "damage type": "piercing, fire"
+                },
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+17",
+                    "reach": "10 ft.",
+                    "target": "one target",
+                    "hit": "17 (2d6 + 10)",
+                    "damage type": "slashing"
+                },
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+17",
+                    "reach": "20 ft.",
+                    "target": "one target",
+                    "hit": "19 (2d8 + 10)",
+                    "damage type": "bludgeoning"
+                }
+            ],
     actions:
       "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +17 to hit, reach 15 ft. one target. <em>Hit:</em> 21 (2d10 + 10) piercing damage plus 14 (4d6) fire damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +17 to hit, reach 10 ft. one target. <em>Hit:</em> 17 (2d6 + 10) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +17 to hit, reach 20 ft. one target. <em>Hit:</em> 19 (2d8 + 10) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 21 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Fire Breath (Recharge 5–6).</strong></em> The dragon exhales fire in a 90-foot cone. Each creature in that area must make a DC 24 Dexterity saving throw, taking 91 (26d6) fire damage on a failed save, or half as much damage on a successful one.</p>",
     "legendary actions":
@@ -1194,7 +1269,32 @@ const monsters = [
     traits:
       "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
     "number of attacks": 3,
-    attacks: {},
+    "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+17",
+                    "reach": "15 ft.",
+                    "target": "one target",
+                    "hit": "21 (2d10 + 10)",
+                    "damage type": "piercing"
+                },
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+17",
+                    "reach": "10 ft.",
+                    "target": "one target",
+                    "hit": "17 (2d6 + 10)",
+                    "damage type": "slashing"
+                },
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+17",
+                    "reach": "20 ft.",
+                    "target": "one target",
+                    "hit": "19 (2d8 + 10)",
+                    "damage type": "bludgeoning"
+                }
+            ],
     actions:
       "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +17 to hit, reach 15 ft. one target. <em>Hit:</em> 21 (2d10 + 10) piercing damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +17 to hit, reach 10 ft. one target. <em>Hit:</em> 17 (2d6 + 10) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +17 to hit, reach 20 ft. one target. <em>Hit:</em> 19 (2d8 + 10) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 21 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Breath Weapons (Recharge 5–6).</strong></em> The dragon uses one of the following breath weapons.</p><p><em><strong>Cold Breath.</strong></em> The dragon exhales an icy blast in a 90-foot cone. Each creature in that area must make a DC 24 Constitution saving throw, taking 67 (15d8) cold damage on a failed save, or half as much damage on a successful one.</p><p><em><strong>Paralyzing Breath.</strong></em> The dragon exhales paralyzing gas in a 90-foot cone. Each creature in that area must succeed on a DC 24 Constitution saving throw or be paralyzed for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p><p><em><strong>Change Shape.</strong></em> The dragon magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the dragon's choice).</p><p>In a new form, the dragon retains its alignment, hit points, Hit Dice, ability to speak, proficiencies, Legendary Resistance, lair actions, and Intelligence, Wisdom, and Charisma scores, as well as this action. Its statistics and capabilities are otherwise replaced by those of the new form, except any class features or legendary actions of that form.</p>",
     "legendary actions":
@@ -1226,7 +1326,32 @@ const monsters = [
     traits:
       "<p><em><strong>Ice Walk.</strong></em> The dragon can move across and climb icy surfaces without needing to make an ability check. Additionally, difficult terrain composed of ice or snow doesn't cost it extra movement.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
     "number of attacks": 3,
-    attacks: {},
+    "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+14",
+                    "reach": "15 ft.",
+                    "target": "one target",
+                    "hit": "19 (2d10 + 8)",
+                    "damage type": "piercing, cold"
+                },
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+14",
+                    "reach": "10 ft.",
+                    "target": "one target",
+                    "hit": "15 (2d6 + 8)",
+                    "damage type": "slashing"
+                },
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+14",
+                    "reach": "20 ft.",
+                    "target": "one target",
+                    "hit": "17 (2d8 + 8)",
+                    "damage type": "bludgeoning"
+                }
+            ],
     actions:
       "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 15 ft. one target. <em>Hit:</em> 19 (2d10 + 8) piercing damage plus 9 (2d8) cold damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 10 ft. one target. <em>Hit:</em> 15 (2d6 + 8) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 20 ft. one target. <em>Hit:</em> 17 (2d8 + 8) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 16 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Cold Breath (Recharge 5–6).</strong></em> The dragon exhales an icy blast in a 90-foot cone. Each creature in that area must make a DC 22 Constitution saving throw, taking 72 (16d8) cold damage on a failed save, or half as much damage on a successful one.</p>",
     "legendary actions":
@@ -1261,7 +1386,16 @@ const monsters = [
     traits:
       "<p><em><strong>Inscrutable.</strong></em> The sphinx is immune to any effect that would sense its emotions or read its thoughts, as well as any divination spell that it refuses. Wisdom (Insight) checks made to ascertain the sphinx's intentions or sincerity have disadvantage.</p><p><em><strong>Magic Weapons.</strong></em> The sphinx's weapon attacks are magical.</p><p><em><strong>Spellcasting.</strong></em> The sphinx is a 12th-level spellcaster. Its spellcasting ability is Wisdom (spell save DC 18, +10 to hit with spell attacks). It requires no material components to cast its spells. The sphinx has the following cleric spells prepared: </p><p>Cantrips (at will): sacred flame, spare the dying, thaumaturgy </p><p>1st level (4 slots): command, detect evil and good, detect magic </p><p>2nd level (3 slots): lesser restoration, zone of truth </p><p>3rd level (3 slots): dispel magic, tongues </p><p>4th level (3 slots): banishment, freedom of movement </p><p>5th level (2 slots): flame strike, greater restoration </p><p>6th level (1 slot): heroes' feast</p>",
     "number of attacks": 2,
-    attacks: {},
+    "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+12",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "17 (2d10 + 6)",
+                    "damage type": "slashing"
+                }
+            ],
     actions:
       "<p><em><strong>Multiattack.</strong></em> The sphinx makes two claw attacks.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +12 to hit, reach 5 ft. one target. <em>Hit:</em> 17 (2d10 + 6) slashing damage.</p><p><em><strong>Roar (3/Day).</strong></em> The sphinx emits a magical roar. Each time it roars before finishing a long rest, the roar is louder and the effect is different, as detailed below. Each creature within 500 feet of the sphinx and able to hear the roar must make a saving throw.</p><p><em><strong>First Roar.</strong></em> Each creature that fails a DC 18 Wisdom saving throw is frightened for 1 minute. A frightened creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p><p><em><strong>Second Roar.</strong></em> Each creature that fails a DC 18 Wisdom saving throw is deafened and frightened for 1 minute. A frightened creature is paralyzed and can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p><p><em><strong>Third Roar.</strong></em> Each creature makes a DC 18 Constitution saving throw. On a failed save, a creature takes 44 (8d10) thunder damage and is knocked prone. On a successful save, the creature takes half as much damage and isn't knocked prone.</p>",
     "legendary actions":
@@ -1292,7 +1426,16 @@ const monsters = [
     traits:
       "<p><em><strong>Antimagic Susceptibility.</strong></em> The armor is incapacitated while in the area of an antimagic field. If targeted by dispel magic, the armor must succeed on a Constitution saving throw against the caster's spell save DC or fall unconscious for 1 minute.</p><p><em><strong>False Appearance.</strong></em> While the armor remains motionless, it is indistinguishable from a normal suit of armor.</p>",
     "number of attacks": 2,
-    attacks: {},
+    "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+4",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "5 (1d6 + 2)",
+                    "damage type": "bludgeoning"
+                }
+            ],
     actions:
       "<p><em><strong>Multiattack.</strong></em> The armor makes two melee attacks.</p><p><em><strong>Slam.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft. one target. <em>Hit:</em> 5 (1d6 + 2) bludgeoning damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/8/429/1000/1000/636306156895834255.jpeg",
