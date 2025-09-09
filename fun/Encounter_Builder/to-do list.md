@@ -1357,3 +1357,4107 @@ Void Scavver
 Walking Corpse
 Walking Statue of Waterdeep
 Wizard
+
+## Add these monster's attacks properties to monsters.js
+
+        {
+            "name": "Balor",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+14",
+                    "reach": "10 ft.",
+                    "target": "one target",
+                    "hit": "21 (3d8 + 8)",
+                    "damage type": "slashing, lightning"
+                },
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+14",
+                    "reach": "30 ft.",
+                    "target": "one target",
+                    "hit": "15 (2d6 + 8)",
+                    "damage type": "slashing, fire"
+                }
+            ]
+        },
+        {
+            "name": "Bandit",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+3",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "4 (1d6 + 1)",
+                    "damage type": "slashing"
+                },
+                {
+                    "type": "Ranged Weapon Attack",
+                    "to hit": "+3",
+                    "reach": "N/A",
+                    "target": "one target",
+                    "hit": "5 (1d8 + 1)",
+                    "damage type": "piercing"
+                }
+            ]
+        },
+        {
+            "name": "Bandit Captain",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+5",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "6 (1d6 + 3)",
+                    "damage type": "slashing"
+                },
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+5",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "5 (1d4 + 3)",
+                    "damage type": "piercing"
+                },
+                {
+                    "type": "Ranged Weapon Attack",
+                    "to hit": "+5",
+                    "reach": "N/A",
+                    "target": "one target",
+                    "hit": "5 (1d4 + 3)",
+                    "damage type": "piercing"
+                }
+            ]
+        },
+        {
+            "name": "Banshee",
+            "attacks": [
+                {
+                    "type": "Melee Spell Attack",
+                    "to hit": "+4",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "12 (3d6 + 2)",
+                    "damage type": "necrotic"
+                }
+            ]
+        },
+        {
+            "name": "Barbed Devil",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+6",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "6 (1d6 + 3)",
+                    "damage type": "piercing"
+                },
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+6",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "10 (2d6 + 3)",
+                    "damage type": "piercing"
+                },
+                {
+                    "type": "Ranged Spell Attack",
+                    "to hit": "+5",
+                    "reach": "N/A",
+                    "target": "one target",
+                    "hit": "10 (3d6)",
+                    "damage type": "fire"
+                }
+            ]
+        },
+        {
+            "name": "Basilisk",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+5",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "10 (2d6 + 3)",
+                    "damage type": "piercing, poison"
+                }
+            ]
+        },
+        {
+            "name": "Bat",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+0",
+                    "reach": "5 ft.",
+                    "target": "one creature",
+                    "hit": "1",
+                    "damage type": "piercing"
+                }
+            ]
+        },
+        {
+            "name": "Bearded Devil",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+5",
+                    "reach": "5 ft.",
+                    "target": "one creature",
+                    "hit": "6 (1d8 + 2)",
+                    "damage type": "piercing"
+                },
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+5",
+                    "reach": "10 ft.",
+                    "target": "one target",
+                    "hit": "8 (1d10 + 3)",
+                    "damage type": "slashing"
+                }
+            ]
+        },
+        {
+            "name": "Behir",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+10",
+                    "reach": "10 ft.",
+                    "target": "one target",
+                    "hit": "22 (3d10 + 6)",
+                    "damage type": "piercing"
+                },
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+10",
+                    "reach": "5 ft.",
+                    "target": "one Large or smaller creature",
+                    "hit": "17 (2d10 + 6)",
+                    "damage type": "bludgeoning, slashing"
+                }
+            ]
+        },
+        {
+            "name": "Berserker",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+5",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "9 (1d12 + 3)",
+                    "damage type": "slashing"
+                }
+            ]
+        },
+        {
+            "name": "Black Bear",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+3",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "5 (1d6 + 2)",
+                    "damage type": "piercing"
+                },
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+3",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "7 (2d4 + 2)",
+                    "damage type": "slashing"
+                }
+            ]
+        },
+        {
+            "name": "Black Dragon Wyrmling",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+4",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "7 (1d10 + 2)",
+                    "damage type": "piercing, acid"
+                }
+            ]
+        },
+        {
+            "name": "Black Pudding",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+5",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "6 (1d6 + 3)",
+                    "damage type": "bludgeoning, acid"
+                }
+            ]
+        },
+        {
+            "name": "Blink Dog",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+3",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "4 (1d6 + 1)",
+                    "damage type": "piercing"
+                }
+            ]
+        },
+        {
+            "name": "Blood Hawk",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+4",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "4 (1d4 + 2)",
+                    "damage type": "piercing"
+                }
+            ]
+        },
+        {
+            "name": "Blue Dragon Wyrmling",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+5",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "8 (1d10 + 3)",
+                    "damage type": "piercing, lightning"
+                }
+            ]
+        },
+        {
+            "name": "Boar",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+3",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "4 (1d6 + 1)",
+                    "damage type": "slashing"
+                }
+            ]
+        },
+        {
+            "name": "Bone Devil",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+8",
+                    "reach": "10 ft.",
+                    "target": "one target",
+                    "hit": "8 (1d8 + 4)",
+                    "damage type": "slashing"
+                },
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+8",
+                    "reach": "10 ft.",
+                    "target": "one target",
+                    "hit": "13 (2d8 + 4)",
+                    "damage type": "piercing, poison"
+                }
+            ]
+        },
+        {
+            "name": "Brass Dragon Wyrmling",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+4",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "7 (1d10 + 2)",
+                    "damage type": "piercing"
+                }
+            ]
+        },
+        {
+            "name": "Bronze Dragon Wyrmling",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+5",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "8 (1d10 + 3)",
+                    "damage type": "piercing"
+                }
+            ]
+        },
+        {
+            "name": "Brown Bear",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+5",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "8 (1d8 + 4)",
+                    "damage type": "piercing"
+                },
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+5",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "11 (2d6 + 4)",
+                    "damage type": "slashing"
+                }
+            ]
+        },
+        {
+            "name": "Bugbear",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+4",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "11 (2d8 + 2)",
+                    "damage type": "piercing"
+                },
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+4",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "9 (2d6 + 2)",
+                    "damage type": "piercing"
+                },
+                {
+                    "type": "Ranged Weapon Attack",
+                    "to hit": "+4",
+                    "reach": "N/A",
+                    "target": "one target",
+                    "hit": "5 (1d6 + 2)",
+                    "damage type": "piercing"
+                }
+            ]
+        },
+        {
+            "name": "Bulette",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+7",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "30 (4d12 + 4)",
+                    "damage type": "piercing"
+                }
+            ]
+        },
+        {
+            "name": "Camel",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+5",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "2 (1d4)",
+                    "damage type": "bludgeoning"
+                }
+            ]
+        },
+        {
+            "name": "Cat",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+0",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "1",
+                    "damage type": "slashing"
+                }
+            ]
+        },
+        {
+            "name": "Centaur",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+6",
+                    "reach": "10 ft.",
+                    "target": "one target",
+                    "hit": "9 (1d10 + 4)",
+                    "damage type": "piercing"
+                },
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+6",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "11 (2d6 + 4)",
+                    "damage type": "bludgeoning"
+                },
+                {
+                    "type": "Ranged Weapon Attack",
+                    "to hit": "+4",
+                    "reach": "N/A",
+                    "target": "one target",
+                    "hit": "6 (1d8 + 2)",
+                    "damage type": "piercing"
+                }
+            ]
+        },
+        {
+            "name": "Chain Devil",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+8",
+                    "reach": "10 ft.",
+                    "target": "one target",
+                    "hit": "11 (2d6 + 4)",
+                    "damage type": "slashing"
+                }
+            ]
+        },
+        {
+            "name": "Chimera",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+7",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "11 (2d6 + 4)",
+                    "damage type": "piercing"
+                },
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+7",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "10 (1d12 + 4)",
+                    "damage type": "bludgeoning"
+                },
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+7",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "11 (2d6 + 4)",
+                    "damage type": "slashing"
+                }
+            ]
+        },
+        {
+            "name": "Chuul",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+6",
+                    "reach": "10 ft.",
+                    "target": "one target",
+                    "hit": "11 (2d6 + 4)",
+                    "damage type": "bludgeoning"
+                }
+            ]
+        },
+        {
+            "name": "Clay Golem",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+8",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "16 (2d10 + 5)",
+                    "damage type": "bludgeoning"
+                }
+            ]
+        },
+        {
+            "name": "Cloaker",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+6",
+                    "reach": "5 ft.",
+                    "target": "one creature",
+                    "hit": "10 (2d6 + 3)",
+                    "damage type": "piercing"
+                },
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+6",
+                    "reach": "10 ft.",
+                    "target": "one creature",
+                    "hit": "7 (1d8 + 3)",
+                    "damage type": "slashing"
+                }
+            ]
+        },
+        {
+            "name": "Cloud Giant",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+12",
+                    "reach": "10 ft.",
+                    "target": "one target",
+                    "hit": "21 (3d8 + 8)",
+                    "damage type": "piercing"
+                },
+                {
+                    "type": "Ranged Weapon Attack",
+                    "to hit": "+12",
+                    "reach": "N/A",
+                    "target": "one target",
+                    "hit": "30 (4d10 + 8)",
+                    "damage type": "bludgeoning"
+                }
+            ]
+        },
+        {
+            "name": "Cockatrice",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+3",
+                    "reach": "5 ft.",
+                    "target": "one creature",
+                    "hit": "3 (1d4 + 1)",
+                    "damage type": "piercing"
+                }
+            ]
+        },
+        {
+            "name": "Commoner",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+2",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "2 (1d4)",
+                    "damage type": "bludgeoning"
+                }
+            ]
+        },
+        {
+            "name": "Constrictor Snake",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+4",
+                    "reach": "5 ft.",
+                    "target": "one creature",
+                    "hit": "5 (1d6 + 2)",
+                    "damage type": "piercing"
+                },
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+4",
+                    "reach": "5 ft.",
+                    "target": "one creature",
+                    "hit": "6 (1d8 + 2)",
+                    "damage type": "bludgeoning"
+                }
+            ]
+        },
+        {
+            "name": "Copper Dragon Wyrmling",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+4",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "7 (1d10 + 2)",
+                    "damage type": "piercing"
+                }
+            ]
+        },
+        {
+            "name": "Couatl",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+8",
+                    "reach": "5 ft.",
+                    "target": "one creature",
+                    "hit": "8 (1d6 + 5)",
+                    "damage type": "piercing"
+                },
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+6",
+                    "reach": "10 ft.",
+                    "target": "one Medium or smaller creature",
+                    "hit": "10 (2d6 + 3)",
+                    "damage type": "bludgeoning"
+                }
+            ]
+        },
+        {
+            "name": "Crab",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+0",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "1",
+                    "damage type": "bludgeoning"
+                }
+            ]
+        },
+        {
+            "name": "Crocodile",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+4",
+                    "reach": "5 ft.",
+                    "target": "one creature",
+                    "hit": "7 (1d10 + 2)",
+                    "damage type": "piercing"
+                }
+            ]
+        },
+        {
+            "name": "Cult Fanatic",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+4",
+                    "reach": "5 ft.",
+                    "target": "one creature",
+                    "hit": "4 (1d4 + 2)",
+                    "damage type": "piercing"
+                },
+                {
+                    "type": "Ranged Weapon Attack",
+                    "to hit": "+4",
+                    "reach": "N/A",
+                    "target": "one creature",
+                    "hit": "4 (1d4 + 2)",
+                    "damage type": "piercing"
+                }
+            ]
+        },
+        {
+            "name": "Cultist",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+3",
+                    "reach": "5 ft.",
+                    "target": "one creature",
+                    "hit": "4 (1d6 + 1)",
+                    "damage type": "slashing"
+                }
+            ]
+        },
+        {
+            "name": "Cyclops",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+9",
+                    "reach": "10 ft.",
+                    "target": "one target",
+                    "hit": "19 (3d8 + 6)",
+                    "damage type": "bludgeoning"
+                },
+                {
+                    "type": "Ranged Weapon Attack",
+                    "to hit": "+9",
+                    "reach": "N/A",
+                    "target": "one target",
+                    "hit": "28 (4d10 + 6)",
+                    "damage type": "bludgeoning"
+                }
+            ]
+        },
+        {
+            "name": "Darkmantle",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+5",
+                    "reach": "5 ft.",
+                    "target": "one creature",
+                    "hit": "6 (1d6 + 3)",
+                    "damage type": "bludgeoning"
+                }
+            ]
+        },
+        {
+            "name": "Death Dog",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+4",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "5 (1d6 + 2)",
+                    "damage type": "piercing"
+                }
+            ]
+        },
+        {
+            "name": "Deep Gnome (Svirfneblin)",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+4",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "6 (1d8 + 2)",
+                    "damage type": "piercing"
+                },
+                {
+                    "type": "Ranged Weapon Attack",
+                    "to hit": "+4",
+                    "reach": "N/A",
+                    "target": "one creature",
+                    "hit": "4 (1d4 + 2)",
+                    "damage type": "piercing"
+                }
+            ]
+        },
+        {
+            "name": "Deer",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+2",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "2 (1d4)",
+                    "damage type": "piercing"
+                }
+            ]
+        },
+        {
+            "name": "Deva",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+8",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "7 (1d6 + 4)",
+                    "damage type": "bludgeoning, radiant"
+                }
+            ]
+        },
+        {
+            "name": "Dire Wolf",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+5",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "10 (2d6 + 3)",
+                    "damage type": "piercing"
+                }
+            ]
+        },
+        {
+            "name": "Djinni",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+9",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "12 (2d6 + 5)",
+                    "damage type": "slashing, lightning or thunder"
+                }
+            ]
+        },
+        {
+            "name": "Doppelganger",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+6",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "7 (1d6 + 4)",
+                    "damage type": "bludgeoning"
+                }
+            ]
+        },
+        {
+            "name": "Draft Horse",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+6",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "9 (2d4 + 4)",
+                    "damage type": "bludgeoning"
+                }
+            ]
+        },
+        {
+            "name": "Dragon Turtle",
+            "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+13",
+                    "reach": "15 ft.",
+                    "target": "one target",
+                    "hit": "26 (3d12 + 7)",
+                    "damage type": "piercing"
+                },
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+13",
+                    "reach": "10 ft.",
+                    "target": "one target",
+                    "hit": "16 (2d8 + 7)",
+                    "damage type": "slashing"
+                },
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+13",
+                    "reach": "15 ft.",
+                    "target": "one target",
+                    "hit": "26 (3d12 + 7)",
+                    "damage type": "bludgeoning"
+                }
+            ]
+        },
+        [
+            {
+                "name": "Dretch",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+2",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "3 (1d6)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+2",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "5 (2d4)",
+                        "damage type": "slashing"
+                    }
+                ]
+            },
+            {
+                "name": "Drider",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+6",
+                        "reach": "5 ft.",
+                        "target": "one creature",
+                        "hit": "2 (1d4) piercing damage plus 9 (2d8) poison damage",
+                        "damage type": "piercing, poison"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+6",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "7 (1d8 + 3)",
+                        "damage type": "slashing"
+                    },
+                    {
+                        "type": "Ranged Weapon Attack",
+                        "to hit": "+6",
+                        "reach": "150/600 ft.",
+                        "target": "one target",
+                        "hit": "7 (1d8 + 3) piercing damage plus 4 (1d8) poison damage",
+                        "damage type": "piercing, poison"
+                    }
+                ]
+            },
+            {
+                "name": "Drow",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+4",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "5 (1d6 + 2)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Ranged Weapon Attack",
+                        "to hit": "+4",
+                        "reach": "30/120 ft.",
+                        "target": "one target",
+                        "hit": "5 (1d6 + 2) piercing damage",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Druid",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+2",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "3 (1d6)",
+                        "damage type": "bludgeoning"
+                    }
+                ]
+            },
+            {
+                "name": "Dryad",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+2",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "2 (1d4)",
+                        "damage type": "bludgeoning"
+                    }
+                ]
+            },
+            {
+                "name": "Duergar",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+4",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "6 (1d8 + 2)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Melee or Ranged Weapon Attack",
+                        "to hit": "+4",
+                        "reach": "5 ft.or range 30/120 ft.",
+                        "target": "one target",
+                        "hit": "5 (1d6 + 2)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Dust Mephit",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+4",
+                        "reach": "5 ft.",
+                        "target": "one creature",
+                        "hit": "4 (1d4 + 2)",
+                        "damage type": "slashing"
+                    }
+                ]
+            },
+            {
+                "name": "Eagle",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+4",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "4 (1d4 + 2)",
+                        "damage type": "slashing"
+                    }
+                ]
+            },
+            {
+                "name": "Earth Elemental",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+8",
+                        "reach": "10 ft.",
+                        "target": "one target",
+                        "hit": "14 (2d8 + 5)",
+                        "damage type": "bludgeoning"
+                    }
+                ]
+            },
+            {
+                "name": "Efreeti",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+10",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "13 (2d6 + 6) slashing damage plus 7 (2d6) fire damage",
+                        "damage type": "slashing, fire"
+                    },
+                    {
+                        "type": "Ranged Spell Attack",
+                        "to hit": "+7",
+                        "reach": "120 ft.",
+                        "target": "one target",
+                        "hit": "17 (5d6)",
+                        "damage type": "fire"
+                    }
+                ]
+            },
+            {
+                "name": "Elephant",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+8",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "19 (3d8 + 6)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+8",
+                        "reach": "5 ft.",
+                        "target": "one prone creature",
+                        "hit": "22 (3d10 + 6)",
+                        "damage type": "bludgeoning"
+                    }
+                ]
+            },
+            {
+                "name": "Elk",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+5",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "6 (1d6 + 3)",
+                        "damage type": "bludgeoning"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+5",
+                        "reach": "5 ft.",
+                        "target": "one prone creature",
+                        "hit": "8 (2d4 + 3)",
+                        "damage type": "bludgeoning"
+                    }
+                ]
+            },
+            {
+                "name": "Erinyes",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+8",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "8 (1d8 + 4) slashing damage, or 9 (1d10 + 4) slashing damage if used with two hands, plus 13 (3d8) poison damage",
+                        "damage type": "slashing, poison"
+                    },
+                    {
+                        "type": "Ranged Weapon Attack",
+                        "to hit": "+7",
+                        "reach": "150/600 ft.",
+                        "target": "one target",
+                        "hit": "7 (1d8 + 3) piercing damage plus 13 (3d8) poison damage",
+                        "damage type": "piercing, poison"
+                    }
+                ]
+            },
+            {
+                "name": "Ettercap",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+4",
+                        "reach": "5 ft.",
+                        "target": "one creature",
+                        "hit": "6 (1d8 + 2) piercing damage plus 4 (1d8) poison damage",
+                        "damage type": "piercing, poison"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+4",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "7 (2d4 + 2)",
+                        "damage type": "slashing"
+                    }
+                ]
+            },
+            {
+                "name": "Ettin",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+7",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "14 (2d8 + 5)",
+                        "damage type": "slashing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+7",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "14 (2d8 + 5)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Fire Elemental",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+6",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "10 (2d6 + 3)",
+                        "damage type": "fire"
+                    }
+                ]
+            },
+            {
+                "name": "Fire Giant",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+11",
+                        "reach": "10 ft.",
+                        "target": "one target",
+                        "hit": "28 (6d6 + 7)",
+                        "damage type": "slashing"
+                    },
+                    {
+                        "type": "Ranged Weapon Attack",
+                        "to hit": "+11",
+                        "reach": "60/240 ft.",
+                        "target": "one target",
+                        "hit": "29 (4d10 + 7)",
+                        "damage type": "bludgeoning"
+                    }
+                ]
+            },
+            {
+                "name": "Flameskull",
+                "attacks": [
+                    {
+                        "type": "Ranged Spell Attack",
+                        "to hit": "+5",
+                        "reach": "30 ft.",
+                        "target": "one target",
+                        "hit": "10 (3d6)",
+                        "damage type": "fire"
+                    }
+                ]
+            },
+            {
+                "name": "Flesh Golem",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+7",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "13 (2d8 + 4)",
+                        "damage type": "bludgeoning"
+                    }
+                ]
+            },
+            {
+                "name": "Flying Snake",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+6",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "1 piercing damage plus 7 (3d4) poison damage",
+                        "damage type": "piercing, poison"
+                    }
+                ]
+            },
+            {
+                "name": "Flying Sword",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+3",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "5 (1d8 + 1)",
+                        "damage type": "slashing"
+                    }
+                ]
+            },
+            {
+                "name": "Frost Giant",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+9",
+                        "reach": "10 ft.",
+                        "target": "one target",
+                        "hit": "25 (3d12 + 6)",
+                        "damage type": "slashing"
+                    },
+                    {
+                        "type": "Ranged Weapon Attack",
+                        "to hit": "+9",
+                        "reach": "60/240 ft.",
+                        "target": "one target",
+                        "hit": "28 (4d10 + 6)",
+                        "damage type": "bludgeoning"
+                    }
+                ]
+            },
+            {
+                "name": "Gargoyle",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+4",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "5 (1d6 + 2)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+4",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "5 (1d6 + 2)",
+                        "damage type": "slashing"
+                    }
+                ]
+            },
+            {
+                "name": "Gelatinous Cube",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+4",
+                        "reach": "5 ft.",
+                        "target": "one creature",
+                        "hit": "10 (3d6)",
+                        "damage type": "acid"
+                    }
+                ]
+            },
+            {
+                "name": "Ghast",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+3",
+                        "reach": "5 ft.",
+                        "target": "one creature",
+                        "hit": "12 (2d8 + 3)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+5",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "10 (2d6 + 3)",
+                        "damage type": "slashing"
+                    }
+                ]
+            },
+            {
+                "name": "Ghost",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+5",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "17 (4d6 + 3)",
+                        "damage type": "necrotic"
+                    }
+                ]
+            },
+            {
+                "name": "Ghoul",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+2",
+                        "reach": "5 ft.",
+                        "target": "one creature",
+                        "hit": "9 (2d6 + 2)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+4",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "7 (2d4 + 2)",
+                        "damage type": "slashing"
+                    }
+                ]
+            },
+            {
+                "name": "Giant Ape",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+9",
+                        "reach": "10 ft.",
+                        "target": "one target",
+                        "hit": "22 (3d10 + 6)",
+                        "damage type": "bludgeoning"
+                    },
+                    {
+                        "type": "Ranged Weapon Attack",
+                        "to hit": "+9",
+                        "reach": "50/100 ft.",
+                        "target": "one target",
+                        "hit": "30 (7d6 + 6)",
+                        "damage type": "bludgeoning"
+                    }
+                ]
+            },
+            {
+                "name": "Giant Badger",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+3",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "4 (1d6 + 1)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+3",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "6 (2d4 + 1)",
+                        "damage type": "slashing"
+                    }
+                ]
+            },
+            {
+                "name": "Giant Bat",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+4",
+                        "reach": "5 ft.",
+                        "target": "one creature",
+                        "hit": "5 (1d6 + 2)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Giant Boar",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+5",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "10 (2d6 + 3)",
+                        "damage type": "slashing"
+                    }
+                ]
+            },
+            {
+                "name": "Giant Centipede",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+4",
+                        "reach": "5 ft.",
+                        "target": "one creature",
+                        "hit": "4 (1d4 + 2) piercing damage",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Giant Constrictor Snake",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+6",
+                        "reach": "10 ft.",
+                        "target": "one creature",
+                        "hit": "11 (2d6 + 4)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+6",
+                        "reach": "5 ft.",
+                        "target": "one creature",
+                        "hit": "13 (2d8 + 4)",
+                        "damage type": "bludgeoning"
+                    }
+                ]
+            },
+            {
+                "name": "Giant Crab",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+3",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "4 (1d6 + 1)",
+                        "damage type": "bludgeoning"
+                    }
+                ]
+            },
+            {
+                "name": "Giant Crocodile",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+8",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "21 (3d10 + 5)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+8",
+                        "reach": "10 ft.",
+                        "target": "one target not grappled by the crocodile",
+                        "hit": "14 (2d8 + 5)",
+                        "damage type": "bludgeoning"
+                    }
+                ]
+            },
+            {
+                "name": "Giant Eagle",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+5",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "6 (1d6 + 3)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+5",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "10 (2d6 + 3)",
+                        "damage type": "slashing"
+                    }
+                ]
+            },
+            {
+                "name": "Giant Elk",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+6",
+                        "reach": "10 ft.",
+                        "target": "one target",
+                        "hit": "11 (2d6 + 4)",
+                        "damage type": "bludgeoning"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+6",
+                        "reach": "5 ft.",
+                        "target": "one prone creature",
+                        "hit": "22 (4d8 + 4)",
+                        "damage type": "bludgeoning"
+                    }
+                ]
+            },
+            {
+                "name": "Giant Fire Beetle",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+1",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "2 (1d6 − 1)",
+                        "damage type": "slashing"
+                    }
+                ]
+            },
+            {
+                "name": "Giant Frog",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+3",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "4 (1d6 + 1)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Giant Goat",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+5",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "8 (2d4 + 3)",
+                        "damage type": "bludgeoning"
+                    }
+                ]
+            },
+            {
+                "name": "Giant Hyena",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+5",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "10 (2d6 + 3)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Giant Lizard",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+4",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "6 (1d8 + 2)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Giant Octopus",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+5",
+                        "reach": "15 ft.",
+                        "target": "one target",
+                        "hit": "10 (2d6 + 3)",
+                        "damage type": "bludgeoning"
+                    }
+                ]
+            },
+            {
+                "name": "Giant Owl",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+3",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "8 (2d6 + 1)",
+                        "damage type": "slashing"
+                    }
+                ]
+            },
+            {
+                "name": "Giant Poisonous Snake",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+6",
+                        "reach": "10 ft.",
+                        "target": "one target",
+                        "hit": "6 (1d4 + 4) piercing damage",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Giant Rat",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+4",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "4 (1d4 + 2)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Giant Scorpion",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+4",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "6 (1d8 + 2)",
+                        "damage type": "bludgeoning"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+4",
+                        "reach": "5 ft.",
+                        "target": "one creature",
+                        "hit": "7 (1d10 + 2)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Giant Sea Horse",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+3",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "4 (1d6 + 1)",
+                        "damage type": "bludgeoning"
+                    }
+                ]
+            },
+            {
+                "name": "Giant Shark",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+9",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "22 (3d10 + 6)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Giant Spider",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+5",
+                        "reach": "5 ft.",
+                        "target": "one creature",
+                        "hit": "7 (1d8 + 3) piercing damage",
+                        "damage type": "piercing"
+                    }
+                ]
+            }
+        ]
+[
+            {
+                "name": "Giant Toad",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+4",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "7 (1d10 + 2)",
+                        "damage type": "piercing plus poison"
+                    }
+                ]
+            },
+            {
+                "name": "Giant Vulture",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+4",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "7 (2d4 + 2)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+4",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "9 (2d6 + 2)",
+                        "damage type": "slashing"
+                    }
+                ]
+            },
+            {
+                "name": "Giant Wasp",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+4",
+                        "reach": "5 ft.",
+                        "target": "one creature",
+                        "hit": "5 (1d6 + 2)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Giant Weasel",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+5",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "5 (1d4 + 3)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Giant Wolf Spider",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+3",
+                        "reach": "5 ft.",
+                        "target": "one creature",
+                        "hit": "4 (1d6 + 1)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Gibbering Mouther",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+2",
+                        "reach": "5 ft.",
+                        "target": "one creature",
+                        "hit": "17 (5d6)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Glabrezu",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+9",
+                        "reach": "10 ft.",
+                        "target": "one target",
+                        "hit": "16 (2d10 + 5)",
+                        "damage type": "bludgeoning"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+9",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "7 (2d4 + 2)",
+                        "damage type": "bludgeoning"
+                    }
+                ]
+            },
+            {
+                "name": "Gladiator",
+                "attacks": [
+                    {
+                        "type": "Melee or Ranged Weapon Attack",
+                        "to hit": "+7",
+                        "reach": "5 ft.and range 20/60 ft.",
+                        "target": "one target",
+                        "hit": "11 (2d6 + 4)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+7",
+                        "reach": "5 ft.",
+                        "target": "one creature",
+                        "hit": "9 (2d4 + 4)",
+                        "damage type": "bludgeoning"
+                    }
+                ]
+            },
+            {
+                "name": "Gnoll",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+4",
+                        "reach": "5 ft.",
+                        "target": "one creature",
+                        "hit": "4 (1d4 + 2)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Melee or Ranged Weapon Attack",
+                        "to hit": "+4",
+                        "reach": "5 ft.or range 20/60 ft.",
+                        "target": "one target",
+                        "hit": "5 (1d6 + 2)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Ranged Weapon Attack",
+                        "to hit": "+3",
+                        "reach": "150/600 ft.",
+                        "target": "one target",
+                        "hit": "5 (1d8 + 1)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Goat",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+3",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "3 (1d4 + 1)",
+                        "damage type": "bludgeoning"
+                    }
+                ]
+            },
+            {
+                "name": "Goblin",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+4",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "5 (1d6 + 2)",
+                        "damage type": "slashing"
+                    },
+                    {
+                        "type": "Ranged Weapon Attack",
+                        "to hit": "+4",
+                        "reach": "80/320 ft.",
+                        "target": "one target",
+                        "hit": "5 (1d6 + 2)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Gold Dragon Wyrmling",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+6",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "9 (1d10 + 4)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Gorgon",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+8",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "18 (2d12 + 5)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+8",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "16 (2d10 + 5)",
+                        "damage type": "bludgeoning"
+                    }
+                ]
+            },
+            {
+                "name": "Gray Ooze",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+3",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "4 (1d6 + 1)",
+                        "damage type": "bludgeoning plus acid"
+                    }
+                ]
+            },
+            {
+                "name": "Green Dragon Wyrmling",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+4",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "7 (1d10 + 2)",
+                        "damage type": "piercing plus poison"
+                    }
+                ]
+            },
+            {
+                "name": "Green Hag",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+6",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "13 (2d8 + 4)",
+                        "damage type": "slashing"
+                    }
+                ]
+            },
+            {
+                "name": "Grick",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+4",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "9 (2d6 + 2)",
+                        "damage type": "slashing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+4",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "5 (1d6 + 2)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Griffon",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+6",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "8 (1d8 + 4)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+6",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "11 (2d6 + 4)",
+                        "damage type": "slashing"
+                    }
+                ]
+            },
+            {
+                "name": "Grimlock",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+5",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "5 (1d4 + 3)",
+                        "damage type": "bludgeoning plus piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Guard",
+                "attacks": [
+                    {
+                        "type": "Melee or Ranged Weapon Attack",
+                        "to hit": "+3",
+                        "reach": "5 ft.or range 20/60 ft.",
+                        "target": "one target",
+                        "hit": "4 (1d6 + 1)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Guardian Naga",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+8",
+                        "reach": "10 ft.",
+                        "target": "one creature",
+                        "hit": "8 (1d8 + 4)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Ranged Weapon Attack",
+                        "to hit": "+8",
+                        "reach": "15/30 ft.",
+                        "target": "one creature"
+                    }
+                ]
+            },
+            {
+                "name": "Gynosphinx",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+8",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "13 (2d8 + 4)",
+                        "damage type": "slashing"
+                    }
+                ]
+            },
+            {
+                "name": "Half-Red Dragon Veteran",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+5",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "7 (1d8 + 3)",
+                        "damage type": "slashing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+5",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "6 (1d6 + 3)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Ranged Weapon Attack",
+                        "to hit": "+3",
+                        "reach": "100/400 ft.",
+                        "target": "one target",
+                        "hit": "6 (1d10 + 1)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Harpy",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+3",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "6 (2d4 + 1)",
+                        "damage type": "slashing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+3",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "3 (1d4 + 1)",
+                        "damage type": "bludgeoning"
+                    }
+                ]
+            },
+            {
+                "name": "Hawk",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+5",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "1",
+                        "damage type": "slashing"
+                    }
+                ]
+            },
+            {
+                "name": "Hell Hound",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+5",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "7 (1d8 + 3)",
+                        "damage type": "piercing plus fire"
+                    }
+                ]
+            },
+            {
+                "name": "Hezrou",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+7",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "15 (2d10 + 4)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+7",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "11 (2d6 + 4)",
+                        "damage type": "slashing"
+                    }
+                ]
+            },
+            {
+                "name": "Hill Giant",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+8",
+                        "reach": "10 ft.",
+                        "target": "one target",
+                        "hit": "18 (3d8 + 5)",
+                        "damage type": "bludgeoning"
+                    },
+                    {
+                        "type": "Ranged Weapon Attack",
+                        "to hit": "+8",
+                        "reach": "60/240 ft.",
+                        "target": "one target",
+                        "hit": "21 (3d10 + 5)",
+                        "damage type": "bludgeoning"
+                    }
+                ]
+            },
+            {
+                "name": "Hippogriff",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+5",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "8 (1d10 + 3)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+5",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "10 (2d6 + 3)",
+                        "damage type": "slashing"
+                    }
+                ]
+            },
+            {
+                "name": "Hobgoblin",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+3",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "5 (1d8 + 1)",
+                        "damage type": "slashing"
+                    },
+                    {
+                        "type": "Ranged Weapon Attack",
+                        "to hit": "+3",
+                        "reach": "150/600 ft.",
+                        "target": "one target",
+                        "hit": "5 (1d8 + 1)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Homunculus",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+4",
+                        "reach": "5 ft.",
+                        "target": "one creature",
+                        "hit": "1",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Horned Devil",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+10",
+                        "reach": "10 ft.",
+                        "target": "one target",
+                        "hit": "15 (2d8 + 6)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+10",
+                        "reach": "10 ft.",
+                        "target": "one target",
+                        "hit": "10 (1d8 + 6)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Ranged Spell Attack",
+                        "to hit": "+7",
+                        "reach": "150 ft.",
+                        "target": "one target",
+                        "hit": "14 (4d6)",
+                        "damage type": "fire"
+                    }
+                ]
+            },
+            {
+                "name": "Hunter Shark",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+6",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "13 (2d8 + 4)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Hydra",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+8",
+                        "reach": "10 ft.",
+                        "target": "one target",
+                        "hit": "10 (1d10 + 5)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Hyena",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+2",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "3 (1d6)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Ice Devil",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+10",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "12 (2d6 + 5)",
+                        "damage type": "piercing plus cold"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+10",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "10 (2d4 + 5)",
+                        "damage type": "slashing plus cold"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+10",
+                        "reach": "10 ft.",
+                        "target": "one target",
+                        "hit": "12 (2d6 + 5)",
+                        "damage type": "bludgeoning plus cold"
+                    }
+                ]
+            },
+            {
+                "name": "Ice Mephit",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+3",
+                        "reach": "5 ft.",
+                        "target": "one creature",
+                        "hit": "3 (1d4 + 1)",
+                        "damage type": "slashing plus cold"
+                    }
+                ]
+            },
+            {
+                "name": "Imp",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+5",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "5 (1d4 + 3)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Invisible Stalker",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+6",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "10 (2d6 + 3)",
+                        "damage type": "bludgeoning"
+                    }
+                ]
+            },
+            {
+                "name": "Iron Golem",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+13",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "20 (3d8 + 7)",
+                        "damage type": "bludgeoning"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+13",
+                        "reach": "10 ft.",
+                        "target": "one target",
+                        "hit": "23 (3d10 + 7)",
+                        "damage type": "slashing"
+                    }
+                ]
+            },
+            {
+                "name": "Jackal",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+1",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "1 (1d4 – 1)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Killer Whale",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+6",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "21 (5d6 + 4)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Knight",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+5",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "10 (2d6 + 3)",
+                        "damage type": "slashing"
+                    },
+                    {
+                        "type": "Ranged Weapon Attack",
+                        "to hit": "+2",
+                        "reach": "100/400 ft.",
+                        "target": "one target",
+                        "hit": "5 (1d10)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Kobold",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+4",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "4 (1d4 + 2)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Ranged Weapon Attack",
+                        "to hit": "+4",
+                        "reach": "30/120 ft.",
+                        "target": "one target",
+                        "hit": "4 (1d4 + 2)",
+                        "damage type": "bludgeoning"
+                    }
+                ]
+            },
+            {
+                "name": "Kraken",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+17",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "23 (3d8 + 10)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+17",
+                        "reach": "30 ft.",
+                        "target": "one target",
+                        "hit": "20 (3d6 + 10)",
+                        "damage type": "bludgeoning"
+                    }
+                ]
+            },
+            {
+                "name": "Lamia",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+5",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "14 (2d10 + 3)",
+                        "damage type": "slashing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+5",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "5 (1d4 + 3)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Melee Spell Attack",
+                        "to hit": "+5",
+                        "reach": "5 ft.",
+                        "target": "one creature"
+                    }
+                ]
+            },
+            {
+                "name": "Lemure",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+3",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "2 (1d4)",
+                        "damage type": "bludgeoning"
+                    }
+                ]
+            },
+            {
+                "name": "Lich",
+                "attacks": [
+                    {
+                        "type": "Melee Spell Attack",
+                        "to hit": "+12",
+                        "reach": "5 ft.",
+                        "target": "one creature",
+                        "hit": "10 (3d6)",
+                        "damage type": "cold"
+                    }
+                ]
+            },
+            {
+                "name": "Lion",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+5",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "7 (1d8 + 3)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+5",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "6 (1d6 + 3)",
+                        "damage type": "slashing"
+                    }
+                ]
+            },
+            {
+                "name": "Lizard",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+0",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "1",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Lizardfolk",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+4",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "5 (1d6 + 2)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+4",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "5 (1d6 + 2)",
+                        "damage type": "bludgeoning"
+                    },
+                    {
+                        "type": "Melee or Ranged Weapon Attack",
+                        "to hit": "+4",
+                        "reach": "5 ft.or range 30/120 ft.",
+                        "target": "one target",
+                        "hit": "5 (1d6 + 2)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+4",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "5 (1d6 + 2)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Mage",
+                "attacks": [
+                    {
+                        "type": "Melee or Ranged Weapon Attack",
+                        "to hit": "+5",
+                        "reach": "5 ft.or range 20/60 ft.",
+                        "target": "one target",
+                        "hit": "4 (1d4 + 2)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Magma Mephit",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+3",
+                        "reach": "5 ft.",
+                        "target": "one creature",
+                        "hit": "3 (1d4 + 1)",
+                        "damage type": "slashing plus fire"
+                    }
+                ]
+            },
+            {
+                "name": "Magmin",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+4",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "7 (2d6)",
+                        "damage type": "fire"
+                    }
+                ]
+            },
+            {
+                "name": "Mammoth",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+10",
+                        "reach": "10 ft.",
+                        "target": "one target",
+                        "hit": "25 (4d8 + 7)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+10",
+                        "reach": "5 ft.",
+                        "target": "one prone creature",
+                        "hit": "29 (4d10 + 7)",
+                        "damage type": "bludgeoning"
+                    }
+                ]
+            },
+            {
+                "name": "Manticore",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+5",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "7 (1d8 + 3)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+5",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "6 (1d6 + 3)",
+                        "damage type": "slashing"
+                    },
+                    {
+                        "type": "Ranged Weapon Attack",
+                        "to hit": "+5",
+                        "reach": "100/200 ft.",
+                        "target": "one target",
+                        "hit": "7 (1d8 + 3)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Marilith",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+9",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "13 (2d8 + 4)",
+                        "damage type": "slashing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+9",
+                        "reach": "10 ft.",
+                        "target": "one creature",
+                        "hit": "15 (2d10 + 4)",
+                        "damage type": "bludgeoning"
+                    }
+                ]
+            },
+            {
+                "name": "Mastiff",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+3",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "4 (1d6 + 1)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Medusa",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+5",
+                        "reach": "5 ft.",
+                        "target": "one creature",
+                        "hit": "4 (1d4 + 2)",
+                        "damage type": "piercing plus poison"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+5",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "5 (1d6 + 2)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Ranged Weapon Attack",
+                        "to hit": "+5",
+                        "reach": "150/600 ft.",
+                        "target": "one target",
+                        "hit": "6 (1d8 + 2)",
+                        "damage type": "piercing plus poison"
+                    }
+                ]
+            },
+            {
+                "name": "Merfolk",
+                "attacks": [
+                    {
+                        "type": "Melee or Ranged Weapon Attack",
+                        "to hit": "+2",
+                        "reach": "5 ft.or range 20/60 ft.",
+                        "target": "one target",
+                        "hit": "3 (1d6)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Merrow",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+6",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "8 (1d8 + 4)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+6",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "9 (2d4 + 4)",
+                        "damage type": "slashing"
+                    },
+                    {
+                        "type": "Melee or Ranged Weapon Attack",
+                        "to hit": "+6",
+                        "reach": "5 ft.or range 20/60 ft.",
+                        "target": "one target",
+                        "hit": "11 (2d6 + 4)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Mimic",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+5",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "7 (1d8 + 3)",
+                        "damage type": "bludgeoning"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+5",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "7 (1d8 + 3)",
+                        "damage type": "piercing plus acid"
+                    }
+                ]
+            },
+            {
+                "name": "Minotaur",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+6",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "17 (2d12 + 4)",
+                        "damage type": "slashing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+6",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "13 (2d8 + 4)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Minotaur Skeleton",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+6",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "17 (2d12 + 4)",
+                        "damage type": "slashing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+6",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "13 (2d8 + 4)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Mule",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+2",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "4 (1d4 + 2)",
+                        "damage type": "bludgeoning"
+                    }
+                ]
+            },
+            {
+                "name": "Mummy",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+5",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "10 (2d6 + 3)",
+                        "damage type": "bludgeoning plus necrotic"
+                    }
+                ]
+            },
+            {
+                "name": "Mummy Lord",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+9",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "14 (3d6 + 4)",
+                        "damage type": "bludgeoning plus necrotic"
+                    }
+                ]
+            },
+            {
+                "name": "Nalfeshnee",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+10",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "32 (5d10 + 5)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+10",
+                        "reach": "10 ft.",
+                        "target": "one target",
+                        "hit": "15 (3d6 + 5)",
+                        "damage type": "slashing"
+                    }
+                ]
+            },
+            {
+                "name": "Night Hag",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+7",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "13 (2d8 + 4)",
+                        "damage type": "slashing"
+                    }
+                ]
+            },
+            {
+                "name": "Nightmare",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+6",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "13 (2d8 + 4)",
+                        "damage type": "bludgeoning plus fire"
+                    }
+                ]
+            },
+            {
+                "name": "Noble",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+3",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "5 (1d8 + 1)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Nothic",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+4",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "6 (1d6 + 3)",
+                        "damage type": "slashing"
+                    }
+                ]
+            },
+            {
+                "name": "Ochre Jelly",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+4",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "9 (2d6 + 2)",
+                        "damage type": "bludgeoning plus acid"
+                    }
+                ]
+            },
+            {
+                "name": "Octopus",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+4",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "1",
+                        "damage type": "bludgeoning"
+                    }
+                ]
+            },
+            {
+                "name": "Ogre",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+6",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "13 (2d8 + 4)",
+                        "damage type": "bludgeoning"
+                    },
+                    {
+                        "type": "Melee or Ranged Weapon Attack",
+                        "to hit": "+6",
+                        "reach": "5 ft.or range 30/120 ft.",
+                        "target": "one target",
+                        "hit": "11 (2d6 + 4)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Ogre Zombie",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+6",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "13 (2d8 + 4)",
+                        "damage type": "bludgeoning"
+                    }
+                ]
+            },
+            {
+                "name": "Oni",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+7",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "8 (1d8 + 4)",
+                        "damage type": "slashing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+7",
+                        "reach": "10 ft.",
+                        "target": "one target",
+                        "hit": "15 (2d10 + 4)",
+                        "damage type": "slashing"
+                    }
+                ]
+            },
+            {
+                "name": "Orc",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+5",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "9 (1d12 + 3)",
+                        "damage type": "slashing"
+                    },
+                    {
+                        "type": "Melee or Ranged Weapon Attack",
+                        "to hit": "+5",
+                        "reach": "5 ft.or range 30/120 ft.",
+                        "target": "one target",
+                        "hit": "6 (1d6 + 3)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Otyugh",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+6",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "12 (2d8 + 3)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+6",
+                        "reach": "10 ft.",
+                        "target": "one target",
+                        "hit": "7 (1d8 + 3)",
+                        "damage type": "bludgeoning plus piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Owl",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+3",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "1",
+                        "damage type": "slashing"
+                    }
+                ]
+            },
+            {
+                "name": "Owlbear",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+7",
+                        "reach": "5 ft.",
+                        "target": "one creature",
+                        "hit": "10 (1d10 + 5)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+7",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "14 (2d8 + 5)",
+                        "damage type": "slashing"
+                    }
+                ]
+            },
+            {
+                "name": "Panther",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+4",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "5 (1d6 + 2)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+4",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "4 (1d4 + 2)",
+                        "damage type": "slashing"
+                    }
+                ]
+            },
+            {
+                "name": "Pegasus",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+6",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "11 (2d6 + 4)",
+                        "damage type": "bludgeoning"
+                    }
+                ]
+            },
+            {
+                "name": "Phase Spider",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+4",
+                        "reach": "5 ft.",
+                        "target": "one creature",
+                        "hit": "7 (1d10 + 2)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Pit Fiend",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+14",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "22 (4d6 + 8)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+14",
+                        "reach": "10 ft.",
+                        "target": "one target",
+                        "hit": "17 (2d8 + 8)",
+                        "damage type": "slashing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+14",
+                        "reach": "10 ft.",
+                        "target": "one target",
+                        "hit": "15 (2d6 + 8)",
+                        "damage type": "bludgeoning plus fire"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+14",
+                        "reach": "10 ft.",
+                        "target": "one target",
+                        "hit": "24 (3d10 + 8)",
+                        "damage type": "bludgeoning"
+                    }
+                ]
+            },
+            {
+                "name": "Planetar",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+12",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "21 (4d6 + 7)",
+                        "damage type": "slashing plus radiant"
+                    }
+                ]
+            },
+            {
+                "name": "Plesiosaurus",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+6",
+                        "reach": "10 ft.",
+                        "target": "one target",
+                        "hit": "14 (3d6 + 4)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Poisonous Snake",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+5",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "1",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Polar Bear",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+7",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "9 (1d8 + 5)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+7",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "12 (2d6 + 5)",
+                        "damage type": "slashing"
+                    }
+                ]
+            },
+            {
+                "name": "Pony",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+4",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "7 (2d4 + 2)",
+                        "damage type": "bludgeoning"
+                    }
+                ]
+            },
+            {
+                "name": "Priest",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+2",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "3 (1d6)",
+                        "damage type": "bludgeoning"
+                    }
+                ]
+            },
+            {
+                "name": "Pseudodragon",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+4",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "4 (1d4 + 2)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+4",
+                        "reach": "5 ft.",
+                        "target": "one creature",
+                        "hit": "4 (1d4 + 2)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Pteranodon",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+3",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "6 (2d4 + 1)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Purple Worm",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+9",
+                        "reach": "10 ft.",
+                        "target": "one target",
+                        "hit": "22 (3d8 + 9)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+9",
+                        "reach": "10 ft.",
+                        "target": "one creature",
+                        "hit": "19 (3d6 + 9)",
+                        "damage type": "piercing"
+                    }
+                ]
+            }
+        ]
+[
+            {
+                "name": "Bael",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+13",
+                        "reach": "20 ft.",
+                        "target": "one target",
+                        "hit": "16 (2d8 + 7) piercing damage plus 13 (3d8) necrotic damage",
+                        "damage type": "piercing, necrotic"
+                    }
+                ]
+            },
+            {
+                "name": "Balhannoth",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+7",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "25 (4d10 + 3)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+7",
+                        "reach": "10 ft.",
+                        "target": "one target",
+                        "hit": "10 (2d6 + 3)",
+                        "damage type": "bludgeoning"
+                    }
+                ]
+            },
+            {
+                "name": "Banderhobb",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+8",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "15 (3d6 + 5)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+8",
+                        "reach": "15 ft.",
+                        "target": "one creature",
+                        "hit": "10 (3d6)",
+                        "damage type": "necrotic"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+8",
+                        "reach": "5 ft.",
+                        "target": "one Medium or smaller creature grappled by the banderhobb",
+                        "hit": "15 (3d6 + 5)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Baphomet",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+17",
+                        "reach": "10 ft.",
+                        "target": "one target",
+                        "hit": "19 (2d8 + 10)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+17",
+                        "reach": "10 ft.",
+                        "target": "one target",
+                        "hit": "17 (2d6 + 10)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+17",
+                        "reach": "15 ft.",
+                        "target": "one target",
+                        "hit": "21 (2d10 + 10)",
+                        "damage type": "force"
+                    }
+                ]
+            },
+            {
+                "name": "Barghest",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+6",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "13 (2d8 + 4)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+6",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "8 (1d8 + 4)",
+                        "damage type": "slashing"
+                    }
+                ]
+            },
+            {
+                "name": "Blackguard",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+9",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "12 (2d6 + 5) slashing damage plus 7 (2d6) necrotic damage",
+                        "damage type": "slashing, necrotic"
+                    }
+                ]
+            },
+            {
+                "name": "Blood Drinker Vampire",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+9",
+                        "reach": "5 ft.",
+                        "target": "one creature",
+                        "hit": "8 (1d8 + 4)",
+                        "damage type": "bludgeoning"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+9",
+                        "reach": "5 ft.",
+                        "target": "one willing creature, or a creature that is grappled by the vampire, incapacitated, or restrained",
+                        "hit": "7 (1d6 + 4) piercing damage plus 10 (3d6) necrotic damage",
+                        "damage type": "piercing, necrotic"
+                    }
+                ]
+            },
+            {
+                "name": "Blood Witch",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+3",
+                        "reach": "5 ft.",
+                        "target": "one creature",
+                        "hit": "3 (1d4 + 1)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Bloodfray Giant",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+10",
+                        "reach": "10 ft.",
+                        "target": "one target",
+                        "hit": "25 (3d12 + 6)",
+                        "damage type": "slashing"
+                    },
+                    {
+                        "type": "Ranged Weapon Attack",
+                        "to hit": "+10",
+                        "reach": "60/240 ft.",
+                        "target": "one target",
+                        "hit": "28 (4d10 + 6)",
+                        "damage type": "bludgeoning"
+                    }
+                ]
+            },
+            {
+                "name": "Bone Naga",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+5",
+                        "reach": "10 ft.",
+                        "target": "one target",
+                        "hit": "7 (1d8 + 3) piercing damage plus 10 (3d6) poison damage",
+                        "damage type": "piercing, poison"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+5",
+                        "reach": "5 ft.",
+                        "target": "one creature",
+                        "hit": "6 (1d6 + 3)",
+                        "damage type": "bludgeoning"
+                    }
+                ]
+            },
+            {
+                "name": "Bounty Hunter",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+5",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "6 (1d6 + 3)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Ranged Weapon Attack",
+                        "to hit": "+5",
+                        "reach": "80/320 ft.",
+                        "target": "one target",
+                        "hit": "7 (1d8 + 3)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Ranged Weapon Attack",
+                        "to hit": "+5",
+                        "reach": "5/15 ft.",
+                        "target": "one Large or smaller creature",
+                        "hit": "The target is restrained",
+                        "damage type": "N/A"
+                    }
+                ]
+            },
+            {
+                "name": "Brontosaurus",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+8",
+                        "reach": "15 ft.",
+                        "target": "one target",
+                        "hit": "27 (5d8 + 5)",
+                        "damage type": "bludgeoning"
+                    }
+                ]
+            },
+            {
+                "name": "Battleforce Angel",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+9",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "13 (2d6 + 6) slashing damage plus 18 (4d8) radiant damage",
+                        "damage type": "slashing, radiant"
+                    }
+                ]
+            },
+            {
+                "name": "Belial",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+14",
+                        "reach": "10 ft.",
+                        "target": "one target",
+                        "hit": "17 (2d8 + 8) piercing damage plus 22 (5d8) fire damage",
+                        "damage type": "piercing, fire"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+14",
+                        "reach": "15 ft.",
+                        "target": "one target",
+                        "hit": "19 (2d10 + 8) bludgeoning damage plus 22 (5d8) fire damage",
+                        "damage type": "bludgeoning, fire"
+                    }
+                ]
+            },
+            {
+                "name": "Bodak",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+5",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "6 (1d6 + 3) bludgeoning damage plus 4 (1d8) necrotic damage",
+                        "damage type": "bludgeoning, necrotic"
+                    }
+                ]
+            },
+            {
+                "name": "Young Lunar Dragon",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+9",
+                        "reach": "10 ft.",
+                        "target": "one target",
+                        "hit": "16 (2d10 + 5)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+9",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "12 (2d6 + 5)",
+                        "damage type": "slashing"
+                    }
+                ]
+            },
+            {
+                "name": "Adult Moonstone Dragon",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+12",
+                        "reach": "15 ft.",
+                        "target": "one target",
+                        "hit": "18 (2d10 + 7) piercing damage plus 11 (2d10) psychic damage",
+                        "damage type": "piercing, psychic"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+12",
+                        "reach": "10 ft.",
+                        "target": "one target",
+                        "hit": "14 (2d6 + 7)",
+                        "damage type": "slashing"
+                    }
+                ]
+            },
+            {
+                "name": "Adult Red Dracolich",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+14",
+                        "reach": "15 ft.",
+                        "target": "one target",
+                        "hit": "19 (2d10 + 8) piercing damage plus 14 (4d6) necrotic damage",
+                        "damage type": "piercing, necrotic"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+14",
+                        "reach": "10 ft.",
+                        "target": "one target",
+                        "hit": "15 (2d6 + 8)",
+                        "damage type": "slashing"
+                    }
+                ]
+            },
+            {
+                "name": "Adult Sapphire Dragon",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+12",
+                        "reach": "15 ft.",
+                        "target": "one target",
+                        "hit": "18 (2d10 + 7) piercing damage plus 11 (2d10) force damage",
+                        "damage type": "piercing, force"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+12",
+                        "reach": "10 ft.",
+                        "target": "one target",
+                        "hit": "14 (2d6 + 7)",
+                        "damage type": "slashing"
+                    }
+                ]
+            },
+            {
+                "name": "Adult Solar Dragon",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+14",
+                        "reach": "15 ft.",
+                        "target": "one target",
+                        "hit": "19 (2d10 + 8) piercing damage plus 7 (2d6) radiant damage",
+                        "damage type": "piercing, radiant"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+14",
+                        "reach": "10 ft.",
+                        "target": "one target",
+                        "hit": "15 (2d6 + 8)",
+                        "damage type": "slashing"
+                    }
+                ]
+            },
+            {
+                "name": "Adult Time Dragon",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+13",
+                        "reach": "15 ft.",
+                        "target": "one target",
+                        "hit": "19 (2d10 + 8) piercing damage plus 11 (2d10) force damage",
+                        "damage type": "piercing, force"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+13",
+                        "reach": "10 ft.",
+                        "target": "one target",
+                        "hit": "15 (2d6 + 8)",
+                        "damage type": "slashing"
+                    }
+                ]
+            },
+            {
+                "name": "Ancient Dragon Turtle",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+16",
+                        "reach": "20 ft.",
+                        "target": "one target",
+                        "hit": "26 (3d10 + 10)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+16",
+                        "reach": "15 ft.",
+                        "target": "one target",
+                        "hit": "23 (3d8 + 10)",
+                        "damage type": "bludgeoning"
+                    }
+                ]
+            },
+            {
+                "name": "Ancient Emerald Dragon",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+16",
+                        "reach": "20 ft.",
+                        "target": "one target",
+                        "hit": "26 (3d10 + 10) piercing damage plus 13 (2d12) psychic damage",
+                        "damage type": "piercing, psychic"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+16",
+                        "reach": "15 ft.",
+                        "target": "one target",
+                        "hit": "23 (3d8 + 10)",
+                        "damage type": "slashing"
+                    }
+                ]
+            },
+            {
+                "name": "Bard",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+4",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "5 (1d6 + 2)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Barlgura",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+7",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "9 (1d10 + 4)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+7",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "10 (1d12 + 4)",
+                        "damage type": "bludgeoning"
+                    }
+                ]
+            },
+            {
+                "name": "Ancient Lunar Dragon",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+14",
+                        "reach": "15 ft.",
+                        "target": "one target",
+                        "hit": "15 (2d6 + 8) piercing damage plus 7 (2d6) cold damage",
+                        "damage type": "piercing, cold"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+14",
+                        "reach": "10 ft.",
+                        "target": "one target",
+                        "hit": "15 (2d6 + 8)",
+                        "damage type": "slashing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+14",
+                        "reach": "20 ft.",
+                        "target": "one target",
+                        "hit": "15 (2d6 + 8)",
+                        "damage type": "bludgeoning"
+                    }
+                ]
+            },
+            {
+                "name": "Ancient Sapphire Dragon",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+15",
+                        "reach": "15 ft.",
+                        "target": "one target",
+                        "hit": "19 (2d10 + 8) piercing damage plus 11 (2d10) thunder damage",
+                        "damage type": "piercing, thunder"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+15",
+                        "reach": "10 ft.",
+                        "target": "one target",
+                        "hit": "15 (2d6 + 8)",
+                        "damage type": "slashing"
+                    }
+                ]
+            },
+            {
+                "name": "Ancient Sea Serpent",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+12",
+                        "reach": "15 ft.",
+                        "target": "one target",
+                        "hit": "20 (2d12 + 7) piercing damage plus 6 (1d12) cold damage",
+                        "damage type": "piercing, cold"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+12",
+                        "reach": "20 ft.",
+                        "target": "one creature",
+                        "hit": "29 (4d10 + 7)",
+                        "damage type": "bludgeoning"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+12",
+                        "reach": "20 ft.",
+                        "target": "one target",
+                        "hit": "13 (1d12 + 7)",
+                        "damage type": "bludgeoning"
+                    }
+                ]
+            },
+            {
+                "name": "Ancient Solar Dragon",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+16",
+                        "reach": "15 ft.",
+                        "target": "one target",
+                        "hit": "19 (2d10 + 9) piercing damage plus 18 (4d8) radiant damage",
+                        "damage type": "piercing, radiant"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+16",
+                        "reach": "10 ft.",
+                        "target": "one target",
+                        "hit": "16 (2d6 + 9)",
+                        "damage type": "slashing"
+                    },
+                    {
+                        "type": "Ranged Spell Attack",
+                        "to hit": "+11",
+                        "reach": "120 ft.",
+                        "target": "one target",
+                        "hit": "14 (4d6)",
+                        "damage type": "radiant"
+                    }
+                ]
+            },
+            {
+                "name": "Anhkolox",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+10",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "17 (2d10 + 6)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+10",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "23 (5d6 + 6)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Arch-hag",
+                "attacks": [
+                    {
+                        "type": "Melee or Ranged Attack Roll",
+                        "to hit": "+14",
+                        "reach": "10 ft. or range 60 ft.",
+                        "target": "one target",
+                        "hit": "17 (3d6 + 7)",
+                        "damage type": "Force"
+                    }
+                ]
+            },
+            {
+                "name": "Archpriest",
+                "attacks": [
+                    {
+                        "type": "Melee or Ranged Attack Roll",
+                        "to hit": "+9",
+                        "reach": "5 ft. or range 60 ft.",
+                        "target": "one target",
+                        "hit": "27 (4d10 + 5)",
+                        "damage type": "Radiant"
+                    }
+                ]
+            },
+            {
+                "name": "Ancient Time Dragon",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+17",
+                        "reach": "20 ft.",
+                        "target": "one target",
+                        "hit": "21 (2d10 + 10)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+17",
+                        "reach": "15 ft.",
+                        "target": "one target",
+                        "hit": "17 (2d6 + 10)",
+                        "damage type": "slashing"
+                    },
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+17",
+                        "reach": "20 ft.",
+                        "target": "one target",
+                        "hit": "28 (4d6 + 10)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Android",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+6",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "10 (2d6 + 3)",
+                        "damage type": "bludgeoning"
+                    },
+                    {
+                        "type": "Ranged Weapon Attack",
+                        "to hit": "+5",
+                        "reach": "80/320 ft.",
+                        "target": "one target",
+                        "hit": "9 (2d6 + 2)",
+                        "damage type": "piercing"
+                    }
+                ]
+            },
+            {
+                "name": "Animal Lord",
+                "attacks": [
+                    {
+                        "type": "Melee Weapon Attack",
+                        "to hit": "+7",
+                        "reach": "5 ft.",
+                        "target": "one target",
+                        "hit": "11 (2d6 + 4)",
+                        "damage type": "piercing"
+                    },
+                    {
+                        "type": "Ranged Weapon Attack",
+                        "to hit": "+6",
+                        "reach": "150/600 ft.",
+                        "target": "one target",
+                        "hit": "9 (1d8 + 3)",
+                        "damage type": "piercing"
+                    }
+                ]
+            }
+        ]
