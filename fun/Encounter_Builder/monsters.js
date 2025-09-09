@@ -1460,7 +1460,16 @@ const monsters = [
     languages: ["N/A"],
     challenge: "2 (450 XP)",
     "number of attacks": 1, 
-    attacks: {},
+    "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+5",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "10 (2d6 + 3)",
+                    "damage type": "slashing, acid"
+                }
+            ],
     actions:
       "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft. one target. <em>Hit:</em> 10 (2d6 + 3) slashing damage plus 3 (1d6) acid damage. If the target is a Large or smaller creature, it is grappled (escape DC 13). Until this grapple ends, the ankheg can bite only the grappled creature and has advantage on attack rolls to do so.</p><p><em><strong>Acid Spray (Recharge 6).</strong></em> The ankheg spits acid in a line that is 30 feet long and 5 feet wide, provided that it has no creature grappled. Each creature in that line must make a DC 13 Dexterity saving throw, taking 10 (3d6) acid damage on a failed save, or half as much damage on a successful one.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/161/315/315/636252759871983921.jpeg",
@@ -1485,7 +1494,16 @@ const monsters = [
     languages: ["N/A"],
     challenge: "3 (700 XP)",
     "number of attacks": 1, 
-    attacks: {},
+    "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+7",
+                    "reach": "10 ft.",
+                    "target": "one target",
+                    "hit": "18 (4d6 + 4)",
+                    "damage type": "bludgeoning"
+                }
+            ],
     actions:
       "<p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 10 ft. one target. <em>Hit:</em> 18 (4d6 + 4) bludgeoning damage. If the target is a creature, it must succeed on a DC 14 Strength saving throw or be knocked prone.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/attachments/2/648/beast.jpg",
@@ -1511,7 +1529,24 @@ const monsters = [
     languages: ["N/A"],
     challenge: "1/2 (100 XP)",
     "number of attacks": 2,
-    attacks: {},
+    "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+5",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "6 (1d6 + 3)",
+                    "damage type": "bludgeoning"
+                },
+                {
+                    "type": "Ranged Weapon Attack",
+                    "to hit": "+5",
+                    "reach": "N/A",
+                    "target": "one target",
+                    "hit": "6 (1d6 + 3)",
+                    "damage type": "bludgeoning"
+                }
+            ],
     actions:
       "<p><em><strong>Multiattack.</strong></em> The ape makes two fist attacks.</p><p><em><strong>Fist.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft. one target. <em>Hit:</em> 6 (1d6 + 3) bludgeoning damage.</p><p><em><strong>Rock.</strong></em> <em>Ranged Weapon Attack:</em> +5 to hit, range 25/50 ft. one target. <em>Hit:</em> 6 (1d6 + 3) bludgeoning damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/attachments/2/648/beast.jpg",
@@ -1540,7 +1575,24 @@ const monsters = [
     traits:
       "<p><em><strong>Magic Resistance.</strong></em> The archmage has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Spellcasting.</strong></em> The archmage is an 18th-level spellcaster. Its spellcasting ability is Intelligence (spell save DC 17, +9 to hit with spell attacks). The archmage can cast disguise self and invisibility at will and has the following wizard spells prepared:</p><p>Cantrips (at will): fire bolt, light, mage hand, prestidigitation, shocking grasp</p><p>1st level (4 slots): detect magic, identify, mage armor, magic missile</p><p>2nd level (3 slots): detect thoughts, mirror image, misty step</p><p>3rd level (3 slots): counterspell, fly, lightning bolt</p><p>4th level (3 slots): banishment, fire shield, stoneskin</p><p>5th level (3 slots): cone of cold, scrying, wall of force</p><p>6th level (1 slot): globe of invulnerability</p><p>7th level (1 slot): teleport</p><p>8th level (1 slot): mind blank</p><p>9th level (1 slot): time stop</p><p>*The archmage casts mind blank, stoneskin and mage armor spells on itself before combat.</p>",
     "number of attacks": 1, 
-    attacks: {},
+    "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+6",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "4 (1d4 + 2)",
+                    "damage type": "piercing"
+                },
+                {
+                    "type": "Ranged Weapon Attack",
+                    "to hit": "+6",
+                    "reach": "N/A",
+                    "target": "one target",
+                    "hit": "4 (1d4 + 2)",
+                    "damage type": "piercing"
+                }
+            ],
     actions:
       "<p><em><strong>Dagger.</strong></em> <em>Melee or <em>Ranged Weapon Attack:</em></em> +6 to hit, reach 5 ft.or range 20/60 ft. one target. <em>Hit:</em> 4 (1d4 + 2) piercing damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/167/1000/1000/636252760213195530.jpeg",
@@ -1570,7 +1622,24 @@ const monsters = [
     traits:
       "<p><em><strong>Assassinate.</strong></em> During its first turn, the assassin has advantage on attack rolls against any creature that hasn't taken a turn. Any hit the assassin scores against a surprised creature is a critical hit.</p><p><em><strong>Evasion.</strong></em> If the assassin is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, the assassin instead takes no damage if it succeeds on the saving throw, and only half damage if it fails.</p><p><em><strong>Sneak Attack.</strong></em> Once per turn, the assassin deals an extra 14 (4d6) damage when it hits a target with a weapon attack and has advantage on the attack roll, or when the target is within 5 feet of an ally of the assassin that isn't incapacitated and the assassin doesn't have disadvantage on the attack roll.</p>",
     "number of attacks": 2,
-    attacks: {},
+    "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+6",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "6 (1d6 + 3)",
+                    "damage type": "piercing, poison"
+                },
+                {
+                    "type": "Ranged Weapon Attack",
+                    "to hit": "+6",
+                    "reach": "N/A",
+                    "target": "one target",
+                    "hit": "7 (1d8 + 3)",
+                    "damage type": "piercing, poison"
+                }
+            ],
     actions:
       "<p><em><strong>Multiattack.</strong></em> The assassin makes two shortsword attacks.</p><p><em><strong>Shortsword.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft. one target. <em>Hit:</em> 6 (1d6 + 3) piercing damage, and the target must make a DC 15 Constitution saving throw, taking 24 (7d6) poison damage on a failed save, or half as much damage on a successful one.</p><p><em><strong>Light Crossbow.</strong></em> <em>Ranged Weapon Attack:</em> +6 to hit, range 80/320 ft. one target. <em>Hit:</em> 7 (1d8 + 3) piercing damage, and the target must make a DC 15 Constitution saving throw, taking 24 (7d6) poison damage on a failed save, or half as much damage on a successful one.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/9/910/315/315/636334293020978804.png",
@@ -1599,7 +1668,15 @@ const monsters = [
     traits:
       "<p><em><strong>False Appearance.</strong></em> While the shrub remains motionless, it is indistinguishable from a normal shrub.</p>",
     "number of attacks": 1,
-    attacks: {},
+    "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+1",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "1 (1d4 − 1)",
+                    "damage type": "slashing"
+               ,
     actions:
       "<p><em><strong>Rake.</strong></em> <em>Melee Weapon Attack:</em> +1 to hit, reach 5 ft. one target. <em>Hit:</em> 1 (1d4 − 1) slashing damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/attachments/2/659/plant.jpg",
@@ -1628,7 +1705,16 @@ const monsters = [
     traits:
       "<p><em><strong>False Appearance.</strong></em> While the tree remains motionless, it is indistinguishable from a normal tree.</p>",
     "number of attacks": 1,
-    attacks: {},
+    "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+6",
+                    "reach": "10 ft.",
+                    "target": "one target",
+                    "hit": "14 (3d6 + 4)",
+                    "damage type": "bludgeoning"
+                }
+            ],
     actions:
       "<p><em><strong>Slam.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 10 ft. one target. <em>Hit:</em> 14 (3d6 + 4) bludgeoning damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/attachments/2/659/plant.jpg",
@@ -1653,7 +1739,16 @@ const monsters = [
     languages: ["N/A"],
     challenge: "1/4 (50 XP)",
     "number of attacks": 1,
-    attacks: {},
+    "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+4",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "6 (1d8 + 2)",
+                    "damage type": "slashing"
+                }
+            ],
     actions:
       "<p><em><strong>Beak.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft. one target. <em>Hit:</em> 6 (1d8 + 2) slashing damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/attachments/2/648/beast.jpg",
@@ -1683,7 +1778,16 @@ const monsters = [
     traits:
       "<p><em><strong>Heated Body.</strong></em> A creature that touches the azer or hits it with a melee attack while within 5 feet of it takes 5 (1d10) fire damage.</p><p><em><strong>Heated Weapons.</strong></em> When the azer hits with a metal melee weapon, it deals an extra 3 (1d6) fire damage (included in the attack).</p><p><em><strong>Illumination.</strong></em> The azer sheds bright light in a 10-­foot radius and dim light for an additional 10 feet.</p>",
     "number of attacks": 1,
-    attacks: {},
+    "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+5",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "7 (1d8 + 3)",
+                    "damage type": "bludgeoning, fire"
+                }
+            ],
     actions:
       "<p><em><strong>Warhammer.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft. one target. <em>Hit:</em> 7 (1d8 + 3) bludgeoning damage, or 8 (1d10 + 3) bludgeoning damage if used with two hands to make a melee attack, plus 3 (1d6) fire damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/171/1000/1000/636252761112348397.jpeg",
@@ -1710,7 +1814,16 @@ const monsters = [
     traits:
       "<p><em><strong>Pack Tactics.</strong></em> The baboon has advantage on an attack roll against a creature if at least one of the baboon's allies is within 5 feet of the creature and the ally isn't incapacitated.</p>",
     "number of attacks": 1,
-    attacks: {},
+    "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+1",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "1 (1d4 − 1)",
+                    "damage type": "piercing"
+                }
+            ],
     actions:
       "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +1 to hit, reach 5 ft. one target. <em>Hit:</em> 1 (1d4 − 1) piercing damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/attachments/2/648/beast.jpg",
@@ -1737,7 +1850,16 @@ const monsters = [
     traits:
       "<p><em><strong>Keen Smell.</strong></em> The badger has advantage on Wisdom (Perception) checks that rely on smell.</p>",
     "number of attacks": 1,
-    attacks: {},
+    "attacks": [
+                {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+2",
+                    "reach": "5 ft.",
+                    "target": "one target",
+                    "hit": "1",
+                    "damage type": "piercing"
+                }
+            ],
     actions:
       "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +2 to hit, reach 5 ft. one target. <em>Hit:</em> 1 piercing damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/16/528/1000/1000/636376327632236333.jpeg",
