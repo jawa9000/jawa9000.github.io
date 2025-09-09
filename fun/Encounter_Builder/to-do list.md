@@ -1359,31 +1359,12 @@ Walking Statue of Waterdeep
 Wizard
 
 ## Add these monster's attacks properties to monsters.js
+BTW, there are several attacks properties that use arrays instead of objects. The property attacks property should use objects with the type of attack as the name of the attack property. See "Frost Giant Everlasting One" as a valid example of what the attacks property should look like.
 
-        {
-            "name": "Balor",
-            attacks: [
-                {
-                    "type": "Melee Weapon Attack",
-                    "to hit": "+14",
-                    "reach": "10 ft.",
-                    "target": "one target",
-                    "hit": "21 (3d8 + 8)",
-                    "damage type": "slashing, lightning"
-                },
-                {
-                    "type": "Melee Weapon Attack",
-                    "to hit": "+14",
-                    "reach": "30 ft.",
-                    "target": "one target",
-                    "hit": "15 (2d6 + 8)",
-                    "damage type": "slashing, fire"
-                }
-            ]
-        },
+       
         {
             "name": "Bandit",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+3",
@@ -1404,7 +1385,7 @@ Wizard
         },
         {
             "name": "Bandit Captain",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+5",
@@ -1433,7 +1414,7 @@ Wizard
         },
         {
             "name": "Banshee",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Spell Attack",
                     "to hit": "+4",
@@ -1446,7 +1427,7 @@ Wizard
         },
         {
             "name": "Barbed Devil",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+6",
@@ -1475,7 +1456,7 @@ Wizard
         },
         {
             "name": "Basilisk",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+5",
@@ -1488,7 +1469,7 @@ Wizard
         },
         {
             "name": "Bat",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+0",
@@ -1501,7 +1482,7 @@ Wizard
         },
         {
             "name": "Bearded Devil",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+5",
@@ -1522,7 +1503,7 @@ Wizard
         },
         {
             "name": "Behir",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+10",
@@ -1543,7 +1524,7 @@ Wizard
         },
         {
             "name": "Berserker",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+5",
@@ -1556,7 +1537,7 @@ Wizard
         },
         {
             "name": "Black Bear",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+3",
@@ -1577,7 +1558,7 @@ Wizard
         },
         {
             "name": "Black Dragon Wyrmling",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+4",
@@ -1590,7 +1571,7 @@ Wizard
         },
         {
             "name": "Black Pudding",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+5",
@@ -1603,7 +1584,7 @@ Wizard
         },
         {
             "name": "Blink Dog",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+3",
@@ -1616,7 +1597,7 @@ Wizard
         },
         {
             "name": "Blood Hawk",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+4",
@@ -1629,7 +1610,7 @@ Wizard
         },
         {
             "name": "Blue Dragon Wyrmling",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+5",
@@ -1642,7 +1623,7 @@ Wizard
         },
         {
             "name": "Boar",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+3",
@@ -1655,7 +1636,7 @@ Wizard
         },
         {
             "name": "Bone Devil",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+8",
@@ -1676,7 +1657,7 @@ Wizard
         },
         {
             "name": "Brass Dragon Wyrmling",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+4",
@@ -1689,7 +1670,7 @@ Wizard
         },
         {
             "name": "Bronze Dragon Wyrmling",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+5",
@@ -1702,7 +1683,7 @@ Wizard
         },
         {
             "name": "Brown Bear",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+5",
@@ -1723,7 +1704,7 @@ Wizard
         },
         {
             "name": "Bugbear",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+4",
@@ -1752,7 +1733,7 @@ Wizard
         },
         {
             "name": "Bulette",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+7",
@@ -1765,7 +1746,7 @@ Wizard
         },
         {
             "name": "Camel",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+5",
@@ -1778,7 +1759,7 @@ Wizard
         },
         {
             "name": "Cat",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+0",
@@ -1791,7 +1772,7 @@ Wizard
         },
         {
             "name": "Centaur",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+6",
@@ -1820,7 +1801,7 @@ Wizard
         },
         {
             "name": "Chain Devil",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+8",
@@ -1833,7 +1814,7 @@ Wizard
         },
         {
             "name": "Chimera",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+7",
@@ -1862,7 +1843,7 @@ Wizard
         },
         {
             "name": "Chuul",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+6",
@@ -1875,7 +1856,7 @@ Wizard
         },
         {
             "name": "Clay Golem",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+8",
@@ -1888,7 +1869,7 @@ Wizard
         },
         {
             "name": "Cloaker",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+6",
@@ -1909,7 +1890,7 @@ Wizard
         },
         {
             "name": "Cloud Giant",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+12",
@@ -1930,7 +1911,7 @@ Wizard
         },
         {
             "name": "Cockatrice",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+3",
@@ -1943,7 +1924,7 @@ Wizard
         },
         {
             "name": "Commoner",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+2",
@@ -1956,7 +1937,7 @@ Wizard
         },
         {
             "name": "Constrictor Snake",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+4",
@@ -1977,7 +1958,7 @@ Wizard
         },
         {
             "name": "Copper Dragon Wyrmling",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+4",
@@ -1990,7 +1971,7 @@ Wizard
         },
         {
             "name": "Couatl",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+8",
@@ -2011,7 +1992,7 @@ Wizard
         },
         {
             "name": "Crab",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+0",
@@ -2024,7 +2005,7 @@ Wizard
         },
         {
             "name": "Crocodile",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+4",
@@ -2037,7 +2018,7 @@ Wizard
         },
         {
             "name": "Cult Fanatic",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+4",
@@ -2058,7 +2039,7 @@ Wizard
         },
         {
             "name": "Cultist",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+3",
@@ -2071,7 +2052,7 @@ Wizard
         },
         {
             "name": "Cyclops",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+9",
@@ -2092,7 +2073,7 @@ Wizard
         },
         {
             "name": "Darkmantle",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+5",
@@ -2105,7 +2086,7 @@ Wizard
         },
         {
             "name": "Death Dog",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+4",
@@ -2118,7 +2099,7 @@ Wizard
         },
         {
             "name": "Deep Gnome (Svirfneblin)",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+4",
@@ -2139,7 +2120,7 @@ Wizard
         },
         {
             "name": "Deer",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+2",
@@ -2152,7 +2133,7 @@ Wizard
         },
         {
             "name": "Deva",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+8",
@@ -2165,7 +2146,7 @@ Wizard
         },
         {
             "name": "Dire Wolf",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+5",
@@ -2178,7 +2159,7 @@ Wizard
         },
         {
             "name": "Djinni",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+9",
@@ -2191,7 +2172,7 @@ Wizard
         },
         {
             "name": "Doppelganger",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+6",
@@ -2204,7 +2185,7 @@ Wizard
         },
         {
             "name": "Draft Horse",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+6",
@@ -2217,7 +2198,7 @@ Wizard
         },
         {
             "name": "Dragon Turtle",
-            attacks: [
+            "attacks": [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+13",
@@ -2247,7 +2228,7 @@ Wizard
         [
             {
                 "name": "Dretch",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+2",
@@ -2268,7 +2249,7 @@ Wizard
             },
             {
                 "name": "Drider",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+6",
@@ -2297,7 +2278,7 @@ Wizard
             },
             {
                 "name": "Drow",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+4",
@@ -2318,7 +2299,7 @@ Wizard
             },
             {
                 "name": "Druid",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+2",
@@ -2331,7 +2312,7 @@ Wizard
             },
             {
                 "name": "Dryad",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+2",
@@ -2344,7 +2325,7 @@ Wizard
             },
             {
                 "name": "Duergar",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+4",
@@ -2365,7 +2346,7 @@ Wizard
             },
             {
                 "name": "Dust Mephit",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+4",
@@ -2378,7 +2359,7 @@ Wizard
             },
             {
                 "name": "Eagle",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+4",
@@ -2391,7 +2372,7 @@ Wizard
             },
             {
                 "name": "Earth Elemental",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+8",
@@ -2404,7 +2385,7 @@ Wizard
             },
             {
                 "name": "Efreeti",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+10",
@@ -2425,7 +2406,7 @@ Wizard
             },
             {
                 "name": "Elephant",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+8",
@@ -2446,7 +2427,7 @@ Wizard
             },
             {
                 "name": "Elk",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+5",
@@ -2467,7 +2448,7 @@ Wizard
             },
             {
                 "name": "Erinyes",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+8",
@@ -2488,7 +2469,7 @@ Wizard
             },
             {
                 "name": "Ettercap",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+4",
@@ -2509,7 +2490,7 @@ Wizard
             },
             {
                 "name": "Ettin",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+7",
@@ -2530,7 +2511,7 @@ Wizard
             },
             {
                 "name": "Fire Elemental",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+6",
@@ -2543,7 +2524,7 @@ Wizard
             },
             {
                 "name": "Fire Giant",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+11",
@@ -2564,7 +2545,7 @@ Wizard
             },
             {
                 "name": "Flameskull",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Ranged Spell Attack",
                         "to hit": "+5",
@@ -2577,7 +2558,7 @@ Wizard
             },
             {
                 "name": "Flesh Golem",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+7",
@@ -2590,7 +2571,7 @@ Wizard
             },
             {
                 "name": "Flying Snake",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+6",
@@ -2603,7 +2584,7 @@ Wizard
             },
             {
                 "name": "Flying Sword",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+3",
@@ -2616,7 +2597,7 @@ Wizard
             },
             {
                 "name": "Frost Giant",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+9",
@@ -2637,7 +2618,7 @@ Wizard
             },
             {
                 "name": "Gargoyle",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+4",
@@ -2658,7 +2639,7 @@ Wizard
             },
             {
                 "name": "Gelatinous Cube",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+4",
@@ -2671,7 +2652,7 @@ Wizard
             },
             {
                 "name": "Ghast",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+3",
@@ -2692,7 +2673,7 @@ Wizard
             },
             {
                 "name": "Ghost",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+5",
@@ -2705,7 +2686,7 @@ Wizard
             },
             {
                 "name": "Ghoul",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+2",
@@ -2726,7 +2707,7 @@ Wizard
             },
             {
                 "name": "Giant Ape",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+9",
@@ -2747,7 +2728,7 @@ Wizard
             },
             {
                 "name": "Giant Badger",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+3",
@@ -2768,7 +2749,7 @@ Wizard
             },
             {
                 "name": "Giant Bat",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+4",
@@ -2781,7 +2762,7 @@ Wizard
             },
             {
                 "name": "Giant Boar",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+5",
@@ -2794,7 +2775,7 @@ Wizard
             },
             {
                 "name": "Giant Centipede",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+4",
@@ -2807,7 +2788,7 @@ Wizard
             },
             {
                 "name": "Giant Constrictor Snake",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+6",
@@ -2828,7 +2809,7 @@ Wizard
             },
             {
                 "name": "Giant Crab",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+3",
@@ -2841,7 +2822,7 @@ Wizard
             },
             {
                 "name": "Giant Crocodile",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+8",
@@ -2862,7 +2843,7 @@ Wizard
             },
             {
                 "name": "Giant Eagle",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+5",
@@ -2883,7 +2864,7 @@ Wizard
             },
             {
                 "name": "Giant Elk",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+6",
@@ -2904,7 +2885,7 @@ Wizard
             },
             {
                 "name": "Giant Fire Beetle",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+1",
@@ -2917,7 +2898,7 @@ Wizard
             },
             {
                 "name": "Giant Frog",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+3",
@@ -2930,7 +2911,7 @@ Wizard
             },
             {
                 "name": "Giant Goat",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+5",
@@ -2943,7 +2924,7 @@ Wizard
             },
             {
                 "name": "Giant Hyena",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+5",
@@ -2956,7 +2937,7 @@ Wizard
             },
             {
                 "name": "Giant Lizard",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+4",
@@ -2969,7 +2950,7 @@ Wizard
             },
             {
                 "name": "Giant Octopus",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+5",
@@ -2982,7 +2963,7 @@ Wizard
             },
             {
                 "name": "Giant Owl",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+3",
@@ -2995,7 +2976,7 @@ Wizard
             },
             {
                 "name": "Giant Poisonous Snake",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+6",
@@ -3008,7 +2989,7 @@ Wizard
             },
             {
                 "name": "Giant Rat",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+4",
@@ -3021,7 +3002,7 @@ Wizard
             },
             {
                 "name": "Giant Scorpion",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+4",
@@ -3042,7 +3023,7 @@ Wizard
             },
             {
                 "name": "Giant Sea Horse",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+3",
@@ -3055,7 +3036,7 @@ Wizard
             },
             {
                 "name": "Giant Shark",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+9",
@@ -3068,7 +3049,7 @@ Wizard
             },
             {
                 "name": "Giant Spider",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+5",
@@ -3083,7 +3064,7 @@ Wizard
 [
             {
                 "name": "Giant Toad",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+4",
@@ -3096,7 +3077,7 @@ Wizard
             },
             {
                 "name": "Giant Vulture",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+4",
@@ -3117,7 +3098,7 @@ Wizard
             },
             {
                 "name": "Giant Wasp",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+4",
@@ -3130,7 +3111,7 @@ Wizard
             },
             {
                 "name": "Giant Weasel",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+5",
@@ -3143,7 +3124,7 @@ Wizard
             },
             {
                 "name": "Giant Wolf Spider",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+3",
@@ -3156,7 +3137,7 @@ Wizard
             },
             {
                 "name": "Gibbering Mouther",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+2",
@@ -3169,7 +3150,7 @@ Wizard
             },
             {
                 "name": "Glabrezu",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+9",
@@ -3190,7 +3171,7 @@ Wizard
             },
             {
                 "name": "Gladiator",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee or Ranged Weapon Attack",
                         "to hit": "+7",
@@ -3211,7 +3192,7 @@ Wizard
             },
             {
                 "name": "Gnoll",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+4",
@@ -3240,7 +3221,7 @@ Wizard
             },
             {
                 "name": "Goat",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+3",
@@ -3253,7 +3234,7 @@ Wizard
             },
             {
                 "name": "Goblin",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+4",
@@ -3274,7 +3255,7 @@ Wizard
             },
             {
                 "name": "Gold Dragon Wyrmling",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+6",
@@ -3287,7 +3268,7 @@ Wizard
             },
             {
                 "name": "Gorgon",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+8",
@@ -3308,7 +3289,7 @@ Wizard
             },
             {
                 "name": "Gray Ooze",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+3",
@@ -3321,7 +3302,7 @@ Wizard
             },
             {
                 "name": "Green Dragon Wyrmling",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+4",
@@ -3334,7 +3315,7 @@ Wizard
             },
             {
                 "name": "Green Hag",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+6",
@@ -3347,7 +3328,7 @@ Wizard
             },
             {
                 "name": "Grick",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+4",
@@ -3368,7 +3349,7 @@ Wizard
             },
             {
                 "name": "Griffon",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+6",
@@ -3389,7 +3370,7 @@ Wizard
             },
             {
                 "name": "Grimlock",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+5",
@@ -3402,7 +3383,7 @@ Wizard
             },
             {
                 "name": "Guard",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee or Ranged Weapon Attack",
                         "to hit": "+3",
@@ -3415,7 +3396,7 @@ Wizard
             },
             {
                 "name": "Guardian Naga",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+8",
@@ -3434,7 +3415,7 @@ Wizard
             },
             {
                 "name": "Gynosphinx",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+8",
@@ -3447,7 +3428,7 @@ Wizard
             },
             {
                 "name": "Half-Red Dragon Veteran",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+5",
@@ -3476,7 +3457,7 @@ Wizard
             },
             {
                 "name": "Harpy",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+3",
@@ -3497,7 +3478,7 @@ Wizard
             },
             {
                 "name": "Hawk",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+5",
@@ -3510,7 +3491,7 @@ Wizard
             },
             {
                 "name": "Hell Hound",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+5",
@@ -3523,7 +3504,7 @@ Wizard
             },
             {
                 "name": "Hezrou",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+7",
@@ -3544,7 +3525,7 @@ Wizard
             },
             {
                 "name": "Hill Giant",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+8",
@@ -3565,7 +3546,7 @@ Wizard
             },
             {
                 "name": "Hippogriff",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+5",
@@ -3586,7 +3567,7 @@ Wizard
             },
             {
                 "name": "Hobgoblin",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+3",
@@ -3607,7 +3588,7 @@ Wizard
             },
             {
                 "name": "Homunculus",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+4",
@@ -3620,7 +3601,7 @@ Wizard
             },
             {
                 "name": "Horned Devil",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+10",
@@ -3649,7 +3630,7 @@ Wizard
             },
             {
                 "name": "Hunter Shark",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+6",
@@ -3662,7 +3643,7 @@ Wizard
             },
             {
                 "name": "Hydra",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+8",
@@ -3675,7 +3656,7 @@ Wizard
             },
             {
                 "name": "Hyena",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+2",
@@ -3688,7 +3669,7 @@ Wizard
             },
             {
                 "name": "Ice Devil",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+10",
@@ -3717,7 +3698,7 @@ Wizard
             },
             {
                 "name": "Ice Mephit",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+3",
@@ -3730,7 +3711,7 @@ Wizard
             },
             {
                 "name": "Imp",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+5",
@@ -3743,7 +3724,7 @@ Wizard
             },
             {
                 "name": "Invisible Stalker",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+6",
@@ -3756,7 +3737,7 @@ Wizard
             },
             {
                 "name": "Iron Golem",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+13",
@@ -3777,7 +3758,7 @@ Wizard
             },
             {
                 "name": "Jackal",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+1",
@@ -3790,7 +3771,7 @@ Wizard
             },
             {
                 "name": "Killer Whale",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+6",
@@ -3803,7 +3784,7 @@ Wizard
             },
             {
                 "name": "Knight",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+5",
@@ -3824,7 +3805,7 @@ Wizard
             },
             {
                 "name": "Kobold",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+4",
@@ -3845,7 +3826,7 @@ Wizard
             },
             {
                 "name": "Kraken",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+17",
@@ -3866,7 +3847,7 @@ Wizard
             },
             {
                 "name": "Lamia",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+5",
@@ -3893,7 +3874,7 @@ Wizard
             },
             {
                 "name": "Lemure",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+3",
@@ -3906,7 +3887,7 @@ Wizard
             },
             {
                 "name": "Lich",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Spell Attack",
                         "to hit": "+12",
@@ -3919,7 +3900,7 @@ Wizard
             },
             {
                 "name": "Lion",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+5",
@@ -3940,7 +3921,7 @@ Wizard
             },
             {
                 "name": "Lizard",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+0",
@@ -3953,7 +3934,7 @@ Wizard
             },
             {
                 "name": "Lizardfolk",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+4",
@@ -3990,7 +3971,7 @@ Wizard
             },
             {
                 "name": "Mage",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee or Ranged Weapon Attack",
                         "to hit": "+5",
@@ -4003,7 +3984,7 @@ Wizard
             },
             {
                 "name": "Magma Mephit",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+3",
@@ -4016,7 +3997,7 @@ Wizard
             },
             {
                 "name": "Magmin",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+4",
@@ -4029,7 +4010,7 @@ Wizard
             },
             {
                 "name": "Mammoth",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+10",
@@ -4050,7 +4031,7 @@ Wizard
             },
             {
                 "name": "Manticore",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+5",
@@ -4079,7 +4060,7 @@ Wizard
             },
             {
                 "name": "Marilith",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+9",
@@ -4100,7 +4081,7 @@ Wizard
             },
             {
                 "name": "Mastiff",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+3",
@@ -4113,7 +4094,7 @@ Wizard
             },
             {
                 "name": "Medusa",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+5",
@@ -4142,7 +4123,7 @@ Wizard
             },
             {
                 "name": "Merfolk",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee or Ranged Weapon Attack",
                         "to hit": "+2",
@@ -4155,7 +4136,7 @@ Wizard
             },
             {
                 "name": "Merrow",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+6",
@@ -4184,7 +4165,7 @@ Wizard
             },
             {
                 "name": "Mimic",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+5",
@@ -4205,7 +4186,7 @@ Wizard
             },
             {
                 "name": "Minotaur",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+6",
@@ -4226,7 +4207,7 @@ Wizard
             },
             {
                 "name": "Minotaur Skeleton",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+6",
@@ -4247,7 +4228,7 @@ Wizard
             },
             {
                 "name": "Mule",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+2",
@@ -4260,7 +4241,7 @@ Wizard
             },
             {
                 "name": "Mummy",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+5",
@@ -4273,7 +4254,7 @@ Wizard
             },
             {
                 "name": "Mummy Lord",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+9",
@@ -4286,7 +4267,7 @@ Wizard
             },
             {
                 "name": "Nalfeshnee",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+10",
@@ -4307,7 +4288,7 @@ Wizard
             },
             {
                 "name": "Night Hag",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+7",
@@ -4320,7 +4301,7 @@ Wizard
             },
             {
                 "name": "Nightmare",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+6",
@@ -4333,7 +4314,7 @@ Wizard
             },
             {
                 "name": "Noble",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+3",
@@ -4346,7 +4327,7 @@ Wizard
             },
             {
                 "name": "Nothic",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+4",
@@ -4359,7 +4340,7 @@ Wizard
             },
             {
                 "name": "Ochre Jelly",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+4",
@@ -4372,7 +4353,7 @@ Wizard
             },
             {
                 "name": "Octopus",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+4",
@@ -4385,7 +4366,7 @@ Wizard
             },
             {
                 "name": "Ogre",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+6",
@@ -4406,7 +4387,7 @@ Wizard
             },
             {
                 "name": "Ogre Zombie",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+6",
@@ -4419,7 +4400,7 @@ Wizard
             },
             {
                 "name": "Oni",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+7",
@@ -4440,7 +4421,7 @@ Wizard
             },
             {
                 "name": "Orc",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+5",
@@ -4461,7 +4442,7 @@ Wizard
             },
             {
                 "name": "Otyugh",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+6",
@@ -4482,7 +4463,7 @@ Wizard
             },
             {
                 "name": "Owl",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+3",
@@ -4495,7 +4476,7 @@ Wizard
             },
             {
                 "name": "Owlbear",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+7",
@@ -4516,7 +4497,7 @@ Wizard
             },
             {
                 "name": "Panther",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+4",
@@ -4537,7 +4518,7 @@ Wizard
             },
             {
                 "name": "Pegasus",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+6",
@@ -4550,7 +4531,7 @@ Wizard
             },
             {
                 "name": "Phase Spider",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+4",
@@ -4563,7 +4544,7 @@ Wizard
             },
             {
                 "name": "Pit Fiend",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+14",
@@ -4600,7 +4581,7 @@ Wizard
             },
             {
                 "name": "Planetar",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+12",
@@ -4613,7 +4594,7 @@ Wizard
             },
             {
                 "name": "Plesiosaurus",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+6",
@@ -4626,7 +4607,7 @@ Wizard
             },
             {
                 "name": "Poisonous Snake",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+5",
@@ -4639,7 +4620,7 @@ Wizard
             },
             {
                 "name": "Polar Bear",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+7",
@@ -4660,7 +4641,7 @@ Wizard
             },
             {
                 "name": "Pony",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+4",
@@ -4673,7 +4654,7 @@ Wizard
             },
             {
                 "name": "Priest",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+2",
@@ -4686,7 +4667,7 @@ Wizard
             },
             {
                 "name": "Pseudodragon",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+4",
@@ -4707,7 +4688,7 @@ Wizard
             },
             {
                 "name": "Pteranodon",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+3",
@@ -4720,7 +4701,7 @@ Wizard
             },
             {
                 "name": "Purple Worm",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+9",
@@ -4743,7 +4724,7 @@ Wizard
 [
             {
                 "name": "Bael",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+13",
@@ -4756,7 +4737,7 @@ Wizard
             },
             {
                 "name": "Balhannoth",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+7",
@@ -4777,7 +4758,7 @@ Wizard
             },
             {
                 "name": "Banderhobb",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+8",
@@ -4806,7 +4787,7 @@ Wizard
             },
             {
                 "name": "Baphomet",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+17",
@@ -4835,7 +4816,7 @@ Wizard
             },
             {
                 "name": "Barghest",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+6",
@@ -4856,7 +4837,7 @@ Wizard
             },
             {
                 "name": "Blackguard",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+9",
@@ -4869,7 +4850,7 @@ Wizard
             },
             {
                 "name": "Blood Drinker Vampire",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+9",
@@ -4890,7 +4871,7 @@ Wizard
             },
             {
                 "name": "Blood Witch",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+3",
@@ -4903,7 +4884,7 @@ Wizard
             },
             {
                 "name": "Bloodfray Giant",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+10",
@@ -4924,7 +4905,7 @@ Wizard
             },
             {
                 "name": "Bone Naga",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+5",
@@ -4945,7 +4926,7 @@ Wizard
             },
             {
                 "name": "Bounty Hunter",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+5",
@@ -4974,7 +4955,7 @@ Wizard
             },
             {
                 "name": "Brontosaurus",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+8",
@@ -4987,7 +4968,7 @@ Wizard
             },
             {
                 "name": "Battleforce Angel",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+9",
@@ -5000,7 +4981,7 @@ Wizard
             },
             {
                 "name": "Belial",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+14",
@@ -5021,7 +5002,7 @@ Wizard
             },
             {
                 "name": "Bodak",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+5",
@@ -5034,7 +5015,7 @@ Wizard
             },
             {
                 "name": "Young Lunar Dragon",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+9",
@@ -5055,7 +5036,7 @@ Wizard
             },
             {
                 "name": "Adult Moonstone Dragon",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+12",
@@ -5076,7 +5057,7 @@ Wizard
             },
             {
                 "name": "Adult Red Dracolich",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+14",
@@ -5097,7 +5078,7 @@ Wizard
             },
             {
                 "name": "Adult Sapphire Dragon",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+12",
@@ -5118,7 +5099,7 @@ Wizard
             },
             {
                 "name": "Adult Solar Dragon",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+14",
@@ -5139,7 +5120,7 @@ Wizard
             },
             {
                 "name": "Adult Time Dragon",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+13",
@@ -5160,7 +5141,7 @@ Wizard
             },
             {
                 "name": "Ancient Dragon Turtle",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+16",
@@ -5181,7 +5162,7 @@ Wizard
             },
             {
                 "name": "Ancient Emerald Dragon",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+16",
@@ -5202,7 +5183,7 @@ Wizard
             },
             {
                 "name": "Bard",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+4",
@@ -5215,7 +5196,7 @@ Wizard
             },
             {
                 "name": "Barlgura",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+7",
@@ -5236,7 +5217,7 @@ Wizard
             },
             {
                 "name": "Ancient Lunar Dragon",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+14",
@@ -5265,7 +5246,7 @@ Wizard
             },
             {
                 "name": "Ancient Sapphire Dragon",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+15",
@@ -5286,7 +5267,7 @@ Wizard
             },
             {
                 "name": "Ancient Sea Serpent",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+12",
@@ -5315,7 +5296,7 @@ Wizard
             },
             {
                 "name": "Ancient Solar Dragon",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+16",
@@ -5344,7 +5325,7 @@ Wizard
             },
             {
                 "name": "Anhkolox",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+10",
@@ -5365,7 +5346,7 @@ Wizard
             },
             {
                 "name": "Arch-hag",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee or Ranged Attack Roll",
                         "to hit": "+14",
@@ -5378,7 +5359,7 @@ Wizard
             },
             {
                 "name": "Archpriest",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee or Ranged Attack Roll",
                         "to hit": "+9",
@@ -5391,7 +5372,7 @@ Wizard
             },
             {
                 "name": "Ancient Time Dragon",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+17",
@@ -5420,7 +5401,7 @@ Wizard
             },
             {
                 "name": "Android",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+6",
@@ -5441,7 +5422,7 @@ Wizard
             },
             {
                 "name": "Animal Lord",
-                attacks: [
+                "attacks": [
                     {
                         "type": "Melee Weapon Attack",
                         "to hit": "+7",
