@@ -30,16 +30,16 @@ const monsters = [
       "Tentacle": {
         type: "Melee Weapon Attack",
         "to hit": "+9",
-        "reach": "10 ft.",
-        "target": "one target",
-        "hit": "12 (2d6 + 5)",
+        reach: "10 ft.",
+        target: "one target",
+        hit: "12 (2d6 + 5)",
         "damage type": "bludgeoning"},
       "Tail": {
         type: "Melee Weapon Attack",
         "to hit": "+9",
-        "reach": "10 ft.",
-        "target": "one target",
-        "hit": "15 (3d6 + 5)",
+        reach: "10 ft.",
+        target: "one target",
+        hit: "15 (3d6 + 5)",
         "damage type": "bludgeoning"
       },
       "Enslave": {
@@ -81,9 +81,9 @@ const monsters = [
       "Club": {
         type: "Melee Weapon Attack",
         "to hit": "+2",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "2 (1d4)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "2 (1d4)",
         "damage type": "bludgeoning"
       }
     },
@@ -121,26 +121,26 @@ const monsters = [
       "Bite": {
         type: "Melee Weapon Attack",
         "to hit": "+11",
-        "reach": "10 ft.",
-        "target": "one target",
-        "hit": "17 (2d10 + 6)",
+        reach: "10 ft.",
+        target: "one target",
+        hit: "17 (2d10 + 6)",
         "hit plus": "4 (1d8)",
         "damage type": "piercing and acid"
       },
       "Claw": {
         type: "Melee Weapon Attack",
         "to hit": "+11",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "13 (2d6 + 6)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "13 (2d6 + 6)",
         "damage type": "slashing"
       },
       "Tail": {
         type: "Melee Weapon Attack",
         "to hit": "+11",
-        "reach": "15 ft.",
-        "target": "one target",
-        "hit": "15 (2d8 + 6)",
+        reach: "15 ft.",
+        target: "one target",
+        hit: "15 (2d8 + 6)",
         "damage type": "bludgeoning"
       },
       "Frightful Presence": {
@@ -196,26 +196,26 @@ const monsters = [
       "Bite": {
         type: "Melee Weapon Attack",
         "to hit": "+12",
-        "reach": "10 ft.",
-        "target": "one target",
-        "hit": "18 (2d10 + 7)",
+        reach: "10 ft.",
+        target: "one target",
+        hit: "18 (2d10 + 7)",
         "hit plus": "5 (1d10)",
         "damage type": "piercing and lightning"
       },
       "Claw": {
         type: "Melee Weapon Attack",
         "to hit": "+12",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "14 (2d6 + 7)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "14 (2d6 + 7)",
         "damage type": "slashing"
       },
       "Tail": {
         type: "Melee Weapon Attack",
         "to hit": "+12",
-        "reach": "15 ft.",
-        "target": "one target",
-        "hit": "16 (2d8 + 7)",
+        reach: "15 ft.",
+        target: "one target",
+        hit: "16 (2d8 + 7)",
         "damage type": "bludgeoning"
       },
       "Frightful Presence": {
@@ -271,9 +271,9 @@ const monsters = [
       "Bite": {
         type: "Melee Weapon Attack",
         "to hit": "+11",
-        "reach": "10 ft.",
-        "target": "one target",
-        "hit": "17 (2d10 + 6)",
+        reach: "10 ft.",
+        target: "one target",
+        hit: "17 (2d10 + 6)",
       },
       "Claw": {
 
@@ -315,25 +315,25 @@ const monsters = [
   {
     "type": "Melee Weapon Attack",
     "to hit": "+12",
-    "reach": "10 ft.",
-    "target": "one target",
-    "hit": "18 (2d10 + 7)",
+    reach: "10 ft.",
+    target: "one target",
+    hit: "18 (2d10 + 7)",
     "damage type": "piercing"
   },
   {
     "type": "Melee Weapon Attack",
     "to hit": "+12",
-    "reach": "5 ft.",
-    "target": "one target",
-    "hit": "14 (2d6 + 7)",
+    reach: "5 ft.",
+    target: "one target",
+    hit: "14 (2d6 + 7)",
     "damage type": "slashing"
   },
   {
     "type": "Melee Weapon Attack",
     "to hit": "+12",
-    "reach": "15 ft.",
-    "target": "one target",
-    "hit": "16 (2d8 + 7)",
+    reach: "15 ft.",
+    target: "one target",
+    hit: "16 (2d8 + 7)",
     "damage type": "bludgeoning"
   }
 ],
@@ -373,25 +373,25 @@ const monsters = [
   {
     "type": "Melee Weapon Attack",
     "to hit": "+11",
-    "reach": "10 ft.",
-    "target": "one target",
-    "hit": "17 (2d10 + 6)",
+    reach: "10 ft.",
+    target: "one target",
+    hit: "17 (2d10 + 6)",
     "damage type": "piercing"
   },
   {
     "type": "Melee Weapon Attack",
     "to hit": "+11",
-    "reach": "5 ft.",
-    "target": "one target",
-    "hit": "13 (2d6 + 6)",
+    reach: "5 ft.",
+    target: "one target",
+    hit: "13 (2d6 + 6)",
     "damage type": "slashing"
   },
   {
     "type": "Melee Weapon Attack",
     "to hit": "+11",
-    "reach": "15 ft.",
-    "target": "one target",
-    "hit": "15 (2d8 + 6)",
+    reach: "15 ft.",
+    target: "one target",
+    hit: "15 (2d8 + 6)",
     "damage type": "bludgeoning"
   }
 ],
@@ -431,25 +431,25 @@ const monsters = [
   {
     "type": "Melee Weapon Attack",
     "to hit": "+14",
-    "reach": "10 ft.",
-    "target": "one target",
-    "hit": "19 (2d10 + 8)",
+    reach: "10 ft.",
+    target: "one target",
+    hit: "19 (2d10 + 8)",
     "damage type": "piercing"
   },
   {
     "type": "Melee Weapon Attack",
     "to hit": "+14",
-    "reach": "5 ft.",
-    "target": "one target",
-    "hit": "15 (2d6 + 8)",
+    reach: "5 ft.",
+    target: "one target",
+    hit: "15 (2d6 + 8)",
     "damage type": "slashing"
   },
   {
     "type": "Melee Weapon Attack",
     "to hit": "+14",
-    "reach": "15 ft.",
-    "target": "one target",
-    "hit": "17 (2d8 + 8)",
+    reach: "15 ft.",
+    target: "one target",
+    hit: "17 (2d8 + 8)",
     "damage type": "bludgeoning"
   }
 ],
@@ -490,25 +490,25 @@ const monsters = [
   {
     "type": "Melee Weapon Attack",
     "to hit": "+11",
-    "reach": "10 ft.",
-    "target": "one target",
-    "hit": "17 (2d10 + 6)",
+    reach: "10 ft.",
+    target: "one target",
+    hit: "17 (2d10 + 6)",
     "damage type": "piercing, poison"
   },
   {
     "type": "Melee Weapon Attack",
     "to hit": "+11",
-    "reach": "5 ft.",
-    "target": "one target",
-    "hit": "13 (2d6 + 6)",
+    reach: "5 ft.",
+    target: "one target",
+    hit: "13 (2d6 + 6)",
     "damage type": "slashing"
   },
   {
     "type": "Melee Weapon Attack",
     "to hit": "+11",
-    "reach": "15 ft.",
-    "target": "one target",
-    "hit": "15 (2d8 + 6)",
+    reach: "15 ft.",
+    target: "one target",
+    hit: "15 (2d8 + 6)",
     "damage type": "bludgeoning"
   }
 ],
@@ -547,25 +547,25 @@ const monsters = [
   {
     "type": "Melee Weapon Attack",
     "to hit": "+14",
-    "reach": "10 ft.",
-    "target": "one target",
-    "hit": "19 (2d10 + 8)",
+    reach: "10 ft.",
+    target: "one target",
+    hit: "19 (2d10 + 8)",
     "damage type": "piercing, fire"
   },
   {
     "type": "Melee Weapon Attack",
     "to hit": "+14",
-    "reach": "5 ft.",
-    "target": "one target",
-    "hit": "15 (2d6 + 8)",
+    reach: "5 ft.",
+    target: "one target",
+    hit: "15 (2d6 + 8)",
     "damage type": "slashing"
   },
   {
     "type": "Melee Weapon Attack",
     "to hit": "+14",
-    "reach": "15 ft.",
-    "target": "one target",
-    "hit": "17 (2d8 + 8)",
+    reach: "15 ft.",
+    target: "one target",
+    hit: "17 (2d8 + 8)",
     "damage type": "bludgeoning"
   }
 ]
@@ -604,25 +604,25 @@ const monsters = [
   {
     "type": "Melee Weapon Attack",
     "to hit": "+13",
-    "reach": "10 ft.",
-    "target": "one target",
-    "hit": "19 (2d10 + 8)",
+    reach: "10 ft.",
+    target: "one target",
+    hit: "19 (2d10 + 8)",
     "damage type": "piercing"
   },
   {
     "type": "Melee Weapon Attack",
     "to hit": "+13",
-    "reach": "5 ft.",
-    "target": "one target",
-    "hit": "15 (2d6 + 8)",
+    reach: "5 ft.",
+    target: "one target",
+    hit: "15 (2d6 + 8)",
     "damage type": "slashing"
   },
   {
     "type": "Melee Weapon Attack",
     "to hit": "+13",
-    "reach": "15 ft.",
-    "target": "one target",
-    "hit": "17 (2d8 + 8)",
+    reach: "15 ft.",
+    target: "one target",
+    hit: "17 (2d8 + 8)",
     "damage type": "bludgeoning"
   }
 ],
@@ -661,25 +661,25 @@ const monsters = [
   {
     "type": "Melee Weapon Attack",
     "to hit": "+11",
-    "reach": "10 ft.",
-    "target": "one target",
-    "hit": "17 (2d10 + 6)",
+    reach: "10 ft.",
+    target: "one target",
+    hit: "17 (2d10 + 6)",
     "damage type": "piercing, cold"
   },
   {
     "type": "Melee Weapon Attack",
     "to hit": "+11",
-    "reach": "5 ft.",
-    "target": "one target",
-    "hit": "13 (2d6 + 6)",
+    reach: "5 ft.",
+    target: "one target",
+    hit: "13 (2d6 + 6)",
     "damage type": "slashing"
   },
   {
     "type": "Melee Weapon Attack",
     "to hit": "+11",
-    "reach": "15 ft.",
-    "target": "one target",
-    "hit": "15 (2d8 + 6)",
+    reach: "15 ft.",
+    target: "one target",
+    hit: "15 (2d8 + 6)",
     "damage type": "bludgeoning"
   }
 ],
@@ -720,9 +720,9 @@ const monsters = [
   {
     "type": "Melee Weapon Attack",
     "to hit": "+8",
-    "reach": "5 ft.",
-    "target": "one target",
-    "hit": "14 (2d8 + 5)",
+    reach: "5 ft.",
+    target: "one target",
+    hit: "14 (2d8 + 5)",
     "damage type": "bludgeoning"
   }
 ],
@@ -757,17 +757,17 @@ const monsters = [
   {
     "type": "Melee Weapon Attack",
     "to hit": "+6",
-    "reach": "5 ft.",
-    "target": "one target",
-    "hit": "15 (2d10 + 4)",
+    reach: "5 ft.",
+    target: "one target",
+    hit: "15 (2d10 + 4)",
     "damage type": "piercing"
   },
   {
     "type": "Melee Weapon Attack",
     "to hit": "+6",
-    "reach": "5 ft.",
-    "target": "one target",
-    "hit": "8 (1d8 + 4)",
+    reach: "5 ft.",
+    target: "one target",
+    hit: "8 (1d8 + 4)",
     "damage type": "slashing"
   }
 ],
@@ -804,25 +804,25 @@ const monsters = [
   {
     "type": "Melee Weapon Attack",
     "to hit": "+15",
-    "reach": "15 ft.",
-    "target": "one target",
-    "hit": "19 (2d10 + 8)",
+    reach: "15 ft.",
+    target: "one target",
+    hit: "19 (2d10 + 8)",
     "damage type": "piercing, acid"
   },
   {
     "type": "Melee Weapon Attack",
     "to hit": "+15",
-    "reach": "10 ft.",
-    "target": "one target",
-    "hit": "15 (2d6 + 8)",
+    reach: "10 ft.",
+    target: "one target",
+    hit: "15 (2d6 + 8)",
     "damage type": "slashing"
   },
   {
     "type": "Melee Weapon Attack",
     "to hit": "+15",
-    "reach": "20 ft.",
-    "target": "one target",
-    "hit": "17 (2d8 + 8)",
+    reach: "20 ft.",
+    target: "one target",
+    hit: "17 (2d8 + 8)",
     "damage type": "bludgeoning"
   }
 ],
@@ -865,25 +865,25 @@ const monsters = [
   {
     "type": "Melee Weapon Attack",
     "to hit": "+16",
-    "reach": "15 ft.",
-    "target": "one target",
-    "hit": "20 (2d10 + 9)",
+    reach: "15 ft.",
+    target: "one target",
+    hit: "20 (2d10 + 9)",
     "damage type": "piercing, lightning"
   },
   {
     "type": "Melee Weapon Attack",
     "to hit": "+16",
-    "reach": "10 ft.",
-    "target": "one target",
-    "hit": "16 (2d6 + 9)",
+    reach: "10 ft.",
+    target: "one target",
+    hit: "16 (2d6 + 9)",
     "damage type": "slashing"
   },
   {
     "type": "Melee Weapon Attack",
     "to hit": "+16",
-    "reach": "20 ft.",
-    "target": "one target",
-    "hit": "18 (2d8 + 9)",
+    reach: "20 ft.",
+    target: "one target",
+    hit: "18 (2d8 + 9)",
     "damage type": "bludgeoning"
   }
 ],
@@ -926,25 +926,25 @@ const monsters = [
   {
     "type": "Melee Weapon Attack",
     "to hit": "+14",
-    "reach": "15 ft.",
-    "target": "one target",
-    "hit": "19 (2d10 + 8)",
+    reach: "15 ft.",
+    target: "one target",
+    hit: "19 (2d10 + 8)",
     "damage type": "piercing"
   },
   {
     "type": "Melee Weapon Attack",
     "to hit": "+14",
-    "reach": "10 ft.",
-    "target": "one target",
-    "hit": "15 (2d6 + 8)",
+    reach: "10 ft.",
+    target: "one target",
+    hit: "15 (2d6 + 8)",
     "damage type": "slashing"
   },
   {
     "type": "Melee Weapon Attack",
     "to hit": "+14",
-    "reach": "20 ft.",
-    "target": "one target",
-    "hit": "17 (2d8 + 8)",
+    reach: "20 ft.",
+    target: "one target",
+    hit: "17 (2d8 + 8)",
     "damage type": "bludgeoning"
   }
 ],
@@ -984,25 +984,25 @@ const monsters = [
   {
     "type": "Melee Weapon Attack",
     "to hit": "+16",
-    "reach": "15 ft.",
-    "target": "one target",
-    "hit": "20 (2d10 + 9)",
+    reach: "15 ft.",
+    target: "one target",
+    hit: "20 (2d10 + 9)",
     "damage type": "piercing"
   },
   {
     "type": "Melee Weapon Attack",
     "to hit": "+16",
-    "reach": "10 ft.",
-    "target": "one target",
-    "hit": "16 (2d6 + 9)",
+    reach: "10 ft.",
+    target: "one target",
+    hit: "16 (2d6 + 9)",
     "damage type": "slashing"
   },
   {
     "type": "Melee Weapon Attack",
     "to hit": "+16",
-    "reach": "20 ft.",
-    "target": "one target",
-    "hit": "18 (2d8 + 9)",
+    reach: "20 ft.",
+    target: "one target",
+    hit: "18 (2d8 + 9)",
     "damage type": "bludgeoning"
   }
 ],
@@ -1042,25 +1042,25 @@ const monsters = [
   {
     "type": "Melee Weapon Attack",
     "to hit": "+15",
-    "reach": "15 ft.",
-    "target": "one target",
-    "hit": "19 (2d10 + 8)",
+    reach: "15 ft.",
+    target: "one target",
+    hit: "19 (2d10 + 8)",
     "damage type": "piercing"
   },
   {
     "type": "Melee Weapon Attack",
     "to hit": "+15",
-    "reach": "10 ft.",
-    "target": "one target",
-    "hit": "15 (2d6 + 8)",
+    reach: "10 ft.",
+    target: "one target",
+    hit: "15 (2d6 + 8)",
     "damage type": "slashing"
   },
   {
     "type": "Melee Weapon Attack",
     "to hit": "+15",
-    "reach": "20 ft.",
-    "target": "one target",
-    "hit": "17 (2d8 + 8)",
+    reach: "20 ft.",
+    target: "one target",
+    hit: "17 (2d8 + 8)",
     "damage type": "bludgeoning"
   }
 ],
@@ -1100,25 +1100,25 @@ const monsters = [
 {
 "type": "Melee Weapon Attack",
 "to hit": "+17",
-"reach": "15 ft.",
-"target": "one target",
-"hit": "21 (2d10 + 10)",
+reach: "15 ft.",
+target: "one target",
+hit: "21 (2d10 + 10)",
 "damage type": "piercing"
 },
 {
 "type": "Melee Weapon Attack",
 "to hit": "+17",
-"reach": "10 ft.",
-"target": "one target",
-"hit": "17 (2d6 + 10)",
+reach: "10 ft.",
+target: "one target",
+hit: "17 (2d6 + 10)",
 "damage type": "slashing"
 },
 {
 "type": "Melee Weapon Attack",
 "to hit": "+17",
-"reach": "20 ft.",
-"target": "one target",
-"hit": "19 (2d8 + 10)",
+reach: "20 ft.",
+target: "one target",
+hit: "19 (2d8 + 10)",
 "damage type": "bludgeoning"
 }
 ],
@@ -1159,25 +1159,25 @@ const monsters = [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+15",
-                    "reach": "15 ft.",
-                    "target": "one target",
-                    "hit": "19 (2d10 + 8)",
+                    reach: "15 ft.",
+                    target: "one target",
+                    hit: "19 (2d10 + 8)",
                     "damage type": "piercing, poison"
                 },
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+15",
-                    "reach": "10 ft.",
-                    "target": "one target",
-                    "hit": "22 (4d6 + 8)",
+                    reach: "10 ft.",
+                    target: "one target",
+                    hit: "22 (4d6 + 8)",
                     "damage type": "slashing"
                 },
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+15",
-                    "reach": "20 ft.",
-                    "target": "one target",
-                    "hit": "17 (2d8 + 8)",
+                    reach: "20 ft.",
+                    target: "one target",
+                    hit: "17 (2d8 + 8)",
                     "damage type": "bludgeoning"
                 }
             ],
@@ -1216,25 +1216,25 @@ const monsters = [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+17",
-                    "reach": "15 ft.",
-                    "target": "one target",
-                    "hit": "21 (2d10 + 10)",
+                    reach: "15 ft.",
+                    target: "one target",
+                    hit: "21 (2d10 + 10)",
                     "damage type": "piercing, fire"
                 },
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+17",
-                    "reach": "10 ft.",
-                    "target": "one target",
-                    "hit": "17 (2d6 + 10)",
+                    reach: "10 ft.",
+                    target: "one target",
+                    hit: "17 (2d6 + 10)",
                     "damage type": "slashing"
                 },
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+17",
-                    "reach": "20 ft.",
-                    "target": "one target",
-                    "hit": "19 (2d8 + 10)",
+                    reach: "20 ft.",
+                    target: "one target",
+                    hit: "19 (2d8 + 10)",
                     "damage type": "bludgeoning"
                 }
             ],
@@ -1273,25 +1273,25 @@ const monsters = [
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+17",
-                    "reach": "15 ft.",
-                    "target": "one target",
-                    "hit": "21 (2d10 + 10)",
+                    reach: "15 ft.",
+                    target: "one target",
+                    hit: "21 (2d10 + 10)",
                     "damage type": "piercing"
                 },
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+17",
-                    "reach": "10 ft.",
-                    "target": "one target",
-                    "hit": "17 (2d6 + 10)",
+                    reach: "10 ft.",
+                    target: "one target",
+                    hit: "17 (2d6 + 10)",
                     "damage type": "slashing"
                 },
                 {
                     "type": "Melee Weapon Attack",
                     "to hit": "+17",
-                    "reach": "20 ft.",
-                    "target": "one target",
-                    "hit": "19 (2d8 + 10)",
+                    reach: "20 ft.",
+                    target: "one target",
+                    hit: "19 (2d8 + 10)",
                     "damage type": "bludgeoning"
                 }
             ],
@@ -1326,32 +1326,32 @@ const monsters = [
     traits:
       "<p><em><strong>Ice Walk.</strong></em> The dragon can move across and climb icy surfaces without needing to make an ability check. Additionally, difficult terrain composed of ice or snow doesn't cost it extra movement.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
     "number of attacks": 3,
-    attacks: [
-                {
+    attacks: {
+               "Bite": {
                     "type": "Melee Weapon Attack",
                     "to hit": "+14",
-                    "reach": "15 ft.",
-                    "target": "one target",
-                    "hit": "19 (2d10 + 8)",
+                    reach: "15 ft.",
+                    target: "one target",
+                    hit: "19 (2d10 + 8)",
                     "damage type": "piercing, cold"
                 },
-                {
+               "Claw": {
                     "type": "Melee Weapon Attack",
                     "to hit": "+14",
-                    "reach": "10 ft.",
-                    "target": "one target",
-                    "hit": "15 (2d6 + 8)",
+                    reach: "10 ft.",
+                    target: "one target",
+                    hit: "15 (2d6 + 8)",
                     "damage type": "slashing"
                 },
-                {
+               "Tail": {
                     "type": "Melee Weapon Attack",
                     "to hit": "+14",
-                    "reach": "20 ft.",
-                    "target": "one target",
-                    "hit": "17 (2d8 + 8)",
+                    reach: "20 ft.",
+                    target: "one target",
+                    hit: "17 (2d8 + 8)",
                     "damage type": "bludgeoning"
                 }
-            ],
+              },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 15 ft. one target. <em>Hit:</em> 19 (2d10 + 8) piercing damage plus 9 (2d8) cold damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 10 ft. one target. <em>Hit:</em> 15 (2d6 + 8) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 20 ft. one target. <em>Hit:</em> 17 (2d8 + 8) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 16 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Cold Breath (Recharge 5–6).</strong></em> The dragon exhales an icy blast in a 90-foot cone. Each creature in that area must make a DC 22 Constitution saving throw, taking 72 (16d8) cold damage on a failed save, or half as much damage on a successful one.</p>",
     "legendary actions":
@@ -1386,16 +1386,16 @@ const monsters = [
     traits:
       "<p><em><strong>Inscrutable.</strong></em> The sphinx is immune to any effect that would sense its emotions or read its thoughts, as well as any divination spell that it refuses. Wisdom (Insight) checks made to ascertain the sphinx's intentions or sincerity have disadvantage.</p><p><em><strong>Magic Weapons.</strong></em> The sphinx's weapon attacks are magical.</p><p><em><strong>Spellcasting.</strong></em> The sphinx is a 12th-level spellcaster. Its spellcasting ability is Wisdom (spell save DC 18, +10 to hit with spell attacks). It requires no material components to cast its spells. The sphinx has the following cleric spells prepared: </p><p>Cantrips (at will): sacred flame, spare the dying, thaumaturgy </p><p>1st level (4 slots): command, detect evil and good, detect magic </p><p>2nd level (3 slots): lesser restoration, zone of truth </p><p>3rd level (3 slots): dispel magic, tongues </p><p>4th level (3 slots): banishment, freedom of movement </p><p>5th level (2 slots): flame strike, greater restoration </p><p>6th level (1 slot): heroes' feast</p>",
     "number of attacks": 2,
-    attacks: [
-                {
+    attacks: {
+               "Claw": {
                     "type": "Melee Weapon Attack",
                     "to hit": "+12",
-                    "reach": "5 ft.",
-                    "target": "one target",
-                    "hit": "17 (2d10 + 6)",
+                    reach: "5 ft.",
+                    target: "one target",
+                    hit: "17 (2d10 + 6)",
                     "damage type": "slashing"
                 }
-            ],
+              },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The sphinx makes two claw attacks.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +12 to hit, reach 5 ft. one target. <em>Hit:</em> 17 (2d10 + 6) slashing damage.</p><p><em><strong>Roar (3/Day).</strong></em> The sphinx emits a magical roar. Each time it roars before finishing a long rest, the roar is louder and the effect is different, as detailed below. Each creature within 500 feet of the sphinx and able to hear the roar must make a saving throw.</p><p><em><strong>First Roar.</strong></em> Each creature that fails a DC 18 Wisdom saving throw is frightened for 1 minute. A frightened creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p><p><em><strong>Second Roar.</strong></em> Each creature that fails a DC 18 Wisdom saving throw is deafened and frightened for 1 minute. A frightened creature is paralyzed and can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p><p><em><strong>Third Roar.</strong></em> Each creature makes a DC 18 Constitution saving throw. On a failed save, a creature takes 44 (8d10) thunder damage and is knocked prone. On a successful save, the creature takes half as much damage and isn't knocked prone.</p>",
     "legendary actions":
@@ -1426,16 +1426,16 @@ const monsters = [
     traits:
       "<p><em><strong>Antimagic Susceptibility.</strong></em> The armor is incapacitated while in the area of an antimagic field. If targeted by dispel magic, the armor must succeed on a Constitution saving throw against the caster's spell save DC or fall unconscious for 1 minute.</p><p><em><strong>False Appearance.</strong></em> While the armor remains motionless, it is indistinguishable from a normal suit of armor.</p>",
     "number of attacks": 2,
-    attacks: [
-                {
+    attacks: {
+               "Slam": {
                     "type": "Melee Weapon Attack",
                     "to hit": "+4",
-                    "reach": "5 ft.",
-                    "target": "one target",
-                    "hit": "5 (1d6 + 2)",
+                    reach: "5 ft.",
+                    target: "one target",
+                    hit: "5 (1d6 + 2)",
                     "damage type": "bludgeoning"
                 }
-            ],
+              },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The armor makes two melee attacks.</p><p><em><strong>Slam.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft. one target. <em>Hit:</em> 5 (1d6 + 2) bludgeoning damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/8/429/1000/1000/636306156895834255.jpeg",
@@ -1460,16 +1460,16 @@ const monsters = [
     languages: ["N/A"],
     challenge: "2 (450 XP)",
     "number of attacks": 1, 
-    attacks: [
-                {
+    attacks: {
+               "Bite": {
                     "type": "Melee Weapon Attack",
                     "to hit": "+5",
-                    "reach": "5 ft.",
-                    "target": "one target",
-                    "hit": "10 (2d6 + 3)",
+                    reach: "5 ft.",
+                    target: "one target",
+                    hit: "10 (2d6 + 3)",
                     "damage type": "slashing, acid"
                 }
-            ],
+              },
     actions:
       "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft. one target. <em>Hit:</em> 10 (2d6 + 3) slashing damage plus 3 (1d6) acid damage. If the target is a Large or smaller creature, it is grappled (escape DC 13). Until this grapple ends, the ankheg can bite only the grappled creature and has advantage on attack rolls to do so.</p><p><em><strong>Acid Spray (Recharge 6).</strong></em> The ankheg spits acid in a line that is 30 feet long and 5 feet wide, provided that it has no creature grappled. Each creature in that line must make a DC 13 Dexterity saving throw, taking 10 (3d6) acid damage on a failed save, or half as much damage on a successful one.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/161/315/315/636252759871983921.jpeg",
@@ -1493,19 +1493,19 @@ const monsters = [
     senses: "Passive Perception 11",
     languages: ["N/A"],
     challenge: "3 (700 XP)",
-    "number of attacks": 1, 
-    attacks: [
-                {
+    "number of attacks": 2, 
+    attacks: {
+               "Tail": {
                     "type": "Melee Weapon Attack",
-                    "to hit": "+7",
-                    "reach": "10 ft.",
-                    "target": "one target",
-                    "hit": "18 (4d6 + 4)",
+                    "to hit": "+6",
+                    reach: "10 ft.",
+                    target: "one target",
+                    hit: "8 (1d10 + 4)",
                     "damage type": "bludgeoning"
                 }
-            ],
+              },
     actions:
-      "<p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 10 ft. one target. <em>Hit:</em> 18 (4d6 + 4) bludgeoning damage. If the target is a creature, it must succeed on a DC 14 Strength saving throw or be knocked prone.</p>",
+    "<p><em><strong>Multiattack.</strong></em> The ankylosaurus makes two tail attacks.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 10 ft., one target. Hit: (1d10 + 4) Bludgeoning damage. If the target is a Huge or smaller creature, it has the Prone condition.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/attachments/2/648/beast.jpg",
   },
   {
@@ -1529,24 +1529,24 @@ const monsters = [
     languages: ["N/A"],
     challenge: "1/2 (100 XP)",
     "number of attacks": 2,
-    attacks: [
-                {
+    attacks: {
+               "Fist": {
                     "type": "Melee Weapon Attack",
                     "to hit": "+5",
-                    "reach": "5 ft.",
-                    "target": "one target",
-                    "hit": "6 (1d6 + 3)",
+                    reach: "5 ft.",
+                    target: "one target",
+                    hit: "6 (1d6 + 3)",
                     "damage type": "bludgeoning"
                 },
-                {
+               "Rock": {
                     "type": "Ranged Weapon Attack",
                     "to hit": "+5",
-                    "reach": "N/A",
-                    "target": "one target",
-                    "hit": "6 (1d6 + 3)",
+                    reach: "N/A",
+                    target: "one target",
+                    hit: "6 (1d6 + 3)",
                     "damage type": "bludgeoning"
                 }
-            ],
+              },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The ape makes two fist attacks.</p><p><em><strong>Fist.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft. one target. <em>Hit:</em> 6 (1d6 + 3) bludgeoning damage.</p><p><em><strong>Rock.</strong></em> <em>Ranged Weapon Attack:</em> +5 to hit, range 25/50 ft. one target. <em>Hit:</em> 6 (1d6 + 3) bludgeoning damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/attachments/2/648/beast.jpg",
@@ -1575,24 +1575,24 @@ const monsters = [
     traits:
       "<p><em><strong>Magic Resistance.</strong></em> The archmage has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Spellcasting.</strong></em> The archmage is an 18th-level spellcaster. Its spellcasting ability is Intelligence (spell save DC 17, +9 to hit with spell attacks). The archmage can cast disguise self and invisibility at will and has the following wizard spells prepared:</p><p>Cantrips (at will): fire bolt, light, mage hand, prestidigitation, shocking grasp</p><p>1st level (4 slots): detect magic, identify, mage armor, magic missile</p><p>2nd level (3 slots): detect thoughts, mirror image, misty step</p><p>3rd level (3 slots): counterspell, fly, lightning bolt</p><p>4th level (3 slots): banishment, fire shield, stoneskin</p><p>5th level (3 slots): cone of cold, scrying, wall of force</p><p>6th level (1 slot): globe of invulnerability</p><p>7th level (1 slot): teleport</p><p>8th level (1 slot): mind blank</p><p>9th level (1 slot): time stop</p><p>*The archmage casts mind blank, stoneskin and mage armor spells on itself before combat.</p>",
     "number of attacks": 1, 
-    attacks: [
-                {
+    attacks: {
+              "Dagger":  {
                     "type": "Melee Weapon Attack",
                     "to hit": "+6",
-                    "reach": "5 ft.",
-                    "target": "one target",
-                    "hit": "4 (1d4 + 2)",
+                    reach: "5 ft.",
+                    target: "one target",
+                    hit: "4 (1d4 + 2)",
                     "damage type": "piercing"
                 },
-                {
+                "Dagger": {
                     "type": "Ranged Weapon Attack",
                     "to hit": "+6",
-                    "reach": "N/A",
-                    "target": "one target",
-                    "hit": "4 (1d4 + 2)",
+                    reach: "N/A",
+                    target: "one target",
+                    hit: "4 (1d4 + 2)",
                     "damage type": "piercing"
                 }
-            ],
+              },
     actions:
       "<p><em><strong>Dagger.</strong></em> <em>Melee or <em>Ranged Weapon Attack:</em></em> +6 to hit, reach 5 ft.or range 20/60 ft. one target. <em>Hit:</em> 4 (1d4 + 2) piercing damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/167/1000/1000/636252760213195530.jpeg",
@@ -1622,24 +1622,24 @@ const monsters = [
     traits:
       "<p><em><strong>Assassinate.</strong></em> During its first turn, the assassin has advantage on attack rolls against any creature that hasn't taken a turn. Any hit the assassin scores against a surprised creature is a critical hit.</p><p><em><strong>Evasion.</strong></em> If the assassin is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, the assassin instead takes no damage if it succeeds on the saving throw, and only half damage if it fails.</p><p><em><strong>Sneak Attack.</strong></em> Once per turn, the assassin deals an extra 14 (4d6) damage when it hits a target with a weapon attack and has advantage on the attack roll, or when the target is within 5 feet of an ally of the assassin that isn't incapacitated and the assassin doesn't have disadvantage on the attack roll.</p>",
     "number of attacks": 2,
-    attacks: [
-                {
+    attacks: {
+               "Shortsword": {
                     "type": "Melee Weapon Attack",
                     "to hit": "+6",
-                    "reach": "5 ft.",
-                    "target": "one target",
-                    "hit": "6 (1d6 + 3)",
+                    reach: "5 ft.",
+                    target: "one target",
+                    hit: "6 (1d6 + 3)",
                     "damage type": "piercing, poison"
                 },
-                {
+               "Light Crossbow": {
                     "type": "Ranged Weapon Attack",
                     "to hit": "+6",
-                    "reach": "N/A",
-                    "target": "one target",
-                    "hit": "7 (1d8 + 3)",
+                    reach: "N/A",
+                    target: "one target",
+                    hit: "7 (1d8 + 3)",
                     "damage type": "piercing, poison"
                 }
-            ],
+              },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The assassin makes two shortsword attacks.</p><p><em><strong>Shortsword.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft. one target. <em>Hit:</em> 6 (1d6 + 3) piercing damage, and the target must make a DC 15 Constitution saving throw, taking 24 (7d6) poison damage on a failed save, or half as much damage on a successful one.</p><p><em><strong>Light Crossbow.</strong></em> <em>Ranged Weapon Attack:</em> +6 to hit, range 80/320 ft. one target. <em>Hit:</em> 7 (1d8 + 3) piercing damage, and the target must make a DC 15 Constitution saving throw, taking 24 (7d6) poison damage on a failed save, or half as much damage on a successful one.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/9/910/315/315/636334293020978804.png",
@@ -1668,15 +1668,16 @@ const monsters = [
     traits:
       "<p><em><strong>False Appearance.</strong></em> While the shrub remains motionless, it is indistinguishable from a normal shrub.</p>",
     "number of attacks": 1,
-    attacks: [
-                {
+    attacks: {
+               "Rake": {
                     "type": "Melee Weapon Attack",
                     "to hit": "+1",
-                    "reach": "5 ft.",
-                    "target": "one target",
-                    "hit": "1 (1d4 − 1)",
+                    reach: "5 ft.",
+                    target: "one target",
+                    hit: "1 (1d4 − 1)",
                     "damage type": "slashing"
-               ,
+                },
+              },
     actions:
       "<p><em><strong>Rake.</strong></em> <em>Melee Weapon Attack:</em> +1 to hit, reach 5 ft. one target. <em>Hit:</em> 1 (1d4 − 1) slashing damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/attachments/2/659/plant.jpg",
@@ -1705,16 +1706,16 @@ const monsters = [
     traits:
       "<p><em><strong>False Appearance.</strong></em> While the tree remains motionless, it is indistinguishable from a normal tree.</p>",
     "number of attacks": 1,
-    attacks: [
-                {
+    attacks: {
+              "Slam": {
                     "type": "Melee Weapon Attack",
                     "to hit": "+6",
-                    "reach": "10 ft.",
-                    "target": "one target",
-                    "hit": "14 (3d6 + 4)",
+                    reach: "10 ft.",
+                    target: "one target",
+                    hit: "14 (3d6 + 4)",
                     "damage type": "bludgeoning"
                 }
-            ],
+              },
     actions:
       "<p><em><strong>Slam.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 10 ft. one target. <em>Hit:</em> 14 (3d6 + 4) bludgeoning damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/attachments/2/659/plant.jpg",
@@ -1739,16 +1740,16 @@ const monsters = [
     languages: ["N/A"],
     challenge: "1/4 (50 XP)",
     "number of attacks": 1,
-    attacks: [
-                {
+    attacks: {
+              "Beak":  {
                     "type": "Melee Weapon Attack",
                     "to hit": "+4",
-                    "reach": "5 ft.",
-                    "target": "one target",
-                    "hit": "6 (1d8 + 2)",
+                    reach: "5 ft.",
+                    target: "one target",
+                    hit: "6 (1d8 + 2)",
                     "damage type": "slashing"
                 }
-            ],
+              },
     actions:
       "<p><em><strong>Beak.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft. one target. <em>Hit:</em> 6 (1d8 + 2) slashing damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/attachments/2/648/beast.jpg",
@@ -1778,16 +1779,16 @@ const monsters = [
     traits:
       "<p><em><strong>Heated Body.</strong></em> A creature that touches the azer or hits it with a melee attack while within 5 feet of it takes 5 (1d10) fire damage.</p><p><em><strong>Heated Weapons.</strong></em> When the azer hits with a metal melee weapon, it deals an extra 3 (1d6) fire damage (included in the attack).</p><p><em><strong>Illumination.</strong></em> The azer sheds bright light in a 10-­foot radius and dim light for an additional 10 feet.</p>",
     "number of attacks": 1,
-    attacks: [
-                {
+    attacks: {
+               "Warhammer": {
                     "type": "Melee Weapon Attack",
                     "to hit": "+5",
-                    "reach": "5 ft.",
-                    "target": "one target",
-                    "hit": "7 (1d8 + 3)",
+                    reach: "5 ft.",
+                    target: "one target",
+                    hit: "7 (1d8 + 3)",
                     "damage type": "bludgeoning, fire"
                 }
-            ],
+              },
     actions:
       "<p><em><strong>Warhammer.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft. one target. <em>Hit:</em> 7 (1d8 + 3) bludgeoning damage, or 8 (1d10 + 3) bludgeoning damage if used with two hands to make a melee attack, plus 3 (1d6) fire damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/171/1000/1000/636252761112348397.jpeg",
@@ -1814,16 +1815,16 @@ const monsters = [
     traits:
       "<p><em><strong>Pack Tactics.</strong></em> The baboon has advantage on an attack roll against a creature if at least one of the baboon's allies is within 5 feet of the creature and the ally isn't incapacitated.</p>",
     "number of attacks": 1,
-    attacks: [
-                {
+    attacks: {
+              "Bite": {
                     "type": "Melee Weapon Attack",
                     "to hit": "+1",
-                    "reach": "5 ft.",
-                    "target": "one target",
-                    "hit": "1 (1d4 − 1)",
+                    reach: "5 ft.",
+                    target: "one target",
+                    hit: "1 (1d4 − 1)",
                     "damage type": "piercing"
                 }
-            ],
+              },
     actions:
       "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +1 to hit, reach 5 ft. one target. <em>Hit:</em> 1 (1d4 − 1) piercing damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/attachments/2/648/beast.jpg",
@@ -1850,16 +1851,16 @@ const monsters = [
     traits:
       "<p><em><strong>Keen Smell.</strong></em> The badger has advantage on Wisdom (Perception) checks that rely on smell.</p>",
     "number of attacks": 1,
-    attacks: [
-                {
+    attacks: {
+              "Bite":{
                     "type": "Melee Weapon Attack",
                     "to hit": "+2",
-                    "reach": "5 ft.",
-                    "target": "one target",
-                    "hit": 1,
+                    reach: "5 ft.",
+                    target: "one target",
+                    hit: 1,
                     "damage type": "piercing"
                 }
-            ],
+              },
     actions:
       "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +2 to hit, reach 5 ft. one target. <em>Hit:</em> 1 piercing damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/16/528/1000/1000/636376327632236333.jpeg",
@@ -1890,7 +1891,24 @@ const monsters = [
     traits:
       "<p><em><strong>Death Throes.</strong></em> When the balor dies, it explodes, and each creature within 30 feet of it must make a DC 20 Dexterity saving throw, taking 70 (20d6) fire damage on a failed save, or half as much damage on a successful one. The explosion ignites flammable objects in that area that aren't being worn or carried, and it destroys the balor's weapons.</p><p><em><strong>Fire Aura.</strong></em> At the start of each of the balor's turns, each creature within 5 feet of it takes 10 (3d6) fire damage, and flammable objects in the aura that aren't being worn or carried ignite. A creature that touches the balor or hits it with a melee attack while within 5 feet of it takes 10 (3d6) fire damage.</p><p><em><strong>Magic Resistance.</strong></em> The balor has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Magic Weapons.</strong></em> The balor's weapon attacks are magical.</p>",
     "number of attacks": 2, 
-    attacks: {},
+    attacks: {
+        "Longsword": {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+14",
+                    reach: "10 ft.",
+                    target: "one target",
+                    hit: "21 (3d8 + 8)",
+                    "damage type": "slashing, lightning"
+                },
+                "Whip":{
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+14",
+                    reach: "30 ft.",
+                    target: "one target",
+                    hit: "15 (2d6 + 8)",
+                    "damage type": "slashing, fire"
+                }
+              },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The balor makes two attacks: one with its longsword and one with its whip.</p><p><em><strong>Longsword.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 10 ft. one target. <em>Hit:</em> 21 (3d8 + 8) slashing damage plus 13 (3d8) lightning damage. If the balor scores a critical hit, it rolls damage dice three times, instead of twice.</p><p><em><strong>Whip.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 30 ft. one target. <em>Hit:</em> 15 (2d6 + 8) slashing damage plus 10 (3d6) fire damage, and the target must succeed on a DC 20 Strength saving throw or be pulled up to 25 feet toward the balor.</p><p><em><strong>Teleport.</strong></em> The balor magically teleports, along with any equipment it is wearing or carrying, up to 120 feet to an unoccupied space it can see.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/175/1000/1000/636252761612038117.jpeg",
@@ -1921,17 +1939,17 @@ const monsters = [
       "Scimitar": {
         type: "Melee Weapon Attack",
         "to hit": "+3",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "5 (1d6 + 2)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "5 (1d6 + 2)",
         "damage type": "slashing",
       },
       "Light Crossbow": {
         type: "Ranged Weapon Attack",
         "to hit": "+3",
         "range": "80 ft.",
-        "target": "one target",
-        "hit": "5 (1d8 + 1)",
+        target: "one target",
+        hit: "5 (1d8 + 1)",
         "damage type": "piercing",
       },
     },
@@ -1961,7 +1979,24 @@ const monsters = [
     languages: ["Any two languages"],
     challenge: "2 (450 XP)",
     "number of attacks": 2, 
-    attacks: {},
+    attacks: {
+                "Scimitar": {
+                    "type": "Melee Weapon Attack",
+                    "to hit": "+3",
+                    reach: "5 ft.",
+                    target: "one target",
+                    hit: "4 (1d6 + 1)",
+                    "damage type": "slashing"
+                },
+                "Dagger":{
+                    "type": "Ranged Weapon Attack",
+                    "to hit": "+3",
+                    reach: "N/A",
+                    target: "one target",
+                    hit: "5 (1d8 + 1)",
+                    "damage type": "piercing"
+                }
+              },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The captain makes three melee attacks: two with its scimitar and one with its dagger. Or the captain makes two ranged attacks with its daggers.</p><p><em><strong>Scimitar.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft. one target. <em>Hit:</em> 6 (1d6 + 3) slashing damage.</p><p><em><strong>Dagger.</strong></em> <em>Melee or <em>Ranged Weapon Attack:</em></em> +5 to hit, reach 5 ft.or range 20/60 ft. one target. <em>Hit:</em> 5 (1d4 + 3) piercing damage.</p>",
     Reactions:
@@ -5081,24 +5116,24 @@ const monsters = [
     traits:
       "<p><em><strong>Nimble Escape.</strong></em> The goblin can take the Disengage or Hide action as a bonus action on each of its turns.</p>",
     "number of attacks": 1,
-    attacks: [
-      {
+    attacks: {
+     "Scimitar": {
         "type": "Melee Weapon Attack",
         "to hit": "+4",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "5 (1d6 + 2)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "5 (1d6 + 2)",
         "damage type": "slashing"
       },
-      {
+     "Shortbow": {
         "type": "Ranged Weapon Attack",
         "to hit": "+4",
-        "reach": "80/320 ft.",
-        "target": "one target",
-        "hit": "5 (1d6 + 2)",
+        reach: "80/320 ft.",
+        target: "one target",
+        hit: "5 (1d6 + 2)",
         "damage type": "piercing"
       }
-    ],
+    },
     actions:
       "<p><em><strong>Scimitar.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft. one target. <em>Hit:</em> 5 (1d6 + 2) slashing damage.</p><p><em><strong>Shortbow.</strong></em> <em>Ranged Weapon Attack:</em> +4 to hit, range 80/320 ft. one target. <em>Hit:</em> 5 (1d6 + 2) piercing damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/351/315/315/636252777818652432.jpeg",
@@ -7043,24 +7078,24 @@ const monsters = [
     traits:
       "<p><em><strong>Aggressive</strong></em>. As a bonus action, the orc can move up to its speed toward a hostile creature that it can see.</p>",
     "number of attacks": 1,
-    attacks: [
-      {
+    attacks: {
+     "Greataxe": {
         "type": "Melee Weapon Attack",
         "to hit": "+5",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "9 (1d12 + 3)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "9 (1d12 + 3)",
         "damage type": "slashing"
       },
-      {
+     "Javelin": {
         "type": "Melee or Ranged Weapon Attack",
         "to hit": "+5",
-        "reach": "5 ft.or range 30/120 ft.",
-        "target": "one target",
-        "hit": "6 (1d6 + 3)",
+        reach: "5 ft.or range 30/120 ft.",
+        target: "one target",
+        hit: "6 (1d6 + 3)",
         "damage type": "piercing"
       }
-    ],
+    },
     actions:
       "<p><em><strong>Greataxe.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft. one target. <em>Hit:</em> 9 (1d12 + 3) slashing damage.</p><p><em><strong>Javelin.</strong></em> <em>Melee or <em>Ranged Weapon Attack:</em></em> +5 to hit, reach 5 ft.or range 30/120 ft. one target. <em>Hit:</em> 6 (1d6 + 3) piercing damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/301/1000/1000/636252771691385727.jpeg",
@@ -15049,16 +15084,16 @@ const monsters = [
  challenge: "1 (200 XP)",
  traits: "<p><em><strong>Cunning Opportunist.</strong></em> The stone cursed has advantage on the attack rolls of opportunity attacks.</p><p><em><strong>False Appearance.</strong></em> While the stone cursed remains motionless, it is indistinguishable from a normal statue.</p>",
  "number of attacks": 1,
- attacks: [
-  {
-   type: "Melee Weapon Attack",
-   "to hit": "+5",
-   "reach": "5 ft.",
-   "target": "one target",
-   "hit": "8 (1d10 + 3)",
-   "damage type": "slashing"
-  }
- ],
+ attacks: {
+    "Claw": {
+    type: "Melee Weapon Attack",
+    "to hit": "+5",
+    reach: "5 ft.",
+    target: "one target",
+    hit: "8 (1d10 + 3)",
+    "damage type": "slashing"
+    }
+  },
  actions: "<p><em><strong>Petrifying Claws.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft., one target. <em>Hit:</em> 8 (1d10 + 3) slashing damage, or 14 (2d10 + 3) slashing damage if the attack roll had advantage. If the target is a creature, it must succeed on a DC 12 Constitution saving throw, or it begins to turn to stone and is restrained until the end of its next turn, when it must repeat the saving throw. The effect ends if the second save is successful; otherwise the target is petrified for 24 hours.</p>",
  "img url": "https://www.5etools.com/img/MTF/Stone%20Cursed.png",
  "description": "<p>The stone cursed are spawned through a foul alchemical ritual performed on a humanoid that has been turned to stone. The ritual, which requires a mixture of basilisk blood and the ashes from the burned feathers of a cockatrice, awakens a dim echo of the petrified victim's spirit, animating the statue and turning it into a useful guardian.</p><p><em><strong>Lingering Spirits.</strong></em> The stone cursed possess a malevolent drive to slay the living, yet they are utterly loyal to whoever performed the ritual to animate them, and they obey that being's orders to the best of their ability. In combat, stony claws that drip with thick, gray sludge emerge from a stone cursed's fingers. This alchemical sludge transforms those slashed by the claws into statues.</p><p><em><strong>A Strange Harvest.</strong></em> As part of the ritual used to create a stone cursed, a fist-sized obsidian skull forms within the creature's torso. The skull isn't visible while the stone cursed is active, but when it is slain, the statue shatters and the skull clatters to the ground. Because it is the nexus for the alchemy used to create these horrors, a dim echo of the original victim's memories resonates within the skull. A skilled magic-wielder can attempt to extract memories from it to gain insight into the victim's past or find lore that otherwise would be lost.</p><p><em><strong>Constructed Nature.</strong></em> A stone cursed doesn't require air, food, drink, or sleep.</p><p><em><strong>Cryptic Whispers.</strong></em> Even though creatures transformed into stone cursed are long dead, a vague whisper of their memories lives on in the obsidian skull embedded within the stone cursed's body. At the end of a short rest, a character can make a DC 20 Intelligence (Arcana) check to attempt to extract a memory from the skull -a memory that is a response to a verbal question posed by the character to the skull. Once this check is made, whether it succeeds or fails, the skull can't be used in this manner again.</p>"
@@ -15089,9 +15124,9 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+6",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "11 (2d6 + 4)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "11 (2d6 + 4)",
         "damage type": "bludgeoning"
       }
     ],
@@ -15122,24 +15157,24 @@ const monsters = [
     challenge: "10 (5,900 XP)",
     traits: "<p><em><strong>Dreamwalker's Charm.</strong></em> An enemy that starts its turn within 30 feet of the giant must make a DC 13 Charisma saving throw, provided that the giant isn't incapacitated. On a failed save, the creature is charmed by the giant. A creature charmed in this way can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. Once it succeeds on the saving throw, the creature is immune to this giant's Dreamwalker's Charm for 24 hours.</p><p><em><strong>Petrifying Touch.</strong></em> The giant touches one Medium or smaller creature within 10 feet of it that is charmed by it. The target must make a DC 17 Constitution saving throw. On a failed save, the creature becomes petrified, and the giant can adhere the target to its stony body. Greater restoration spells and other magic that can undo petrification have no effect on a petrified creature on the giant unless the giant is dead, in which case the magic works normally, freeing the petrified creature as well as ending the petrified condition on it.</p>",
     "number of attacks": 2,
-    attacks: [
-      {
+    attacks: {
+      "Greatclub": {
         type: "Melee Weapon Attack",
         "to hit": "+10",
-        "reach": "15 ft.",
-        "target": "one target",
-        "hit": "19 (3d8 + 6)",
+        reach: "15 ft.",
+        target: "one target",
+        hit: "19 (3d8 + 6)",
         "damage type": "bludgeoning"
       },
-      {
+      "Rock":{
         type: "Ranged Weapon Attack",
         "to hit": "+10",
         "range": "60/240 ft.",
-        "target": "one target",
-        "hit": "28 (4d10 + 6)",
+        target: "one target",
+        hit: "28 (4d10 + 6)",
         "damage type": "bludgeoning"
       }
-    ],
+    },
     actions: "<p><em><strong>Multiattack.</strong></em> The giant makes two attacks with its greatclub.</p><p><em><strong>Greatclub.</strong></em> Melee Weapon Attack: +10 to hit, reach 15 ft., one target. Hit: 19 (3d8 + 6) bludgeoning damage.</p><p><em><strong>Rock.</strong></em> Ranged Weapon Attack: +10 to hit, range 60/240 ft., one target. Hit: 28 (4d10 + 6) bludgeoning damage. If the target is a creature, it must succeed on a DC 17 Strength saving throw or be knocked prone.</p>",
     reactions: "<p><em><strong>Rock Catching.</strong></em> If a rock or similar object is hurled at the giant, the giant can, with a successful DC 10 Dexterity saving throw, catch the missile and take no bludgeoning damage from it.</p>",
     "description": "<p>Stone giants sometimes go on dream quests in the surface world, seeking inspiration for their art, to break a decades-long ennui, or out of simple curiosity. Some who go on these quests let themselves become lost in the dream. Other stone giants are banished to the surface as punishment. Regardless of the reason, if they don't take shelter under stone, such individuals can become dreamwalkers.</p><p>Dreamwalkers occupy an odd place of respect outside of stone giant ordning. They are considered outcasts, but their familiarity with the surface world makes therm valuable guides, and their insights can help other stone giants grasp the dangers of living in a dream.</p><p>Mad Wanderers. Dreamwalkers are driven mad by isolation, shame, and their unendingly alien surroundings, and this madness leeches out into the world around therm, affecting other creatures that get too close. Believing that they're living in a dream and that their actions have no real consequences, dreamwalkers act as they please, becoming forces of chaos. As they travel the world, they collect objects and creatures that seem especially significant in their mad minds. Over time, the collected things accrete to their bodies, becoming encased in stone.</p>"
@@ -15167,24 +15202,24 @@ const monsters = [
     challenge: "12 (8,400 XP)",
     traits: "<p><em><strong>Extra Heads.</strong></em> The giant has a 25 percent chance of having more than one head. If it has more than one, it has advantage on Wisdom (Perception) checks and on saving throws against being blinded, charmed, deafened, frightened, stunned, or knocked unconscious.</p><p><em><strong>Regeneration.</strong></em> The giant regains 10 hit points at the start of its turn. If the giant takes acid or fire damage, this trait doesn't function at the start of its next turn. The giant dies only if it starts its turn with 0 hit points and doesn't regenerate.</p><p><em><strong>Vaprak's Rage (Recharges after a Short or Long Rest).</strong></em> As a bonus action, the giant can enter a rage at the start of its turn. The rage lasts for 1 minute or until the giant is incapacitated. While raging, the giant gains the following benefits:</p><ul><li>The giant has advantage on Strength checks and Strength saving throws </li><li>When it makes a melee weapon attack, the giant gains a +4 bonus to the damage roll.</li><li>The giant has resistance to bludgeoning, piercing, and slashing damage.</li></ul>",
     "number of attacks": 2,
-    attacks: [
-      {
+    attacks: {
+     "Greataxe": {
         type: "Melee Weapon Attack",
         "to hit": "+11",
-        "reach": "10 ft.",
-        "target": "one target",
-        "hit": "26 (3d12 + 7) slashing damage, or 30 (3d12 + 11) slashing damage while raging.",
+        reach: "10 ft.",
+        target: "one target",
+        hit: "26 (3d12 + 7) slashing damage, or 30 (3d12 + 11) slashing damage while raging.",
         "damage type": "slashing"
       },
-      {
+     "Rock": {
         type: "Ranged Weapon Attack",
         "to hit": "+11",
         "range": "60/240 ft.",
-        "target": "one target",
-        "hit": "29 (4d10 + 7)",
+        target: "one target",
+        hit: "29 (4d10 + 7)",
         "damage type": "bludgeoning"
       }
-    ],
+    },
     actions: "<p><em><strong>Multiattack.</strong></em> The giant makes two attacks with its greataxe.</p><p><em><strong>Greataxe.</strong></em> Melee Weapon Attack: +11 to hit, reach 10 ft., one target. Hit: 26 (3d12 + 7) slashing damage, or 30 (3d12 + 11) slashing damage while raging.</p><p><em><strong>Rock.</strong></em> Ranged Weapon Attack: +11 to hit, range 60/240 ft., one target. Hit: 29 (4d10 + 7) bludgeoning damage.</p>",
     "description": "<p>Frost giants mainly turn to Vaprak, a rapacious god of strength and hunger worshiped by ogres and trolls, out of desperation. Vaprak likes to tempt frost giants with dreams of glory followed by nightmares of bloody cannibalism. Those who don't shrink from such visions or report them to priests of Thrym receive more of the same. If a frost giant comes to relish these dreams and nightmares, as some do, Vaprak sets a troll upon a sacred quest to find the frost giant and meet it in secret. The troll offers up its own body to be devoured in Vaprak's name. Only the boldest and most determined frost giants can finish such a gory feast.</p><p>Vaprak's Blessing. After devouring the troll sent by Vaprak, bones and all, a frost giant becomes an everlasting one, gaining tremendous strength, an ill temper, and a troll's regenerative ability. With these gifts, the frost giant can swiftly claim the title of jarl and easily fend off rivals for decades. However, if the frost giant doesn't give enough honor to Vaprak or fails to heed Vaprak's visions, injuries the frost giant sustains heal wrong, often resulting in discolored skin, warty scars, and vestigial body parts, such as extra digits, limbs, and even extra heads. The touch of Vaprak can no longer be hidden then, and the everlasting one is either killed or exiled by its clan. Sometimes small communities of everlasting ones gather and even reproduce, passing the \"blessing\" and worship of Vaprak from one generation to the next.</p>"
   },
@@ -15214,17 +15249,17 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+9",
-        "reach": "15 ft.",
-        "target": "one target",
-        "hit": "19 (3d8 + 6)",
+        reach: "15 ft.",
+        target: "one target",
+        hit: "19 (3d8 + 6)",
         "damage type": "bludgeoning"
       },
       {
         type: "Ranged Weapon Attack",
         "to hit": "+9",
         "range": "60/240 ft.",
-        "target": "one target",
-        "hit": "28 (4d10 + 6)",
+        target: "one target",
+        hit: "28 (4d10 + 6)",
         "damage type": "bludgeoning"
       }
     ],
@@ -15259,17 +15294,17 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+15",
-        "reach": "15 ft.",
-        "target": "one target",
-        "hit": "30 (4d10 + 9)",
+        reach: "15 ft.",
+        target: "one target",
+        hit: "30 (4d10 + 9)",
         "damage type": "bludgeoning"
       },
       {
         type: "Ranged Spell Attack",
         "to hit": "+13",
         "range": "600 ft.",
-        "target": "one target",
-        "hit": "28 (8d6)",
+        target: "one target",
+        hit: "28 (8d6)",
         "damage type": "lightning"
       }
     ],
@@ -15301,9 +15336,9 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+6",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "7 (1d6 + 4)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "7 (1d6 + 4)",
         "damage type": "piercing"
       }
     ],
@@ -15335,17 +15370,17 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+8",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "13 (2d8 + 4)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "13 (2d8 + 4)",
         "damage type": "slashing"
       },
       {
         type: "Ranged Weapon Attack",
         "to hit": "+9",
         "range": "150/600 ft.",
-        "target": "one target",
-        "hit": "14 (2d8 + 5)",
+        target: "one target",
+        hit: "14 (2d8 + 5)",
         "damage type": "piercing"
       }
     ],
@@ -15380,17 +15415,17 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+14",
-        "reach": "15 ft.",
-        "target": "one target",
-        "hit": "40 (9d6 + 9)",
+        reach: "15 ft.",
+        target: "one target",
+        hit: "40 (9d6 + 9)",
         "damage type": "lightning"
       },
       {
         type: "Ranged Weapon Attack",
         "to hit": "+14",
         "range": "600 ft.",
-        "target": "one target",
-        "hit": "19 (3d6 + 9)",
+        target: "one target",
+        hit: "19 (3d6 + 9)",
         "damage type": "piercing"
       }
     ],
@@ -15426,17 +15461,17 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+10",
-        "reach": "15 ft.",
-        "target": "one target",
-        "hit": "16 (3d6 + 6)",
+        reach: "15 ft.",
+        target: "one target",
+        hit: "16 (3d6 + 6)",
         "damage type": "bludgeoning"
       },
       {
         type: "Ranged Weapon Attack",
         "to hit": "+10",
         "range": "60/240 ft.",
-        "target": "one target",
-        "hit": "19 (3d8 + 6)",
+        target: "one target",
+        hit: "19 (3d8 + 6)",
         "damage type": "bludgeoning"
       }
     ],
@@ -15471,17 +15506,17 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+9",
-        "reach": "15 ft.",
-        "target": "one target",
-        "hit": "19 (3d8 + 6)",
+        reach: "15 ft.",
+        target: "one target",
+        hit: "19 (3d8 + 6)",
         "damage type": "bludgeoning"
       },
       {
         type: "Ranged Weapon Attack",
         "to hit": "+9",
         "range": "60/240 ft.",
-        "target": "one target",
-        "hit": "28 (4d10 + 6)",
+        target: "one target",
+        hit: "28 (4d10 + 6)",
         "damage type": "bludgeoning"
       }
     ],
@@ -15517,17 +15552,17 @@ const monsters = [
       "Unarmed Strike": {
         type: "Melee Weapon Attack",
         "to hit": "+8",
-        "reach": "5 ft.",
-        "target": "one creature",
-        "hit": "8 (1d8 + 4) necrotic damage, and the vampire regains hit points equal to the damage dealt. The target's hit point maximum is reduced by an amount equal to the necrotic damage taken, and the vampire dies if this effect reduces its hit point maximum to 0. The reduction lasts until the target finishes a long rest. The target's hit point maximum is reduced by an amount equal to the necrotic damage taken, and the vampire dies if this effect reduces its hit point maximum to 0. The reduction lasts until the target finishes a long rest.",
+        reach: "5 ft.",
+        target: "one creature",
+        hit: "8 (1d8 + 4) necrotic damage, and the vampire regains hit points equal to the damage dealt. The target's hit point maximum is reduced by an amount equal to the necrotic damage taken, and the vampire dies if this effect reduces its hit point maximum to 0. The reduction lasts until the target finishes a long rest. The target's hit point maximum is reduced by an amount equal to the necrotic damage taken, and the vampire dies if this effect reduces its hit point maximum to 0. The reduction lasts until the target finishes a long rest.",
         "damage type": "necrotic"
       },
       "Charm": {
         type: "Melee",
         "to hit": "N/A",
-        "reach": "30 ft.",
-        "target": "one humanoid the vampire can see within 30 feet of it",
-        "hit": "The target must succeed on a DC 17 Wisdom saving throw or be charmed by the vampire for 24 hours, or until the vampire is destroyed, is on a different plane of existence than the target, or takes a bonus action to end the effect. The charmed target regards the vampire as a trusted friend to be heeded and protected. Although the target isn't under the vampire's control, it takes the vampire's requests or actions in the most favorable way it can, and it is a willing target for the vampire's bite attack. Each time the vampire or its companions do anything harmful to the target, it can repeat the saving throw, ending the effect on itself on a success. Otherwise, the effect lasts 24 hours or until the vampire is destroyed, is on a different plane of existence than the target, or takes a bonus action to end the effect. A target that succeeds on the saving throw is immune to the vampire's Charm for 24 hours.",
+        reach: "30 ft.",
+        target: "one humanoid the vampire can see within 30 feet of it",
+        hit: "The target must succeed on a DC 17 Wisdom saving throw or be charmed by the vampire for 24 hours, or until the vampire is destroyed, is on a different plane of existence than the target, or takes a bonus action to end the effect. The charmed target regards the vampire as a trusted friend to be heeded and protected. Although the target isn't under the vampire's control, it takes the vampire's requests or actions in the most favorable way it can, and it is a willing target for the vampire's bite attack. Each time the vampire or its companions do anything harmful to the target, it can repeat the saving throw, ending the effect on itself on a success. Otherwise, the effect lasts 24 hours or until the vampire is destroyed, is on a different plane of existence than the target, or takes a bonus action to end the effect. A target that succeeds on the saving throw is immune to the vampire's Charm for 24 hours.",
         "damage type": "None"
       }
     },
@@ -15564,25 +15599,25 @@ const monsters = [
       "Claw": {
         type: "Melee Weapon Attack",
         "to hit": "+9",
-        "reach": "10 ft.",
-        "target": "one target",
-        "hit": "13 (2d6 + 6) slashing damage",
+        reach: "10 ft.",
+        target: "one target",
+        hit: "13 (2d6 + 6) slashing damage",
         "damage type": "slashing"
       },
       "Bite": {
         type: "Melee Weapon Attack",
         "to hit": "+9",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "16 (2d8 + 7) piercing damage",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "16 (2d8 + 7) piercing damage",
         "damage type": "piercing"
       },
       "Rend": {
         type: "Melee Weapon Attack",
         "to hit": "+9",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "23 (3d10 + 6) slashing damage",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "23 (3d10 + 6) slashing damage",
         "damage type": "slashing"
       }
     },
@@ -15620,17 +15655,17 @@ const monsters = [
       "Claw": {
         type: "Melee Weapon Attack",
         "to hit": "+7",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "10 (2d6 + 4) slashing damage",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "10 (2d6 + 4) slashing damage",
         "damage type": "slashing"
       },
       "Bite": {
         type: "Melee Weapon Attack",
         "to hit": "+7",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "11 (2d6 + 4) piercing damage plus 7 (2d6) poison damage",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "11 (2d6 + 4) piercing damage plus 7 (2d6) poison damage",
         "damage type": "piercing, poison"
       }
     },
@@ -15666,17 +15701,17 @@ const monsters = [
       "Claw": {
         type: "Melee Weapon Attack",
         "to hit": "+7",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "10 (2d6 + 4) slashing damage",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "10 (2d6 + 4) slashing damage",
         "damage type": "slashing"
       },
       "Bite": {
         type: "Melee Weapon Attack",
         "to hit": "+7",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "11 (2d6 + 4) piercing damage",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "11 (2d6 + 4) piercing damage",
         "damage type": "piercing"
       }
     },
@@ -15710,19 +15745,19 @@ const monsters = [
       "Dagger": {
         type: "Melee or Ranged Weapon Attack",
         "to hit": "+4",
-        "reach": "5 ft.",
+        reach: "5 ft.",
         "range": "20/60 ft.",
-        "target": "one target",
-        "hit": "4 (1d4 + 2) piercing damage",
+        target: "one target",
+        hit: "4 (1d4 + 2) piercing damage",
         "damage type": "piercing"
       },
       "Eldritch Blast": {
         type: "Ranged Spell Attack",
         "to hit": "+4",
-        "reach": "N/A",
+        reach: "N/A",
         "range": "120 ft.",
-        "target": "one target",
-        "hit": "5 (1d10) force damage",
+        target: "one target",
+        hit: "5 (1d10) force damage",
         "damage type": "force"
       }
     },
@@ -15757,9 +15792,9 @@ const monsters = [
       "Scimitar": {
         type: "Melee Weapon Attack",
         "to hit": "+4",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "7 (1d6 + 4) slashing damage",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "7 (1d6 + 4) slashing damage",
         "damage type": "slashing"
       }
     },
@@ -15794,17 +15829,17 @@ const monsters = [
         type: "Ranged Weapon Attack",
         "to hit": "+4",
         "range": "80/320 ft.",
-        "target": "one target",
-        "hit": "5 (1d6 + 2) piercing damage",
+        target: "one target",
+        hit: "5 (1d6 + 2) piercing damage",
         "damage type": "piercing"
       },
       "Spear": {
         type: "Melee or Ranged Weapon Attack",
         "to hit": "+3",
-        "reach": "5 ft.",
+        reach: "5 ft.",
         "range": "20/60 ft.",
-        "target": "one target",
-        "hit": "6 (1d6 + 3) piercing damage, or 7 (1d8 + 3) piercing damage if used with two hands to make a melee attack",
+        target: "one target",
+        hit: "6 (1d6 + 3) piercing damage, or 7 (1d8 + 3) piercing damage if used with two hands to make a melee attack",
         "damage type": "piercing"
       }
     },
@@ -15838,9 +15873,9 @@ const monsters = [
       "Scimitar": {
         type: "Melee Weapon Attack",
         "to hit": "+4",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "5 (1d6 + 2) slashing damage",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "5 (1d6 + 2) slashing damage",
         "damage type": "slashing"
       }
     },
@@ -15873,10 +15908,10 @@ const monsters = [
       "Spear": {
         type: "Melee or Ranged Weapon Attack",
         "to hit": "+3",
-        "reach": "5 ft.",
+        reach: "5 ft.",
         "range": "20/60 ft.",
-        "target": "one target",
-        "hit": "4 (1d6 + 1) piercing damage, or 5 (1d8 + 1) piercing damage if used with two hands to make a melee attack",
+        target: "one target",
+        hit: "4 (1d6 + 1) piercing damage, or 5 (1d8 + 1) piercing damage if used with two hands to make a melee attack",
         "damage type": "piercing"
       }
     },
@@ -15911,19 +15946,19 @@ const monsters = [
       "Spear": {
         type: "Melee or Ranged Weapon Attack",
         "to hit": "+4",
-        "reach": "5 ft.",
+        reach: "5 ft.",
         "range": "20/60 ft.",
-        "target": "one target",
-        "hit": "6 (1d6 + 3) piercing damage, or 7 (1d8 + 3) piercing damage if used with two hands to make a melee attack",
+        target: "one target",
+        hit: "6 (1d6 + 3) piercing damage, or 7 (1d8 + 3) piercing damage if used with two hands to make a melee attack",
         "damage type": "piercing"
       },
       "Javelin": {
         type: "Melee or Ranged Weapon Attack",
         "to hit": "+4",
-        "reach": "5 ft.",
+        reach: "5 ft.",
         "range": "30/120 ft.",
-        "target": "one target",
-        "hit": "6 (1d6 + 3) piercing damage",
+        target: "one target",
+        hit: "6 (1d6 + 3) piercing damage",
         "damage type": "piercing"
       }
     },
@@ -15958,9 +15993,9 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+5",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "7 (1d8+3) piercing damage plus 7 (2d6) force damage",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "7 (1d8+3) piercing damage plus 7 (2d6) force damage",
         "damage type": "piercing, force"
       }
     ],
@@ -15995,9 +16030,9 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+6",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "6 (1d6+3) slashing damage plus 14 (4d6) fire damage",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "6 (1d6+3) slashing damage plus 14 (4d6) fire damage",
         "damage type": "slashing, fire"
       }
     ],
@@ -16033,25 +16068,25 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+9",
-        "reach": "5 ft.",
-        "target": "one creature",
-        "hit": "8 (1d8+4)",
+        reach: "5 ft.",
+        target: "one creature",
+        hit: "8 (1d8+4)",
         "damage type": "bludgeoning"
       },
       {
         type: "Melee Weapon Attack",
         "to hit": "+9",
-        "reach": "5 ft.",
-        "target": "one creature",
-        "hit": "11 (2d6+4)",
+        reach: "5 ft.",
+        target: "one creature",
+        hit: "11 (2d6+4)",
         "damage type": "slashing"
       },
       {
         type: "Melee Weapon Attack",
         "to hit": "+9",
-        "reach": "5 ft.",
-        "target": "one willing creature, or a creature that is grappled by the vampire, incapacitated, or restrained",
-        "hit": "7 (1d6+4) piercing damage plus 10 (3d6) necrotic damage",
+        reach: "5 ft.",
+        target: "one willing creature, or a creature that is grappled by the vampire, incapacitated, or restrained",
+        hit: "7 (1d6+4) piercing damage plus 10 (3d6) necrotic damage",
         "damage type": "piercing, necrotic"
       }
     ],
@@ -16087,9 +16122,9 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+6",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "11 (2d6 + 4) piercing damage, plus 14 (4d6) psychic damage if the target is frightened",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "11 (2d6 + 4) piercing damage, plus 14 (4d6) psychic damage if the target is frightened",
         "damage type": "piercing, psychic"
       }
     ],
@@ -16127,25 +16162,25 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+16",
-        "reach": "10 ft.",
-        "target": "one target",
-        "hit": "17 (2d8 + 8) piercing damage plus 36 (8d8) fire damage",
+        reach: "10 ft.",
+        target: "one target",
+        hit: "17 (2d8 + 8) piercing damage plus 36 (8d8) fire damage",
         "damage type": "piercing, fire"
       },
       {
         type: "Melee Weapon Attack",
         "to hit": "+16",
-        "reach": "10 ft.",
-        "target": "one target",
-        "hit": "17 (2d8 + 8) bludgeoning, or 19 (2d10 + 8) bludgeoning damage if used with two hands, plus 36 (8d8) fire damage. In addition, the weapon emits a burst of cold that deals 10 (3d6) cold damage to each creature within 30 feet of it.",
+        reach: "10 ft.",
+        target: "one target",
+        hit: "17 (2d8 + 8) bludgeoning, or 19 (2d10 + 8) bludgeoning damage if used with two hands, plus 36 (8d8) fire damage. In addition, the weapon emits a burst of cold that deals 10 (3d6) cold damage to each creature within 30 feet of it.",
         "damage type": "bludgeoning, fire, cold"
       },
       {
         type: "Touch Attack",
         "to hit": "DC 26 Constitution saving throw",
-        "reach": "10 ft.",
-        "target": "one creature",
-        "hit": "44 (8d10) necrotic damage and be poisoned for 1 minute. While poisoned in this way, the target is also blinded and deafened. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.",
+        reach: "10 ft.",
+        target: "one creature",
+        hit: "44 (8d10) necrotic damage and be poisoned for 1 minute. While poisoned in this way, the target is also blinded and deafened. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.",
         "damage type": "necrotic"
       }
     ],
@@ -16185,25 +16220,25 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+17",
-        "reach": "20 ft.",
-        "target": "one target",
-        "hit": "28 (4d8 + 10)",
+        reach: "20 ft.",
+        target: "one target",
+        hit: "28 (4d8 + 10)",
         "damage type": "piercing"
       },
       {
         type: "Melee Weapon Attack",
         "to hit": "+17",
-        "reach": "20 ft.",
-        "target": "one target",
-        "hit": "26 (3d10 + 10)",
+        reach: "20 ft.",
+        target: "one target",
+        hit: "26 (3d10 + 10)",
         "damage type": "bludgeoning"
       },
       {
         type: "Ranged Weapon Attack",
         "to hit": "+17",
-        "reach": "120/240 ft.",
-        "target": "one target",
-        "hit": "31 (6d8 + 10)",
+        reach: "120/240 ft.",
+        target: "one target",
+        hit: "31 (6d8 + 10)",
         "damage type": "bludgeoning"
       }
     ],
@@ -16241,25 +16276,25 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+16",
-        "reach": "10 ft.",
-        "target": "one target",
-        "hit": "17 (2d8 + 8)",
+        reach: "10 ft.",
+        target: "one target",
+        hit: "17 (2d8 + 8)",
         "damage type": "slashing damage plus 36 (8d8) fire damage"
       },
       {
         type: "Melee Weapon Attack",
         "to hit": "+16",
-        "reach": "10 ft.",
-        "target": "one target",
-        "hit": "19 (2d10 + 8)",
+        reach: "10 ft.",
+        target: "one target",
+        hit: "19 (2d10 + 8)",
         "damage type": "slashing damage plus 36 (8d8) fire damage (if used with two hands)"
       },
       {
         type: "Melee or Ranged Weapon Attack",
         "to hit": "+16",
-        "reach": "10 ft. or range 30/120 ft.",
-        "target": "one target",
-        "hit": "15 (2d6 + 8)",
+        reach: "10 ft. or range 30/120 ft.",
+        target: "one target",
+        hit: "15 (2d6 + 8)",
         "damage type": "piercing damage plus 36 (8d8) fire damage"
       }
     ],
@@ -16297,9 +16332,9 @@ const monsters = [
       {
         type: "Melee or Ranged Weapon Attack",
         "to hit": "+10",
-        "reach": "5 ft. or range 20/60 ft.",
-        "target": "one target",
-        "hit": "12 (2d6 + 5)",
+        reach: "5 ft. or range 20/60 ft.",
+        target: "one target",
+        hit: "12 (2d6 + 5)",
         "damage type": "piercing damage"
       }
     ],
@@ -16337,9 +16372,9 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+13",
-        "reach": "10 ft.",
-        "target": "one target",
-        "hit": "15 (2d8 + 6)",
+        reach: "10 ft.",
+        target: "one target",
+        hit: "15 (2d8 + 6)",
         "damage type": "bludgeoning damage plus 9 (2d8) poison damage"
       }
     ],
@@ -16378,9 +16413,9 @@ const monsters = [
       {
         type: "Melee or Ranged Weapon Attack",
         "to hit": "+6",
-        "reach": "5 ft. or range 20/60 ft.",
-        "target": "one target",
-        "hit": "5 (1d4 + 3)",
+        reach: "5 ft. or range 20/60 ft.",
+        target: "one target",
+        hit: "5 (1d4 + 3)",
         "damage type": "piercing damage plus 10 (3d6) psychic damage"
       }
     ],
@@ -16413,10 +16448,10 @@ const monsters = [
       {
         type: "Melee or Ranged Weapon Attack",
         "to hit": "+5",
-        "reach": "5 ft.",
+        reach: "5 ft.",
         "range": "20/60 ft.",
-        "target": "one target",
-        "hit": "5 (1d4+3) piercing damage plus 7 (2d6) necrotic damage",
+        target: "one target",
+        hit: "5 (1d4+3) piercing damage plus 7 (2d6) necrotic damage",
         "damage type": "piercing, necrotic"
       }
     ],
@@ -16448,9 +16483,9 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+5",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "6 (1d6 + 3) slashing damage plus 7 (2d6) necrotic damage",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "6 (1d6 + 3) slashing damage plus 7 (2d6) necrotic damage",
         "damage type": "slashing, necrotic"
       }
     ],
@@ -16485,9 +16520,9 @@ const monsters = [
   {
    type: "Melee Weapon Attack",
    "to hit": "+9",
-   "reach": "5 ft.",
-   "target": "one target",
-   "hit": "13 (2d8 + 4)",
+   reach: "5 ft.",
+   target: "one target",
+   hit: "13 (2d8 + 4)",
    "damage type": "piercing"
   }
  ],
@@ -16521,7 +16556,7 @@ const monsters = [
   traits: "<p><em><strong>Innate Spellcasting.</strong></em> The deathlock's innate spellcasting ability is Charisma (spell save DC 13). It can innately cast the following spells, requiring no material components:</p><p>At will: detect magic, disguise self, mage armor</p><p><em><strong>Spellcasting.</strong></em> The deathlock is a 5th-level spellcaster. Its spellcasting ability is Charisma (spell save DC 13, +5 to hit with spell attacks). It regains its expended spell slots when it finishes a short or long rest. It knows the following warlock spells:</p><p>Cantrips (at will): chill touch, eldritch blast, mage hand</p><p>1st-3rd level (2 3rd-level slots): arms of Hadar, dispel magic, hold person, hunger of Hadar, invisibility, spider climb</p><p><em><strong>Turn Resistance.</strong></em> The deathlock has advantage on saving throws against any effect that turns undead.</p>", "number of attacks": 1,
   attacks: [
     {
-      type: "Melee Weapon Attack", "to hit": "+4", "reach": "5 ft.", "target": "one target", "hit": "9 (2d6 + 2)", "damage type": "necrotic"
+      type: "Melee Weapon Attack", "to hit": "+4", reach: "5 ft.", target: "one target", hit: "9 (2d6 + 2)", "damage type": "necrotic"
     }
   ],
   actions: "<p><em><strong>Deathly Claw.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft., one target. <em>Hit:</em> 9 (2d6 + 2) necrotic damage.</p>", "description": "<p>The forging of a pact between a warlock and a patron is no minor occasion-at least not for the warlock. The consequences of breaking that pact can be dire and, in some cases, lethal. A warlock who fails to live up to a bargain with an evil patron runs the risk of rising from the dead as a deathlock, a foul undead driven to serve its otherworldly patron from beyond the grave.</p><p>An extraordinarily powerful necromancer might also discover the dark methods of creating a deathlock and then bind it to service, acting in this respect as the deathlock's patron.</p><p>An overpowering urge to serve consumes the mind of a newly awakened deathlock. All goals and ambitions it had in life that don't please its patron fall away as its master's desires become the purpose that drives the deathlock. The creature immediately resumes work on its patron's behalf.</p>"
@@ -16555,17 +16590,17 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+6",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "13 (3d6 + 3)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "13 (3d6 + 3)",
         "damage type": "necrotic damage"
       },
       {
         type: "Ranged Spell Attack",
         "to hit": "+6",
-        "reach": "120 ft.",
-        "target": "one or two targets",
-        "hit": "18 (4d8)",
+        reach: "120 ft.",
+        target: "one or two targets",
+        hit: "18 (4d8)",
         "damage type": "necrotic damage"
       }
     ],
@@ -16600,17 +16635,17 @@ const monsters = [
       {
         type: "Ranged Spell Attack",
         "to hit": "+5",
-        "reach": "120 ft.",
-        "target": "one target",
-        "hit": "7 (1d8 + 3)",
+        reach: "120 ft.",
+        target: "one target",
+        hit: "7 (1d8 + 3)",
         "damage type": "necrotic damage"
       },
       {
         type: "Melee Weapon Attack",
         "to hit": "+4",
-        "reach": "5 ft.",
-        "target": "one creature",
-        "hit": "9 (2d6 + 2)",
+        reach: "5 ft.",
+        target: "one creature",
+        hit: "9 (2d6 + 2)",
         "damage type": "necrotic damage"
       }
     ],
@@ -16647,9 +16682,9 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+9",
-        "reach": "10 ft.",
-        "target": "one target",
-        "hit": "9 (2d4 + 4) slashing damage plus 27 (6d8)",
+        reach: "10 ft.",
+        target: "one target",
+        hit: "9 (2d4 + 4) slashing damage plus 27 (6d8)",
         "damage type": "necrotic damage"
       }
     ],
@@ -16684,9 +16719,9 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+4",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "6 (1d8 + 2)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "6 (1d8 + 2)",
         "damage type": "piercing damage"
       }
     ],
@@ -16718,9 +16753,9 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+4",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "9 (2d6 + 2)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "9 (2d6 + 2)",
         "damage type": "piercing damage"
       }
     ],
@@ -16753,9 +16788,9 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+6",
-        "reach": "10 ft.",
-        "target": "one target",
-        "hit": "7 (1d6 + 4) bludgeoning damage plus 3 (1d6)",
+        reach: "10 ft.",
+        target: "one target",
+        hit: "7 (1d6 + 4) bludgeoning damage plus 3 (1d6)",
         "damage type": "piercing damage"
       }
     ],
@@ -16792,17 +16827,17 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+20",
-        "reach": "10 ft.",
-        "target": "one target",
-        "hit": "21 (2d8 + 12)",
+        reach: "10 ft.",
+        target: "one target",
+        hit: "21 (2d8 + 12)",
         "damage type": "bludgeoning, fire"
       },
       {
         type: "Ranged Spell Attack",
         "to hit": "+15",
         "range": "60 ft.",
-        "target": "one target",
-        "hit": "21 (2d8 + 12)",
+        target: "one target",
+        hit: "21 (2d8 + 12)",
         "damage type": "bludgeoning, fire"
       }
     ],
@@ -16838,10 +16873,10 @@ const monsters = [
       "Arcane Burst": {
         type: "Melee or Ranged Spell Attack",
         "to hit": "+7",
-        "reach": "5 ft.",
+        reach: "5 ft.",
         "range": "120 ft.",
-        "target": "one target",
-        "hit": "20 (3d10 + 4)",
+        target: "one target",
+        hit: "20 (3d10 + 4)",
         "damage type": "radiant"
       }
     },
@@ -16877,17 +16912,17 @@ const monsters = [
       "Tentacle": {
         type: "Melee Weapon Attack",
         "to hit": "+6",
-        "reach": "15 ft.",
-        "target": "one target",
-        "hit": "7 (1d6 + 4)",
+        reach: "15 ft.",
+        target: "one target",
+        hit: "7 (1d6 + 4)",
         "damage type": "bludgeoning"
       },
       "Unarmed Strike": {
         type: "Melee Weapon Attack",
         "to hit": "+6",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "6 (1d4 + 4)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "6 (1d4 + 4)",
         "damage type": "bludgeoning"
       }
     },
@@ -16921,16 +16956,16 @@ const monsters = [
       "Longsword": {
         type: "Melee Weapon Attack",
         "to hit": "+6",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "6 (1d8 + 2) slashing damage plus 4 (1d8) psychic or 7 (1d10 + 2) slashing damage plus 4 (1d8) psychic if used with two hands."
+        reach: "5 ft.",
+        target: "one target",
+        hit: "6 (1d8 + 2) slashing damage plus 4 (1d8) psychic or 7 (1d10 + 2) slashing damage plus 4 (1d8) psychic if used with two hands."
       },
       "Longbow": {
         type: "Ranged Weapon Attack",
         "to hit": "+7",
         "range": "150/600 ft.",
-        "target": "one target",
-        "hit": "7 (1d8 + 3) piercing damage plus 4 (1d8) psychic damage."
+        target: "one target",
+        hit: "7 (1d8 + 3) piercing damage plus 4 (1d8) psychic damage."
       }
     },
     actions: "<p><em><strong>Multiattack.</strong></em> The eladrin makes two weapon attacks. The eladrin can cast one spell in place of one of these attacks.</p><p><em><strong>Longsword.</strong></em> Melee Weapon Attack: +6 to hit, reach 5 ft., one target. <em>Hit:</em> 6 (1d8 + 2) slashing damage plus 4 (1d8) psychic or 7 (1d10 + 2) slashing damage plus 4 (1d8) psychic damage if used with two hands.</p><p><em><strong>Longbow.</strong></em> Ranged Weapon Attack: +7 to hit, range 150/600 ft., one target. <em>Hit:</em> 7 (1d8 + 3) piercing damage plus 4 (1d8) psychic damage.</p>",
@@ -16963,16 +16998,16 @@ const monsters = [
       "Longsword": {
         type: "Melee Weapon Attack",
         "to hit": "+4",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "4 (1d8) slashing damage, or 5 (1d10) slashing damage if used with two hands."
+        reach: "5 ft.",
+        target: "one target",
+        hit: "4 (1d8) slashing damage, or 5 (1d10) slashing damage if used with two hands."
       },
       "Longbow": {
         type: "Ranged Weapon Attack",
         "to hit": "+4",
         "range": "150/600 ft.",
-        "target": "one target",
-        "hit": "4 (1d8) piercing damage."
+        target: "one target",
+        hit: "4 (1d8) piercing damage."
       }
     },
     actions: "<p><em><strong>Longsword.</strong></em> Melee Weapon Attack: +4 to hit, reach 5 ft., one target. <em>Hit:</em> 4 (1d8) slashing damage, or 5 (1d10) slashing damage if used with two hands.</p><p><em><strong>Longbow.</strong></em> Ranged Weapon Attack: +4 to hit, range 150/600 ft., one target. <em>Hit:</em> 4 (1d8) piercing damage.</p>",
@@ -17009,9 +17044,9 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+16",
-        "reach": "20 ft.",
-        "target": "one target",
-        "hit": "23 (4d6 + 9)",
+        reach: "20 ft.",
+        target: "one target",
+        hit: "23 (4d6 + 9)",
         "damage type": "thunder"
       }
     ],
@@ -17047,17 +17082,17 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+17",
-        "reach": "10 ft.",
-        "target": "one target",
-        "hit": "31 (6d6 + 10)",
+        reach: "10 ft.",
+        target: "one target",
+        hit: "31 (6d6 + 10)",
         "damage type": "bludgeoning"
       },
       {
         type: "Ranged Spell Attack",
         "to hit": "+15",
-        "reach": "600 ft.",
-        "target": "one target",
-        "hit": "24 (7d6)",
+        reach: "600 ft.",
+        target: "one target",
+        hit: "24 (7d6)",
         "damage type": "acid, cold, fire, force, lightning, radiant, or thunder"
       }
     ],
@@ -17092,9 +17127,9 @@ const monsters = [
       {
         type: "Melee or Ranged Spell Attack",
         "to hit": "+6",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "19 (3d10 + 3)"
+        reach: "5 ft.",
+        target: "one target",
+        hit: "19 (3d10 + 3)"
       }
     ],
     reactions: "<p><em><strong>Instinctive Charm (Recharges after the Enchanter Casts an Enchantment Spell of 1st level or Higher).</strong></em> The enchanter tries to magically divert an attack made against it, provided that the attacker is within 30 feet of it and visible to it. The enchanter must decide to do so before the attack hits or misses. The attacker must make a DC 14 Wisdom saving throw. On a failed save, the attacker targets the creature closest to it, other than the enchanter or itself. If multiple creatures are closest, the attacker chooses which one to target.</p>",
@@ -17128,9 +17163,9 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+2",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "2 (1d6 - 1) bludgeoning damage, or 3 (1d8 - 1) bludgeoning damage if used with two hands",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "2 (1d6 - 1) bludgeoning damage, or 3 (1d8 - 1) bludgeoning damage if used with two hands",
         "damage type": "bludgeoning"
       }
     ],
@@ -17161,17 +17196,17 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+6",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "7 (1d6 + 4)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "7 (1d6 + 4)",
         "damage type": "piercing"
       },
       {
         type: "Ranged Weapon Attack",
         "to hit": "+6",
-        "reach": "150/600 ft.",
-        "target": "one target",
-        "hit": "8 (1d8 + 4)",
+        reach: "150/600 ft.",
+        target: "one target",
+        hit: "8 (1d8 + 4)",
         "damage type": "piercing"
       }
     ],
@@ -17208,17 +17243,17 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+11",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "20 (4d6 + 6)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "20 (4d6 + 6)",
         "damage type": "bludgeoning"
       },
       {
         type: "Melee Weapon Attack",
         "to hit": "+11",
-        "reach": "10 ft.",
-        "target": "one target",
-        "hit": "12 (1d12 + 6)",
+        reach: "10 ft.",
+        target: "one target",
+        hit: "12 (1d12 + 6)",
         "damage type": "piercing"
       }
     ],
@@ -17256,9 +17291,9 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+9",
-        "reach": "10 ft.",
-        "target": "one target",
-        "hit": "12 (2d6 + 5)",
+        reach: "10 ft.",
+        target: "one target",
+        hit: "12 (2d6 + 5)",
         "damage type": "piercing"
       }
     ],
@@ -17298,17 +17333,17 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+11",
-        "reach": "10 ft.",
-        "target": "one target",
-        "hit": "10 (2d4 + 5)",
+        reach: "10 ft.",
+        target: "one target",
+        hit: "10 (2d4 + 5)",
         "damage type": "slashing"
       },
       {
         type: "Melee Spell Attack",
         "to hit": "+11",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "44 (8d10)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "44 (8d10)",
         "damage type": "necrotic"
       }
     ],
@@ -17343,9 +17378,9 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+4",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "6 (1d8 + 2)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "6 (1d8 + 2)",
         "damage type": "piercing"
       }
     ],
@@ -17380,9 +17415,9 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+8",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "16 (2d12 + 3)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "16 (2d12 + 3)",
         "damage type": "piercing"
       }
     ],
@@ -17419,9 +17454,9 @@ const monsters = [
       {
         type: "Melee or Ranged Weapon Attack",
         "to hit": "+5",
-        "reach": "5 ft. or range 60 ft.",
-        "target": "one target",
-        "hit": "6 (1d6 + 3)",
+        reach: "5 ft. or range 60 ft.",
+        target: "one target",
+        hit: "6 (1d6 + 3)",
         "damage type": "radiant"
       }
     ],
@@ -17459,17 +17494,17 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+8",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "8 (1d8 + 4)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "8 (1d8 + 4)",
         "damage type": "slashing"
       },
       {
         type: "Melee Weapon Attack",
         "to hit": "+8",
-        "reach": "10 ft.",
-        "target": "one target",
-        "hit": "11 (2d6 + 4)",
+        reach: "10 ft.",
+        target: "one target",
+        hit: "11 (2d6 + 4)",
         "damage type": "piercing"
       }
     ],
@@ -17507,9 +17542,9 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+10",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "12 (2d6 + 5)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "12 (2d6 + 5)",
         "damage type": "bludgeoning"
       }
     ],
@@ -17547,9 +17582,9 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+7",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "13 (2d8 + 4)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "13 (2d8 + 4)",
         "damage type": "bludgeoning"
       }
     ],
@@ -17584,25 +17619,25 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to_hit": "+8",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "15 (3d6 + 5)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "15 (3d6 + 5)",
         "damage_type": "piercing"
       },
       {
         type: "Melee Weapon Attack",
         "to_hit": "+8",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "15 (3d6 + 5)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "15 (3d6 + 5)",
         "damage_type": "slashing"
       },
       {
         type: "Melee Weapon Attack",
         "to_hit": "+8",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "36 (9d6 + 5)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "36 (9d6 + 5)",
         "damage_type": "bludgeoning"
       }
     ],
@@ -17638,17 +17673,17 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to_hit": "+5",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "4 (1d8)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "4 (1d8)",
         "damage_type": "piercing"
       },
       {
         type: "Melee Weapon Attack",
         "to_hit": "+2",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "3 (1d6)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "3 (1d6)",
         "damage_type": "bludgeoning"
       }
     ],
@@ -17710,9 +17745,9 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to_hit": "+7",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "8 (2d4 + 3)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "8 (2d4 + 3)",
         "damage_type": "slashing"
       }
     ],
@@ -17749,9 +17784,9 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to_hit": "+10",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "27 (6d8)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "27 (6d8)",
         "damage_type": "lightning"
       }
     ],
@@ -17788,25 +17823,25 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to_hit": "+8",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "12 (2d6 + 5)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "12 (2d6 + 5)",
         "damage_type": "bludgeoning"
       },
       {
         type: "Melee Weapon Attack",
         "to_hit": "+8",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "10 (2d4 + 5)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "10 (2d4 + 5)",
         "damage_type": "slashing"
       },
       {
         type: "Melee Weapon Attack",
         "to_hit": "+8",
-        "reach": "10 ft.",
-        "target": "one target",
-        "hit": "16 (2d10 + 5)",
+        reach: "10 ft.",
+        target: "one target",
+        hit: "16 (2d10 + 5)",
         "damage_type": "slashing"
       }
     ],
@@ -17840,9 +17875,9 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to_hit": "+3",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "4 (1d6 + 1)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "4 (1d6 + 1)",
         "damage_type": "bludgeoning"
       }
     ],
@@ -17880,9 +17915,9 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to_hit": "+8",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "14 (2d8 + 5)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "14 (2d8 + 5)",
         "damage_type": "slashing"
       }
     ],
@@ -17920,17 +17955,17 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to_hit": "+21",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "21 (2d8 + 12)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "21 (2d8 + 12)",
         "damage_type": "necrotic"
       },
       {
         type: "Ranged Spell Attack",
         "to_hit": "+16",
-        "reach": "60 ft.",
-        "target": "one target",
-        "hit": "18 (2d10 + 7)",
+        reach: "60 ft.",
+        target: "one target",
+        hit: "18 (2d10 + 7)",
         "damage_type": "cold"
       }
     ],
@@ -17970,17 +18005,17 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to_hit": "+16",
-        "reach": "10 ft.",
-        "target": "one target",
-        "hit": "36 (5d10 + 9)",
+        reach: "10 ft.",
+        target: "one target",
+        hit: "36 (5d10 + 9)",
         "damage_type": "piercing"
       },
       {
         type: "Melee Weapon Attack",
         "to_hit": "+16",
-        "reach": "20 ft.",
-        "target": "one target",
-        "hit": "19 (3d6 + 9)",
+        reach: "20 ft.",
+        target: "one target",
+        hit: "19 (3d6 + 9)",
         "damage_type": "slashing"
       }
     ],
@@ -18019,9 +18054,9 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+15",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "12 (1d8 + 8) or 13 (1d10 + 8) when used with two hands, plus 27 (6d8) radiant damage",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "12 (1d8 + 8) or 13 (1d10 + 8) when used with two hands, plus 27 (6d8) radiant damage",
         "damage type": "slashing"
       }
     ],
@@ -18058,9 +18093,9 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+7",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "14 (2d8 + 5)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "14 (2d8 + 5)",
         "damage type": "piercing"
       }
     ],
@@ -18095,17 +18130,17 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+5",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "5 (1d8 + 1) slashing damage plus 18 (4d8) psychic damage, or 6 (1d10 + 1) slashing damage plus 18 (4d8) psychic damage if used with two hands",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "5 (1d8 + 1) slashing damage plus 18 (4d8) psychic damage, or 6 (1d10 + 1) slashing damage plus 18 (4d8) psychic damage if used with two hands",
         "damage type": "slashing, psychic"
       },
       {
         type: "Ranged Weapon Attack",
         "to hit": "+7",
         "range": "150/600 ft.",
-        "target": "one target",
-        "hit": "7 (1d8 + 3) piercing damage plus 18 (4d8) psychic damage",
+        target: "one target",
+        hit: "7 (1d8 + 3) piercing damage plus 18 (4d8) psychic damage",
         "damage type": "piercing, psychic"
       }
     ],
@@ -18146,9 +18181,9 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+17",
-        "reach": "10 ft.",
-        "target": "one target",
-        "hit": "19 (3d6 + 9) bludgeoning damage plus 7 (2d6) necrotic damage",
+        reach: "10 ft.",
+        target: "one target",
+        hit: "19 (3d6 + 9) bludgeoning damage plus 7 (2d6) necrotic damage",
         "damage type": "bludgeoning, necrotic"
       }
     ],
@@ -18187,17 +18222,17 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+6",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "8 (1d8 + 4)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "8 (1d8 + 4)",
         "damage type": "slashing"
       },
       {
         type: "Melee or Ranged Weapon Attack",
         "to hit": "+6",
-        "reach": "5 ft. or range 20/60 ft.",
-        "target": "one target",
-        "hit": "7 (1d6 + 4) or 8 (1d8 + 4)",
+        reach: "5 ft. or range 20/60 ft.",
+        target: "one target",
+        hit: "7 (1d6 + 4) or 8 (1d8 + 4)",
         "damage type": "piercing"
       }
     ],
@@ -18235,9 +18270,9 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+13",
-        "reach": "20 ft.",
-        "target": "one target",
-        "hit": "16 (2d8 + 7) piercing damage plus 13 (3d8) necrotic damage",
+        reach: "20 ft.",
+        target: "one target",
+        hit: "16 (2d8 + 7) piercing damage plus 13 (3d8) necrotic damage",
         "damage type": "piercing, necrotic"
       }
     ],
@@ -18274,17 +18309,17 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+7",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "25 (4d10 + 3)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "25 (4d10 + 3)",
         "damage type": "piercing"
       },
       {
         type: "Melee Weapon Attack",
         "to hit": "+7",
-        "reach": "10 ft.",
-        "target": "one target",
-        "hit": "10 (2d6 + 3) bludgeoning damage, and the target is grappled (escape DC 15) and is moved up to 5 feet toward the balhannoth",
+        reach: "10 ft.",
+        target: "one target",
+        hit: "10 (2d6 + 3) bludgeoning damage, and the target is grappled (escape DC 15) and is moved up to 5 feet toward the balhannoth",
         "damage type": "bludgeoning"
       }
     ],
@@ -18323,17 +18358,17 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+8",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "15 (3d6 + 5) piercing damage, and the target is grappled (escape DC 16) if it is a Large or smaller creature.",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "15 (3d6 + 5) piercing damage, and the target is grappled (escape DC 16) if it is a Large or smaller creature.",
         "damage type": "piercing"
       },
       {
         type: "Melee Weapon Attack",
         "to hit": "+8",
-        "reach": "15 ft.",
-        "target": "one creature",
-        "hit": "10 (3d6) necrotic damage, and the target must make a DC 16 Strength saving throw.",
+        reach: "15 ft.",
+        target: "one creature",
+        hit: "10 (3d6) necrotic damage, and the target must make a DC 16 Strength saving throw.",
         "damage type": "necrotic"
       }
     ],
@@ -18373,25 +18408,25 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+17",
-        "reach": "10 ft.",
-        "target": "one target",
-        "hit": "19 (2d8 + 10)",
+        reach: "10 ft.",
+        target: "one target",
+        hit: "19 (2d8 + 10)",
         "damage type": "piercing"
       },
       {
         type: "Melee Weapon Attack",
         "to hit": "+17",
-        "reach": "10 ft.",
-        "target": "one target",
-        "hit": "17 (2d6 + 10) piercing damage. If Baphomet moved at least 10 feet straight toward the target immediately before the hit, the target takes an extra 16 (3d10) piercing damage.",
+        reach: "10 ft.",
+        target: "one target",
+        hit: "17 (2d6 + 10) piercing damage. If Baphomet moved at least 10 feet straight toward the target immediately before the hit, the target takes an extra 16 (3d10) piercing damage.",
         "damage type": "piercing"
       },
       {
         type: "Melee Weapon Attack",
         "to hit": "+17",
-        "reach": "15 ft.",
-        "target": "one target",
-        "hit": "21 (2d10 + 10)",
+        reach: "15 ft.",
+        target: "one target",
+        hit: "21 (2d10 + 10)",
         "damage type": "force"
       }
     ],
@@ -18431,17 +18466,17 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+6",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "13 (2d8 + 4)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "13 (2d8 + 4)",
         "damage type": "piercing"
       },
       {
         type: "Melee Weapon Attack",
         "to hit": "+6",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "8 (1d8 + 4)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "8 (1d8 + 4)",
         "damage type": "slashing"
       }
     ],
@@ -18478,9 +18513,9 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+9",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "12 (2d6 + 5)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "12 (2d6 + 5)",
         "damage type": "slashing"
       }
     ],
@@ -18515,17 +18550,17 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+9",
-        "reach": "5 ft.",
-        "target": "one creature",
-        "hit": "8 (1d8 + 4)",
+        reach: "5 ft.",
+        target: "one creature",
+        hit: "8 (1d8 + 4)",
         "damage type": "bludgeoning"
       },
       {
         type: "Melee Weapon Attack",
         "to hit": "+9",
-        "reach": "5 ft.",
-        "target": "one creature",
-        "hit": "8 (1d8 + 4)",
+        reach: "5 ft.",
+        target: "one creature",
+        hit: "8 (1d8 + 4)",
         "damage type": "piercing"
       }
     ],
@@ -18560,9 +18595,9 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+3",
-        "reach": "5 ft.",
-        "target": "one creature",
-        "hit": "3 (1d6)",
+        reach: "5 ft.",
+        target: "one creature",
+        hit: "3 (1d6)",
         "damage type": "bludgeoning"
       }
     ],
@@ -18597,9 +18632,9 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+10",
-        "reach": "10 ft.",
-        "target": "one target",
-        "hit": "25 (3d12 + 6)",
+        reach: "10 ft.",
+        target: "one target",
+        hit: "25 (3d12 + 6)",
         "damage type": "slashing"
       }
     ],
@@ -18633,9 +18668,9 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+5",
-        "reach": "10 ft.",
-        "target": "one target",
-        "hit": "7 (1d8 + 3)",
+        reach: "10 ft.",
+        target: "one target",
+        hit: "7 (1d8 + 3)",
         "damage type": "piercing"
       }
     ],
@@ -18668,17 +18703,17 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+5",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "6 (1d6 + 3)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "6 (1d6 + 3)",
         "damage type": "piercing"
       },
       {
         type: "Ranged Weapon Attack",
         "to hit": "+5",
         "range": "30/120 ft.",
-        "target": "one target",
-        "hit": "6 (1d6 + 3)",
+        target: "one target",
+        hit: "6 (1d6 + 3)",
         "damage type": "piercing"
       }
     ],
@@ -18709,9 +18744,9 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+8",
-        "reach": "15 ft.",
-        "target": "one target",
-        "hit": "27 (5d8 + 5)",
+        reach: "15 ft.",
+        target: "one target",
+        hit: "27 (5d8 + 5)",
         "damage type": "bludgeoning"
       }
     ],
@@ -18747,9 +18782,9 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+9",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "13 (2d6 + 6) slashing damage plus 18 (4d8) radiant damage",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "13 (2d6 + 6) slashing damage plus 18 (4d8) radiant damage",
         "damage type": "slashing, radiant"
       }
     ],
@@ -18786,9 +18821,9 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+14",
-        "reach": "10 ft.",
-        "target": "one target",
-        "hit": "17 (2d8 + 8) piercing damage plus 22 (5d8) fire damage",
+        reach: "10 ft.",
+        target: "one target",
+        hit: "17 (2d8 + 8) piercing damage plus 22 (5d8) fire damage",
         "damage type": "piercing, fire"
       }
     ],
@@ -18825,9 +18860,9 @@ const monsters = [
       {
         type: "Melee Weapon Attack",
         "to hit": "+5",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "6 (1d6 + 3)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "6 (1d6 + 3)",
         "damage type": "bludgeoning"
       }
     ],
@@ -18863,25 +18898,25 @@ const monsters = [
       {
         "type": "Melee Weapon Attack",
         "to hit": "+9",
-        "reach": "10 ft.",
-        "target": "one target",
-        "hit": "16 (2d10 + 5)",
+        reach: "10 ft.",
+        target: "one target",
+        hit: "16 (2d10 + 5)",
         "damage type": "piercing"
       },
       {
         "type": "Melee Weapon Attack",
         "to hit": "+9",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "12 (2d6 + 5)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "12 (2d6 + 5)",
         "damage type": "slashing"
       },
       {
         "type": "Breath Weapon",
         "recharge": "5-6",
         "range": "60-foot cone",
-        "target": "creatures in the cone",
-        "hit": "49 (11d8) radiant damage",
+        target: "creatures in the cone",
+        hit: "49 (11d8) radiant damage",
         "damage type": "radiant"
       }
     ],
@@ -18917,25 +18952,25 @@ const monsters = [
       {
         "type": "Melee Weapon Attack",
         "to hit": "+12",
-        "reach": "15 ft.",
-        "target": "one target",
-        "hit": "18 (2d10 + 7)",
+        reach: "15 ft.",
+        target: "one target",
+        hit: "18 (2d10 + 7)",
         "damage type": "piercing"
       },
       {
         "type": "Melee Weapon Attack",
         "to hit": "+12",
-        "reach": "10 ft.",
-        "target": "one target",
-        "hit": "14 (2d6 + 7)",
+        reach: "10 ft.",
+        target: "one target",
+        hit: "14 (2d6 + 7)",
         "damage type": "slashing"
       },
       {
         "type": "Breath Weapon",
         "recharge": "5-6",
         "range": "60-foot cone",
-        "target": "creatures in the cone",
-        "hit": "55 (10d10) psychic damage",
+        target: "creatures in the cone",
+        hit: "55 (10d10) psychic damage",
         "damage type": "psychic"
       }
     ],
@@ -18974,25 +19009,25 @@ const monsters = [
       {
         "type": "Melee Weapon Attack",
         "to hit": "+14",
-        "reach": "15 ft.",
-        "target": "one target",
-        "hit": "19 (2d10 + 8)",
+        reach: "15 ft.",
+        target: "one target",
+        hit: "19 (2d10 + 8)",
         "damage type": "piercing"
       },
       {
         "type": "Melee Weapon Attack",
         "to hit": "+14",
-        "reach": "10 ft.",
-        "target": "one target",
-        "hit": "15 (2d6 + 8)",
+        reach: "10 ft.",
+        target: "one target",
+        hit: "15 (2d6 + 8)",
         "damage type": "slashing"
       },
       {
         "type": "Breath Weapon",
         "recharge": "5-6",
         "range": "60-foot cone",
-        "target": "creatures in the cone",
-        "hit": "63 (18d6) fire damage",
+        target: "creatures in the cone",
+        hit: "63 (18d6) fire damage",
         "damage type": "fire"
       }
     ],
@@ -19030,25 +19065,25 @@ const monsters = [
       {
         "type": "Melee Weapon Attack",
         "to hit": "+12",
-        "reach": "15 ft.",
-        "target": "one target",
-        "hit": "18 (2d10 + 7)",
+        reach: "15 ft.",
+        target: "one target",
+        hit: "18 (2d10 + 7)",
         "damage type": "piercing"
       },
       {
         "type": "Melee Weapon Attack",
         "to hit": "+12",
-        "reach": "10 ft.",
-        "target": "one target",
-        "hit": "14 (2d6 + 7)",
+        reach: "10 ft.",
+        target: "one target",
+        hit: "14 (2d6 + 7)",
         "damage type": "slashing"
       },
       {
         "type": "Breath Weapon",
         "recharge": "5-6",
         "range": "60-foot cone",
-        "target": "creatures in the cone",
-        "hit": "55 (10d10) force damage",
+        target: "creatures in the cone",
+        hit: "55 (10d10) force damage",
         "damage type": "force"
       }
     ],
@@ -19086,25 +19121,25 @@ const monsters = [
       {
         "type": "Melee Weapon Attack",
         "to hit": "+14",
-        "reach": "15 ft.",
-        "target": "one target",
-        "hit": "19 (2d10 + 8)",
+        reach: "15 ft.",
+        target: "one target",
+        hit: "19 (2d10 + 8)",
         "damage type": "piercing"
       },
       {
         "type": "Melee Weapon Attack",
         "to hit": "+14",
-        "reach": "10 ft.",
-        "target": "one target",
-        "hit": "15 (2d6 + 8)",
+        reach: "10 ft.",
+        target: "one target",
+        hit: "15 (2d6 + 8)",
         "damage type": "slashing"
       },
       {
         "type": "Breath Weapon",
         "recharge": "5-6",
         "range": "90-foot cone",
-        "target": "creatures in the cone",
-        "hit": "63 (18d6) radiant damage",
+        target: "creatures in the cone",
+        hit: "63 (18d6) radiant damage",
         "damage type": "radiant"
       }
     ],
@@ -19142,25 +19177,25 @@ const monsters = [
       {
         "type": "Melee Weapon Attack",
         "to hit": "+13",
-        "reach": "15 ft.",
-        "target": "one target",
-        "hit": "19 (2d10 + 8)",
+        reach: "15 ft.",
+        target: "one target",
+        hit: "19 (2d10 + 8)",
         "damage type": "piercing"
       },
       {
         "type": "Melee Weapon Attack",
         "to hit": "+13",
-        "reach": "10 ft.",
-        "target": "one target",
-        "hit": "15 (2d6 + 8)",
+        reach: "10 ft.",
+        target: "one target",
+        hit: "15 (2d6 + 8)",
         "damage type": "slashing"
       },
       {
         "type": "Breath Weapon",
         "recharge": "5-6",
         "range": "60-foot cone",
-        "target": "creatures in the cone",
-        "hit": "55 (10d10) force damage",
+        target: "creatures in the cone",
+        hit: "55 (10d10) force damage",
         "damage type": "force"
       }
     ],
@@ -19199,25 +19234,25 @@ const monsters = [
       {
         "type": "Melee Weapon Attack",
         "to hit": "+16",
-        "reach": "20 ft.",
-        "target": "one target",
-        "hit": "26 (3d10 + 10)",
+        reach: "20 ft.",
+        target: "one target",
+        hit: "26 (3d10 + 10)",
         "damage type": "piercing"
       },
       {
         "type": "Melee Weapon Attack",
         "to hit": "+16",
-        "reach": "15 ft.",
-        "target": "one target",
-        "hit": "23 (3d8 + 10)",
+        reach: "15 ft.",
+        target: "one target",
+        hit: "23 (3d8 + 10)",
         "damage type": "bludgeoning"
       },
       {
         "type": "Breath Weapon",
         "recharge": "5-6",
         "range": "60-foot cone",
-        "target": "creatures in the cone",
-        "hit": "77 (22d6) fire damage",
+        target: "creatures in the cone",
+        hit: "77 (22d6) fire damage",
         "damage type": "fire"
       }
     ],
@@ -19255,25 +19290,25 @@ const monsters = [
       {
         "type": "Melee Weapon Attack",
         "to hit": "+16",
-        "reach": "20 ft.",
-        "target": "one target",
-        "hit": "26 (3d10 + 10)",
+        reach: "20 ft.",
+        target: "one target",
+        hit: "26 (3d10 + 10)",
         "damage type": "piercing"
       },
       {
         "type": "Melee Weapon Attack",
         "to hit": "+16",
-        "reach": "15 ft.",
-        "target": "one target",
-        "hit": "23 (3d8 + 10)",
+        reach: "15 ft.",
+        target: "one target",
+        hit: "23 (3d8 + 10)",
         "damage type": "slashing"
       },
       {
         "type": "Breath Weapon",
         "recharge": "5-6",
         "range": "90-foot cone",
-        "target": "creatures in the cone",
-        "hit": "77 (22d6) psychic damage",
+        target: "creatures in the cone",
+        hit: "77 (22d6) psychic damage",
         "damage type": "psychic"
       }
     ],
@@ -19309,9 +19344,9 @@ const monsters = [
       {
         "type": "Melee Weapon Attack",
         "to hit": "+4",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "5 (1d6 + 2)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "5 (1d6 + 2)",
         "damage type": "piercing"
       }
     ],
@@ -19348,9 +19383,9 @@ const monsters = [
       {
         "type": "Melee Weapon Attack",
         "to hit": "+7",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "10 (1d10 + 5)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "10 (1d10 + 5)",
         "damage type": "bludgeoning"
       }
     ],
@@ -19384,25 +19419,25 @@ const monsters = [
   {
    "type": "Melee Weapon Attack",
    "to hit": "+14",
-   "reach": "15 ft.",
-   "target": "one target",
-   "hit": "15 (2d6 + 8) piercing damage plus 7 (2d6) cold damage",
+   reach: "15 ft.",
+   target: "one target",
+   hit: "15 (2d6 + 8) piercing damage plus 7 (2d6) cold damage",
    "damage type": "piercing, cold"
   },
   {
    "type": "Melee Weapon Attack",
    "to hit": "+14",
-   "reach": "10 ft.",
-   "target": "one target",
-   "hit": "15 (2d6 + 8) slashing damage",
+   reach: "10 ft.",
+   target: "one target",
+   hit: "15 (2d6 + 8) slashing damage",
    "damage type": "slashing"
   },
   {
    "type": "Melee Weapon Attack",
    "to hit": "+14",
-   "reach": "20 ft.",
-   "target": "one target",
-   "hit": "15 (2d6 + 8) bludgeoning damage",
+   reach: "20 ft.",
+   target: "one target",
+   hit: "15 (2d6 + 8) bludgeoning damage",
    "damage type": "bludgeoning"
   }
  ],
@@ -19443,17 +19478,17 @@ const monsters = [
   {
    "type": "Melee Weapon Attack",
    "to hit": "+15",
-   "reach": "15 ft.",
-   "target": "one target",
-   "hit": "19 (2d10 + 8) piercing damage plus 11 (2d10) thunder damage",
+   reach: "15 ft.",
+   target: "one target",
+   hit: "19 (2d10 + 8) piercing damage plus 11 (2d10) thunder damage",
    "damage type": "piercing, thunder"
   },
   {
    "type": "Melee Weapon Attack",
    "to hit": "+15",
-   "reach": "10 ft.",
-   "target": "one target",
-   "hit": "15 (2d6 + 8) slashing damage",
+   reach: "10 ft.",
+   target: "one target",
+   hit: "15 (2d6 + 8) slashing damage",
    "damage type": "slashing"
   }
  ],
@@ -19493,25 +19528,25 @@ const monsters = [
   {
    "type": "Melee Weapon Attack",
    "to hit": "+12",
-   "reach": "15 ft.",
-   "target": "one target",
-   "hit": "20 (2d12 + 7) piercing damage plus 6 (1d12) cold damage",
+   reach: "15 ft.",
+   target: "one target",
+   hit: "20 (2d12 + 7) piercing damage plus 6 (1d12) cold damage",
    "damage type": "piercing, cold"
   },
   {
    "type": "Melee Weapon Attack",
    "to hit": "+12",
-   "reach": "20 ft.",
-   "target": "one creature",
-   "hit": "29 (4d10 + 7) bludgeoning damage",
+   reach: "20 ft.",
+   target: "one creature",
+   hit: "29 (4d10 + 7) bludgeoning damage",
    "damage type": "bludgeoning"
   },
   {
    "type": "Melee Weapon Attack",
    "to hit": "+12",
-   "reach": "20 ft.",
-   "target": "one target",
-   "hit": "13 (1d12 + 7) bludgeoning damage",
+   reach: "20 ft.",
+   target: "one target",
+   hit: "13 (1d12 + 7) bludgeoning damage",
    "damage type": "bludgeoning"
   }
  ],
@@ -19548,25 +19583,25 @@ const monsters = [
   {
    "type": "Melee Weapon Attack",
    "to hit": "+16",
-   "reach": "15 ft.",
-   "target": "one target",
-   "hit": "19 (2d10 + 9) piercing damage plus 18 (4d8) radiant damage",
+   reach: "15 ft.",
+   target: "one target",
+   hit: "19 (2d10 + 9) piercing damage plus 18 (4d8) radiant damage",
    "damage type": "piercing, radiant"
   },
   {
    "type": "Melee Weapon Attack",
    "to hit": "+16",
-   "reach": "10 ft.",
-   "target": "one target",
-   "hit": "16 (2d6 + 9) slashing damage",
+   reach: "10 ft.",
+   target: "one target",
+   hit: "16 (2d6 + 9) slashing damage",
    "damage type": "slashing"
   },
   {
    "type": "Ranged Spell Attack",
    "to hit": "+11",
-   "reach": "120 ft.",
-   "target": "one target",
-   "hit": "14 (4d6) radiant damage",
+   reach: "120 ft.",
+   target: "one target",
+   hit: "14 (4d6) radiant damage",
    "damage type": "radiant"
   }
  ],
@@ -19605,17 +19640,17 @@ const monsters = [
       {
         "type": "Melee Weapon Attack",
         "to hit": "+10",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "17 (2d10 + 6)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "17 (2d10 + 6)",
         "damage type": "piercing"
       },
       {
         "type": "Melee Weapon Attack",
         "to hit": "+10",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "23 (5d6 + 6)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "23 (5d6 + 6)",
         "damage type": "piercing"
       }
     ],
@@ -19652,8 +19687,8 @@ const monsters = [
       {
         "type": "Melee or Ranged Attack",
         "to hit": "+14",
-        "reach": "10 ft. or range 60 ft.",
-        "hit": "17 (3d6 + 7)",
+        reach: "10 ft. or range 60 ft.",
+        hit: "17 (3d6 + 7)",
         "damage type": "Force"
       }
     ],
@@ -19720,25 +19755,25 @@ const monsters = [
       {
         "type": "Melee Weapon Attack",
         "to hit": "+17",
-        "reach": "20 ft.",
-        "target": "one target",
-        "hit": "21 (2d10 + 10)",
+        reach: "20 ft.",
+        target: "one target",
+        hit: "21 (2d10 + 10)",
         "damage type": "bludgeoning"
       },
       {
         "type": "Melee Weapon Attack",
         "to hit": "+17",
-        "reach": "15 ft.",
-        "target": "one target",
-        "hit": "17 (2d6 + 10)",
+        reach: "15 ft.",
+        target: "one target",
+        hit: "17 (2d6 + 10)",
         "damage type": "slashing"
       },
       {
         "type": "Melee Weapon Attack",
         "to hit": "+17",
-        "reach": "20 ft.",
-        "target": "one target",
-        "hit": "28 (4d6 + 10)",
+        reach: "20 ft.",
+        target: "one target",
+        hit: "28 (4d6 + 10)",
         "damage type": "piercing"
       }
     ],
@@ -19779,17 +19814,17 @@ const monsters = [
       {
         "type": "Melee Weapon Attack",
         "to hit": "+6",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "10 (2d6 + 3)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "10 (2d6 + 3)",
         "damage type": "bludgeoning"
       },
       {
         "type": "Ranged Weapon Attack",
         "to hit": "+5",
-        "reach": "80/320 ft.",
-        "target": "one target",
-        "hit": "9 (2d6 + 2)",
+        reach: "80/320 ft.",
+        target: "one target",
+        hit: "9 (2d6 + 2)",
         "damage type": "piercing"
       }
     ],
@@ -19824,17 +19859,17 @@ const monsters = [
       {
         "type": "Melee Weapon Attack",
         "to hit": "+7",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "11 (2d6 + 4)",
+        reach: "5 ft.",
+        target: "one target",
+        hit: "11 (2d6 + 4)",
         "damage type": "piercing"
       },
       {
         "type": "Ranged Weapon Attack",
         "to hit": "+6",
-        "reach": "150/600 ft.",
-        "target": "one target",
-        "hit": "9 (1d8 + 3)",
+        reach: "150/600 ft.",
+        target: "one target",
+        hit: "9 (1d8 + 3)",
         "damage type": "piercing"
       }
     ],
