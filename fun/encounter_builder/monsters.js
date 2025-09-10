@@ -7742,7 +7742,16 @@ const monsters = [
     traits:
       "<p><em><strong>Beast of Burden.</strong></em> The mule is considered to be a Large animal for the purpose of determining its carrying capacity.</p><p><em><strong>Sure-Footed.</strong></em> The mule has advantage on Strength and Dexterity saving throws made against effects that would knock it prone.</p>",
     "number of attacks": 1,
-    attacks: {},
+    attacks: {
+      "Hooves": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+2",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "4 (1d4 + 2)",
+        "damage type": "bludgeoning"
+      }
+    },
     actions:
       "<p><em><strong>Hooves.</strong></em> <em>Melee Weapon Attack:</em> +2 to hit, reach 5 ft. one target. <em>Hit:</em> 4 (1d4 + 2) bludgeoning damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/attachments/2/648/beast.jpg",

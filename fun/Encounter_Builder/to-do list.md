@@ -1373,16 +1373,7 @@ These two are missing their attacks properties:
   "Adult Red Dragon"
 
   "Mule": {
-    "attacks": {
-      "Hooves": {
-        "type": "Melee Weapon Attack",
-        "to hit": "+2",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "4 (1d4 + 2)",
-        "damage type": "bludgeoning"
-      }
-    }
+    "attacks": 
   },
   "Mummy": {
     "attacks": {
