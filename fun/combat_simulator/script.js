@@ -204,7 +204,7 @@ class CombatSimulator {
         if (monsterData.attacks && typeof monsterData.attacks === 'object') {
             const firstAttack = Object.values(monsterData.attacks)[0];
             if (firstAttack && firstAttack['to hit']) {
-                attackBonus = parseInt(firstAttack['to hit'].replace('+', '')) || 0;
+                attackBonus = this.parseAttackBonus(firstAttack['to hit']);
             }
         }
         
@@ -289,6 +289,40 @@ class CombatSimulator {
         if (!damageString || typeof damageString !== 'string') return '1d6';
         const match = damageString.match(/(\d+d\d+(?:\s*[+-]\s*\d+)?)/);
         return match ? match[1] : '1d6';
+    }
+
+    parseAttackBonus(attackBonusString) {
+        // Parse attack bonus from strings like "+4", "+5", or "-1"
+        if (!attackBonusString || typeof attackBonusString !== 'string') return 0;
+        const match = attackBonusString.match(/([+-]?\d+)/);
+        return match ? parseInt(match[1]) : 0;
+    }
+
+    selectAttack(attacker) {
+        // Select an attack based on available attacks and distribute evenly
+        if (!attacker.originalData || !attacker.originalData.attacks) {
+            // Fallback to a default attack
+            return { "to hit": "+0", hit: "1d6" };
+        }
+
+        const attacks = attacker.originalData.attacks;
+        const attackNames = Object.keys(attacks);
+        
+        if (attackNames.length === 0) {
+            return { "to hit": "+0", hit: "1d6" };
+        }
+
+        // Calculate which attack to use based on attacks remaining
+        const totalAttacks = attacker.numberOfAttacks || 1;
+        const attacksUsed = totalAttacks - attacker.attacksRemaining;
+        const attackIndex = attacksUsed % attackNames.length;
+        
+        const selectedAttackName = attackNames[attackIndex];
+        const selectedAttack = attacks[selectedAttackName];
+        
+        this.logMessage(`${attacker.name} uses ${selectedAttackName} attack.`);
+        
+        return selectedAttack;
     }
 
     parseSpeed(speedString) {
@@ -513,21 +547,19 @@ class CombatSimulator {
         // For now, attack the first available target
         // In a full implementation, you'd have a target selection UI
         this.performAttack(currentCombatant, targets[0]);
+        
+        // Update action buttons after attack
+        this.updateActionButtons();
     }
 
     performAttack(attacker, target, attack) {
-        // If attack is not provided, use the first available attack from attacker
+        // If attack is not provided, select an attack based on available attacks
         if (!attack) {
-            if (attacker.attacks && typeof attacker.attacks === 'object') {
-                attack = Object.values(attacker.attacks)[0];
-            } else {
-                // Fallback to a default attack
-                attack = { "to hit": "+0", hit: "1d6" };
-            }
+            attack = this.selectAttack(attacker);
         }
 
         const rawRoll = this.rollDice(20);
-        const attackBonus = attack["to hit"] ? parseInt(attack["to hit"]) : 0;
+        const attackBonus = this.parseAttackBonus(attack["to hit"]);
         const attackRoll = rawRoll + attackBonus;
         let isCritical = false;
         let damage = this.rollDamage(attack.hit);
@@ -553,6 +585,9 @@ class CombatSimulator {
             }
             this.updateDisplay();
         }
+
+        // Note: attacksRemaining is now managed by the calling function
+        // This method just performs the attack
     }
 
     rollDamage(damageString) {
@@ -601,7 +636,7 @@ class CombatSimulator {
         }
         this.logMessage('Battle simulation started!', 'attack');
         let interval = setInterval(() => {
-            // Check for end condition
+            // Check for end condition - only one team with living members
             const aliveTeams = {};
             this.initiativeOrder.forEach(c => {
                 if (!c.isDead) {
@@ -610,28 +645,70 @@ class CombatSimulator {
             });
             const teams = Object.keys(aliveTeams);
             if (teams.length <= 1) {
-                this.logMessage(`Battle ended! Winning team: ${teams[0] || 'None'}`, 'critical');
+                const winningTeam = teams[0] || 'None';
+                this.logMessage(`Battle ended! Winning team: ${winningTeam}`, 'critical');
                 clearInterval(interval);
                 this.combatActive = false;
                 this.updateActionButtons();
                 return;
             }
+            
             // Simulate current turn
             const currentCombatant = this.getCurrentCombatant();
             if (!currentCombatant || currentCombatant.isDead) {
                 this.endTurn();
                 return;
             }
-            // Find valid targets
+            
+            // Find valid targets (enemies only)
             const targets = this.initiativeOrder.filter(c => 
                 c.id !== currentCombatant.id && !c.isDead && c.team !== currentCombatant.team
             );
+            
+            // If no valid targets, end turn
             if (targets.length === 0) {
                 this.endTurn();
                 return;
             }
-            // Attack first valid target
-            this.performAttack(currentCombatant, targets[0]);
+            
+            // Perform all attacks for this turn
+            let attacksPerformed = 0;
+            const maxAttacks = currentCombatant.attacksRemaining;
+            
+            while (attacksPerformed < maxAttacks && targets.length > 0) {
+                this.performAttack(currentCombatant, targets[0]);
+                attacksPerformed++;
+                
+                // Check for end condition after each attack
+                const aliveTeamsAfterAttack = {};
+                this.initiativeOrder.forEach(c => {
+                    if (!c.isDead) {
+                        aliveTeamsAfterAttack[c.team] = true;
+                    }
+                });
+                const teamsAfterAttack = Object.keys(aliveTeamsAfterAttack);
+                if (teamsAfterAttack.length <= 1) {
+                    const winningTeam = teamsAfterAttack[0] || 'None';
+                    this.logMessage(`Battle ended! Winning team: ${winningTeam}`, 'critical');
+                    clearInterval(interval);
+                    this.combatActive = false;
+                    this.updateActionButtons();
+                    return;
+                }
+                
+                // Update targets in case one was defeated
+                targets = this.initiativeOrder.filter(c => 
+                    c.id !== currentCombatant.id && !c.isDead && c.team !== currentCombatant.team
+                );
+                
+                // Break if no targets remaining
+                if (targets.length === 0) {
+                    break;
+                }
+            }
+            
+            // End turn after all attacks are complete
+            this.endTurn();
         }, 1200); // 1.2 seconds per turn for readability
     }
 
@@ -896,6 +973,27 @@ const FALLBACK_MONSTERS = [
             "Scimitar": {
                 "to hit": "+3",
                 hit: "4 (1d6 + 1)"
+            }
+        }
+    },
+    {
+        name: "Veteran",
+        size: "Medium",
+        type: "Humanoid",
+        "armor class": "17",
+        "hit points": "58 (9d8 + 18)",
+        speed: "30 ft.",
+        dex: "13",
+        challenge: "3 (700 XP)",
+        "number of attacks": 2,
+        attacks: {
+            "Longsword": {
+                "to hit": "+5",
+                hit: "7 (1d8 + 3)"
+            },
+            "Shortsword": {
+                "to hit": "+5",
+                hit: "6 (1d6 + 3)"
             }
         }
     }
