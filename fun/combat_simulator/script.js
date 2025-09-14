@@ -447,6 +447,10 @@ class CombatSimulator {
         $('.btn-team').removeClass('active');
         
         this.updateDisplay();
+        
+        // Clear the combat log
+        $('#combatLog').empty();
+        
         this.logMessage('New combat session started. Add characters and roll initiative to begin.');
     }
 
@@ -558,6 +562,21 @@ class CombatSimulator {
             attack = this.selectAttack(attacker);
         }
 
+        // Validate attack object
+        if (!attack || typeof attack !== 'object') {
+            console.error('Invalid attack object:', attack);
+            this.logMessage(`${attacker.name} attempts to attack but has no valid attack!`);
+            return;
+        }
+
+        // Ensure attack has required properties
+        if (!attack["to hit"]) {
+            attack["to hit"] = "+0";
+        }
+        if (!attack.hit) {
+            attack.hit = "1d6";
+        }
+
         const rawRoll = this.rollDice(20);
         const attackBonus = this.parseAttackBonus(attack["to hit"]);
         const attackRoll = rawRoll + attackBonus;
@@ -593,8 +612,17 @@ class CombatSimulator {
     }
 
     rollDamage(damageString) {
+        // Handle undefined, null, or invalid damage strings
+        if (!damageString || typeof damageString !== 'string') {
+            console.warn('Invalid damage string:', damageString);
+            return 0;
+        }
+        
         const match = damageString.match(/(\d+)d(\d+)([+-]\d+)?/);
-        if (!match) return 0;
+        if (!match) {
+            console.warn('Could not parse damage string:', damageString);
+            return 0;
+        }
 
         const numDice = parseInt(match[1]);
         const dieSize = parseInt(match[2]);
