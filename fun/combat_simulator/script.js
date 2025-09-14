@@ -586,8 +586,10 @@ class CombatSimulator {
             this.updateDisplay();
         }
 
-        // Note: attacksRemaining is now managed by the calling function
-        // This method just performs the attack
+        // Decrease attacks remaining
+        if (attacker.attacksRemaining > 0) {
+            attacker.attacksRemaining--;
+        }
     }
 
     rollDamage(damageString) {
@@ -635,81 +637,77 @@ class CombatSimulator {
             return;
         }
         this.logMessage('Battle simulation started!', 'attack');
-        let interval = setInterval(() => {
-            // Check for end condition - only one team with living members
-            const aliveTeams = {};
-            this.initiativeOrder.forEach(c => {
-                if (!c.isDead) {
-                    aliveTeams[c.team] = true;
-                }
-            });
-            const teams = Object.keys(aliveTeams);
-            if (teams.length <= 1) {
-                const winningTeam = teams[0] || 'None';
-                this.logMessage(`Battle ended! Winning team: ${winningTeam}`, 'critical');
-                clearInterval(interval);
-                this.combatActive = false;
-                this.updateActionButtons();
-                return;
+        this.simulateBattleStep();
+    }
+
+    simulateBattleStep() {
+        // Check for end condition - only one team with living members
+        const aliveTeams = {};
+        this.initiativeOrder.forEach(c => {
+            if (!c.isDead) {
+                aliveTeams[c.team] = true;
             }
-            
-            // Simulate current turn
-            const currentCombatant = this.getCurrentCombatant();
-            if (!currentCombatant || currentCombatant.isDead) {
-                this.endTurn();
-                return;
+        });
+        const teams = Object.keys(aliveTeams);
+        if (teams.length <= 1) {
+            const winningTeam = teams[0] || 'None';
+            this.logMessage(`Battle ended! Winning team: ${winningTeam}`, 'critical');
+            this.combatActive = false;
+            this.updateActionButtons();
+            return;
+        }
+        
+        // Simulate current turn
+        const currentCombatant = this.getCurrentCombatant();
+        if (!currentCombatant || currentCombatant.isDead) {
+            this.endTurn();
+            // Continue simulation with minimal delay to allow UI updates
+            setTimeout(() => this.simulateBattleStep(), 1);
+            return;
+        }
+        
+        // Find valid targets (enemies only)
+        const targets = this.initiativeOrder.filter(c => 
+            c.id !== currentCombatant.id && !c.isDead && c.team !== currentCombatant.team
+        );
+        
+        // If no valid targets, end turn
+        if (targets.length === 0) {
+            this.endTurn();
+            // Continue simulation with minimal delay to allow UI updates
+            setTimeout(() => this.simulateBattleStep(), 1);
+            return;
+        }
+        
+        // Perform one attack and then continue
+        this.performAttack(currentCombatant, targets[0]);
+        
+        // Check for end condition after this attack
+        const aliveTeamsAfterAttack = {};
+        this.initiativeOrder.forEach(c => {
+            if (!c.isDead) {
+                aliveTeamsAfterAttack[c.team] = true;
             }
-            
-            // Find valid targets (enemies only)
-            const targets = this.initiativeOrder.filter(c => 
-                c.id !== currentCombatant.id && !c.isDead && c.team !== currentCombatant.team
-            );
-            
-            // If no valid targets, end turn
-            if (targets.length === 0) {
-                this.endTurn();
-                return;
-            }
-            
-            // Perform all attacks for this turn
-            let attacksPerformed = 0;
-            const maxAttacks = currentCombatant.attacksRemaining;
-            
-            while (attacksPerformed < maxAttacks && targets.length > 0) {
-                this.performAttack(currentCombatant, targets[0]);
-                attacksPerformed++;
-                
-                // Check for end condition after each attack
-                const aliveTeamsAfterAttack = {};
-                this.initiativeOrder.forEach(c => {
-                    if (!c.isDead) {
-                        aliveTeamsAfterAttack[c.team] = true;
-                    }
-                });
-                const teamsAfterAttack = Object.keys(aliveTeamsAfterAttack);
-                if (teamsAfterAttack.length <= 1) {
-                    const winningTeam = teamsAfterAttack[0] || 'None';
-                    this.logMessage(`Battle ended! Winning team: ${winningTeam}`, 'critical');
-                    clearInterval(interval);
-                    this.combatActive = false;
-                    this.updateActionButtons();
-                    return;
-                }
-                
-                // Update targets in case one was defeated
-                targets = this.initiativeOrder.filter(c => 
-                    c.id !== currentCombatant.id && !c.isDead && c.team !== currentCombatant.team
-                );
-                
-                // Break if no targets remaining
-                if (targets.length === 0) {
-                    break;
-                }
-            }
-            
+        });
+        const teamsAfterAttack = Object.keys(aliveTeamsAfterAttack);
+        if (teamsAfterAttack.length <= 1) {
+            const winningTeam = teamsAfterAttack[0] || 'None';
+            this.logMessage(`Battle ended! Winning team: ${winningTeam}`, 'critical');
+            this.combatActive = false;
+            this.updateActionButtons();
+            return;
+        }
+        
+        // Check if current combatant has more attacks remaining
+        if (currentCombatant.attacksRemaining > 0) {
+            // Continue with more attacks for this combatant
+            setTimeout(() => this.simulateBattleStep(), 1);
+        } else {
             // End turn after all attacks are complete
             this.endTurn();
-        }, 1200); // 1.2 seconds per turn for readability
+            // Continue simulation with minimal delay to allow UI updates
+            setTimeout(() => this.simulateBattleStep(), 1);
+        }
     }
 
     // Utility Methods
