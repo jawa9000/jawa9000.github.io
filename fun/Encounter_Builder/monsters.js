@@ -267,17 +267,49 @@ const monsters = [
       "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
     "number of attacks": 3, 
     "damage resistances": "Fire",
-    attacks: {
-      "Bite": {
-        type: "Melee Weapon Attack",
-        "to hit": "+11",
-        reach: "10 ft.",
-        target: "one target",
-        hit: "17 (2d10 + 6)",
-      },
-      "Claw": {
-
-      }
+    "attacks": {
+    "Bite": {
+      "type": "Melee Weapon Attack",
+      "to hit": "+10",
+      "reach": "10 ft.",
+      "target": "one target",
+      "hit": "17 (2d10 + 6)",
+      "damage type": "piercing"
+    },
+    "Claw": {
+      "type": "Melee Weapon Attack",
+      "to hit": "+10",
+      "reach": "5 ft.",
+      "target": "one target",
+      "hit": "13 (2d6 + 6)",
+      "damage type": "slashing"
+    },
+    "Tail": {
+      "type": "Melee Weapon Attack",
+      "to hit": "+10",
+      "reach": "15 ft.",
+      "target": "one target",
+      "hit": "13 (2d6 + 6)",
+      "damage type": "bludgeoning"
+    },
+    "Frightful Presence": {
+      "type": "Frightful Presence",
+      "description": "Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 16 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours."
+    },
+    "Fire Breath": {
+      "type": "Fire Breath",
+      "recharge": "5–6",
+      "dc": 18,
+      "damage": "49 (9d10)",
+      "damage type": "fire",
+      "description": "The dragon exhales fire in a 60-foot line that is 5 feet wide. Each creature in that line must make a DC 18 Dexterity saving throw, taking 49 (9d10) fire damage on a failed save, or half as much damage on a successful one."
+    },
+    "Sleep Breath": {
+      "type": "Sleep Breath",
+      "recharge": "5–6",
+      "dc": 18,
+      "description": "The dragon exhales sleep gas in a 60-foot cone. Each creature in that area must make a DC 18 Constitution saving throw or fall unconscious for 10 minutes. This effect ends for a creature if the creature takes damage or someone uses an action to wake it."
+    }
     },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +11 to hit, reach 10 ft. one target. <em>Hit:</em> 17 (2d10 + 6) piercing damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +11 to hit, reach 5 ft. one target. <em>Hit:</em> 13 (2d6 + 6) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +11 to hit, reach 15 ft. one target. <em>Hit:</em> 15 (2d8 + 6) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 16 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Breath Weapons (Recharge 5–6).</strong></em> The dragon uses one of the following breath weapons.</p><p><em><strong>Fire Breath.</strong></em> The dragon exhales fire in an 60-foot line that is 5 feet wide. Each creature in that line must make a DC 18 Dexterity saving throw, taking 45 (13d6) fire damage on a failed save, or half as much damage on a successful one.</p><p><em><strong>Sleep Breath.</strong></em> The dragon exhales sleep gas in a 60-foot cone. Each creature in that area must succeed on a DC 18 Constitution saving throw or fall unconscious for 10 minutes. This effect ends for a creature if the creature takes damage or someone uses an action to wake it.</p>",
