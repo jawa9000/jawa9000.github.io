@@ -7204,7 +7204,6 @@ const monsters = [
       "<p><em><strong>Death Burst.</strong></em> When the mephit dies, it explodes in a burst of lava. Each creature within 5 feet of it must make a DC 11 Dexterity saving throw, taking 7 (2d6) fire damage on a failed save, or half as much damage on a successful one.</p><p><em><strong>False Appearance.</strong></em> While the mephit remains motionless, it is indistinguishable from an ordinary mound of magma.</p><p><em><strong>Innate Spellcasting.</strong></em>(1/Day). The mephit can innately cast heat metal (spell save DC 10), requiring no material components. Its innate spellcasting ability is Charisma.</p>",
     "number of attacks": 1,
     attacks: {
-    "attacks": {
       "Claws": {
         "type": "Melee Weapon Attack",
         "to hit": "+3",
@@ -18245,7 +18244,7 @@ const monsters = [
     senses: "Passive Perception 15",
     languages: ["Common"],
     challenge: "3 (700 XP)",
-    "bonus_actions": "<p><em><strong>Archer's Eye (3/Day).</strong></em> As a bonus action, the archer can add 1d10 to its next attack or damage roll with a longbow or shortbow.</p>",
+    "bonus actions": "<p><em><strong>Archer's Eye (3/Day).</strong></em> As a bonus action, the archer can add 1d10 to its next attack or damage roll with a longbow or shortbow.</p>",
     "number of attacks": 2,
     attacks: [
       {
@@ -18428,7 +18427,7 @@ const monsters = [
     languages: ["Common"],
     challenge: "1/4 (50 XP)",
     traits: "<p><em><strong>Siege Monster.</strong></em> The anarch deals double damage to objects and structures.</p>",
-    "bonus_actions": "<p><em><strong>Aggressive.</strong></em> As a bonus action, the anarch can move up to its speed toward a hostile creature it can see.</p>",
+    "bonus actions": "<p><em><strong>Aggressive.</strong></em> As a bonus action, the anarch can move up to its speed toward a hostile creature it can see.</p>",
     attacks: [
       {
         type: "Melee Weapon Attack",
@@ -18516,7 +18515,7 @@ const monsters = [
       }
     ],
     actions: "<p><em><strong>Multiattack.</strong></em> The archon makes two Radiant Strike attacks. It can replace one attack with a use of Teleport.</p><p><em><strong>Radiant Strike.</strong></em> <em>Melee or Ranged Weapon Attack:</em> +5 to hit, reach 5 ft. or range 60 ft., one target. <em>Hit:</em> 6 (1d6 + 3) radiant damage.</p><p><em><strong>Spellcasting.</strong></em> The archon casts one of the following spells, requiring no material components and using Charisma as the spellcasting ability:<br>At will: detect evil and good<br>1/day: aid</p><p><em><strong>Teleport.</strong></em> The archon teleports, along with any equipment it is wearing or carrying, to an unoccupied space it can see within 120 feet of itself.</p>",
-    "bonus_actions": "<p><em><strong>Shift Radiance.</strong></em> The archon reduces its Illumination to shed only dim light in a 5-foot radius, or it returns the light to full intensity.</p>",
+    "bonus actions": "<p><em><strong>Shift Radiance.</strong></em> The archon reduces its Illumination to shed only dim light in a 5-foot radius, or it returns the light to full intensity.</p>",
     "img url": "https://5e.tools/img/MPP/Lantern%20Archon.png",
     "description": "<p>The lowest-ranked archons, lantern archons greet newly arrived souls to Mount Celestia and light the path for those who traverse the plane with reverence and respect. They appear as glowing, winged balls of vaporous light wrapped in a gleaming metal lattice, although they have no more physical substance than smoke.</p><p>When confronting those who approach with ill intentions, lantern archons strike with searing bolts of focused light, flitting from place to place between blasts to confound their foes.</p><p><strong>ARCHONS</strong></p><p>Archons are denizens of the Seven Heavens of Mount Celestia. Created by the powers of order and benevolence, archons defend their home from fiendish incursions and safeguard those threatened by wicked forces. Archons are skilled communicators, able to speak all the languages of the multiverse. When pushed into combat, they prefer to subdue foes. However, against Fiends, archons are wrathful combatants, manifesting the righteous vengeance of Mount Celestia to strike down the wicked.</p><p>Each archon's form corresponds to its place within the Celestial hierarchy. When faced in battle, archons radiate the full fury of the Upper Planes, bolstering their allies and cowing their foes.</p>"
   },
@@ -18591,7 +18590,7 @@ const monsters = [
     languages: ["All"],
     challenge: "14 (11,500 XP)",
     traits: "<p><em><strong>Innate Spellcasting.</strong></em> The archon's innate spellcasting ability is Wisdom (spell save DC 18, +10 to hit with spell attacks). The archon can innately cast the following spells, requiring no material components:<br>At will: calm emotions, command, compelled duel</p><p><em><strong>Mount.</strong></em> If the archon isn't mounted, it can use a bonus action to magically teleport onto the creature serving as its mount, provided the archon and its mount are on the same plane of existence. When it teleports, the archon appears astride the mount along with any equipment it is wearing or carrying. While mounted and not incapacitated, the archon can't be surprised, and both it and its mount gain advantage on Dexterity saving throws. If the archon is reduced to 0 hit points while riding its mount, the mount is reduced to 0 hit points as well.</p>",
-    "bonus_actions": "<p><em><strong>Eye of the Law.</strong></em> As a bonus action, the archon can target a creature it can see within 120 feet of it and determine which laws that creature has broken in the last 24 hours.</p>",
+    "bonus actions": "<p><em><strong>Eye of the Law.</strong></em> As a bonus action, the archon can target a creature it can see within 120 feet of it and determine which laws that creature has broken in the last 24 hours.</p>",
     "number of attacks": 2,
     attacks: [
       {
@@ -18631,7 +18630,7 @@ const monsters = [
     languages: ["Draconic", "Can't speak"],
     challenge: "6 (2,300 XP)",
     traits: "<p><em><strong>Chromatic Form.</strong></em> When created, the animated breath takes one of five forms, matching its creator's breath weapon: Acid, Cold, Fire, Lightning, or Poison. This form determines the creature's AC, damage resistance, traits, and attacks.</p><p><em><strong>Fire Aura (Fire Form Only).</strong></em> At the start of each of the animated breath's turns, each creature within 5 feet of it takes 3 (1d6) fire damage, and flammable objects in the aura that aren't being worn or carried ignite. A creature that touches the animated breath or hits it with a melee attack takes 3 (1d6) fire damage.</p><p><em><strong>Putrid Aura (Acid and Poison Forms Only).</strong></em> A creature that starts its turn within 5 feet of the animated breath must succeed on a DC 15 Constitution saving throw or be poisoned until the start of its next turn. A creature that touches the animated breath or hits it with a melee attack takes 3 (1d6) acid damage.</p>",
-    "bonus_actions": "<p><em><strong>Lightning Burst (Lightning Form Only).</strong></em> The animated breath magically teleports to an unoccupied space it can see within 30 feet of it. Each creature within 5 feet of the animated breath after it teleports takes 3 (1d6) lightning damage.</p>",
+    "bonus actions": "<p><em><strong>Lightning Burst (Lightning Form Only).</strong></em> The animated breath magically teleports to an unoccupied space it can see within 30 feet of it. Each creature within 5 feet of the animated breath after it teleports takes 3 (1d6) lightning damage.</p>",
     "number of attacks": 2,
     attacks: [
       {
@@ -18807,7 +18806,7 @@ const monsters = [
       }
     ],
     actions: "<p><em><strong>Claws.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft., one target. <em>Hit:</em> 8 (2d4 + 3) slashing damage.  The target must make a DC 14 Constitution saving throw, taking 10 (3d6) poison damage on a failed save, or half as much damage on a successful one. </p><p><em><strong>Teleport.</strong></em> The arcanaloth magically teleports, along with any equipment it is wearing or carrying, up to 60 feet to an unoccupied space it can see. </p>",
-    "bonus_actions": "<p><em><strong>Summon Yugoloth (1/Day).</strong></em> The yugoloth attempts a magical summoning.  An arcanaloth has a 40 percent chance of summoning one arcanaloth. A summoned yugoloth appears in an unoccupied space within 60 feet of its summoner, does as it pleases, and can't summon other yugoloths.  The summoned yugoloth remains for 1 minute, until it or its summoner dies, or until its summoner takes a bonus action to dismiss it. </p>",
+    "bonus actions": "<p><em><strong>Summon Yugoloth (1/Day).</strong></em> The yugoloth attempts a magical summoning.  An arcanaloth has a 40 percent chance of summoning one arcanaloth. A summoned yugoloth appears in an unoccupied space within 60 feet of its summoner, does as it pleases, and can't summon other yugoloths.  The summoned yugoloth remains for 1 minute, until it or its summoner dies, or until its summoner takes a bonus action to dismiss it. </p>",
     "img url": "https://www.dndbeyond.com/avatars/thumbnails/9/869/1000/1000/636336343358348451.jpeg",
     "description": "<p>Arcanaloths are sly, jackal-headed beings with humanoid bodies, but they can employ magic to take any humanoid form.  They do so to gain the trust of creatures with whom they negotiate, replacing jackal snarls with winsome smiles.  Regardless of its chosen form, an arcanaloth appears well groomed, clothing itself in fine robes.  Highly intelligent spellcasters who hunger for knowledge and power, arcanaloths command units of lesser yugoloths and maintain the contracts, records, and accounts of their kind.  Arcanaloths speak and write all languages, making them cunning diplomats and negotiators.  An arcanaloth properly paid can broker treaties or alliances with subtlety and finesse, just as an arcanaloth who changes sides can easily turn the best-laid peace talks into all-out war.  What the fiend demands in exchange for its time and talent is information, as well as powerful magic items that it can trade for even more information. </p>"
   },
