@@ -311,8 +311,8 @@ const monsters = [
     traits:
       "<p><em><strong>Amphibious.</strong></em> The dragon can breathe air and water.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
     "number of attacks": 3,
-    attacks: [
-  {
+    attacks: {
+  "Bite": {
     "type": "Melee Weapon Attack",
     "to hit": "+12",
     "reach": "10 ft.",
@@ -320,7 +320,7 @@ const monsters = [
     "hit": "18 (2d10 + 7)",
     "damage type": "piercing"
   },
-  {
+  "Claw":{
     "type": "Melee Weapon Attack",
     "to hit": "+12",
     "reach": "5 ft.",
@@ -328,7 +328,7 @@ const monsters = [
     "hit": "14 (2d6 + 7)",
     "damage type": "slashing"
   },
-  {
+  "Tail":{
     "type": "Melee Weapon Attack",
     "to hit": "+12",
     "reach": "15 ft.",
@@ -336,7 +336,7 @@ const monsters = [
     "hit": "16 (2d8 + 7)",
     "damage type": "bludgeoning"
   }
-],
+},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +12 to hit, reach 10 ft. one target. <em>Hit:</em> 18 (2d10 + 7) piercing damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +12 to hit, reach 5 ft. one target. <em>Hit:</em> 14 (2d6 + 7) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +12 to hit, reach 15 ft. one target. <em>Hit:</em> 16 (2d8 + 7) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 17 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Breath Weapons (Recharge 5–6).</strong></em> The dragon uses one of the following breath weapons.</p><p><em><strong>Lightning Breath.</strong></em> The dragon exhales lightning in a 90- foot line that is 5 feet wide. Each creature in that line must make a DC 19 Dexterity saving throw, taking 66 (12d10) lightning damage on a failed save, or half as much damage on a successful one.</p><p><em><strong>Repulsion Breath.</strong></em> The dragon exhales repulsion energy in a 30-foot cone. Each creature in that area must succeed on a DC 19 Strength saving throw. On a failed save, the creature is pushed 60 feet away from the dragon.</p><p><em><strong>Change Shape.</strong></em> The dragon magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the dragon's choice).</p><p>In a new form, the dragon retains its alignment, hit points, Hit Dice, ability to speak, proficiencies, Legendary Resistance, lair actions, and Intelligence, Wisdom, and Charisma scores, as well as this action. Its statistics and capabilities are otherwise replaced by those of the new form, except any class features or legendary actions of that form.</p>",
     "legendary actions":
@@ -369,8 +369,8 @@ const monsters = [
     traits:
       "<p><em><strong>Legendary Resistance (3/Day)</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
     "number of attacks": 3,
-    attacks: [
-  {
+    attacks: {
+  "Bite":{
     "type": "Melee Weapon Attack",
     "to hit": "+11",
     "reach": "10 ft.",
@@ -378,7 +378,7 @@ const monsters = [
     "hit": "17 (2d10 + 6)",
     "damage type": "piercing"
   },
-  {
+  "Claw": {
     "type": "Melee Weapon Attack",
     "to hit": "+11",
     "reach": "5 ft.",
@@ -386,7 +386,7 @@ const monsters = [
     "hit": "13 (2d6 + 6)",
     "damage type": "slashing"
   },
-  {
+  "Tail":{
     "type": "Melee Weapon Attack",
     "to hit": "+11",
     "reach": "15 ft.",
@@ -394,7 +394,7 @@ const monsters = [
     "hit": "15 (2d8 + 6)",
     "damage type": "bludgeoning"
   }
-],
+},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +11 to hit, reach 10 ft. one target. <em>Hit:</em> 17 (2d10 + 6) piercing damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +11 to hit, reach 5 ft. one target. <em>Hit:</em> 13 (2d6 + 6) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +11 to hit, reach 15 ft. one target. <em>Hit:</em> 15 (2d8 + 6) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 16 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Breath Weapons (Recharge 5–6).</strong></em> The dragon uses one of the following breath weapons.</p><p><em><strong>Acid Breath.</strong></em> The dragon exhales acid in an 60-foot line that is 5 feet wide. Each creature in that line must make a DC 18 Dexterity saving throw, taking 54 (12d8) acid damage on a failed save, or half as much damage on a successful one.</p><p><em><strong>Slowing Breath.</strong></em> The dragon exhales gas in a 60-foot cone. Each creature in that area must succeed on a DC 18 Constitution saving throw. On a failed save, the creature can't use reactions, its speed is halved, and it can't make more than one attack on its turn. In addition, the creature can use either an action or a bonus action on its turn, but not both. These effects last for 1 minute. The creature can repeat the saving throw at the end of each of its turns, ending the effect on itself with a successful save.</p>",
     "legendary actions":
@@ -427,8 +427,8 @@ const monsters = [
     traits:
       "<p><em><strong>Amphibious.</strong></em> The dragon can breathe air and water.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
     "number of attacks": 3,
-    attacks: [
-  {
+    attacks: {
+  "Bite": {
     "type": "Melee Weapon Attack",
     "to hit": "+14",
     "reach": "10 ft.",
@@ -436,7 +436,7 @@ const monsters = [
     "hit": "19 (2d10 + 8)",
     "damage type": "piercing"
   },
-  {
+  "Claw":{
     "type": "Melee Weapon Attack",
     "to hit": "+14",
     "reach": "5 ft.",
@@ -444,7 +444,7 @@ const monsters = [
     "hit": "15 (2d6 + 8)",
     "damage type": "slashing"
   },
-  {
+  "Tail": {
     "type": "Melee Weapon Attack",
     "to hit": "+14",
     "reach": "15 ft.",
@@ -452,7 +452,7 @@ const monsters = [
     "hit": "17 (2d8 + 8)",
     "damage type": "bludgeoning"
   }
-],
+},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 10 ft. one target. <em>Hit:</em> 19 (2d10 + 8) piercing damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 5 ft. one target. <em>Hit:</em> 15 (2d6 + 8) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 15 ft. one target. <em>Hit:</em> 17 (2d8 + 8) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 21 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Breath Weapons (Recharge 5–6).</strong></em> The dragon uses one of the following breath weapons.</p><p><em><strong>Fire Breath.</strong></em> The dragon exhales fire in a 60-foot cone. Each creature in that area must make a DC 21 Dexterity saving throw, taking 66 (12d10) fire damage on a failed save, or half as much damage on a successful one.</p><p><em><strong>Weakening Breath.</strong></em> The dragon exhales gas in a 60-foot cone. Each creature in that area must succeed on a DC 21 Strength saving throw or have disadvantage on Strength-based attack rolls, Strength checks, and Strength saving throws for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p><p><em><strong>Change Shape.</strong></em> The dragon magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the dragon's choice).</p><p>In a new form, the dragon retains its alignment, hit points, Hit Dice, ability to speak, proficiencies, Legendary Resistance, lair actions, and Intelligence, Wisdom, and Charisma scores, as well as this action. Its statistics and capabilities are otherwise replaced by those of the new form, except any class features or legendary actions of that form.</p>",
     "legendary actions":
@@ -486,8 +486,8 @@ const monsters = [
     traits:
       "<p><em><strong>Amphibious.</strong></em> The dragon can breathe air and water.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
     "number of attacks": 3,
-    attacks: [
-  {
+    attacks: {
+  "Bite": {
     "type": "Melee Weapon Attack",
     "to hit": "+11",
     "reach": "10 ft.",
@@ -495,7 +495,7 @@ const monsters = [
     "hit": "17 (2d10 + 6)",
     "damage type": "piercing, poison"
   },
-  {
+  "Claw": {
     "type": "Melee Weapon Attack",
     "to hit": "+11",
     "reach": "5 ft.",
@@ -503,7 +503,7 @@ const monsters = [
     "hit": "13 (2d6 + 6)",
     "damage type": "slashing"
   },
-  {
+  "Tail": {
     "type": "Melee Weapon Attack",
     "to hit": "+11",
     "reach": "15 ft.",
@@ -511,7 +511,7 @@ const monsters = [
     "hit": "15 (2d8 + 6)",
     "damage type": "bludgeoning"
   }
-],
+},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +11 to hit, reach 10 ft. one target. <em>Hit:</em> 17 (2d10 + 6) piercing damage plus 7 (2d6) poison damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +11 to hit, reach 5 ft. one target. <em>Hit:</em> 13 (2d6 + 6) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +11 to hit, reach 15 ft. one target. <em>Hit:</em> 15 (2d8 + 6) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 16 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Poison Breath (Recharge 5–6).</strong></em> The dragon exhales poisonous gas in a 60-foot cone. Each creature in that area must make a DC 18 Constitution saving throw, taking 56 (16d6) poison damage on a failed save, or half as much damage on a successful one.</p>",
     "legendary actions":
@@ -575,8 +575,8 @@ const monsters = [
     traits:
       "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
     "number of attacks": 3,
-    attacks: [
-  {
+    attacks: {
+  "Bite": {
     "type": "Melee Weapon Attack",
     "to hit": "+13",
     "reach": "10 ft.",
@@ -584,7 +584,7 @@ const monsters = [
     "hit": "19 (2d10 + 8)",
     "damage type": "piercing"
   },
-  {
+  "Claw": {
     "type": "Melee Weapon Attack",
     "to hit": "+13",
     "reach": "5 ft.",
@@ -592,7 +592,7 @@ const monsters = [
     "hit": "15 (2d6 + 8)",
     "damage type": "slashing"
   },
-  {
+  "Tail": {
     "type": "Melee Weapon Attack",
     "to hit": "+13",
     "reach": "15 ft.",
@@ -600,7 +600,7 @@ const monsters = [
     "hit": "17 (2d8 + 8)",
     "damage type": "bludgeoning"
   }
-],
+},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +13 to hit, reach 10 ft. one target. <em>Hit:</em> 19 (2d10 + 8) piercing damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +13 to hit, reach 5 ft. one target. <em>Hit:</em> 15 (2d6 + 8) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +13 to hit, reach 15 ft. one target. <em>Hit:</em> 17 (2d8 + 8) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 18 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Breath Weapons (Recharge 5–6).</strong></em> The dragon uses one of the following breath weapons.</p><p><em><strong>Cold Breath.</strong></em> The dragon exhales an icy blast in a 60-foot cone. Each creature in that area must make a DC 20 Constitution saving throw, taking 58 (13d8) cold damage on a failed save, or half as much damage on a successful one.</p><p><em><strong>Paralyzing Breath.</strong></em> The dragon exhales paralyzing gas in a 60-foot cone. Each creature in that area must succeed on a DC 20 Constitution saving throw or be paralyzed for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p><p><em><strong>Change Shape.</strong></em> The dragon magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the dragon's choice).</p><p>In a new form, the dragon retains its alignment, hit points, Hit Dice, ability to speak, proficiencies, Legendary Resistance, lair actions, and Intelligence, Wisdom, and Charisma scores, as well as this action. Its statistics and capabilities are otherwise replaced by those of the new form, except any class features or legendary actions of that form.</p>",
     "legendary actions":
@@ -632,8 +632,8 @@ const monsters = [
     traits:
       "<p><em><strong>Ice Walk.</strong></em> The dragon can move across and climb icy surfaces without needing to make an ability check. Additionally, difficult terrain composed of ice or snow doesn't cost it extra movement.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
     "number of attacks": 3,
-    attacks: [
-  {
+    attacks: {
+  "Bite": {
     "type": "Melee Weapon Attack",
     "to hit": "+11",
     "reach": "10 ft.",
@@ -641,7 +641,7 @@ const monsters = [
     "hit": "17 (2d10 + 6)",
     "damage type": "piercing, cold"
   },
-  {
+  "Claw": {
     "type": "Melee Weapon Attack",
     "to hit": "+11",
     "reach": "5 ft.",
@@ -649,7 +649,7 @@ const monsters = [
     "hit": "13 (2d6 + 6)",
     "damage type": "slashing"
   },
-  {
+  "Tail": {
     "type": "Melee Weapon Attack",
     "to hit": "+11",
     "reach": "15 ft.",
@@ -657,7 +657,7 @@ const monsters = [
     "hit": "15 (2d8 + 6)",
     "damage type": "bludgeoning"
   }
-],
+},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +11 to hit, reach 10 ft. one target. <em>Hit:</em> 17 (2d10 + 6) piercing damage plus 4 (1d8) cold damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +11 to hit, reach 5 ft. one target. <em>Hit:</em> 13 (2d6 + 6) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +11 to hit, reach 15 ft. one target. <em>Hit:</em> 15 (2d8 + 6) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 14 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Cold Breath (Recharge 5–6).</strong></em> The dragon exhales an icy blast in a 60-foot cone. Each creature in that area must make a DC 19 Constitution saving throw, taking 54 (12d8) cold damage on a failed save, or half as much damage on a successful one.</p>",
     "legendary actions":
@@ -691,8 +691,8 @@ const monsters = [
     traits:
       "<p><em><strong>Air Form.</strong></em> The elemental can enter a hostile creature's space and stop there. It can move through a space as narrow as 1 inch wide without squeezing.</p>",
     "number of attacks": 2,
-    attacks: [
-  {
+    attacks: {
+  "Slam": {
     "type": "Melee Weapon Attack",
     "to hit": "+8",
     "reach": "5 ft.",
@@ -700,7 +700,7 @@ const monsters = [
     "hit": "14 (2d8 + 5)",
     "damage type": "bludgeoning"
   }
-],
+},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The elemental makes two slam attacks.</p><p><em><strong>Slam.</strong></em> <em>Melee Weapon Attack:</em> +8 to hit, reach 5 ft. one target. <em>Hit:</em> 14 (2d8 + 5) bludgeoning damage.</p><p><em><strong>Whirlwind (Recharge 4–6).</strong></em> Each creature in the elemental's space must make a DC 13 Strength saving throw. On a failure, a target takes 15 (3d8 + 2) bludgeoning damage and is flung up 20 feet away from the elemental in a random direction and knocked prone. If a thrown target strikes an object, such as a wall or floor, the target takes 3 (1d6) bludgeoning damage for every 10 feet it was thrown. If the target is thrown at another creature, that creature must succeed on a DC 13 Dexterity saving throw or take the same damage and be knocked prone.</p><p>If the saving throw is successful, the target takes half the bludgeoning damage and isn't flung away or knocked prone.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/127/1000/1000/636252755648556800.jpeg",
@@ -728,8 +728,8 @@ const monsters = [
     traits:
       "<p> <em><strong>Pounce.</strong></em> If the allosaurus moves at least 30 feet straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 13 Strength saving throw or be knocked prone. If the target is prone, the allosaurus can make one bite attack against it as a bonus action.</p>",
     "number of attacks": 1, 
-    attacks: [
-  {
+    attacks: {
+  "Bite": {
     "type": "Melee Weapon Attack",
     "to hit": "+6",
     "reach": "5 ft.",
@@ -737,7 +737,7 @@ const monsters = [
     "hit": "15 (2d10 + 4)",
     "damage type": "piercing"
   },
-  {
+  "Claw": {
     "type": "Melee Weapon Attack",
     "to hit": "+6",
     "reach": "5 ft.",
@@ -745,7 +745,7 @@ const monsters = [
     "hit": "8 (1d8 + 4)",
     "damage type": "slashing"
   }
-],
+},
     actions:
       "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft. one target. <em>Hit:</em> 15 (2d10 + 4) piercing damage.</p><p><em><strong>Claw. </strong></em><em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft. one target. <em>Hit:</em> 8 (1d8 + 4) slashing damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/attachments/2/648/beast.jpg",
@@ -775,8 +775,8 @@ const monsters = [
     traits:
       "<p><em><strong>Amphibious.</strong></em> The dragon can breathe air and water.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
     "number of attacks": 3,
-    attacks: [
-  {
+    attacks: {
+  "Bite": {
     "type": "Melee Weapon Attack",
     "to hit": "+15",
     "reach": "15 ft.",
@@ -784,7 +784,7 @@ const monsters = [
     "hit": "19 (2d10 + 8)",
     "damage type": "piercing, acid"
   },
-  {
+  "Claw": {
     "type": "Melee Weapon Attack",
     "to hit": "+15",
     "reach": "10 ft.",
@@ -792,7 +792,7 @@ const monsters = [
     "hit": "15 (2d6 + 8)",
     "damage type": "slashing"
   },
-  {
+  "Tail": {
     "type": "Melee Weapon Attack",
     "to hit": "+15",
     "reach": "20 ft.",
@@ -800,7 +800,7 @@ const monsters = [
     "hit": "17 (2d8 + 8)",
     "damage type": "bludgeoning"
   }
-],
+},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +15 to hit, reach 15 ft. one target. <em>Hit:</em> 19 (2d10 + 8) piercing damage plus 9 (2d8) acid damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +15 to hit, reach 10 ft. one target. <em>Hit:</em> 15 (2d6 + 8) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +15 to hit, reach 20 ft. one target. <em>Hit:</em> 17 (2d8 + 8) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 19 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Acid Breath (Recharge 5–6).</strong></em> The dragon exhales acid in a 90-foot line that is 10 feet wide. Each creature in that line must make a DC 22 Dexterity saving throw, taking 67 (15d8) acid damage on a failed save, or half as much damage on a successful one.</p>",
     "legendary actions":
@@ -836,8 +836,8 @@ const monsters = [
     traits:
       "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
     "number of attacks": 3,
-    attacks: [
-  {
+    attacks: {
+  "Bite": {
     "type": "Melee Weapon Attack",
     "to hit": "+16",
     "reach": "15 ft.",
@@ -845,7 +845,7 @@ const monsters = [
     "hit": "20 (2d10 + 9)",
     "damage type": "piercing, lightning"
   },
-  {
+  "Claw": {
     "type": "Melee Weapon Attack",
     "to hit": "+16",
     "reach": "10 ft.",
@@ -853,7 +853,7 @@ const monsters = [
     "hit": "16 (2d6 + 9)",
     "damage type": "slashing"
   },
-  {
+  "Tail": {
     "type": "Melee Weapon Attack",
     "to hit": "+16",
     "reach": "20 ft.",
@@ -861,7 +861,7 @@ const monsters = [
     "hit": "18 (2d8 + 9)",
     "damage type": "bludgeoning"
   }
-],
+},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 15 ft. one target. <em>Hit:</em> 20 (2d10 + 9) piercing damage plus 11 (2d10) lightning damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 10 ft. one target. <em>Hit:</em> 16 (2d6 + 9) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 20 ft. one target. <em>Hit:</em> 18 (2d8 + 9) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 20 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Lightning Breath (Recharge 5–6).</strong></em> The dragon exhales lightning in a 120-­-foot line that is 10 feet wide. Each creature in that line must make a DC 23 Dexterity saving throw, taking 88 (16d10) lightning damage on a failed save, or half as much damage on a successful one.</p>",
     "legendary actions":
@@ -897,8 +897,8 @@ const monsters = [
     traits:
       "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
     "number of attacks": 3,
-    attacks: [
-  {
+    attacks: {
+  "Bite": {
     "type": "Melee Weapon Attack",
     "to hit": "+14",
     "reach": "15 ft.",
@@ -906,7 +906,7 @@ const monsters = [
     "hit": "19 (2d10 + 8)",
     "damage type": "piercing"
   },
-  {
+  "Claw": {
     "type": "Melee Weapon Attack",
     "to hit": "+14",
     "reach": "10 ft.",
@@ -914,7 +914,7 @@ const monsters = [
     "hit": "15 (2d6 + 8)",
     "damage type": "slashing"
   },
-  {
+  "Tail": {
     "type": "Melee Weapon Attack",
     "to hit": "+14",
     "reach": "20 ft.",
@@ -922,7 +922,7 @@ const monsters = [
     "hit": "17 (2d8 + 8)",
     "damage type": "bludgeoning"
   }
-],
+},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 15 ft. one target. <em>Hit:</em> 19 (2d10 + 8) piercing damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 10 ft. one target. <em>Hit:</em> 15 (2d6 + 8) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 20 ft. one target. <em>Hit:</em> 17 (2d8 + 8) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 18 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Breath Weapons (Recharge 5–6).</strong></em> The dragon uses one of the following breath weapons: </p><p><em><strong>Fire Breath.</strong></em> The dragon exhales fire in an 90-foot line that is 10 feet wide. Each creature in that line must make a DC 21 Dexterity saving throw, taking 56 (16d6) fire damage on a failed save, or half as much damage on a successful one.</p><p><em><strong>Sleep Breath.</strong></em> The dragon exhales sleep gas in a 90-foot cone. Each creature in that area must succeed on a DC 21 Constitution saving throw or fall unconscious for 10 minutes. This effect ends for a creature if the creature takes damage or someone uses an action to wake it.</p><p><em><strong>Change Shape.</strong></em> The dragon magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the dragon's choice).</p><p>In a new form, the dragon retains its alignment, hit points, Hit Dice, ability to speak, proficiencies, Legendary Resistance, lair actions, and Intelligence, Wisdom, and Charisma scores, as well as this action. Its statistics and capabilities are otherwise replaced by those of the new form, except any class features or legendary actions of that form.</p>",
     "legendary actions":
@@ -955,8 +955,8 @@ const monsters = [
     traits:
       "<p><em><strong>Amphibious.</strong></em> The dragon can breathe air and water.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
     "number of attacks": 3,
-    attacks: [
-  {
+    attacks: {
+  "Bite": {
     "type": "Melee Weapon Attack",
     "to hit": "+16",
     "reach": "15 ft.",
@@ -964,7 +964,7 @@ const monsters = [
     "hit": "20 (2d10 + 9)",
     "damage type": "piercing"
   },
-  {
+  "Claw": {
     "type": "Melee Weapon Attack",
     "to hit": "+16",
     "reach": "10 ft.",
@@ -972,7 +972,7 @@ const monsters = [
     "hit": "16 (2d6 + 9)",
     "damage type": "slashing"
   },
-  {
+  "Tail": {
     "type": "Melee Weapon Attack",
     "to hit": "+16",
     "reach": "20 ft.",
@@ -980,7 +980,7 @@ const monsters = [
     "hit": "18 (2d8 + 9)",
     "damage type": "bludgeoning"
   }
-],
+},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 15 ft. one target. <em>Hit:</em> 20 (2d10 + 9) piercing damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 10 ft. one target. <em>Hit:</em> 16 (2d6 + 9) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 20 ft. one target. <em>Hit:</em> 18 (2d8 + 9) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 20 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Breath Weapons (Recharge 5–6).</strong></em> The dragon uses one of the following breath weapons.</p><p><em><strong>Lightning Breath.</strong></em> The dragon exhales lightning in a 120-foot line that is 10 feet wide. Each creature in that line must make a DC 23 Dexterity saving throw, taking 88 (16d10) lightning damage on a failed save, or half as much damage on a successful one.</p><p><em><strong>Repulsion Breath.</strong></em> The dragon exhales repulsion energy in a 30-foot cone. Each creature in that area must succeed on a DC 23 Strength saving throw. On a failed save, the creature is pushed 60 feet away from the dragon.</p><p><em><strong>Change Shape.</strong></em> The dragon magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the dragon's choice).</p><p>In a new form, the dragon retains its alignment, hit points, Hit Dice, ability to speak, proficiencies, Legendary Resistance, lair actions, and Intelligence, Wisdom, and Charisma scores, as well as this action. Its statistics and capabilities are otherwise replaced by those of the new form, except any class features or legendary actions of that form.</p>",
     "legendary actions":
@@ -1013,8 +1013,8 @@ const monsters = [
     traits:
       "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
     "number of attacks": 3,
-    attacks: [
-  {
+    attacks: {
+  "Bite": {
     "type": "Melee Weapon Attack",
     "to hit": "+15",
     "reach": "15 ft.",
@@ -1022,7 +1022,7 @@ const monsters = [
     "hit": "19 (2d10 + 8)",
     "damage type": "piercing"
   },
-  {
+  "Claw": {
     "type": "Melee Weapon Attack",
     "to hit": "+15",
     "reach": "10 ft.",
@@ -1030,7 +1030,7 @@ const monsters = [
     "hit": "15 (2d6 + 8)",
     "damage type": "slashing"
   },
-  {
+  "Tail": {
     "type": "Melee Weapon Attack",
     "to hit": "+15",
     "reach": "20 ft.",
@@ -1038,7 +1038,7 @@ const monsters = [
     "hit": "17 (2d8 + 8)",
     "damage type": "bludgeoning"
   }
-],
+},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +15 to hit, reach 15 ft. one target. <em>Hit:</em> 19 (2d10 + 8) piercing damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +15 to hit, reach 10 ft. one target. <em>Hit:</em> 15 (2d6 + 8) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +15 to hit, reach 20 ft. one target. <em>Hit:</em> 17 (2d8 + 8) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 19 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Breath Weapons (Recharge 5–6).</strong></em> The dragon uses one of the following breath weapons.</p><p><em><strong>Acid Breath.</strong></em> The dragon exhales acid in an 90-foot line that is 10 feet wide. Each creature in that line must make a DC 22 Dexterity saving throw, taking 63 (14d8) acid damage on a failed save, or half as much damage on a successful one.</p><p><em><strong>Slowing Breath.</strong></em> The dragon exhales gas in a 90-foot cone. Each creature in that area must succeed on a DC 22 Constitution saving throw. On a failed save, the creature can't use reactions, its speed is halved, and it can't make more than one attack on its turn. In addition, the creature can use either an action or a bonus action on its turn, but not both. These effects last for 1 minute. The creature can repeat the saving throw at the end of each of its turns, ending the effect on itself with a successful save.</p><p><em><strong>Change Shape.</strong></em> The dragon magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the dragon's choice).</p><p>In a new form, the dragon retains its alignment, hit points, Hit Dice, ability to speak, proficiencies, Legendary Resistance, lair actions, and Intelligence, Wisdom, and Charisma scores, as well as this action. Its statistics and capabilities are otherwise replaced by those of the new form, except any class features or legendary actions of that form.</p>",
     "legendary actions":
@@ -1071,8 +1071,8 @@ const monsters = [
     traits:
       "<p><em><strong>Amphibious.</strong></em> The dragon can breathe air and water.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
     "number of attacks": 3,
-    attacks: [
-{
+    attacks: {
+"Bite": {
 "type": "Melee Weapon Attack",
 "to hit": "+17",
 "reach": "15 ft.",
@@ -1080,7 +1080,7 @@ const monsters = [
 "hit": "21 (2d10 + 10)",
 "damage type": "piercing"
 },
-{
+"Claw": {
 "type": "Melee Weapon Attack",
 "to hit": "+17",
 "reach": "10 ft.",
@@ -1088,7 +1088,7 @@ const monsters = [
 "hit": "17 (2d6 + 10)",
 "damage type": "slashing"
 },
-{
+"Tail": {
 "type": "Melee Weapon Attack",
 "to hit": "+17",
 "reach": "20 ft.",
@@ -1096,7 +1096,7 @@ const monsters = [
 "hit": "19 (2d8 + 10)",
 "damage type": "bludgeoning"
 }
-],
+},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +17 to hit, reach 15 ft. one target. <em>Hit:</em> 21 (2d10 + 10) piercing damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +17 to hit, reach 10 ft. one target. <em>Hit:</em> 17 (2d6 + 10) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +17 to hit, reach 20 ft. one target. <em>Hit:</em> 19 (2d8 + 10) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 24 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Breath Weapons (Recharge 5–6).</strong></em> The dragon uses one of the following breath weapons.</p><p><em><strong>Fire Breath.</strong></em> The dragon exhales fire in a 90-foot cone. Each creature in that area must make a DC 24 Dexterity saving throw, taking 71 (13d10) fire damage on a failed save, or half as much damage on a successful one.</p><p><em><strong>Weakening Breath.</strong></em> The dragon exhales gas in a 90-foot cone. Each creature in that area must succeed on a DC 24 Strength saving throw or have disadvantage on Strength-based attack rolls, Strength checks, and Strength saving throws for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p><p><em><strong>Change Shape.</strong></em> The dragon magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the dragon's choice).</p><p>In a new form, the dragon retains its alignment, hit points, Hit Dice, ability to speak, proficiencies, Legendary Resistance, lair actions, and Intelligence, Wisdom, and Charisma scores, as well as this action. Its statistics and capabilities are otherwise replaced by those of the new form, except any class features or legendary actions of that form.</p>",
     "legendary actions":
@@ -1130,8 +1130,8 @@ const monsters = [
     traits:
       "<p><em><strong>Amphibious.</strong></em> The dragon can breathe air and water.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
     "number of attacks": 3,
-    attacks: [
-                {
+    attacks: {
+                "Bite": {
                     "type": "Melee Weapon Attack",
                     "to hit": "+15",
                     "reach": "15 ft.",
@@ -1139,7 +1139,7 @@ const monsters = [
                     "hit": "19 (2d10 + 8)",
                     "damage type": "piercing, poison"
                 },
-                {
+                "Claw": {
                     "type": "Melee Weapon Attack",
                     "to hit": "+15",
                     "reach": "10 ft.",
@@ -1147,7 +1147,7 @@ const monsters = [
                     "hit": "22 (4d6 + 8)",
                     "damage type": "slashing"
                 },
-                {
+                "Tail": {
                     "type": "Melee Weapon Attack",
                     "to hit": "+15",
                     "reach": "20 ft.",
@@ -1155,7 +1155,7 @@ const monsters = [
                     "hit": "17 (2d8 + 8)",
                     "damage type": "bludgeoning"
                 }
-            ],
+},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +15 to hit, reach 15 ft. one target. <em>Hit:</em> 19 (2d10 + 8) piercing damage plus 10 (3d6) poison damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +15 to hit, reach 10 ft. one target. <em>Hit:</em> 22 (4d6 + 8) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +15 to hit, reach 20 ft. one target. <em>Hit:</em> 17 (2d8 + 8) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 19 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Poison Breath (Recharge 5–6).</strong></em> The dragon exhales poisonous gas in a 90-­-foot cone. Each creature in that area must make a DC 22 Constitution saving throw, taking 77 (22d6) poison damage on a failed save, or half as much damage on a successful one.</p>",
     "legendary actions":
@@ -1187,8 +1187,8 @@ const monsters = [
     traits:
       "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
     "number of attacks": 3,
-    attacks: [
-                {
+    attacks: {
+               "Bite": {
                     "type": "Melee Weapon Attack",
                     "to hit": "+17",
                     "reach": "15 ft.",
@@ -1196,7 +1196,7 @@ const monsters = [
                     "hit": "21 (2d10 + 10)",
                     "damage type": "piercing, fire"
                 },
-                {
+                "Claw": {
                     "type": "Melee Weapon Attack",
                     "to hit": "+17",
                     "reach": "10 ft.",
@@ -1204,7 +1204,7 @@ const monsters = [
                     "hit": "17 (2d6 + 10)",
                     "damage type": "slashing"
                 },
-                {
+                "Tail": {
                     "type": "Melee Weapon Attack",
                     "to hit": "+17",
                     "reach": "20 ft.",
@@ -1212,7 +1212,7 @@ const monsters = [
                     "hit": "19 (2d8 + 10)",
                     "damage type": "bludgeoning"
                 }
-            ],
+},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +17 to hit, reach 15 ft. one target. <em>Hit:</em> 21 (2d10 + 10) piercing damage plus 14 (4d6) fire damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +17 to hit, reach 10 ft. one target. <em>Hit:</em> 17 (2d6 + 10) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +17 to hit, reach 20 ft. one target. <em>Hit:</em> 19 (2d8 + 10) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 21 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Fire Breath (Recharge 5–6).</strong></em> The dragon exhales fire in a 90-foot cone. Each creature in that area must make a DC 24 Dexterity saving throw, taking 91 (26d6) fire damage on a failed save, or half as much damage on a successful one.</p>",
     "legendary actions":
@@ -1244,8 +1244,8 @@ const monsters = [
     traits:
       "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
     "number of attacks": 3,
-    attacks: [
-                {
+    attacks: {
+                "Bite": {
                     "type": "Melee Weapon Attack",
                     "to hit": "+17",
                     "reach": "15 ft.",
@@ -1253,7 +1253,7 @@ const monsters = [
                     "hit": "21 (2d10 + 10)",
                     "damage type": "piercing"
                 },
-                {
+                "Claw": {
                     "type": "Melee Weapon Attack",
                     "to hit": "+17",
                     "reach": "10 ft.",
@@ -1261,7 +1261,7 @@ const monsters = [
                     "hit": "17 (2d6 + 10)",
                     "damage type": "slashing"
                 },
-                {
+                "Tail": {
                     "type": "Melee Weapon Attack",
                     "to hit": "+17",
                     "reach": "20 ft.",
@@ -1269,7 +1269,7 @@ const monsters = [
                     "hit": "19 (2d8 + 10)",
                     "damage type": "bludgeoning"
                 }
-            ],
+},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +17 to hit, reach 15 ft. one target. <em>Hit:</em> 21 (2d10 + 10) piercing damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +17 to hit, reach 10 ft. one target. <em>Hit:</em> 17 (2d6 + 10) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +17 to hit, reach 20 ft. one target. <em>Hit:</em> 19 (2d8 + 10) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 21 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Breath Weapons (Recharge 5–6).</strong></em> The dragon uses one of the following breath weapons.</p><p><em><strong>Cold Breath.</strong></em> The dragon exhales an icy blast in a 90-foot cone. Each creature in that area must make a DC 24 Constitution saving throw, taking 67 (15d8) cold damage on a failed save, or half as much damage on a successful one.</p><p><em><strong>Paralyzing Breath.</strong></em> The dragon exhales paralyzing gas in a 90-foot cone. Each creature in that area must succeed on a DC 24 Constitution saving throw or be paralyzed for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p><p><em><strong>Change Shape.</strong></em> The dragon magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the dragon's choice).</p><p>In a new form, the dragon retains its alignment, hit points, Hit Dice, ability to speak, proficiencies, Legendary Resistance, lair actions, and Intelligence, Wisdom, and Charisma scores, as well as this action. Its statistics and capabilities are otherwise replaced by those of the new form, except any class features or legendary actions of that form.</p>",
     "legendary actions":
@@ -1301,8 +1301,8 @@ const monsters = [
     traits:
       "<p><em><strong>Ice Walk.</strong></em> The dragon can move across and climb icy surfaces without needing to make an ability check. Additionally, difficult terrain composed of ice or snow doesn't cost it extra movement.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
     "number of attacks": 3,
-    attacks: [
-                {
+    attacks: {
+                "Bite": {
                     "type": "Melee Weapon Attack",
                     "to hit": "+14",
                     "reach": "15 ft.",
@@ -1310,7 +1310,7 @@ const monsters = [
                     "hit": "19 (2d10 + 8)",
                     "damage type": "piercing, cold"
                 },
-                {
+                "Claw": {
                     "type": "Melee Weapon Attack",
                     "to hit": "+14",
                     "reach": "10 ft.",
@@ -1318,7 +1318,7 @@ const monsters = [
                     "hit": "15 (2d6 + 8)",
                     "damage type": "slashing"
                 },
-                {
+                "Tail": {
                     "type": "Melee Weapon Attack",
                     "to hit": "+14",
                     "reach": "20 ft.",
@@ -1326,7 +1326,7 @@ const monsters = [
                     "hit": "17 (2d8 + 8)",
                     "damage type": "bludgeoning"
                 }
-            ],
+},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 15 ft. one target. <em>Hit:</em> 19 (2d10 + 8) piercing damage plus 9 (2d8) cold damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 10 ft. one target. <em>Hit:</em> 15 (2d6 + 8) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 20 ft. one target. <em>Hit:</em> 17 (2d8 + 8) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 16 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Cold Breath (Recharge 5–6).</strong></em> The dragon exhales an icy blast in a 90-foot cone. Each creature in that area must make a DC 22 Constitution saving throw, taking 72 (16d8) cold damage on a failed save, or half as much damage on a successful one.</p>",
     "legendary actions":
@@ -1361,8 +1361,8 @@ const monsters = [
     traits:
       "<p><em><strong>Inscrutable.</strong></em> The sphinx is immune to any effect that would sense its emotions or read its thoughts, as well as any divination spell that it refuses. Wisdom (Insight) checks made to ascertain the sphinx's intentions or sincerity have disadvantage.</p><p><em><strong>Magic Weapons.</strong></em> The sphinx's weapon attacks are magical.</p><p><em><strong>Spellcasting.</strong></em> The sphinx is a 12th-level spellcaster. Its spellcasting ability is Wisdom (spell save DC 18, +10 to hit with spell attacks). It requires no material components to cast its spells. The sphinx has the following cleric spells prepared: </p><p>Cantrips (at will): sacred flame, spare the dying, thaumaturgy </p><p>1st level (4 slots): command, detect evil and good, detect magic </p><p>2nd level (3 slots): lesser restoration, zone of truth </p><p>3rd level (3 slots): dispel magic, tongues </p><p>4th level (3 slots): banishment, freedom of movement </p><p>5th level (2 slots): flame strike, greater restoration </p><p>6th level (1 slot): heroes' feast</p>",
     "number of attacks": 2,
-    attacks: [
-                {
+    attacks: {
+               "Claw": {
                     "type": "Melee Weapon Attack",
                     "to hit": "+12",
                     "reach": "5 ft.",
@@ -1370,7 +1370,7 @@ const monsters = [
                     "hit": "17 (2d10 + 6)",
                     "damage type": "slashing"
                 }
-            ],
+},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The sphinx makes two claw attacks.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +12 to hit, reach 5 ft. one target. <em>Hit:</em> 17 (2d10 + 6) slashing damage.</p><p><em><strong>Roar (3/Day).</strong></em> The sphinx emits a magical roar. Each time it roars before finishing a long rest, the roar is louder and the effect is different, as detailed below. Each creature within 500 feet of the sphinx and able to hear the roar must make a saving throw.</p><p><em><strong>First Roar.</strong></em> Each creature that fails a DC 18 Wisdom saving throw is frightened for 1 minute. A frightened creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p><p><em><strong>Second Roar.</strong></em> Each creature that fails a DC 18 Wisdom saving throw is deafened and frightened for 1 minute. A frightened creature is paralyzed and can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p><p><em><strong>Third Roar.</strong></em> Each creature makes a DC 18 Constitution saving throw. On a failed save, a creature takes 44 (8d10) thunder damage and is knocked prone. On a successful save, the creature takes half as much damage and isn't knocked prone.</p>",
     "legendary actions":
@@ -1401,16 +1401,16 @@ const monsters = [
     traits:
       "<p><em><strong>Antimagic Susceptibility.</strong></em> The armor is incapacitated while in the area of an antimagic field. If targeted by dispel magic, the armor must succeed on a Constitution saving throw against the caster's spell save DC or fall unconscious for 1 minute.</p><p><em><strong>False Appearance.</strong></em> While the armor remains motionless, it is indistinguishable from a normal suit of armor.</p>",
     "number of attacks": 2,
-    attacks: [
-                {
-                    "type": "Melee Weapon Attack",
-                    "to hit": "+4",
-                    "reach": "5 ft.",
-                    "target": "one target",
-                    "hit": "5 (1d6 + 2)",
-                    "damage type": "bludgeoning"
-                }
-            ],
+    attacks: {
+      "Slam": {
+          "type": "Melee Weapon Attack",
+          "to hit": "+4",
+          "reach": "5 ft.",
+          "target": "one target",
+          "hit": "5 (1d6 + 2)",
+          "damage type": "bludgeoning"
+      }
+    },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The armor makes two melee attacks.</p><p><em><strong>Slam.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft. one target. <em>Hit:</em> 5 (1d6 + 2) bludgeoning damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/8/429/1000/1000/636306156895834255.jpeg",
@@ -1435,8 +1435,8 @@ const monsters = [
     languages: ["N/A"],
     challenge: "2 (450 XP)",
     "number of attacks": 1, 
-    attacks: [
-                {
+    attacks: {
+                "Bite": {
                     "type": "Melee Weapon Attack",
                     "to hit": "+5",
                     "reach": "5 ft.",
@@ -1444,7 +1444,7 @@ const monsters = [
                     "hit": "10 (2d6 + 3)",
                     "damage type": "slashing, acid"
                 }
-            ],
+},
     actions:
       "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft. one target. <em>Hit:</em> 10 (2d6 + 3) slashing damage plus 3 (1d6) acid damage. If the target is a Large or smaller creature, it is grappled (escape DC 13). Until this grapple ends, the ankheg can bite only the grappled creature and has advantage on attack rolls to do so.</p><p><em><strong>Acid Spray (Recharge 6).</strong></em> The ankheg spits acid in a line that is 30 feet long and 5 feet wide, provided that it has no creature grappled. Each creature in that line must make a DC 13 Dexterity saving throw, taking 10 (3d6) acid damage on a failed save, or half as much damage on a successful one.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/161/315/315/636252759871983921.jpeg",
@@ -1469,8 +1469,8 @@ const monsters = [
     languages: ["N/A"],
     challenge: "3 (700 XP)",
     "number of attacks": 1, 
-    attacks: [
-                {
+    attacks: {
+                "Tail": {
                     "type": "Melee Weapon Attack",
                     "to hit": "+7",
                     "reach": "10 ft.",
@@ -1478,7 +1478,7 @@ const monsters = [
                     "hit": "18 (4d6 + 4)",
                     "damage type": "bludgeoning"
                 }
-            ],
+},
     actions:
       "<p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 10 ft. one target. <em>Hit:</em> 18 (4d6 + 4) bludgeoning damage. If the target is a creature, it must succeed on a DC 14 Strength saving throw or be knocked prone.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/attachments/2/648/beast.jpg",
@@ -1504,8 +1504,8 @@ const monsters = [
     languages: ["N/A"],
     challenge: "1/2 (100 XP)",
     "number of attacks": 2,
-    attacks: [
-                {
+    attacks: {
+               "Fist": {
                     "type": "Melee Weapon Attack",
                     "to hit": "+5",
                     "reach": "5 ft.",
@@ -1513,7 +1513,7 @@ const monsters = [
                     "hit": "6 (1d6 + 3)",
                     "damage type": "bludgeoning"
                 },
-                {
+                "Rock": {
                     "type": "Ranged Weapon Attack",
                     "to hit": "+5",
                     "reach": "N/A",
@@ -1521,7 +1521,7 @@ const monsters = [
                     "hit": "6 (1d6 + 3)",
                     "damage type": "bludgeoning"
                 }
-            ],
+},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The ape makes two fist attacks.</p><p><em><strong>Fist.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft. one target. <em>Hit:</em> 6 (1d6 + 3) bludgeoning damage.</p><p><em><strong>Rock.</strong></em> <em>Ranged Weapon Attack:</em> +5 to hit, range 25/50 ft. one target. <em>Hit:</em> 6 (1d6 + 3) bludgeoning damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/attachments/2/648/beast.jpg",
@@ -1550,8 +1550,8 @@ const monsters = [
     traits:
       "<p><em><strong>Magic Resistance.</strong></em> The archmage has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Spellcasting.</strong></em> The archmage is an 18th-level spellcaster. Its spellcasting ability is Intelligence (spell save DC 17, +9 to hit with spell attacks). The archmage can cast disguise self and invisibility at will and has the following wizard spells prepared:</p><p>Cantrips (at will): fire bolt, light, mage hand, prestidigitation, shocking grasp</p><p>1st level (4 slots): detect magic, identify, mage armor, magic missile</p><p>2nd level (3 slots): detect thoughts, mirror image, misty step</p><p>3rd level (3 slots): counterspell, fly, lightning bolt</p><p>4th level (3 slots): banishment, fire shield, stoneskin</p><p>5th level (3 slots): cone of cold, scrying, wall of force</p><p>6th level (1 slot): globe of invulnerability</p><p>7th level (1 slot): teleport</p><p>8th level (1 slot): mind blank</p><p>9th level (1 slot): time stop</p><p>*The archmage casts mind blank, stoneskin and mage armor spells on itself before combat.</p>",
     "number of attacks": 1, 
-    attacks: [
-                {
+    attacks: {
+                "Dagger": {
                     "type": "Melee Weapon Attack",
                     "to hit": "+6",
                     "reach": "5 ft.",
@@ -1559,7 +1559,7 @@ const monsters = [
                     "hit": "4 (1d4 + 2)",
                     "damage type": "piercing"
                 },
-                {
+                "Dagger (Ranged)": {
                     "type": "Ranged Weapon Attack",
                     "to hit": "+6",
                     "reach": "N/A",
@@ -1567,7 +1567,7 @@ const monsters = [
                     "hit": "4 (1d4 + 2)",
                     "damage type": "piercing"
                 }
-            ],
+},
     actions:
       "<p><em><strong>Dagger.</strong></em> <em>Melee or <em>Ranged Weapon Attack:</em></em> +6 to hit, reach 5 ft.or range 20/60 ft. one target. <em>Hit:</em> 4 (1d4 + 2) piercing damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/167/1000/1000/636252760213195530.jpeg",
@@ -1597,8 +1597,8 @@ const monsters = [
     traits:
       "<p><em><strong>Assassinate.</strong></em> During its first turn, the assassin has advantage on attack rolls against any creature that hasn't taken a turn. Any hit the assassin scores against a surprised creature is a critical hit.</p><p><em><strong>Evasion.</strong></em> If the assassin is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, the assassin instead takes no damage if it succeeds on the saving throw, and only half damage if it fails.</p><p><em><strong>Sneak Attack.</strong></em> Once per turn, the assassin deals an extra 14 (4d6) damage when it hits a target with a weapon attack and has advantage on the attack roll, or when the target is within 5 feet of an ally of the assassin that isn't incapacitated and the assassin doesn't have disadvantage on the attack roll.</p>",
     "number of attacks": 2,
-    attacks: [
-                {
+    attacks: {
+                "Shortsword": {
                     "type": "Melee Weapon Attack",
                     "to hit": "+6",
                     "reach": "5 ft.",
@@ -1606,7 +1606,7 @@ const monsters = [
                     "hit": "6 (1d6 + 3)",
                     "damage type": "piercing, poison"
                 },
-                {
+                "Light Crossbow": {
                     "type": "Ranged Weapon Attack",
                     "to hit": "+6",
                     "reach": "N/A",
@@ -1614,7 +1614,7 @@ const monsters = [
                     "hit": "7 (1d8 + 3)",
                     "damage type": "piercing, poison"
                 }
-            ],
+},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The assassin makes two shortsword attacks.</p><p><em><strong>Shortsword.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft. one target. <em>Hit:</em> 6 (1d6 + 3) piercing damage, and the target must make a DC 15 Constitution saving throw, taking 24 (7d6) poison damage on a failed save, or half as much damage on a successful one.</p><p><em><strong>Light Crossbow.</strong></em> <em>Ranged Weapon Attack:</em> +6 to hit, range 80/320 ft. one target. <em>Hit:</em> 7 (1d8 + 3) piercing damage, and the target must make a DC 15 Constitution saving throw, taking 24 (7d6) poison damage on a failed save, or half as much damage on a successful one.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/9/910/315/315/636334293020978804.png",
@@ -1643,15 +1643,16 @@ const monsters = [
     traits:
       "<p><em><strong>False Appearance.</strong></em> While the shrub remains motionless, it is indistinguishable from a normal shrub.</p>",
     "number of attacks": 1,
-    attacks: [
-                {
-                    "type": "Melee Weapon Attack",
-                    "to hit": "+1",
-                    "reach": "5 ft.",
-                    "target": "one target",
-                    "hit": "1 (1d4 − 1)",
-                    "damage type": "slashing"
-               ,
+    attacks: {
+      "Rake": {
+          "type": "Melee Weapon Attack",
+          "to hit": "+1",
+          "reach": "5 ft.",
+          "target": "one target",
+          "hit": "1 (1d4 − 1)",
+          "damage type": "slashing"
+      }
+    },
     actions:
       "<p><em><strong>Rake.</strong></em> <em>Melee Weapon Attack:</em> +1 to hit, reach 5 ft. one target. <em>Hit:</em> 1 (1d4 − 1) slashing damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/attachments/2/659/plant.jpg",
@@ -1680,8 +1681,8 @@ const monsters = [
     traits:
       "<p><em><strong>False Appearance.</strong></em> While the tree remains motionless, it is indistinguishable from a normal tree.</p>",
     "number of attacks": 1,
-    attacks: [
-                {
+    attacks: {
+                "Slam": {
                     "type": "Melee Weapon Attack",
                     "to hit": "+6",
                     "reach": "10 ft.",
@@ -1689,7 +1690,7 @@ const monsters = [
                     "hit": "14 (3d6 + 4)",
                     "damage type": "bludgeoning"
                 }
-            ],
+},
     actions:
       "<p><em><strong>Slam.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 10 ft. one target. <em>Hit:</em> 14 (3d6 + 4) bludgeoning damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/attachments/2/659/plant.jpg",
@@ -1714,8 +1715,8 @@ const monsters = [
     languages: ["N/A"],
     challenge: "1/4 (50 XP)",
     "number of attacks": 1,
-    attacks: [
-                {
+    attacks: {
+                "Beak": {
                     "type": "Melee Weapon Attack",
                     "to hit": "+4",
                     "reach": "5 ft.",
@@ -1723,7 +1724,7 @@ const monsters = [
                     "hit": "6 (1d8 + 2)",
                     "damage type": "slashing"
                 }
-            ],
+},
     actions:
       "<p><em><strong>Beak.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft. one target. <em>Hit:</em> 6 (1d8 + 2) slashing damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/attachments/2/648/beast.jpg",
@@ -1753,8 +1754,8 @@ const monsters = [
     traits:
       "<p><em><strong>Heated Body.</strong></em> A creature that touches the azer or hits it with a melee attack while within 5 feet of it takes 5 (1d10) fire damage.</p><p><em><strong>Heated Weapons.</strong></em> When the azer hits with a metal melee weapon, it deals an extra 3 (1d6) fire damage (included in the attack).</p><p><em><strong>Illumination.</strong></em> The azer sheds bright light in a 10-­foot radius and dim light for an additional 10 feet.</p>",
     "number of attacks": 1,
-    attacks: [
-                {
+    attacks: {
+                "Warhammer": {
                     "type": "Melee Weapon Attack",
                     "to hit": "+5",
                     "reach": "5 ft.",
@@ -1762,7 +1763,7 @@ const monsters = [
                     "hit": "7 (1d8 + 3)",
                     "damage type": "bludgeoning, fire"
                 }
-            ],
+},
     actions:
       "<p><em><strong>Warhammer.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft. one target. <em>Hit:</em> 7 (1d8 + 3) bludgeoning damage, or 8 (1d10 + 3) bludgeoning damage if used with two hands to make a melee attack, plus 3 (1d6) fire damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/171/1000/1000/636252761112348397.jpeg",
@@ -1789,8 +1790,8 @@ const monsters = [
     traits:
       "<p><em><strong>Pack Tactics.</strong></em> The baboon has advantage on an attack roll against a creature if at least one of the baboon's allies is within 5 feet of the creature and the ally isn't incapacitated.</p>",
     "number of attacks": 1,
-    attacks: [
-                {
+    attacks: {
+                "Bite": {
                     "type": "Melee Weapon Attack",
                     "to hit": "+1",
                     "reach": "5 ft.",
@@ -1798,7 +1799,7 @@ const monsters = [
                     "hit": "1 (1d4 − 1)",
                     "damage type": "piercing"
                 }
-            ],
+},
     actions:
       "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +1 to hit, reach 5 ft. one target. <em>Hit:</em> 1 (1d4 − 1) piercing damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/attachments/2/648/beast.jpg",
@@ -1825,8 +1826,8 @@ const monsters = [
     traits:
       "<p><em><strong>Keen Smell.</strong></em> The badger has advantage on Wisdom (Perception) checks that rely on smell.</p>",
     "number of attacks": 1,
-    attacks: [
-                {
+    attacks: {
+                "Bite": {
                     "type": "Melee Weapon Attack",
                     "to hit": "+2",
                     "reach": "5 ft.",
@@ -1834,7 +1835,7 @@ const monsters = [
                     "hit": 1,
                     "damage type": "piercing"
                 }
-            ],
+},
     actions:
       "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +2 to hit, reach 5 ft. one target. <em>Hit:</em> 1 piercing damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/16/528/1000/1000/636376327632236333.jpeg",
@@ -5396,8 +5397,8 @@ const monsters = [
     traits:
       "<p><em><strong>Nimble Escape.</strong></em> The goblin can take the Disengage or Hide action as a bonus action on each of its turns.</p>",
     "number of attacks": 1,
-    attacks: [
-      {
+    attacks: {
+      "Scimitar": {
         "type": "Melee Weapon Attack",
         "to hit": "+4",
         "reach": "5 ft.",
@@ -5405,7 +5406,7 @@ const monsters = [
         "hit": "5 (1d6 + 2)",
         "damage type": "slashing"
       },
-      {
+      "Shortbow": {
         "type": "Ranged Weapon Attack",
         "to hit": "+4",
         "reach": "80/320 ft.",
@@ -5413,9 +5414,8 @@ const monsters = [
         "hit": "5 (1d6 + 2)",
         "damage type": "piercing"
       }
-    ],
-    actions:
-      "<p><em><strong>Scimitar.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft. one target. <em>Hit:</em> 5 (1d6 + 2) slashing damage.</p><p><em><strong>Shortbow.</strong></em> <em>Ranged Weapon Attack:</em> +4 to hit, range 80/320 ft. one target. <em>Hit:</em> 5 (1d6 + 2) piercing damage.</p>",
+},
+    actions: "<p><em><strong>Scimitar.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft. one target. <em>Hit:</em> 5 (1d6 + 2) slashing damage.</p><p><em><strong>Shortbow.</strong></em> <em>Ranged Weapon Attack:</em> +4 to hit, range 80/320 ft. one target. <em>Hit:</em> 5 (1d6 + 2) piercing damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/351/315/315/636252777818652432.jpeg",
     "bonsus actions": "<p><strong>Nimble Escape</strong>: The goblin can take the Disengage or Hide action as a bonus action on each of its turns.</p>"
   },
@@ -8132,8 +8132,8 @@ const monsters = [
     traits:
       "<p><em><strong>Aggressive</strong></em>. As a bonus action, the orc can move up to its speed toward a hostile creature that it can see.</p>",
     "number of attacks": 1,
-    attacks: [
-      {
+    attacks: {
+      "Greataxe": {
         "type": "Melee Weapon Attack",
         "to hit": "+5",
         "reach": "5 ft.",
@@ -8141,7 +8141,7 @@ const monsters = [
         "hit": "9 (1d12 + 3)",
         "damage type": "slashing"
       },
-      {
+      "Javelin": {
         "type": "Melee or Ranged Weapon Attack",
         "to hit": "+5",
         "reach": "5 ft.or range 30/120 ft.",
@@ -8149,7 +8149,7 @@ const monsters = [
         "hit": "6 (1d6 + 3)",
         "damage type": "piercing"
       }
-    ],
+},
     actions:
       "<p><em><strong>Greataxe.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft. one target. <em>Hit:</em> 9 (1d12 + 3) slashing damage.</p><p><em><strong>Javelin.</strong></em> <em>Melee or <em>Ranged Weapon Attack:</em></em> +5 to hit, reach 5 ft.or range 30/120 ft. one target. <em>Hit:</em> 6 (1d6 + 3) piercing damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/301/1000/1000/636252771691385727.jpeg",
@@ -16139,8 +16139,8 @@ const monsters = [
  challenge: "1 (200 XP)",
  traits: "<p><em><strong>Cunning Opportunist.</strong></em> The stone cursed has advantage on the attack rolls of opportunity attacks.</p><p><em><strong>False Appearance.</strong></em> While the stone cursed remains motionless, it is indistinguishable from a normal statue.</p>",
  "number of attacks": 1,
- attacks: [
-  {
+ attacks: {
+  "Petrifying Claws": {
    type: "Melee Weapon Attack",
    "to hit": "+5",
    "reach": "5 ft.",
@@ -16148,7 +16148,7 @@ const monsters = [
    "hit": "8 (1d10 + 3)",
    "damage type": "slashing"
   }
- ],
+},
  actions: "<p><em><strong>Petrifying Claws.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft., one target. <em>Hit:</em> 8 (1d10 + 3) slashing damage, or 14 (2d10 + 3) slashing damage if the attack roll had advantage. If the target is a creature, it must succeed on a DC 12 Constitution saving throw, or it begins to turn to stone and is restrained until the end of its next turn, when it must repeat the saving throw. The effect ends if the second save is successful; otherwise the target is petrified for 24 hours.</p>",
  "img url": "https://www.5etools.com/img/MTF/Stone%20Cursed.png",
  "description": "<p>The stone cursed are spawned through a foul alchemical ritual performed on a humanoid that has been turned to stone. The ritual, which requires a mixture of basilisk blood and the ashes from the burned feathers of a cockatrice, awakens a dim echo of the petrified victim's spirit, animating the statue and turning it into a useful guardian.</p><p><em><strong>Lingering Spirits.</strong></em> The stone cursed possess a malevolent drive to slay the living, yet they are utterly loyal to whoever performed the ritual to animate them, and they obey that being's orders to the best of their ability. In combat, stony claws that drip with thick, gray sludge emerge from a stone cursed's fingers. This alchemical sludge transforms those slashed by the claws into statues.</p><p><em><strong>A Strange Harvest.</strong></em> As part of the ritual used to create a stone cursed, a fist-sized obsidian skull forms within the creature's torso. The skull isn't visible while the stone cursed is active, but when it is slain, the statue shatters and the skull clatters to the ground. Because it is the nexus for the alchemy used to create these horrors, a dim echo of the original victim's memories resonates within the skull. A skilled magic-wielder can attempt to extract memories from it to gain insight into the victim's past or find lore that otherwise would be lost.</p><p><em><strong>Constructed Nature.</strong></em> A stone cursed doesn't require air, food, drink, or sleep.</p><p><em><strong>Cryptic Whispers.</strong></em> Even though creatures transformed into stone cursed are long dead, a vague whisper of their memories lives on in the obsidian skull embedded within the stone cursed's body. At the end of a short rest, a character can make a DC 20 Intelligence (Arcana) check to attempt to extract a memory from the skull -a memory that is a response to a verbal question posed by the character to the skull. Once this check is made, whether it succeeds or fails, the skull can't be used in this manner again.</p>"
@@ -16175,8 +16175,8 @@ const monsters = [
     challenge: "4 (1,100 XP)",
     traits: "<p><em><strong>False Appearance.</strong></em> While the stone defender remains motionless against an uneven earthen or stone surface, it is indistinguishable from that surface.</p><p><em><strong>Magic Resistance.</strong></em> The stone defender has advantage on saving throws against spells and other magical effects.</p>",
     "number of attacks": 1,
-    attacks: [
-      {
+    attacks: {
+      "Slam": {
         type: "Melee Weapon Attack",
         "to hit": "+6",
         "reach": "5 ft.",
@@ -16184,7 +16184,7 @@ const monsters = [
         "hit": "11 (2d6 + 4)",
         "damage type": "bludgeoning"
       }
-    ],
+},
     actions: "<p><em><strong>Slam.</strong></em> Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 11 (2d6 + 4) bludgeoning damage, and if the target is Large or smaller, it is knocked prone.</p>",
     reactions: "<p><em><strong>Intercept Attack.</strong></em> In response to another creature within 5 feet of it being hit by an attack roll, the stone defender gives that creature a +5 bonus to its AC against that attack, potentially causing a miss. To use this ability, the stone defender must be able to see the creature and the attacker.</p>",
     "notes": "<p>Thick plates of stone riveted onto a stone defender give it substantial protection and allow it to conceal itself against a stony surface. Its chief role isn't as an ambusher, however, but as a bodyguard for gnomes and other clockworks. The gnomes' efforts to invent and tinker with magic and mechanical devices produce many failed constructs, but also result in genuine advances, such as clockworks. Since their discovery, the methods used to craft clockworks have passed from one community of gnomes to another and down.</p>"
@@ -16212,8 +16212,8 @@ const monsters = [
     challenge: "10 (5,900 XP)",
     traits: "<p><em><strong>Dreamwalker's Charm.</strong></em> An enemy that starts its turn within 30 feet of the giant must make a DC 13 Charisma saving throw, provided that the giant isn't incapacitated. On a failed save, the creature is charmed by the giant. A creature charmed in this way can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. Once it succeeds on the saving throw, the creature is immune to this giant's Dreamwalker's Charm for 24 hours.</p><p><em><strong>Petrifying Touch.</strong></em> The giant touches one Medium or smaller creature within 10 feet of it that is charmed by it. The target must make a DC 17 Constitution saving throw. On a failed save, the creature becomes petrified, and the giant can adhere the target to its stony body. Greater restoration spells and other magic that can undo petrification have no effect on a petrified creature on the giant unless the giant is dead, in which case the magic works normally, freeing the petrified creature as well as ending the petrified condition on it.</p>",
     "number of attacks": 2,
-    attacks: [
-      {
+    attacks: {
+      "Greatclub": {
         type: "Melee Weapon Attack",
         "to hit": "+10",
         "reach": "15 ft.",
@@ -16221,7 +16221,7 @@ const monsters = [
         "hit": "19 (3d8 + 6)",
         "damage type": "bludgeoning"
       },
-      {
+      "Rock": {
         type: "Ranged Weapon Attack",
         "to hit": "+10",
         "range": "60/240 ft.",
@@ -16229,7 +16229,7 @@ const monsters = [
         "hit": "28 (4d10 + 6)",
         "damage type": "bludgeoning"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> The giant makes two attacks with its greatclub.</p><p><em><strong>Greatclub.</strong></em> Melee Weapon Attack: +10 to hit, reach 15 ft., one target. Hit: 19 (3d8 + 6) bludgeoning damage.</p><p><em><strong>Rock.</strong></em> Ranged Weapon Attack: +10 to hit, range 60/240 ft., one target. Hit: 28 (4d10 + 6) bludgeoning damage. If the target is a creature, it must succeed on a DC 17 Strength saving throw or be knocked prone.</p>",
     reactions: "<p><em><strong>Rock Catching.</strong></em> If a rock or similar object is hurled at the giant, the giant can, with a successful DC 10 Dexterity saving throw, catch the missile and take no bludgeoning damage from it.</p>",
     "description": "<p>Stone giants sometimes go on dream quests in the surface world, seeking inspiration for their art, to break a decades-long ennui, or out of simple curiosity. Some who go on these quests let themselves become lost in the dream. Other stone giants are banished to the surface as punishment. Regardless of the reason, if they don't take shelter under stone, such individuals can become dreamwalkers.</p><p>Dreamwalkers occupy an odd place of respect outside of stone giant ordning. They are considered outcasts, but their familiarity with the surface world makes therm valuable guides, and their insights can help other stone giants grasp the dangers of living in a dream.</p><p>Mad Wanderers. Dreamwalkers are driven mad by isolation, shame, and their unendingly alien surroundings, and this madness leeches out into the world around therm, affecting other creatures that get too close. Believing that they're living in a dream and that their actions have no real consequences, dreamwalkers act as they please, becoming forces of chaos. As they travel the world, they collect objects and creatures that seem especially significant in their mad minds. Over time, the collected things accrete to their bodies, becoming encased in stone.</p>"
@@ -16257,8 +16257,8 @@ const monsters = [
     challenge: "12 (8,400 XP)",
     traits: "<p><em><strong>Extra Heads.</strong></em> The giant has a 25 percent chance of having more than one head. If it has more than one, it has advantage on Wisdom (Perception) checks and on saving throws against being blinded, charmed, deafened, frightened, stunned, or knocked unconscious.</p><p><em><strong>Regeneration.</strong></em> The giant regains 10 hit points at the start of its turn. If the giant takes acid or fire damage, this trait doesn't function at the start of its next turn. The giant dies only if it starts its turn with 0 hit points and doesn't regenerate.</p><p><em><strong>Vaprak's Rage (Recharges after a Short or Long Rest).</strong></em> As a bonus action, the giant can enter a rage at the start of its turn. The rage lasts for 1 minute or until the giant is incapacitated. While raging, the giant gains the following benefits:</p><ul><li>The giant has advantage on Strength checks and Strength saving throws </li><li>When it makes a melee weapon attack, the giant gains a +4 bonus to the damage roll.</li><li>The giant has resistance to bludgeoning, piercing, and slashing damage.</li></ul>",
     "number of attacks": 2,
-    attacks: [
-      {
+    attacks: {
+      "Greataxe": {
         type: "Melee Weapon Attack",
         "to hit": "+11",
         "reach": "10 ft.",
@@ -16266,7 +16266,7 @@ const monsters = [
         "hit": "26 (3d12 + 7) slashing damage, or 30 (3d12 + 11) slashing damage while raging.",
         "damage type": "slashing"
       },
-      {
+      "Rock": {
         type: "Ranged Weapon Attack",
         "to hit": "+11",
         "range": "60/240 ft.",
@@ -16274,7 +16274,7 @@ const monsters = [
         "hit": "29 (4d10 + 7)",
         "damage type": "bludgeoning"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> The giant makes two attacks with its greataxe.</p><p><em><strong>Greataxe.</strong></em> Melee Weapon Attack: +11 to hit, reach 10 ft., one target. Hit: 26 (3d12 + 7) slashing damage, or 30 (3d12 + 11) slashing damage while raging.</p><p><em><strong>Rock.</strong></em> Ranged Weapon Attack: +11 to hit, range 60/240 ft., one target. Hit: 29 (4d10 + 7) bludgeoning damage.</p>",
     "description": "<p>Frost giants mainly turn to Vaprak, a rapacious god of strength and hunger worshiped by ogres and trolls, out of desperation. Vaprak likes to tempt frost giants with dreams of glory followed by nightmares of bloody cannibalism. Those who don't shrink from such visions or report them to priests of Thrym receive more of the same. If a frost giant comes to relish these dreams and nightmares, as some do, Vaprak sets a troll upon a sacred quest to find the frost giant and meet it in secret. The troll offers up its own body to be devoured in Vaprak's name. Only the boldest and most determined frost giants can finish such a gory feast.</p><p>Vaprak's Blessing. After devouring the troll sent by Vaprak, bones and all, a frost giant becomes an everlasting one, gaining tremendous strength, an ill temper, and a troll's regenerative ability. With these gifts, the frost giant can swiftly claim the title of jarl and easily fend off rivals for decades. However, if the frost giant doesn't give enough honor to Vaprak or fails to heed Vaprak's visions, injuries the frost giant sustains heal wrong, often resulting in discolored skin, warty scars, and vestigial body parts, such as extra digits, limbs, and even extra heads. The touch of Vaprak can no longer be hidden then, and the everlasting one is either killed or exiled by its clan. Sometimes small communities of everlasting ones gather and even reproduce, passing the \"blessing\" and worship of Vaprak from one generation to the next.</p>"
   },
@@ -16300,8 +16300,8 @@ const monsters = [
     challenge: "7 (2,900 XP)",
     traits: "<p><em><strong>Innate Spellcasting.</strong></em> The giant's innate spellcasting ability is Wisdom. It can innately cast the following spells, requiring no material components: </p><ul><li>3/day each: meld into stone, stone shape  </li><li>1/day each: stoneskin, time stop  </li></ul><p><em><strong>Olach Morrah.</strong></em> The giant meditates for 1 hour, during which time it can do nothing else. At the end of the hour, provided the giant's meditation has been uninterrupted, it becomes petrified for 8 hours. At the end of this time, the giant is no longer petrified and gains tremorsense out to a range of 30 feet, as well as a measure of innate spellcasting ability for the next 24 hours.</p><p><em><strong>Stone Camouflage.</strong></em> The giant has advantage on Dexterity (Stealth) checks made to hide in rocky terrain.</p>",
     "number of attacks": 2,
-    attacks: [
-      {
+    attacks: {
+      "Greatclub": {
         type: "Melee Weapon Attack",
         "to hit": "+9",
         "reach": "15 ft.",
@@ -16309,7 +16309,7 @@ const monsters = [
         "hit": "19 (3d8 + 6)",
         "damage type": "bludgeoning"
       },
-      {
+      "Rock": {
         type: "Ranged Weapon Attack",
         "to hit": "+9",
         "range": "60/240 ft.",
@@ -16317,7 +16317,7 @@ const monsters = [
         "hit": "28 (4d10 + 6)",
         "damage type": "bludgeoning"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> The giant makes two greatclub attacks.</p><p><em><strong>Greatclub.</strong></em> Melee Weapon Attack: +9 to hit, reach 15 ft., one target. Hit: 19 (3d8 + 6) bludgeoning damage.</p><p><em><strong>Rock.</strong></em> Ranged Weapon Attack: +9 to hit, range 60/240 ft., one target. Hit: 28 (4d10 + 6) bludgeoning damage. If the target is a creature, it must succeed on a DC 17 Strength saving throw or be knocked prone.</p>",
     reactions: "<p><em><strong>Rock Catching.</strong></em> If a rock or similar object is hurled at the giant, the giant can, with a successful DC 10 Dexterity saving throw, catch the missile and take no bludgeoning damage from it.</p>"
   },
@@ -16345,8 +16345,8 @@ const monsters = [
     challenge: "20 (25,000 XP)",
     traits: "<p><em><strong>Alert.</strong></em> The giant can't be surprised, and it has advantage on initiative rolls.</p><p><em><strong>Amphibious.</strong></em> The giant can breathe air and water.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the giant fails a saving throw, it can choose to succeed instead.</p><p><em><strong>Scrying (Requires Storm Rune).</strong></em> The giant can use its crystal ball to cast the scrying spell (save DC 17).</p><p><em><strong>Storm Rune.</strong></em> The giant has a storm rune inscribed on a crystal ball. While the object bearing the rune is embedded in its body, the giant can use its Tempest Call action and its Scrying trait. The object bearing the storm rune has AC 17; 50 hit points; and immunity to necrotic, poison, and psychic damage </p>",
     "number of attacks": 2,
-    attacks: [
-      {
+    attacks: {
+      "Greatclub": {
         type: "Melee Weapon Attack",
         "to hit": "+15",
         "reach": "15 ft.",
@@ -16354,7 +16354,7 @@ const monsters = [
         "hit": "30 (4d10 + 9)",
         "damage type": "bludgeoning"
       },
-      {
+      "Lightning Strike": {
         type: "Ranged Spell Attack",
         "to hit": "+13",
         "range": "600 ft.",
@@ -16362,7 +16362,7 @@ const monsters = [
         "hit": "28 (8d6)",
         "damage type": "lightning"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> The giant makes two attacks or casts two spells.</p><p><em><strong>Greatclub.</strong></em> Melee Weapon Attack: +15 to hit, reach 15 ft., one target. Hit: 30 (4d10 + 9) bludgeoning damage.</p><p><em><strong>Lightning Strike.</strong></em> Ranged Spell Attack: +13 to hit, range 600 ft., one target. Hit: 28 (8d6) lightning damage.</p><p><em><strong>Spellcasting.</strong></em> The giant casts one of the following spells, requiring no material components and using Charisma as the spellcasting ability (spell save DC 21, +13 to hit with spell attacks): </p><ul><li>At will: detect magic, detect thoughts </li><li>1/day each: control water, control weather (as an action), dispel magic, plane shift, sending, time stop </li></ul><p><em><strong>Tempest Call (Requires Storm Rune).</strong></em> The giant creates an elemental vortex that fills a 60-foot-radius sphere centered on itself. Each creature in that area other than the giant must make a DC 21 Dexterity saving throw. On a failed save, a creature takes 43 (8d8 + 7) damage of a type of the giant's choosing: cold, lightning, or thunder. On a successful save, a creature takes half as much damage.</p>",
     "description": "<p>While most storm giants care little for the intricate details of ranking in the ordning, tempest callers proudly claim a position at the pinnacle of that ranking—and few dare to challenge them. Wielding the power of rune magic in addition to the innate magic that courses through them, these storm giants are highly respected. If any giant can draw Annam's attention to the world, it would likely be a tempest caller.</p><p>Tempest callers implant crystal balls inscribed with the storm rune into their foreheads or eye sockets, allowing them to see through magical deception. They can also create a momentary vortex of freezing winds and storm clouds around themselves, engulfing their foes in elemental fury.</p>"
   },
@@ -16387,8 +16387,8 @@ const monsters = [
     challenge: "1/4 (50 XP)",
     traits: "<p><em><strong>Charge.</strong></em> If the kow moves at least 20 feet straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 7 (2d6) piercing damage.</p><p><em><strong>Stench.</strong></em> Any creature other than a stench kow that starts its turn within 5 feet of the stench kow must succeed on a DC 12 Constitution saving throw or be poisoned until the start of the creature's next turn. On a successful saving throw, the creature is immune to the stench of all stench kows for 1 hour.</p>",
     "number of attacks": 1,
-    attacks: [
-      {
+    attacks: {
+      "Gore": {
         type: "Melee Weapon Attack",
         "to hit": "+6",
         "reach": "5 ft.",
@@ -16396,7 +16396,7 @@ const monsters = [
         "hit": "7 (1d6 + 4)",
         "damage type": "piercing"
       }
-    ],
+},
     actions: "<p><em><strong>Gore.</strong></em> Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 7 (1d6 + 4) piercing damage.</p>"
   },
   {
@@ -16421,8 +16421,8 @@ const monsters = [
     challenge: "10 (5,900 XP)",
     traits: "<p><em><strong>Fearsome Presence.</strong></em> Any non-eladrin creature that starts its turn within 60 feet of the eladrin must make a DC 16 Wisdom saving throw. On a failed save, the creature becomes frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to any eladrin's Fearsome Presence for the next 24 hours.</p><p><em><strong>Fey Step (Recharge 4-6).</strong></em> As a bonus action, the eladrin can teleport up to 30 feet to an unoccupied space it can see.</p><p><em><strong>Magic Resistance.</strong></em> The eladrin has advantage on saving throws against spells and other magical effects.</p>",
     "number of attacks": 2,
-    attacks: [
-      {
+    attacks: {
+      "Longsword": {
         type: "Melee Weapon Attack",
         "to hit": "+8",
         "reach": "5 ft.",
@@ -16430,7 +16430,7 @@ const monsters = [
         "hit": "13 (2d8 + 4)",
         "damage type": "slashing"
       },
-      {
+      "Longbow": {
         type: "Ranged Weapon Attack",
         "to hit": "+9",
         "range": "150/600 ft.",
@@ -16438,7 +16438,7 @@ const monsters = [
         "hit": "14 (2d8 + 5)",
         "damage type": "piercing"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> The eladrin makes two weapon attacks.</p><p><em><strong>Longsword.</strong></em> Melee Weapon Attack: +8 to hit, reach 5 ft., one target. Hit: 13 (2d8 + 4) slashing damage plus 4 (1d8) fire damage, or 15 (2d10 + 4) slashing damage plus 4 (1d8) fire damage if used with two hands.</p><p><em><strong>Longbow.</strong></em> Ranged Weapon Attack: +9 to hit, range 150/600 ft., one target. Hit: 14 (2d8 + 5) piercing damage plus 4 (1d8) fire damage.</p>",
     reactions: "<p><em><strong>Parry.</strong></em> The eladrin adds 3 to its AC against one melee attack that would hit it. To do so, the eladrin must see the attacker and be wielding a melee weapon.</p>",
     "description": "<p>The eladrin have spent centuries in the Feywild, and most of them have become fey creatures as a result. Some of them are still humanoid, similar in that respect to their other elven kin. The eladrin presented here are of the fey variety.</p><p>Creatures of Passion. The magic flowing through eladrin responds to their emotional state by transforming them into different seasonal aspects, with behaviors and capabilities that change with their forms. Some eladrin might remain in a particular aspect for years, while others run through the emotional spectrum each week.</p><p>Lovers of Beauty. Regardless of the aspect they express, eladrin love beauty and surround themselves with lovely things. Eladrin try to possess any objects they find striking. They might seek to own a painting, a statue, or a glittering jewel. When they encounter people of comely form or luminous spirit, they use their magic to delight those folk or, in the case of evil eladrin, to abduct them.</p><p>Changeable Nature. Whenever one of the eladrin presented here finishes a long rest, it can associate itself with a different season, provided it isn't incapacitated. When the eladrin makes this change, it uses the stat block of the new season, rather than its old stat block. Any damage the eladrin sustained in its original form applies to the new form, as do any conditions or other ongoing effects affecting it.</p>"
@@ -16466,8 +16466,8 @@ const monsters = [
     challenge: "16 (15,000 XP)",
     traits: "<p><em><strong>Amphibious.</strong></em> The giant can breathe air and water.</p>",
     "number of attacks": 2,
-    attacks: [
-      {
+    attacks: {
+      "Lightning Sword": {
         type: "Melee Weapon Attack",
         "to hit": "+14",
         "reach": "15 ft.",
@@ -16475,7 +16475,7 @@ const monsters = [
         "hit": "40 (9d6 + 9)",
         "damage type": "lightning"
       },
-      {
+      "Windjavelin": {
         type: "Ranged Weapon Attack",
         "to hit": "+14",
         "range": "600 ft.",
@@ -16483,7 +16483,7 @@ const monsters = [
         "hit": "19 (3d6 + 9)",
         "damage type": "piercing"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> The giant makes two Lightning Sword attacks or uses Wind Javelin twice.</p><p><em><strong>Lightning Sword.</strong></em> Melee Weapon Attack: +14 to hit, reach 15 ft., one target. Hit: 40 (9d6 + 9) lightning damage.</p><p><em><strong>Windjavelin.</strong></em> The giant coalesces wind into a javelin-like form and hurls it at a creature it can see within 600 feet of it. The javelin is considered a magic weapon and deals 19 (3d6 + 9) piercing damage to the target, striking unerringly. The javelin disappears after it hits.</p>",
     "legendary actions": "<p>Legendary Action Uses: 3. Immediately after another creature's turn, The storm giant quintessent can expend a use to take one of the following actions. The storm giant quintessent regains all expended uses at the start of each of its turns.</p><p><em><strong>Gust.</strong></em> The giant targets a creature it can see within 60 feet of it and creates a magical gust of wind around it. The target must succeed on a DC 18 Strength saving throw or be pushed up to 20 feet in any horizontal direction the giant chooses.</p><p><em><strong>Thunderbolt (2 Actions).</strong></em> The giant hurls a thunderbolt at a creature it can see within 600 feet of it. The target must make a DC 18 Dexterity saving throw, taking 22 (4d10) thunder damage on a failed save, or half as much damage on a successful one.</p><p><em><strong>One with the Storm (3 Actions).</strong></em> The giant vanishes, dispersing itself into the storm surrounding its lair. The giant can end this effect at the start of any of its turns,  appearing in an unoccupied space within 10 feet of where it vanished. While vanished, the giant can't be targeted by any attack or other effect, and it doesn't occupy its space. It can still use its lair actions and regional effects. If it remains vanished until the start of its next turn, it regains 20 hit points.</p>",
     "lair actions": "<p>A storm giant quintessent has no need for castles or dungeon lairs. Its lair is usually a secluded region or prominent geographic feature, such as a mountain peak, a great waterfall, a remote island, a fog-shrouded loch, a beautiful coral reef, or a windswept desert bluff. As befits the environment, the storm in which the giant lives could be a blizzard, a typhoon, a thunderstorm, or a sandstorm.</p><p>On initiative count 20 (losing initiative ties), the giant can take one lair action to cause one of the following effects; the giant can't use the same effect two rounds in a row: </p><ul><li>A powerful gust of wind (50 ft. cube) blows from a direction the giant chooses. Each creature in the gust must succeed on a DC 18 Strength saving throw or be pushed 15 feet in that direction. </li><li>The giant causes 4 random bolts of lightning to strike points on the ground or in the water within 120 feet of it. Each creature within 5 feet of a bolt's point of impact must make a DC 18 Dexterity saving throw, taking 10 (3d6) lightning damage on a failed save, or half as much damage on a successful one. </li><li>The giant creates a 20-foot-radius sphere of fog centered on a point within 120 feet of it. The sphere spreads around corners, and its area is heavily obscured. It lasts until initiative count 20 on the next round. </li></ul>",
@@ -16512,8 +16512,8 @@ const monsters = [
     languages: ["Common", "Giant", "Terran"],
     challenge: "9 (5,000 XP)",
     "number of attacks": 2,
-    attacks: [
-      {
+    attacks: {
+      "Thundering Stone Club": {
         type: "Melee Weapon Attack",
         "to hit": "+10",
         "reach": "15 ft.",
@@ -16521,7 +16521,7 @@ const monsters = [
         "hit": "16 (3d6 + 6)",
         "damage type": "bludgeoning"
       },
-      {
+      "Boulder": {
         type: "Ranged Weapon Attack",
         "to hit": "+10",
         "range": "60/240 ft.",
@@ -16529,7 +16529,7 @@ const monsters = [
         "hit": "19 (3d8 + 6)",
         "damage type": "bludgeoning"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> The giant makes two Thundering Stone Club or Boulder attacks in any combination.</p><p><em><strong>Thundering Stone Club.</strong></em> Melee Weapon Attack: +10 to hit, reach 15 ft., one target. Hit: 16 (3d6 + 6) bludgeoning damage. The giant can cause the club to emit a burst of thunderous energy that deals 10 (3d6) thunder damage to each creature, other than the giant, within 30 feet of the target. The club can emit a burst this way only once per turn.</p><p><em><strong>Boulder.</strong></em> Ranged Weapon Attack: +10 to hit, range 60/240 ft., one target. Hit: 19 (3d8 + 6) bludgeoning damage, and the target must succeed on a DC 18 Strength saving throw or have the prone condition. After the giant throws the boulder, roll a d6; on a roll of 3 or lower, the giant has no more boulders to throw.</p>",
     reactions: "<p><em><strong>Unyielding.</strong></em> In response to failing a saving throw to avoid being moved, having the prone condition, or both, the giant succeeds instead.</p>",
     "description": "<p>Stone giants with a bent toward cruelty and destruction might reject the gods of the Ordning and turn to the worship of Ogrémoch, the Prince of Evil Earth. These giants view the surface world not as a realm of dream but as a nightmare worthy only of destruction, so they lend their strength to cults that plan to reduce the world to rubble.</p><p>Outfitted in heavy armor crafted to resemble the cult's patron, stone giants of Evil Earth wield weapons that pulse with thunderous energy. These giants serve as the muscle for the cult,  as well as its elite enforcers.</p>"
@@ -16557,8 +16557,8 @@ const monsters = [
     challenge: "7 (2,900 XP)",
     traits: "<p><em><strong>Innate Spellcasting.</strong></em> The giant's innate spellcasting ability is Wisdom. It can innately cast the following spells, no material components: </p><ul><li>3/day each: meld into stone, stone shape  </li><li>1/day each: stoneskin, time stop  </li></ul><p><em><strong>Olach Morrah.</strong></em> The giant meditates for 1 hour, during which time it can do nothing else. At the end of the hour, the giant's meditation has been uninterrupted, it becomes petrified for 8 hours. At the end of this time, the o longer petrified and gains tremorsense out to a range of 30 feet, as well as a measure of innate ng ability for the next 24 hours.</p><p><em><strong>Stone Camouflage.</strong></em> The giant has advantage on Dexterity (Stealth) checks made to hide in rocky terrain.</p>",
     "number of attacks": 2,
-    attacks: [
-      {
+    attacks: {
+      "Adamantine Greatclub": {
         type: "Melee Weapon Attack",
         "to hit": "+9",
         "reach": "15 ft.",
@@ -16566,7 +16566,7 @@ const monsters = [
         "hit": "19 (3d8 + 6)",
         "damage type": "bludgeoning"
       },
-      {
+      "Rock": {
         type: "Ranged Weapon Attack",
         "to hit": "+9",
         "range": "60/240 ft.",
@@ -16574,7 +16574,7 @@ const monsters = [
         "hit": "28 (4d10 + 6)",
         "damage type": "bludgeoning"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> The giant makes two adamantine greatclub attacks.</p><p><em><strong>Adamantine Greatclub.</strong></em> Melee Weapon Attack: +9 to hit, reach 15 ft., one target. Hit: 19 (3d8 + 6) bludgeoning damage.</p><p><em><strong>Rock.</strong></em> Ranged Weapon Attack: +9 to hit, range 60/240 ft., one target. Hit: 28 (4d10 + 6) bludgeoning damage. If the target is a creature, it must succeed on a DC 17 Strength saving throw or be knocked prone.</p>",
     reactions: "<p><em><strong>Rock Catching.</strong></em> If a rock or similar object is hurled at the giant, the giant can, with a successful DC 10 Dexterity saving throw, catch the missile and take no bludgeoning damage from it.</p>",
     "description": "<p>Stone giants are reclusive, quiet, and peaceful as long as they are left alone. Their granite-gray skin, gaunt features, and black, sunken eyes endow stone giants with a stern countenance. They are private creatures, hiding their lives and art away from the world. Inhabitants of a Stone World. Secluded caves are the homes of the stone giants. Cavern networks are their towns, rocky tunnels their roads, and underground streams their waterways. Isolated mountain ranges are their continents, with the vast spans of land between seen as oceans that the stone giants only rarely cross. In their dark, quiet caves, stone giants wordlessly chip away at elaborate carvings, measuring time in the echoing drip of water into cavern pools.</p>"
@@ -17044,8 +17044,8 @@ const monsters = [
     languages: ["Any two languages (usually Sylvan)"],
     challenge: "4 (1,100 XP)",
     "number of attacks": 2,
-    attacks: [
-      {
+    attacks: {
+      "Rapier": {
         type: "Melee Weapon Attack",
         "to hit": "+5",
         "reach": "5 ft.",
@@ -17053,7 +17053,7 @@ const monsters = [
         "hit": "7 (1d8+3) piercing damage plus 7 (2d6) force damage",
         "damage type": "piercing, force"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> The warlock makes two Rapier attacks, or it uses Bewildering Word twice.</p><p><em><strong>Rapier.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft., one target. <em>Hit:</em> 7 (1d8+3) piercing damage plus 7 (2d6) force damage.</p><p><em><strong>Bewildering Word.</strong></em> The warlock utters a magical bewilderment, targeting one creature it can see within 60 feet of it. The target must succeed on a DC 14 Wisdom saving throw or take 9 (2d8) psychic damage and have disadvantage on attack rolls until the end of the warlock's next turn.</p><p><em><strong>Spellcasting.</strong></em> The warlock casts one of the following spells, using Charisma as the spellcasting ability (spell save DC 14):<br>At will: dancing lights, disguise self, mage armor (self only), mage hand, minor illusion, prestidigitation, speak with animals<br>1/day each: charm person, dimension door, hold monster</p>",
     reactions: "<p><em><strong>Misty Escape (Recharges after a Short or Long Rest).</strong></em> In response to taking damage, the warlock turns invisible and teleports, along with any equipment it is wearing or carrying, up to 60 feet to an unoccupied space it can see. It remains invisible until the start of its next turn or until it attacks, makes a damage roll, or casts a spell.</p>",
     "description": "<p>Warlocks of the Archfey gain their powers through magical pacts forged with lords of the Feywild. These warlocks commonly associate with lesser Fey creatures such as boggles, quicklings, and redcaps (all appear in this book) or even satyrs and sprites. Warlocks gain arcane might through magical pacts with mysterious entities. While some use their abilities to serve the sources of their power, others use them to undermine or even destroy these entities.</p>"
@@ -17081,8 +17081,8 @@ const monsters = [
     challenge: "7 (2,900 XP)",
     traits: "<p><em><strong>Dark One's Own Luck (Recharges after a Short or Long Rest).</strong></em> When the warlock makes an ability check or saving throw, it can add a d10 to the roll. It can do this after the roll is made but before any of the roll's effects occur.</p>",
     "number of attacks": 3, 
-    attacks: [
-      {
+    attacks: {
+      "Scimitar": {
         type: "Melee Weapon Attack",
         "to hit": "+6",
         "reach": "5 ft.",
@@ -17090,7 +17090,7 @@ const monsters = [
         "hit": "6 (1d6+3) slashing damage plus 14 (4d6) fire damage",
         "damage type": "slashing, fire"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> The warlock makes three Scimitar attacks.</p><p><em><strong>Scimitar.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft., one target. <em>Hit:</em> 6 (1d6+3) slashing damage plus 14 (4d6) fire damage.</p><p><em><strong>Hellfire.</strong></em> Green flame explodes in a 10-foot-radius sphere centered on a point within 120 feet of the warlock. Each creature in that area must make a DC 15 Dexterity saving throw, taking 16 (3d10) fire damage and 11 (2d10) necrotic damage on a failed save, or half as much damage on a successful one.</p><p><em><strong>Spellcasting.</strong></em> The warlock casts one of the following spells, using Charisma as the spellcasting ability (spell save DC 15):<br>At will: alter self, mage armor (self only), mage hand, minor illusion, prestidigitation<br>1/day each: banishment, plane shift, suggestion</p>",
     reactions: "<p><em><strong>Fiendish Rebuke (3/Day).</strong></em> In response to being damaged by a visible creature within 60 feet of it, the warlock forces that creature to make a DC 15 Constitution saving throw, taking 22 (4d10) necrotic damage on a failed save, or half as much damage on a successful one.</p>",
     "description": "<p>Warlocks of the Fiend gain their powers through magical pacts forged with archfiends of the Lower Planes. These warlocks often keep imps or quasits as companions, and they tend toward philosophical extremes: consorting with fiendish cults or dedicating their lives to destroying such cults. Warlocks gain arcane might through magical pacts with mysterious entities. While some use their abilities to serve the sources of their power, others use them to undermine or even destroy these entities.</p>"
@@ -17119,8 +17119,8 @@ const monsters = [
     challenge: "15 (13,000 XP)",
     traits: "<p><em><strong>Shapechanger.</strong></em> If the vampire isn't in sunlight or running water, it can use its action to polymorph into a Tiny bat or a Medium cloud of mist, or back into its true form. While in bat form, the vampire can't speak, its walking speed is 5 feet, and it has a flying speed of 30 feet. Its statistics, other than its size and speed, are unchanged. Anything it is wearing transforms with it, but nothing it is carrying does. It reverts to its true form if it dies. While in mist form, the vampire can't take any actions, speak, or manipulate objects. It is weightless, has a flying speed of 20 feet, can hover, and can enter a hostile creature's space and stop there. In addition, if air can pass through a space, the mist can do so without squeezing, and it can't pass through water. It has advantage on Strength, Dexterity, and Constitution saving throws, and it is immune to all nonmagical damage, except the damage it takes from sunlight.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the vampire fails a saving throw, it can choose to succeed instead.</p><p><em><strong>Misty Escape.</strong></em> When it drops to 0 hit points outside its resting place, the vampire transforms into a cloud of mist (as in the Shapechanger trait) instead of falling unconscious, provided that it isn't in sunlight or running water. If it can't transform, it is destroyed. While it has 0 hit points in mist form, it can't revert to its vampire form, and it must reach its resting place within 2 hours or be destroyed. Once in its resting place, it reverts to its vampire form. It is then paralyzed until it regains at least 1 hit point. After spending 1 hour in its resting place with 0 hit points, it regains 1 hit point.</p><p><em><strong>Regeneration.</strong></em> The vampire regains 20 hit points at the start of its turn if it has at least 1 hit point and isn't in sunlight or running water. If the vampire takes radiant damage or damage from holy water, this trait doesn't function at the start of the vampire's next turn.</p><p><em><strong>Spider Climb.</strong></em> The vampire can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check.</p><p><em><strong>Vampire Weaknesses.</strong></em> The vampire has the following flaws:<br>Forbiddance. The vampire can't enter a residence without an invitation from one of the occupants.<br>Harmed by Running Water. The vampire takes 20 acid damage if it ends its turn in running water.<br>Stake to the Heart. If a piercing weapon made of wood is driven into the vampire's heart while the vampire is incapacitated in its resting place, the vampire is paralyzed until the stake is removed.<br>Sunlight Hypersensitivity. The vampire takes 20 radiant damage when it starts its turn in sunlight. While in sunlight, it has disadvantage on attack rolls and ability checks.</p>",
     "number of attacks": 2,
-    attacks: [
-      {
+    attacks: {
+      "Unarmed Strike": {
         type: "Melee Weapon Attack",
         "to hit": "+9",
         "reach": "5 ft.",
@@ -17128,7 +17128,7 @@ const monsters = [
         "hit": "8 (1d8+4)",
         "damage type": "bludgeoning"
       },
-      {
+      "Greatsword": {
         type: "Melee Weapon Attack",
         "to hit": "+9",
         "reach": "5 ft.",
@@ -17136,7 +17136,7 @@ const monsters = [
         "hit": "11 (2d6+4)",
         "damage type": "slashing"
       },
-      {
+      "Bite": {
         type: "Melee Weapon Attack",
         "to hit": "+9",
         "reach": "5 ft.",
@@ -17144,7 +17144,7 @@ const monsters = [
         "hit": "7 (1d6+4) piercing damage plus 10 (3d6) necrotic damage",
         "damage type": "piercing, necrotic"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> The vampire makes two greatsword attacks.</p><p><em><strong>Multiattack (Vampire Form Only).</strong></em> The vampire makes two attacks, only one of which can be a bite attack.</p><p><em><strong>Unarmed Strike (Vampire Form Only).</strong></em> <em>Melee Weapon Attack:</em> +9 to hit, reach 5 ft., one creature. <em>Hit:</em> 8 (1d8+4) bludgeoning damage. Instead of dealing damage, the vampire can grapple the target (escape DC 18).</p><p><em><strong>Greatsword.</strong></em> <em>Melee Weapon Attack:</em> +9 to hit, reach 5 ft., one creature. <em>Hit:</em> 11 (2d6+4) slashing damage.</p><p><em><strong>Bite (Bat or Vampire Form Only).</strong></em> <em>Melee Weapon Attack:</em> +9 to hit, reach 5 ft., one willing creature, or a creature that is grappled by the vampire, incapacitated, or restrained. <em>Hit:</em> 7 (1d6+4) piercing damage plus 10 (3d6) necrotic damage. The target's hit point maximum is reduced by an amount equal to the necrotic damage taken, and the vampire regains hit points equal to that amount. The reduction lasts until the target finishes a long rest. The target dies if this effect reduces its hit point maximum to 0. A humanoid slain in this way and then buried in the ground rises the following night as a vampire spawn under the vampire's control.</p><p><em><strong>Charm.</strong></em> The vampire targets one humanoid it can see within 30 feet of it. If the target can see the vampire, the target must succeed on a DC 17 Wisdom saving throw against this magic or be charmed by the vampire. The charmed target regards the vampire as a trusted friend to be heeded and protected. Although the target isn't under the vampire's control, it takes the vampire's requests or actions in the most favorable way it can, and it is a willing target for the vampire's bite attack. Each time the vampire or the vampire's companions do anything harmful to the target, it can repeat the saving throw, ending the effect on itself on a success. Otherwise, the effect lasts 24 hours or until the vampire is destroyed, is on a different plane of existence than the target, or takes a bonus action to end the effect.</p><p><em><strong>Children of the Night (1/Day).</strong></em> The vampire magically calls 2d4 swarms of bats or rats, provided that the sun isn't up. While outdoors, the vampire can call 3d6 wolves instead. The called creatures arrive in 1d4 rounds, acting as allies of the vampire and obeying its spoken commands. The beasts remain for 1 hour, until the vampire dies, or until the vampire dismisses them as a bonus action.</p>",
     "legendary actions": "<p>Legendary Action Uses: 3. Immediately after another creature's turn, The vampire warrior can expend a use to take one of the following actions. The vampire warrior regains all expended uses at the start of each of its turns.</p><p><em><strong>Move.</strong></em> The vampire moves up to its speed without provoking opportunity attacks.</p><p><em><strong>Unarmed Strike.</strong></em> The vampire makes one unarmed strike.</p><p><em><strong>Bite (Costs 2 Actions).</strong></em> The vampire makes one bite attack.</p>",
     "regional effects": "<p>The region surrounding a vampire's lair is warped by the creature's unnatural presence, creating any of the following effects:<br>There's a noticeable increase in the populations of bats, rats, and wolves in the region.<br>Plants within 500 feet of the lair wither, and their stems and branches become twisted and thorny.<br>Shadows cast within 500 feet of the lair seem abnormally gaunt and sometimes move as though alive.<br>A creeping fog clings to the ground within 500 feet of the vampire's lair. The fog occasionally takes eerie forms, such as grasping claws and writhing serpents.<br>If the vampire is destroyed, these effects end after 2d6 days.</p>",
@@ -17173,8 +17173,8 @@ const monsters = [
     challenge: "4 (1,100 XP)",
     traits: "<p><em><strong>Keen Hearing and Smell.</strong></em> The yeth hound has advantage on Wisdom (Perception) checks that rely on hearing or smell.</p><p><em><strong>Sunlight Banishment.</strong></em> If the yeth hound starts its turn in sunlight, it is transported to the Ethereal Plane. While sunlight shines on the spot from which it vanished, the hound must remain in the Deep Ethereal. After sunset, it returns to the Border Ethereal at the same spot, whereupon it typically sets out to find its pack or its master. The hound is visible on the Material Plane while it is in the Border Ethereal, and vice versa, but it can't affect or be affected by anything on the other plane. Once it is adjacent to its master or a pack mate that is on the Material Plane, a yeth hound in the Border Ethereal can return to the Material Plane as an action.</p><p><em><strong>Telepathic Bond.</strong></em> While the yeth hound is on the same plane of existence as its master, it can magically convey what it senses to its master, and the two can communicate telepathically with each other.</p>",
     "number of attacks": 1,
-    attacks: [
-      {
+    attacks: {
+      "Bite": {
         type: "Melee Weapon Attack",
         "to hit": "+6",
         "reach": "5 ft.",
@@ -17182,7 +17182,7 @@ const monsters = [
         "hit": "11 (2d6 + 4) piercing damage, plus 14 (4d6) psychic damage if the target is frightened",
         "damage type": "piercing, psychic"
       }
-    ],
+},
     actions: "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft., one target. <em>Hit:</em> 11 (2d6 + 4) piercing damage, plus 14 (4d6) psychic damage if the target is frightened.</p><p><em><strong>Baleful Baying.</strong></em> The yeth hound bays magically. Every enemy within 300 feet of the hound that can hear it must succeed on a DC 13 Wisdom saving throw or be frightened until the end of the hound's next turn or until the hound is incapacitated. A frightened target that starts its turn within 30 feet of the hound must use all its movement on that turn to get as far from the hound as possible, must finish the move before taking an action, and must take the most direct route, even if hazards lie that way. A target that successfully saves is immune to the baying of all yeth hounds for the next 24 hours.</p>",
     "description": "<p>Granted by powerful fey to individuals who please them, yeth hounds serve evil masters like hunting dogs. Yeth hounds fly in pursuit of their prey, often waiting until it is too exhausted to fight back. Only the threat of dawn drives the pack back into hiding. Minions of a Dark Master. A pack of yeth hounds can be created by powerful fey such as the Queen of Air and Darkness. Once it is brought into existence, a pack must have a master, who is often someone the creator wishes to reward. The master can telepathically communicate with its yeth hounds to give them commands from afar. If the master of a pack is killed, the hounds seek and choose a new master, typically an individual of great evil such as a vampire, a necromancer, or a hag. A yeth hound stands about 5 feet tall at the shoulder and weighs around 400 pounds. Often all that can be seen of one in the darkness is the red glow of its eyes against its night-black fur. The head of a yeth hound has a human-like face, held up by a neck more flexible than a dog's. The creature gives off an odor like smoke. Sound of Looming Death. Yeth hounds make a ghastly baying sound that can be heard all around. Creatures that can see a hound when it bays are filled with supernatural fear and usually flee in terror. When a victim tries to run away, a hound delights in chasing after it and tormenting it before bringing the hunt to a close.</p><p>Those that stand their ground and fight back discover that mundane weapons partially pass through the hound as if it was made of fog, but magic weapons and silvered weapons can strike true.</p><p>Foiled by Sunlight. Yeth hounds can't stand sunlight. A pack never willingly prolongs a hunt beyond the night hours and always seeks to return to its dark den before the first rays of dawn. No amount of coercion by a pack's master can deter this behavior. If a yeth hound is exposed to natural sunlight, it fades away, vanishing into the Ethereal Plane, from where its master can retrieve it only after the sun has set.</p>"
   },
@@ -17213,8 +17213,8 @@ const monsters = [
     challenge: "26 (90,000 XP)",
     traits: "<p><em><strong>Devil's Sight.</strong></em> Magical darkness doesn't impede Zariel's darkvision.</p><p><em><strong>Innate Spellcasting.</strong></em> Zariel's innate spellcasting ability is Charisma (spell save DC 26). She can innately cast the following spells, requiring no material components: At will: alter self (can become Medium when changing her appearance), detect evil and good, fireball, invisibility (self only), wall of fire 3/day each: blade barrier, dispel evil and good, finger of death</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If Zariel fails a saving throw, she can choose to succeed instead.</p><p><em><strong>Magic Resistance.</strong></em> Zariel has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Magic Weapons.</strong></em> Zariel's weapon attacks are magical. When she hits with any weapon, the weapon deals an extra 36 (8d8) fire damage (included in the weapon attacks below).</p><p><em><strong>Regeneration.</strong></em> Zariel regains 20 hit points at the start of her turn. If she takes radiant damage, this trait doesn't function at the start of her next turn. Zariel dies only if she starts her turn with 0 hit points and doesn't regenerate.</p>",
     "number of attacks": 3, 
-    attacks: [
-      {
+    attacks: {
+      "Flail": {
         type: "Melee Weapon Attack",
         "to hit": "+16",
         "reach": "10 ft.",
@@ -17222,7 +17222,7 @@ const monsters = [
         "hit": "17 (2d8 + 8) piercing damage plus 36 (8d8) fire damage",
         "damage type": "piercing, fire"
       },
-      {
+      "Matalotok (Warhammer)": {
         type: "Melee Weapon Attack",
         "to hit": "+16",
         "reach": "10 ft.",
@@ -17230,7 +17230,7 @@ const monsters = [
         "hit": "17 (2d8 + 8) bludgeoning, or 19 (2d10 + 8) bludgeoning damage if used with two hands, plus 36 (8d8) fire damage. In addition, the weapon emits a burst of cold that deals 10 (3d6) cold damage to each creature within 30 feet of it.",
         "damage type": "bludgeoning, fire, cold"
       },
-      {
+      "Horrid Touch": {
         type: "Touch Attack",
         "to hit": "DC 26 Constitution saving throw",
         "reach": "10 ft.",
@@ -17238,7 +17238,7 @@ const monsters = [
         "hit": "44 (8d10) necrotic damage and be poisoned for 1 minute. While poisoned in this way, the target is also blinded and deafened. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.",
         "damage type": "necrotic"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> Zariel attacks twice with her flail and once with Matalotok. She can substitute Horrid Touch for Matalotok.</p><p><em><strong>Flail.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 10 ft., one target. <em>Hit:</em> 17 (2d8 + 8) piercing damage plus 36 (8d8) fire damage.</p><p><em><strong>Matalotok (Warhammer).</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 10 ft., one target. <em>Hit:</em> 17 (2d8 + 8) bludgeoning, or 19 (2d10 + 8) bludgeoning damage if used with two hands, plus 36 (8d8) fire damage. In addition, the weapon emits a burst of cold that deals 10 (3d6) cold damage to each creature within 30 feet of it.</p><p><em><strong>Horrid Touch (Recharge 5-6).</strong></em> Zariel touches one creature within 10 feet of her. The target must succeed on a DC 26 Constitution saving throw or take 44 (8d10) necrotic damage and be poisoned for 1 minute. While poisoned in this way, the target is also blinded and deafened. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p><p><em><strong>Teleport.</strong></em> Zariel magically teleports, along with any equipment she is wearing and carrying, up to 120 feet to an unoccupied space she can see.</p>",
     "legendary actions": "<p>Legendary Action Uses: 3. Immediately after another creature's turn, Zariel can expend a use to take one of the following actions. Zariel regains all expended uses at the start of each of their turns.</p><p><em><strong>Immolating Gaze (Costs 2 Actions).</strong></em> Zariel turns her magical gaze toward one creature she can see within 120 feet of her and commands it to combust. The target must succeed on a DC 26 Wisdom saving throw or take 22 (4d10) fire damage.</p><p><em><strong>Teleport.</strong></em> Zariel uses her Teleport action.</p>",
     "lair actions": "<p>On initiative count 20 (losing initiative ties), Zariel can take a lair action to cause one of the following effects; she can't use the same effect two rounds in a row:</p><ul><li>Zariel casts major image four times at its lowest level, targeting different areas with the spell. Zariel prefers to create images of intruders' loved ones being burned alive. Zariel doesn't need to concentrate on the spells, which end on initiative count 20 of the next round. Each creature that can see these illusions must succeed on a DC 26 Wisdom saving throw or become frightened of the illusion for 1 minute. A frightened creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</li><li>Zariel casts her innate fireball spell.</li></ul>",
@@ -17271,8 +17271,8 @@ const monsters = [
     challenge: "22 (41,000 XP)",
     traits: "<p><em><strong>Earth-Shaking Movement.</strong></em> As a bonus action after moving at least 10 feet on the ground, the zaratan can send a shock wave through the ground in a 120-foot-radius circle centered on itself. That area becomes difficult terrain for 1 minute. Each creature on the ground that is concentrating must succeed on a DC 25 Constitution saving throw or the creature's concentration is broken. The shock wave deals 100 thunder damage to all structures in contact with the ground in the area. If a creature is near a structure that collapses, the creature might be buried; a creature within half the distance of the structure's height must make a DC 25 Dexterity saving throw. On a failed save, the creature takes 17 (5d6) bludgeoning damage, is knocked prone, and is trapped in the rubble. A trapped creature is restrained, requiring a successful DC 20 Strength (Athletics) check as an action to escape. Another creature within 5 feet of the buried creature can use its action to clear rubble and grant advantage on the check. If three creatures use their actions in this way, the check is an automatic success. On a successful save, the creature takes half as much damage and doesn't fall prone or become trapped.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the zaratan fails a saving throw, it can choose to succeed instead.</p><p><em><strong>Magic Weapons.</strong></em> The zaratan's weapon attacks are magical.</p><p><em><strong>Siege Monster.</strong></em> The elemental deals double damage to objects and structures (included in Earth-Shaking Movement).</p>",
     "number of attacks": 2,
-    attacks: [
-      {
+    attacks: {
+      "Bite": {
         type: "Melee Weapon Attack",
         "to hit": "+17",
         "reach": "20 ft.",
@@ -17280,7 +17280,7 @@ const monsters = [
         "hit": "28 (4d8 + 10)",
         "damage type": "piercing"
       },
-      {
+      "Stomp": {
         type: "Melee Weapon Attack",
         "to hit": "+17",
         "reach": "20 ft.",
@@ -17288,7 +17288,7 @@ const monsters = [
         "hit": "26 (3d10 + 10)",
         "damage type": "bludgeoning"
       },
-      {
+      "Spit Rock": {
         type: "Ranged Weapon Attack",
         "to hit": "+17",
         "reach": "120/240 ft.",
@@ -17296,7 +17296,7 @@ const monsters = [
         "hit": "31 (6d8 + 10)",
         "damage type": "bludgeoning"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> The zaratan makes two attacks: one with its bite and one with its stomp.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +17 to hit, reach 20 ft., one target. <em>Hit:</em> 28 (4d8 + 10) piercing damage.</p><p><em><strong>Stomp.</strong></em> <em>Melee Weapon Attack:</em> +17 to hit, reach 20 ft., one target. <em>Hit:</em> 26 (3d10 + 10) bludgeoning damage.</p><p><em><strong>Spit Rock.</strong></em> <em>Ranged Weapon Attack:</em> +17 to hit, range 120/240 ft., one target. <em>Hit:</em> 31 (6d8 + 10) bludgeoning damage.</p><p><em><strong>Spew Debris (Recharge 5-6).</strong></em> The zaratan exhales rocky debris in a 90-foot cube. Each creature in that area must make a DC 25 Dexterity saving throw. A creature takes 33 (6d10) bludgeoning damage on a failed save, or half as much damage on a successful one. A creature that fails the save by 5 or more is knocked prone.</p>",
     "legendary actions": "<p>Legendary Action Uses: 3. Immediately after another creature's turn, The zaratan can expend a use to take one of the following actions. The zaratan regains all expended uses at the start of each of its turns.</p><p><em><strong>Stomp.</strong></em> The zaratan makes one stomp attack.</p><p><em><strong>Move.</strong></em> The zaratan moves up to its speed.</p><p><em><strong>Spit (Costs 2 Actions).</strong></em> The zaratan uses Spit Rock.</p><p><em><strong>Retract (Costs 2 Actions).</strong></em> The zaratan retracts into its shell. Until it takes its Emerge action, it has resistance to all damage, and it is restrained. The next time it takes a legendary action, it must take its Revitalize or Emerge action.</p><p><em><strong>Revitalize (Costs 2 Actions).</strong></em> The zaratan can use this option only if it is retracted in its shell. It regains 52 (5d20) hit points. The next time it takes a legendary action, it must take its Emerge action.</p><p><em><strong>Emerge (Costs 2 Actions).</strong></em> The zaratan emerges from its shell and uses Spit Rock. It can use this option only if it is retracted in its shell.</p>",
     "description": "<p>When a zaratan is summoned from the Elemental Plane of Earth, the ground rises up to take the shape of what looks like a hulking, armored reptile, its shell composed of the landscape from which it arose. The zaratan plods across the land, each step sending shock waves through the ground severe enough to unsettle structures. Dim-witted, the zaratan lurches onward, expressing its rage through its trumpeting calls and the occasional boulder or blast of debris it spews from its cavernous maw. If seriously injured, the zaratan slowly retracts its appendages to gain shelter beneath its impervious shell, biding its time until it recovers and can resume its march. Elder Elementals. On their native planes, elementals sweep across the weird and tempestuous landscape. Some possess greater power, gained by feeding on their lesser kin and adding the essence of creatures</p>"
@@ -17327,8 +17327,8 @@ const monsters = [
     challenge: "26 (90,000 XP)",
     traits: "<p><em><strong>Devil's Sight.</strong></em> Magical darkness doesn't impede Zariel's darkvision.</p><p><em><strong>Innate Spellcasting.</strong></em> Zariel's innate spellcasting ability is Charisma (spell save DC 26). She can innately cast the following spells, requiring no material components: </p><p>At will: alter self (can become Medium when changing her appearance), detect evil and good, fireball, invisibility (self only), wall of fire</p><p>3/day each: blade barrier, dispel evil and good, finger of death</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If Zariel fails a saving throw, she can choose to succeed instead.</p><p><em><strong>Magic Resistance.</strong></em> Zariel has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Magic Weapons.</strong></em> Zariel's weapon attacks are magical. When she hits with any weapon, the weapon deals an extra 36 (8d8) fire damage (included in the weapon attacks below).</p><p><em><strong>Regeneration.</strong></em> Zariel regains 20 hit points at the start of her turn. If she takes radiant damage, this trait doesn't function at the start of her next turn. Zariel dies only if she starts her turn with 0 hit points and doesn't regenerate.</p>",
     "number of attacks": 2,
-    attacks: [
-      {
+    attacks: {
+      "Flail": {
         type: "Melee Weapon Attack",
         "to hit": "+16",
         "reach": "10 ft.",
@@ -17336,7 +17336,7 @@ const monsters = [
         "hit": "17 (2d8 + 8)",
         "damage type": "slashing damage plus 36 (8d8) fire damage"
       },
-      {
+      "Matalotok (Warhammer)": {
         type: "Melee Weapon Attack",
         "to hit": "+16",
         "reach": "10 ft.",
@@ -17344,7 +17344,7 @@ const monsters = [
         "hit": "19 (2d10 + 8)",
         "damage type": "slashing damage plus 36 (8d8) fire damage (if used with two hands)"
       },
-      {
+      "Javelin": {
         type: "Melee or Ranged Weapon Attack",
         "to hit": "+16",
         "reach": "10 ft. or range 30/120 ft.",
@@ -17352,7 +17352,7 @@ const monsters = [
         "hit": "15 (2d6 + 8)",
         "damage type": "piercing damage plus 36 (8d8) fire damage"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> Zariel attacks twice with her longsword or with her javelins. She can substitute Horrid Touch for one of these attacks.</p><p><em><strong>Longsword.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 10 ft., one target. <em>Hit:</em> 17 (2d8 + 8) slashing damage plus 36 (8d8) fire damage, or 19 (2d10 + 8) slashing damage plus 36 (8d8) fire damage if used with two hands.</p><p><em><strong>Javelin.</strong></em> <em>Melee or Ranged Weapon Attack:</em> +16 to hit, reach 10 ft. or range 30/120 ft., one target. <em>Hit:</em> 15 (2d6 + 8) piercing damage plus 36 (8d8) fire damage.</p><p><em><strong>Horrid Touch (Recharge 5-6).</strong></em> Zariel touches one creature within 10 feet of her. The target must succeed on a DC 26 Constitution saving throw or take 44 (8d10) necrotic damage and be poisoned for 1 minute. While poisoned in this way, the target is also blinded and deafened. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p><p><em><strong>Teleport.</strong></em> Zariel magically teleports, along with any equipment she is wearing and carrying, up to 120 feet to an unoccupied space she can see.</p>",
     "legendary actions": "<p>Legendary Action Uses: 3. Immediately after another creature's turn, Zariel can expend a use to take one of the following actions. Zariel regains all expended uses at the start of each of their turns.</p><p><em><strong>Immolating Gaze (Costs 2 Actions).</strong></em> Zariel turns her magical gaze toward one creature she can see within 120 feet of her and commands it to combust. The target must succeed on a DC 26 Wisdom saving throw or take 22 (4d10) fire damage.</p><p><em><strong>Teleport.</strong></em> Zariel uses her Teleport action.</p>",
     "lair actions": "<p>On initiative count 20 (losing initiative ties), Zariel can take a lair action to cause one of the following effects;  she can't use the same effect two rounds in a row: </p><ul><li>Zariel casts major image four times at its lowest level, targeting different areas with the spell. Zariel prefers to create images of intruders' loved ones being burned alive. Zariel doesn't need to concentrate on the spells, which end on initiative count 20 of the next round. Each creature that can see these illusions must succeed on a DC 26 Wisdom saving throw or become frightened of the illusion for 1 minute. A frightened creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. </li><li>Zariel casts her innate fireball spell. </li></ul>",
@@ -17383,8 +17383,8 @@ const monsters = [
     challenge: "16 (15,000 XP)",
     traits: "<p><em><strong>Amphibious.</strong></em> Zegana can breathe air and water.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If Zegana fails a saving throw, she can choose to succeed instead.</p><p><em><strong>Magic Resistance.</strong></em> Zegana has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Spellcasting.</strong></em> Zegana is a 15th-level Simic spellcaster. Her spellcasting ability is Intelligence (spell save DC 18, +10 to hit with spell attacks). She has the following wizard spells prepared: </p><p>Cantrips (at will): acid splash, druidcraft, ray of frost, shape water</p><p>1st level (4 slots): color spray, expeditious retreat, fog cloud, shield</p><p>2nd level (3 slots): enlarge/reduce, gust of wind</p><p>3rd level (3 slots): counterspell, fly, slow</p><p>4th level (3 slots): control water, ice storm, polymorph</p><p>5th level (2 slots): conjure elemental, creation</p><p>6th level (1 slot): move earth, wall of ice</p><p>7th level (1 slot): prismatic spray, teleport</p><p>8th level (1 slot): control weather, dominate monster</p>",
     "number of attacks": 1,
-    attacks: [
-      {
+    attacks: {
+      "Prime Speaker's Trident": {
         type: "Melee or Ranged Weapon Attack",
         "to hit": "+10",
         "reach": "5 ft. or range 20/60 ft.",
@@ -17392,7 +17392,7 @@ const monsters = [
         "hit": "12 (2d6 + 5)",
         "damage type": "piercing damage"
       }
-    ],
+},
     actions: "<p><em><strong>Prime Speaker's Trident.</strong></em> <em>Melee or Ranged Weapon Attack:</em> +10 to hit, reach 5 ft. or range 20/60 ft., one target. <em>Hit:</em> 12 (2d6 + 5) piercing damage, and the trident emits a thunderous boom. Each creature in a 15-foot cube originating from the prongs of the trident must make a DC 18 Constitution saving throw. On a failed save, the creature takes 9 (2d8) thunder damage and is pushed 10 feet away from Zegana. If the creature is underwater, the damage is increased to 13 (3d8). On a successful save, the creature takes half as much damage and isn't pushed.</p><p><em><strong>Deluge (Recharge 4-6).</strong></em> Zegana conjures a wave of water that crashes down on an area within 120 feet of her. The area can be up to 30 feet long, up to 10 feet wide, and up to 10 feet tall. Each creature in that area must make a DC 18 Dexterity saving throw. On a failed save, a creature takes 18 (4d8) bludgeoning damage and is knocked prone. On a successful save, a creature takes half as much damage and isn't knocked prone. The water spreads out across the ground, extinguishing unprotected flames it comes in contact with, and then vanishes.</p>",
     "legendary actions": "<p>Legendary Action Uses: 3. Immediately after another creature's turn, Zegana can expend a use to take one of the following actions. Zegana regains all expended uses at the start of each of their turns.</p><p><em><strong>Adaptive Skin.</strong></em> Zegana gains resistance to one damage type of her choice-acid, fire, lightning, or thunder-until the start of her next turn.</p><p><em><strong>Trident.</strong></em> Zegana makes one melee attack with the Prime Speaker's Trident.</p><p><em><strong>Enlarge (Costs 2 Actions).</strong></em> Zegana casts enlarge/reduce on herself, using the enlarge option, without expending a spell slot.</p><p><em><strong>Deluge (Costs 3 Actions).</strong></em> Zegana uses Deluge, if available.</p>",
     "description": "<p>The regal and reticent Prime Speaker Zegana is the merfolk guildmaster of the Simic Combine. She upholds the traditional ways of the guild and its utopian philosophy, which espouses a vision of an ideal world in which nature and civilization coexist in perfect balance. Some people in the guild-members of the Adaptationist faction in particular-argue that her ways are outdated and the guild requires more practical leadership. In response, Zegana maintains that she serves as prime speaker only at the sufferance of the Speakers' Chamber, and if the other speakers wish to replace her, they are certainly within their rights to do so.</p>"
@@ -17423,8 +17423,8 @@ const monsters = [
     challenge: "23 (50,000 XP)",
     traits: "<p><em><strong>Innate Spellcasting.</strong></em> Zuggtmoy's spellcasting ability is Charisma (spell save DC 22). She can innately cast the following spells, requiring no material components: </p><p>At will: detect magic, locate animals or plants, ray of sickness</p><p>3/day each: dispel magic, ensnaring strike, entangle, plant growth</p><p>1/day each: etherealness, teleport</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If Zuggtmoy fails a saving throw, she can choose to succeed instead.</p><p><em><strong>Magic Resistance.</strong></em> Zuggtmoy has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Magic Weapons.</strong></em> Zuggtmoy's weapon attacks are magical.</p>",
     "number of attacks": 3, 
-    attacks: [
-      {
+    attacks: {
+      "Pseudopod": {
         type: "Melee Weapon Attack",
         "to hit": "+13",
         "reach": "10 ft.",
@@ -17432,7 +17432,7 @@ const monsters = [
         "hit": "15 (2d8 + 6)",
         "damage type": "bludgeoning damage plus 9 (2d8) poison damage"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> Zuggtmoy makes three pseudopod attacks.</p><p><em><strong>Pseudopod.</strong></em> <em>Melee Weapon Attack:</em> +13 to hit, reach 10 ft., one target. <em>Hit:</em> 15 (2d8 + 6) bludgeoning damage plus 9 (2d8) poison damage.</p><p><em><strong>Infestation Spores (3/Day).</strong></em> Zuggtmoy releases spores that burst out in a cloud that fills a 20-foot-radius sphere centered on her, and it lingers for 1 minute. Any flesh-and-blood creature in the cloud when it appears, or that enters it later, must make a DC 19 Constitution saving throw. On a successful save, the creature can't be infected by these spores for 24 hours. On a failed save, the creature is infected with a disease called the spores of Zuggtmoy and also gains a random form of madness (determined by rolling on the Madness of Zuggtmoy table) that lasts until the creature is cured of the disease or dies. While infected in this way, the creature can't be reinfected, and it must repeat the saving throw at the end of every 24 hours, ending the infection on a success. On a failure, the infected creature's body is slowly taken over by fungal growth, and after three such failed saves, the creature dies and is reanimated as a spore servant if it's a type of creature that can be (see the \"Myconids\" entry in the Monster Manual).</p><p><em><strong>Mind Control Spores (Recharge 5-6).</strong></em> Zuggtmoy releases spores that burst out in a cloud that fills a 20-foot-radius sphere centered on her, and it lingers for 1 minute. Humanoids and beasts in the cloud when it appears, or that enter it later, make a DC 19 Wisdom saving throw. On a successful save, the creature can't be infected by these spores for 24 hours. On a failed save, the creature is infected with a disease called the influence of Zuggtmoy for 24 hours. While infected in this way, the creature is charmed by her and can't be reinfected by these spores.</p>",
     reactions: "<p><em><strong>Protective Thrall.</strong></em> When Zuggtmoy is hit by an attack, one creature within 5 feet of Zuggtmoy that is charmed by her must use its reaction to be hit by the attack instead.</p>",
     "legendary actions": "<p>Legendary Action Uses: 3. Immediately after another creature's turn, Zuggtmoy can expend a use to take one of the following actions. Zuggtmoy regains all expended uses at the start of each of their turns.</p><p><em><strong>Attack.</strong></em> Zuggtmoy makes one pseudopod attack.</p><p><em><strong>Exert Will.</strong></em> One creature charmed by Zuggtmoy that she can see must use its reaction to move up to its speed as she directs or to make a weapon attack against a target that she designates.</p>",
@@ -17464,8 +17464,8 @@ const monsters = [
     challenge: "6 (2,300 XP)",
     traits: "<p><em><strong>Whispering Aura.</strong></em> At the start of each of the warlock's turns, each creature of its choice within 10 feet of it must succeed on a DC 15 Wisdom saving throw or take 10 (3d6) psychic damage, provided that the warlock isn't incapacitated.</p><p><em><strong>Spellcasting.</strong></em> The warlock casts one of the following spells, using Charisma as the spellcasting ability (spell save DC 15): </p><p>At will: detect magic, guidance, levitate, mage armor (self only), mage hand, minor illusion, prestidigitation</p><p>1/day each: arcane gate, detect thoughts, true seeing</p>",
     "number of attacks": 2,
-    attacks: [
-      {
+    attacks: {
+      "Dagger": {
         type: "Melee or Ranged Weapon Attack",
         "to hit": "+6",
         "reach": "5 ft. or range 20/60 ft.",
@@ -17473,7 +17473,7 @@ const monsters = [
         "hit": "5 (1d4 + 3)",
         "damage type": "piercing damage plus 10 (3d6) psychic damage"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> The warlock makes two Dagger attacks.</p><p><em><strong>Dagger.</strong></em> <em>Melee or Ranged Weapon Attack:</em> +6 to hit, reach 5 ft. or range 20/60 ft., one target. <em>Hit:</em> 5 (1d4 + 3) piercing damage plus 10 (3d6) psychic damage.</p><p><em><strong>Howling Void.</strong></em> The warlock opens a momentary extraplanar rift within 60 feet of it. The rift is a scream-filled, 20-foot cube. Each creature in that area must make a DC 15 Wisdom saving throw. On a failed save, a creature takes 9 (2d8) psychic damage and is frightened of the warlock until the start of the warlock's next turn. On a successful save, a creature takes half as much damage and isn't frightened.</p>",
     "description": "<p>Warlocks of the Great Old One gain their powers through magical pacts forged with eldritch entities from strange and distant realms of existence. Some of these warlocks associate with cultists devoted to these entities, as well as Aberrations that share their goals, yet other warlocks of the Great Old One are experts at rooting out the chaos and wickedness inspired by bizarre beings from beyond the stars.</p><p>Warlocks gain arcane might through magical pacts with mysterious entities. While some use their abilities to serve the sources of their power, others use them to undermine or even destroy these entities.</p>"
   },
@@ -17499,8 +17499,8 @@ const monsters = [
     challenge: "1/2 (100 XP)",
     traits: "<p><em><strong>Death Flash.</strong></em> When the darkling dies, nonmagical light flashes out from it in a 10-foot radius as its body and possessions, other than metal or magic objects, burn to ash. Any creature in that area must succeed on a DC 10 Constitution saving throw or be blinded until the end of its next turn.</p><p><em><strong>Light Sensitivity.</strong></em> While in bright light, the darkling has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight.</p>",
     "number of attacks": 1,
-    attacks: [
-      {
+    attacks: {
+      "Dagger": {
         type: "Melee or Ranged Weapon Attack",
         "to hit": "+5",
         "reach": "5 ft.",
@@ -17509,7 +17509,7 @@ const monsters = [
         "hit": "5 (1d4+3) piercing damage plus 7 (2d6) necrotic damage",
         "damage type": "piercing, necrotic"
       }
-    ],
+},
     actions: "<p><em><strong>Dagger.</strong></em> Melee or Ranged Weapon Attack: +5 to hit, reach 5 ft. or range 20/60 ft., one target. <em>Hit:</em> 5 (1d4+3) piercing damage plus 7 (2d6) necrotic damage.</p>"
   },
   {
@@ -17534,8 +17534,8 @@ const monsters = [
     challenge: "2 (450 XP)",
     traits: "<p><em><strong>Death Flash.</strong></em> When the darkling elder dies, magical light flashes out from it in a 10-foot radius as its body and possessions, other than metal or magic objects, burn to ash. Any creature in that area must make a DC 11 Constitution saving throw. On a failed save, the creature takes 7 (2d6) radiant damage and is blinded until the end of its next turn. On a successful save, the creature takes half as much damage and isn't blinded.</p><p><em><strong>Light Sensitivity.</strong></em> While in bright light, the darkling has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight.</p>",
     "number of attacks": 2,
-    attacks: [
-      {
+    attacks: {
+      "Scimitar": {
         type: "Melee Weapon Attack",
         "to hit": "+5",
         "reach": "5 ft.",
@@ -17543,7 +17543,7 @@ const monsters = [
         "hit": "6 (1d6 + 3) slashing damage plus 7 (2d6) necrotic damage",
         "damage type": "slashing, necrotic"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> The darkling elder makes two Scimitar attacks.</p><p><em><strong>Scimitar.</strong></em> Melee Weapon Attack: +5 to hit, reach 5 ft., one target. <em>Hit:</em> 6 (1d6 + 3) slashing damage plus 7 (2d6) necrotic damage.</p><p><em><strong>Spellcasting (Recharges after a Short or Long Rest).</strong></em> The darkling elder casts darkness, requiring no spell components and using Wisdom as the spellcasting ability.</p>"
   },
   {
@@ -17571,8 +17571,8 @@ const monsters = [
  challenge: "14 (11,500 XP, or 13,000 in lair; PB +5)",
  traits: "<p><em><strong>Legendary Resistance (3/Day, or 4/Day in Lair).</strong></em> If the death tyrant fails a saving throw, it can choose to succeed instead.</p>",
  "number of attacks": 3, 
- attacks: [
-  {
+ attacks: {
+  "Bite": {
    type: "Melee Weapon Attack",
    "to hit": "+9",
    "reach": "5 ft.",
@@ -17580,7 +17580,7 @@ const monsters = [
    "hit": "13 (2d8 + 4)",
    "damage type": "piercing"
   }
- ],
+},
  actions: "<p><em><strong>Multiattack.</strong></em> The death tyrant uses Eye Rays three times.</p><p><em><strong>Bite.</strong></em> <em>Melee Attack Roll:</em> +9, reach 5 feet. <em>Hit:</em> 13 (2d8 + 4) Piercing damage.</p><p><em><strong>Eye Rays.</strong></em> The death tyrant randomly shoots one of the following magical rays at a target it can see within 120 feet of itself (roll 1d10; reroll if the death tyrant has already used that ray during this turn):</p><ol><li><em><strong>Charm Ray.</strong></em> Wisdom Saving Throw: DC 17. Failure: 13 (3d8) Psychic damage, and the target has the Charmed condition for 1 hour or until it takes damage. Success: Half damage only. </li><li><em><strong>Paralyzing Ray.</strong></em> Constitution Saving Throw: DC 17. Failure: The target has the Paralyzed condition and repeats the save at the end of each of its turns, ending the effect on itself on a success. After 1 minute, it succeeds automatically.</li><li><em><strong>Fear Ray.</strong></em> Wisdom Saving Throw: DC 17. Failure: 10 (3d6) Psychic damage, and the target has the Frightened condition until the end of its next turn. Success: Half damage only.</li><li><em><strong>Slowing Ray.</strong></em> Constitution Saving Throw: DC 17. Failure: 18 (4d8) Necrotic damage. Until the end of the target's next turn, the target can't take Reactions; its Speed is halved;  and it can take either an action or a Bonus Action on its turn, not both. Success: Half damage only.</li><li><em><strong>Enervation Ray.</strong></em> Constitution Saving Throw: DC 17. Failure: 16 (3d10) Poison damage, and the target has the Poisoned condition until the end of its next turn. While Poisoned, the target can't regain Hit Points. Success: Half damage only.</li><li><em><strong>Telekinetic Ray.</strong></em> Strength Saving Throw: DC 17 (the target succeeds automatically if it is Gargantuan). Failure: The death tyrant moves the target up to 30 feet in any direction. The target has the Restrained condition until the start of the death tyrant's next turn or until the death tyrant has the Incapacitated condition. The death tyrant can also exert fine control on objects with this ray, such as manipulating a tool or opening a door or container. </li><li><em><strong>Sleep Ray.</strong></em> Wisdom Saving Throw: DC 17 (the target succeeds automatically if it is a Construct or an Undead). Failure: The target has the Unconscious condition for 1 minute. The condition ends if the target takes damage or a creature within 5 feet of it takes an action to wake it. </li><li><em><strong>Petrification Ray.</strong></em> Constitution Saving Throw: DC 17. First Failure: The target has the Restrained condition and repeats the save at the end of its next turn if it is still Restrained, ending the effect on itself on a success. Second Failure: The target has the Petrified condition instead of the Restrained condition.</li><li><em><strong>Disintegration Ray.</strong></em> Dexterity Saving Throw: DC 17. Failure: 36 (8d8) Force damage. If the target is a nonmagical object or a creation of magical force, a 10-foot Cube of it disintegrates into dust. Success: Half damage. Failure or Success: If the target is a creature and this damage reduces it to 0 Hit Points, it disintegrates into dust. </li><li><em><strong>Death Ray.</strong></em> Dexterity Saving Throw: DC 17. Failure: 55 (10d10) Necrotic damage. Success: Half damage. Failure or Success: The target dies if the ray reduces it to 0 Hit Points.</li></ol>",
  "bonus actions": "<p><em><strong>Negative Energy Cone.</strong></em> The death tyrant's central eye emits an imperceptible, magical wave of negative energy in a 150-foot Cone. Creatures in that area can't regain Hit Points until the start of the death tyrant's next turn. An intact Humanoid corpse there instantly rises as a Zombie under the death tyrant's control and takes its turn immediately after the death tyrant on the same initiative count.</p>",
  "legendary actions": "<p>Legendary Action Uses: 3 (4 in Lair). Immediately after another creature's turn, The death tyrant can expend a use to take one of the following actions. The death tyrant regains all expended uses at the start of each of its turns.</p><p><em><strong>Chomp.</strong></em> The death tyrant makes two Bite attacks.</p><p><em><strong>Glare.</strong></em> The death tyrant uses Eye Rays.</p>",
@@ -17612,11 +17612,11 @@ const monsters = [
   languages: ["Languages it knew in life"],
   challenge: "4 (1,100 XP)",
   traits: "<p><em><strong>Innate Spellcasting.</strong></em> The deathlock's innate spellcasting ability is Charisma (spell save DC 13). It can innately cast the following spells, requiring no material components:</p><p>At will: detect magic, disguise self, mage armor</p><p><em><strong>Spellcasting.</strong></em> The deathlock is a 5th-level spellcaster. Its spellcasting ability is Charisma (spell save DC 13, +5 to hit with spell attacks). It regains its expended spell slots when it finishes a short or long rest. It knows the following warlock spells:</p><p>Cantrips (at will): chill touch, eldritch blast, mage hand</p><p>1st-3rd level (2 3rd-level slots): arms of Hadar, dispel magic, hold person, hunger of Hadar, invisibility, spider climb</p><p><em><strong>Turn Resistance.</strong></em> The deathlock has advantage on saving throws against any effect that turns undead.</p>", "number of attacks": 1,
-  attacks: [
-    {
+  attacks: {
+    "Deathly Claw": {
       type: "Melee Weapon Attack", "to hit": "+4", "reach": "5 ft.", "target": "one target", "hit": "9 (2d6 + 2)", "damage type": "necrotic"
     }
-  ],
+  },
   actions: "<p><em><strong>Deathly Claw.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft., one target. <em>Hit:</em> 9 (2d6 + 2) necrotic damage.</p>", "description": "<p>The forging of a pact between a warlock and a patron is no minor occasion-at least not for the warlock. The consequences of breaking that pact can be dire and, in some cases, lethal. A warlock who fails to live up to a bargain with an evil patron runs the risk of rising from the dead as a deathlock, a foul undead driven to serve its otherworldly patron from beyond the grave.</p><p>An extraordinarily powerful necromancer might also discover the dark methods of creating a deathlock and then bind it to service, acting in this respect as the deathlock's patron.</p><p>An overpowering urge to serve consumes the mind of a newly awakened deathlock. All goals and ambitions it had in life that don't please its patron fall away as its master's desires become the purpose that drives the deathlock. The creature immediately resumes work on its patron's behalf.</p>"
 },
   {
@@ -17644,8 +17644,8 @@ const monsters = [
     challenge: "8 (3,900 XP)",
     traits: "<p><em><strong>Innate Spellcasting.</strong></em> The deathlock's innate spellcasting ability is Charisma (spell save DC 14). It can innately cast the following spells, requiring no material components:</p><p>At will: detect magic, disguise self, mage armor</p><p><em><strong>Spellcasting.</strong></em> The deathlock is a 10th-level spellcaster. Its spellcasting ability is Charisma (spell save DC 14, +6 to hit with spell attacks). It regains its expended spell slots when it finishes a short or long rest. It knows the following warlock spells:</p><p>Cantrips (at will): chill touch, mage hand, minor illusion, poison spray</p><p>1st-5th level (2 5th-level slots): arms of Hadar, blight, counterspell, crown of madness, darkness, dimension door, dispel magic, fly, hold monster, invisibility</p><p><em><strong>Turn Resistance.</strong></em> The deathlock has advantage on saving throws against any effect that turns undead.</p>",
     "number of attacks": 2,
-    attacks: [
-      {
+    attacks: {
+      "Deathly Claw": {
         type: "Melee Weapon Attack",
         "to hit": "+6",
         "reach": "5 ft.",
@@ -17653,7 +17653,7 @@ const monsters = [
         "hit": "13 (3d6 + 3)",
         "damage type": "necrotic damage"
       },
-      {
+      "Grave Bolts": {
         type: "Ranged Spell Attack",
         "to hit": "+6",
         "reach": "120 ft.",
@@ -17661,7 +17661,7 @@ const monsters = [
         "hit": "18 (4d8)",
         "damage type": "necrotic damage"
       }
-    ],
+},
     actions: "<p><em><strong>Deathly Claw.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft., one target. <em>Hit:</em> 13 (3d6 + 3) necrotic damage).</p><p><em><strong>Grave Bolts.</strong></em> <em>Ranged Spell Attack:</em> +6 to hit, range 120 ft., one or two targets. <em>Hit:</em> 18 (4d8) necrotic damage. If the target is Large or smaller, it must succeed on a DC 16 Strength saving throw or become restrained as shadowy tendrils wrap around it for 1 minute. A restrained target can use its action to repeat the saving throw, ending the effect on itself on a success.</p>",
     "description": "<p>Though deathlocks exist to serve their patrons, they retain some freedom when it comes to devising particular tactics and carrying out their plans. Powerful deathlocks recruit lesser creatures to help them carry out their missions and, in this capacity, become the masterminds behind vast conspiracies and intrigues that culminate in the accomplishment of great acts of evil. The forging of a pact between a warlock and a patron is no minor occasion-at least not for the warlock. The consequences of breaking that pact can be dire and, in some cases, lethal. A warlock who fails to live up to a bargain with an evil patron runs the risk of rising from the dead as a deathlock, a foul undead driven to serve its otherworldly patron from beyond the grave. An extraordinarily powerful necromancer might also discover the dark methods of creating a deathlock and then bind it to service, acting in this respect as the deathlock's patron. An overpowering urge to serve consumes the mind of a newly awakened deathlock. All goals and ambitions it had in life that don't please its patron fall away as its master's desires become the purpose that drives the deathlock. The creature immediately resumes work on its patron's behalf. Accomplishing a difficult goal might mean the deathlock is forced to serve another powerful creature or might entail in gathering servants of its own. Whatever the goal, it always reflects the patron's interests, ranging from small-scale concerns to matters of cosmic scope. A deathlock in the thrall of a fiend might work to destroy a specific temple dedicated to a good god, while one that serves a Great Old One could be charged with hunting for the materials needed to call forth a horrifying entity into the world.</p>"
   },
@@ -17689,8 +17689,8 @@ const monsters = [
     challenge: "3 (700 XP)",
     traits: "<p><em><strong>Innate Spellcasting.</strong></em> The wight's innate spellcasting ability is Charisma (spell save DC 13). It can innately cast the following spells, requiring no verbal or material components:</p><p>At will: detect magic, disguise self, mage armor</p><p>1/day each: fear, hold person, misty step</p><p><em><strong>Sunlight Sensitivity.</strong></em> While in sunlight, the wight has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight.</p>",
     "number of attacks": 2,
-    attacks: [
-      {
+    attacks: {
+      "Grave Bolt": {
         type: "Ranged Spell Attack",
         "to hit": "+5",
         "reach": "120 ft.",
@@ -17698,7 +17698,7 @@ const monsters = [
         "hit": "7 (1d8 + 3)",
         "damage type": "necrotic damage"
       },
-      {
+      "Life Drain": {
         type: "Melee Weapon Attack",
         "to hit": "+4",
         "reach": "5 ft.",
@@ -17706,7 +17706,7 @@ const monsters = [
         "hit": "9 (2d6 + 2)",
         "damage type": "necrotic damage"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> The wight attacks twice with Grave Bolt.</p><p><em><strong>Grave Bolt.</strong></em> <em>Ranged Spell Attack:</em> +5 to hit, range 120 ft., one target. <em>Hit:</em> 7 (1d8 + 3) necrotic damage.</p><p><em><strong>Life Drain.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft., one creature. <em>Hit:</em> 9 (2d6 + 2) necrotic damage. The target must succeed on a DC 13 Constitution saving throw or its hit point maximum is reduced by an amount equal to the damage taken. This reduction lasts until the target finishes a long rest. The target dies if this effect reduces its hit point maximum to 0.</p><p>A humanoid slain by this attack rises 24 hours later as a zombie under the wight's control, unless the humanoid is restored to life or its body is destroyed. The wight can have no more than twelve zombies under its control at one time.</p>",
     "description": "<p>Bereft of much of its magic, a deathlock wight lingers between the warlock it was and the deathly existence of a wight-a special punishment meted out by certain patrons and necromancers. The forging of a pact between a warlock and a patron is no minor occasion-at least not for the warlock. The consequences of breaking that pact can be dire and, in some cases, lethal. A warlock who fails to live up to a bargain with an evil patron runs the risk of rising from the dead as a deathlock, a foul undead driven to serve its otherworldly patron from beyond the grave. An extraordinarily powerful necromancer might also discover the dark methods of creating a deathlock and then bind it to service, acting in this respect as the deathlock's patron. An overpowering urge to serve consumes the mind of a newly awakened deathlock. All goals and ambitions it had in life that don't please its patron fall away as its master's desires become the purpose that drives the deathlock. The creature immediately resumes work on its patron's behalf. Accomplishing a difficult goal might mean the deathlock is forced to serve another powerful creature or might entail in gathering servants of its own. Whatever the goal, it always reflects the patron's interests, ranging from small-scale concerns to matters of cosmic scope. A deathlock in the thrall of a fiend might work to destroy a specific temple dedicated to a good god, while one that serves a Great Old One could be charged with hunting for the materials needed to call forth a horrifying entity into the world. A deathlock doesn't require air, food, drink, or sleep.</p>"
   },
@@ -17736,8 +17736,8 @@ const monsters = [
     challenge: "14 (11,500 XP)",
     traits: "<p><em><strong>Exploitation of the Debtors.</strong></em> As a bonus action, the angel targets a creature charmed by it that it can see within 30 feet of it. The angel deals 11 (2d10) necrotic damage to the target, and the angel gains temporary hit points equal to the damage dealt.</p><p><em><strong>Flyby.</strong></em> The angel doesn't provoke an opportunity attack when it flies out of an enemy's reach.</p><p><em><strong>Innate Spellcasting.</strong></em> The angel's innate spellcasting ability is Charisma (spell save DC 19, +11 to hit with spell attacks). The angel can innately cast the following spells, requiring no material components: </p><p>At will: command (as a 2nd-level spell), detect evil and good</p><p>3/day each: charm person (as a 5th-level spell), darkness, suggestion</p><p>1/day: raise dead</p><p><em><strong>Magic Resistance.</strong></em> The angel has advantage on saving throws against spells and other magical effects.</p>",
     "number of attacks": 2,
-    attacks: [
-      {
+    attacks: {
+      "Scythe": {
         type: "Melee Weapon Attack",
         "to hit": "+9",
         "reach": "10 ft.",
@@ -17745,7 +17745,7 @@ const monsters = [
         "hit": "9 (2d4 + 4) slashing damage plus 27 (6d8)",
         "damage type": "necrotic damage"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> The angel makes two attacks with its scythe. It can substitute Chains of Obligation for one of these attacks.</p><p><em><strong>Scythe.</strong></em> <em>Melee Weapon Attack:</em> +9 to hit, reach 10 ft., one target. <em>Hit:</em> 9 (2d4 + 4) slashing damage plus 27 (6d8) necrotic damage.</p><p><em><strong>Chains of Obligation.</strong></em> The angel targets one creature charmed by it that it can see within 90 feet of it. The target must succeed on a DC 19 Charisma saving throw or become paralyzed for 1 minute or until it takes any damage.</p>",
     "description": "<p>Deathpact angels dwell in the grandest of Orzhov cathedrals, where they surround themselves with wealth and wretched vassals that are utterly in their thrall. Posing as a beneficent god, a deathpact angel attracts petitioners who beg the angel for blessings: wealth, prestige, health, revenge, and the like. Imagining itself generous and merciful, the angel usually tries to grant the petitioners what they seek by using its abilities, drawing from its hoard of riches, or extorting favors from other members of the guild. True to the spirit of the Orzhov, though, the angel doesn't bestow these gifts out of kindness, but for the sake of gaining fanatical followers who owe it life debts. Those who receive favors from a deathpact angel incur a debt that they carry with fervent devotion. They regularly bring trinkets and offerings to the angel, no longer asking or expecting anything in return, and even willingly offer up their mortal lives for their angelic patron. Even after death, these debtors continue to serve the angel and the Orzhov Syndicate as indentured spirits (described later in this chapter). Few angels find anything appealing in the corruption and decadence embodied by the Orzhov Syndicate, since such a society is fundamentally antithetical to their natures, but disillusionment can seduce even immortal beings. When cynicism takes root in an angel's heart, when questions undermine devotion to the cause of justice, when strength becomes a tool to lord over the weak, the Orzhov Syndicate is there to welcome the angel with open arms, offering status, respect, and power. Orzhov angels might claim positions as executioners, commanders, or power brokers, but more often they carve out their own place in the guild, standing apart from the otherwise rigid hierarchy of the Orzhov.</p>"
   },
@@ -17773,8 +17773,8 @@ const monsters = [
     challenge: "1/2 (100 XP)",
     traits: "<p><em><strong>Keen Hearing and Sight.</strong></em> The scout has advantage on Perception checks that rely on hearing or sight.</p><p><em><strong>Camouflage.</strong></em> The scout has advantage on Stealth checks made to hide in rocky terrain.</p><p><em><strong>Deep Gnome Resistance.</strong></em> The scout has advantage on Intelligence, Wisdom, and Charisma saving throws against magic.</p><p><em><strong>Deep Gnome Magic.</strong></em> The deep gnome can innately cast <em>blindness/deafness</em> (blindness only), <em>disguise self</em>, and <em>nondetection</em> once per long rest without using material components, using Intelligence for their spellcasting ability.</p>",
     "number of attacks": 1,
-    attacks: [
-      {
+    attacks: {
+      "War Pick": {
         type: "Melee Weapon Attack",
         "to hit": "+4",
         "reach": "5 ft.",
@@ -17782,7 +17782,7 @@ const monsters = [
         "hit": "6 (1d8 + 2)",
         "damage type": "piercing damage"
       }
-    ],
+},
     actions: "<p><em><strong>War Pick.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft., one target. <em>Hit:</em> 6 (1d8 + 2) piercing damage.</p><p><em><strong>Blindness (2nd-Level; V).</strong></em> A creature within 30 feet makes a DC 10 Constitution saving throw. On a failure, the target is blinded for 1 minute. It repeats the saving throw at the end of each of its turns, ending the effect on a success.</p>",
     "description": "<p>Far underground, deep gnomes use stealth to survive amidst warlike deep dwarves and imperious shadow elves. Deep gnome scouts hunt and forage, search for gems, and set ambushes for enemies who approach their settlements.</p>"
   },
@@ -17807,8 +17807,8 @@ const monsters = [
     languages: "N/A",
     challenge: "1/4 (50 XP)",
     "number of attacks": 1,
-    attacks: [
-      {
+    attacks: {
+      "Bite": {
         type: "Melee Weapon Attack",
         "to hit": "+4",
         "reach": "5 ft.",
@@ -17816,7 +17816,7 @@ const monsters = [
         "hit": "9 (2d6 + 2)",
         "damage type": "piercing damage"
       }
-    ],
+},
     actions: "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft., one target. <em>Hit:</em> 9 (2d6 + 2) piercing damage.</p>",
     "description": "<p>This sail-backed reptile is commonly found in areas where dinosaurs live. It hunts on shores and in shallow water, filling a similar role as a crocodile.</p>"
   },
@@ -17842,8 +17842,8 @@ const monsters = [
     challenge: "3 (700 XP)",
     traits: "<p><em><strong>Avoidance.</strong></em> If the displacer beast is subjected to an effect that allows it to make a saving throw to take only half damage, it instead takes no damage if it succeeds on the saving throw, and only half damage if it fails.</p><p><em><strong>Displacement.</strong></em> The displacer beast projects a magical illusion that makes it appear to be standing near its actual location, causing attack rolls against it to have disadvantage. If it is hit by an attack, this trait is disrupted until the end of its next turn. This trait is also disrupted while the displacer beast is incapacitated or has a speed of 0.</p>",
     "number of attacks": 2,
-    attacks: [
-      {
+    attacks: {
+      "Tentacle": {
         type: "Melee Weapon Attack",
         "to hit": "+6",
         "reach": "10 ft.",
@@ -17851,7 +17851,7 @@ const monsters = [
         "hit": "7 (1d6 + 4) bludgeoning damage plus 3 (1d6)",
         "damage type": "piercing damage"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> The displacer beast makes two attacks with its tentacles.</p><p><em><strong>Tentacle.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 10 ft., one target. <em>Hit:</em> 7 (1d6 + 4) bludgeoning damage plus 3 (1d6) piercing damage.</p>",
     "description": "<p>This monstrous predator takes its name from its ability to displace light so that it appears to be several feet away from its actual location. A displacer beast resembles a sleek great cat covered in blue-black fur. However, its otherworldly origins are clear in its six legs and the two tentacles sprouting from its shoulders, both ending in pads tipped with spiky protrusions. A displacer beast's eyes glow with an awful malevolence that persists even in death.</p><p>Displacer beasts roamed the twilight lands of the Feywild for ages, until they were captured and trained by the Unseelie Court. The warriors of the court selectively bred the beasts to reinforce their ferocious and predatory nature, using them to hunt unicorns, pegasi, and other wondrous prey. However, it didn't take long for the displacer beasts to use their malevolent intelligence to escape their masters. Running and breeding freely in the Feywild, the displacer beasts soon came to the attention of the Seelie Court. With blink dog companions at their side, fey hunters drove these predators to the fringes of the Feywild, where many crossed over to the Material Plane. To this day, displacer beasts and blink dogs attack each other on sight.</p><p>Displacer beasts kill not just for food but also for sport. They target prey even when not hungry, often toying with their victims to entertain themselves until they are ready to eat. After killing its prey using its tentacles, a displacer beast drags the corpse to a quiet place where it can feed without distraction.</p><p>Displacer beasts hunt alone or in small prides that demonstrate skill at setting ambushes. A single beast will strike and withdraw, luring prey into a densely wooded area where its pack mates wait. Packs of displacer beasts hunting near trade roads recall the frequency and schedule of regular caravans, laying down ambushes to pick off those caravans.</p>"
   },
@@ -17881,8 +17881,8 @@ const monsters = [
     challenge: "27 (105,000 XP)",
     traits: "<p><em><strong>Devil's Sight.</strong></em> Magical darkness doesn't impede Dispater's darkvision.</p><p><em><strong>Fear Aura.</strong></em> When a creature starts their turn within 120 feet of Dispater, they must succeed on a DC 22 Wisdom saving throw or have the frightened condition until they leave the aura. A creature that succeeds on the saving throw is immune to this effect for 1 hour.</p><p><em><strong>Fiendish Regeneration.</strong></em> Dispater regains 20 hit points at the start of his turn. If he takes radiant damage this trait doesn't function at the start of his next turn. Dispater dies only if he starts his turn with 0 hit points and is unable to regenerate.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If Dispater fails a saving throw, he can choose to succeed instead.</p><p><em><strong>Magic Resistance.</strong></em> Dispater has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Rust Metal.</strong></em> Any nonmagical weapon or ammunition made of metal that hits Dispater corrodes. After its hit, the weapon or ammunition is destroyed.</p>",
     "number of attacks": 4, 
-    attacks: [
-      {
+    attacks: {
+      "Wrought-Iron Tower": {
         type: "Melee Weapon Attack",
         "to hit": "+20",
         "reach": "10 ft.",
@@ -17890,7 +17890,7 @@ const monsters = [
         "hit": "21 (2d8 + 12)",
         "damage type": "bludgeoning, fire"
       },
-      {
+      "Iron Column": {
         type: "Ranged Spell Attack",
         "to hit": "+15",
         "range": "60 ft.",
@@ -17898,7 +17898,7 @@ const monsters = [
         "hit": "21 (2d8 + 12)",
         "damage type": "bludgeoning, fire"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> Dispater makes four attacks using his Wrought Iron Tower, Iron Column, or a combination of the two. He can replace one of the attacks with Superheat Metal (if available).</p><p><em><strong>Wrought-Iron Tower.</strong></em> <em>Melee Weapon Attack:</em> +20 to hit, reach 10 ft., one target. <em>Hit:</em> 21 (2d8 + 12) bludgeoning damage plus 7 (2d6) fire damage. Dispater may replace the bludgeoning damage with damage of a type that the target is vulnerable to instead.</p><p><em><strong>Iron Column.</strong></em> <em>Ranged Spell Attack:</em> +15 to hit, range 60 ft., one target. <em>Hit:</em> 21 (2d8 + 12) bludgeoning damage plus 7 (2d6) fire damage. Dispater may replace the bludgeoning damage with damage of a type that the target is vulnerable to instead.</p>",
     "description": "<p>Despite frequent shifts in leadership among other archdevils, Dispater has maintained his position as the ruler of Dis since its creation. Known for his vigilance and caution, he rarely leaves his tower, and even less frequently leaves the Iron City. Those who know his plans, including Asmodeus, know that he hopes to one day rule each layer of the Nine Hells. Dispater remains one of the foremost suppliers of weapons across all the planes, which helps keep his position in Dis secure. As well, his advisors are carefully chosen and he maintains very few friendships. Those that attempt battle with the Iron Lord find victory nigh impossible. In addition to his stratagem and defense, Dispater maintains extremely powerful abilities and a legion of minions. Outwitting him can't be done, and anyone unfortunate enough to catch him off guard is quickly disposed of.</p><p>Dispater remains calm and controlled in conversation. He prefers wherever possible to engage in gentlemanly debates rather than aggressive arguments. Unlike other archdevils, he almost never forces an individual into doing something, preferring to persuade or deceive instead. Fittingly, his skin is an iron-black color and his signature staff, wrought from the same iron as the tower he lives in, is always in hand.</p>",
     "legendary actions": "<p><em>Legendary Action Uses: 3. Immediately after another creature's turn, Dispater can expend a use to take one of the following actions. Dispater regains all expended uses at the start of each of their turns.</em></p><p><strong>Staff</strong>. Dispater makes a Wrought-Iron Tower attack.</p><p><strong>Flesh to Iron (Costs 2 Actions)</strong>. Melee Spell Attack: +15 to hit, reach 5 ft., one target. Hit: 40 (6d10 + 7) force damage, and the target must make a DC 23 Constitution saving throw. On a failed save, the target's flesh begins to harden, and the creature's movement speed is halved for 1 minute. If the creature is harmed by Flesh to Iron again, while still partly iron, the rest of the creature also turns to iron, killing them.</p><p><strong>Call Underling (Costs 3 Actions)</strong>. Dispater summons an allied erinyes in an unoccupied space that he can see.</p>",
@@ -18098,8 +18098,8 @@ const monsters = [
     challenge: "23 (50,000 XP)",
     traits: "<p><em><strong>Air Form.</strong></em> The tempest can enter a hostile creature's space and stop there. It can move through a space as narrow as 1 inch wide without squeezing.</p><p><em><strong>Flyby.</strong></em> The tempest doesn't provoke opportunity attacks when it flies out of an enemy's reach.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the tempest fails a saving throw, it can choose to succeed instead.</p><p><em><strong>Living Storm.</strong></em> The tempest is always at the center of a storm 1d6 + 4 miles in diameter. Heavy precipitation in the form of either rain or snow falls there, causing the area to be lightly obscured. Heavy rain also extinguishes open flames and imposes disadvantage on Wisdom (Perception) checks that rely on hearing. In addition, strong winds swirl in the area covered by the storm. The winds impose disadvantage on ranged attack rolls. The winds extinguish open flames and disperse fog.</p><p><em><strong>Siege Monster.</strong></em> The tempest deals double damage to objects and structures.</p>",
     "number of attacks": 2,
-    attacks: [
-      {
+    attacks: {
+      "Thunderous Slam": {
         type: "Melee Weapon Attack",
         "to hit": "+16",
         "reach": "20 ft.",
@@ -18107,7 +18107,7 @@ const monsters = [
         "hit": "23 (4d6 + 9)",
         "damage type": "thunder"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> The tempest makes two attacks with its thunderous slam.</p><p><em><strong>Thunderous Slam.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 20 ft., one target. <em>Hit:</em> 23 (4d6 + 9) thunder damage.</p><p><em><strong>Lightning Storm (Recharge 6).</strong></em> All other creatures within 120 feet of the tempest must each make a DC 20 Dexterity saving throw, taking 27 (6d8) lightning damage on a failed save, or half as much damage on a successful one. If a target's saving throw fails by 5 or more, the creature is also stunned until the end of its next turn.</p>",
     "legendary actions": "<p>Legendary Action Uses: 3. Immediately after another creature's turn, The elder tempest can expend a use to take one of the following actions. The elder tempest regains all expended uses at the start of each of its turns.</p><p><em><strong>Move (Costs 1 Action).</strong></em> The tempest moves up to its speed.</p><p><em><strong>Lightning Strike (Costs 2 Actions).</strong></em> The tempest can cause a bolt of lightning to strike a point on the ground anywhere under its storm. Each creature within 5 feet of that point must make a DC 20 Dexterity saving throw, taking 16 (3d10) lightning damage on a failed save, or half as much damage on a successful one.</p><p><em><strong>Screaming Gale (Costs 3 Actions).</strong></em> The tempest releases a blast of thunder and wind in a line that is 1 mile long and 20 feet wide. Objects in that area take 22 (4d10) thunder damage. Each creature there must succeed on a DC 21 Dexterity saving throw or take 22 (4d10) thunder damage and be flung up to 60 feet in a direction away from the line. If a thrown target collides with an immovable object, such as a wall or floor, the target takes 3 (1d6) bludgeoning damage for every 10 feet it was thrown before impact. If the target would collide with another creature instead, that other creature must succeed on a DC 19 Dexterity saving throw or take the same damage and be knocked prone.</p>",
     "description": "<p>Terrifying storms manifest in the body of the elder tempest. A being carved from clouds, wind, rain, and lightning, the elder tempest assumes the shape of a serpent that slithers through the sky. The tempest drowns the land beneath it with rain and stabs the earth with lances of lightning. Punishing winds scream around it as it flies, feeding the chaos it creates.</p><p>On their native planes, elementals sweep across the weird and tempestuous landscape. Some possess greater power, gained by feeding on their lesser kin and adding the essence of creatures they have devoured to their own until they become something extraordinary. When summoned, these elder elementals manifest as beings of apocalyptic capability, entities whose mere existence promises destruction.</p><p>The methods for summoning elder elementals remain hidden in forbidden tomes or inscribed on the walls of lost temples raised to honor the Elder Elemental Eye. Only casters of superlative skill have even the faintest chance of calling forth one of these monsters, and the spellcaster is often destroyed by the effort. Thus, only the most unhinged and nihilistic members of Elemental Evil cults attempt such a summoning, in the hope of hastening the world toward some cataclysmic end.</p><p>An elder elemental doesn't require air, food, drink, or sleep.</p>"
@@ -18136,8 +18136,8 @@ const monsters = [
     challenge: "23 (50,000 XP)",
     traits: "<p><em><strong>Innate Spellcasting.</strong></em> The empyrean's innate spellcasting ability is Charisma (spell save DC 23, +15 to hit with spell attacks). It can innately cast the following spells, requiring no material components:</p><ul><li>At will: <em>greater restoration, pass without trace, water breathing, water walk</em></li><li>3/day each: <em>commune, dispel evil and good, earthquake, fire storm, plane shift</em> (self only)</li></ul><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the empyrean fails a saving throw, it can choose to succeed instead.</p><p><em><strong>Magic Resistance.</strong></em> The empyrean has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Magic Weapons.</strong></em> The empyrean's weapon attacks are magical.</p>",
     "number of attacks": 1,
-    attacks: [
-      {
+    attacks: {
+      "Maul": {
         type: "Melee Weapon Attack",
         "to hit": "+17",
         "reach": "10 ft.",
@@ -18145,7 +18145,7 @@ const monsters = [
         "hit": "31 (6d6 + 10)",
         "damage type": "bludgeoning"
       },
-      {
+      "": {
         type: "Ranged Spell Attack",
         "to hit": "+15",
         "reach": "600 ft.",
@@ -18153,7 +18153,7 @@ const monsters = [
         "hit": "24 (7d6)",
         "damage type": "acid, cold, fire, force, lightning, radiant, or thunder"
       }
-    ],
+},
     reactions: "<p><em><strong>Attack.</strong></em> The empyrean makes one attack.</p>",
     "legendary actions": "<p>Legendary Action Uses: 3. Immediately after another creature's turn, The empyrean can expend a use to take ving actions. The empyrean regains all expended uses at the start of each of its turns.</p><p><em><strong>Bolster (Costs 1 Action).</strong></em> The empyrean bolsters all nonhostile creatures within 120 feet of it until the end of its next turn. Bolstered creatures can't be charmed or frightened, and they gain advantage on ability checks and saving throws until the end of the empyrean's next turn.</p><p><em><strong>Trembling Strike (Costs 2 Actions).</strong></em> The empyrean strikes the ground with its maul, triggering an earth tremor. All other creatures on the ground within 60 feet of the empyrean must succeed on a DC 25 Strength saving throw or be knocked prone.</p>",
     "description": "<p>Empyreans are the celestial children of the gods of the Upper Planes. They are universally beautiful, statuesque, and self-assured.</p><p>An empyrean can experience deity-like fits of serenity or rage. It can affect the environment around it by its mood. When an empyrean is unhappy, the clouds might cry tears of salt water, the wildflowers in surrounding meadows might wilt, dead fish might wash ashore in lakes or rivers, or a nearby forest might lose the leaves from its trees. When an empyrean is jubilant, sunlight follows it everywhere, small animals frolic in its footsteps, and birds fill the sky with their pleasing songs.</p><p>A few empyreans have turned to evil after venturing to the Lower Planes and becoming corrupted, or as the result of being cursed by evil gods. An evil empyrean can't survive long on the Upper Planes and usually retreats to the Material Plane, where it can rule over a kingdom of mortals as an indomitable tyrant.</p><p>Empyreans don't age but can be slain. Because few empyreans can imagine their own demise, they fight fearlessly when drawn into battle, refusing to believe that the end is upon them even when standing at death's door. When an empyrean dies, its spirit returns to its home plane. There, one of the fallen empyrean's parents resurrects the empyrean unless he or she has a good reason not to.</p>"
@@ -18181,15 +18181,15 @@ const monsters = [
     challenge: "5 (1,800 XP)",
     traits: "<p><em><strong>Spellcasting.</strong></em> The enchanter is a 9th-level spellcaster. Its spellcasting ability is Intelligence (spell save DC 14, +6 to hit with spell attacks). The enchanter has the following wizard spells prepared:</p><p>Cantrips (at will): <em>friends, mage hand, mending, message</em></p><p>1st level (4 slots): <em>charm person*, mage armor, magic missile</em></p><p>2nd level (3 slots): <em>hold person*, invisibility, suggestion*</em></p><p>3rd level (3 slots): <em>fireball, haste, tongues</em></p><p>4th level (3 slots): <em>dominate beast*, stoneskin</em></p><p>5th level (2 slots): <em>hold monster*</em></p><p>*Enchantment spell of 1st level or higher</p>",
     "number of attacks": 3, 
-    attacks: [
-      {
+    attacks: {
+      "Arcane Burst": {
         type: "Melee or Ranged Spell Attack",
         "to hit": "+6",
         "reach": "5 ft.",
         "target": "one target",
         "hit": "19 (3d10 + 3)"
       }
-    ],
+},
     reactions: "<p><em><strong>Instinctive Charm (Recharges after the Enchanter Casts an Enchantment Spell of 1st level or Higher).</strong></em> The enchanter tries to magically divert an attack made against it, provided that the attacker is within 30 feet of it and visible to it. The enchanter must decide to do so before the attack hits or misses. The attacker must make a DC 14 Wisdom saving throw. On a failed save, the attacker targets the creature closest to it, other than the enchanter or itself. If multiple creatures are closest, the attacker chooses which one to target.</p>",
     "notes": "<p>The enchanter makes three Arcane Burst attacks.</p>",
     "description": "<p>Enchanters are specialist wizards who understand how to alter and control minds using magic. They might be personable and interesting, using magic to manipulate people only when banter and conventional persuasion fails, or they might be rude and demanding, using and relying on charmed, obedient minions.</p>"
@@ -18217,8 +18217,8 @@ const monsters = [
     challenge: "5 (1,800 XP)",
     traits: "<p><em><strong>Spellcasting.</strong></em> The enchanter is a 9th-level spellcaster. Its spellcasting ability is Intelligence (spell save DC 14, +6 to hit with spell attacks). The enchanter has the following wizard spells prepared:</p><p>Cantrips (at will): <em>friends, mage hand, mending, message</em></p><p>1st level (4 slots): <em>charm person*, mage armor, magic missile</em></p><p>2nd level (3 slots): <em>hold person*, invisibility, suggestion*</em></p><p>3rd level (3 slots): <em>fireball, haste, tongues</em></p><p>4th level (3 slots): <em>dominate beast*, stoneskin</em></p><p>5th level (2 slots): <em>hold monster*</em></p><p>*Enchantment spell of 1st level or higher</p>",
     "number of attacks": 1,
-    attacks: [
-      {
+    attacks: {
+      "Quarterstaff": {
         type: "Melee Weapon Attack",
         "to hit": "+2",
         "reach": "5 ft.",
@@ -18226,7 +18226,7 @@ const monsters = [
         "hit": "2 (1d6 - 1) bludgeoning damage, or 3 (1d8 - 1) bludgeoning damage if used with two hands",
         "damage type": "bludgeoning"
       }
-    ],
+},
     reactions: "<p><em><strong>Instinctive Charm (Recharges after the Enchanter Casts an Enchantment Spell of 1st level or Higher).</strong></em> The enchanter tries to magically divert an attack made against it, provided that the attacker is within 30 feet of it and visible to it. The enchanter must decide to do so before the attack hits or misses. The attacker must make a DC 14 Wisdom saving throw. On a failed save, the attacker targets the creature closest to it, other than the enchanter or itself. If multiple creatures are closest, the attacker chooses which one to target.</p>"
   },
   {
@@ -18250,8 +18250,8 @@ const monsters = [
     challenge: "3 (700 XP)",
     "bonus actions": "<p><em><strong>Archer's Eye (3/Day).</strong></em> As a bonus action, the archer can add 1d10 to its next attack or damage roll with a longbow or shortbow.</p>",
     "number of attacks": 2,
-    attacks: [
-      {
+    attacks: {
+      "Shortsword": {
         type: "Melee Weapon Attack",
         "to hit": "+6",
         "reach": "5 ft.",
@@ -18259,7 +18259,7 @@ const monsters = [
         "hit": "7 (1d6 + 4)",
         "damage type": "piercing"
       },
-      {
+      "Longbow": {
         type: "Ranged Weapon Attack",
         "to hit": "+6",
         "reach": "150/600 ft.",
@@ -18267,7 +18267,7 @@ const monsters = [
         "hit": "8 (1d8 + 4)",
         "damage type": "piercing"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> The archer makes two attacks with its longbow.</p><p><em><strong>Shortsword.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft., one target. <em>Hit:</em> 7 (1d6 + 4) piercing damage.</p><p><em><strong>Longbow.</strong></em> <em>Ranged Weapon Attack:</em> +6 to hit, range 150/600 ft., one target. <em>Hit:</em> 8 (1d8 + 4) piercing damage.</p>",
     "img url": "https://5e.tools/img/bestiary/VGM/Archer.png",
     "description": "<p>Archers defend castles, hunt wild game on the fringes of civilization, serve as artillery in military units, and occasionally make good coin as brigands or caravan guards.</p>"
@@ -18297,8 +18297,8 @@ const monsters = [
     challenge: "15 (13,000 XP)",
     traits: "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If the archon fails a saving throw, it can choose to succeed instead.</p><p><em><strong>Magic Resistance.</strong></em> The archon has advantage on saving throws against spells and other magical effects.</p>",
     "number of attacks": 2,
-    attacks: [
-      {
+    attacks: {
+      "Hooves": {
         type: "Melee Weapon Attack",
         "to hit": "+11",
         "reach": "5 ft.",
@@ -18306,7 +18306,7 @@ const monsters = [
         "hit": "20 (4d6 + 6)",
         "damage type": "bludgeoning"
       },
-      {
+      "Radiant Lance": {
         type: "Melee Weapon Attack",
         "to hit": "+11",
         "reach": "10 ft.",
@@ -18314,7 +18314,7 @@ const monsters = [
         "hit": "12 (1d12 + 6)",
         "damage type": "piercing"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> The archon makes one Hooves attack and one Radiant Lance attack.</p><p><em><strong>Hooves.</strong></em> <em>Melee Weapon Attack:</em> +11 to hit, reach 5 ft., one target. <em>Hit:</em> 20 (4d6 + 6) bludgeoning damage plus 10 (3d6) radiant damage. If the target is a Medium or smaller creature, it must succeed on a DC 19 Strength saving throw or have the prone condition.</p><p><em><strong>Radiant Lance.</strong></em> <em>Melee Weapon Attack:</em> +11 to hit, reach 10 ft., one target. <em>Hit:</em> 12 (1d12 + 6) piercing damage plus 28 (8d6) radiant damage, and the target is marked until the start of the archon's next turn. While it is marked, the target has disadvantage on attack rolls against creatures other than the archon.</p><p><em><strong>Spellcasting.</strong></em> The archon casts one of the following spells, using Charisma as the spellcasting ability:<br>1/day each: daylight, lesser restoration</p>",
     reactions: "<p>The archon can take up to three reactions per round but only one per turn.</p><p><em><strong>Archon's Pursuit.</strong></em> When a creature marked by the archon's Radiant Lance ends its turn within 120 feet of the archon, the archon teleports to an unoccupied space it can see within 5 feet of the creature.</p><p><em><strong>Haunting Radiance.</strong></em> Immediately after a creature within 120 feet of the archon forces it to make a saving throw, the archon responds with a burst of light. The creature must succeed on a DC 17 Constitution saving throw or have the blinded condition until the end of the creature's next turn.</p><p><em><strong>Parry.</strong></em> The archon adds 5 to its AC against one melee attack that would hit it, provided it can see the attacker.</p>",
     "img url": "https://5e.tools/img/MCV4EC/Archon%20of%20Boundaries.png",
@@ -18345,8 +18345,8 @@ const monsters = [
     challenge: "12 (8,400 XP)",
     traits: "<p><em><strong>Innate Spellcasting.</strong></em> The archon's spellcasting ability is Wisdom (spell save DC 17, +9 to hit with spell attacks). The archon can innately cast the following spells, requiring no material components:<br>At will: command, guiding bolt, spare the dying<br>1/day each: crusader's mantle, spirit guardians</p><p><em><strong>Magic Resistance.</strong></em> The archon has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Mount.</strong></em> If the archon isn't mounted, it can use a bonus action to magically teleport onto the creature serving as its mount, provided the archon and its mount are on the same plane of existence. When it teleports, the archon appears astride the mount, along with any equipment it is wearing or carrying. While mounted and not incapacitated, the archon can't be surprised, and both it and its mount have advantage on Dexterity saving throws. If the archon is reduced to 0 hit points while riding its mount, the mount is reduced to 0 hit points as well.</p><p><em><strong>Radiant Rebirth (Recharges after a Long Rest).</strong></em> If the archon is reduced to 0 hit points, it regains 30 hit points and springs back to its feet with a burst of radiance. Each creature of the archon's choice within 30 feet of it must succeed on a DC 16 Constitution saving throw, or the creature takes 13 (3d8) radiant damage and is blinded until the start of the archon's turn.</p>",
     "number of attacks": 2,
-    attacks: [
-      {
+    attacks: {
+      "Radiant Spear": {
         type: "Melee Weapon Attack",
         "to hit": "+9",
         "reach": "10 ft.",
@@ -18354,7 +18354,7 @@ const monsters = [
         "hit": "12 (2d6 + 5)",
         "damage type": "piercing"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> The archon makes two attacks with its radiant spear.</p><p><em><strong>Radiant Spear.</strong></em> <em>Melee Weapon Attack:</em> +9 to hit, reach 10 ft., one target. <em>Hit:</em> 12 (2d6 + 5) piercing damage plus 10 (3d6) radiant damage.</p>",
     "legendary actions": "<p>The archon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The archon regains spent legendary actions at the start of its turn.</p><p><em><strong>Attack.</strong></em> The archon makes a radiant spear attack or casts guiding bolt.</p><p><em><strong>Coordinated Assault (Costs 2 Actions).</strong></em> The archon makes a radiant spear attack, and then its mount can use its reaction to make a melee weapon attack.</p><p><em><strong>Return to Nyx (Costs 3 Actions).</strong></em> The archon causes a corpse it can see within 30 feet of it to burst into a shower of radiant stars leaving no trace of it behind. Everything it is wearing or carrying remains. Each creature within 10 feet of the corpse when it bursts must succeed on a DC 16 Dexterity saving throw or take 22 (4d10) radiant damage.</p>",
     "img url": "https://5e.tools/img/MOT/Archon%20of%20Falling%20Stars.png",
@@ -18387,8 +18387,8 @@ const monsters = [
     challenge: "18 (20,000 XP)",
     traits: "<p><em><strong>Devil's Sight.</strong></em> Magical darkness doesn't impede the amnizu's darkvision.</p><p><em><strong>Innate Spellcasting.</strong></em> The amnizu's innate spellcasting ability is Intelligence (spell save DC 19, +11 to hit with spell attacks). The amnizu can innately cast the following spells, requiring no material components:<br>At will: charm person, command<br>3/day each: dominate person, fireball<br>1/day each: dominate monster, feeblemind</p><p><em><strong>Magic Resistance.</strong></em> The amnizu has advantage on saving throws against spells and other magical effects.</p>",
     "number of attacks": 2,
-    attacks: [
-      {
+    attacks: {
+      "Whip": {
         type: "Melee Weapon Attack",
         "to hit": "+11",
         "reach": "10 ft.",
@@ -18396,7 +18396,7 @@ const monsters = [
         "hit": "10 (2d4 + 5)",
         "damage type": "slashing"
       },
-      {
+      "Disruptive Touch": {
         type: "Melee Spell Attack",
         "to hit": "+11",
         "reach": "5 ft.",
@@ -18404,7 +18404,7 @@ const monsters = [
         "hit": "44 (8d10)",
         "damage type": "necrotic"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> The amnizu uses Poison Mind. It also makes two attacks: one with its whip and one with its Disruptive Touch.</p><p><em><strong>Taskmaster Whip.</strong></em> <em>Melee Weapon Attack:</em> +11 to hit, reach 10 ft., one target. <em>Hit:</em> 10 (2d4 + 5) slashing damage plus 33 (6d10) force damage.</p><p><em><strong>Disruptive Touch.</strong></em> <em>Melee Spell Attack:</em> +11 to hit, reach 5 ft., one target. <em>Hit:</em> 44 (8d10) necrotic damage.</p><p><em><strong>Poison Mind.</strong></em> The amnizu targets one or two creatures that it can see within 60 feet of it. Each target must succeed on a DC 19 Wisdom saving throw or take 26 (4d12) necrotic damage and is blinded until the start of the amnizu's next turn.</p><p><em><strong>Forgetfulness (Recharge 6).</strong></em> The amnizu targets one creature it can see within 60 feet of it. That creature must make a DC 18 Intelligence saving throw and on a failure the target is stunned for 1 minute. A stunned creature repeats the saving throw at the end of each of its turns, ending the effect on itself on a success. If the target remains stunned for the full minute, it forgets everything it sensed, experienced, and learned during the last 5 hours.</p><p><em><strong>Variant: Devil Summoning (1/Day).</strong></em> The amnizu has a 30 percent chance of summoning one of the following groups of devils:<br>1d4 bearded devils<br>1d4 barbed devils<br>A summoned devil appears in an unoccupied space within 60 feet of the amnizu, acts as an ally of the amnizu, and can't summon other devils. It remains for 1 minute, until the amnizu dies, or until its summoner dismisses it as an action.</p>",
     reactions: "<p><em><strong>Instinctive Charm.</strong></em> When a creature within 60 feet of the amnizu makes an attack roll against it, and another creature is within the attack's range, the attacker must make a DC 19 Wisdom saving throw. On a failed save, the attacker must target the creature that is closest to it, not including the amnizu or itself. If multiple creatures are closest, the attacker chooses which one to target. If the saving throw is successful, the attacker is immune to the amnizu's Instinctive Charm for 24 hours.</p>",
     "img url": "https://5e.tools/img/MTF/Amnizu.png",
@@ -18432,8 +18432,8 @@ const monsters = [
     challenge: "1/4 (50 XP)",
     traits: "<p><em><strong>Siege Monster.</strong></em> The anarch deals double damage to objects and structures.</p>",
     "bonus actions": "<p><em><strong>Aggressive.</strong></em> As a bonus action, the anarch can move up to its speed toward a hostile creature it can see.</p>",
-    attacks: [
-      {
+    attacks: {
+      "Spiked Club": {
         type: "Melee Weapon Attack",
         "to hit": "+4",
         "reach": "5 ft.",
@@ -18441,7 +18441,7 @@ const monsters = [
         "hit": "6 (1d8 + 2)",
         "damage type": "piercing"
       }
-    ],
+},
     actions: "<p><em><strong>Spiked Club.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft., one target. <em>Hit:</em> 6 (1d8 + 2) piercing damage, or 7 (1d10 + 2) piercing damage if used with two hands.</p>",
     "img url": "https://5e.tools/img/GGR/Anarch.png",
     "description": "<p>The rank-and-file members of the Gruul Clans, called anarchs, despise civilization and have sworn to tear down both its physical structures and its institutions. Anarchs scavenge everything, from the hide armor they wear to the weapons they wield. As they pick through the refuse of the rubblebelts, they sometimes come across magic items and other valuable treasures.</p>"
@@ -18469,8 +18469,8 @@ const monsters = [
     challenge: "13 (10,000 XP)",
     traits: "<p><em><strong>Rising Anger.</strong></em> If another creature deals damage to the sorrowsworn, the sorrowsworn's attack rolls have advantage until the end of its next turn, and the first time it hits with a Hook attack on its next turn, the attack's target takes an extra 19 (3d12) psychic damage.<br>On its turn, the sorrowsworn has disadvantage on attack rolls if no other creature has dealt damage to it since the end of its last turn.</p><p><em><strong>Two Heads.</strong></em> The sorrowsworn has advantage on saving throws against being blinded, charmed, deafened, frightened, stunned, or knocked unconscious.</p>",
     "number of attacks": 2,
-    attacks: [
-      {
+    attacks: {
+      "Hook": {
         type: "Melee Weapon Attack",
         "to hit": "+8",
         "reach": "5 ft.",
@@ -18478,7 +18478,7 @@ const monsters = [
         "hit": "16 (2d12 + 3)",
         "damage type": "piercing"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> The sorrowsworn makes two Hook attacks.</p><p><em><strong>Hook.</strong></em> <em>Melee Weapon Attack:</em> +8 to hit, reach 5 ft., one target. <em>Hit:</em> 16 (2d12 + 3) piercing damage.</p>",
     "img url": "https://5e.tools/img/MPMM/Angry%20Sorrowsworn.png",
     "description": "<p>Relying on violence to sustain their existence, angry sorrowsworn—sometimes called the Angry—grow more powerful when their foes fight back. If a creature opts not to attack, though, this sorrowsworn becomes confused, and its attacks weaken. It also has two heads, which bicker with each other incessantly.</p><p><strong>Sorrowsworn</strong></p><p>The Shadowfell's pervasive melancholy sometimes gives rise to strange incarnations of the plane's bleak nature. Sorrowsworn embody the forms of suffering inherent to the shadowy landscape and visit horror on those who stumble into their midst. Each sorrowsworn personifies a different aspect of despair or distress.</p>"
@@ -18508,8 +18508,8 @@ const monsters = [
     challenge: "2 (450 XP)",
     traits: "<p><em><strong>Aura of Menace.</strong></em> As long as the archon doesn't have the incapacitated condition, each creature of the archon's choice that starts its turn within 20 feet of the archon must make a DC 11 Wisdom saving throw. On a failed save, the creature has the frightened condition until the start of its next turn. On a successful save, the creature is immune to all archons' Aura of Menace for 24 hours.</p><p><em><strong>Illumination.</strong></em> The archon sheds bright light in a 30-foot radius and dim light for an additional 30 feet.</p><p><em><strong>Incorporeal Movement.</strong></em> The archon can move through creatures and objects as if they were difficult terrain. If it ends its turn inside an object, it takes 5 (1d10) force damage.</p>",
     "number of attacks": 2,
-    attacks: [
-      {
+    attacks: {
+      "Radiant Strike": {
         type: "Melee or Ranged Weapon Attack",
         "to hit": "+5",
         "reach": "5 ft. or range 60 ft.",
@@ -18517,7 +18517,7 @@ const monsters = [
         "hit": "6 (1d6 + 3)",
         "damage type": "radiant"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> The archon makes two Radiant Strike attacks. It can replace one attack with a use of Teleport.</p><p><em><strong>Radiant Strike.</strong></em> <em>Melee or Ranged Weapon Attack:</em> +5 to hit, reach 5 ft. or range 60 ft., one target. <em>Hit:</em> 6 (1d6 + 3) radiant damage.</p><p><em><strong>Spellcasting.</strong></em> The archon casts one of the following spells, requiring no material components and using Charisma as the spellcasting ability:<br>At will: detect evil and good<br>1/day: aid</p><p><em><strong>Teleport.</strong></em> The archon teleports, along with any equipment it is wearing or carrying, to an unoccupied space it can see within 120 feet of itself.</p>",
     "bonus actions": "<p><em><strong>Shift Radiance.</strong></em> The archon reduces its Illumination to shed only dim light in a 5-foot radius, or it returns the light to full intensity.</p>",
     "img url": "https://5e.tools/img/MPP/Lantern%20Archon.png",
@@ -18548,8 +18548,8 @@ const monsters = [
     challenge: "10 (5,900 XP)",
     traits: "<p><em><strong>Angelic Weapons.</strong></em> The archon's weapon attacks are magical. When the archon hits with any weapon, the weapon deals an extra 3d8 radiant damage (included in the attack).</p><p><em><strong>Axiomatic Mind.</strong></em> The archon can't be compelled to act in a manner contrary to its nature or its understanding of justice.</p><p><em><strong>Innate Spellcasting.</strong></em> The archon's innate spellcasting ability is Charisma (spell save DC 17). The archon can innately cast the following spells, requiring only verbal components:<br>At will: detect evil and good<br>1/day each: destructive wave, geas</p><p><em><strong>Magic Resistance.</strong></em> The archon has advantage on saving throws against spells and other magical effects.</p><p><em><strong>One Being.</strong></em> Though it appears as a humanoid creature riding a mount, an archon is a single being. The \"rider\" can't be dismounted, and no other means can separate the two portions of the archon's being short of its death.</p>",
     "number of attacks": 2,
-    attacks: [
-      {
+    attacks: {
+      "Sword": {
         type: "Melee Weapon Attack",
         "to hit": "+8",
         "reach": "5 ft.",
@@ -18557,7 +18557,7 @@ const monsters = [
         "hit": "8 (1d8 + 4)",
         "damage type": "slashing"
       },
-      {
+      "Claws": {
         type: "Melee Weapon Attack",
         "to hit": "+8",
         "reach": "10 ft.",
@@ -18565,7 +18565,7 @@ const monsters = [
         "hit": "11 (2d6 + 4)",
         "damage type": "piercing"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> The archon makes two attacks: one with its sword and one with its claws.</p><p><em><strong>Sword.</strong></em> <em>Melee Weapon Attack:</em> +8 to hit, reach 5 ft., one target. <em>Hit:</em> 8 (1d8 + 4) slashing damage plus 13 (3d8) radiant damage.</p><p><em><strong>Claws.</strong></em> <em>Melee Weapon Attack:</em> +8 to hit, reach 10 ft., one target. <em>Hit:</em> 11 (2d6 + 4) piercing damage plus 13 (3d8) radiant damage.</p>",
     "img url": "https://5e.tools/img/PSZ/Archon%20of%20Redemption.png",
     "description": "<p>Like angels, archons are incarnations of white mana. They serve the archangels as embodiments of white mana's harsher aspects: a rigid sense of justice and a ruthless execution of punishment for those who defy the law. The appearance of the archons is deceptive: they look like hooded humans riding winged lions, but they are single creatures with just one mind and will.</p><p>An archon's game statistics are nearly identical to those of a deva.</p>"
@@ -18596,8 +18596,8 @@ const monsters = [
     traits: "<p><em><strong>Innate Spellcasting.</strong></em> The archon's innate spellcasting ability is Wisdom (spell save DC 18, +10 to hit with spell attacks). The archon can innately cast the following spells, requiring no material components:<br>At will: calm emotions, command, compelled duel</p><p><em><strong>Mount.</strong></em> If the archon isn't mounted, it can use a bonus action to magically teleport onto the creature serving as its mount, provided the archon and its mount are on the same plane of existence. When it teleports, the archon appears astride the mount along with any equipment it is wearing or carrying. While mounted and not incapacitated, the archon can't be surprised, and both it and its mount gain advantage on Dexterity saving throws. If the archon is reduced to 0 hit points while riding its mount, the mount is reduced to 0 hit points as well.</p>",
     "bonus actions": "<p><em><strong>Eye of the Law.</strong></em> As a bonus action, the archon can target a creature it can see within 120 feet of it and determine which laws that creature has broken in the last 24 hours.</p>",
     "number of attacks": 2,
-    attacks: [
-      {
+    attacks: {
+      "Hammer of Justice": {
         type: "Melee Weapon Attack",
         "to hit": "+10",
         "reach": "5 ft.",
@@ -18605,7 +18605,7 @@ const monsters = [
         "hit": "12 (2d6 + 5)",
         "damage type": "bludgeoning"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> The archon makes two Hammer of Justice attacks.</p><p><em><strong>Hammer of Justice.</strong></em> <em>Melee Weapon Attack:</em> +10 to hit, reach 5 ft., one target. <em>Hit:</em> 12 (2d6 + 5) bludgeoning damage plus 18 (4d8) force damage. If the target is a creature, it must succeed on a DC 18 Strength saving throw or be knocked prone.</p><p><em><strong>Pacifying Presence.</strong></em> Each creature of the archon's choice that the archon can see within 120 feet of it must succeed on a DC 18 Wisdom saving throw, or else the target drops any weapons it is holding, ends its concentration on any spells or other effects, and becomes charmed by the archon for 1 minute. The charmed creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the archon's Pacifying Presence for the next 24 hours.</p>",
     "legendary actions": "<p>The archon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The archon regains spent legendary actions at the start of its turn.</p><p><em><strong>Rejoin Mount.</strong></em> If the archon isn't mounted, it magically teleports to its steed and mounts it as long as the archon and its steed are on the same plane of existence.</p><p><em><strong>Smite (Costs 2 Actions).</strong></em> The archon makes a Hammer of Justice attack, and then its mount can use its reaction to make a melee weapon attack.</p><p><em><strong>Detention (Costs 3 Actions).</strong></em> The archon targets a creature it can see within 60 feet of it. The target must succeed on a DC 18 Charisma saving throw or be magically teleported to a harmless demiplane until the end of the archon's next turn, whereupon the target reappears in the space it left or the nearest unoccupied space if that space is occupied.</p>",
     "img url": "https://5e.tools/img/GGR/Archon%20of%20the%20Triumvirate.png",
@@ -18636,8 +18636,8 @@ const monsters = [
     traits: "<p><em><strong>Chromatic Form.</strong></em> When created, the animated breath takes one of five forms, matching its creator's breath weapon: Acid, Cold, Fire, Lightning, or Poison. This form determines the creature's AC, damage resistance, traits, and attacks.</p><p><em><strong>Fire Aura (Fire Form Only).</strong></em> At the start of each of the animated breath's turns, each creature within 5 feet of it takes 3 (1d6) fire damage, and flammable objects in the aura that aren't being worn or carried ignite. A creature that touches the animated breath or hits it with a melee attack takes 3 (1d6) fire damage.</p><p><em><strong>Putrid Aura (Acid and Poison Forms Only).</strong></em> A creature that starts its turn within 5 feet of the animated breath must succeed on a DC 15 Constitution saving throw or be poisoned until the start of its next turn. A creature that touches the animated breath or hits it with a melee attack takes 3 (1d6) acid damage.</p>",
     "bonus actions": "<p><em><strong>Lightning Burst (Lightning Form Only).</strong></em> The animated breath magically teleports to an unoccupied space it can see within 30 feet of it. Each creature within 5 feet of the animated breath after it teleports takes 3 (1d6) lightning damage.</p>",
     "number of attacks": 2,
-    attacks: [
-      {
+    attacks: {
+      "Slam": {
         type: "Melee Weapon Attack",
         "to hit": "+7",
         "reach": "5 ft.",
@@ -18645,7 +18645,7 @@ const monsters = [
         "hit": "13 (2d8 + 4)",
         "damage type": "bludgeoning"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> The animated breath makes two Slam attacks.</p><p><em><strong>Slam.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft., one target. <em>Hit:</em> 13 (2d8 + 4) bludgeoning damage plus 11 (2d10) damage of a type determined by the animated breath's form: acid, cold, fire, lightning, or poison.</p>",
     "img url": "https://5e.tools/img/FTD/Animated%20Breath.png",
     "description": "<p>A chromatic dragon's breath weapon is a manifestation of the energy that suffuses the dragon. With sufficient practice, dragons can learn to draw on magic from the Elemental Planes to shape their breath weapons into bipedal form, creating Elemental creatures called animated breaths. Chromatic dragons often use these creatures as guardians for their hoards or send them out to gather treasure from the territory around their lairs.</p><p>An animated breath is a bipedal creature formed from the same energy as the breath weapon of the dragon that created it. A red dragon's creation strongly resembles a fire elemental, while a black dragon's is similar to a water elemental, but viscous and foul-looking. A green dragon's animated poison breath looks like billowing clouds of green gas, while a white dragon's animated cold breath looks like a walking ice sculpture with frigid air whirling around it. A blue dragon's animated lightning breath is a constantly shifting form of crackling lightning, and it can suddenly vanish from one place to reappear in another, striking like a bolt from the blue.</p>"
@@ -18673,8 +18673,8 @@ const monsters = [
     challenge: "6 (2,300 XP, or 3,900 when part of a coven)",
     traits: "<p><em><strong>Innate Spellcasting.</strong></em> The hag's innate spellcasting ability is Charisma (spell save DC 13).  She can innately cast the following spells: </p><p>3/day each: disguise self (including the form of a Medium humanoid), fog cloud</p>",
     "number_of_attacks": 3, 
-    attacks: [
-      {
+    attacks: {
+      "Bite": {
         type: "Melee Weapon Attack",
         "to_hit": "+8",
         "reach": "5 ft.",
@@ -18682,7 +18682,7 @@ const monsters = [
         "hit": "15 (3d6 + 5)",
         "damage_type": "piercing"
       },
-      {
+      "Claw": {
         type: "Melee Weapon Attack",
         "to_hit": "+8",
         "reach": "5 ft.",
@@ -18690,7 +18690,7 @@ const monsters = [
         "hit": "15 (3d6 + 5)",
         "damage_type": "slashing"
       },
-      {
+      "Crushing Hug": {
         type: "Melee Weapon Attack",
         "to_hit": "+8",
         "reach": "5 ft.",
@@ -18698,7 +18698,7 @@ const monsters = [
         "hit": "36 (9d6 + 5)",
         "damage_type": "bludgeoning"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> The annis makes three attacks: one with her bite and two with her claws. </p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +8 to hit, reach 5 ft., one target. <em>Hit:</em> 15 (3d6 + 5) piercing damage. </p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +8 to hit, reach 5 ft., one target. <em>Hit:</em> 15 (3d6 + 5) slashing damage. </p><p><em><strong>Crushing Hug.</strong></em> <em>Melee Weapon Attack:</em> +8 to hit, reach 5 ft., one target.  <em>Hit:</em> 36 (9d6 + 5) bludgeoning damage, and the target is grappled (escape DC 15) if it is a Large or smaller creature.  Until the grapple ends, the target takes 36 (9d6 + 5) bludgeoning damage at the start of each of the hag's turns.  The hag can't make attacks while grappling a creature in this way. </p>",
     "lair actions": "<p>On initiative count 20 (losing initiative ties), the hag can take a lair action to cause one of the following effects, but can't use the same effect two rounds in a row:</p><ul><li>Until initiative count 20 on the next round, the hag can pass through solid walls, doors, ceilings, and floors as if the surfaces weren't there. </li><li>The hag targets any number of doors and windows that she can see, causing each one to either open or close as she wishes.  Closed doors can be magically locked (requiring a successful DC 20 Strength check to force open) until she chooses to make them unlocked, or until she uses this lair action again to open them. </li></ul><p>A powerful annis hag might have the following additional lair action:</p><ul><li>The hag creates a thick cloud of caustic black smoke that fills a 20-foot-radius sphere centered on a point she can see within 120 feet her.  The cloud lasts until initiative count 20 on the next round.  Creatures and objects in or behind the smoke are heavily obscured.  A creature that enters the cloud for the first time on a turn or starts its turn there takes 10 (3d6) acid damage. </li></ul>",
     "regional_effects": "<p>The region within 1 mile of a grandmother hag's lair is warped by the creature's fell magic, which creates one or more of the following effects: </p><ul><li>Birds, rodents, snakes, spiders, or toads are found in great profusion.</li><li>Beasts that have an Intelligence score of 2 or lower are charmed by the hag and directed to be aggressive toward intruders in the area. </li><li>Strange carved figurines, twig fetishes, or rag dolls magically appear in trees. </li></ul><p>A powerful annis hag creates one or more of the following additional regional effects within 1 mile of her lair:</p><ul><li>The gravel stones on a safe-looking path, road, or trails occasionally become sharp for 100-foot intervals.  Walking on these areas is like walking on caltrops. </li><li>Small avalanches of rock intermittently fall, blocking a path or burying intruders.  A buried creature is restrained and has to hold its breath until it is dug out.</li><li>Strange laughter, sounding like that of children or the hag herself, occasionally pierces the silence. </li><li>Small cairns appear along the route of travelers, containing anything from mysterious bones to nothing at all.  These cairns might be haunted by skeletons, specters, or hostile fey. </li></ul>",
@@ -18727,8 +18727,8 @@ const monsters = [
     challenge: "1/4 (10 XP)",
     traits: "<p><em><strong>Charge.</strong></em> When there is no other means of escaping danger, an antelope will put down its head and charge a foe; on a successful attack this charge deals full maximum damage (8 points) to its opponent who must make a Dexterity save or be knocked prone.  The antelope continues to move double its movement through its target and beyond in a straight line path. </p><p><em><strong>Multiattack.</strong></em> When in melee combat (but not as part of a charge maneuver) they may make both a hoof and gore attack. </p>",
     "number_of_attacks": 2, 
-    attacks: [
-      {
+    attacks: {
+      "Gore": {
         type: "Melee Weapon Attack",
         "to_hit": "+5",
         "reach": "5 ft.",
@@ -18736,7 +18736,7 @@ const monsters = [
         "hit": "4 (1d8)",
         "damage_type": "piercing"
       },
-      {
+      "Hooves": {
         type: "Melee Weapon Attack",
         "to_hit": "+2",
         "reach": "5 ft.",
@@ -18744,7 +18744,7 @@ const monsters = [
         "hit": "3 (1d6)",
         "damage_type": "bludgeoning"
       }
-    ],
+},
     actions: "<p><em><strong>Gore.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft., one target. <em>Hit:</em> 4 (1d8) piercing damage. </p><p><em><strong>Hooves.</strong></em> <em>Melee Weapon Attack:</em> +2 to hit, reach 5 ft., one target. <em>Hit:</em> 3 (1d6) bludgeoning damage. </p>",
     "description": "<p>The name \"antelope\" can apply to a large number of hoofed, horned animals, including pronghorns, gazelles, the straight-horned duikers, the spiral-horned bushbucks, hartebeests and/or other plain antelopes, marsh antelopes, desert antelopes, pygmy antelopes, and many others. </p>"
   },
@@ -18799,8 +18799,8 @@ const monsters = [
     languages: ["All", "Telepathy 120 ft."],
     challenge: "12 (8,400 XP)",
     traits: "<p><em><strong>Innate Spellcasting.</strong></em> The arcanaloth's innate spellcasting ability is Charisma (spell save DC 15).  The arcanaloth can innately cast the following spells, requiring no material components: </p><p>At will: alter self, darkness, heat metal, invisibility (self only), magic missile</p><p><em><strong>Magic Resistance.</strong></em> The arcanaloth has advantage on saving throws against spells and other magical effects. </p><p><em><strong>Magic Weapons.</strong></em> The arcanaloth's weapon attacks are magical. </p><p><em><strong>Spellcasting.</strong></em> The arcanaloth is a 16th-level spellcaster.  Its spellcasting ability is Intelligence (spell save DC 17, +9 to hit with spell attacks).  The arcanaloth has the following wizard spells prepared: </p><p>Cantrips (at will): fire bolt, mage hand, minor illusion, prestidigitation</p><p>1st level (4 slots): detect magic, identify, shield, Tenser's floating disk</p><p>2nd level (3 slots): detect thoughts, mirror image, phantasmal force, suggestion</p><p>3rd level (3 slots): counterspell, fear, fireball</p><p>4th level (3 slots): banishment, dimension door</p><p>5th level (2 slots): contact other plane, hold monster</p><p>6th level (1 slot): chain lightning</p><p>7th level (1 slot): finger of death</p><p>8th level (1 slot): mind blank</p>",
-    attacks: [
-      {
+    attacks: {
+      "Claws": {
         type: "Melee Weapon Attack",
         "to_hit": "+7",
         "reach": "5 ft.",
@@ -18808,7 +18808,7 @@ const monsters = [
         "hit": "8 (2d4 + 3)",
         "damage_type": "slashing"
       }
-    ],
+},
     actions: "<p><em><strong>Claws.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft., one target. <em>Hit:</em> 8 (2d4 + 3) slashing damage.  The target must make a DC 14 Constitution saving throw, taking 10 (3d6) poison damage on a failed save, or half as much damage on a successful one. </p><p><em><strong>Teleport.</strong></em> The arcanaloth magically teleports, along with any equipment it is wearing or carrying, up to 60 feet to an unoccupied space it can see. </p>",
     "bonus actions": "<p><em><strong>Summon Yugoloth (1/Day).</strong></em> The yugoloth attempts a magical summoning.  An arcanaloth has a 40 percent chance of summoning one arcanaloth. A summoned yugoloth appears in an unoccupied space within 60 feet of its summoner, does as it pleases, and can't summon other yugoloths.  The summoned yugoloth remains for 1 minute, until it or its summoner dies, or until its summoner takes a bonus action to dismiss it. </p>",
     "img url": "https://www.dndbeyond.com/avatars/thumbnails/9/869/1000/1000/636336343358348451.jpeg",
@@ -18838,8 +18838,8 @@ const monsters = [
     languages: "N/A",
     challenge: "12 (8,400 XP)",
     traits: "<p><em><strong>Crackling Death.</strong></em> When the arclight phoenix dies, it explodes. Each creature within 30 feet of it must make a DC 18 Dexterity saving throw, taking 36 (8d8) lightning damage on a failed save, or half as much damage on a successful one.  The explosion destroys the phoenix but leaves behind a Tiny, warm egg with a mizzium shell.  The egg contains the embryo of a new arclight phoenix.  It hatches when it is in the area of a spell that deals lightning damage, or if a creature touches the egg and expends spell slots whose combined levels equal 13 or more.  When it hatches, the egg releases a new arclight phoenix that appears in the egg's space. </p><p><em><strong>Flyby.</strong></em> The arclight phoenix doesn't provoke an opportunity attack when it flies out of an enemy's reach. </p><p><em><strong>Grounded Lightning.</strong></em> The first time on a turn that the arclight phoenix touches the ground, it takes 11 (2d10) force damage. </p><p><em><strong>Illumination.</strong></em> The arclight phoenix sheds bright light in a 15-foot radius and dim light for an additional 15 feet. </p><p><em><strong>Lightning Form.</strong></em> The arclight phoenix can move through a space as narrow as 1 inch wide without squeezing.  A creature that touches the phoenix or hits it with a melee attack while within 5 feet of it takes 9 (2d8) lightning damage.  In addition, the arclight phoenix can enter a hostile creature's space and stop there.  The first time it enters a creature's space on a turn, that creature takes 9 (2d8) lightning damage. </p>",
-    attacks: [
-      {
+    attacks: {
+      "Arclight Touch": {
         type: "Melee Weapon Attack",
         "to_hit": "+10",
         "reach": "5 ft.",
@@ -18847,7 +18847,7 @@ const monsters = [
         "hit": "27 (6d8)",
         "damage_type": "lightning"
       }
-    ],
+},
     actions: "<p><em><strong>Arclight Touch.</strong></em> <em>Melee Weapon Attack:</em> +10 to hit, reach 5 ft., one target.  <em>Hit:</em> 27 (6d8) lightning damage, and lightning jumps from the target to one creature of the phoenix's choice that it can see within 30 feet of the target.  That second creature must succeed on a DC 18 Dexterity saving throw or take 27 (6d8) lightning damage. </p>",
     "img url": "https://www.dndbeyond.com/avatars/thumbnails/6/829/1000/1000/636283681434313658.jpeg",
     "notes": "<p><em><strong>Elemental Nature.</strong></em> An arclight phoenix doesn't require air, food, drink, or sleep. </p>",
@@ -18877,8 +18877,8 @@ const monsters = [
     challenge: "7 (2,900 XP)",
     traits: "<p><em><strong>Magic Resistance.</strong></em> The armanite has advantage on saving throws against spells and other magical effects. </p><p><em><strong>Magic Weapons.</strong></em> The armanite's weapon attacks are magical. </p>",
     "number_of_attacks": 3, 
-    attacks: [
-      {
+    attacks: {
+      "Hooves": {
         type: "Melee Weapon Attack",
         "to_hit": "+8",
         "reach": "5 ft.",
@@ -18886,7 +18886,7 @@ const monsters = [
         "hit": "12 (2d6 + 5)",
         "damage_type": "bludgeoning"
       },
-      {
+      "Claws": {
         type: "Melee Weapon Attack",
         "to_hit": "+8",
         "reach": "5 ft.",
@@ -18894,7 +18894,7 @@ const monsters = [
         "hit": "10 (2d4 + 5)",
         "damage_type": "slashing"
       },
-      {
+      "Serrated Tail": {
         type: "Melee Weapon Attack",
         "to_hit": "+8",
         "reach": "10 ft.",
@@ -18902,7 +18902,7 @@ const monsters = [
         "hit": "16 (2d10 + 5)",
         "damage_type": "slashing"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> The armanite makes three attacks: one with its hooves, one with its claws, and one with its serrated tail. </p><p><em><strong>Hooves.</strong></em> <em>Melee Weapon Attack:</em> +8 to hit, reach 5 ft., one target. <em>Hit:</em> 12 (2d6 + 5) bludgeoning damage.</p><p><em><strong>Claws.</strong></em> <em>Melee Weapon Attack:</em> +8 to hit, reach 5 ft., one target. <em>Hit:</em> 10 (2d4 + 5) slashing damage. </p><p><em><strong>Serrated Tail.</strong></em> <em>Melee Weapon Attack:</em> +8 to hit, reach 10 ft., one target. <em>Hit:</em> 16 (2d10 + 5) slashing damage. </p><p><em><strong>Lightning Lance (Recharge 5-6).</strong></em> The armanite looses a bolt of lightning in a line 60 feet long and 10 feet wide.  Each creature in the line must make a DC 15 Dexterity saving throw, taking 27 (6d8) lightning damage on a failed save, or half as much damage on a successful one. </p>",
     "img url": "https://www.dndbeyond.com/avatars/thumbnails/280/296/1000/1000/637961800324812391.png",
     "description": "<p>Great herds of armanites race across the blasted fields of the Abyss, bent on slaughter and death, driven by unrestrained bloodlust.  Whether being controlled by more powerful demons or charging into battle for the sake of it, armanites use their claws, hooves, and long, whip-like tails to tear apart their foes.  In the armies of the demon lords, armanites perform the role of heavy cavalry, leading the charge and tearing into their enemies' flanks.  Armanites fight all the time, even among themselves if they can't find another enemy.  They make ideal shock troops, courageous to the point of stupidity and utterly savage.  Part of what makes armanites so fearsome is the number of weapons they have at their disposal.  They possess sharp hooves, claws that end in curling talons, and long, serrated tails that can flense the flesh from a victim, and they use them all to carve through their foes.  When they are up against tough formations, they can call on their innate magic to loose bolts of lightning and blow holes in the enemy ranks. </p>"
@@ -18929,8 +18929,8 @@ const monsters = [
     languages: ["Understands all languages it spoke in life but can't speak"],
     challenge: "1/4 (50 XP)",
     traits: "<p><em><strong>Ash Cloud.</strong></em> When the zombie dies, it leaves a cloud of ash that lasts for 5 minutes but does not obscure vision. </p><p><em><strong>Undead Fortitude.</strong></em> If damage reduces the zombie to 0 hit points, it must make a Constitution saving throw with a DC of 5 + the damage taken, unless the damage is radiant or from a critical hit.  On a success, the zombie drops to 1 hit point instead. </p>",
-    attacks: [
-      {
+    attacks: {
+      "Slam": {
         type: "Melee Weapon Attack",
         "to_hit": "+3",
         "reach": "5 ft.",
@@ -18938,7 +18938,7 @@ const monsters = [
         "hit": "4 (1d6 + 1)",
         "damage_type": "bludgeoning"
       }
-    ],
+},
     actions: "<p><em><strong>Slam.</strong></em> <em>Melee Weapon Attack:</em> +3 to hit, reach 5 ft., one target. <em>Hit:</em> 4 (1d6 + 1) bludgeoning damage. </p>",
     "img url": "https://www.dndbeyond.com/avatars/thumbnails/255/879/1000/1000/637880556484196942.jpeg"
   },
@@ -18969,8 +18969,8 @@ const monsters = [
     challenge: "9 (5,000 XP)",
     traits: "<p><em><strong>False Appearance.</strong></em> While the ash phoenix hovers and remains motionless, except for drifting on air currents, it is indistinguishable from a normal cloud of ash and smoke. </p><p><em><strong>Rejuvenation.</strong></em> If the ash phoenix's birth site hasn't been purified by holy rites, a destroyed ash phoenix gains a new body in 1d10 days, regaining all its hp and becoming active again.  The new body appears within 5 feet of its birth site. </p><p><em><strong>Shadow Stealth.</strong></em> While in dim light or darkness, the ash phoenix can take the Hide action as a bonus action. </p><p><em><strong>Wind Weakness.</strong></em> While in an area of strong wind (at least 20 miles per hour), the ash phoenix has disadvantage on attack rolls and ability checks. </p>",
     "number_of_attacks": 2, 
-    attacks: [
-      {
+    attacks: {
+      "Claws": {
         type: "Melee Weapon Attack",
         "to_hit": "+8",
         "reach": "5 ft.",
@@ -18978,7 +18978,7 @@ const monsters = [
         "hit": "14 (2d8 + 5)",
         "damage_type": "slashing"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> The ash phoenix makes two ash talon attacks. If both attacks hit the same target, the phoenix plunges its beak into the target, and the target must succeed on a DC 16 Strength saving throw or take 7 (2d6) necrotic damage.  The ash phoenix regains hp equal to half the necrotic damage dealt. </p><p><em><strong>Ash Talons.</strong></em> <em>Melee Weapon Attack:</em> +8 to hit, reach 5 ft., one target. <em>Hit:</em> 14 (2d8 + 5) slashing damage plus 7 (2d6) fire damage. </p><p><em><strong>Ash Storm (Recharge 5-6).</strong></em> The ash phoenix furiously beats its wings, throwing clinging ash into a 30-foot cone.  Each creature in the area must make a DC 16 Dexterity saving throw.  On a failure, a creature takes 28 (8d6) necrotic damage and is blinded until the end of its next turn.  On a success, a creature takes half the damage and isn't blinded. </p>",
     "notes": "<p><em><strong>Undead Nature.</strong></em> The ash phoenix doesn't require air, food, drink, or sleep. </p>",
     "description": "<p>A massive raptor made of ash and shadow screeches as it dives, its eyes like glowing coals.  Impossibly, it stops its dive mere feet from the ground, and its powerful wings whip up ash that carries the chill of the grave.  Ash phoenixes are the animated ashes of mass funerary pyres, which seek the eradication of all life around their birth pyres.  For an ash phoenix to be created, a group of humanoids must be burned in a mass pyre in an area tainted with necrotic energy, and the blood of a magical avian, such as an august rooster or firebird, must be mixed into the pyre as it smolders.  The creation of the ash phoenix disrupts the natural passage of souls into the afterlife, infusing the phoenix with the angry spirits.  The presence of these spirits gives the ash phoenix some level of intelligence but also drives it to seek vengeance against all living creatures.  Ash phoenixes never stray more than a few miles from their birthplace and are reborn in those same ashes each time they are slain. </p>"
@@ -19009,8 +19009,8 @@ const monsters = [
     challenge: "30 (155,000 XP)",
     traits: "<p><em><strong>Antimagic Aura.</strong></em> Asmodeus has advantage on saving throws against spells and other magical effects. Spells of level 4 or lower can't damage Asmodeus. </p><p><em><strong>Fiendish Regeneration.</strong></em> Asmodeus regains 40 hit points at the start of his turn. If he takes radiant damage, this trait doesn't function at the start of his next turn.  Asmodeus dies only if he starts his turn with 0 hit points and doesn't regenerate.  If Asmodeus dies, his body regenerates, returning to life 13 (2d12) days later. </p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If Asmodeus fails a saving throw, he can choose to succeed instead. </p><p><em><strong>Submission Aura.</strong></em> When a creature moves to be within 120 feet of Asmodeus, they must succeed on a DC 24 Wisdom saving throw or have the frightened condition until they leave the aura.  While frightened, creatures kneel before Asmodeus, taking no actions unless he commands otherwise.  If Asmodeus deals damage to a kneeling creature, the creature's frightened condition ends.  A creature that succeeds the saving throw is immune to this effect for 1 hour. </p>",
     "number_of_attacks": 4, 
-    attacks: [
-      {
+    attacks: {
+      "Claws": {
         type: "Melee Weapon Attack",
         "to_hit": "+21",
         "reach": "5 ft.",
@@ -19018,7 +19018,7 @@ const monsters = [
         "hit": "21 (2d8 + 12)",
         "damage_type": "necrotic"
       },
-      {
+      "Chilling Gaze": {
         type: "Ranged Spell Attack",
         "to_hit": "+16",
         "reach": "60 ft.",
@@ -19026,7 +19026,7 @@ const monsters = [
         "hit": "18 (2d10 + 7)",
         "damage_type": "cold"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> Asmodeus makes four attacks using Ruby Rod, Chilling Gaze, or a combination of the two.  He can replace one of the attacks with Hellish Smite. </p><p><em><strong>Ruby Rod.</strong></em> <em>Melee Weapon Attack:</em> +21 to hit, reach 5 ft., one target.  <em>Hit:</em> 21 (2d8 + 12) necrotic damage, which also reduces the target's hit point maximum by the damage taken.  This damage can't reduce a target's hit point maximum below 1. Any effect that removes a disease allows a creature's hit point maximum to return to normal. </p><p><em><strong>Chilling Gaze.</strong></em> <em>Ranged Spell Attack:</em> +16 to hit, range 60 ft., one target.  <em>Hit:</em> 18 (2d10 + 7) cold damage, and the target has a -1 penalty to all attack rolls they make until the end of their next turn.  This penalty can stack. </p><p><em><strong>Hellish Smite.</strong></em> Asmodeus targets a creature he can see within 300 feet of him, calling down a bolt of hellish lightning.  The target must make a DC 24 Dexterity saving throw, taking 14 (4d6) lightning damage plus 14 (4d6) fire damage on a failed save, or half as much damage on a successful one. </p><p><em><strong>Infernal Word: Stun (Recharge 4-6).</strong></em> Asmodeus targets a creature he can see within 120 feet of him.  The target must make a DC 24 Intelligence saving throw, taking 45 (10d8) force damage on a failed save, or half as much damage on a successful one.  A creature that failed the save is stunned for up to 1 minute.  The stunned creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success, but taking the damage again on a failed save. </p><p><em><strong>Hell-Lord's Suggestion (Recharge 5-6).</strong></em> Asmodeus targets a creature he can see within 120 feet of him.  The target must make a DC 24 Charisma saving throw, taking 44 (8d10) psychic damage on a failed save, or half as much damage on a successful one.  A creature that failed the save has the charmed condition for up to 1 minute.  While charmed, a creature is controlled by Asmodeus, performing only actions that he suggests.  A charmed creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success, but taking the damage again on a failed save. </p><p><em><strong>Fires of the Nine Hells (Recharge 5-6).</strong></em> Asmodeus chooses a point he can see within 500 feet of him, which explodes into a roaring inferno.  All creatures within a 60-foot-radius sphere centered on that point must make a DC 24 Dexterity saving throw, taking 70 (20d6) fire damage on a failed save, or half as much damage on a successful one. </p><p><em><strong>Spellcasting.</strong></em> Asmodeus casts one of the following spells, requiring no material components and using Wisdom as the spellcasting ability (spell save DC 27):</p><p>At will: Bane, Bestow Curse, Command, Cure Wounds, Darkness, Lesser Restoration, Remove Curse</p><p>1/day each: Antimagic Field, Earthquake, Flame Strike, Gate, Heal, Mass Heal, Wish</p>",
     reactions: "<p><em><strong>Ruby Absorption.</strong></em> As a reaction to being the sole target of a spell, Asmodeus can attempt to absorb the spell into the Ruby Rod.  Asmodeus rolls (1d20 + 2), and if the result is higher than (10 + spell level), the spell is absorbed into the rod and has no effect. </p>",
     "legendary actions": "<p>Legendary Action Uses: 3. Immediately after another creature's turn, Asmodeus can expend a use to take one of the following actions. Asmodeus regains all expended uses at the start of each of their turns.</p><p><em><strong>Channel Ruby Rod.</strong></em> The Ruby Rod has 66 charges. Asmodeus may spend its charges to cast one of the following spells from it, with a spell save DC of 20: Lesser Restoration (3 charges), Wall of Force (7 charges), Greater Restoration (12 charges), Chain Lightning (15 charges), Prismatic Spray (23 charges), Globe of Invulnerability (33 charges) </p><p><em><strong>Strike (Costs 2 Actions).</strong></em> Asmodeus makes a Ruby Rod attack.</p><p><em><strong>Call Underling (Costs 3 Actions).</strong></em> Asmodeus summons an allied pit fiend in an unoccupied space that he can see.</p>",
@@ -19059,8 +19059,8 @@ const monsters = [
     challenge: "21 (33,000 XP)",
     traits: "<p><em><strong>Antimagic Cone.</strong></em> The astral dreadnought's opened eye creates an area of antimagic, as in the antimagic field spell, in a 150-foot cone.  At the start of each of its turns, the dreadnought decides which way the cone faces.  The cone doesn't function while the dreadnought's eye is closed or while the dreadnought is blinded. </p><p><em><strong>Astral Entity.</strong></em> The astral dreadnought can't leave the Astral Plane, nor can it be banished or otherwise transported out of the Astral Plane. </p><p><em><strong>Demiplanar Donjon.</strong></em> Any creature or object that the astral dreadnought swallows is transported to a demiplane that can be entered by no other means except a wish spell or this creature's Donjon Visit ability.  A creature can leave the demiplane only by using magic that enables planar travel, such as the plane shift spell.  The demiplane resembles a stone cave roughly 1,000 feet in diameter with a ceiling 100 feet high.  Like a stomach, it contains the remains of the dreadnought's past meals.  The dreadnought can't be harmed from within the demiplane. If the dreadnought dies, the demiplane disappears, and everything inside it appears around the corpse.  The demiplane is otherwise indestructible. </p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the astral dreadnought fails a saving throw, it can choose to succeed instead. </p><p><em><strong>Magic Weapons.</strong></em> An astral dreadnought's weapon attacks are magical. </p><p><em><strong>Sever Silver Cord.</strong></em> If the astral dreadnought scores a critical hit against a creature traveling through the Astral Plane by means of the astral projection spell, the dreadnought can cut the target's silver cord instead of dealing damage. </p>",
     "number_of_attacks": 3, 
-    attacks: [
-      {
+    attacks: {
+      "Bite": {
         type: "Melee Weapon Attack",
         "to_hit": "+16",
         "reach": "10 ft.",
@@ -19068,7 +19068,7 @@ const monsters = [
         "hit": "36 (5d10 + 9)",
         "damage_type": "piercing"
       },
-      {
+      "Claw": {
         type: "Melee Weapon Attack",
         "to_hit": "+16",
         "reach": "20 ft.",
@@ -19076,7 +19076,7 @@ const monsters = [
         "hit": "19 (3d6 + 9)",
         "damage_type": "slashing"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> The astral dreadnought makes three attacks: one with its bite and two with its claws. </p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 10 ft., one target. <em>Hit:</em> 36 (5d10 + 9) piercing damage.  If the target is a creature of Huge size or smaller and this damage reduces it to 0 hit points or it is incapacitated, the astral dreadnought swallows it.  The swallowed target, along with everything it is wearing and carrying, appears in an unoccupied space on the floor of the astral dreadnought's Demiplanar Donjon. </p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 20 ft., one target. <em>Hit:</em> 19 (3d6 + 9) slashing damage. </p>",
     "legendary actions": "<p>Legendary Action Uses: 3. Immediately after another creature's turn, The astral dreadnought can expend a use to take one of the following actions. The astral dreadnought regains all expended uses at the start of each of its turns. </p><p><em><strong>Claw.</strong></em> The astral dreadnought makes one claw attack.</p><p><em><strong>Donjon Visit (Costs 2 Actions).</strong></em> One creature that is Huge or smaller that the astral dreadnought can see within 60 feet of it must succeed on a DC 19 Charisma saving throw or be magically teleported to an unoccupied space on the floor of the astral dreadnought's Demiplanar Donjon.  At the end of the target's next turn, the target reappears in the space it left or in the nearest unoccupied space if that space is occupied. </p><p><em><strong>Psychic Projection (Costs 3 Actions).</strong></em> Each creature within 60 feet of the astral dreadnought must make a DC 19 Wisdom saving throw, taking 15 (2d10 + 4) psychic damage on a failed save, or half as much damage on a successful one. </p>",
     "img url": "https://www.dndbeyond.com/avatars/thumbnails/255/879/1000/1000/637880556484196942.jpeg",
@@ -19108,8 +19108,8 @@ const monsters = [
     challenge: "23 (XP 50,000)",
     traits: "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If Aurelia fails a saving throw, she can choose to succeed instead.</p><p><em><strong>Magic Resistance.</strong></em> Aurelia has advantage on saving throws against spells and other magical effects.</p>",
     "number of attacks": 3, 
-    attacks: [
-      {
+    attacks: {
+      "Longsword": {
         type: "Melee Weapon Attack",
         "to hit": "+15",
         "reach": "5 ft.",
@@ -19117,7 +19117,7 @@ const monsters = [
         "hit": "12 (1d8 + 8) or 13 (1d10 + 8) when used with two hands, plus 27 (6d8) radiant damage",
         "damage type": "slashing"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> Aurelia makes three longsword attacks and uses Leadership.</p><p><em><strong>Longsword.</strong></em> <em>Melee Weapon Attack:</em> +15 to hit, reach 5 ft., one target. <em>Hit:</em> 12 (1d8 + 8) slashing damage, or 13 (1d10 + 8) slashing damage when used with two hands, plus 27 (6d8) radiant damage.</p><p><em><strong>Leadership.</strong></em> Aurelia utters a few inspiring words to one creature she can see within 30 feet of her. If the creature can hear her, it can add a d10 to one attack roll or saving throw it makes before the start of Aurelia's next turn.</p><p><em><strong>Warleader's Helix (Recharge 5-6).</strong></em> <em>Ranged Spell Attack:</em> +17 to hit, range 60 ft., one creature. <em>Hit:</em> 54 (12d8) radiant damage, and Aurelia can choose another creature she can see within 10 feet of the target. The second creature regains 27 (6d8) hit points.</p>",
     reactions: "<p><em><strong>Parry.</strong></em> Aurelia adds 7 to her AC against one melee attack that would hit her. To do so, Aurelia must see the attacker and be wielding a melee weapon.</p><p><em><strong>Unyielding.</strong></em> When Aurelia is subjected to an effect that would move her, knock her prone, or both, she can use her reaction to be neither moved nor knocked prone.</p>",
     "legendary actions": "<p>Aurelia can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. Aurelia regains spent legendary actions at the start of her turn.</p><p><em><strong>Command Allies.</strong></em> Aurelia chooses up to three creatures she can see within 30 feet of her. If a chosen creature can see or hear Aurelia, it can immediately use its reaction to make one weapon attack, with advantage on the attack roll.</p><p><em><strong>Longsword Attack (Costs 2 Actions).</strong></em> Aurelia makes one longsword attack.</p><p><em><strong>Frighten Foes (Costs 3 Actions).</strong></em> Aurelia targets up to five creatures she can see within 30 feet of her. Each target must succeed on a DC 25 Wisdom saving throw or be frightened of her until the end of her next turn. Any target within 5 feet of Aurelia has disadvantage on the saving throw.</p>",
@@ -19147,8 +19147,8 @@ const monsters = [
     challenge: "2 (XP 450)",
     traits: "<p><em><strong>Charge.</strong></em> If the aurochs moves at least 20 feet straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 9 (2d8) piercing damage. If the target is a creature, it must succeed on a DC 15 Strength saving throw or be knocked prone.</p>",
     "number of attacks": 1,
-    attacks: [
-      {
+    attacks: {
+      "Gore": {
         type: "Melee Weapon Attack",
         "to hit": "+7",
         "reach": "5 ft.",
@@ -19156,7 +19156,7 @@ const monsters = [
         "hit": "14 (2d8 + 5)",
         "damage type": "piercing"
       }
-    ],
+},
     actions: "<p><em><strong>Gore.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft., one target. <em>Hit:</em> 14 (2d8 + 5) piercing damage.</p>",
     "img url": "https://www.dndbeyond.com/avatars/thumbnails/18/12/1000/1000/636378832342337299.jpeg",
     "description": "<p>Bahgtru, son of Gruumsh and Luthic, is the orc deity of unbridled strength. Legend says Bahgtru needed a mount as fierce as him for making war, so he sought a mighty aurochs, subjugated the creature with his bare hands, and hauled it to Nishrek, Gruumsh's realm. Bahgtru named the beast Kazaht, or 'Bull' in Orc. On Kazaht's bare back, Bahgtru charges into battle, ramming into an enemy host and leaping over the aurochs's horns to land in the midst of his foes. Orcs that revere Bahgtru might tend a stable of war bulls that carry them into combat. Trained to be fierce mounts from a young age, aurochs are sacred symbols of Bahgtru. No orc will eat such creatures, which are treated as honored warriors when they perish.</p>"
@@ -19184,8 +19184,8 @@ const monsters = [
     challenge: "10 (XP 5,900)",
     traits: "<p><em><strong>Enchanting Presence.</strong></em> Any non-eladrin creature that starts its turn within 60 feet of the eladrin must make a DC 16 Wisdom saving throw. On a failed save, the creature is charmed by the eladrin for 1 minute. On a successful save, the creature becomes immune to any eladrin's Enchanting Presence for 24 hours. Whenever the eladrin deals damage to the charmed creature, the creature can repeat the saving throw, ending the effect on itself on a success.</p><p><em><strong>Innate Spellcasting.</strong></em> The eladrin's innate spellcasting ability is Charisma (spell save DC 16). It can innately cast the following spells, requiring no material components:</p>At will: calm emotions, sleep<br>3/day each: cure wounds (as a 5th-level spell), lesser restoration<br>1/day each: greater restoration, heal, raise dead</p><p><em><strong>Magic Resistance.</strong></em> The eladrin has advantage on saving throws against spells and other magical effects.</p>",
     "number of attacks": 1,
-    attacks: [
-      {
+    attacks: {
+      "Longsword": {
         type: "Melee Weapon Attack",
         "to hit": "+5",
         "reach": "5 ft.",
@@ -19193,7 +19193,7 @@ const monsters = [
         "hit": "5 (1d8 + 1) slashing damage plus 18 (4d8) psychic damage, or 6 (1d10 + 1) slashing damage plus 18 (4d8) psychic damage if used with two hands",
         "damage type": "slashing, psychic"
       },
-      {
+      "Longbow": {
         type: "Ranged Weapon Attack",
         "to hit": "+7",
         "range": "150/600 ft.",
@@ -19201,7 +19201,7 @@ const monsters = [
         "hit": "7 (1d8 + 3) piercing damage plus 18 (4d8) psychic damage",
         "damage type": "piercing, psychic"
       }
-    ],
+},
     actions: "<p><em><strong>Longsword.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft., one target. <em>Hit:</em> 5 (1d8 + 1) slashing damage plus 18 (4d8) psychic damage, or 6 (1d10 + 1) slashing damage plus 18 (4d8) psychic damage if used with two hands.</p><p><em><strong>Longbow.</strong></em> <em>Ranged Weapon Attack:</em> +7 to hit, range 150/600 ft., one target. <em>Hit:</em> 7 (1d8 + 3) piercing damage plus 18 (4d8) psychic damage.</p>",
     reactions: "<p><em><strong>Foster Peace.</strong></em> If a creature charmed by the eladrin hits with an attack roll while within 60 feet of the eladrin, the eladrin magically causes the attack to miss, provided the eladrin can see the attacker.</p>",
     "bonus actions": "<p><em><strong>Fey Step (Recharge 4-6).</strong></em> As a bonus action, the eladrin can teleport up to 30 feet to an unoccupied space it can see.</p>",
@@ -19235,8 +19235,8 @@ const monsters = [
     challenge: "26 (XP 90,000)",
     traits: "<p><em><strong>Devil's Sight.</strong></em> Magical darkness doesn't impede Baalzebul's darkvision.</p><p><em><strong>Fiendish Regeneration.</strong></em> Baalzebul regains 20 hit points at the start of his turn. If he takes radiant damage this trait doesn't function at the start of his next turn. Baalzebul dies only if he starts his turn with 0 hit points and doesn't regenerate.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If Baalzebul fails a saving throw, he can choose to succeed instead.</p><p><em><strong>Lord of Flies.</strong></em> Insects don't attack Baalzebul, and he can issue orders to them.</p><p><em><strong>Magic Resistance.</strong></em> Baalzebul has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Stench of the Slug.</strong></em> A creature that starts its turn within 10 feet of Baalzebul must succeed on a DC 21 Constitution saving throw or have the poisoned condition until the start of its next turn. On a successful save, a creature is immune to this stench for 1 hour.</p>",
     "number of attacks": 3, 
-    attacks: [
-      {
+    attacks: {
+      "Slam": {
         type: "Melee Weapon Attack",
         "to hit": "+17",
         "reach": "10 ft.",
@@ -19244,7 +19244,7 @@ const monsters = [
         "hit": "19 (3d6 + 9) bludgeoning damage plus 7 (2d6) necrotic damage",
         "damage type": "bludgeoning, necrotic"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> Baalzebul uses Heart of Pestilence (if available), then makes three Slam attacks.</p><p><em><strong>Slam.</strong></em> <em>Melee Weapon Attack:</em> +17 to hit, reach 10 ft., one target. <em>Hit:</em> 19 (3d6 + 9) bludgeoning damage plus 7 (2d6) necrotic damage.</p><p><em><strong>Pungent Eruption (Recharge 4-6).</strong></em> Baalzebul causes refuse and caustic liquid to spill from the ground at a point he can see within 300 feet. Each creature in a 15-foot-radius sphere centered on that point must make a DC 21 Constitution saving throw. Targets take 36 (8d8) acid damage on a failed save, or half as much on a successful one. Creatures that fail the save have the poisoned condition for 1 minute.</p><p><em><strong>Heart of Pestilence (Recharge 5-6).</strong></em> Baalzebul channels pestilence into his body, sickening creatures within 50 feet that can see him. Sickened creatures must make a DC 21 Charisma saving throw, followed by a DC 21 Constitution saving throw. Failing the Charisma save makes a creature have the frightened condition, while failing the Constitution save makes a creature weak. While weakened, a creature deals half damage on melee attacks. Both effects last for 1 minute or until a greater restoration spell or similar is cast.</p><p><em><strong>Spellcasting.</strong></em> Baalzebul casts one of the following spells, requiring no material components and using Charisma as the spellcasting ability (spell save DC 24):<br>At will: animate dead, darkness, detect evil and good, detect magic, dispel evil and good, hallow, hold monster, suggestion, teleport, true seeing<br>1/day each: symbol (pain or insanity), wish</p>",
     "bonus actions": "<p><em><strong>Displace.</strong></em> Baalzebul magically teleports, along with any equipment he is wearing and carrying, up to 120 feet to an unoccupied space he can see.</p>",
     "legendary actions": "<p>Baalzebul can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. Baalzebul regains spent legendary actions at the start of his turn.</p><p><em><strong>Pummel.</strong></em> Baalzebul makes a Slam attack.</p><p><em><strong>Teleport.</strong></em> Baalzebul uses Displace.</p><p><em><strong>Insect Gorge (Costs 2 Actions).</strong></em> Baalzebul disgorges a swarm of biting flies at a point he can see within 300 feet of himself. Each creature within a 20-foot-radius sphere centered on that point must make a DC 21 Constitution saving throw. A creature takes 44 (8d10) piercing damage on a failed save, or half as much damage on a successful one. The biting flies persist for 1 minute, or until Baalzebul uses this ability again. Creatures that enter the flies' area or end their turn inside it must repeat the saving throw.</p><p><em><strong>Call Underling (Costs 3 Actions).</strong></em> Baalzebul summons an allied bone devil in an unoccupied space that he can see.</p>",
@@ -19276,8 +19276,8 @@ const monsters = [
     challenge: "4 (XP 1,100)",
     traits: "<p><em><strong>Innate Spellcasting.</strong></em> The babau's innate spellcasting ability is Wisdom (spell save DC 11). The babau can innately cast the following spells, requiring no material components:</p>At will: darkness, dispel magic, fear, heat metal, levitate</p>",
     "number of attacks": 2,
-    attacks: [
-      {
+    attacks: {
+      "Claw": {
         type: "Melee Weapon Attack",
         "to hit": "+6",
         "reach": "5 ft.",
@@ -19285,7 +19285,7 @@ const monsters = [
         "hit": "8 (1d8 + 4)",
         "damage type": "slashing"
       },
-      {
+      "Spear": {
         type: "Melee or Ranged Weapon Attack",
         "to hit": "+6",
         "reach": "5 ft. or range 20/60 ft.",
@@ -19293,7 +19293,7 @@ const monsters = [
         "hit": "7 (1d6 + 4) or 8 (1d8 + 4)",
         "damage type": "piercing"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> The babau makes two melee attacks. It can also use Weakening Gaze before or after making these attacks.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft., one target. <em>Hit:</em> 8 (1d8 + 4) slashing damage.</p><p><em><strong>Spear.</strong></em> <em>Melee or Ranged Weapon Attack:</em> +6 to hit, reach 5 ft. or range 20/60 ft., one target. <em>Hit:</em> 7 (1d6 + 4) piercing damage, or 8 (1d8 + 4) piercing damage when used with two hands to make a melee attack.</p><p><em><strong>Weakening Gaze.</strong></em> The babau targets one creature that it can see within 20 feet of it. The target must make a DC 13 Constitution saving throw. On a failed save, the target deals only half damage with weapon attacks that use Strength for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p>",
     "img url": "https://www.dndbeyond.com/avatars/thumbnails/18/25/1000/1000/636378833953629598.jpeg",
     "description": "<p>A babau demon possesses the cunning of a devil and the bloodthirstiness of a demon. It has leathery black skin pulled tight over its gaunt frame, and a curved horn protruding from the back of its elongated skull. A babau's baleful glare can weaken a creature.</p>"
@@ -19324,8 +19324,8 @@ const monsters = [
     challenge: "19 (XP 22,000)",
     traits: "<p><em><strong>Dreadful.</strong></em> Bael can use a bonus action to appear dreadful until the start of his next turn. Each creature, other than a devil, that starts its turn within 10 feet of Bael must succeed on a DC 22 Wisdom saving throw or be frightened until the start of the creature's next turn.</p><p><em><strong>Innate Spellcasting.</strong></em> Bael's innate spellcasting ability is Charisma (spell save DC 21, +13 to hit with spell attacks). He can innately cast the following spells, requiring no material components:<br>At will: alter self (can become Medium when changing his appearance), animate dead, charm person, detect magic, inflict wounds (as an 8th-level spell), invisibility (self only), major image<br>3/day each: counterspell, dispel magic, fly, suggestion, wall of fire<br>1/day each: dominate monster, symbol (stunning only)</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If Bael fails a saving throw, he can choose to succeed instead.</p><p><em><strong>Magic Resistance.</strong></em> Bael has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Magic Weapons.</strong></em> Bael's weapon attacks are magical.</p><p><em><strong>Regeneration.</strong></em> Bael regains 20 hit points at the start of his turn. If he takes cold or radiant damage, this trait doesn't function at the start of his next turn. Bael dies only if he starts his turn with 0 hit points and doesn't regenerate.</p>",
     "number of attacks": 2,
-    attacks: [
-      {
+    attacks: {
+      "Hellish Morningstar": {
         type: "Melee Weapon Attack",
         "to hit": "+13",
         "reach": "20 ft.",
@@ -19333,7 +19333,7 @@ const monsters = [
         "hit": "16 (2d8 + 7) piercing damage plus 13 (3d8) necrotic damage",
         "damage type": "piercing, necrotic"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> Bael makes two melee attacks.</p><p><em><strong>Hellish Morningstar.</strong></em> <em>Melee Weapon Attack:</em> +13 to hit, reach 20 ft., one target. <em>Hit:</em> 16 (2d8 + 7) piercing damage plus 13 (3d8) necrotic damage.</p><p><em><strong>Infernal Command.</strong></em> Each ally of Bael's within 60 feet of him can't be charmed or frightened until the end of his next turn.</p><p><em><strong>Teleport.</strong></em> Bael magically teleports, along with any equipment he is wearing and carrying, up to 120 feet to an unoccupied space he can see.</p>",
     "legendary actions": "<p>Bael can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. Bael regains spent legendary actions at the start of his turn.</p><p><em><strong>Attack (Cost 2 Actions).</strong></em> Bael attacks once with his hellish morningstar.</p><p><em><strong>Awaken Greed.</strong></em> Bael casts charm person or major image.</p><p><em><strong>Infernal Command.</strong></em> Bael uses his Infernal Command action.</p><p><em><strong>Teleport.</strong></em> Bael uses his Teleport action.</p>",
     "img url": "https://www.dndbeyond.com/avatars/thumbnails/25/838/1000/1000/636415392097241857.jpeg",
@@ -19363,8 +19363,8 @@ const monsters = [
     challenge: "11 (XP 7,200)",
     traits: "<p><em><strong>Legendary Resistance (2/Day).</strong></em> If the balhannoth fails a saving throw, it can choose to succeed instead.</p>",
     "number of attacks": 4, 
-    attacks: [
-      {
+    attacks: {
+      "Gore": {
         type: "Melee Weapon Attack",
         "to hit": "+7",
         "reach": "5 ft.",
@@ -19372,7 +19372,7 @@ const monsters = [
         "hit": "25 (4d10 + 3)",
         "damage type": "piercing"
       },
-      {
+      "Tentacle": {
         type: "Melee Weapon Attack",
         "to hit": "+7",
         "reach": "10 ft.",
@@ -19380,7 +19380,7 @@ const monsters = [
         "hit": "10 (2d6 + 3) bludgeoning damage, and the target is grappled (escape DC 15) and is moved up to 5 feet toward the balhannoth",
         "damage type": "bludgeoning"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> The balhannoth makes a bite attack and up to two tentacle attacks, or it makes up to four tentacle attacks.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft., one target. <em>Hit:</em> 25 (4d10 + 3) piercing damage.</p><p><em><strong>Tentacle.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 10 ft., one target. <em>Hit:</em> 10 (2d6 + 3) bludgeoning damage, and the target is grappled (escape DC 15) and is moved up to 5 feet toward the balhannoth. Until this grapple ends, the target is restrained, and the balhannoth can't use this tentacle against other targets. The balhannoth has four tentacles.</p>",
     "legendary actions": "<p>The balhannoth can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The balhannoth regains spent legendary actions at the start of its turn.</p><p><em><strong>Bite Attack.</strong></em> The balhannoth makes one bite attack against one creature it has grappled.</p><p><em><strong>Teleport.</strong></em> The balhannoth magically teleports, along with any equipment it is wearing or carrying and any creatures it has grappled, up to 60 feet to an unoccupied space it can see.</p><p><em><strong>Vanish.</strong></em> The balhannoth magically becomes invisible for up to 10 minutes or until immediately after it makes an attack roll.</p>",
     "lair actions": "<p>When fighting inside its lair, a balhannoth can use lair actions. On initiative count 20 (losing initiative ties), a balhannoth can take one lair action to cause one of the following effects; the balhannoth can't use the same lair action two rounds in a row:</p><ul><li>The balhannoth warps reality around it in an area up to 500 feet square. After 10 minutes, the terrain in the area reshapes to assume the appearance of a location sought by one intelligent creature whose mind the balhannoth has read (see Regional Effects below). The transformation affects nonliving material only and can't create anything with moving parts or magical properties. Any object created in this area is, upon close inspection, revealed as a fake. Books are filled with empty pages, golden items are obvious counterfeits, and so on. The transformation lasts until the balhannoth dies or uses this lair action again.</li><li>The balhannoth targets one creature within 500 feet of it. The target must succeed on a DC 16 Wisdom saving throw or the target, along with whatever it is wearing and carrying, teleports to an unoccupied space of the balhannoth's choice within 60 feet of it.</li><li>The balhannoth targets one creature within 500 feet of it. The target must succeed on a DC 16 Wisdom saving throw or the balhannoth becomes invisible to that creature for 1 minute. This effect ends if the balhannoth attacks the target.</li></ul>",
@@ -19412,8 +19412,8 @@ const monsters = [
     challenge: "5 (XP 1,800)",
     traits: "<p><em><strong>Resonant Connection.</strong></em> If the banderhobb has even a tiny piece of a creature or an object in its possession, such as a lock of hair or a splinter of wood, it knows the most direct route to that creature or object if it is within 1 mile of the banderhobb.</p>",
     "number of attacks": 2,
-    attacks: [
-      {
+    attacks: {
+      "Bite": {
         type: "Melee Weapon Attack",
         "to hit": "+8",
         "reach": "5 ft.",
@@ -19421,7 +19421,7 @@ const monsters = [
         "hit": "15 (3d6 + 5) piercing damage, and the target is grappled (escape DC 16) if it is a Large or smaller creature.",
         "damage type": "piercing"
       },
-      {
+      "Tongue": {
         type: "Melee Weapon Attack",
         "to hit": "+8",
         "reach": "15 ft.",
@@ -19429,7 +19429,7 @@ const monsters = [
         "hit": "10 (3d6) necrotic damage, and the target must make a DC 16 Strength saving throw.",
         "damage type": "necrotic"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> The banderhobb makes one Bite attack and one Tongue attack. It can replace one attack with a use of Shadow Step.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +8 to hit, reach 5 ft., one target. <em>Hit:</em> 15 (3d6 + 5) piercing damage, and the target is grappled (escape DC 16) if it is a Large or smaller creature. Until this grapple ends, the target is restrained, and the banderhobb can't use its Bite attack or Tongue attack on another target.</p><p><em><strong>Tongue.</strong></em> <em>Melee Weapon Attack:</em> +8 to hit, reach 15 ft., one creature. <em>Hit:</em> 10 (3d6) necrotic damage, and the target must make a DC 16 Strength saving throw. On a failed save, the target is pulled to a space within 5 feet of the banderhobb.</p><p><em><strong>Shadow Step.</strong></em> The banderhobb teleports up to 30 feet to an unoccupied space of dim light or darkness that it can see.</p><p><em><strong>Swallow.</strong></em> Melee Weapon Attack: +8 to hit, reach 5 ft., one Medium or smaller creature grappled by the banderhobb. <em>Hit:</em> 15 (3d6 + 5) piercing damage. The creature is also swallowed, and the grapple ends. The swallowed creature is blinded and restrained, it has total cover against attacks and other effects outside the banderhobb, and it takes 10 (3d6) necrotic damage at the start of each of the banderhobb's turns. A creature reduced to 0 hit points in this way stops taking the necrotic damage and becomes stable. The banderhobb can have only one creature swallowed at a time. While the banderhobb isn't incapacitated, it can regurgitate the creature at any time (no action required) in a space within 5 feet of it. The creature exits prone. If the banderhobb dies, it likewise regurgitates a swallowed creature.</p>",
     "bonus actions": "<p><em><strong>Shadow Stealth.</strong></em> While in dim light or darkness, the banderhobb takes the Hide action.</p>",
     "img url": "https://www.dndbeyond.com/avatars/thumbnails/18/38/1000/1000/636378835282299692.jpeg",
@@ -19462,8 +19462,8 @@ const monsters = [
     challenge: "23 (XP 50,000)",
     traits: "<p><em><strong>Labyrinthine Recall.</strong></em> Baphomet can perfectly recall any path he has traveled, and he is immune to the maze spell.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If Baphomet fails a saving throw, he can choose to succeed instead.</p><p><em><strong>Magic Resistance.</strong></em> Baphomet has advantage on saving throws against spells and other magical effects.</p>",
     "number of attacks": 3, 
-    attacks: [
-      {
+    attacks: {
+      "Bite": {
         type: "Melee Weapon Attack",
         "to hit": "+17",
         "reach": "10 ft.",
@@ -19471,7 +19471,7 @@ const monsters = [
         "hit": "19 (2d8 + 10)",
         "damage type": "piercing"
       },
-      {
+      "Gore": {
         type: "Melee Weapon Attack",
         "to hit": "+17",
         "reach": "10 ft.",
@@ -19479,7 +19479,7 @@ const monsters = [
         "hit": "17 (2d6 + 10) piercing damage. If Baphomet moved at least 10 feet straight toward the target immediately before the hit, the target takes an extra 16 (3d10) piercing damage.",
         "damage type": "piercing"
       },
-      {
+      "Heartcleaver": {
         type: "Melee Weapon Attack",
         "to hit": "+17",
         "reach": "15 ft.",
@@ -19487,7 +19487,7 @@ const monsters = [
         "hit": "21 (2d10 + 10)",
         "damage type": "force"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> Baphomet makes one Bite attack, one Gore attack, and one Heartcleaver attack. He also uses Frightful Presence.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +17 to hit, reach 10 ft., one target. <em>Hit:</em> 19 (2d8 + 10) piercing damage.</p><p><em><strong>Gore.</strong></em> <em>Melee Weapon Attack:</em> +17 to hit, reach 10 ft., one target. <em>Hit:</em> 17 (2d6 + 10) piercing damage. If Baphomet moved at least 10 feet straight toward the target immediately before the hit, the target takes an extra 16 (3d10) piercing damage. If the target is a creature, it must succeed on a DC 25 Strength saving throw or be pushed up to 10 feet away and knocked prone.</p><p><em><strong>Heartcleaver.</strong></em> <em>Melee Weapon Attack:</em> +17 to hit, reach 15 ft., one target. <em>Hit:</em> 21 (2d10 + 10) force damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of Baphomet's choice within 120 feet of him and aware of him must succeed on a DC 18 Wisdom saving throw or become frightened for 1 minute. A frightened creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. These later saves have disadvantage if Baphomet is within line of sight of the creature. If a creature succeeds on any of these saves or the effect ends on it, the creature is immune to Baphomet's Frightful Presence for the next 24 hours.</p><p><em><strong>Spellcasting.</strong></em> Baphomet casts one of the following spells, requiring no material components and using Charisma as the spellcasting ability (spell save DC 18):<br>3/day each: dispel magic, dominate beast, maze, wall of stone<br>1/day: teleport</p>",
     "legendary actions": "<p>Baphomet can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. Baphomet regains spent legendary actions at the start of his turn.</p><p><em><strong>Heartcleaver Attack.</strong></em> Baphomet makes one Heartcleaver attack.</p><p><em><strong>Charge (Costs 2 Actions).</strong></em> Baphomet moves up to his speed without provoking opportunity attacks, then makes a Gore attack.</p>",
     "lair actions": "<p>On initiative count 20 (losing initiative ties), Baphomet can take one of the following lair actions; he can't take the same lair action two rounds in a row:</p><p><strong>Illusory Room.</strong> Baphomet casts mirage arcane, affecting a room within the lair that is no larger in any dimension than 100 feet. The effect ends on the next initiative count 20. Charisma is Baphomet's spellcasting ability for this spell.</p><p><strong>Reverse Gravity.</strong> Baphomet chooses a room within the lair that is no larger in any dimension than 100 feet. Until the next initiative count 20, gravity is reversed within that room. Any creatures or objects in the room when this happens fall in the direction of the new pull of gravity, unless they have some means of remaining aloft. Baphomet can ignore the gravity reversal if he's in the room, although he likes to use this action to land on a ceiling to attack targets flying near it.</p><p><strong>Seal the Way.</strong> Baphomet seals one doorway or other entryway within the lair. The opening must be unoccupied. It is filled with solid stone for 1 minute or until Baphomet takes this lair action again.</p>",
@@ -19520,8 +19520,8 @@ const monsters = [
     challenge: "4 (XP 1,100)",
     traits: "<p><em><strong>Shapechanger.</strong></em> The barghest can use its action to polymorph into a Small goblin or back into its true form. Other than its size and speed, its statistics are the same in each form. Any equipment it is wearing or carrying isn't transformed. The barghest reverts to its true form if it dies.</p><p><em><strong>Fire Banishment.</strong></em> When the barghest starts its turn engulfed in flames that are at least 10 feet high or wide, it must succeed on a DC 15 Charisma saving throw or be instantly banished to Gehenna. Instantaneous bursts of flame (such as a red dragon's breath or a fireball spell) don't have this effect on the barghest.</p><p><em><strong>Innate Spellcasting.</strong></em> The barghest's innate spellcasting ability is Charisma (spell save DC 12). It can innately cast the following spells, requiring no material components:<br>At will: levitate, minor illusion, pass without trace<br>1/day each: charm person, dimension door, suggestion</p><p><em><strong>Keen Smell.</strong></em> The barghest has advantage on Wisdom (Perception) checks that rely on smell.</p><p><em><strong>Soul Feeding.</strong></em> A barghest can feed on the corpse of a humanoid that it killed that has been dead for less than 10 minutes, devouring both flesh and soul in doing so. This feeding takes at least 1 minute, and it destroys the victim's body. The victim's soul is trapped in the barghest for 24 hours, after which time it is digested. If the barghest dies before the soul is digested, the soul is released. While a humanoid's soul is trapped in a barghest, any form of revival that could work has only a 50 percent chance of doing so, freeing the soul from the barghest if it is successful. Once a creature's soul is digested, however, no mortal magic can return that humanoid to life.</p>",
     "number of attacks": 1,
-    attacks: [
-      {
+    attacks: {
+      "Bite": {
         type: "Melee Weapon Attack",
         "to hit": "+6",
         "reach": "5 ft.",
@@ -19529,7 +19529,7 @@ const monsters = [
         "hit": "13 (2d8 + 4)",
         "damage type": "piercing"
       },
-      {
+      "Claws": {
         type: "Melee Weapon Attack",
         "to hit": "+6",
         "reach": "5 ft.",
@@ -19537,7 +19537,7 @@ const monsters = [
         "hit": "8 (1d8 + 4)",
         "damage type": "slashing"
       }
-    ],
+},
     actions: "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft., one target. <em>Hit:</em> 13 (2d8 + 4) piercing damage.</p><p><em><strong>Claws.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft., one target. <em>Hit:</em> 8 (1d8 + 4) slashing damage.</p>",
     "img url": "https://www.dndbeyond.com/avatars/thumbnails/18/42/1000/1000/636378835564871991.jpeg",
     "description": "<p>A barghest is born to goblin parents just as normal offspring are. The creature emerges in the form of a goblin, then develops the ability to assume its true form: that of a large, fiendish canine. The mission of every barghest, implanted in it by the General of Gehenna, is to consume seventeen goblinoid souls by devouring the bodies of those it kills. Souls consumed in this way are prevented from joining Maglubiyet's forces in Acheron. A barghest hungers for the day when it can complete its mission, return to Gehenna, and serve the General directly in his yugoloth legions, but it doesn't kill goblinoids indiscriminately. By devouring the souls of goblinoid leaders and other powerful individuals, rather than lowly goblins, a barghest earns elevated status in the afterlife. Barghests typically keep their true nature secret, preying upon a goblin or two when the opportunity arises, until they reach adult age and are old and strong enough to seek out stronger prey. When goblins discover that a barghest is among them, they react with groveling obeisance, each member of the tribe eager to show the barghest that it isn't worthy of being devoured.</p>"
@@ -19567,8 +19567,8 @@ const monsters = [
     challenge: "10 (5,900 XP)",
     traits: "<p><em><strong>Aura of Hate.</strong></em> As a bonus action, the blackguard can activate a 10-foot aura of hatred. Each fiend or undead in the aura (including the blackguard) gains a +4 bonus to damage rolls with weapon attacks.</p><p><em><strong>Spellcasting.</strong></em> The blackguard is a 10th-level spellcaster. Its spellcasting ability is Charisma (spell save DC 17, +9 to hit with spell attacks). It has the following paladin spells prepared:</p><ul><li>1st level (4 slots): <em>command, compelled duel, searing smite, thunderous smite</em></li><li>2nd level (3 slots): <em>branding smite, branding smite, find steed, magic weapon</em></li><li>3rd level (2 slots): <em>blinding smite, dispel magic, protection from energy</em></li></ul>",
     "number of attacks": 2,
-    attacks: [
-      {
+    attacks: {
+      "Greatsword": {
         type: "Melee Weapon Attack",
         "to hit": "+9",
         "reach": "5 ft.",
@@ -19576,7 +19576,7 @@ const monsters = [
         "hit": "12 (2d6 + 5)",
         "damage type": "slashing"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> The blackguard makes two attacks with its greatsword.</p><p><em><strong>Greatsword.</strong></em> <em>Melee Weapon Attack:</em> +9 to hit, reach 5 ft., one target. <em>Hit:</em> 12 (2d6 + 5) slashing damage plus 7 (2d6) necrotic damage.</p><p><em><strong>Hellfire Orb (1/Day).</strong></em> The blackguard hurls a magical ball of hellfire that explodes at a point it can see within 120 feet of it. Each creature in a 20-foot-radius sphere centered on that point must make a DC 17 Dexterity saving throw. A creature takes 35 (10d6) fire damage and 35 (10d6) necrotic damage on a failed save, or half as much damage on a successful one.</p>",
     "img url": "https://www.5etools.com/img/MM/Blackguard.png"
   },
@@ -19604,8 +19604,8 @@ const monsters = [
     challenge: "13 (10,000 XP)",
     traits: "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If the vampire fails a saving throw, it can choose to succeed instead.</p><p><em><strong>Misty Escape.</strong></em> When it drops to 0 hit points outside its resting place, the vampire transforms into a cloud of mist instead of falling unconscious, provided that it isn't in sunlight or running water. If it can't transform, it is destroyed. While in mist form, it can't take any actions, speak, or manipulate objects, and it is immune to all damage. It gains a flying speed of 20 feet, can pass through small holes, narrow openings, and even mere cracks, and has advantage on Strength, Dexterity, and Constitution saving throws. It can't enter a hostile creature's space and can't take any damage. If it has 1 hit point or more and isn't in sunlight or running water, it can revert to its true form as a bonus action. If it drops to 0 hit points while in mist form, it is destroyed.</p><p><em><strong>Regeneration.</strong></em> The vampire regains 20 hit points at the start of its turn if it has at least 1 hit point and isn't in sunlight or running water. If the vampire takes radiant damage or damage from holy water, this trait doesn't function at the start of the vampire's next turn.</p><p><em><strong>Spider Climb.</strong></em> The vampire can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check.</p><p><em><strong>Vampire Weaknesses.</strong></em> The vampire has the following flaws:</p><ul><li><em>Forbiddance.</em> The vampire can't enter a residence without an invitation from one of the occupants.</li><li><em>Harmed by Running Water.</em> The vampire takes 20 acid damage if it ends its turn in running water.</li><li><em>Stake to the Heart.</em> If a piercing weapon made of wood is driven into the vampire's heart while it is incapacitated in its resting place, the vampire is paralyzed until the stake is removed.</li><li><em>Sunlight Hypersensitivity.</em> The vampire takes 20 radiant damage when it starts its turn in sunlight. While in sunlight, it has disadvantage on attack rolls and ability checks.</li></ul>",
     "number of attacks": 2,
-    attacks: [
-      {
+    attacks: {
+      "Unarmed Strike": {
         type: "Melee Weapon Attack",
         "to hit": "+9",
         "reach": "5 ft.",
@@ -19613,7 +19613,7 @@ const monsters = [
         "hit": "8 (1d8 + 4)",
         "damage type": "bludgeoning"
       },
-      {
+      "Bite": {
         type: "Melee Weapon Attack",
         "to hit": "+9",
         "reach": "5 ft.",
@@ -19621,7 +19621,7 @@ const monsters = [
         "hit": "8 (1d8 + 4)",
         "damage type": "piercing"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> The vampire makes two attacks, only one of which can be a bite attack.</p><p><em><strong>Unarmed Strike.</strong></em> <em>Melee Weapon Attack:</em> +9 to hit, reach 5 ft., one creature. <em>Hit:</em> 8 (1d8 + 4) bludgeoning damage. Instead of dealing damage, the vampire can grapple the target (escape DC 18).</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +9 to hit, reach 5 ft., one willing creature, or a creature that is grappled by the vampire, incapacitated, or restrained. <em>Hit:</em> 7 (1d6 + 4) piercing damage plus 10 (3d6) necrotic damage. The target's hit point maximum is reduced by an amount equal to the necrotic damage taken, and the vampire regains hit points equal to that amount. The reduction lasts until the target finishes a long rest. The target dies if this effect reduces its hit point maximum to 0. A humanoid slain in this way and then buried in the ground rises the following night as a vampire spawn under the vampire's control.</p><p><em><strong>Charm.</strong></em> The vampire targets one humanoid it can see within 30 feet of it. If the target can see the vampire, the target must succeed on a DC 17 Wisdom saving throw or be charmed by the vampire. The charmed target regards the vampire as a trusted friend and ally. This effect lasts 24 hours or until the vampire dies, is on a different plane of existence from the target, or takes a bonus action to end the effect. The target has disadvantage on the saving throw if the vampire or one of its associates has damaged the target within the last minute. If the vampire or one of its associates deals any damage to the target, the effect ends. The vampire can have only one target charmed at a time. If it charms another, the effect on the previous target ends.</p><p><em><strong>Children of the Night (1/Day).</strong></em> The vampire magically calls 2d4 swarms of bats or rats, provided that the sun isn't out. While outdoors, the vampire can call 3d6 wolves or 1d3 dire wolves instead. The called creatures arrive in 1d4 rounds, acting as allies of the vampire and obeying its spoken commands. The beasts remain for 1 hour, until the vampire dies, or until the vampire dismisses them as a bonus action.</p>",
     "img url": "https://www.5etools.com/img/MM/Vampire.png"
   },
@@ -19649,8 +19649,8 @@ const monsters = [
     challenge: "7 (2,900 XP)",
     traits: "<p><em><strong>Blood Sense.</strong></em> The blood witch can pinpoint the location of any creature that has blood within 60 feet of it and isn't behind total cover.</p><p><em><strong>Corrupting Aura.</strong></em> Any non-evil creature that starts its turn within 10 feet of the blood witch takes 5 (1d10) necrotic damage and can't regain hit points until the start of its next turn. If a creature dies within the aura, the blood witch gains 10 temporary hit points.</p><p><em><strong>Spellcasting.</strong></em> The blood witch is a 9th-level spellcaster. Its spellcasting ability is Charisma (spell save DC 15, +7 to hit with spell attacks). It has the following warlock spells prepared:</p><ul><li>Cantrips (at will): <em>chill touch, eldritch blast, minor illusion, poison spray, prestidigitation</em></li><li>1st-5th level (2 5th-level slots): <em>arms of Hadar, blight, blindness/deafness, circle of death, crown of madness, darkness, dimension door, dissonant whispers, fear, hex, hold person, sickening radiance, vampiric touch, wall of force</em></li></ul>",
     "number of attacks": 1,
-    attacks: [
-      {
+    attacks: {
+      "Dagger": {
         type: "Melee Weapon Attack",
         "to hit": "+3",
         "reach": "5 ft.",
@@ -19658,7 +19658,7 @@ const monsters = [
         "hit": "3 (1d6)",
         "damage type": "bludgeoning"
       }
-    ],
+},
     actions: "<p><em><strong>Dagger.</strong></em> <em>Melee Weapon Attack:</em> +3 to hit, reach 5 ft., one creature. <em>Hit:</em> 3 (1d4 + 1) piercing damage.</p><p><em><strong>Blood Offering (Recharge 5–6).</strong></em> The blood witch creates a magical orb of coagulated blood and hurls it at a creature or object within 60 feet of it. The orb explodes on impact, dealing 17 (5d6) necrotic damage to the target and each creature within 5 feet of the target. Each creature damaged by the orb also has its speed reduced by 10 feet until the end of its next turn. For each creature damaged by this action, the blood witch gains 5 temporary hit points.</p>",
     "img url": "https://www.5etools.com/img/MM/Blood_Witch.png"
   },
@@ -19686,8 +19686,8 @@ const monsters = [
     challenge: "11 (7,200 XP)",
     traits: "<p><em><strong>Berserk.</strong></em> When the bloodfray giant starts its turn with 80 hit points or fewer, it can enter a berserk rage as a bonus action, gaining advantage on Strength-based attack rolls and Dexterity saving throws, and its greataxe attack deals an extra 10 (3d6) bludgeoning damage. If the bloodfray giant takes damage from a creature within 10 feet of it, it must make a DC 15 Wisdom saving throw or use its reaction to make a melee attack against that creature.</p><p><em><strong>Reckless Attack.</strong></em> When the bloodfray giant makes its first attack on a turn, it can decide to make a reckless attack. Doing so gives it advantage on melee attack rolls during that turn, but attack rolls against it have advantage until the start of its next turn.</p>",
     "number of attacks": 2,
-    attacks: [
-      {
+    attacks: {
+      "Greataxe": {
         type: "Melee Weapon Attack",
         "to hit": "+10",
         "reach": "10 ft.",
@@ -19695,7 +19695,7 @@ const monsters = [
         "hit": "25 (3d12 + 6)",
         "damage type": "slashing"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> The bloodfray giant makes two attacks with its greataxe.</p><p><em><strong>Greataxe.</strong></em> <em>Melee Weapon Attack:</em> +10 to hit, reach 10 ft., one target. <em>Hit:</em> 25 (3d12 + 6) slashing damage.</p><p><em><strong>Rock.</strong></em> <em>Ranged Weapon Attack:</em> +10 to hit, range 60/240 ft., one target. <em>Hit:</em> 28 (4d10 + 6) bludgeoning damage.</p>",
     "img url": "https://www.5etools.com/img/MM/Bloodfray_Giant.png"
   },
@@ -19722,8 +19722,8 @@ const monsters = [
     challenge: "4 (1,100 XP)",
     traits: "<p><em><strong>Rejuvenation.</strong></em> If it has a true anathema to its existence and is destroyed, the bone naga gains a new body in 1d10 days, regaining all its hit points and becoming active again. The new body appears within 1 mile of the bone naga's resting place. If its true anathema still exists, the bone naga immediately returns to undeath. The bone naga's scales are considered its true anathema.</p>",
     "number of attacks": 1,
-    attacks: [
-      {
+    attacks: {
+      "Bite": {
         type: "Melee Weapon Attack",
         "to hit": "+5",
         "reach": "10 ft.",
@@ -19731,7 +19731,7 @@ const monsters = [
         "hit": "7 (1d8 + 3)",
         "damage type": "piercing"
       }
-    ],
+},
     actions: "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 10 ft., one target. <em>Hit:</em> 7 (1d8 + 3) piercing damage plus 10 (3d6) poison damage.</p><p><em><strong>Constrict.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft., one creature. <em>Hit:</em> 6 (1d6 + 3) bludgeoning damage, and the target is grappled (escape DC 13). Until this grapple ends, the target is restrained, and the naga can't constrict another target.</p>",
     "img url": "https://www.5etools.com/img/MM/Bone_Naga.png"
   },
@@ -19757,8 +19757,8 @@ const monsters = [
     challenge: "3 (700 XP)",
     traits: "<p><em><strong>Keen Hearing and Sight.</strong></em> The bounty hunter has advantage on Wisdom (Perception) checks that rely on hearing or sight.</p>",
     "number of attacks": 2,
-    attacks: [
-      {
+    attacks: {
+      "Shortsword": {
         type: "Melee Weapon Attack",
         "to hit": "+5",
         "reach": "5 ft.",
@@ -19766,7 +19766,7 @@ const monsters = [
         "hit": "6 (1d6 + 3)",
         "damage type": "piercing"
       },
-      {
+      "Light Crossbow": {
         type: "Ranged Weapon Attack",
         "to hit": "+5",
         "range": "30/120 ft.",
@@ -19774,7 +19774,7 @@ const monsters = [
         "hit": "6 (1d6 + 3)",
         "damage type": "piercing"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> The bounty hunter makes two melee attacks, or two ranged attacks.</p><p><em><strong>Shortsword.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft., one target. <em>Hit:</em> 6 (1d6 + 3) piercing damage.</p><p><em><strong>Light Crossbow.</strong></em> <em>Ranged Weapon Attack:</em> +5 to hit, range 80/320 ft., one target. <em>Hit:</em> 7 (1d8 + 3) piercing damage.</p><p><em><strong>Net.</strong></em> <em>Ranged Weapon Attack:</em> +5 to hit, range 5/15 ft., one Large or smaller creature. <em>Hit:</em> The target is restrained. A creature can use its action to make a DC 10 Strength check to free itself or another creature in the net, ending the effect on a success. Dealing 5 slashing damage to the net (AC 10) also frees the creature without harming it, ending the effect. When you use an action, bonus action, or reaction to attack with a net, you can only make one attack regardless of the number of attacks you can normally make.</p>",
     "img url": "https://www.5thsrd.org/wp-content/uploads/2016/09/Hunter_2016_transparent.png"
   },
@@ -19798,8 +19798,8 @@ const monsters = [
     languages: ["N/A"],
     challenge: "5 (1,800 XP)",
     "number of attacks": 1,
-    attacks: [
-      {
+    attacks: {
+      "Stomp": {
         type: "Melee Weapon Attack",
         "to hit": "+8",
         "reach": "15 ft.",
@@ -19807,7 +19807,7 @@ const monsters = [
         "hit": "27 (5d8 + 5)",
         "damage type": "bludgeoning"
       }
-    ],
+},
     actions: "<p><em><strong>Stomp.</strong></em> <em>Melee Weapon Attack:</em> +8 to hit, reach 15 ft., one target. <em>Hit:</em> 27 (5d8 + 5) bludgeoning damage. If the target is a creature, it must succeed on a DC 16 Strength saving throw or be knocked prone.</p>",
     "img url": "https://www.5etools.com/img/MM/Brontosaurus.png"
   },
@@ -19836,8 +19836,8 @@ const monsters = [
     challenge: "11 (7,200 XP)",
     traits: "<p><em><strong>Angelic Weapons.</strong></em> The angel's weapon attacks are magical. When the angel hits with any weapon, the weapon deals an extra 4d8 radiant damage (included in the attack).</p><p><em><strong>Divine Awareness.</strong></em> The angel knows if it hears a lie.</p><p><em><strong>Healing Touch (3/Day).</strong></em> The angel can touch another creature. The target magically regains 20 (4d8 + 2) hit points and is freed from any curse, disease, poison, blindness, or deafness.</p><p><em><strong>Magic Resistance.</strong></em> The angel has advantage on saving throws against spells and other magical effects.</p>",
     "number of attacks": 2,
-    attacks: [
-      {
+    attacks: {
+      "Greatsword": {
         type: "Melee Weapon Attack",
         "to hit": "+9",
         "reach": "5 ft.",
@@ -19845,7 +19845,7 @@ const monsters = [
         "hit": "13 (2d6 + 6) slashing damage plus 18 (4d8) radiant damage",
         "damage type": "slashing, radiant"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> The angel makes two greatsword attacks.</p><p><em><strong>Greatsword.</strong></em> <em>Melee Weapon Attack:</em> +9 to hit, reach 5 ft., one target. <em>Hit:</em> 13 (2d6 + 6) slashing damage plus 18 (4d8) radiant damage.</p><p><em><strong>Healing Flare (Recharge 5-6).</strong></em> The angel emits a burst of divine energy. Each creature of its choice within 30 feet of it regains 10 (3d6) hit points and is cleansed of one disease or one of the following conditions: blinded, deafened, paralyzed, or poisoned.</p>",
     "img url": "https://www.5etools.com/img/MM/Battleforce_Angel.png"
   },
@@ -19875,8 +19875,8 @@ const monsters = [
     challenge: "22 (41,000 XP)",
     traits: "<p><em><strong>Fiery Weapons.</strong></em> Belial's weapon attacks are magical. When Belial hits with any weapon, the weapon deals an extra 5d8 fire damage (included in the attack).</p><p><em><strong>Innate Spellcasting.</strong></em> Belial's innate spellcasting ability is Charisma (spell save DC 23). He can innately cast the following spells, requiring no material components:</p><ul><li>At will: <em>dispel magic, fireball, wall of fire</em></li><li>3/day each: <em>dominate monster, symbol</em></li><li>1/day each: <em>gate, imprisonment</em></li></ul><p><em><strong>Legendary Resistance (3/Day).</strong></em> If Belial fails a saving throw, he can choose to succeed instead.</p><p><em><strong>Magic Resistance.</strong></em> Belial has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Lord of Lies.</strong></em> Belial has advantage on Charisma (Deception) checks. Any creature that hears Belial speak a lie automatically knows it is a lie unless Belial makes a successful Charisma (Deception) check against the creature's passive Insight.</p>",
     "number of attacks": 3, 
-    attacks: [
-      {
+    attacks: {
+      "Spear": {
         type: "Melee Weapon Attack",
         "to hit": "+14",
         "reach": "10 ft.",
@@ -19884,7 +19884,7 @@ const monsters = [
         "hit": "17 (2d8 + 8) piercing damage plus 22 (5d8) fire damage",
         "damage type": "piercing, fire"
       }
-    ],
+},
     actions: "<p><em><strong>Multiattack.</strong></em> Belial makes three attacks: two with his spear and one with his tail.</p><p><em><strong>Spear.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 10 ft., one target. <em>Hit:</em> 17 (2d8 + 8) piercing damage plus 22 (5d8) fire damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 15 ft., one target. <em>Hit:</em> 19 (2d10 + 8) bludgeoning damage plus 22 (5d8) fire damage. If the target is a creature, it must succeed on a DC 22 Strength saving throw or be knocked prone.</p><p><em><strong>Infernal Glare (Recharge 5-6).</strong></em> Belial casts an infernal glare at one creature he can see within 60 feet of him. The target must make a DC 23 Wisdom saving throw, taking 45 (10d8) psychic damage on a failed save, or half as much damage on a successful one.</p>",
     "legendary actions": "<p>Belial can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. Belial regains spent legendary actions at the start of his turn.</p><p><em><strong>Attack.</strong></em> Belial makes one spear attack.</p><p><em><strong>Move.</strong></em> Belial moves up to his speed.</p><p><em><strong>Frightful Presence (Costs 2 Actions).</strong></em> Each creature of Belial's choice that is within 120 feet of Belial and aware of him must succeed on a DC 23 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to Belial's Frightful Presence for the next 24 hours.</p><p><em><strong>Hellfire (Costs 3 Actions).</strong></em> Belial casts <em>fireball</em> or <em>wall of fire</em> without expending a spell slot.</p>",
     "img url": "https://www.5etools.com/img/MM/Belial.png"
@@ -19914,8 +19914,8 @@ const monsters = [
     challenge: "6 (2,300 XP)",
     traits: "<p><em><strong>Aura of Annihilation.</strong></em> When a creature starts its turn within 30 feet of the bodak and can see it, it must make a DC 13 Constitution saving throw. On a failed save, the creature takes 7 (2d6) necrotic damage. This effect does not harm other bodaks.</p><p><em><strong>Death Gaze.</strong></em> When a creature that can see the bodak's eyes starts its turn within 30 feet of it, the bodak can force it to make a DC 13 Wisdom saving throw if the bodak isn't incapacitated and can see the creature. On a failed save, the creature is paralyzed for 1 minute. The paralyzed creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. Unless surprised, a creature can avert its eyes to avoid the saving throw at the start of its turn. If the creature does so, it can't see the bodak until the start of its next turn, when it can avert its eyes again. If the creature looks at the bodak in the meantime, it must immediately make the saving throw.</p><p><em><strong>Sunlight Sensitivity.</strong></em> While in sunlight, the bodak has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight.</p>",
     "number of attacks": 1,
-    attacks: [
-      {
+    attacks: {
+      "Fist": {
         type: "Melee Weapon Attack",
         "to hit": "+5",
         "reach": "5 ft.",
@@ -19923,7 +19923,7 @@ const monsters = [
         "hit": "6 (1d6 + 3)",
         "damage type": "bludgeoning"
       }
-    ],
+},
     actions: "<p><em><strong>Fist.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft., one target. <em>Hit:</em> 6 (1d6 + 3) bludgeoning damage plus 4 (1d8) necrotic damage.</p>",
     "img url": "https://www.5etools.com/img/MM/Bodak.png"
   },
@@ -19952,8 +19952,8 @@ const monsters = [
     "challenge": "10 (5,900 XP)",
     "traits": "<p><em><strong>Amphibious.</strong></em> The dragon can breathe air and water.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p><p><em><strong>Spellcasting.</strong></em> The dragon is a 10th-level spellcaster. Its spellcasting ability is Charisma (spell save DC 16, +8 to hit with spell attacks). It has the following paladin spells prepared:</p><ul><li>1st level (4 slots): <em>compelled duel, thunderous smite</em></li><li>2nd level (3 slots): <em>hold person, warding bond</em></li><li>3rd level (3 slots): <em>blinding smite, dispel magic</em></li><li>4th level (1 slot): <em>banishment</em></li></ul><p><em><strong>Telepathic Bond.</strong></em> While the dragon is on the Material Plane, it can communicate telepathically with any creature on the same plane within 1 mile of it. The creature must have an Intelligence score of at least 3.</p>",
     "number of attacks": 2,
-    attacks: [
-      {
+    attacks: {
+      "Bite": {
         "type": "Melee Weapon Attack",
         "to hit": "+9",
         "reach": "10 ft.",
@@ -19961,7 +19961,7 @@ const monsters = [
         "hit": "16 (2d10 + 5)",
         "damage type": "piercing"
       },
-      {
+      "Claws": {
         "type": "Melee Weapon Attack",
         "to hit": "+9",
         "reach": "5 ft.",
@@ -19969,7 +19969,7 @@ const monsters = [
         "hit": "12 (2d6 + 5)",
         "damage type": "slashing"
       },
-      {
+      "Radiant Breath": {
         "type": "Breath Weapon",
         "recharge": "5-6",
         "range": "60-foot cone",
@@ -19977,7 +19977,7 @@ const monsters = [
         "hit": "49 (11d8) radiant damage",
         "damage type": "radiant"
       }
-    ],
+},
     "actions": "<p><em><strong>Multiattack.</strong></em> The dragon makes two attacks: one with its bite and one with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +9 to hit, reach 10 ft., one target. <em>Hit:</em> 16 (2d10 + 5) piercing damage.</p><p><em><strong>Claws.</strong></em> <em>Melee Weapon Attack:</em> +9 to hit, reach 5 ft., one target. <em>Hit:</em> 12 (2d6 + 5) slashing damage.</p><p><em><strong>Radiant Breath (Recharge 5–6).</strong></em> The dragon exhales radiant energy in a 60-foot cone. Each creature in that area must make a DC 18 Dexterity saving throw, taking 49 (11d8) radiant damage on a failed save, or half as much damage on a successful one.</p>",
     "legendary actions": "<p>The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn.</p><p><em><strong>Detect.</strong></em> The dragon makes a Wisdom (Perception) check.</p><p><em><strong>Tail Attack.</strong></em> The dragon makes one tail attack.</p><p><em><strong>Wing Attack (Costs 2 Actions).</strong></em> The dragon beats its wings. Each creature within 10 feet of the dragon must succeed on a DC 18 Dexterity saving throw or take 12 (2d6 + 5) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.</p>"
   },
@@ -20006,8 +20006,8 @@ const monsters = [
     "challenge": "13 (10,000 XP)",
     "traits": "<p><em><strong>Amphibious.</strong></em> The dragon can breathe air and water.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p><p><em><strong>Moonlight Antler.</strong></em> The dragon's antlers shed bright moonlight in a 15-foot radius and dim moonlight for an additional 15 feet. This moonlight is sunlight for the purpose of effects that are harmed by sunlight.</p><p><em><strong>Innate Spellcasting.</strong></em> The dragon's innate spellcasting ability is Charisma (spell save DC 19). It can innately cast the following spells, requiring no material components:</p><ul><li>At will: <em>color spray, dancing lights, faerie fire</em></li><li>3/day each: <em>hypnotic pattern, moonbeam</em></li><li>1/day each: <em>dream, seeming</em></li></ul>",
     "number of attacks": 2,
-    attacks: [
-      {
+    attacks: {
+      "Bite": {
         "type": "Melee Weapon Attack",
         "to hit": "+12",
         "reach": "15 ft.",
@@ -20015,7 +20015,7 @@ const monsters = [
         "hit": "18 (2d10 + 7)",
         "damage type": "piercing"
       },
-      {
+      "Claw": {
         "type": "Melee Weapon Attack",
         "to hit": "+12",
         "reach": "10 ft.",
@@ -20023,7 +20023,7 @@ const monsters = [
         "hit": "14 (2d6 + 7)",
         "damage type": "slashing"
       },
-      {
+      "Sleep Breath": {
         "type": "Breath Weapon",
         "recharge": "5-6",
         "range": "60-foot cone",
@@ -20031,7 +20031,7 @@ const monsters = [
         "hit": "55 (10d10) psychic damage",
         "damage type": "psychic"
       }
-    ],
+},
     "actions": "<p><em><strong>Multiattack.</strong></em> The dragon makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +12 to hit, reach 15 ft., one target. <em>Hit:</em> 18 (2d10 + 7) piercing damage plus 11 (2d10) psychic damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +12 to hit, reach 10 ft., one target. <em>Hit:</em> 14 (2d6 + 7) slashing damage.</p><p><em><strong>Sleep Breath (Recharge 5–6).</strong></em> The dragon exhales shimmering mist in a 60-foot cone. Each creature in that area must succeed on a DC 19 Constitution saving throw or fall unconscious for 10 minutes. This effect ends for a creature if it takes damage or if another creature uses an action to wake it.</p>",
     "legendary actions": "<p>The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn.</p><p><em><strong>Detect.</strong></em> The dragon makes a Wisdom (Perception) check.</p><p><em><strong>Tail Attack.</strong></em> <em>Melee Weapon Attack:</em> +12 to hit, reach 15 ft., one target. <em>Hit:</em> 16 (2d8 + 7) bludgeoning damage.</p><p><em><strong>Wing Attack (Costs 2 Actions).</strong></em> The dragon beats its wings. Each creature within 15 feet of the dragon must succeed on a DC 20 Dexterity saving throw or take 14 (2d6 + 7) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.</p>",
     "lair actions": "<p>On initiative count 20 (losing initiative ties), the dragon can take a lair action to cause one of the following effects; the dragon can't use the same effect two rounds in a row:</p><p><strong>Moonlight Burst.</strong> The dragon causes a burst of moonlight at a point it can see within 120 feet of it. Each creature in a 20-foot-radius sphere centered on that point must make a DC 15 Constitution saving throw, taking 10 (3d6) radiant damage on a failed save, or half as much damage on a successful one. Creatures that fail the saving throw are also blinded until the end of their next turn.</p><p><strong>Whispering Winds.</strong> Gusts of wind sweep through the lair, causing disorienting whispers. Each creature of the dragon's choice within the lair must succeed on a DC 15 Wisdom saving throw or have disadvantage on the next attack roll it makes before the end of its next turn.</p><p><strong>Faerie Ring.</strong> A shimmering circle of light appears on the ground within 60 feet of the dragon. The circle is 10 feet in diameter and lasts until initiative count 20 on the next round. Any creature that starts its turn in the circle has its movement reduced to 0 until the end of its turn.</p>",
@@ -20063,8 +20063,8 @@ const monsters = [
     "challenge": "17 (18,000 XP)",
     "traits": "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dracolich fails a saving throw, it can choose to succeed instead.</p><p><em><strong>Rejuvenation.</strong></em> If the dracolich is destroyed, it regains all its hit points in 1d10 days unless its phylactery is also destroyed. The dracolich's phylactery is typically a gemstone or other valuable object.</p><p><em><strong>Turn Resistance.</strong></em> The dracolich has advantage on saving throws against any effect that turns undead.</p><p><em><strong>Undead Nature.</strong></em> The dracolich doesn't require air, food, drink, or sleep.</p>",
     "number of attacks": 3,
-    attacks: [
-      {
+    attacks: {
+      "Bite": {
         "type": "Melee Weapon Attack",
         "to hit": "+14",
         "reach": "15 ft.",
@@ -20072,7 +20072,7 @@ const monsters = [
         "hit": "19 (2d10 + 8)",
         "damage type": "piercing"
       },
-      {
+      "Claw": {
         "type": "Melee Weapon Attack",
         "to hit": "+14",
         "reach": "10 ft.",
@@ -20080,7 +20080,7 @@ const monsters = [
         "hit": "15 (2d6 + 8)",
         "damage type": "slashing"
       },
-      {
+      "Fire Breath": {
         "type": "Breath Weapon",
         "recharge": "5-6",
         "range": "60-foot cone",
@@ -20088,7 +20088,7 @@ const monsters = [
         "hit": "63 (18d6) fire damage",
         "damage type": "fire"
       }
-    ],
+},
     "actions": "<p><em><strong>Multiattack.</strong></em> The dracolich makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 15 ft., one target. <em>Hit:</em> 19 (2d10 + 8) piercing damage plus 14 (4d6) necrotic damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 10 ft., one target. <em>Hit:</em> 15 (2d6 + 8) slashing damage.</p><p><em><strong>Fire Breath (Recharge 5–6).</strong></em> The dracolich exhales fire in a 60-foot cone. Each creature in that area must make a DC 21 Dexterity saving throw, taking 63 (18d6) fire damage on a failed save, or half as much damage on a successful one.</p>",
     "legendary actions": "<p>The dracolich can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dracolich regains spent legendary actions at the start of its turn.</p><p><em><strong>Detect.</strong></em> The dracolich makes a Wisdom (Perception) check.</p><p><em><strong>Tail Attack.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 15 ft., one target. <em>Hit:</em> 17 (2d8 + 8) bludgeoning damage.</p><p><em><strong>Wing Attack (Costs 2 Actions).</strong></em> The dracolich beats its tattered wings. Each creature within 15 feet of the dracolich must succeed on a DC 22 Dexterity saving throw or take 15 (2d6 + 8) bludgeoning damage and be knocked prone. The dracolich can then fly up to half its flying speed.</p>",
     "lair actions": "<p>On initiative count 20 (losing initiative ties), the dracolich can take a lair action to cause one of the following effects; the dracolich can't use the same effect two rounds in a row:</p><p><strong>Foul Cloud.</strong> A cloud of reeking gas fills a 20-foot-radius sphere centered on a point the dracolich can see within 120 feet of it. The cloud spreads around corners, and its area is heavily obscured. Each creature that starts its turn in the cloud must succeed on a DC 15 Constitution saving throw or be poisoned until the start of its next turn. A creature can move through the cloud without being affected. The cloud disperses at initiative count 20 on the next round.</p><p><strong>Grasping Claws.</strong> Skeletal claws erupt from the ground in a 20-foot square within 120 feet of the dracolich. Any creature in that area must succeed on a DC 15 Dexterity saving throw or be restrained. A creature can be freed by a successful DC 15 Strength check as an action. The claws recede into the ground on initiative count 20 on the next round.</p><p><strong>Necrotic Burst.</strong> The dracolich causes a burst of necrotic energy at a point it can see within 120 feet of it. Each creature in a 10-foot-radius sphere centered on that point must make a DC 15 Constitution saving throw, taking 10 (3d6) necrotic damage on a failed save, or half as much damage on a successful one.</p>",
@@ -20119,8 +20119,8 @@ const monsters = [
     "challenge": "16 (15,000 XP)",
     "traits": "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p><p><em><strong>Tunneler.</strong></em> The dragon can burrow through solid rock at half its burrowing speed and leaves a 10-foot-diameter tunnel in its wake.</p>",
     "number of attacks": 3,
-    attacks: [
-      {
+    attacks: {
+      "Bite": {
         "type": "Melee Weapon Attack",
         "to hit": "+12",
         "reach": "15 ft.",
@@ -20128,7 +20128,7 @@ const monsters = [
         "hit": "18 (2d10 + 7)",
         "damage type": "piercing"
       },
-      {
+      "Claw": {
         "type": "Melee Weapon Attack",
         "to hit": "+12",
         "reach": "10 ft.",
@@ -20136,7 +20136,7 @@ const monsters = [
         "hit": "14 (2d6 + 7)",
         "damage type": "slashing"
       },
-      {
+      "Force Breath": {
         "type": "Breath Weapon",
         "recharge": "5-6",
         "range": "60-foot cone",
@@ -20144,7 +20144,7 @@ const monsters = [
         "hit": "55 (10d10) force damage",
         "damage type": "force"
       }
-    ],
+},
     "actions": "<p><em><strong>Multiattack.</strong></em> The dragon makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +12 to hit, reach 15 ft., one target. <em>Hit:</em> 18 (2d10 + 7) piercing damage plus 11 (2d10) force damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +12 to hit, reach 10 ft., one target. <em>Hit:</em> 14 (2d6 + 7) slashing damage.</p><p><em><strong>Sonic Breath (Recharge 5–6).</strong></em> The dragon exhales a blast of sonic energy in a 60-foot cone. Each creature in that area must make a DC 19 Constitution saving throw, taking 55 (10d10) force damage on a failed save, or half as much damage on a successful one.</p>",
     "legendary actions": "<p>The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn.</p><p><em><strong>Detect.</strong></em> The dragon makes a Wisdom (Perception) check.</p><p><em><strong>Tail Attack.</strong></em> <em>Melee Weapon Attack:</em> +12 to hit, reach 15 ft., one target. <em>Hit:</em> 16 (2d8 + 7) bludgeoning damage.</p><p><em><strong>Wing Attack (Costs 2 Actions).</strong></em> The dragon beats its wings. Each creature within 15 feet of the dragon must succeed on a DC 20 Dexterity saving throw or take 14 (2d6 + 7) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.</p>",
     "lair actions": "<p>On initiative count 20 (losing initiative ties), the dragon can take a lair action to cause one of the following effects; the dragon can't use the same effect two rounds in a row:</p><p><strong>Earthen Grasp.</strong> The ground within a 20-foot radius centered on a point the dragon can see within 120 feet of it becomes difficult terrain until initiative count 20 on the next round. Any creature that starts its turn in the area must succeed on a DC 15 Strength saving throw or be restrained. A creature can be freed by a successful DC 15 Strength check as an action.</p><p><strong>Sonic Resonance.</strong> The dragon causes the air within a 20-foot radius centered on a point it can see within 120 feet of it to vibrate intensely. Each creature in that area must make a DC 15 Constitution saving throw, taking 7 (2d6) force damage on a failed save, or half as much damage on a successful one.</p><p><strong>Stalagmites.</strong> Up to three stalagmites erupt from the floor in separate, unoccupied 5-foot squares within 60 feet of the dragon. Each stalagmite is 10 feet tall and provides half cover. A creature that is in a square where a stalagmite appears must succeed on a DC 15 Dexterity saving throw or take 10 (3d6) piercing damage and be pushed to an unoccupied space within 5 feet of the stalagmite. The stalagmites remain until the dragon uses this lair action again or until they are destroyed. A stalagmite has AC 15, 30 hit points, and is immune to poison and psychic damage.</p>",
@@ -20175,8 +20175,8 @@ const monsters = [
     "challenge": "18 (20,000 XP)",
     "traits": "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p><p><em><strong>Illumination.</strong></em> The dragon sheds bright light in a 60-foot radius and dim light for an additional 60 feet.</p><p><em><strong>Radiant Consumption.</strong></em> When the dragon is hit by an attack, it sheds bright light in a 20-foot radius and dim light for an additional 20 feet until the end of its next turn. Any creature that starts its turn within the bright light takes 7 (2d6) radiant damage.</p>",
     "number of attacks": 3,
-    attacks: [
-      {
+    attacks: {
+      "Bite": {
         "type": "Melee Weapon Attack",
         "to hit": "+14",
         "reach": "15 ft.",
@@ -20184,7 +20184,7 @@ const monsters = [
         "hit": "19 (2d10 + 8)",
         "damage type": "piercing"
       },
-      {
+      "Claw": {
         "type": "Melee Weapon Attack",
         "to hit": "+14",
         "reach": "10 ft.",
@@ -20192,7 +20192,7 @@ const monsters = [
         "hit": "15 (2d6 + 8)",
         "damage type": "slashing"
       },
-      {
+      "Radiant Breath": {
         "type": "Breath Weapon",
         "recharge": "5-6",
         "range": "90-foot cone",
@@ -20200,7 +20200,7 @@ const monsters = [
         "hit": "63 (18d6) radiant damage",
         "damage type": "radiant"
       }
-    ],
+},
     "actions": "<p><em><strong>Multiattack.</strong></em> The dragon makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 15 ft., one target. <em>Hit:</em> 19 (2d10 + 8) piercing damage plus 7 (2d6) radiant damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 10 ft., one target. <em>Hit:</em> 15 (2d6 + 8) slashing damage.</p><p><em><strong>Radiant Breath (Recharge 5–6).</strong></em> The dragon exhales radiant energy in a 90-foot cone. Each creature in that area must make a DC 21 Dexterity saving throw, taking 63 (18d6) radiant damage on a failed save, or half as much damage on a successful one.</p>",
     "legendary actions": "<p>The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn.</p><p><em><strong>Detect.</strong></em> The dragon makes a Wisdom (Perception) check.</p><p><em><strong>Tail Attack.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 15 ft., one target. <em>Hit:</em> 17 (2d8 + 8) bludgeoning damage.</p><p><em><strong>Wing Attack (Costs 2 Actions).</strong></em> The dragon beats its wings. Each creature within 15 feet of the dragon must succeed on a DC 22 Dexterity saving throw or take 15 (2d6 + 8) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.</p>",
     "lair actions": "<p>On initiative count 20 (losing initiative ties), the dragon can take a lair action to cause one of the following effects; the dragon can't use the same effect two rounds in a row:</p><p><strong>Blinding Flash.</strong> The dragon creates a blinding flash of light at a point it can see within 120 feet of it. Each creature in a 10-foot-radius sphere centered on that point must make a DC 15 Constitution saving throw or be blinded until the end of its next turn.</p><p><strong>Solar Ray.</strong> A searing beam of light shoots from a point the dragon can see within 120 feet of it in a 5-foot-wide, 60-foot-long line. Each creature in the line must make a DC 15 Dexterity saving throw, taking 14 (4d6) radiant damage on a failed save, or half as much damage on a successful one.</p><p><strong>Heat Shimmer.</strong> The air in a 20-foot-radius sphere centered on a point the dragon can see within 120 feet of it becomes a shimmering heat haze. The area is lightly obscured until initiative count 20 on the next round. Any creature that starts its turn in the area takes 7 (2d6) fire damage.</p>",
@@ -20231,8 +20231,8 @@ const monsters = [
     "challenge": "17 (18,000 XP)",
     "traits": "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p><p><em><strong>Time Sense.</strong></em> The dragon can perfectly recall any past event it has seen or heard within the last 100 years. It also knows the exact time to the second, wherever it is.</p>",
     "number of attacks": 3,
-    attacks: [
-      {
+    attacks: {
+      "Bite": {
         "type": "Melee Weapon Attack",
         "to hit": "+13",
         "reach": "15 ft.",
@@ -20240,7 +20240,7 @@ const monsters = [
         "hit": "19 (2d10 + 8)",
         "damage type": "piercing"
       },
-      {
+      "Claw": {
         "type": "Melee Weapon Attack",
         "to hit": "+13",
         "reach": "10 ft.",
@@ -20248,7 +20248,7 @@ const monsters = [
         "hit": "15 (2d6 + 8)",
         "damage type": "slashing"
       },
-      {
+      "Temporal Breath": {
         "type": "Breath Weapon",
         "recharge": "5-6",
         "range": "60-foot cone",
@@ -20256,7 +20256,7 @@ const monsters = [
         "hit": "55 (10d10) force damage",
         "damage type": "force"
       }
-    ],
+},
     "actions": "<p><em><strong>Multiattack.</strong></em> The dragon makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +13 to hit, reach 15 ft., one target. <em>Hit:</em> 19 (2d10 + 8) piercing damage plus 11 (2d10) force damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +13 to hit, reach 10 ft., one target. <em>Hit:</em> 15 (2d6 + 8) slashing damage.</p><p><em><strong>Temporal Breath (Recharge 5–6).</strong></em> The dragon exhales a blast of temporal energy in a 60-foot cone. Each creature in that area must make a DC 20 Wisdom saving throw. On a failed save, a creature takes 55 (10d10) force damage and is slowed until the end of its next turn. On a successful save, a creature takes half as much damage and is not slowed.</p>",
     "legendary actions": "<p>The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn.</p><p><em><strong>Detect.</strong></em> The dragon makes a Wisdom (Perception) check.</p><p><em><strong>Tail Attack.</strong></em> <em>Melee Weapon Attack:</em> +13 to hit, reach 15 ft., one target. <em>Hit:</em> 17 (2d8 + 8) bludgeoning damage.</p><p><em><strong>Temporal Shift (Costs 2 Actions).</strong></em> The dragon momentarily shifts through time. Until the end of its next turn, it has advantage on Dexterity (Stealth) checks and attack rolls against it have disadvantage.</p>",
     "lair actions": "<p>On initiative count 20 (losing initiative ties), the dragon can take a lair action to cause one of the following effects; the dragon can't use the same effect two rounds in a row:</p><p><strong>Time Warp.</strong> The dragon chooses a creature it can see within 120 feet of it. The target must succeed on a DC 15 Wisdom saving throw or its speed is halved until the end of its next turn.</p><p><strong>Temporal Acceleration.</strong> The dragon chooses itself or one creature it can see within 120 feet of it. The target can take one additional action on its next turn.</p><p><strong>Rewind.</strong> The dragon chooses one attack roll or saving throw made within the last round. The roll is re-rolled, and the dragon chooses which roll to use.</p>",
@@ -20288,8 +20288,8 @@ const monsters = [
     "challenge": "20 (25,000 XP)",
     "traits": "<p><em><strong>Amphibious.</strong></em> The dragon turtle can breathe air and water.</p>",
     "number of attacks": 3,
-    attacks: [
-      {
+    attacks: {
+      "Bite": {
         "type": "Melee Weapon Attack",
         "to hit": "+16",
         "reach": "20 ft.",
@@ -20297,7 +20297,7 @@ const monsters = [
         "hit": "26 (3d10 + 10)",
         "damage type": "piercing"
       },
-      {
+      "Claw": {
         "type": "Melee Weapon Attack",
         "to hit": "+16",
         "reach": "15 ft.",
@@ -20305,7 +20305,7 @@ const monsters = [
         "hit": "23 (3d8 + 10)",
         "damage type": "bludgeoning"
       },
-      {
+      "Steam Breath": {
         "type": "Breath Weapon",
         "recharge": "5-6",
         "range": "60-foot cone",
@@ -20313,7 +20313,7 @@ const monsters = [
         "hit": "77 (22d6) fire damage",
         "damage type": "fire"
       }
-    ],
+},
     "actions": "<p><em><strong>Multiattack.</strong></em> The dragon turtle makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 20 ft., one target. <em>Hit:</em> 26 (3d10 + 10) piercing damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 15 ft., one target. <em>Hit:</em> 23 (3d8 + 10) bludgeoning damage.</p><p><em><strong>Steam Breath (Recharge 5–6).</strong></em> The dragon turtle exhales superheated steam in a 60-foot cone. Each creature in that area must make a DC 20 Constitution saving throw, taking 77 (22d6) fire damage on a failed save, or half as much damage on a successful one. Being underwater doesn't grant resistance against this damage.</p>",
     "legendary actions": "<p>The dragon turtle can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon turtle regains spent legendary actions at the start of its turn.</p><p><em><strong>Detect.</strong></em> The dragon turtle makes a Wisdom (Perception) check.</p><p><em><strong>Tail Attack.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 20 ft., one target. <em>Hit:</em> 28 (3d10 + 10) bludgeoning damage. If the target is a creature, it must succeed on a DC 20 Strength saving throw or be pushed up to 15 feet away from the dragon turtle and knocked prone.</p><p><em><strong>Steam Cloud (Costs 2 Actions).</strong></em> The dragon turtle releases a cloud of scalding steam in a 15-foot radius centered on itself. The cloud spreads around corners, and its area is heavily obscured. Each creature that starts its turn in the cloud takes 10 (3d6) fire damage. The cloud lasts until initiative count 20 on the next round.</p>",
     "lair actions": "<p>On initiative count 20 (losing initiative ties), the dragon turtle can take a lair action to cause one of the following effects; the dragon turtle can't use the same effect two rounds in a row:</p><p><strong>Geyser.</strong> A geyser erupts from a point on the floor or ceiling within 120 feet of the dragon turtle. Each creature in a 10-foot-radius, 30-foot-high cylinder centered on that point must make a DC 15 Dexterity saving throw, taking 14 (4d6) bludgeoning damage on a failed save, or half as much damage on a successful one. Creatures that fail the saving throw are also pushed up to 20 feet away from the geyser's origin.</p><p><strong>Strong Current.</strong> A strong current sweeps through the lair. Each creature of the dragon turtle's choice within 60 feet of it must succeed on a DC 15 Strength saving throw or be pushed up to 30 feet in a direction away from the dragon turtle.</p><p><strong>Scalding Mist.</strong> A cloud of scalding mist fills a 20-foot-radius sphere centered on a point the dragon turtle can see within 120 feet of it. The cloud spreads around corners, and its area is heavily obscured. Each creature that starts its turn in the cloud takes 7 (2d6) fire damage. The cloud lasts until initiative count 20 on the next round.</p>",
@@ -20344,8 +20344,8 @@ const monsters = [
     "challenge": "21 (33,000 XP)",
     "traits": "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p><p><em><strong>Tunneler.</strong></em> The dragon can burrow through solid rock at half its burrowing speed and leaves a 10-foot-diameter tunnel in its wake.</p>",
     "number of attacks": 3,
-    attacks: [
-      {
+    attacks: {
+      "Bite": {
         "type": "Melee Weapon Attack",
         "to hit": "+16",
         "reach": "20 ft.",
@@ -20353,7 +20353,7 @@ const monsters = [
         "hit": "26 (3d10 + 10)",
         "damage type": "piercing"
       },
-      {
+      "Claw": {
         "type": "Melee Weapon Attack",
         "to hit": "+16",
         "reach": "15 ft.",
@@ -20361,7 +20361,7 @@ const monsters = [
         "hit": "23 (3d8 + 10)",
         "damage type": "slashing"
       },
-      {
+      "Emerald Breath": {
         "type": "Breath Weapon",
         "recharge": "5-6",
         "range": "90-foot cone",
@@ -20369,7 +20369,7 @@ const monsters = [
         "hit": "77 (22d6) psychic damage",
         "damage type": "psychic"
       }
-    ],
+},
     "actions": "<p><em><strong>Multiattack.</strong></em> The dragon makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 20 ft., one target. <em>Hit:</em> 26 (3d10 + 10) piercing damage plus 13 (2d12) psychic damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 15 ft., one target. <em>Hit:</em> 23 (3d8 + 10) slashing damage.</p><p><em><strong>Emerald Breath (Recharge 5–6).</strong></em> The dragon exhales a wave of psychic energy in a 90-foot cone. Each creature in that area must make a DC 25 Intelligence saving throw, taking 77 (22d6) psychic damage on a failed save, or half as much damage on a successful one.</p>",
     "legendary actions": "<p>The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn.</p><p><em><strong>Detect.</strong></em> The dragon makes a Wisdom (Perception) check.</p><p><em><strong>Tail Attack.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 20 ft., one target. <em>Hit:</em> 28 (3d10 + 10) bludgeoning damage. If the target is a creature, it must succeed on a DC 24 Strength saving throw or be knocked prone.</p><p><em><strong>Telekinetic Burst (Costs 2 Actions).</strong></em> The dragon creates a burst of telekinetic energy at a point it can see within 120 feet of it. Each creature in a 20-foot-radius sphere centered on that point must make a DC 21 Strength saving throw. On a failed save, a creature takes 13 (2d12) force damage and is pushed up to 20 feet away from the center of the sphere. On a successful save, a creature takes half as much damage and isn't pushed.</p>",
     "lair actions": "<p>On initiative count 20 (losing initiative ties), the dragon can take a lair action to cause one of the following effects; the dragon can't use the same effect two rounds in a row:</p><p><strong>Psychic Feedback.</strong> The dragon emits a pulse of psychic energy. Each creature of the dragon's choice within 60 feet of it must succeed on a DC 15 Wisdom saving throw or take 10 (3d6) psychic damage.</p><p><strong>Earthen Grasp.</strong> Stone hands erupt from the ground in a 20-foot square within 120 feet of the dragon. Any creature in that area must succeed on a DC 15 Strength saving throw or be restrained. A creature can be freed by a successful DC 15 Strength check as an action. The hands recede into the ground on initiative count 20 on the next round.</p><p><strong>Disorienting Echo.</strong> The dragon creates a disorienting echo of sounds and whispers. Each creature of the dragon's choice within the lair must succeed on a DC 15 Wisdom saving throw or have disadvantage on the next attack roll it makes before the end of its next turn.</p>",
@@ -20398,8 +20398,8 @@ const monsters = [
     "challenge": "2 (450 XP)",
     "traits": "<p><em><strong>Spellcasting.</strong></em> The bard is a 4th-level spellcaster. Its spellcasting ability is Charisma (spell save DC 13, +5 to hit with spell attacks). It has the following bard spells prepared:</p><ul><li>Cantrips (at will): <em>light, prestidigitation, vicious mockery</em></li><li>1st level (4 slots): <em>charm person, healing word, heroism, sleep</em></li><li>2nd level (3 slots): <em>hold person, invisibility, thunderwave</em></li></ul><p><em><strong>Song of Rest.</strong></em> The bard's performance can help revitalize allies during a short rest. Any ally who regains hit points by spending one or more Hit Dice during a short rest regains an extra 1d6 hit points.</p><p><em><strong>Taunt.</strong></em> As a bonus action, the bard can target one creature it can see within 30 feet of it. If the target can hear the bard, it must succeed on a DC 13 Charisma saving throw or have disadvantage on attack rolls until the start of the bard's next turn.</p>",
     "number of attacks": 1,
-    attacks: [
-      {
+    attacks: {
+      "Shortsword": {
         "type": "Melee Weapon Attack",
         "to hit": "+4",
         "reach": "5 ft.",
@@ -20407,7 +20407,7 @@ const monsters = [
         "hit": "5 (1d6 + 2)",
         "damage type": "piercing"
       }
-    ],
+},
     "actions": "<p><em><strong>Shortsword.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft., one target. <em>Hit:</em> 5 (1d6 + 2) piercing damage.</p>",
     "bonus actions": "<p><em><strong>Taunt.</strong></em> As a bonus action, the bard can target one creature it can see within 30 feet of it. If the target can hear the bard, it must succeed on a DC 13 Charisma saving throw or have disadvantage on attack rolls until the start of the bard's next turn.</p>"
   },
@@ -20437,8 +20437,8 @@ const monsters = [
     "challenge": "5 (1,800 XP)",
     "traits": "<p><em><strong>Controlled Fury.</strong></em> As a bonus action, the barlgura can make one melee weapon attack.</p><p><em><strong>Standing Leap.</strong></em> The barlgura's long jump is up to 40 feet and its high jump is up to 20 feet, with or without a running start.</p><p><em><strong>Innate Spellcasting.</strong></em> The barlgura's innate spellcasting ability is Wisdom (spell save DC 12). It can innately cast the following spells, requiring no material components:</p><ul><li>1/day each: <em>entangle, self-inflicted wounds, pass without trace</em></li></ul>",
     "number of attacks": 2,
-    attacks: [
-      {
+    attacks: {
+      "Bite": {
         "type": "Melee Weapon Attack",
         "to hit": "+7",
         "reach": "5 ft.",
@@ -20446,7 +20446,7 @@ const monsters = [
         "hit": "10 (1d10 + 5)",
         "damage type": "bludgeoning"
       }
-    ],
+},
     "actions": "<p><em><strong>Multiattack.</strong></em> The barlgura makes two attacks: one with its bite and one with its fists.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft., one target. <em>Hit:</em> 9 (1d10 + 4) piercing damage.</p><p><em><strong>Fist.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft., one target. <em>Hit:</em> 10 (1d12 + 4) bludgeoning damage.</p>",
     "bonus actions": "<p><em><strong>Controlled Fury.</strong></em> As a bonus action, the barlgura can make one melee weapon attack.</p>"
   },
@@ -20473,8 +20473,8 @@ const monsters = [
  "challenge": "19 (22,000 XP)",
  "traits": "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead. </p><p><em><strong>Tunneler.</strong></em> The dragon can burrow through solid rock at half its burrowing speed and leaves a 20-foot-diameter tunnel in its wake. </p><p><em><strong>Unusual Nature.</strong></em> The dragon doesn't require air. </p>",
  "number of attacks": 3,
- attacks: [
-  {
+ attacks: {
+  "Bite": {
    "type": "Melee Weapon Attack",
    "to hit": "+14",
    "reach": "15 ft.",
@@ -20482,7 +20482,7 @@ const monsters = [
    "hit": "15 (2d6 + 8) piercing damage plus 7 (2d6) cold damage",
    "damage type": "piercing, cold"
   },
-  {
+  "Claw": {
    "type": "Melee Weapon Attack",
    "to hit": "+14",
    "reach": "10 ft.",
@@ -20490,7 +20490,7 @@ const monsters = [
    "hit": "15 (2d6 + 8) slashing damage",
    "damage type": "slashing"
   },
-  {
+  "Tail": {
    "type": "Melee Weapon Attack",
    "to hit": "+14",
    "reach": "20 ft.",
@@ -20498,7 +20498,7 @@ const monsters = [
    "hit": "15 (2d6 + 8) bludgeoning damage",
    "damage type": "bludgeoning"
   }
- ],
+},
  "actions": "<p><em><strong>Multiattack.</strong></em> The dragon makes one Bite attack and two Claw attacks.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 15 ft., one target.  <em>Hit:</em> 15 (2d6 + 8) piercing damage plus 7 (2d6) cold damage. </p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 10 ft., one target. <em>Hit:</em> 15 (2d6 + 8) slashing damage. </p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 20 ft., one target. <em>Hit:</em> 15 (2d6 + 8) bludgeoning damage. </p><p><em><strong>Cold Breath (Recharge 5-6).</strong></em> The dragon exhales a blast of frost in a 90-foot cone.  Each creature in the cone must make a DC 21 Constitution saving throw.  On a failed save, the creature takes 36 (8d8) cold damage, and its speed is reduced to 0 until the end of its next turn.  On a successful save, the creature takes half as much damage, and its speed isn't reduced. </p>",
  "bonus actions": "<p><em><strong>Phase (3/Day).</strong></em> The dragon becomes partially incorporeal for as long as it maintains concentration on the effect (as if concentrating on a spell).  While partially incorporeal, the dragon has resistance to bludgeoning, piercing, and slashing damage. </p>",
  "legendary actions": "<p>Legendary Action Uses: 3. Immediately after another creature's turn, The dragon can expend a use to take one of the following actions.  The dragon regains all expended uses at the start of each of its turns. </p><p><em><strong>Tail Attack.</strong></em> The dragon makes one Tail attack. </p><p><em><strong>Treacherous Ice.</strong></em> Magical ice covers the ground in a 20-foot radius centered on a point the dragon can see within 120 feet of itself.  The ice, which is difficult terrain for all creatures except lunar dragons, lasts for 10 minutes or until the dragon uses this legendary action again. </p><p><em><strong>Wing Attack (Costs 2 Actions).</strong></em> The dragon beats its wings.  Each creature within 15 feet of the dragon must succeed on a DC 21 Dexterity saving throw or take 12 (1d8 + 8) bludgeoning damage and be knocked prone.  The dragon can then fly up to half its speed without provoking opportunity attacks. </p>",
@@ -20532,8 +20532,8 @@ const monsters = [
  "challenge": "22 (41,000 XP, or 50,000 in lair; PB +7)",
  "traits": "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead. </p><p><em><strong>Spider Climb.</strong></em> The dragon can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check. </p><p><em><strong>Tunneler.</strong></em> The dragon can burrow through solid rock at half its burrowing speed and can leave a 20-foot-diameter tunnel in its wake. </p>",
  "number of attacks": 3,
- attacks: [
-  {
+ attacks: {
+  "Bite": {
    "type": "Melee Weapon Attack",
    "to hit": "+15",
    "reach": "15 ft.",
@@ -20541,7 +20541,7 @@ const monsters = [
    "hit": "19 (2d10 + 8) piercing damage plus 11 (2d10) thunder damage",
    "damage type": "piercing, thunder"
   },
-  {
+  "Claw": {
    "type": "Melee Weapon Attack",
    "to hit": "+15",
    "reach": "10 ft.",
@@ -20549,7 +20549,7 @@ const monsters = [
    "hit": "15 (2d6 + 8) slashing damage",
    "damage type": "slashing"
   }
- ],
+},
  "actions": "<p><em><strong>Multiattack.</strong></em> The dragon makes one Bite attack and two Claw attacks. </p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +15 to hit, reach 15 ft., one target.  <em>Hit:</em> 19 (2d10 + 8) piercing damage plus 11 (2d10) thunder damage. </p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +15 to hit, reach 10 ft., one target. <em>Hit:</em> 15 (2d6 + 8) slashing damage. </p><p><em><strong>Debilitating Breath (Recharge 5-6).</strong></em> The dragon exhales a pulse of high-pitched, nearly inaudible sound in a 90-foot cone.  Each creature in that area must make a DC 23 Constitution saving throw.  On a failed save, the creature takes 55 (10d10) thunder damage and is incapacitated until the end of its next turn.  On a successful save, the creature takes half as much damage and isn't incapacitated. </p><p><em><strong>Spellcasting (Psionics).</strong></em> The dragon casts one of the following spells, requiring no spell components and using Intelligence as the spellcasting ability (spell save DC 20): </p><ul><li>1/day each: dissonant whispers, hold monster, meld into stone, telekinesis, teleport</li></ul>",
  "bonus actions": "<p><em><strong>Change Shape.</strong></em> The dragon magically transforms into any creature that is Medium or Small, while retaining its game statistics (other than its size).  This transformation ends if the dragon is reduced to 0 hit points or uses a bonus action to end it. </p><p><em><strong>Psychic Step.</strong></em> The dragon magically teleports to an unoccupied space it can see within 60 feet of it. </p>",
  "legendary actions": "<p>Legendary Action Uses: 3. Immediately after another creature's turn, The dragon can expend a use to take one of the following actions.  The dragon regains all expended uses at the start of each of its turns. </p><p><em><strong>Claw.</strong></em> The dragon makes one Claw attack. </p><p><em><strong>Psionics (Costs 2 Actions).</strong></em> The dragon uses Psychic Step or Spellcasting. </p><p><em><strong>Telekinetic Fling (Costs 3 Actions).</strong></em> The dragon chooses one Medium or smaller object that isn't being worn or carried that it can see within 60 feet of it, and it magically hurls the object at a creature it can see within 60 feet of the object.  The target must succeed on a DC 20 Dexterity saving throw or take 42 (12d6) bludgeoning damage. </p>",
@@ -20582,8 +20582,8 @@ const monsters = [
  "challenge": "14 (11,500 XP; PB +5)",
  "traits": "<p><em><strong>Amphibious.</strong></em> The sea serpent can breathe air and water. </p><p><em><strong>Legendary Resistance (2/Day).</strong></em> If the sea serpent fails a saving throw, it can choose to succeed instead. </p><p><em><strong>Siege Monster.</strong></em> The sea serpent deals double damage to objects and structures. </p>",
  "number of attacks": 2,
- attacks: [
-  {
+ attacks: {
+  "Bite": {
    "type": "Melee Weapon Attack",
    "to hit": "+12",
    "reach": "15 ft.",
@@ -20591,7 +20591,7 @@ const monsters = [
    "hit": "20 (2d12 + 7) piercing damage plus 6 (1d12) cold damage",
    "damage type": "piercing, cold"
   },
-  {
+  "Constrict": {
    "type": "Melee Weapon Attack",
    "to hit": "+12",
    "reach": "20 ft.",
@@ -20599,7 +20599,7 @@ const monsters = [
    "hit": "29 (4d10 + 7) bludgeoning damage",
    "damage type": "bludgeoning"
   },
-  {
+  "Tail": {
    "type": "Melee Weapon Attack",
    "to hit": "+12",
    "reach": "20 ft.",
@@ -20607,7 +20607,7 @@ const monsters = [
    "hit": "13 (1d12 + 7) bludgeoning damage",
    "damage type": "bludgeoning"
   }
- ],
+},
  "actions": "<p><em><strong>Multiattack.</strong></em> The sea serpent makes one Bite attack and one Constrict or Tail attack. </p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +12 to hit, reach 15 ft., one target. <em>Hit:</em> 20 (2d12 + 7) piercing damage plus 6 (1d12) cold damage. </p><p><em><strong>Constrict.</strong></em> <em>Melee Weapon Attack:</em> +12 to hit, reach 20 ft., one creature. <em>Hit:</em> 29 (4d10 + 7) bludgeoning damage, and the target is grappled (escape DC 20). Until this grapple ends, the target is restrained, and the sea serpent can't constrict another target. </p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +12 to hit, reach 20 ft., one target. <em>Hit:</em> 13 (1d12 + 7) bludgeoning damage. If the target is a creature, it must succeed on a DC 20 Strength saving throw or be pushed up to 30 feet away from the sea serpent and knocked prone. </p><p><em><strong>Rime Breath (Recharge 5-6).</strong></em> The sea serpent exhales a 60-foot cone of cold. Each creature in that area must make a DC 18 Constitution saving throw, taking 49 (9d10) cold damage on a failed save, or half as much damage on a successful one. </p>",
  "legendary actions": "<p>Legendary Action Uses: 3. Immediately after another creature's turn, The ancient sea serpent can expend a use to take one of the following actions. The ancient sea serpent regains all expended uses at the start of each of its turns. </p><p><em><strong>Tail.</strong></em> The sea serpent makes one Tail attack. </p><p><em><strong>Bite (Costs 2 Actions).</strong></em> The sea serpent makes one Bite attack. </p>",
  "description": "<p>Sea serpents rank alongside dragon turtles as some of the most feared predators of the deep and inspire many sailors' worst nightmares. Their strong fins propel them through the water at great speed. </p><p>Young sea serpents are agile hunters. They use reefs and natural camouflage to hide before they strike, picking off members of a ship's crew one by one.  Ancient sea serpents grow large enough to demolish whole ships, then feed at leisure on helpless sailors in the water.  At any age, a sea serpent attacks with terrible bites, a lashing tail, a constricting grip, and a frigid breath weapon that can leave sailors' corpses floating frozen amid the wreckage of their ships. </p><p>Sea serpents are as fiercely territorial as any other dragons, and they do not take kindly to ships passing over their domains without permission. Some can be appeased by offerings of treasure, but most demand that a ship's crew sacrifice one or more of their own. </p><p>Living amid the wreckage of sunken ships or in deep sea caves, sea serpents collect the cargo of the craft they sink, amassing great hoards of trade goods, sailors' trinkets, and pirates' booty. </p>"
@@ -20637,8 +20637,8 @@ const monsters = [
  "challenge": "21 (33,000 XP; PB +7)",
  "traits": "<p><em><strong>Flyby.</strong></em> The dragon doesn't provoke opportunity attacks when it flies out of an enemy's reach.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p><p><em><strong>Nebulous Thoughts.</strong></em> Magical attempts to read the dragon's mind or glean its thoughts fail automatically.</p><p><em><strong>Siege Monster.</strong></em> The dragon deals double damage to objects and structures.</p><p><em><strong>Unusual Nature.</strong></em> The dragon doesn't require air.</p>",
  "number of attacks": 3,
- attacks: [
-  {
+ attacks: {
+  "Bite": {
    "type": "Melee Weapon Attack",
    "to hit": "+16",
    "reach": "15 ft.",
@@ -20646,7 +20646,7 @@ const monsters = [
    "hit": "19 (2d10 + 9) piercing damage plus 18 (4d8) radiant damage",
    "damage type": "piercing, radiant"
   },
-  {
+  "Claw": {
    "type": "Melee Weapon Attack",
    "to hit": "+16",
    "reach": "10 ft.",
@@ -20654,7 +20654,7 @@ const monsters = [
    "hit": "16 (2d6 + 9) slashing damage",
    "damage type": "slashing"
   },
-  {
+  "Radiant Beam": {
    "type": "Ranged Spell Attack",
    "to hit": "+11",
    "reach": "120 ft.",
@@ -20662,7 +20662,7 @@ const monsters = [
    "hit": "14 (4d6) radiant damage",
    "damage type": "radiant"
   }
- ],
+},
  "actions": "<p><em><strong>Multiattack.</strong></em> The dragon makes one Bite attack and two Claw attacks.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 15 ft., one target. <em>Hit:</em> 19 (2d10 + 9) piercing damage plus 18 (4d8) radiant damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 10 ft., one target. <em>Hit:</em> 16 (2d6 + 9) slashing damage.</p><p><em><strong>Solar Flare (Recharge 5-6).</strong></em> The dragon emits a blast of blinding light. Each creature in a 60-foot sphere centered on the dragon must make a DC 19 Constitution saving throw. On a failed save, a creature takes 55 (10d10) radiant damage and is blinded until the end of its next turn. On a successful save, a creature takes half as much damage and isn't blinded.</p><p><em><strong>Radiant Beam.</strong></em> <em>Ranged Spell Attack:</em> +11 to hit, range 120 ft., one target. <em>Hit:</em> 14 (4d6) radiant damage. If the target is a creature, it must succeed on a DC 19 Constitution saving throw or be blinded until the end of its next turn.</p>",
  "bonus actions": "<p><em><strong>Blinding Presence.</strong></em> The dragon emits a flash of light. Each creature of the dragon's choice within 30 feet of it must succeed on a DC 19 Constitution saving throw or be blinded until the end of its next turn.</p>",
  "legendary actions": "<p>Legendary Action Uses: 3. Immediately after another creature's turn, The dragon can expend a use to take one of the following actions. The dragon regains all expended uses at the start of each of its turns.</p><p><em><strong>Claw.</strong></em> The dragon makes one Claw attack.</p><p><em><strong>Radiant Beam (Costs 2 Actions).</strong></em> The dragon uses Radiant Beam.</p><p><em><strong>Blinding Presence (Costs 3 Actions).</strong></em> The dragon uses Blinding Presence.</p>",
@@ -20694,8 +20694,8 @@ const monsters = [
     "challenge": "9 (5,000 XP)",
     "traits": "<p><em><strong>Unusual Nature.</strong></em> The anhkolox doesn't require air, food, drink, or sleep. </p>",
     "number of attacks": 3,
-    attacks: [
-      {
+    attacks: {
+      "Claw": {
         "type": "Melee Weapon Attack",
         "to hit": "+10",
         "reach": "5 ft.",
@@ -20703,7 +20703,7 @@ const monsters = [
         "hit": "17 (2d10 + 6)",
         "damage type": "piercing"
       },
-      {
+      "Entrapping Rend": {
         "type": "Melee Weapon Attack",
         "to hit": "+10",
         "reach": "5 ft.",
@@ -20711,7 +20711,7 @@ const monsters = [
         "hit": "23 (5d6 + 6)",
         "damage type": "piercing"
       }
-    ],
+},
     "actions": "<p><em><strong>Multiattack.</strong></em> The anhkolox makes two Claw attacks and one Entrapping Rend attack. </p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +10 to hit, reach 5 ft., one target. <em>Hit:</em> 17 (2d10 + 6) piercing damage.  If the target is a Large or smaller creature, it must succeed on a DC 18 Strength saving throw or be pushed up to 20 feet in a horizontal direction of the anhkolox's choice. </p><p><em><strong>Entrapping Rend.</strong></em> <em>Melee Weapon Attack:</em> +10 to hit, reach 5 ft., one target.  <em>Hit:</em> 23 (5d6 + 6) piercing damage, and if the target is a Large or smaller creature, the target must succeed on a DC 18 Strength saving throw or be trapped in the anhkolox's rib cage and grappled (escape DC 18).  Until this grapple ends, the target is restrained, and the anhkolox can't use Entrapping Rend on another target. </p>",
     "img url": "https://www.5etools.com/img/DSotDQ/Anhkolox.png",
     "description": "<p>Anhkoloxes are vicious undead creatures created from the bones of bears and other beasts.  Their barbed bones grind and crack, often moving in seemingly impossible ways.  Anhkoloxes are driven by territorial instinct and a predatory urge to hunt and devour living prey.  They run on all fours and rear up onto their hind legs when they corner their quarry.  When they strike, they wallop foes about with their claws—they delight in knocking foes into pits full of jagged bones—and their barbed rib cage cracks open like a hunting trap to snap closed around a victim. </p>"
@@ -20741,15 +20741,15 @@ const monsters = [
     "challenge": "21 (33,000 XP, or 41,000 in lair)",
     "traits": "<p><em><strong>Coven Magic.</strong></em> While within 30 feet of at least two hag allies, the hag can cast one of the following spells, requiring no Material components, using the spell's normal casting time, and using Intelligence as the spellcasting ability (spell save DC 19): Augury, Find Familiar, Identify, Locate Object, Scrying, or Unseen Servant.  The hag must finish a Long Rest before using this trait to cast that spell again. </p><p><em><strong>Legendary Resistance (4/Day, or 5/Day in Lair).</strong></em> If the hag fails a saving throw, it can choose to succeed instead. </p><p><em><strong>Magic Resistance.</strong></em> The hag has Advantage on saving throws against spells and other magical effects. </p><p><em><strong>Spiteful Escape.</strong></em> When the hag drops to 0 Hit Points, it dies only if it is within 30 feet of its anathema (a thing the DM chooses as the hag's most hated thing).  Otherwise, the hag drops to 1 Hit Point and teleports to a harmless demiplane, and it can't return to the plane it left for 2d6 days.  When the hag teleports away, each creature within 60 feet of the space it left is cursed.  Until the curse ends, a creature has Disadvantage on ability checks and saving throws, and the hag knows its location anywhere in the multiverse. </p>",
     "number of attacks": 2,
-    attacks: [
-      {
+    attacks: {
+      "Spectral Claw": {
         "type": "Melee or Ranged Attack",
         "to hit": "+14",
         "reach": "10 ft. or range 60 ft.",
         "hit": "17 (3d6 + 7)",
         "damage type": "Force"
       }
-    ],
+},
     "actions": "<p><em><strong>Multiattack.</strong></em> The hag makes two Spectral Claw attacks and uses Crackling Wave. </p><p><em><strong>Spectral Claw.</strong></em> <em>Melee or Ranged Attack Roll:</em> +14, reach 10 ft. or range 60 ft. <em>Hit:</em> 17 (3d6 + 7) Force damage.  If the target is a Large or smaller creature, it has the Prone condition. </p><p><em><strong>Crackling Wave.</strong></em> Dexterity Saving Throw: DC 22, each creature in a 60-foot Cone. Failure: 32 (5d12) Lightning damage. Success: Half damage.  Failure or Success: The target is cursed until the end of the hag's next turn.  The target can't take Reactions until the curse ends. </p><p><em><strong>Spellcasting.</strong></em> The hag casts one of the following spells, requiring no Material components and using Charisma as the spellcasting ability (spell save DC 22): </p><ul><li>At will: Detect Thoughts, Dimension Door, Dispel Magic, Hypnotic Pattern</li><li>2/day each: Mass Suggestion, Modify Memory, Plane Shift</li></ul>",
     "bonus actions": "<p><em><strong>Witch Strike.</strong></em> Each creature cursed by the hag and within 60 feet of it takes 14 (4d6) Lightning damage. </p>",
     reactions: "<p><em><strong>Tongue Twister.</strong></em> The hag casts Counterspell in response to that spell's trigger, using the same spellcasting ability as Spellcasting.  If the target fails its saving throw, it is cursed until the end of its next turn.  Until the curse ends, the target can't cast spells with a Verbal component, and when it speaks, it says the opposite of what it means. </p>",
@@ -20809,8 +20809,8 @@ const monsters = [
     "challenge": "30 (155,000 XP)",
     "traits": "<p><em><strong>Innate Spellcasting (Psionics).</strong></em> The dragon's innate spellcasting ability is Wisdom (spell save DC 24). It can innately cast the following spells, requiring no components:</p><ul><li>At will: <em>clairvoyance, comprehend languages, detect magic, fabricate, legend lore, locate creature, locate object, Rary's telepathic bond, sending, tongues</em></li><li>3/day each: <em>dream, foresight, plane shift, scrying, teleport, time stop</em></li><li>1/day each: <em>astral projection, demiplane, gate, wish</em></li></ul><p><em><strong>Legendary Resistance (5/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p><p><em><strong>Limited Magic Immunity.</strong></em> The dragon can't be affected or detected by spells or other magical effects, except for the following conditions: if it chooses to be affected, if it casts a spell using a spell slot, or if the magical effect is a 9th-level spell. It has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Temporal Flux.</strong></em> Any creature that starts its turn within 30 feet of the dragon must succeed on a DC 25 Constitution saving throw or be affected by a random temporal effect for 1 minute or until the dragon is incapacitated. Roll a d4 and consult the following table:</p><p>1. The creature's speed is halved.</p><p>2. The creature has disadvantage on attack rolls and ability checks.</p><p>3. The creature can't take reactions.</p><p>4. The creature takes 22 (4d10) force damage at the start of each of its turns.</p><p>A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p>",
     "number of attacks": 3,
-    attacks: [
-      {
+    attacks: {
+      "Tail":{
         "type": "Melee Weapon Attack",
         "to hit": "+17",
         "reach": "20 ft.",
@@ -20818,7 +20818,7 @@ const monsters = [
         "hit": "21 (2d10 + 10)",
         "damage type": "bludgeoning"
       },
-      {
+      "Claw": {
         "type": "Melee Weapon Attack",
         "to hit": "+17",
         "reach": "15 ft.",
@@ -20826,7 +20826,7 @@ const monsters = [
         "hit": "17 (2d6 + 10)",
         "damage type": "slashing"
       },
-      {
+      "Bite": {
         "type": "Melee Weapon Attack",
         "to hit": "+17",
         "reach": "20 ft.",
@@ -20834,7 +20834,7 @@ const monsters = [
         "hit": "28 (4d6 + 10)",
         "damage type": "piercing"
       }
-    ],
+},
     "actions": "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes one Bite attack, two Claw attacks, and one Tail attack.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +17 to hit, reach 20 ft., one target. <em>Hit:</em> 21 (2d10 + 10) piercing damage. If the target is a creature, it must succeed on a DC 25 Constitution saving throw or be afflicted by the Slow spell for 1 minute.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +17 to hit, reach 15 ft., one target. <em>Hit:</em> 17 (2d6 + 10) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +17 to hit, reach 20 ft., one target. <em>Hit:</em> 28 (4d6 + 10) piercing damage. If the target is a creature, it must succeed on a DC 25 Strength saving throw or be knocked prone.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 24 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Temporal Breath (Recharge 5-6).</strong></em> The dragon exhales a cone of raw temporal energy in a 90-foot cone. Each creature in that area must make a DC 25 Dexterity saving throw, taking 77 (14d10) force damage on a failed save, or half as much damage on a successful one. On a failed save, a creature is also affected by the Time Stop spell for 1d4 rounds (as if the dragon cast the spell on itself).</p>",
     reactions: "<p><em><strong>Temporal Rip.</strong></em> When a creature the dragon can see within 60 feet takes damage, the dragon can use its reaction to rewind time for that creature, causing the creature to regain 15 (2d10 + 4) hit points and the damage to be nullified. The dragon can use this reaction a number of times equal to its Wisdom modifier (once per turn).</p>",
     "legendary actions": "<p>The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn.</p><p><em><strong>Detect.</strong></em> The dragon makes a Wisdom (Perception) check.</p><p><em><strong>Tail Attack.</strong></em> The dragon makes a Tail attack.</p><p><em><strong>Wing Attack (Costs 2 Actions).</strong></em> The dragon beats its wings. Each creature within 15 feet of the dragon must succeed on a DC 25 Dexterity saving throw or take 17 (2d6 + 10) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.</p>",
@@ -20868,8 +20868,8 @@ const monsters = [
     "challenge": "5 (1,800 XP)",
     "traits": "<p><em><strong>Constructed Nature.</strong></em> The android doesn't require air, food, drink, or sleep.</p><p><em><strong>False Appearance.</strong></em> While the android remains motionless, it is indistinguishable from a normal humanoid.</p><p><em><strong>Integrated Weapon.</strong></em> The android's unarmed strike deals 1d6 + 3 bludgeoning damage. This attack is a magic weapon.</p>",
     "number of attacks": 2,
-    attacks: [
-      {
+    attacks: {
+      "Unarmed Strike": {
         "type": "Melee Weapon Attack",
         "to hit": "+6",
         "reach": "5 ft.",
@@ -20877,7 +20877,7 @@ const monsters = [
         "hit": "10 (2d6 + 3)",
         "damage type": "bludgeoning"
       },
-      {
+      "Energy Pistol": {
         "type": "Ranged Weapon Attack",
         "to hit": "+5",
         "reach": "80/320 ft.",
@@ -20885,7 +20885,7 @@ const monsters = [
         "hit": "9 (2d6 + 2)",
         "damage type": "piercing"
       }
-    ],
+},
     "actions": "<p><em><strong>Multiattack.</strong></em> The android makes two Integrated Weapon attacks or two Energy Pistol attacks.</p><p><em><strong>Integrated Weapon.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft., one target. <em>Hit:</em> 10 (2d6 + 3) bludgeoning damage.</p><p><em><strong>Energy Pistol.</strong></em> <em>Ranged Weapon Attack:</em> +5 to hit, range 80/320 ft., one target. <em>Hit:</em> 9 (2d6 + 2) piercing damage.</p>",
     "img url": "https://www.5etools.com/img/MM/Android.png",
     "description": "<p>Androids are artificial humanoids, intricate constructs designed to mimic organic life with uncanny accuracy. Created for a myriad of purposes, from labor and servitude to espionage and companionship, they possess advanced artificial intelligence that grants them a semblance of sentience and personality. While some androids are emotionless machines, others develop complex internal lives, experiencing emotions and desires similar to their biological counterparts. Their metallic skeletal structures are often covered by synthetic skin and hair, allowing them to blend seamlessly into humanoid societies. Many androids are equipped with integrated tools and weapons, making them versatile and formidable in various situations. Despite their often intricate designs, androids are still constructs at heart, subject to the commands of their creators or the programming instilled within them. However, some androids break free of their programming, embarking on journeys of self-discovery and challenging the very definitions of life and consciousness.</p>"
@@ -20913,8 +20913,8 @@ const monsters = [
     "challenge": "10 (5,900 XP)",
     "traits": "<p><em><strong>Animal Empathy.</strong></em> The animal lord has advantage on all Charisma (Animal Handling) checks.</p><p><em><strong>Speak with Animals.</strong></em> The animal lord can communicate with animals as if they shared a common language.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the animal lord fails a saving throw, it can choose to succeed instead.</p><p><em><strong>Magic Resistance.</strong></em> The animal lord has advantage on saving throws against spells and other magical effects.</p>",
     "number of attacks": 2,
-    attacks: [
-      {
+    attacks: {
+      "Spear": {
         "type": "Melee Weapon Attack",
         "to hit": "+7",
         "reach": "5 ft.",
@@ -20922,7 +20922,7 @@ const monsters = [
         "hit": "11 (2d6 + 4)",
         "damage type": "piercing"
       },
-      {
+      "Longbow": {
         "type": "Ranged Weapon Attack",
         "to hit": "+6",
         "reach": "150/600 ft.",
@@ -20930,7 +20930,7 @@ const monsters = [
         "hit": "9 (1d8 + 3)",
         "damage type": "piercing"
       }
-    ],
+},
     "actions": "<p><em><strong>Multiattack.</strong></em> The animal lord makes two attacks.</p><p><em><strong>Spear.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft., one target. <em>Hit:</em> 11 (2d6 + 4) piercing damage, or 13 (2d8 + 4) piercing damage if used with two hands to make a melee attack.</p><p><em><strong>Longbow.</strong></em> <em>Ranged Weapon Attack:</em> +6 to hit, range 150/600 ft., one target. <em>Hit:</em> 9 (1d8 + 3) piercing damage.</p><p><em><strong>Command Animals (Recharge 5-6).</strong></em> The animal lord can magically command up to three beasts it can see within 60 feet of it. Each beast must succeed on a DC 16 Wisdom saving throw or be charmed by the animal lord for 1 minute. While charmed, the beast is friendly to the animal lord and obeys its verbal commands. If the animal lord or its companions harm the charmed beast, the effect ends. A charmed beast can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p><p><em><strong>Summon Animals (1/Day).</strong></em> The animal lord can magically summon 2d4 beasts of challenge rating 1/2 or lower, or 1d4 beasts of challenge rating 1, or one beast of challenge rating 2. The summoned beasts appear in unoccupied spaces within 60 feet of the animal lord and act as allies of the animal lord. They remain for 1 hour, until they drop to 0 hit points, or until the animal lord dies or dismisses them as a bonus action.</p>",
     "legendary actions": "<p>The animal lord can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The animal lord regains spent legendary actions at the start of its turn.</p><p><em><strong>Move.</strong></em> The animal lord moves up to its speed without provoking opportunity attacks.</p><p><em><strong>Animal Command.</strong></em> The animal lord uses its Animal Empathy trait or makes a Wisdom (Animal Handling) check.</p><p><em><strong>Nature's Ally (Costs 2 Actions).</strong></em> The animal lord causes one beast within 60 feet of it that it can see to make one attack with its reaction.</p>",
     "img url": "https://www.5etools.com/img/Bestiary/Animal%20Lord.png",
