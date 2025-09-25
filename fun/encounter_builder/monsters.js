@@ -2606,7 +2606,24 @@ const monsters = [
     traits:
       "<p><em><strong>Devil's Sight.</strong></em> Magical darkness doesn't impede the devil's darkvision.</p><p><em><strong>Magic Resistance.</strong></em> The devil has advantage on saving throws against spells and other magical effects.</p>",
     "number of attacks": 3,
-    attacks: {},
+    attacks: {
+      "Claw": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+8",
+        "reach": "10 ft.",
+        "target": "one target",
+        "hit": "8 (1d8 + 4)",
+        "damage type": "slashing"
+      },
+      "Sting": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+8",
+        "reach": "10 ft.",
+        "target": "one target",
+        "hit": "13 (2d8 + 4)",
+        "damage type": "piercing, poison"
+      }
+    },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The devil makes three attacks: two with its claws and one with its sting.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +8 to hit, reach 10 ft. one target. <em>Hit:</em> 8 (1d8 + 4) slashing damage.</p><p><em><strong>Sting.</strong></em> <em>Melee Weapon Attack:</em> +8 to hit, reach 10 ft. one target. <em>Hit:</em> 13 (2d8 + 4) piercing damage plus 17 (5d6) poison damage, and the target must succeed on a DC 14 Constitution saving throw or become poisoned for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/9/481/1000/1000/636328225187253200.jpeg",
@@ -2634,7 +2651,31 @@ const monsters = [
     languages: ["Draconic"],
     challenge: "1 (200 XP)",
     "number of attacks": 3,
-    attacks: {},
+    attacks: {
+      "Bite": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+4",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "7 (1d10 + 2)",
+        "damage type": "piercing"
+      },
+      "Fire Breath": {
+        "type": "Breath Weapon",
+        "to hit": "DC 11 Dexterity saving throw",
+        "reach": "20-foot line (5 feet wide)",
+        "target": "each creature in that line",
+        "hit": "14 (4d6)",
+        "damage type": "fire"
+      },
+      "Sleep Breath": {
+        "type": "Breath Weapon",
+        "to hit": "DC 11 Constitution saving throw",
+        "reach": "15-foot cone",
+        "target": "each creature in that area",
+        "hit": "fall unconscious for 1 minute"
+      }
+    },
     actions:
       "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft. one target. <em>Hit:</em> 7 (1d10 + 2) piercing damage.</p><p><em><strong>Breath Weapons (Recharge 5–6).</strong></em> The dragon uses one of the following breath weapons.</p><p><em><strong>Fire Breath.</strong></em> The dragon exhales fire in an 20-foot line that is 5 feet wide. Each creature in that line must make a DC 11 Dexterity saving throw, taking 14 (4d6) fire damage on a failed save, or half as much damage on a successful one.</p><p><em><strong>Sleep Breath.</strong></em> The dragon exhales sleep gas in a 15-foot cone. Each creature in that area must succeed on a DC 11 Constitution saving throw or fall unconscious for 1 minute. This effect ends for a creature if the creature takes damage or someone uses an action to wake it.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/215/315/315/636252764963208954.jpeg",
@@ -2664,7 +2705,32 @@ const monsters = [
     traits:
       "<p><em><strong>Amphibious.</strong></em> The dragon can breathe air and water.</p>",
     "number of attacks": 3,
-    attacks: {},
+    attacks: {
+      "Bite": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+5",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "8 (1d10 + 3)",
+        "damage type": "piercing"
+      },
+      "Lightning Breath": {
+        "type": "Breath Weapon",
+        "to hit": "DC 12 Dexterity saving throw",
+        "reach": "40-foot line (5 feet wide)",
+        "target": "each creature in that line",
+        "hit": "16 (3d10)",
+        "damage type": "lightning"
+      },
+      "Repulsion Breath": {
+        "type": "Breath Weapon",
+        "to hit": "DC 12 Strength saving throw",
+        "reach": "30-foot cone",
+        "target": "each creature in that area",
+        "hit": "pushed 30 feet away from the dragon",
+        "damage type": "none"
+      }
+    },
     actions:
       "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft. one target. <em>Hit:</em> 8 (1d10 + 3) piercing damage.</p><p><em><strong>Breath Weapons (Recharge 5–6).</strong></em> The dragon uses one of the following breath weapons.</p><p><em><strong>Lightning Breath.</strong></em> The dragon exhales lightning in a 40-foot line that is 5 feet wide. Each creature in that line must make a DC 12 Dexterity saving throw, taking 16 (3d10) lightning damage on a failed save, or half as much damage on a successful one.</p><p><em><strong>Repulsion Breath.</strong></em> The dragon exhales repulsion energy in a 30-foot cone. Each creature in that area must succeed on a DC 12 Strength saving throw. On a failed save, the creature is pushed 30 feet away from the dragon.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/16/492/315/315/636376306909593829.jpeg",
@@ -2692,7 +2758,24 @@ const monsters = [
     traits:
       "<p><em><strong>Keen Smell.</strong></em> The bear has advantage on Wisdom (Perception) checks that rely on smell.</p>",
     "number of attacks": 2,
-    attacks: {},
+    attacks: {
+      "Bite": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+6",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "8 (1d8 + 4)",
+        "damage type": "piercing"
+      },
+      "Claws": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+6",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "11 (2d6 + 4)",
+        "damage type": "slashing"
+      }
+    },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The bear makes two attacks: one with its bite and one with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft. one target. <em>Hit:</em> 8 (1d8 + 4) piercing damage.</p><p><em><strong>Claws.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft. one target. <em>Hit:</em> 11 (2d6 + 4) slashing damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/attachments/2/648/beast.jpg",
@@ -2720,7 +2803,32 @@ const monsters = [
     traits:
       "<p><em><strong>Brute.</strong></em> A melee weapon deals one extra die of its damage when the bugbear hits with it (included in the attack).</p><p><em><strong>Surprise Attack.</strong></em> If the bugbear surprises a creature and hits it with an attack during the first round of combat, the target takes an extra 7 (2d6) damage from the attack.</p>",
     "number of attacks": 2,
-    attacks: {},
+    attacks: {
+      "Morningstar": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+4",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "11 (2d8 + 2)",
+        "damage type": "piercing"
+      },
+      "Javelin (Melee)": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+4",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "9 (2d6 + 2)",
+        "damage type": "piercing"
+      },
+      "Javelin (Ranged)": {
+        "type": "Ranged Weapon Attack",
+        "to hit": "+4",
+        "range": "30/120 ft.",
+        "target": "one target",
+        "hit": "5 (1d6 + 2)",
+        "damage type": "piercing"
+      }
+    },
     actions:
       "<p><em><strong>Morningstar.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft. one target. <em>Hit:</em> 11 (2d8 + 2) piercing damage.</p><p><em><strong>Javelin.</strong></em> <em>Melee or Ranged Weapon Attack:</em> +4 to hit, reach 5 ft.or range 30/120 ft. one target. <em>Hit:</em> 9 (2d6 + 2) piercing damage in melee or 5 (1d6 + 2) piercing damage at range.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/221/1000/1000/636252765234633232.jpeg",
@@ -2748,7 +2856,32 @@ const monsters = [
     traits:
       "<p><em><strong>Standing Leap.</strong></em> The bulette's long jump is up to 30 feet and its high jump is up to 15 feet, with or without a running start.</p>",
     "number of attacks": 2,
-    attacks: {},
+    attacks: {
+      "Bite": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+7",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "30 (4d12 + 4)",
+        "damage type": "piercing"
+      },
+      "Deadly Leap (Bludgeoning)": {
+        "type": "Special Attack",
+        "to hit": "DC 16 Strength or Dexterity saving throw",
+        "reach": "space that contains one or more other creatures",
+        "target": "one or more other creatures",
+        "hit": "14 (3d6 + 4)",
+        "damage type": "bludgeoning"
+      },
+      "Deadly Leap (Slashing)": {
+        "type": "Special Attack",
+        "to hit": "DC 16 Strength or Dexterity saving throw",
+        "reach": "space that contains one or more other creatures",
+        "target": "one or more other creatures",
+        "hit": "14 (3d6 + 4)",
+        "damage type": "slashing"
+      }
+    },
     actions:
       "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft. one target. <em>Hit:</em> 30 (4d12 + 4) piercing damage.</p><p><em><strong>Deadly Leap.</strong></em> If the bulette jumps at least 15 feet as part of its movement, it can then use this action to land on its feet in a space that contains one or more other creatures. Each of those creatures must succeed on a DC 16 Strength or Dexterity saving throw (target's choice) or be knocked prone and take 14 (3d6 + 4) bludgeoning damage plus 14 (3d6 + 4) slashing damage. On a successful save, the creature takes only half the damage, isn't knocked prone, and is pushed 5 feet out of the bulette's space into an unoccupied space of the creature's choice. If no unoccupied space is within range, the creature instead falls prone in the bulette's space.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/223/315/315/636252765369632881.jpeg",
@@ -2773,7 +2906,16 @@ const monsters = [
     languages: ["N/A"],
     challenge: "1/8 (25 XP)",
     "number of attacks": 1,
-    attacks: {},
+    attacks: {
+      "Bite": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+5",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "2 (1d4)",
+        "damage type": "bludgeoning"
+      }
+    },
     actions:
       "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft. one target. <em>Hit:</em> 2 (1d4) bludgeoning damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/attachments/2/648/beast.jpg",
@@ -2829,7 +2971,32 @@ const monsters = [
     traits:
       "<p><em><strong>Charge.</strong></em> If the centaur moves at least 30 feet straight toward a target and then hits it with a pike attack on the same turn, the target takes an extra 10 (3d6) piercing damage.</p>",
     "number of attacks": 2,
-    attacks: {},
+    attacks: {
+      "Pike": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+6",
+        "reach": "10 ft.",
+        "target": "one target",
+        "hit": "9 (1d10 + 4)",
+        "damage type": "piercing"
+      },
+      "Hooves": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+6",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "11 (2d6 + 4)",
+        "damage type": "bludgeoning"
+      },
+      "Longbow": {
+        "type": "Ranged Weapon Attack",
+        "to hit": "+4",
+        "range": "150/600 ft.",
+        "target": "one target",
+        "hit": "6 (1d8 + 2)",
+        "damage type": "piercing"
+      }
+    },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The centaur makes two attacks: one with its pike and one with its hooves or two with its longbow.</p><p><em><strong>Pike.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 10 ft. one target. <em>Hit:</em> 9 (1d10 + 4) piercing damage.</p><p><em><strong>Hooves.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft. one target. <em>Hit:</em> 11 (2d6 + 4) bludgeoning damage.</p><p><em><strong>Longbow.</strong></em> <em>Ranged Weapon Attack:</em> +4 to hit, range 150/600 ft. one target. <em>Hit:</em> 6 (1d8 + 2) piercing damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/227/1000/1000/636252765573266420.jpeg",
@@ -2860,7 +3027,16 @@ const monsters = [
     traits:
       "<p><em><strong>Devil's Sight.</strong></em> Magical darkness doesn't impede the devil's darkvision.</p><p><em><strong>Magic Resistance.</strong></em> The devil has advantage on saving throws against spells and other magical effects.</p>",
     "number of attacks": 2,
-    attacks: {},
+    attacks: {
+      "Chain": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+8",
+        "reach": "10 ft.",
+        "target": "one target",
+        "hit": "11 (2d6 + 4)",
+        "damage type": "slashing"
+      }
+    },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The devil makes two attacks with its chains.</p><p><em><strong>Chain.</strong></em> <em>Melee Weapon Attack:</em> +8 to hit, reach 10 ft. one target. <em>Hit:</em> 11 (2d6 + 4) slashing damage. The target is grappled (escape DC 14) if the devil isn't already grappling a creature. Until this grapple ends, the target is restrained and takes 7 (2d6) piercing damage at the start of each of its turns.</p><p><em><strong>Animate Chains (Recharges after a Short or Long Rest).</strong></em> Up to four chains the devil can see within 60 feet of it magically sprout razor-­edged barbs and animate under the devil's control, provided that the chains aren't being worn or carried.</p><p>Each animated chain is an object with AC 20, 20 hit points, resistance to piercing damage, and immunity to psychic and thunder damage. When the devil uses multiattack on its turn, it can use each animated chain to make one additional chain attack. An animated chain can grapple one creature of its own but can't make attacks while grappling. An animated chain reverts to its inanimate state if reduced to 0 hit points or if the devil is incapacitated or dies.</p>",
     reactions:
@@ -2888,7 +3064,32 @@ const monsters = [
     languages: ["Draconic", "Can't speak"],
     challenge: "6 (2,300 XP)",
     "number of attacks": 3,
-    attacks: {},
+    attacks: {
+      "Bite": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+7",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "11 (2d6 + 4)",
+        "damage type": "piercing"
+      },
+      "Horns": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+7",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "10 (1d12 + 4)",
+        "damage type": "bludgeoning"
+      },
+      "Claws": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+7",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "11 (2d6 + 4)",
+        "damage type": "slashing"
+      }
+    },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The chimera makes three attacks: one with its bite, one with its horns, and one with its claws. When its fire breath is available, it can use the breath in place of its bite or horns.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft. one target. <em>Hit:</em> 11 (2d6 + 4) piercing damage.</p><p><em><strong>Horns.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft. one target. <em>Hit:</em> 10 (1d12 + 4) bludgeoning damage.</p><p><em><strong>Claws.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft. one target. <em>Hit:</em> 11 (2d6 + 4) slashing damage.</p><p><em><strong>Fire Breath (Recharge 5–6).</strong></em> The dragon head exhales fire in a 15-­-foot cone. Each creature in that area must make a DC 15 Dexterity saving throw, taking 31 (7d8) fire damage on a failed save, or half as much damage on a successful one.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/237/1000/1000/636252766770156389.jpeg",
@@ -2918,7 +3119,16 @@ const monsters = [
     traits:
       "<p><em><strong>Amphibious.</strong></em> The chuul can breathe air and water.</p><p><em><strong>Sense Magic.</strong></em> The chuul senses magic within 120 feet of it at will. This trait otherwise works like the detect magic spell but isn't itself magical.</p>",
     "number of attacks": 2,
-    attacks: {},
+    attacks: {
+      "Pincer": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+6",
+        "reach": "10 ft.",
+        "target": "one target",
+        "hit": "11 (2d6 + 4)",
+        "damage type": "bludgeoning"
+      }
+    },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The chuul makes two pincer attacks. If the chuul is grappling a creature, the chuul can also use its tentacles once.</p><p><em><strong>Pincer.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 10 ft. one target. <em>Hit:</em> 11 (2d6 + 4) bludgeoning damage. The target is grappled (escape DC 14) if it is a Large or smaller creature and the chuul doesn't have two other creatures grappled.</p><p><em><strong>Tentacles.</strong></em> One creature grappled by the chuul must succeed on a DC 13 Constitution saving throw or be poisoned for 1 minute. Until this poison ends, the target is paralyzed. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/241/1000/1000/636252767122656355.jpeg",
@@ -2947,7 +3157,16 @@ const monsters = [
     traits:
       "<p><em><strong>Acid Absorption.</strong></em> Whenever the golem is subjected to acid damage, it takes no damage and instead regains a number of hit points equal to the acid damage dealt.</p><p><em><strong>Berserk.</strong></em> Whenever the golem starts its turn with 60 hit points or fewer, roll a d6. On a 6, the golem goes berserk. On each of its turns while berserk, the golem attacks the nearest creature it can see. If no creature is near enough to move to and attack, the golem attacks an object, with preference for an object smaller than itself. Once the golem goes berserk, it continues to do so until it is destroyed or regains all its hit points.</p><p><em><strong>Immutable Form.</strong></em> The golem is immune to any spell or effect that would alter its form.</p><p><em><strong>Magic Resistance.</strong></em> The golem has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Magic Weapons.</strong></em> The golem's weapon attacks are magical.</p>",
     "number of attacks": 2,
-    attacks: {},
+    attacks: {
+      "Slam": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+8",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "16 (2d10 + 5)",
+        "damage type": "bludgeoning"
+      }
+    },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The golem makes two slam attacks.</p><p><em><strong>Slam.</strong></em> <em>Melee Weapon Attack:</em> +8 to hit, reach 5 ft. one target. <em>Hit:</em> 16 (2d10 + 5) bludgeoning damage. If the target is a creature, it must succeed on a DC 15 Constitution saving throw or have its hit point maximum reduced by an amount equal to the damage taken. The target dies if this attack reduces its hit point maximum to 0. The reduction lasts until removed by the greater restoration spell or other magic.</p><p><em><strong>Haste (Recharge 5–6).</strong></em> Until the end of its next turn, the golem magically gains a +2 bonus to its AC, has advantage on Dexterity saving throws, and can use its slam attack as a bonus action.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/243/315/315/636252767318152303.jpeg",
@@ -2975,7 +3194,24 @@ const monsters = [
     traits:
       "<p><em><strong>Damage Transfer.</strong></em> While attached to a creature, the cloaker takes only half the damage dealt to it (rounded down), and that creature takes the other half.</p><p><em><strong>False Appearance.</strong></em> While the cloaker remains motionless without its underside exposed, it is indistinguishable from a dark leather cloak.</p><p><em><strong>Light Sensitivity.</strong></em> While in bright light, the cloaker has disadvantage on attack rolls and Wisdom (Perception) checks that rely on sight.</p>",
     "number of attacks": 2,
-    attacks: {},
+    attacks: {
+      "Bite": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+6",
+        "reach": "5 ft.",
+        "target": "one creature",
+        "hit": "10 (2d6 + 3)",
+        "damage type": "piercing"
+      },
+      "Tail": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+6",
+        "reach": "10 ft.",
+        "target": "one creature",
+        "hit": "7 (1d8 + 3)",
+        "damage type": "slashing"
+      }
+    },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The cloaker makes two attacks: one with its bite and one with its tail.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft. one creature. <em>Hit:</em> 10 (2d6 + 3) piercing damage, and if the target is Large or smaller, the cloaker attaches to it. If the cloaker has advantage against the target, the cloaker attaches to the target's head, and the target is blinded and unable to breathe while the cloaker is attached. While attached, the cloaker can make this attack only against the target and has advantage on the attack roll. The cloaker can detach itself by spending 5 feet of its movement. A creature, including the target, can take its action to detach the cloaker by succeeding on a DC 16 Strength check.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 10 ft. one creature. <em>Hit:</em> 7 (1d8 + 3) slashing damage.</p><p><em><strong>Moan.</strong></em> Each creature within 60 feet of the cloaker that can hear its moan and that isn't an aberration must succeed on a DC 13 Wisdom saving throw or become frightened until the end of the cloaker's next turn. If a creature's saving throw is successful, the creature is immune to the cloaker's moan for the next 24 hours.</p><p><em><strong>Phantasms (Recharges after a Short or Long Rest).</strong></em> The cloaker magically creates three illusory duplicates of itself if it isn't in bright light. The duplicates move with it and mimic its actions, shifting position so as to make it impossible to track which cloaker is the real one. If the cloaker is ever in an area of bright light, the duplicates disappear.</p><p>Whenever any creature targets the cloaker with an attack or a harmful spell while a duplicate remains, that creature rolls randomly to determine whether it targets the cloaker or one of the duplicates. A creature is unaffected by this magical effect if it can't see or if it relies on senses other than sight.</p><p>A duplicate has the cloaker's AC and uses its saving throws. If an attack hits a duplicate, or if a duplicate fails a saving throw against an effect that deals damage, the duplicate disappears.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/245/1000/1000/636252767458838228.jpeg",
@@ -3004,7 +3240,24 @@ const monsters = [
     traits:
       "<p><em><strong>Keen Smell.</strong></em> The giant has advantage on Wisdom (Perception) checks that rely on smell.</p><p><em><strong>Innate Spellcasting.</strong></em> The giant's innate spellcasting ability is Charisma. It can innately cast the following spells, requiring no material components: </p><p>At will: detect magic, fog cloud, light </p><p>3/day each: feather fall, fly, misty step, telekinesis </p><p>1/day each: control weather, gaseous form</p>",
     "number of attacks": 2,
-    attacks: {},
+    attacks: {
+      "Morningstar": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+12",
+        "reach": "10 ft.",
+        "target": "one target",
+        "hit": "21 (3d8 + 8)",
+        "damage type": "piercing"
+      },
+      "Rock": {
+        "type": "Ranged Weapon Attack",
+        "to hit": "+12",
+        "reach": "60/240 ft.",
+        "target": "one target",
+        "hit": "30 (4d10 + 8)",
+        "damage type": "bludgeoning"
+      }
+    },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The giant makes two morningstar attacks.</p><p><em><strong>Morningstar.</strong></em> <em>Melee Weapon Attack:</em> +12 to hit, reach 10 ft. one target. <em>Hit:</em> 21 (3d8 + 8) piercing damage.</p><p><em><strong>Rock.</strong></em> <em>Ranged Weapon Attack:</em> +12 to hit, range 60/240 ft. one target. <em>Hit:</em> 30 (4d10 + 8) bludgeoning damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/249/1000/1000/636252767619414260.jpeg",
@@ -3029,7 +3282,16 @@ const monsters = [
     languages: ["N/A"],
     challenge: "1/2 (100 XP)",
     "number of attacks": 1,
-    attacks: {},
+    attacks: {
+      "Bite": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+3",
+        "reach": "5 ft.",
+        "target": "one creature",
+        "hit": "3 (1d4 + 1)",
+        "damage type": "piercing"
+      }
+    },
     actions:
       "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +3 to hit, reach 5 ft. one creature. <em>Hit:</em> 3 (1d4 + 1) piercing damage, and the target must succeed on a DC 11 Constitution saving throw against being magically petrified. On a failed save, the creature begins to turn to stone and is restrained. It must repeat the saving throw at the end of its next turn. On a success, the effect ends. On a failure, the creature is petrified for 24 hours.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/251/315/315/636252767744669874.jpeg",
@@ -3054,7 +3316,16 @@ const monsters = [
     languages: ["Common"],
     challenge: "0 (10 XP)",
     "number of attacks": 1,
-    attacks: {},
+    attacks: {
+      "Club": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+2",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "2 (1d4)",
+        "damage type": "bludgeoning"
+      }
+    },
     actions:
       "<p><em><strong>Club.</strong></em> <em>Melee Weapon Attack:</em> +2 to hit, reach 5 ft. one target. <em>Hit:</em> 2 (1d4) bludgeoning damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/attachments/2/656/humanoid.jpg",
@@ -3079,7 +3350,24 @@ const monsters = [
     languages: ["N/A"],
     challenge: "1/4 (50 XP)",
     "number of attacks": 2,
-    attacks: {},
+    attacks: {
+      "Bite": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+4",
+        "reach": "5 ft.",
+        "target": "one creature",
+        "hit": "5 (1d6 + 2)",
+        "damage type": "piercing"
+      },
+      "Constrict": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+4",
+        "reach": "5 ft.",
+        "target": "one creature",
+        "hit": "6 (1d8 + 2)",
+        "damage type": "bludgeoning"
+      }
+    },
     actions:
       "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft. one creature. <em>Hit:</em> 5 (1d6 + 2) piercing damage.</p><p><em><strong>Constrict.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft. one creature. <em>Hit:</em> 6 (1d8 + 2) bludgeoning damage, and the target is grappled (escape DC 14). Until this grapple ends, the creature is restrained, and the snake can't constrict another target.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/attachments/2/648/beast.jpg",
@@ -3107,7 +3395,16 @@ const monsters = [
     languages: ["Draconic"],
     challenge: "1 (200 XP)",
     "number of attacks": 1,
-    attacks: {},
+    attacks: {
+      "Bite": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+4",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "7 (1d10 + 2)",
+        "damage type": "piercing"
+      }
+    },
     actions:
       "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft. one target. <em>Hit:</em> 7 (1d10 + 2) piercing damage.</p><p><em><strong>Breath Weapons (Recharge 5–6).</strong></em> The dragon uses one of the following breath weapons.</p><p><em><strong>Acid Breath.</strong></em> The dragon exhales acid in an 20-foot line that is 5 feet wide. Each creature in that line must make a DC 11 Dexterity saving throw, taking 18 (4d8) acid damage on a failed save, or half as much damage on a successful one.</p><p><em><strong>Slowing Breath.</strong></em> The dragon exhales gas in a 15-foot cone. Each creature in that area must succeed on a DC 11 Constitution saving throw. On a failed save, the creature can't use reactions, its speed is halved, and it can't make more than one attack on its turn. In addition, the creature can use either an action or a bonus action on its turn, but not both. These effects last for 1 minute. The creature can repeat the saving throw at the end of each of its turns, ending the effect on itself with a successful save.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/255/1000/1000/636252768002215182.jpeg",
@@ -3137,7 +3434,24 @@ const monsters = [
     traits:
       "<p><em><strong>Innate Spellcasting.</strong></em> The couatl's spellcasting ability is Charisma (spell save DC 14). It can innately cast the following spells, requiring only verbal components: </p><p>At will: detect evil and good, detect magic, detect thoughts </p><p>3/day each: bless, create food and water, cure wounds, lesser restoration, protection from poison, sanctuary, shield </p><p>1/day each: dream, greater restoration, scrying </p><p><em><strong>Magic Weapons.</strong></em> The couatl's weapon attacks are magical.</p><p><em><strong>Shielded Mind.</strong></em> The couatl is immune to scrying and to any effect that would sense its emotions, read its thoughts, or detect its location.</p>",
     "number of attacks": 2,
-    attacks: {},
+    attacks: {
+      "Bite": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+8",
+        "reach": "5 ft.",
+        "target": "one creature",
+        "hit": "8 (1d6 + 5)",
+        "damage type": "piercing"
+      },
+      "Constrict": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+6",
+        "reach": "10 ft.",
+        "target": "one Medium or smaller creature",
+        "hit": "10 (2d6 + 3)",
+        "damage type": "bludgeoning"
+      }
+    },
     actions:
       "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +8 to hit, reach 5 ft. one creature. <em>Hit:</em> 8 (1d6 + 5) piercing damage, and the target must succeed on a DC 13 Constitution saving throw or be poisoned for 24 hours. Until this poison ends, the target is unconscious. Another creature can use an action to shake the target awake.</p><p><em><strong>Constrict.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 10 ft. one Medium or smaller creature. <em>Hit:</em> 10 (2d6 + 3) bludgeoning damage, and the target is grappled (escape DC 15). Until this grapple ends, the target is restrained, and the couatl can't constrict another target.</p><p><em><strong>Change Shape.</strong></em> The couatl magically polymorphs into a humanoid or beast that has a challenge rating equal to or less than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the couatl's choice).</p><p>In a new form, the couatl retains its game statistics and ability to speak, but its AC, movement modes, Strength, Dexterity, and other actions are replaced by those of the new form, and it gains any statistics and capabilities (except class features, legendary actions, and lair actions) that the new form has but that it lacks. If the new form has a bite attack, the couatl can use its bite in that form.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/257/1000/1000/636252768143323827.jpeg",
@@ -3165,7 +3479,16 @@ const monsters = [
     traits:
       "<p><em><strong>Amphibious.</strong></em> The crab can breathe air and water.</p>",
     "number of attacks": 1,
-    attacks: {},
+    attacks: {
+      "Claw": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+0",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "1",
+        "damage type": "bludgeoning"
+      }
+    },
     actions:
       "<p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +0 to hit, reach 5 ft. one target. <em>Hit:</em> 1 bludgeoning damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/attachments/2/648/beast.jpg",
@@ -3193,7 +3516,16 @@ const monsters = [
     traits:
       "<p><em><strong>Hold Breath.</strong></em> The crocodile can hold its breath for 15 minutes.</p>",
     "number of attacks": 2,
-    attacks: {},
+    attacks: {
+      "Bite": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+4",
+        "reach": "5 ft.",
+        "target": "one creature",
+        "hit": "7 (1d10 + 2)",
+        "damage type": "piercing"
+      }
+    },
     actions:
       "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft. one creature. <em>Hit:</em> 7 (1d10 + 2) piercing damage, and the target is grappled (escape DC 12). Until this grapple ends, the target is restrained, and the crocodile can't bite another target.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/attachments/2/648/beast.jpg",
@@ -3221,7 +3553,16 @@ const monsters = [
     traits:
       "<p><em><strong>Dark Devotion.</strong></em> The fanatic has advantage on saving throws against being charmed or frightened.</p><p><em><strong>Spellcasting.</strong></em> The fanatic is a 4th-level spellcaster. Its spellcasting ability is Wisdom (spell save DC 11, +3 to hit with spell attacks). The fanatic has the following cleric spells prepared: </p><p>Cantrips (at will): light, sacred flame, thaumaturgy </p><p>1st level (4 slots): command, inflict wounds, shield of faith </p><p>2nd level (3 slots): hold person, spiritual weapon</p>",
     "number of attacks": 2,
-    attacks: {},
+    attacks: {
+      "Dagger": {
+        "type": "Melee or Ranged Weapon Attack",
+        "to hit": "+4",
+        "reach": "5 ft.",
+        "target": "one creature",
+        "hit": "4 (1d4 + 2)",
+        "damage type": "piercing"
+      }
+    },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The fanatic makes two melee attacks.</p><p><em><strong>Dagger.</strong></em> <em>Melee or <em>Ranged Weapon Attack:</em></em> +4 to hit, reach 5 ft.or range 20/60 ft. one creature. <em>Hit:</em> 4 (1d4 + 2) piercing damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/259/1000/1000/636252768307230924.jpeg",
@@ -3249,7 +3590,16 @@ const monsters = [
     traits:
       "<p><em><strong>Dark Devotion.</strong></em> The cultist has advantage on saving throws against being charmed or frightened.</p>",
     "number of attacks": 1,
-    attacks: {},
+    attacks: {
+      "Scimitar": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+3",
+        "reach": "5 ft.",
+        "target": "one creature",
+        "hit": "4 (1d6 + 1)",
+        "damage type": "slashing"
+      }
+    },
     actions:
       "<p><em><strong>Scimitar.</strong></em> <em>Melee Weapon Attack:</em> +3 to hit, reach 5 ft. one creature. <em>Hit:</em> 4 (1d6 + 1) slashing damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/14/481/1000/1000/636364323106021375.png",
@@ -3276,7 +3626,24 @@ const monsters = [
     traits:
       "<p><em><strong>Poor Depth Perception.</strong></em> The cyclops has disadvantage on any attack roll against a target more than 30 feet away.</p>",
     "number of attacks": 1,
-    attacks: {},
+    attacks: {
+      "Greatclub": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+9",
+        "reach": "10 ft.",
+        "target": "one target",
+        "hit": "19 (3d8 + 6)",
+        "damage type": "bludgeoning"
+      },
+      "Rock": {
+        "type": "Ranged Weapon Attack",
+        "to hit": "+9",
+        "reach": "30/120 ft.",
+        "target": "one target",
+        "hit": "28 (4d10 + 6)",
+        "damage type": "bludgeoning"
+      }
+    },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The cyclops makes two greatclub attacks.</p><p><em><strong>Greatclub.</strong></em> <em>Melee Weapon Attack:</em> +9 to hit, reach 10 ft. one target. <em>Hit:</em> 19 (3d8 + 6) bludgeoning damage.</p><p><em><strong>Rock.</strong></em> <em>Ranged Weapon Attack:</em> +9 to hit, range 30/120 ft. one target. <em>Hit:</em> 28 (4d10 + 6) bludgeoning damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/16/470/1000/1000/636376290137285130.jpeg",
@@ -3304,7 +3671,16 @@ const monsters = [
     traits:
       "<p><em><strong>Echolocation.</strong></em> The darkmantle can't use its blindsight while deafened.</p><p><em><strong>False Appearance.</strong></em> While the darkmantle remains motionless, it is indistinguishable from a cave formation such as a stalactite or stalagmite.</p>",
     "number of attacks": 1,
-    attacks: {},
+    attacks: {
+      "Crush": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+5",
+        "reach": "5 ft.",
+        "target": "one creature",
+        "hit": "6 (1d6 + 3)",
+        "damage type": "bludgeoning"
+      }
+    },
     actions:
       "<p><em><strong>Crush.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft. one creature. <em>Hit:</em> 6 (1d6 + 3) bludgeoning damage, and the darkmantle attaches to the target. If the target is Medium or smaller and the darkmantle has advantage on the attack roll, it attaches by engulfing the target's head, and the target is also blinded and unable to breathe while the darkmantle is attached in this way.</p><p>While attached to the target, the darkmantle can attack no other creature except the target but has advantage on its attack rolls. The darkmantle's speed also becomes 0, it can't benefit from any bonus to its speed, and it moves with the target.</p><p>A creature can detach the darkmantle by making a successful DC 13 Strength check as an action. On its turn, the darkmantle can detach itself from the target by using 5 feet of movement.</p><p><em><strong>Darkness Aura (1/Day).</strong></em> A 15-­-foot radius of magical darkness extends out from the darkmantle, moves with it, and spreads around corners. The darkness lasts as long as the darkmantle maintains concentration, up to 10 minutes (as if concentrating on a spell). Darkvision can't penetrate this darkness, and no natural light can illuminate it. If any of the darkness overlaps with an area of light created by a spell of 2nd level or lower, the spell creating the light is dispelled.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/263/315/315/636252768676699519.jpeg",
@@ -3332,7 +3708,16 @@ const monsters = [
     traits:
       "<p><em><strong>Two-Headed.</strong></em> The dog has advantage on Wisdom (Perception) checks and on saving throws against being blinded, charmed, deafened, frightened, stunned, or knocked unconscious.</p>",
     "number of attacks": 2,
-    attacks: {},
+    attacks: {
+      "Bite": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+4",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "4 (1d4 + 2)",
+        "damage type": "piercing"
+      }
+    },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The dog makes two bite attacks.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft. one target. <em>Hit:</em> 5 (1d6 + 2) piercing damage. If the target is a creature, it must succeed on a DC 12 Constitution saving throw against disease or become poisoned until the disease is cured. Every 24 hours that elapse, the creature must repeat the saving throw, reducing its hit point maximum by 5 (1d10) on a failure. This reduction lasts until the disease is cured. The creature dies if the disease reduces its hit point maximum to 0.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/265/1000/1000/636252768823194310.jpeg",
@@ -3360,7 +3745,24 @@ const monsters = [
     traits:
       "<p><em><strong>Stone Camouflage.</strong></em> The gnome has advantage on Dexterity (Stealth) checks made to hide in rocky terrain.</p><p><em><strong>Gnome Cunning.</strong></em> The gnome has advantage on Intelligence, Wisdom, and Charisma saving throws against magic.</p><p><em><strong>Innate Spellcasting.</strong></em> The gnome’s innate spellcasting ability is Intelligence (spell save DC 11). It can innately cast the following spells, requiring no material components:</p><p>At will: nondetection (self only)</p><p>1/day each: blindness/deafness, blur, disguise self</p>",
     "number of attacks": 1,
-    attacks: {},
+    attacks: {
+      "War Pick": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+4",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "6 (1d8 + 2)",
+        "damage type": "piercing"
+      },
+      "Poisoned Dart": {
+        "type": "Ranged Weapon Attack",
+        "to hit": "+4",
+        "reach": "30/120 ft.",
+        "target": "one creature",
+        "hit": "4 (1d4 + 2)",
+        "damage type": "piercing"
+      }
+    },
     actions:
       "<p><em><strong>War Pick.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft. one target. Hit: 6 (1d8 + 2) piercing damage.</p><p><em><strong>Poisoned Dart.</strong></em> <em>Ranged Weapon Attack:</em> +4 to hit, range 30/120 ft. one creature. Hit: 4 (1d4 + 2) piercing damage, and the target must succeed on a DC 12 Constitution saving throw or be poisoned for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/9/112/1000/1000/636323610009818415.jpeg",
@@ -3416,7 +3818,16 @@ const monsters = [
     traits:
       "<p><em><strong>Angelic Weapons.</strong></em> The deva's weapon attacks are magical. When the deva hits with any weapon, the weapon deals an extra 4d8 radiant damage (included in the attack).</p><p><em><strong>Innate Spellcasting.</strong></em> The deva's spellcasting ability is Charisma (spell save DC 17). The deva can innately cast the following spells, requiring only verbal components: </p><p>At will: detect evil and good </p><p>1/day each: commune, raise dead </p><p><em><strong>Magic Resistance.</strong></em> The deva has advantage on saving throws against spells and other magical effects.</p>",
     "number of attacks": 2,
-    attacks: {},
+    attacks: {
+      "Mace": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+8",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "7 (1d6 + 4) bludgeoning damage plus 18 (4d8) radiant damage",
+        "damage type": "bludgeoning, radiant"
+      }
+    },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The deva makes two melee attacks.</p><p><em><strong>Mace.</strong></em> <em>Melee Weapon Attack:</em> +8 to hit, reach 5 ft. one target. <em>Hit:</em> 7 (1d6 + 4) bludgeoning damage plus 18 (4d8) radiant damage.</p><p><em><strong>Healing Touch (3/Day).</strong></em> The deva touches another creature. The target magically regains 20 (4d8 + 2) hit points and is freed from any curse, disease, poison, blindness, or deafness.</p><p><em><strong>Change Shape.</strong></em> The deva magically polymorphs into a humanoid or beast that has a challenge rating equal to or less than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the deva's choice).</p><p>In a new form, the deva retains its game statistics and ability to speak, but its AC, movement modes, Strength, Dexterity, and special senses are replaced by those of the new form, and it gains any statistics and capabilities (except class features, legendary actions, and lair actions) that the new form has but that it lacks.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/267/1000/1000/636252768980059444.jpeg",
@@ -3502,7 +3913,16 @@ const monsters = [
     traits:
       "<p><em><strong>Shapechanger.</strong></em> The doppelganger can use its action to polymorph into a Small or Medium humanoid it has seen, or back into its true form. Its statistics, other than its size, are the same in each form. Any equipment it is wearing or carrying isn't transformed. It reverts to its true form if it dies.</p><p><em><strong>Ambusher.</strong></em> The doppelganger has advantage on attack rolls against any creature it has surprised.</p><p><em><strong>Surprise Attack.</strong></em> If the doppelganger surprises a creature and hits it with an attack during the first round of combat, the target takes an extra 10 (3d6) damage from the attack.</p>",
     "number of attacks": 2,
-    attacks: {},
+    attacks: {
+      "Slam": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+6",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "7 (1d6 + 4)",
+        "damage type": "bludgeoning"
+      }
+    },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The doppelganger makes two melee attacks.</p><p><em><strong>Slam.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft. one target. <em>Hit:</em> 7 (1d6 + 4) bludgeoning damage.</p><p><em><strong>Read Thoughts.</strong></em> The doppelganger magically reads the surface thoughts of one creature within 60 feet of it. The effect can penetrate barriers, but 3 feet of wood or dirt, 2 feet of stone, 2 inches of metal, or a thin sheet of lead blocks it. While the target is in range, the doppelganger can continue reading its thoughts, as long as the doppelganger's concentration isn't broken (as if concentrating on a spell). While reading the target's mind, the doppelganger has advantage on Wisdom (Insight) and Charisma (Deception, Intimidation, and Persuasion) checks against the target.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/289/315/315/636252770983164351.jpeg",
@@ -3585,7 +4005,24 @@ const monsters = [
     languages: ["Abyssal", "Telepathy 60 ft."],
     challenge: "1/4 (50 XP)",
     "number of attacks": 1,
-    attacks: {},
+    attacks: {
+      "Bite": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+2",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "3 (1d6)",
+        "damage type": "piercing"
+      },
+      "Claws": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+2",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "5 (2d4)",
+        "damage type": "slashing"
+      }
+    },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The dretch makes two attacks: one with its bite and one with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +2 to hit, reach 5 ft. one target. <em>Hit:</em> 3 (1d6) piercing damage.</p><p><em><strong>Claws.</strong></em> <em>Melee Weapon Attack:</em> +2 to hit, reach 5 ft. one target. <em>Hit:</em> 5 (2d4) slashing damage.</p><p><em><strong>Fetid Cloud (1/Day).</strong></em> A 10­-foot radius of disgusting green gas extends out from the dretch. The gas spreads around corners, and its area is lightly obscured. It lasts for 1 minute or until a strong wind disperses it. Any creature that starts its turn in that area must succeed on a DC 11 Constitution saving throw or be poisoned until the start of its next turn. While poisoned in this way, the target can take either an action or a bonus action on its turn, not both, and can't take reactions.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/293/1000/1000/636252771253285096.jpeg",
@@ -3613,7 +4050,32 @@ const monsters = [
     traits:
       "<p><em><strong>Fey Ancestry.</strong></em> The drider has advantage on saving throws against being charmed, and magic can't put the drider to sleep.</p><p><em><strong>Innate Spellcasting.</strong></em> The drider's innate spellcasting ability is Wisdom (spell save DC 13). The drider can innately cast the following spells, requiring no material components: </p><p>At will: dancing lights </p><p>1/day each: darkness, faerie fire </p><p><em><strong>Spider Climb.</strong></em> The drider can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check.</p><p><em><strong>Sunlight Sensitivity.</strong></em> While in sunlight, the drider has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight.</p><p><em><strong>Web Walker.</strong></em> The drider ignores movement restrictions caused by webbing.</p>",
     "number of attacks": 2,
-    attacks: {},
+    attacks: {
+      "Bite": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+6",
+        "reach": "5 ft.",
+        "target": "one creature",
+        "hit": "2 (1d4) piercing damage plus 9 (2d8) poison damage",
+        "damage type": "piercing, poison"
+      },
+      "Longsword": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+6",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "7 (1d8 + 3) slashing damage (or 8 (1d10 + 3) with two hands)",
+        "damage type": "slashing"
+      },
+      "Longbow": {
+        "type": "Ranged Weapon Attack",
+        "to hit": "+6",
+        "range": "150/600 ft.",
+        "target": "one target",
+        "hit": "7 (1d8 + 3) piercing damage plus 4 (1d8) poison damage",
+        "damage type": "piercing, poison"
+      }
+    },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The drider makes three attacks, either with its longsword or its longbow. It can replace one of those attacks with a bite attack.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft. one creature. <em>Hit:</em> 2 (1d4) piercing damage plus 9 (2d8) poison damage.</p><p><em><strong>Longsword.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft. one target. <em>Hit:</em> 7 (1d8 + 3) slashing damage, or 8 (1d10 + 3) slashing damage if used with two hands.</p><p><em><strong>Longbow.</strong></em> <em>Ranged Weapon Attack:</em> +6 to hit, range 150/600 ft. one target. <em>Hit:</em> 7 (1d8 + 3) piercing damage plus 4 (1d8) poison damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/295/1000/1000/636252771409285458.jpeg",
@@ -3756,7 +4218,16 @@ const monsters = [
     traits:
       "<p><em><strong>Death Burst.</strong></em> When the mephit dies, it explodes in a burst of dust. Each creature within 5 feet of it must then succeed on a DC 10 Constitution saving throw or be blinded for 1 minute. A blinded creature can repeat the saving throw on each of its turns, ending the effect on itself on a success.</p><p><em><strong>Innate Spellcasting.</strong></em>(1/Day). The mephit can innately cast sleep, requiring no material components. Its innate spellcasting ability is Charisma.</p>",
     "number of attacks": 1,
-    attacks: {},
+    attacks: {
+      "Claws": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+4",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "4 (1d4 + 2)",
+        "damage type": "slashing"
+      }
+    },
     actions:
       "<p><em><strong>Claws.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft. one creature. <em>Hit:</em> 4 (1d4 + 2) slashing damage.</p><p><em><strong>Blinding Breath (Recharge 6).</strong></em> The mephit exhales a 15- foot cone of blinding dust. Each creature in that area must succeed on a DC 10 Dexterity saving throw or be blinded for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/313/1000/1000/636252772213922157.jpeg",
@@ -3929,7 +4400,24 @@ const monsters = [
     traits:
       "<p><em><strong>Hellish Weapons.</strong></em> The erinyes's weapon attacks are magical and deal an extra 13 (3d8) poison damage on a hit (included in the attacks).</p><p><em><strong>Magic Resistance.</strong></em> The erinyes has advantage on saving throws against spells and other magical effects.</p>",
     "number of attacks": 2,
-    attacks: {},
+    attacks: {
+      "Longsword": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+8",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "8 (1d8 + 4) slashing damage (or 9 (1d10 + 4) with two hands) plus 13 (3d8) poison damage",
+        "damage type": "slashing, poison"
+      },
+      "Longbow": {
+        "type": "Ranged Weapon Attack",
+        "to hit": "+7",
+        "range": "150/600 ft.",
+        "target": "one target",
+        "hit": "7 (1d8 + 3) piercing damage plus 13 (3d8) poison damage",
+        "damage type": "piercing, poison"
+      }
+    },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The erinyes makes three attacks.</p><p><em><strong>Longsword.</strong></em> <em>Melee Weapon Attack:</em> +8 to hit, reach 5 ft. one target. <em>Hit:</em> 8 (1d8 + 4) slashing damage, or 9 (1d10 + 4) slashing damage if used with two hands, plus 13 (3d8) poison damage.</p><p><em><strong>Longbow.</strong></em> <em>Ranged Weapon Attack:</em> +7 to hit, range 150/600 ft. one target. <em>Hit:</em> 7 (1d8 + 3) piercing damage plus 13 (3d8) poison damage, and the target must succeed on a DC 14 Constitution saving throw or be poisoned. The poison lasts until it is removed by the lesser restoration spell or similar magic.</p>",
     reactions:
@@ -3959,7 +4447,32 @@ const monsters = [
     traits:
       "<p><em><strong>Spider Climb.</strong></em> The ettercap can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check.</p><p><em><strong>Web Sense.</strong></em> While in contact with a web, the ettercap knows the exact location of any other creature in contact with the same web.</p><p><em><strong>Web Walker.</strong></em> The ettercap ignores movement restrictions caused by webbing.</p>",
     "number of attacks": 2,
-    attacks: {},
+    attacks: {
+      "Bite": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+4",
+        "reach": "5 ft.",
+        "target": "one creature",
+        "hit": "6 (1d8 + 2) piercing damage plus 4 (1d8) poison damage",
+        "damage type": "piercing, poison"
+      },
+      "Claws": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+4",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "7 (2d4 + 2)",
+        "damage type": "slashing"
+      },
+      "Web": {
+        "type": "Ranged Weapon Attack",
+        "to hit": "+4",
+        "range": "30/60 ft.",
+        "target": "one Large or smaller creature",
+        "hit": "The target is restrained by webbing.",
+        "damage type": "restrain"
+      }
+    },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The ettercap makes two attacks: one with its bite and one with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft. one creature. <em>Hit:</em> 6 (1d8 + 2) piercing damage plus 4 (1d8) poison damage. The target must succeed on a DC 11 Constitution saving throw or be poisoned for 1 minute. The creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p><p><em><strong>Claws.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft. one target. <em>Hit:</em> 7 (2d4 + 2) slashing damage.</p><p><em><strong>Web (Recharge 5–6).</strong></em> <em>Ranged Weapon Attack:</em> +4 to hit, range 30/60 ft. one Large or smaller creature. <em>Hit:</em> The creature is restrained by webbing. As an action, the restrained creature can make a DC 11 Strength check, escaping from the webbing on a success. The effect also ends if the webbing is destroyed. The webbing has AC 10, 5 hit points, vulnerability to fire damage, and immunity to bludgeoning, poison, and psychic damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/339/315/315/636252776771842998.jpeg",
@@ -3987,7 +4500,40 @@ const monsters = [
     traits:
       "<p><em><strong>Two Heads.</strong></em> The ettin has advantage on Wisdom (Perception) checks and on saving throws against being blinded, charmed, deafened, frightened, stunned, and knocked unconscious.</p><p><em><strong>Wakeful.</strong></em> When one of the ettin's heads is asleep, its other head is awake.</p>",
     "number of attacks": 2,
-    attacks: {},
+    attacks: {
+      "Battleaxe": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+7",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "14 (2d8 + 5)",
+        "damage type": "slashing"
+      },
+      "Morningstar": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+7",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "14 (2d8 + 5)",
+        "damage type": "piercing"
+      },
+      "Club": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+7",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "14 (2d8 + 5)",
+        "damage type": "bludgeoning"
+      },
+      "Rock": {
+        "type": "Ranged Weapon Attack",
+        "to hit": "+9",
+        "range": "60/240 ft.",
+        "target": "one target",
+        "hit": "28 (4d10 + 6)",
+        "damage type": "bludgeoning"
+      }
+    },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The ettin makes two attacks: one with its battleaxe and one with its morningstar.</p><p><em><strong>Battleaxe.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft. one target. <em>Hit:</em> 14 (2d8 + 5) slashing damage.</p><p><em><strong>Morningstar.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft. one target. <em>Hit:</em> 14 (2d8 + 5) piercing damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/341/1000/1000/636252776953634777.jpeg",
@@ -4017,7 +4563,16 @@ const monsters = [
     traits:
       "<p><em><strong>Fire Form.</strong></em> The elemental can move through a space as narrow as 1 inch wide without squeezing. A creature that touches the elemental or hits it with a melee attack while within 5 feet of it takes 5 (1d10) fire damage. In addition, the elemental can enter a hostile creature's space and stop there. The first time it enters a creature's space on a turn, that creature takes 5 (1d10) fire damage and catches fire; until someone takes an action to douse the fire, the creature takes 5 (1d10) fire damage at the start of each of its turns.</p><p><em><strong>Illumination.</strong></em> The elemental sheds bright light in a 30-foot radius and dim light in an additional 30 feet.</p><p><em><strong>Water Susceptibility.</strong></em> For every 5 feet the elemental moves in water, or for every gallon of water splashed on it, it takes 1 cold damage.</p>",
     "number of attacks": 1,
-    attacks: {},
+    attacks: {
+      "Touch": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+6",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "10 (2d6 + 3) fire damage",
+        "damage type": "fire"
+      }
+    },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The elemental makes two touch attacks.</p><p><em><strong>Touch.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft. one target. <em>Hit:</em> 10 (2d6 + 3) fire damage. If the target is a creature or a flammable object, it ignites. Until a creature takes an action to douse the fire, the target takes 5 (1d10) fire damage at the start of each of its turns.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/343/1000/1000/636252777098624896.jpeg",
@@ -4076,7 +4631,16 @@ const monsters = [
     traits:
       "<p><em><strong>Illumination.</strong></em> The flameskull sheds either dim light in a 15-foot radius, or bright light in a 15-foot radius and dim light for an additional 15 feet. It can switch between the options as an action.</p><p><em><strong>Magic Resistance.</strong></em> The flameskull has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Rejuvenation.</strong></em> If the flameskull is destroyed, it regains all its hit points in 1 hour unless holy water is sprinkled on its remains or a <em>dispel magic</em> or <em>remove curse</em> spell is cast on them.</p><p><em><strong>Spellcasting.</strong></em> The flameskull is a 5th-level spellcaster. Its spellcasting ability is Intelligence (spell save DC 13, +5 to hit with spell attacks). It requires no somatic or material components to cast its spells. The flameskull has the following wizard spells prepared:</p><ul><li>Cantrip (at will): mage hand</li><li>1st level (3 slots): magic missile, shield</li><li>2nd level (2 slots): blur, flaming sphere</li><li>3rd level (1 slot): fireball</li></ul><p> </p>",
     "number of attacks": 1,
-    attacks: {},
+    attacks: {
+      "Fire Ray": {
+        "type": "Ranged Spell Attack",
+        "to hit": "+5",
+        "range": "30 ft.",
+        "target": "one target",
+        "hit": "10 (3d6)",
+        "damage type": "fire"
+      }
+    },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The flameskull uses Fire Ray twice.</p><p><em><strong>Fire Ray.</strong></em> <em>Ranged Spell Attack:</em> +5 to hit, range 30 ft. one target. <em>Hit:</em> 10 (3d6) fire damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/14/487/315/315/636364325235118776.png",
@@ -4105,7 +4669,16 @@ const monsters = [
     traits:
       "<p><em><strong>Berserk.</strong></em> Whenever the golem starts its turn with 40 hit points or fewer, roll a d6. On a 6, the golem goes berserk. On each of its turns while berserk, the golem attacks the nearest creature it can see. If no creature is near enough to move to and attack, the golem attacks an object, with preference for an object smaller than itself. Once the golem goes berserk, it continues to do so until it is destroyed or regains all its hit points.</p><p>The golem's creator, if within 60 feet of the berserk golem, can try to calm it by speaking firmly and persuasively. The golem must be able to hear its creator, who must take an action to make a DC 15 Charisma (Persuasion) check. If the check succeeds, the golem ceases being berserk. If it takes damage while still at 40 hit points or fewer, the golem might go berserk again.</p><p><em><strong>Aversion of Fire.</strong></em> If the golem takes fire damage, it has disadvantage on attack rolls and ability checks until the end of its next turn.</p><p><em><strong>Immutable Form.</strong></em> The golem is immune to any spell or effect that would alter its form.</p><p> <em><strong>Lightning Absorption.</strong></em> Whenever the golem is subjected to lightning damage, it takes no damage and instead regains a number of hit points equal to the lightning damage dealt.</p><p> <em><strong>Magic Resistance.</strong></em> The golem has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Magic Weapons.</strong></em> The golem's weapon attacks are magical.</p>",
     "number of attacks": 2,
-    attacks: {},
+    attacks: {
+      "Slam": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+7",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "13 (2d8 + 4)",
+        "damage type": "bludgeoning"
+      }
+    },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The golem makes two slam attacks.</p><p><em><strong>Slam.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft. one target. <em>Hit:</em> 13 (2d8 + 4) bludgeoning damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/359/315/315/636252778311644574.jpeg",
@@ -4132,7 +4705,16 @@ const monsters = [
     traits:
       "<p><em><strong>Flyby.</strong></em> The snake doesn't provoke opportunity attacks when it flies out of an enemy's reach.</p>",
     "number of attacks": 1,
-    attacks: {},
+    attacks: {
+      "Bite": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+6",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "1 piercing damage plus 7 (3d4) poison damage",
+        "damage type": "piercing, poison"
+      }
+    },
     actions:
       "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft. one target. <em>Hit:</em> 1 piercing damage plus 7 (3d4) poison damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/16/517/1000/1000/636376319640572721.jpeg",
@@ -4162,7 +4744,16 @@ const monsters = [
     traits:
       "<p><em><strong>Antimagic Susceptibility.</strong></em> The sword is incapacitated while in the area of an antimagic field. If targeted by dispel magic, the sword must succeed on a Constitution saving throw against the caster's spell save DC or fall unconscious for 1 minute.</p><p><em><strong>False Appearance.</strong></em> While the sword remains motionless and isn't flying, it is indistinguishable from a normal sword.</p>",
     "number of attacks": 1,
-    attacks: {},
+    attacks: {
+      "Longsword": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+3",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "5 (1d8 + 1)",
+        "damage type": "slashing"
+      }
+    },
     actions:
       "<p><em><strong>Longsword.</strong></em> <em>Melee Weapon Attack:</em> +3 to hit, reach 5 ft. one target. <em>Hit:</em> 5 (1d8 + 1) slashing damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/77/599/1000/1000/636473151106171093.png",
@@ -4215,7 +4806,24 @@ const monsters = [
     languages: ["Giant"],
     challenge: "8 (3,900 XP)",
     "number of attacks": 1,
-    attacks: {},
+    attacks: {
+      "Greataxe": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+9",
+        "reach": "10 ft.",
+        "target": "one target",
+        "hit": "25 (3d12 + 6)",
+        "damage type": "slashing"
+      },
+      "Rock": {
+        "type": "Ranged Weapon Attack",
+        "to hit": "+9",
+        "range": "60/240 ft.",
+        "target": "one target",
+        "hit": "28 (4d10 + 6)",
+        "damage type": "bludgeoning"
+      }
+    },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The giant makes two greataxe attacks.</p><p><em><strong>Greataxe.</strong></em> <em>Melee Weapon Attack:</em> +9 to hit, reach 10 ft. one target. <em>Hit:</em> 25 (3d12 + 6) slashing damage.</p><p><em><strong>Rock.</strong></em> <em>Ranged Weapon Attack:</em> +9 to hit, range 60/240 ft. one target. <em>Hit:</em> 28 (4d10 + 6) bludgeoning damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/405/1000/1000/636252786158646348.jpeg",
@@ -4273,7 +4881,16 @@ const monsters = [
     traits:
       "<p><em><strong>Ooze Cube.</strong></em> The cube takes up its entire space. Other creatures can enter the space, but a creature that does so is subjected to the cube's Engulf and has disadvantage on the saving throw.</p><p>Creatures inside the cube can be seen but have total cover.</p><p>A creature within 5 feet of the cube can take an action to pull a creature or object out of the cube. Doing so requires a successful DC 12 Strength check, and the creature making the attempt takes 10 (3d6) acid damage.</p><p>The cube can hold only one Large creature or up to four Medium or smaller creatures inside it at a time.</p><p><em><strong>Transparent.</strong></em> Even when the cube is in plain sight, it takes a successful DC 15 Wisdom (Perception) check to spot a cube that has neither moved nor attacked. A creature that tries to enter the cube's space while unaware of the cube is surprised by the cube.</p>",
     "number of attacks": 1,
-    attacks: {},
+    attacks: {
+      "Pseudopod": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+4",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "10 (3d6)",
+        "damage type": "acid"
+      }
+    },
     actions:
       "<p><em><strong>Pseudopod.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft. one creature. <em>Hit:</em> 10 (3d6) acid damage.</p><p><em><strong>Engulf.</strong></em> The cube moves up to its speed. While doing so, it can enter Large or smaller creatures' spaces. Whenever the cube enters a creature's space, the creature must make a DC 12 Dexterity saving throw.</p><p>On a successful save, the creature can choose to be pushed 5 feet back or to the side of the cube. A creature that chooses not to be pushed suffers the consequences of a failed saving throw.</p><p>On a failed save, the cube enters the creature's space, and the creature takes 10 (3d6) acid damage and is engulfed. The engulfed creature can't breathe, is restrained, and takes 21 (6d6) acid damage at the start of each of the cube's turns. When the cube moves, the engulfed creature moves with it.</p><p>An engulfed creature can try to escape by taking an action to make a DC 12 Strength check. On a success, the creature escapes and enters a space of its choice within 5 feet of the cube.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/409/1000/1000/636252786406028958.jpeg",
@@ -8947,7 +9564,24 @@ const monsters = [
     traits:
       "<p><em><strong>Tunneler.</strong></em> The worm can burrow through solid rock at half its burrow speed and leaves a 10-foot-diameter tunnel in its wake.</p>",
     "number of attacks": 2,
-    attacks: {},
+    attacks: {
+      "Bite": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+9",
+        "reach": "10 ft.",
+        "target": "one target",
+        "hit": "22 (3d8 + 9)",
+        "damage type": "piercing"
+      },
+      "Tail Stinger": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+9",
+        "reach": "10 ft.",
+        "target": "one creature",
+        "hit": "19 (3d6 + 9)",
+        "damage type": "piercing, poison"
+      }
+    },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The worm makes two attacks: one with its bite and one with its stinger.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +9 to hit, reach 10 ft. one target. <em>Hit:</em> 22 (3d8 + 9) piercing damage. If the target is a Large or smaller creature, it must succeed on a DC 19 Dexterity saving throw or be swallowed by the worm. A swallowed creature is blinded and restrained, it has total cover against attacks and other effects outside the worm, and it takes 21 (6d6) acid damage at the start of each of the worm's turns.</p><p>If the worm takes 30 damage or more on a single turn from a creature inside it, the worm must succeed on a DC 21 Constitution saving throw at the end of that turn or regurgitate all swallowed creatures, which fall prone in a space within 10 feet of the worm. If the worm dies, a swallowed creature is no longer restrained by it and can escape from the corpse by using 20 feet of movement, exiting prone.</p><p><em><strong>Tail Stinger.</strong></em> <em>Melee Weapon Attack:</em> +9 to hit, reach 10 ft. one creature. <em>Hit:</em> 19 (3d6 + 9) piercing damage, and the target must make a DC 19 Constitution saving throw, taking 42 (12d6) poison damage on a failed save, or half as much damage on a successful one.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/275/315/315/636252769846436684.jpeg",
@@ -8978,7 +9612,16 @@ const monsters = [
     traits:
       "<p><em><strong>Shapechanger.</strong></em> The quasit can use its action to polymorph into a beast form that resembles a bat (speed 10 ft.fly 40 ft., a centipede (40 ft. climb 40 ft., or a toad (40 ft. swim 40 ft., or back into its true form. Its statistics are the same in each form, except for the speed changes noted. Any equipment it is wearing or carrying isn't transformed. It reverts to its true form if it dies.</p><p><em><strong>Magic Resistance.</strong></em> The quasit has advantage on saving throws against spells and other magical effects.</p>",
     "number of attacks": 1, 
-    attacks: {},
+    attacks: {
+      "Claws (Bite in Beast Form)": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+4",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "5 (1d4 + 3)",
+        "damage type": "piercing, poison"
+      }
+    },
     actions:
       "<p><em><strong>Claws (Bite in Beast Form).</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft. one target. <em>Hit:</em> 5 (1d4 + 3) piercing damage, and the target must succeed on a DC 10 Constitution saving throw or take 5 (2d4) poison damage and become poisoned for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p><p><em><strong>Scare (1/Day).</strong></em> One creature of the quasit's choice within 20 feet of it must succeed on a DC 10 Wisdom saving throw or be frightened for 1 minute. The target can repeat the saving throw at the end of each of its turns, with disadvantage if the quasit is within line of sight, ending the effect on itself on a success.</p><p><em><strong>Invisibility.</strong></em> The quasit magically turns invisible until it attacks or uses Scare, or until its concentration ends (as if concentrating on a spell). Any equipment the quasit wears or carries is invisible with it.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/271/315/315/636252769318699115.jpeg",
@@ -9005,7 +9648,16 @@ const monsters = [
     traits:
       "<p><em><strong>Blood Frenzy.</strong></em> The quipper has advantage on melee attack rolls against any creature that doesn't have all its hit points.</p><p><em><strong>Water Breathing.</strong></em> The quipper can breathe only underwater.</p>",
     "number of attacks": 1,
-    attacks: {},
+    attacks: {
+      "Bite": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+5",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "1",
+        "damage type": "piercing"
+      }
+    },
     actions:
       "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft. one target. <em>Hit:</em> 1 piercing damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/253/1000/1000/636252767919065233.jpeg",
@@ -9036,7 +9688,16 @@ const monsters = [
     traits:
       "<p><em><strong>Limited Magic Immunity.</strong></em> The rakshasa can't be affected or detected by spells of 6th level or lower unless it wishes to be. It has advantage on saving throws against all other spells and magical effects.</p><p><em><strong>Innate Spellcasting.</strong></em> The rakshasa's innate spellcasting ability is Charisma (spell save DC 18, +10 to hit with spell attacks). The rakshasa can innately cast the following spells, requiring no material components:</p><p>At will: detect thoughts, disguise self, mage hand, minor illusion</p><p>3/day each: charm person, detect magic, invisibility, major image, suggestion</p><p>1/day each: dominate person, fly, plane shift, true seeing</p>",
     "number of attacks": 3,
-    attacks: {},
+    attacks: {
+      "Claw": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+7",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "9 (2d6 + 2)",
+        "damage type": "slashing"
+      }
+    },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The rakshasa makes two claw attacks.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft. one target. <em>Hit:</em> 9 (2d6 + 2) slashing damage, and the target is cursed if it is a creature. The magical curse takes effect whenever the target takes a short or long rest, filling the target's thoughts with horrible images and dreams. The cursed target gains no benefit from finishing a short or long rest. The curse lasts until it is lifted by a remove curse spell or similar magic.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/247/315/315/636252767480157951.jpeg",
@@ -9063,7 +9724,16 @@ const monsters = [
     traits:
       "<p><em><strong>Keen Smell.</strong></em> The rat has advantage on Wisdom (Perception) checks that rely on smell.</p>",
     "number of attacks": 1,
-    attacks: {},
+    attacks: {
+      "Bite": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+0",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "1",
+        "damage type": "piercing"
+      }
+    },
     actions:
       "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +0 to hit, reach 5 ft. one target. <em>Hit:</em> 1 piercing damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/16/541/315/315/636376335435407571.jpeg",
@@ -9091,7 +9761,16 @@ const monsters = [
     traits:
       "<p><em><strong>Mimicry.</strong></em> The raven can mimic simple sounds it has heard, such as a person whispering, a baby crying, or an animal chittering. A creature that hears the sounds can tell they are imitations with a successful DC 10 Wisdom (Insight) check.</p>",
     "number of attacks": 1,
-    attacks: {},
+    attacks: {
+      "Beak": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+4",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "1",
+        "damage type": "piercing"
+      }
+    },
     actions:
       "<p><em><strong>Beak.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft. one target. <em>Hit:</em> 1 piercing damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/16/553/1000/1000/636376341568391037.jpeg",
@@ -9119,7 +9798,16 @@ const monsters = [
     languages: ["Draconic"],
     challenge: "4 (1,100 XP)",
     "number of attacks": 1,
-    attacks: {},
+    attacks: {
+      "Bite": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+6",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "9 (1d10 + 4)",
+        "damage type": "piercing, fire"
+      }
+    },
     actions:
       "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft. one target. <em>Hit:</em> 9 (1d10 + 4) piercing damage plus 3 (1d6) fire damage.</p><p><em><strong>Fire Breath (Recharge 5–6).</strong></em> The dragon exhales fire in a 15-foot cone. Each creature in that area must make a DC 13 Dexterity saving throw, taking 24 (7d6) fire damage on a failed save, or half as much damage on a successful one.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/239/315/315/636252766855622680.jpeg",
@@ -9147,7 +9835,16 @@ const monsters = [
     traits:
       "<p><em><strong>Pack Tactics.</strong></em> The shark has advantage on an attack roll against a creature if at least one of the shark's allies is within 5 feet of the creature and the ally isn't incapacitated.</p><p><em><strong>Water Breathing.</strong></em> The shark can breathe only underwater.</p>",
     "number of attacks": 1,
-    attacks: {},
+    attacks: {
+      "Bite": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+4",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "6 (1d8 + 2)",
+        "damage type": "piercing"
+      }
+    },
     actions:
       "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft. one target. <em>Hit:</em> 6 (1d8 + 2) piercing damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/attachments/2/648/beast.jpg",
@@ -9175,7 +9872,16 @@ const monsters = [
     traits:
       "<p><em><strong>Heated Body.</strong></em> A creature that touches the remorhaz or hits it with a melee attack while within 5 feet of it takes 10 (3d6) fire damage.</p>",
     "number of attacks": 1,
-    attacks: {},
+    attacks: {
+      "Bite": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+11",
+        "reach": "10 ft.",
+        "target": "one target",
+        "hit": "40 (6d10 + 7)",
+        "damage type": "piercing, fire"
+      }
+    },
     actions:
       "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +11 to hit, reach 10 ft. one target. <em>Hit:</em> 40 (6d10 + 7) piercing damage plus 10 (3d6) fire damage. If the target is a creature, it is grappled (escape DC 17). Until this grapple ends, the target is restrained, and the remorhaz can't bite another target.</p><p><em><strong>Swallow.</strong></em> The remorhaz makes one bite attack against a Medium or smaller creature it is grappling. If the attack hits, that creature takes the bite's damage and is swallowed, and the grapple ends. While swallowed, the creature is blinded and restrained, it has total cover against attacks and other effects outside the remorhaz, and it takes 21 (6d6) acid damage at the start of each of the remorhaz's turns.</p><p>If the remorhaz takes 30 damage or more on a single turn from a creature inside it, the remorhaz must succeed on a DC 15 Constitution saving throw at the end of that turn or regurgitate all swallowed creatures, which fall prone in a space within 10 feet of the remorhaz. If the remorhaz dies, a swallowed creature is no longer restrained by it and can escape from the corpse using 15 feet of movement, exiting prone.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/231/315/315/636252766143328421.jpeg",
@@ -9202,7 +9908,16 @@ const monsters = [
     traits:
       "<p><em><strong>Charge.</strong></em> If the rhinoceros moves at least 20 feet straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 9 (2d8) bludgeoning damage. If the target is a creature, it must succeed on a DC 15 Strength saving throw or be knocked prone.</p>",
     "number of attacks": 1,
-    attacks: {},
+    attacks: {
+      "Gore": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+7",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "14 (2d8 + 5)",
+        "damage type": "bludgeoning"
+      }
+    },
     actions:
       "<p><em><strong>Gore.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft. one target. <em>Hit:</em> 14 (2d8 + 5) bludgeoning damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/attachments/2/648/beast.jpg",
@@ -9227,7 +9942,16 @@ const monsters = [
     languages: ["N/A"],
     challenge: "1/4 (50 XP)",
     "number of attacks": 1,
-    attacks: {},
+    attacks: {
+      "Hooves": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+5",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "8 (2d4 + 3)",
+        "damage type": "bludgeoning"
+      }
+    },
     actions:
       "<p><em><strong>Hooves.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft. one target. <em>Hit:</em> 8 (2d4 + 3) bludgeoning damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/9/904/315/315/636334288913250513.jpeg",
@@ -9256,7 +9980,24 @@ const monsters = [
     traits:
       "<p><em><strong>Keen Sight.</strong></em> The roc has advantage on Wisdom (Perception) checks that rely on sight.</p>",
     "number of attacks": 2,
-    attacks: {},
+    attacks: {
+      "Beak": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+13",
+        "reach": "10 ft.",
+        "target": "one target",
+        "hit": "27 (4d8 + 9)",
+        "damage type": "piercing"
+      },
+      "Talons": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+13",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "23 (4d6 + 9)",
+        "damage type": "slashing"
+      }
+    },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The roc makes two attacks: one with its beak and one with its talons.</p><p><em><strong>Beak.</strong></em> <em>Melee Weapon Attack:</em> +13 to hit, reach 10 ft. one target. <em>Hit:</em> 27 (4d8 + 9) piercing damage.</p><p><em><strong>Talons.</strong></em> <em>Melee Weapon Attack:</em> +13 to hit, reach 5 ft. one target. <em>Hit:</em> 23 (4d6 + 9) slashing damage, and the target is grappled (escape DC 19). Until this grapple ends, the target is restrained, and the roc can't use its talons on another target.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/229/315/315/636252765590929622.jpeg",
@@ -9284,7 +10025,24 @@ const monsters = [
     traits:
       "<p><em><strong>False Appearance.</strong></em> While the roper remains motionless, it is indistinguishable from a normal cave formation, such as a stalagmite.</p><p><em><strong>Grasping Tendrils.</strong></em> The roper can have up to six tendrils at a time. Each tendril can be attacked (AC 20; 10 hit points; immunity to poison and psychic damage). Destroying a tendril deals no damage to the roper, which can extrude a replacement tendril on its next turn. A tendril can also be broken if a creature takes an action and succeeds on a DC 15 Strength check against it.</p><p><em><strong>Spider Climb.</strong></em> The roper can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check.</p>",
     "number of attacks": 2,
-    attacks: {},
+    attacks: {
+      "Bite": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+7",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "22 (4d8 + 4)",
+        "damage type": "piercing"
+      },
+      "Tendril": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+7",
+        "reach": "50 ft.",
+        "target": "one creature",
+        "hit": "The target is grappled (escape DC 15)",
+        "damage type": "bludgeoning"
+      }
+    },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The roper makes four attacks with its tendrils, uses Reel, and makes one attack with its bite.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft. one target. <em>Hit:</em> 22 (4d8 + 4) piercing damage.</p><p><em><strong>Tendril.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 50 ft. one creature. <em>Hit:</em> The target is grappled (escape DC 15). Until the grapple ends, the target is restrained and has disadvantage on Strength checks and Strength saving throws, and the roper can't use the same tendril on another target.</p><p><em><strong>Reel.</strong></em> The roper pulls each creature grappled by it up to 25 feet straight toward it.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/16/560/1000/1000/636376344528091115.jpeg",
@@ -9313,7 +10071,16 @@ const monsters = [
     traits:
       "<p><em><strong>Antimagic Susceptibility.</strong></em> The rug is incapacitated while in the area of an antimagic field. If targeted by dispel magic, the rug must succeed on a Constitution saving throw against the caster's spell save DC or fall unconscious for 1 minute.</p><p><em><strong>Damage Transfer.</strong></em> While it is grappling a creature, the rug takes only half the damage dealt to it, and the creature grappled by the rug takes the other half.</p><p><em><strong>False Appearance.</strong></em> While the rug remains motionless, it is indistinguishable from a normal rug.</p>",
     "number of attacks": 1,
-    attacks: {},
+    attacks: {
+      "Smother": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+5",
+        "reach": "5 ft.",
+        "target": "one Medium or smaller creature",
+        "hit": "The creature is grappled (escape DC 13)",
+        "damage type": "bludgeoning"
+      }
+    },
     actions:
       "<p><em><strong>Smother.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft. one Medium or smaller creature. <em>Hit:</em> The creature is grappled (escape DC 13). Until this grapple ends, the target is restrained, blinded, and at risk of suffocating, and the rug can't smother another target. In addition, at the start of each of the target's turns, the target takes 10 (2d6 + 3) bludgeoning damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/213/1000/1000/636252764761726261.jpeg",
@@ -9340,7 +10107,16 @@ const monsters = [
     traits:
       "<p><em><strong>Iron Scent.</strong></em> The rust monster can pinpoint, by scent, the location of ferrous metal within 30 feet of it.</p><p><em><strong>Rust Metal.</strong></em> Any nonmagical weapon made of metal that hits the rust monster corrodes. After dealing damage, the weapon takes a permanent and cumulative −1 penalty to damage rolls. If its penalty drops to −5, the weapon is destroyed. nonmagical ammunition made of metal that hits the rust monster is destroyed after dealing damage.</p>",
     "number of attacks": 2,
-    attacks: {},
+    attacks: {
+      "Bite": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+3",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "5 (1d8 + 1)",
+        "damage type": "piercing"
+      }
+    },
     actions:
       "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +3 to hit, reach 5 ft. one target. <em>Hit:</em> 5 (1d8 + 1) piercing damage.</p><p><em><strong>Antennae.</strong></em> The rust monster corrodes a nonmagical ferrous metal object it can see within 5 feet of it. If the object isn't being worn or carried, the touch destroys a 1-foot cube of it. If the object is being worn or carried by a creature, the creature can make a DC 11 Dexterity saving throw to avoid the rust monster's touch.</p><p>If the object touched is either metal armor or a metal shield being worn or carried, it takes a permanent and cumulative −1 penalty to the AC it offers. Armor reduced to an AC of 10 or a shield that drops to a +0 bonus is destroyed. If the object touched is a held metal weapon, it rusts as described in the Rust Metal trait.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/207/1000/1000/636252764265020108.jpeg",
@@ -9368,7 +10144,24 @@ const monsters = [
     traits:
       "<p><em><strong>Keen Smell.</strong></em> The tiger has advantage on Wisdom (Perception) checks that rely on smell.</p><p><em><strong>Pounce.</strong></em> If the tiger moves at least 20 feet straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 14 Strength saving throw or be knocked prone. If the target is prone, the tiger can make one bite attack against it as a bonus action.</p>",
     "number of attacks": 2,
-    attacks: {},
+    attacks: {
+      "Bite": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+6",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "10 (1d10 + 5)",
+        "damage type": "piercing"
+      },
+      "Claw": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+6",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "12 (2d6 + 5)",
+        "damage type": "slashing"
+      }
+    },
     actions:
       "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft. one target. <em>Hit:</em> 10 (1d10 + 5) piercing damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft. one target. <em>Hit:</em> 12 (2d6 + 5) slashing damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/attachments/2/648/beast.jpg",
@@ -9396,7 +10189,32 @@ const monsters = [
     traits:
       "<p><em><strong>Blood Frenzy.</strong></em> The sahuagin has advantage on melee attack rolls against any creature that doesn't have all its hit points.</p><p><em><strong>Limited Amphibiousness.</strong></em> The sahuagin can breathe air and water, but it needs to be submerged at least once every 4 hours to avoid suffocating.</p><p><em><strong>Shark Telepathy.</strong></em> The sahuagin can magically command any shark within 120 feet of it, using a limited telepathy.</p>",
     "number of attacks": 2,
-    attacks: {},
+    attacks: {
+      "Bite": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+3",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "3 (1d4 + 1)",
+        "damage type": "piercing"
+      },
+      "Claws": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+3",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "3 (1d4 + 1)",
+        "damage type": "slashing"
+      },
+      "Spear": {
+        "type": "Melee or Ranged Weapon Attack",
+        "to hit": "+3",
+        "reach": "5 ft.or range 20/60 ft.",
+        "target": "one target",
+        "hit": "4 (1d6 + 1)",
+        "damage type": "piercing"
+      }
+    },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The sahuagin makes two melee attacks: one with its bite and one with its claws or spear.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +3 to hit, reach 5 ft. one target. <em>Hit:</em> 3 (1d4 + 1) piercing damage.</p><p><em><strong>Claws.</strong></em> <em>Melee Weapon Attack:</em> +3 to hit, reach 5 ft. one target. <em>Hit:</em> 3 (1d4 + 1) slashing damage.</p><p><em><strong>Spear.</strong></em> <em>Melee or <em>Ranged Weapon Attack:</em></em> +3 to hit, reach 5 ft.or range 20/60 ft. one target. <em>Hit:</em> 4 (1d6 + 1) piercing damage, or 5 (1d8 + 1) piercing damage if used with two hands to make a melee attack.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/177/1000/1000/636252761683746719.jpeg",
@@ -9426,7 +10244,24 @@ const monsters = [
     traits:
       "<p><em><strong>Heated Body.</strong></em> A creature that touches the salamander or hits it with a melee attack while within 5 feet of it takes 7 (2d6) fire damage.</p><p><em><strong>Heated Weapons.</strong></em> Any metal melee weapon the salamander wields deals an extra 3 (1d6) fire damage on a hit (included in the attack).</p>",
     "number of attacks": 2,
-    attacks: {},
+    attacks: {
+      "Spear": {
+        "type": "Melee or Ranged Weapon Attack",
+        "to hit": "+7",
+        "reach": "5 ft.or range 20 ft.60 ft.",
+        "target": "one target",
+        "hit": "11 (2d6 + 4)",
+        "damage type": "piercing, fire"
+      },
+      "Tail": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+7",
+        "reach": "10 ft.",
+        "target": "one target",
+        "hit": "11 (2d6 + 4)",
+        "damage type": "bludgeoning, fire"
+      }
+    },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The salamander makes two attacks: one with its spear and one with its tail.</p><p><em><strong>Spear.</strong></em> <em>Melee or <em>Ranged Weapon Attack:</em></em> +7 to hit, reach 5 ft.or range 20 ft.60 ft. one target. <em>Hit:</em> 11 (2d6 + 4) piercing damage, or 13 (2d8 + 4) piercing damage if used with two hands to make a melee attack, plus 3 (1d6) fire damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 10 ft. one target. <em>Hit:</em> 11 (2d6 + 4) bludgeoning damage plus 7 (2d6) fire damage, and the target is grappled (escape DC 14). Until this grapple ends, the target is restrained, the salamander can automatically hit the target with its tail, and the salamander can't make tail attacks against other targets.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/173/1000/1000/636252761197608364.jpeg",
@@ -9454,7 +10289,32 @@ const monsters = [
     traits:
       "<p><em><strong>Magic Resistance.</strong></em> The satyr has advantage on saving throws against spells and other magical effects.</p>",
     "number of attacks": 1,
-    attacks: {},
+    attacks: {
+      "Ram": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+3",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "6 (2d4 + 1)",
+        "damage type": "bludgeoning"
+      },
+      "Shortsword": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+5",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "6 (1d6 + 3)",
+        "damage type": "piercing"
+      },
+      "Shortbow": {
+        "type": "Ranged Weapon Attack",
+        "to hit": "+5",
+        "reach": "80/320 ft.",
+        "target": "one target",
+        "hit": "6 (1d6 + 3)",
+        "damage type": "piercing"
+      }
+    },
     actions:
       "<p><em><strong>Ram.</strong></em> <em>Melee Weapon Attack:</em> +3 to hit, reach 5 ft. one target. <em>Hit:</em> 6 (2d4 + 1) bludgeoning damage.</p><p><em><strong>Shortsword.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft. one target. <em>Hit:</em> 6 (1d6 + 3) piercing damage.</p><p><em><strong>Shortbow.</strong></em> <em>Ranged Weapon Attack:</em> +5 to hit, range 80/320 ft. one target. <em>Hit:</em> 6 (1d6 + 3) piercing damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/169/1000/1000/636252760706340605.jpeg",
@@ -9479,7 +10339,16 @@ const monsters = [
     languages: ["N/A"],
     challenge: "0 (10 XP)",
     "number of attacks": 1,
-    attacks: {},
+    attacks: {
+      "Sting": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+2",
+        "reach": "5 ft.",
+        "target": "one creature",
+        "hit": "1",
+        "damage type": "piercing, poison"
+      }
+    },
     actions:
       "<p><em><strong>Sting.</strong></em> <em>Melee Weapon Attack:</em> +2 to hit, reach 5 ft. one creature. <em>Hit:</em> 1 piercing damage, and the target must make a DC 9 Constitution saving throw, taking 4 (1d8) poison damage on a failed save, or half as much damage on a successful one.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/attachments/2/648/beast.jpg",
@@ -9507,7 +10376,24 @@ const monsters = [
     traits:
       "<p><em><strong>Keen Hearing and Sight.</strong></em> The scout has advantage on Wisdom (Perception) checks that rely on hearing or sight.</p>",
     "number of attacks": 2,
-    attacks: {},
+    attacks: {
+      "Shortsword": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+4",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "5 (1d6 + 2)",
+        "damage type": "piercing"
+      },
+      "Longbow": {
+        "type": "Ranged Weapon Attack",
+        "to hit": "+4",
+        "reach": "150/600 ft.",
+        "target": "one target",
+        "hit": "6 (1d8 + 2)",
+        "damage type": "piercing"
+      }
+    },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The scout makes two melee attacks or two ranged attacks.</p><p><em><strong>Shortsword.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft. one target. <em>Hit:</em> 5 (1d6 + 2) piercing damage.</p><p><em><strong>Longbow.</strong></em> <em>Ranged Weapon Attack:</em> +4 to hit, ranged 150/600 ft. one target. <em>Hit:</em> 6 (1d8 + 2) piercing damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/163/1000/1000/636252759915100020.jpeg",
@@ -9534,7 +10420,16 @@ const monsters = [
     traits:
       "<p><em><strong>Amphibious.</strong></em> The hag can breathe air and water.</p><p><em><strong>Horrific Appearance.</strong></em> Any humanoid that starts its turn within 30 feet of the hag and can see the hag's true form must make a DC 11 Wisdom saving throw. On a failed save, the creature is frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, with disadvantage if the hag is within line of sight, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the hag's Horrific Appearance for the next 24 hours.</p><p>Unless the target is surprised or the revelation of the hag's true form is sudden, the target can avert its eyes and avoid making the initial saving throw. Until the start of its next turn, a creature that averts its eyes has disadvantage on attack rolls against the hag.</p>",
     "number of attacks": 1,
-    attacks: {},
+    attacks: {
+      "Claws": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+5",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "10 (2d6 + 3)",
+        "damage type": "slashing"
+      }
+    },
     actions:
       "<p><em><strong>Claws.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft. one target. <em>Hit:</em> 10 (2d6 + 3) slashing damage.</p><p><em><strong>Death Glare.</strong></em> The hag targets one frightened creature she can see within 30 feet of her. If the target can see the hag, it must succeed on a DC 11 Wisdom saving throw against this magic or drop to 0 hit points.</p><p><em><strong>Illusory Appearance.</strong></em> The hag covers herself and anything she is wearing or carrying with a magical illusion that makes her look like an ugly creature of her general size and humanoid shape. The effect ends if the hag takes a bonus action to end it or if she dies.</p><p>The changes wrought by this effect fail to hold up to physical inspection. For example, the hag could appear to have no claws, but someone touching her hand might feel the claws. Otherwise, a creature must take an action to visually inspect the illusion and succeed on a DC 16 Intelligence (Investigation) check to discern that the hag is disguised.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/159/1000/1000/636252759356069260.jpeg",
@@ -9590,7 +10485,16 @@ const monsters = [
     traits:
       "<p><em><strong>Amorphous.</strong></em> The shadow can move through a space as narrow as 1 inch wide without squeezing.</p><p><em><strong>Shadow Stealth.</strong></em> While in dim light or darkness, the shadow can take the Hide action as a bonus action.</p><p><em><strong>Sunlight Weakness.</strong></em> While in sunlight, the shadow has disadvantage on attack rolls, ability checks, and saving throws.</p>",
     "number of attacks": 1,
-    attacks: {},
+    attacks: {
+      "Strength Drain": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+4",
+        "reach": "5 ft.",
+        "target": "one creature",
+        "hit": "9 (2d6 + 2)",
+        "damage type": "necrotic"
+      }
+    },
     actions:
       "<p><em><strong>Strength Drain.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft. one creature. <em>Hit:</em> 9 (2d6 + 2) necrotic damage, and the target's Strength score is reduced by 1d4. The target dies if this reduces its Strength to 0. Otherwise, the reduction lasts until the target finishes a short or long rest.</p><p>If a non-evil humanoid dies from this attack, a new shadow rises from the corpse 1d4 hours later.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/155/315/315/636252758977032019.jpeg",
@@ -9621,7 +10525,16 @@ const monsters = [
     traits:
       "<p><em><strong>Lightning Absorption.</strong></em> Whenever the shambling mound is subjected to lightning damage, it takes no damage and regains a number of hit points equal to the lightning damage dealt.</p>",
     "number of attacks": 2,
-    attacks: {},
+    attacks: {
+      "Slam": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+7",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "13 (2d8 + 4)",
+        "damage type": "bludgeoning"
+      }
+    },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The shambling mound makes two slam attacks. If both attacks hit a Medium or smaller target, the target is grappled (escape DC 14), and the shambling mound uses its Engulf on it.</p><p><em><strong>Slam.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft. one target. <em>Hit:</em> 13 (2d8 + 4) bludgeoning damage.</p><p><em><strong>Engulf.</strong></em> The shambling mound engulfs a Medium or smaller creature grappled by it. The engulfed target is blinded, restrained, and unable to breathe, and it must succeed on a DC 14 Constitution saving throw at the start of each of the mound's turns or take 13 (2d8 + 4) bludgeoning damage. If the mound moves, the engulfed target moves with it. The mound can have only one creature engulfed at a time.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/16/563/315/315/636376346968079714.jpeg",
@@ -9650,7 +10563,16 @@ const monsters = [
     traits:
       "<p><em><strong>Bound.</strong></em> The shield guardian is magically bound to an amulet. As long as the guardian and its amulet are on the same plane of existence, the amulet's wearer can telepathically call the guardian to travel to it, and the guardian knows the distance and direction to the amulet. If the guardian is within 60 feet of the amulet's wearer, half of any damage the wearer takes (rounded up) is transferred to the guardian.</p><p><em><strong>Regeneration.</strong></em> The shield guardian regains 10 hit points at the start of its turn if it has at least 1 hit point.</p><p><em><strong>Spell Storing.</strong></em> A spellcaster who wears the shield guardian's amulet can cause the guardian to store one spell of 4th level or lower. To do so, the wearer must cast the spell on the guardian. The spell has no effect but is stored within the guardian. When commanded to do so by the wearer or when a situation arises that was predefined by the spellcaster, the guardian casts the stored spell with any parameters set by the original caster, requiring no components. When the spell is cast or a new spell is stored, any previously stored spell is lost.</p>",
     "number of attacks": 2,
-    attacks: {},
+    attacks: {
+      "Fist": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+7",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "11 (2d6 + 4)",
+        "damage type": "bludgeoning"
+      }
+    },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The guardian makes two fist attacks.</p><p><em><strong>Fist.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft. one target. <em>Hit:</em> 11 (2d6 + 4) bludgeoning damage.</p>",
     reactions:
@@ -9707,7 +10629,16 @@ const monsters = [
     languages: ["Draconic"],
     challenge: "2 (450 XP)",
     "number of attacks": 2,
-    attacks: {},
+    attacks: {
+      "Bite": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+6",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "9 (1d10 + 4)",
+        "damage type": "piercing"
+      }
+    },
     actions:
       "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft. one target. <em>Hit:</em> 9 (1d10 + 4) piercing damage.</p><p><em><strong>Breath Weapons (Recharge 5–6).</strong></em> The dragon uses one of the following breath weapons.</p><p><em><strong>Cold Breath.</strong></em> The dragon exhales an icy blast in a 15-foot cone. Each creature in that area must make a DC 13 Constitution saving throw, taking 18 (4d8) cold damage on a failed save, or half as much damage on a successful one.</p><p><em><strong>Paralyzing Breath.</strong></em> The dragon exhales paralyzing gas in a 15-foot cone. Each creature in that area must succeed on a DC 13 Constitution saving throw or be paralyzed for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/143/315/315/636252757538355953.jpeg",
@@ -9735,7 +10666,24 @@ const monsters = [
     languages: ["Understands commands given in any language but Can't Speak"],
     challenge: "1/4 (50 XP)",
     "number of attacks": 1,
-    attacks: {},
+    attacks: {
+      "Shortsword": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+4",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "5 (1d6 + 2)",
+        "damage type": "piercing"
+      },
+      "Shortbow": {
+        "type": "Ranged Weapon Attack",
+        "to hit": "+4",
+        "reach": "80/320 ft.",
+        "target": "one target",
+        "hit": "5 (1d6 + 2)",
+        "damage type": "piercing"
+      }
+    },
     actions:
       "<p><em><strong>Shortsword.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft. one target. <em>Hit:</em> 5 (1d6 + 2) piercing damage.</p><p><em><strong>Shortbow.</strong></em> <em>Ranged Weapon Attack:</em> +4 to hit, range 80/320 ft. one target. <em>Hit:</em> 5 (1d6 + 2) piercing damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/16/472/315/315/636376294573239565.jpeg",
@@ -9767,7 +10715,24 @@ const monsters = [
     traits:
       "<p><em><strong>Angelic Weapons.</strong></em> The solar's weapon attacks are magical. When the solar hits with any weapon, the weapon deals an extra 6d8 radiant damage (included in the attack).</p><p><em><strong>Divine Awareness.</strong></em> The solar knows if it hears a lie.</p><p><em><strong>Innate Spellcasting.</strong></em> The solar's spellcasting ability is Charisma (spell save DC 25). It can innately cast the following spells, requiring no material components: </p><p>At will: detect evil and good, invisibility (self only) </p><p>3/day each: blade barrier, dispel evil and good, resurrection </p><p>1/day each: commune, control weather </p><p><em><strong>Magic Resistance.</strong></em> The solar has advantage on saving throws against spells and other magical effects.</p>",
     "number of attacks": 3,
-    attacks: {},
+    attacks: {
+      "Greatsword": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+15",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "22 (4d6 + 8)",
+        "damage type": "slashing, radiant"
+      },
+      "Slaying Longbow": {
+        "type": "Ranged Weapon Attack",
+        "to hit": "+13",
+        "reach": "150/600 ft.",
+        "target": "one target",
+        "hit": "15 (2d8 + 6)",
+        "damage type": "piercing, radiant"
+      }
+    },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The solar makes two greatsword attacks.</p><p><em><strong>Greatsword.</strong></em> <em>Melee Weapon Attack:</em> +15 to hit, reach 5 ft. one target. <em>Hit:</em> 22 (4d6 + 8) slashing damage plus 27 (6d8) radiant damage.</p><p><em><strong>Slaying Longbow.</strong></em> <em>Ranged Weapon Attack:</em> +13 to hit, range 150/600 ft. one target. <em>Hit:</em> 15 (2d8 + 6) piercing damage plus 27 (6d8) radiant damage. If the target is a creature that has 100 hit points or fewer, it must succeed on a DC 15 Constitution saving throw or die.</p><p><em><strong>Flying Sword.</strong></em> The solar releases its greatsword to hover magically in an unoccupied space within 5 feet of it. If the solar can see the sword, the solar can mentally command it as a bonus action to fly up to 50 feet and either make one attack against a target or return to the solar's hands. If the hovering sword is targeted by any effect, the solar is considered to be holding it. The hovering sword falls if the solar dies.</p><p><em><strong>Healing Touch (4/Day).</strong></em> The solar touches another creature. The target magically regains 40 (8d8 + 4) hit points and is freed from any curse, disease, poison, blindness, or deafness.</p>",
     "legendary actions":
@@ -9796,7 +10761,16 @@ const monsters = [
     languages: ["Deep Speech", "Telepathy 120 ft.", "Undercommon"],
     challenge: "3 (700 XP)",
     "number of attacks": 1,
-    attacks: {},
+    attacks: {
+      "Bite": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+1",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "2 (1d6 − 1)",
+        "damage type": "piercing"
+      }
+    },
     actions:
       "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +1 to hit, reach 5 ft. one target. <em>Hit:</em> 2 (1d6 − 1) piercing damage.</p><p><em><strong>Eye Rays.</strong></em> The spectator shoots up to two of the following magical eye rays at one or two creatures it can see within 90 feet of it. It can use each ray only once on a turn.</p><ul><li><em>Confusion Ray.</em> The target must succeed on a DC 13 Wisdom saving throw, or it can’t take reactions until the end of its next turn. On its turn, the target can’t move, and it uses its action to make a melee or ranged attack against a randomly determined creature within range. If the target can’t attack, it does nothing on its turn.</li><li><em>Paralyzing Ray.</em> The target must succeed on a DC 13 Constitution saving throw or be paralyzed for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</li><li><em>Fear Ray.</em> The target must succeed on a DC 13 Wisdom saving throw or be frightened for 1 minute. The target can repeat the saving throw at the end of each of its turns, with disadvantage if the spectator is visible to the target, ending the effect on itself on a success.</li><li><em>Wounding Ray.</em> The target must make a DC 13 Constitution saving throw, taking 16 (3d10) necrotic damage on a failed save, or half as much damage on a successful one.</li></ul><p> </p><p><em><strong>Create Food and Water.</strong></em> The spectator magically creates enough food and water to sustain itself for 24 hours.</p>",
     reactions:
@@ -9828,7 +10802,16 @@ const monsters = [
     traits:
       "<p><em><strong>Incorporeal Movement.</strong></em> The specter can move through other creatures and objects as if they were difficult terrain. It takes 5 (1d10) force damage if it ends its turn inside an object.</p><p><em><strong>Sunlight Sensitivity.</strong></em> While in sunlight, the specter has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight.</p>",
     "number of attacks": 1,
-    attacks: {},
+    attacks: {
+      "Life Drain": {
+        "type": "Melee Spell Attack",
+        "to hit": "+4",
+        "reach": "5 ft.",
+        "target": "one creature",
+        "hit": "10 (3d6)",
+        "damage type": "necrotic"
+      }
+    },
     actions:
       "<p><em><strong>Life Drain.</strong></em> <em>Melee Spell Attack:</em> +4 to hit, reach 5 ft. one creature. <em>Hit:</em> 10 (3d6) necrotic damage. The target must succeed on a DC 10 Constitution saving throw or its hit point maximum is reduced by an amount equal to the damage taken. This reduction lasts until the creature finishes a long rest. The target dies if this effect reduces its hit point maximum to 0.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/119/1000/1000/636252747399435720.jpeg",
@@ -9856,7 +10839,16 @@ const monsters = [
     traits:
       "<p><em><strong>Spider Climb.</strong></em> The spider can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check.</p><p><em><strong>Web Sense.</strong></em> While in contact with a web, the spider knows the exact location of any other creature in contact with the same web.</p><p><em><strong>Web Walker.</strong></em> The spider ignores movement restrictions caused by webbing.</p>",
     "number of attacks": 1,
-    attacks: {},
+    attacks: {
+      "Bite": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+4",
+        "reach": "5 ft.",
+        "target": "one creature",
+        "hit": "1",
+        "damage type": "piercing, poison"
+      }
+    },
     actions:
       "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft. one creature. <em>Hit:</em> 1 piercing damage, and the target must succeed on a DC 9 Constitution saving throw or take 2 (1d4) poison damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/16/575/315/315/636376359864842950.jpeg",
@@ -9886,7 +10878,16 @@ const monsters = [
     traits:
       "<p><em><strong>Rejuvenation.</strong></em> If it dies, the naga returns to life in 1d6 days and regains all its hit points. Only a wish spell can prevent this trait from functioning.</p><p><em><strong>Spellcasting.</strong></em> The naga is a 10th-level spellcaster. Its spellcasting ability is Intelligence (spell save DC 14, +6 to hit with spell attacks), and it needs only verbal components to cast its spells. It has the following wizard spells prepared: </p><p>Cantrips (at will): mage hand, minor illusion, ray of frost </p><p>1st level (4 slots): charm person, detect magic, sleep </p><p>2nd level (3 slots): detect thoughts, hold person </p><p>3rd level (3 slots): lightning bolt, water breathing </p><p>4th level (3 slots): blight, dimension door </p><p>5th level (2 slots): dominate person</p>",
     "number of attacks": 2,
-    attacks: {},
+    attacks: {
+      "Bite": {
+      "type": "Melee Weapon Attack",
+      "to hit": "+7",
+      "reach": "10 ft.",
+      "target": "one creature",
+      "hit": "7 (1d6 + 4)",
+      "damage type": "piercing"
+    }
+    },
     actions:
       "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 10 ft. one creature. <em>Hit:</em> 7 (1d6 + 4) piercing damage, and the target must make a DC 13 Constitution saving throw, taking 31 (7d8) poison damage on a failed save, or half as much damage on a successful one.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/117/315/315/636252746851035686.jpeg",
@@ -9912,7 +10913,24 @@ const monsters = [
     languages: ["Common", "Elvish", "Sylvan"],
     challenge: "1/4 (50 XP)",
     "number of attacks": 1,
-    attacks: {},
+    attacks: {
+      "Longsword": {
+      "type": "Melee Weapon Attack",
+      "to hit": "+2",
+      "reach": "5 ft.",
+      "target": "one target",
+      "hit": "1",
+      "damage type": "slashing"
+    },
+    "Shortbow": {
+      "type": "Ranged Weapon Attack",
+      "to hit": "+6",
+      "range": "40/160 ft.",
+      "target": "one target",
+      "hit": "1",
+      "damage type": "piercing"
+    }
+    },
     actions:
       "<p><em><strong>Longsword.</strong></em> <em>Melee Weapon Attack:</em> +2 to hit, reach 5 ft. one target. <em>Hit:</em> 1 slashing damage.</p><p><em><strong>Shortbow.</strong></em> <em>Ranged Weapon Attack:</em> +6 to hit, range 40/160 ft. one target. <em>Hit:</em> 1 piercing damage, and the target must succeed on a DC 10 Constitution saving throw or become poisoned for 1 minute. If its saving throw result is 5 or lower, the poisoned target falls unconscious for the same duration, or until it takes damage or another creature takes an action to shake it awake.</p><p><em><strong>Heart Sight.</strong></em> The sprite touches a creature and magically knows the creature's current emotional state. If the target fails a DC 10 Charisma saving throw, the sprite also knows the creature's alignment. Celestials, fiends, and undead automatically fail the saving throw.</p><p><em><strong>Invisibility.</strong></em> The sprite magically turns invisible until it attacks or casts a spell, or until its concentration ends (as if concentrating on a spell). Any equipment the sprite wears or carries is invisible with it.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/115/315/315/636252746444973630.jpeg",
@@ -9940,7 +10958,24 @@ const monsters = [
     traits:
       "<p><em><strong>Cunning Action.</strong></em> On each of its turns, the spy can use a bonus action to take the Dash, Disengage, or Hide action.</p><p><em><strong>Sneak Attack (1/Turn).</strong></em> The spy deals an extra 7 (2d6) damage when it hits a target with a weapon attack and has advantage on the attack roll, or when the target is within 5 feet of an ally of the spy that isn't incapacitated and the spy doesn't have disadvantage on the attack roll.</p>",
     "number of attacks": 2,
-    attacks: {},
+    attacks: {
+      "Shortsword": {
+      "type": "Melee Weapon Attack",
+      "to hit": "+4",
+      "reach": "5 ft.",
+      "target": "one target",
+      "hit": "5 (1d6 + 2)",
+      "damage type": "piercing"
+    },
+    "Hand Crossbow": {
+      "type": "Ranged Weapon Attack",
+      "to hit": "+4",
+      "range": "30/120 ft.",
+      "target": "one target",
+      "hit": "5 (1d6 + 2)",
+      "damage type": "piercing"
+    }
+    },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The spy makes two melee attacks.</p><p><em><strong>Shortsword.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft. one target. <em>Hit:</em> 5 (1d6 + 2) piercing damage.</p><p><em><strong>Hand Crossbow.</strong></em> <em>Ranged Weapon Attack:</em> +4 to hit, range 30/120 ft. one target. <em>Hit:</em> 5 (1d6 + 2) piercing damage.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/attachments/2/656/humanoid.jpg",
@@ -9969,7 +11004,16 @@ const monsters = [
     traits:
       "<p><em><strong>Death Burst.</strong></em> When the mephit dies, it explodes in a cloud of steam. Each creature within 5 feet of the mephit must succeed on a DC 10 Dexterity saving throw or take 4 (1d8) fire damage.</p><p><em><strong>Innate Spellcasting.</strong></em>(1/Day). The mephit can innately cast blur, requiring no material components. Its innate spellcasting ability is Charisma.</p>",
     "number of attacks": 1,
-    attacks: {},
+    attacks: {
+      "Claws": {
+      "type": "Melee Weapon Attack",
+      "to hit": "+2",
+      "reach": "5 ft.",
+      "target": "one creature",
+      "hit": "2 (1d4)",
+      "damage type": "slashing, fire"
+    }
+    },
     actions:
       "<p><em><strong>Claws.</strong></em> <em>Melee Weapon Attack:</em> +2 to hit, reach 5 ft. one creature. <em>Hit:</em> 2 (1d4) slashing damage plus 2 (1d4) fire damage.</p><p><em><strong>Steam Breath (Recharge 6).</strong></em> The mephit exhales a 15- foot cone of scalding steam. Each creature in that area must succeed on a DC 10 Dexterity saving throw, taking 4 (1d8) fire damage on a failed save, or half as much damage on a successful one.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/113/315/315/636252745841820724.jpeg",
@@ -9994,7 +11038,16 @@ const monsters = [
     languages: ["N/A"],
     challenge: "1/8 (25 XP)",
     "number of attacks": 1,
-    attacks: {},
+    attacks: {
+      "Blood Drain": {
+      "type": "Melee Weapon Attack",
+      "to hit": "+5",
+      "reach": "5 ft.",
+      "target": "one creature",
+      "hit": "5 (1d4 + 3)",
+      "damage type": "piercing"
+    }
+    },
     actions:
       "<p><em><strong>Blood Drain.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft. one creature. <em>Hit:</em> 5 (1d4 + 3) piercing damage, and the stirge attaches to the target. While attached, the stirge doesn't attack. Instead, at the start of each of the stirge's turns, the target loses 5 (1d4 + 3) hit points due to blood loss.</p><p>The stirge can detach itself by spending 5 feet of its movement. It does so after it drains 10 hit points of blood from the target or the target dies. A creature, including the target, can use its action to detach the stirge.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/111/1000/1000/636252745395103202.jpeg",
@@ -10023,7 +11076,24 @@ const monsters = [
     traits:
       "<p><em><strong>Stone Camouflage.</strong></em> The giant has advantage on Dexterity (Stealth) checks made to hide in rocky terrain.</p>",
     "number of attacks": 2,
-    attacks: {},
+    attacks: {
+      "Greatclub": {
+      "type": "Melee Weapon Attack",
+      "to hit": "+9",
+      "reach": "15 ft.",
+      "target": "one target",
+      "hit": "19 (3d8 + 6)",
+      "damage type": "bludgeoning"
+    },
+    "Rock": {
+      "type": "Ranged Weapon Attack",
+      "to hit": "+9",
+      "range": "60/240 ft.",
+      "target": "one target",
+      "hit": "28 (4d10 + 6)",
+      "damage type": "bludgeoning"
+    }
+    },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The giant makes two greatclub attacks. Greatclub. <em>Melee Weapon Attack:</em> +9 to hit, reach 15 ft. one target. <em>Hit:</em> 19 (3d8 + 6) bludgeoning damage.</p><p><em><strong>Rock.</strong></em> <em>Ranged Weapon Attack:</em> +9 to hit, range 60/240 ft. one target. <em>Hit:</em> 28 (4d10 + 6) bludgeoning damage. If the target is a creature, it must succeed on a DC 17 Strength saving throw or be knocked prone.</p>",
     reactions:
@@ -10054,7 +11124,16 @@ const monsters = [
     traits:
       "<p><em><strong>Immutable Form.</strong></em> The golem is immune to any spell or effect that would alter its form.</p><p><em><strong>Magic Resistance.</strong></em> The golem has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Magic Weapons.</strong></em> The golem's weapon attacks are magical.</p>",
     "number of attacks": 2,
-    attacks: {},
+    attacks: {
+      "Slam": {
+      "type": "Melee Weapon Attack",
+      "to hit": "+10",
+      "reach": "5 ft.",
+      "target": "one target",
+      "hit": "19 (3d8 + 6)",
+      "damage type": "bludgeoning"
+    }
+    },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The golem makes two slam attacks.</p><p><em><strong>Slam.</strong></em> <em>Melee Weapon Attack:</em> +10 to hit, reach 5 ft. one target. <em>Hit:</em> 19 (3d8 + 6) bludgeoning damage.</p><p><em><strong>Slow (Recharge 5–6).</strong></em> The golem targets one or more creatures it can see within 10 feet of it. Each target must make a DC 17 Wisdom saving throw against this magic. On a failed save, a target can't use reactions, its speed is halved, and it can't make more than one attack on its turn. In addition, the target can take either an action or a bonus action on its turn, not both. These effects last for 1 minute. A target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/107/315/315/636252743780112834.jpeg",
@@ -10085,7 +11164,24 @@ const monsters = [
     traits:
       "<p><em><strong>Amphibious.</strong></em> The giant can breathe air and water.</p><p><em><strong>Innate Spellcasting.</strong></em> The giant's innate spellcasting ability is Charisma (spell save DC 17). It can innately cast the following spells, requiring no material components: </p><p>At will: detect magic, feather fall, levitate, light </p><p>3/day each: control weather, water breathing</p>",
     "number of attacks": 2,
-    attacks: {},
+    attacks: {
+      "Greatsword": {
+      "type": "Melee Weapon Attack",
+      "to hit": "+14",
+      "reach": "10 ft.",
+      "target": "one target",
+      "hit": "30 (6d6 + 9)",
+      "damage type": "slashing"
+    },
+    "Rock": {
+      "type": "Ranged Weapon Attack",
+      "to hit": "+14",
+      "range": "60/240 ft.",
+      "target": "one target",
+      "hit": "35 (4d12 + 9)",
+      "damage type": "bludgeoning"
+    }
+    },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The giant makes two greatsword attacks.</p><p><em><strong>Greatsword.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 10 ft. one target. <em>Hit:</em> 30 (6d6 + 9) slashing damage.</p><p><em><strong>Rock.</strong></em> <em>Ranged Weapon Attack:</em> +14 to hit, range 60/240 ft. one target. <em>Hit:</em> 35 (4d12 + 9) bludgeoning damage.</p><p><em><strong>Lightning Strike (Recharge 5–6).</strong></em> The giant hurls a magical lightning bolt at a point it can see within 500 feet of it. Each creature within 10 feet of that point must make a DC 17 Dexterity saving throw, taking 54 (12d8) lightning damage on a failed save, or half as much damage on a successful one.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/105/315/315/636252743254029469.jpeg",
@@ -10114,7 +11210,16 @@ const monsters = [
     traits:
       "<p><em><strong>Telepathic Bond.</strong></em> The fiend ignores the range restriction on its telepathy when communicating with a creature it has charmed. The two don't even need to be on the same plane of existence.</p><p><em><strong>Shapechanger.</strong></em> The fiend can use its action to polymorph into a Small or Medium humanoid, or back into its true form. Without wings, the fiend loses its flying speed. Other than its size and speed, its statistics are the same in each form. Any equipment it is wearing or carrying isn't transformed. It reverts to its true form if it dies.</p>",
     "number of attacks": 1,
-    attacks: {},
+    attacks: {
+      "Claw": {
+      "type": "Melee Weapon Attack",
+      "to hit": "+5",
+      "reach": "5 ft.",
+      "target": "one target",
+      "hit": "6 (1d6 + 3)",
+      "damage type": "slashing"
+    }
+    },
     actions:
       "<p><em><strong>Claw (Fiend Form Only).</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft. one target. <em>Hit:</em> 6 (1d6 + 3) slashing damage.</p><p><em><strong>Charm.</strong></em> One humanoid the fiend can see within 30 feet of it must succeed on a DC 15 Wisdom saving throw or be magically charmed for 1 day. The charmed target obeys the fiend's verbal or telepathic commands. If the target suffers any harm or receives a suicidal command, it can repeat the saving throw, ending the effect on a success. If the target successfully saves against the effect, or if the effect on it ends, the target is immune to this fiend's Charm for the next 24 hours.</p><p>The fiend can have only one target charmed at a time. If it charms another, the effect on the previous target ends.</p><p><em><strong>Draining Kiss.</strong></em> The fiend kisses a creature charmed by it or a willing creature. The target must make a DC 15 Constitution saving throw against this magic, taking 32 (5d10 + 5) psychic damage on a failed save, or half as much damage on a successful one. The target's hit point maximum is reduced by an amount equal to the damage taken. This reduction lasts until the target finishes a long rest. The target dies if this effect reduces its hit point maximum to 0.</p><p><em><strong>Etherealness.</strong></em> The fiend magically enters the Ethereal from the Material Plane, or vice versa.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/103/315/315/636252742573312994.jpeg",
@@ -10143,7 +11248,16 @@ const monsters = [
     traits:
       "<p><em><strong>Echolocation.</strong></em> The swarm can’t use its blindsight while deafened.</p><p><em><strong>Keen Hearing.</strong></em> The swarm has advantage on Wisdom (Perception) checks that rely on hearing.</p><p><em><strong>Swarm.</strong></em> The swarm can occupy another creature’s space and vice versa, and the swarm can move through any opening large enough for a Tiny bat. The swarm can’t regain hit points or gain temporary hit points.</p>",
     "number of attacks": 1,
-    attacks: {},
+    attacks: {
+      "Bite": {
+      "type": "Melee Weapon Attack",
+      "to hit": "+4",
+      "reach": "0 ft.",
+      "target": "one creature in the swarm's space",
+      "hit": "5 (2d4)",
+      "damage type": "piercing"
+    }
+    },
     actions:
       "<p><em><strong>Bite. </strong></em><em>Melee Weapon Attack:</em> +4 to hit, reach 0 ft. one creature in the swarm's space. <em>Hit:</em> 5 (2d4) piercing damage, or 2 (1d4) piercing damage if the swarm has half of its hit points or fewer.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/9/906/315/315/636334289313689439.jpeg",
@@ -10172,7 +11286,16 @@ const monsters = [
     traits:
       "<p><em><strong>Swarm.</strong></em> The swarm can occupy another creature's space and vice versa, and the swarm can move through any opening large enough for a Tiny insect. The swarm can't regain hit points or gain temporary hit points.</p>",
     "number of attacks": 1,
-    attacks: {},
+    attacks: {
+      "Bite": {
+      "type": "Melee Weapon Attack",
+      "to hit": "+3",
+      "reach": "0 ft.",
+      "target": "one target in the swarm's space",
+      "hit": "10 (4d4)",
+      "damage type": "piercing"
+    }
+    },
     actions:
       "<p><em><strong>Bite. </strong></em><em>Melee Weapon Attack:</em> +3 to hit, reach 0 ft. one target in the swarm's space. <em>Hit:</em> 10 (4d4) piercing damage, or 5 (2d4) piercing damage if the swarm has half of its hit points or fewer.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/attachments/2/648/beast.jpg",
@@ -10201,7 +11324,16 @@ const monsters = [
     traits:
       "<p><em><strong>Swarm.</strong></em> The swarm can occupy another creature's space and vice versa, and the swarm can move through any opening large enough for a Tiny snake. The swarm can't regain hit points or gain temporary hit points.</p>",
     "number of attacks": 1,
-    attacks: {},
+    attacks: {
+      "Bite": {
+      "type": "Melee Weapon Attack",
+      "to hit": "+6",
+      "reach": "0 ft.",
+      "target": "one creature in the swarm's space",
+      "hit": "7 (2d6)",
+      "damage type": "piercing"
+    }
+    },
     actions:
       "<p><em><strong>Bite.</strong></em>. <em>Melee Weapon Attack:</em> +6 to hit, reach 0 ft. one creature in the swarm's space. <em>Hit:</em> 7 (2d6) piercing damage, or 3 (1d6) piercing damage if the swarm has half of its hit points or fewer. The target must make a DC 10 Constitution saving throw, taking 14 (4d6) poison damage on a failed save, or half as much damage on a successful one.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/attachments/2/648/beast.jpg",
@@ -21290,6 +22422,982 @@ const monsters = [
     "legendary actions": "<p>The animal lord can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The animal lord regains spent legendary actions at the start of its turn.</p><p><em><strong>Move.</strong></em> The animal lord moves up to its speed without provoking opportunity attacks.</p><p><em><strong>Animal Command.</strong></em> The animal lord uses its Animal Empathy trait or makes a Wisdom (Animal Handling) check.</p><p><em><strong>Nature's Ally (Costs 2 Actions).</strong></em> The animal lord causes one beast within 60 feet of it that it can see to make one attack with its reaction.</p>",
     "img url": "https://www.5etools.com/img/Bestiary/Animal%20Lord.png",
     "description": "<p>Animal lords are powerful individuals who possess a deep connection to the natural world, particularly to animals. They are often chosen by primal spirits or fey powers to serve as protectors of the wild and its creatures. Animal lords can appear as any humanoid race, but they always exude an aura of wild majesty and untamed power. They are typically found in remote wilderness areas, living in harmony with the animals they protect and often acting as guardians against those who would exploit or harm the natural balance. While benevolent to nature, they can be fierce and relentless in their defense of the wild, calling upon their animal allies to overwhelm their foes. They are respected and revered by beasts, and can communicate with them effortlessly, often understanding the subtle nuances of animal behavior better than any scholar. Some animal lords lead reclusive lives, while others actively seek out those who threaten their domains, bringing the wrath of the wild down upon them.</p>"
+  },
+  {
+    "name": "Aarakocra Aeromancer",
+    "size": "Medium",
+    "type": "Elemental",
+    "alignment": "Neutral",
+    "environments": [
+      "Mountains",
+      "Planar"
+    ],
+    "armor class": "16",
+    "hit points": "66 (12d8 + 12)",
+    "speed": "20 ft., fly 50 ft.",
+    "str": "10 (+0)",
+    "dex": "16 (+3)",
+    "con": "12 (+1)",
+    "int": "13 (+1)",
+    "wis": "17 (+3)",
+    "cha": "11 (+1)",
+    "skills": "Arcana +3, Nature +5, Perception +7",
+    "senses": "Passive Perception 17",
+    "languages": [
+      "Aarakocra",
+      "Primordial (Auran)"
+    ],
+    "challenge": "4 (1,100 XP)",
+    "traits": "<p><em><strong>Spellcasting.</strong></em> The aeromancer is a spellcaster. Its spellcasting ability is Wisdom (spell save DC 13, +5 to hit with spell attacks). The aeromancer can cast the following spells:</p><ul><li>At will: <em>Elementalism</em>, <em>Gust of Wind</em>, <em>Mage Hand</em>, <em>Message</em></li><li>1/day: <em>Lightning Bolt</em></li></ul>",
+    "number of attacks": "2",
+    "attacks": {
+      "Wind Staff": {
+        "type": "Melee or Ranged Attack Roll",
+        "to hit": "+5",
+        "reach": "5 ft.",
+        "range": "120 ft.",
+        "hit": "7 (1d8 + 3)",
+        "damage type": "bludgeoning, lightning"
+      }
+    },
+    "actions": "<p><em><strong>Multiattack.</strong></em> The aeromancer makes two Wind Staff attacks and can cast <em>Gust of Wind</em> using Spellcasting.</p><p><em><strong>Wind Staff.</strong></em> <em>Melee or Ranged Attack Roll:</em> +5 to hit, reach 5 ft. or range 120 ft. <em>Hit:</em> 7 (1d8 + 3) bludgeoning damage plus 11 (2d10) lightning damage.</p>",
+    "reactions": "<p><em><strong>Feather Fall (1/Day).</strong></em> The aeromancer casts <em>Feather Fall</em> in response to its trigger.</p>",
+    "description": "<p>Aarakocra aeromancers control magical winds from the endless storms of the Elemental Plane of Air.</p>"
+  },
+  {
+    "name": "Aarakocra Simulacrum",
+    "size": "Medium",
+    "environments": [
+      "Dungeon"
+    ],
+    "speed": "20 ft., fly 50 ft.",
+    "traits": "<p><em><strong>Dive Attack.</strong></em> If the simulacrum flies at least 30 feet straight toward a target and then hits it with a melee weapon attack, the attack deals an extra 3 (1d6) damage.</p><p><em><strong>Simulacrum.</strong></em> The simulacrum is made of ice and snow. When it drops to 0 hit points or is subjected to a successful <em>dispel magic</em> spell (DC 17), it reverts to ice and snow and is destroyed.</p>",
+    "attacks": {
+      "Talon": {
+        "type": "melee weapon attack",
+        "to hit": "+4",
+        "reach": "5 ft.",
+        "hit": "4 (1d4 + 2)",
+        "damage type": "slashing"
+      },
+      "Javelin": {
+        "type": "Melee or Ranged Attack",
+        "to hit": "+4",
+        "reach": "5 ft.",
+        "range": "30/120 ft.",
+        "hit": "5 (1d6 + 2)",
+        "damage type": "piercing"
+      }
+    },
+    "actions": "<p><em><strong>Talon.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft. <em>Hit:</em> 4 (1d4 + 2) slashing damage.</p><p><em><strong>Javelin.</strong></em> <em>Melee or Ranged Weapon Attack:</em> +4 to hit, reach 5 ft. or range 30/120 ft. <em>Hit:</em> 5 (1d6 + 2) piercing damage.</p>",
+    "notes": "<p>Five Aarakocra can also magically summon an air elemental by performing an aerial dance over three consecutive turns.</p>"
+  },
+  {
+    "name": "Aarakocra Skirmisher",
+    "size": "Medium",
+    "type": "Elemental",
+    "alignment": "Neutral",
+    "environments": [
+      "Varies"
+    ],
+    "armor class": "12",
+    "hit points": "11 (2d8 + 2)",
+    "speed": "20 ft., fly 50 ft.",
+    "str": "10 (+0)",
+    "dex": "14 (+2)",
+    "con": "12 (+1)",
+    "int": "11 (+0)",
+    "wis": "12 (+1)",
+    "cha": "11 (+0)",
+    "skills": "Perception +5",
+    "senses": "Passive Perception 15",
+    "languages": [
+      "Aarakocra",
+      "Primordial (Auran)"
+    ],
+    "challenge": "1/4 (50 XP)",
+    "attacks": {
+      "Talons": {
+        "type": "Melee Attack Roll",
+        "to hit": "+4",
+        "reach": "5 ft.",
+        "hit": "4 (1d4 + 2)",
+        "damage type": "slashing"
+      },
+      "Wind Javelin": {
+        "type": "Melee or Ranged Attack Roll",
+        "to hit": "+4",
+        "reach": "5 ft.",
+        "range": "30/120 ft.",
+        "hit": "5 (1d6 + 2)",
+        "damage type": "piercing, thunder"
+      }
+    },
+    "actions": "<p><em><strong>Talons.</strong></em> <em>Melee Attack Roll:</em> +4, reach 5 ft. <em>Hit:</em> 4 (1d4 + 2) slashing damage, or 9 (3d4 + 2) slashing damage if the aarakocra moved 30+ feet straight toward the target immediately before the hit.</p><p><em><strong>Wind Javelin.</strong></em> <em>Melee or Ranged Attack Roll:</em> +4, reach 5 ft. or range 30/120 ft. <em>Hit:</em> 5 (1d6 + 2) piercing damage plus 2 (1d4) thunder damage. The javelin magically returns to the aarakocra's hand immediately after a ranged attack.</p>",
+    "description": "<p>Aarakocra skirmishers are adept at fighting aerial foes amid the clouds and often attack land-bound threats with diving strikes.</p>"
+  },
+  {
+    "name": "Aarakocra Spelljammer",
+    "size": "Medium",
+    "type": "Humanoid",
+    "alignment": "Any",
+    "environments": [
+      "Dungeon"
+    ],
+    "speed": "30 ft., fly 50 ft.",
+    "challenge": "3",
+    "traits": "<p><em><strong>Spellcasting.</strong></em> The spelljammer is a 9th-level spellcaster. Its spellcasting ability is Intelligence (spell save DC 14, +6 to hit with spell attacks). The spelljammer has the following wizard spells prepared:</p><ul><li>Cantrips (at will): <em>fire bolt</em>, <em>light</em>, <em>mage hand</em>, <em>prestidigitation</em></li><li>1st level (4 slots): <em>detect magic</em>, <em>mage armor</em>, <em>magic missile</em>, <em>shield</em></li><li>2nd level (3 slots): <em>misty step</em>, <em>suggestion</em></li><li>3rd level (3 slots): <em>counterspell</em>, <em>fireball</em>, <em>fly</em></li><li>4th level (3 slots): <em>greater invisibility</em>, <em>ice storm</em></li><li>5th level (1 slot): <em>cone of cold</em></li></ul>",
+    "attacks": {
+      "Dagger": {
+        "type": "Melee or Ranged Weapon Attack",
+        "to hit": "+5",
+        "reach": "5 ft.",
+        "range": "20/60 ft.",
+        "hit": "4 (1d4 + 2)",
+        "damage type": "piercing"
+      }
+    },
+    "actions": "<p><em><strong>Dagger.</strong></em> <em>Melee or Ranged Weapon Attack:</em> +5 to hit, reach 5 ft. or range 20/60 ft. <em>Hit:</em> 4 (1d4 + 2) piercing damage.</p>"
+  },
+  {
+    "name": "Aartuk Elder",
+    "size": "Large",
+    "type": "Plant",
+    "alignment": "Lawful Evil",
+    "environments": [
+      "Dungeon"
+    ],
+    "armor class": "16 (natural armor)",
+    "hit points": "75",
+    "speed": "20 ft., climb 20 ft.",
+    "senses": "darkvision 60 ft., passive perception 12",
+    "languages": [
+      "Aartuk"
+    ],
+    "challenge": "3 (700 XP)",
+    "traits": "<p><em><strong>Spider Climb.</strong></em> The Aartuk Elder can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check.</p><p><em><strong>Spellcasting (Psionics).</strong></em> The Aartuk Elder's spellcasting ability is Psionics (spell save DC 12, +4 to hit). It can cast the following spells, requiring no components:</p><ul><li>1/day each: <em>calm emotions</em>, <em>detect magic</em>, <em>sending</em></li></ul>",
+    "number of attacks": "2",
+    "attacks": {
+      "Branch": {
+        "type": "melee weapon attack",
+        "to hit": "+6",
+        "reach": "10 ft.",
+        "hit": "11 (2d6 + 4)",
+        "damage type": "bludgeoning"
+      },
+      "Radiant Pellet": {
+        "type": "ranged spell attack",
+        "to hit": "+4",
+        "range": "60 ft.",
+        "hit": "10 (4d4)",
+        "damage type": "radiant"
+      }
+    },
+    "actions": "<p><em><strong>Multiattack.</strong></em> The Aartuk Elder makes two Branch attacks, two Radiant Pellet attacks, or one of each.</p><p><em><strong>Branch.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 10 ft. <em>Hit:</em> 11 (2d6 + 4) bludgeoning damage.</p><p><em><strong>Radiant Pellet.</strong></em> <em>Ranged Spell Attack:</em> +4 to hit, range 60 ft. <em>Hit:</em> 10 (4d4) radiant damage.</p>",
+    "bonus actions": "<p><em><strong>Tongue (Recharge 6).</strong></em> The Aartuk Elder lashes out with its long, gooey tongue at a Large or smaller creature within 30 feet. The target must succeed on a DC 12 Dexterity saving throw or be grappled (escape DC 14) and pulled up to 25 feet closer to the Aartuk Elder.</p>"
+  },
+  {
+    "name": "Aartuk Starhorror",
+    "size": "Medium",
+    "type": "Plant",
+    "alignment": "Lawful Evil",
+    "environments": [
+      "Dungeon"
+    ],
+    "challenge": "2",
+    "traits": "<p><em><strong>Spellcasting (Psionics).</strong></em> The Aartuk Starhorror's spellcasting ability is Psionics. It can cast the following spells, requiring no components:</p><ul><li>1/day each: <em>revivify</em>, <em>speak with plants</em></li></ul>",
+    "number of attacks": "2",
+    "attacks": {
+      "Branch": {
+        "type": "melee weapon attack",
+        "to hit": "+3",
+        "reach": "10 ft.",
+        "hit": "8 (2d6 + 1)",
+        "damage type": "bludgeoning"
+      },
+      "Radiant Pellet": {
+        "type": "ranged spell attack",
+        "to hit": "+2",
+        "range": "60 ft.",
+        "hit": "7 (3d4)",
+        "damage type": "radiant"
+      }
+    },
+    "actions": "<p><em><strong>Multiattack.</strong></em> The Aartuk Starhorror makes two Branch attacks, two Radiant Pellet attacks, or one of each.</p><p><em><strong>Branch.</strong></em> <em>Melee Weapon Attack:</em> +3 to hit, reach 10 ft. <em>Hit:</em> 8 (2d6 + 1) bludgeoning damage.</p><p><em><strong>Radiant Pellet.</strong></em> <em>Ranged Spell Attack:</em> +2 to hit, range 60 ft. <em>Hit:</em> 7 (3d4) radiant damage.</p>",
+    "bonus actions": "<p><em><strong>Rally the Troops (1/day).</strong></em> The Aartuk Starhorror ends the charmed and frightened conditions on itself and on any allies within 30 feet of it.</p><p><em><strong>Tongue (Recharge 6).</strong></em> The Aartuk Starhorror lashes out with its gooey tongue at a Medium or smaller creature within 30 feet. The target must succeed on a DC 12 Dexterity saving throw or be grappled (escape DC 11) and pulled up to 25 feet closer to the Aartuk Starhorror.</p>",
+    "description": "<p>They are intelligent plant creatures that live to wage war. Their body is star-shaped, covered in thick bark, and has suction cups on their branch-like extremities for climbing. Their head, on a 6-foot-tall stalk, contains sensory organs and a long, gooey tongue used as a weapon. They prefer to drag enemies to their center and batter them or spit radiant energy pellets.</p>"
+  },
+  {
+    "name": "Aartuk Weedling",
+    "size": "Medium",
+    "type": "Plant",
+    "alignment": "Lawful Evil",
+    "environments": [
+      "Dungeon"
+    ],
+    "speed": "20 ft., climb 20 ft.",
+    "challenge": "8",
+    "number of attacks": "2",
+    "attacks": {
+      "Branch": {
+        "type": "melee weapon attack",
+        "to hit": "+4",
+        "reach": "10 ft.",
+        "hit": "8 (2d6 + 2)",
+        "damage type": "bludgeoning"
+      },
+      "Radiant Pellet": {
+        "type": "ranged spell attack",
+        "to hit": "+3",
+        "range": "60 ft.",
+        "hit": "7 (3d4 + 1)",
+        "damage type": "radiant"
+      }
+    },
+    "actions": "<p><em><strong>Multiattack.</strong></em> The Aartuk Weedling makes two Branch attacks, two Radiant Pellet attacks, or one of each.</p><p><em><strong>Branch.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 10 ft. <em>Hit:</em> 8 (2d6 + 2) bludgeoning damage.</p><p><em><strong>Radiant Pellet.</strong></em> <em>Ranged Spell Attack:</em> +3 to hit, range 60 ft. <em>Hit:</em> 7 (3d4 + 1) radiant damage.</p>",
+    "bonus actions": "<p><em><strong>Tongue (Recharge 6).</strong></em> The Aartuk Weedling lashes out with its tongue at a Medium or smaller creature within 30 feet. The target must succeed on a DC 11 Dexterity saving throw or be grappled (escape DC 12) and pulled up to 25 feet closer to the Aartuk Weedling.</p>"
+  },
+  {
+    "name": "Aberrant Cultist",
+    "size": "Medium or Small",
+    "type": "Humanoid",
+    "alignment": "Neutral Evil",
+    "environments": [
+      "Varies"
+    ],
+    "associates": [
+      "Aboleth",
+      "Mind Flayer",
+      "Cthulhu",
+      "Hadar",
+      "Ityak-Ortheel the Elf Eater",
+      "Nyarlathotep",
+      "Malicious Solar Body",
+      "Far Realm Entity"
+    ],
+    "armor class": "14",
+    "hit points": "137 (25d8 + 25)",
+    "speed": "30 ft.",
+    "saving throws": "Intelligence +6, Wisdom +7",
+    "skills": "Arcana +6, Perception +7, Religion +6",
+    "senses": "Darkvision 90 ft., Passive Perception 17",
+    "languages": [
+      "Common",
+      "Deep Speech",
+      "Telepathy 30 ft."
+    ],
+    "challenge": "8 (3,900 XP)",
+    "traits": "<p><em><strong>Spellcasting.</strong></em> The cultist is a spellcaster. Its spellcasting ability is Wisdom (spell save DC 15). The cultist can cast the following spells at will, requiring no components:</p><ul><li>At will: <em>Detect Thoughts</em>, <em>Minor Illusion</em></li></ul>",
+    "number of attacks": "2",
+    "attacks": {
+      "Tentacle Lash": {
+        "type": "Melee Attack Roll",
+        "to hit": "+7",
+        "reach": "10 ft.",
+        "hit": "7 (1d6 + 4)",
+        "damage type": "slashing, psychic"
+      },
+      "Mind Rot": {
+        "type": "Wisdom Saving Throw",
+        "target": "one creature the cultist can see within 90 ft.",
+        "hit": "27 (6d8)",
+        "damage type": "psychic"
+      }
+    },
+    "actions": "<p><em><strong>Multiattack.</strong></em> The cultist makes two Tentacle Lash attacks, and can replace any attack with Mind Rot.</p><p><em><strong>Tentacle Lash.</strong></em> <em>Melee Attack Roll:</em> +7, reach 10 ft. <em>Hit:</em> 7 (1d6 + 4) slashing damage plus 14 (4d6) psychic damage. If the target is Large or smaller, it is grappled (escape DC 14) and restrained until the grapple ends.</p><p><em><strong>Mind Rot.</strong></em> One creature the cultist can see within 90 ft. must make a DC 15 Wisdom Saving Throw. On a failed save, the target takes 27 (6d8) psychic damage and is poisoned until the start of the cultist's next turn. On a successful save, the target takes half as much damage.</p>",
+    "reactions": "<p><em><strong>Counterspell (2/Day).</strong></em> The cultist casts <em>Counterspell</em> in response to a spell's trigger.</p>",
+    "description": "<p>Aberrant cultists pursue mind-bending powers from alien forces and often align with monsters like aboleths and mind flayers, or entities such as Cthulhu, Hadar, Ityak-Ortheel the Elf Eater, Nyarlathotep, malicious solar bodies, or entities from the Far Realm.</p>"
+  },
+  {
+    "name": "Aberrant Spirit",
+    "size": "Medium",
+    "type": "Aberration",
+    "alignment": "Neutral",
+    "environments": [
+      "Varies"
+    ],
+    "armor class": "11 + the level of the spell (natural armor)",
+    "hit points": "40 + 10 for each spell level above 4th",
+    "speed": "30 ft., fly 30 ft. (hover; Beholderkin only)",
+    "str": "16 (+3)",
+    "dex": "10 (+0)",
+    "con": "15 (+2)",
+    "int": "16 (+3)",
+    "wis": "10 (+0)",
+    "cha": "6 (-2)",
+    "damage immunities": "Psychic",
+    "senses": "Darkvision 60 ft., Passive Perception 10",
+    "languages": [
+      "Deep Speech",
+      "Languages of its summoner"
+    ],
+    "challenge": "None (0 XP)",
+    "traits": "<p><em><strong>Regeneration (Slaad Only).</strong></em> The spirit regains 5 hit points at the start of its turn if it has at least 1 hit point.</p><p><em><strong>Whispering Aura (Mind Flayer Only).</strong></em> At the start of each of the spirit's turns, it emits psionic energy if not incapacitated. Creatures (other than the summoner) within 5 feet must succeed on a Wisdom saving throw (DC equals summoner's spell save DC) or take 2d6 psychic damage.</p>",
+    "attacks": {
+      "Claw (Slaad Only)": {
+        "type": "Melee Attack Roll",
+        "to hit": "Bonus equals summoner's spell attack modifier",
+        "reach": "5 ft.",
+        "hit": "1d10 + 3 + the spell's level",
+        "damage type": "slashing"
+      },
+      "Eye Ray (Beholderkin Only)": {
+        "type": "Ranged Attack Roll",
+        "to hit": "Bonus equals summoner's spell attack modifier",
+        "range": "150 ft.",
+        "hit": "1d8 + 3 + the spell's level",
+        "damage type": "psychic"
+      },
+      "Psychic Slam (Mind Flayer Only / Star Spawn Only)": {
+        "type": "Melee Attack Roll",
+        "to hit": "Bonus equals summoner's spell attack modifier",
+        "reach": "5 ft.",
+        "hit": "1d8 + 3 + the spell's level",
+        "damage type": "psychic"
+      }
+    },
+    "actions": "<p><em><strong>Multiattack.</strong></em> The spirit makes a number of attacks equal to half the spell's level (rounded down).</p><p><em><strong>Claw (Slaad Only).</strong></em> <em>Melee Attack Roll:</em> Bonus equals summoner's spell attack modifier, reach 5 ft. <em>Hit:</em> 1d10 + 3 + the spell's level slashing damage. The target cannot regain hit points until the start of the spirit's next turn.</p><p><em><strong>Eye Ray (Beholderkin Only).</strong></em> <em>Ranged Attack Roll:</em> Bonus equals summoner's spell attack modifier, range 150 ft. <em>Hit:</em> 1d8 + 3 + the spell's level psychic damage.</p><p><em><strong>Psychic Slam (Mind Flayer Only / Star Spawn Only).</strong></em> <em>Melee Attack Roll:</em> Bonus equals summoner's spell attack modifier, reach 5 ft. <em>Hit:</em> 1d8 + 3 + the spell's level psychic damage.</p>",
+    "notes": "<p>An Aberrant Spirit is called forth by the <em>Summon Aberration</em> spell, where the caster chooses its form (Beholderkin, Mind Flayer, or Slaad), which determines certain traits and attacks.</p>"
+  },
+  {
+    "name": "Aberrant Zealot",
+    "size": "Medium",
+    "type": "Aberration",
+    "alignment": "Chaotic Evil",
+    "environments": [
+      "Dungeon"
+    ],
+    "challenge": "8",
+    "notes": "<p>These creatures appear in \"Phandelver and Below: The Shattered Obelisk\" and sometimes have a \"Tentacled\" variant.</p>"
+  },
+  {
+    "name": "Aberrant Zealot (Tentacled)",
+    "size": "Medium",
+    "type": "Aberration",
+    "alignment": "Chaotic Evil",
+    "environments": [
+      "Dungeon"
+    ],
+    "armor class": "16 (studded leather armor)",
+    "hit points": "93 (17d8 + 17)",
+    "speed": "30 ft.",
+    "challenge": "8",
+    "traits": "<p><em><strong>Aberrant Form.</strong></em> Any non-Aberration creature starting its turn within 5 feet of the zealot must succeed on a DC 15 Wisdom saving throw or take 7 (2d6) psychic damage.</p><p><em><strong>Weirdly Pliable.</strong></em> The zealot, and its equipment, are unnaturally flexible, allowing it to move through spaces as narrow as 1 inch without squeezing.</p>",
+    "number of attacks": "3",
+    "attacks": {
+      "Psychic Rend": {
+        "type": "Melee or Ranged Spell Attack",
+        "to hit": "+7",
+        "reach": "15 ft.",
+        "range": "120 ft.",
+        "hit": "14 (3d6 + 4)",
+        "damage type": "psychic"
+      },
+      "Shortsword": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+7",
+        "reach": "15 ft.",
+        "hit": "7 (1d6 + 4)",
+        "damage type": "piercing, psychic"
+      }
+    },
+    "actions": "<p><em><strong>Multiattack.</strong></em> The zealot makes one Psychic Rend attack and two Shortsword attacks.</p><p><em><strong>Psychic Rend.</strong></em> <em>Melee or Ranged Spell Attack:</em> +7 to hit, reach 15 ft. or range 120 ft. <em>Hit:</em> 14 (3d6 + 4) psychic damage, and the target must succeed on a DC 15 Wisdom saving throw or be stunned until the start of the zealot's next turn.</p><p><em><strong>Shortsword.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 15 ft. <em>Hit:</em> 7 (1d6 + 4) piercing damage plus 7 (2d6) psychic damage.</p><p><em><strong>Mind Blast (Recharge 5–6).</strong></em> The zealot magically emits psychic energy in a 60-foot cone. Each creature in that area must succeed on a DC 15 Intelligence saving throw or take 22 (4d8 + 4) psychic damage and be stunned for 1 minute. A target can repeat the saving throw at the end of each of its turns to end the stunned condition.</p>",
+    "bonus actions": "<p><em><strong>Void Warp (Recharge 5–6).</strong></em> The zealot teleports up to 120 ft. to an unoccupied space, leaving a churning void. Creatures within 30 ft. of the void must make a DC 15 Strength saving throw, taking 18 (4d8) force damage and being pulled to the closest unoccupied space to the void on a failed save, or half damage and pushed 15 ft. on a successful save. The void then disappears.</p>",
+    "notes": "<p>Source: <em>Phandelver and Below: The Shattered Obelisk</em>.</p>"
+  },
+  {
+    "name": "Abhorrent Overlord",
+    "type": "Fiend",
+    "environments": [
+      "Varies"
+    ],
+    "armor class": "16 (natural armor)",
+    "hit points": "136 (16d10 + 48)",
+    "speed": "30 ft., fly 60 ft.",
+    "skills": "Deception +7, Intimidation +7, Persuasion +7",
+    "damage resistances": "Cold, Necrotic",
+    "damage immunities": "Poison",
+    "condition immunities": "Poisoned",
+    "senses": "Darkvision 120 ft., Passive Perception 12",
+    "languages": [
+      "Abyssal",
+      "Common",
+      "Infernal"
+    ],
+    "challenge": "9 (5,000 XP)",
+    "traits": "<p><em><strong>Insatiable Greed.</strong></em> The overlord can magically sense the presence of gold within 1,000 feet of it.</p><p><em><strong>Magic Resistance.</strong></em> The overlord has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Spellcasting.</strong></em> The overlord is a spellcaster. Its spellcasting ability is Charisma. It can cast the following spells, requiring no components:</p><ul><li>1/day each: <em>Confusion</em>, <em>Crown of Madness</em>, <em>Suggestion</em></li></ul>",
+    "number of attacks": "2",
+    "attacks": {
+      "Claws": {
+        "type": "melee weapon attack",
+        "to hit": "+9",
+        "reach": "5 ft.",
+        "hit": "14 (2d8 + 5)",
+        "damage type": "slashing, necrotic"
+      }
+    },
+    "actions": "<p><em><strong>Multiattack.</strong></em> The overlord makes two attacks with its Claws.</p><p><em><strong>Claws.</strong></em> <em>Melee Weapon Attack:</em> +9 to hit, reach 5 ft. <em>Hit:</em> 14 (2d8 + 5) slashing damage plus 14 (4d6) necrotic damage. The overlord regains hit points equal to half the necrotic damage dealt.</p><p><em><strong>Storm of Crows (Recharge 6).</strong></em> The overlord conjures a 20-foot-radius sphere of spectral crows and harpies centered on a point it can see within 120 feet. Each creature in that area must make a DC 15 Constitution saving throw. On a failed save, a creature takes 16 (3d10) slashing damage plus 16 (3d10) psychic damage. On a successful save, it takes half as much damage.</p>"
+  },
+  {
+    "name": "Abyssal Chicken",
+    "size": "Tiny",
+    "type": "Fiend",
+    "alignment": "Chaotic Evil",
+    "environments": [
+      "Varies"
+    ],
+    "armor class": "13 (natural armor)",
+    "hit points": "10 (3d4 + 3)",
+    "speed": "30 ft., fly 30 ft. (see Bad Flier below)",
+    "str": "6 (-2)",
+    "dex": "14 (+2)",
+    "con": "13 (+1)",
+    "int": "4 (-3)",
+    "wis": "9 (-1)",
+    "cha": "5 (-3)",
+    "damage resistances": "Cold, Fire, Lightning",
+    "damage immunities": "Poison",
+    "condition immunities": "Blinded, Poisoned",
+    "senses": "Blindsight 30 ft. (blind beyond this radius), Passive Perception 9",
+    "languages": [
+      "Abyssal"
+    ],
+    "challenge": "1/4 (50 XP)",
+    "traits": "<p><em><strong>Bad Flier.</strong></em> The abyssal chicken falls at the end of its turn if it's airborne and its flying speed is the only thing holding it aloft.</p>",
+    "number of attacks": "2",
+    "attacks": {
+      "Bite": {
+        "type": "melee weapon attack",
+        "to hit": "+4",
+        "reach": "5 ft.",
+        "target": "one creature",
+        "hit": "4 (1d4 + 2)",
+        "damage type": "piercing"
+      },
+      "Claws": {
+        "type": "melee weapon attack",
+        "to hit": "+4",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "5 (1d6 + 2)",
+        "damage type": "slashing"
+      }
+    },
+    "actions": "<p><em><strong>Multiattack.</strong></em> The abyssal chicken makes two attacks: one with its bite and one with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft., one creature. <em>Hit:</em> 4 (1d4 + 2) piercing damage.</p><p><em><strong>Claws.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft., one target. <em>Hit:</em> 5 (1d6 + 2) slashing damage.</p>",
+    "notes": "<p>A character casting <em>find familiar</em> can choose to conjure an abyssal chicken instead of a raven.</p>",
+    "description": "<p>Abyssal chickens are carnivorous, temperamental bottom-feeders native to the Abyss. They beat their leathery wings to scare predators and to help them run faster, and they taste like fatty chicken.</p>"
+  },
+  {
+    "name": "Abyssal Wretch",
+    "size": "Medium",
+    "type": "Fiend",
+    "alignment": "Chaotic Evil",
+    "environments": [
+      "Varies"
+    ],
+    "armor class": "11 (natural armor)",
+    "hit points": "18 (4d8)",
+    "speed": "20 ft.",
+    "str": "9 (-1)",
+    "dex": "12 (+1)",
+    "con": "11 (+0)",
+    "int": "5 (-3)",
+    "wis": "8 (-1)",
+    "cha": "5 (-3)",
+    "damage resistances": "Cold, Fire, Lightning",
+    "damage immunities": "Poison",
+    "condition immunities": "Charmed, Frightened, Poisoned",
+    "senses": "Darkvision 120 ft., Passive Perception 9",
+    "languages": [
+      "Abyssal"
+    ],
+    "challenge": "1/4 (50 XP)",
+    "attacks": {
+      "Bite": {
+        "type": "melee weapon attack",
+        "to hit": "+3",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "5 (1d8 + 1)",
+        "damage type": "slashing"
+      }
+    },
+    "actions": "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +3 to hit, reach 5 ft., one target. <em>Hit:</em> 5 (1d8 + 1) slashing damage.</p>",
+    "notes": "<p><em><strong>Bite (Suggested, Advanced Mode).</strong></em> Melee Weapon Attack: +3 to hit, reach 5 ft., one target. <em>Hit:</em> 5 (1d8 + 1) piercing damage. The abyssal wretch injects an abyssal poison. The target must make a DC 10 Constitution saving throw or be poisoned for 1 minute. If the target is reduced to 0 hit points while poisoned this way, it dies and instantly transforms into a living abyssal wretch under the control of the original abyssal wretch's master.</p>",
+    "description": "<p>Abyssal wretches are twisted and deformed humanoids corrupted by the poison of the Abyss, transforming their bodies into grotesque shapes with mutations like horns, claws, fangs, scales, spikes, or tentacles. Their skin is mottled, and their eyes are either glowing or missing. They serve as mindless foot soldiers for more powerful demons, craving violence and destruction, with no memory of their former lives. They do not age or reproduce naturally but can be created by other means.</p>"
+  },
+  {
+    "name": "Adult Oblex",
+    "size": "Medium",
+    "type": "Ooze",
+    "alignment": "Lawful Evil",
+    "environments": [
+      "Underdark"
+    ],
+    "associates": [
+      "Mind Flayer"
+    ],
+    "armor class": "14",
+    "hit points": "75 (10d8 + 30)",
+    "speed": "20 ft.",
+    "str": "8 (-1)",
+    "dex": "18 (+4)",
+    "con": "16 (+3)",
+    "int": "19 (+4)",
+    "wis": "12 (+1)",
+    "cha": "15 (+2)",
+    "saving throws": "Intelligence +7, Charisma +5",
+    "skills": "Deception +5, Perception +4",
+    "condition immunities": "Blinded, Charmed, Deafened, Exhaustion, Prone",
+    "senses": "Blindsight 60 ft. (blind beyond this radius), Passive Perception 14",
+    "languages": [
+      "Common",
+      "Abyssal",
+      "Elvish"
+    ],
+    "challenge": "5 (1,800 XP)",
+    "traits": "<p><em><strong>Amorphous.</strong></em> The oblex can move through a space as narrow as 1 inch wide without squeezing.</p><p><em><strong>Aversion to Fire.</strong></em> If the oblex takes fire damage, it has disadvantage on attack rolls and ability checks until the end of its next turn.</p><p><em><strong>Unusual Nature.</strong></em> The oblex doesn't require sleep.</p><p><em><strong>Innate Spellcasting.</strong></em> The oblex's innate spellcasting ability is Intelligence (spell save DC 15, +7 to hit with spell attacks). It can innately cast the following spells, requiring no components:</p><ul><li>3/day each: <em>charm person</em> (as 5th-level spell), <em>color spray</em>, <em>detect thoughts</em>, <em>hold person</em> (as 3rd-level spell)</li></ul>",
+    "number of attacks": "2",
+    "attacks": {
+      "Pseudopod": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+7",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "11 (2d6 + 4)",
+        "damage type": "bludgeoning, psychic"
+      },
+      "Eat Memories": {
+        "type": "Wisdom Saving Throw",
+        "target": "one creature it can see within 5 ft.",
+        "hit": "18 (4d8)",
+        "damage type": "psychic"
+      }
+    },
+    "actions": "<p><em><strong>Multiattack.</strong></em> The oblex makes one Pseudopod attack and uses Eat Memories.</p><p><em><strong>Pseudopod.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft., one target. <em>Hit:</em> 11 (2d6 + 4) bludgeoning damage plus 7 (2d6) psychic damage.</p><p><em><strong>Eat Memories.</strong></em> The oblex targets one creature it can see within 5 ft. The target must succeed on a DC 15 Wisdom saving throw or take 18 (4d8) psychic damage and become memory drained until it finishes a short or long rest or benefits from <em>greater restoration</em> or <em>heal</em>. Constructs, oozes, plants, and undead succeed automatically. While memory drained, the target rolls a d4 and subtracts the number from ability checks or attack rolls. Each subsequent memory drain increases the die size (d4 to d6, d6 to d8, etc.) until it becomes a d20, at which point the target becomes unconscious for 1 hour. When an oblex causes a target to become memory drained, it learns all the target's languages and gains its proficiencies (except saving throws).</p>",
+    "bonus actions": "<p><em><strong>Sulfurous Impersonation.</strong></em> The oblex extrudes a piece of itself that assumes the appearance of one Medium or smaller creature whose memories it has stolen. This simulacrum is indistinguishable except for a faint sulfurous smell. The oblex can impersonate 1d4 + 1 different creatures, each tethered to its body by a slime strand up to 120 ft. away. The simulacrum is an extension of the oblex, occupying both its own space and the oblex's space simultaneously. The tether is immune to damage but severs if there's no 1-inch wide opening between the main body and the simulacrum, causing the simulacrum to disappear.</p>",
+    "description": "<p>Adult oblexes are medium oozes created by mind flayers. They consume memories, leaving victims as mindless husks. They are cunning and deceptive, using impersonations and innate spellcasting to lure prey. They are usually solitary but may cooperate with other oblexes or mind flayers. They can create oblex spawn as extensions of their consciousness.</p>"
+  },
+  {
+    "name": "Advanced Detention Drone",
+    "size": "Large",
+    "type": "Construct",
+    "alignment": "Unaligned",
+    "environments": [
+      "Dungeon"
+    ],
+    "challenge": "7",
+    "traits": "<p><em><strong>Regeneration.</strong></em> The drone regains 10 hit points at the start of its turn if it has at least 1 hit point.</p><p><em><strong>Spell Storing.</strong></em> A spellcaster wearing the drone's amulet can store one spell of 4th level or lower in the drone. The drone can then cast the stored spell, using the spell slot, spell attack bonus, and spell save DC of the wearer.</p><p><em><strong>Shield.</strong></em> If within 5 feet of its wearer, the drone grants a +2 bonus to the wearer's AC.</p>",
+    "number of attacks": "2",
+    "attacks": {
+      "Fist": {
+        "type": "melee weapon attack",
+        "to hit": "+7",
+        "reach": "5 ft.",
+        "hit": "11 (2d6 + 4)",
+        "damage type": "bludgeoning"
+      },
+      "Detention Orb": {
+        "type": "magical force attack",
+        "target": "a creature within 30 feet",
+        "hit": "On a failed DC 15 Constitution saving throw, encases the creature, preventing breathing, eating, drinking, or aging, and blocking teleportation or planar travel."
+      }
+    },
+    "actions": "<p><em><strong>Multiattack.</strong></em> The drone makes two Fist attacks.</p><p><em><strong>Fist.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft. <em>Hit:</em> 11 (2d6 + 4) bludgeoning damage.</p><p><em><strong>Detention Orb.</strong></em> The drone launches an orb of magical force at a creature it can see within 30 feet. The target must make a DC 15 Constitution saving throw. On a failed save, the creature is encased in a sphere of magical force. A creature inside the sphere can't breathe, eat, drink, or age, nor can it be affected by teleportation or planar travel. The sphere is impervious to all damage and effects.</p>",
+    "bonus actions": "<p>The drone can move the Detention Orb up to 30 feet as a bonus action.</p>"
+  },
+  {
+    "name": "Aerosaur",
+    "size": "Gargantuan",
+    "type": "Monstrosity",
+    "environments": [
+      "Varies"
+    ],
+    "armor class": "14",
+    "hit points": "155",
+    "speed": "20 ft., fly 120 ft.",
+    "challenge": "10",
+    "traits": "<p><em><strong>Magic Resistance.</strong></em> The aerosaur has advantage on saving throws against spells and other magical effects.</p>",
+    "number of attacks": "2",
+    "attacks": {
+      "Bite": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+12",
+        "reach": "10 ft.",
+        "target": "one target",
+        "hit": "27 (3d12 + 8)",
+        "damage type": "piercing"
+      },
+      "Talons": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+12",
+        "reach": "10 ft.",
+        "target": "one target",
+        "hit": "24 (3d10 + 8)",
+        "damage type": "slashing"
+      }
+    },
+    "actions": "<p><em><strong>Multiattack.</strong></em> The aerosaur makes one Bite attack and one Talons attack.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +12 to hit, reach 10 ft., one target. <em>Hit:</em> 27 (3d12 + 8) piercing damage. If the target is Huge or smaller, it is grappled (escape DC 18) and restrained until the grapple ends. The aerosaur cannot Bite another target while grappling one.</p><p><em><strong>Talons.</strong></em> <em>Melee Weapon Attack:</em> +12 to hit, reach 10 ft., one target. <em>Hit:</em> 24 (3d10 + 8) slashing damage.</p><p><em><strong>Wing Gusts (Recharge 5–6).</strong></em> The aerosaur beats its wings, creating bursts of thunderous force. Each creature within 10 ft. must make a DC 20 Strength saving throw. On a failed save, a creature takes 38 (7d10) thunder damage, is pushed up to 30 ft. horizontally from the aerosaur, and is prone. On a successful save, a creature takes half damage and is pushed up to 15 ft. horizontally.</p>",
+    "notes": "<p>Smaller aerosaurs can be represented by the pteranodon in the <em>Monster Manual</em>, while larger ones are more like the quetzalcoatlus in <em>Volo's Guide to Monsters</em>. Some aerosaurs have a Dive Attack trait, dealing extra damage if they dive at least 30 feet before a bite attack, and a Flyby trait, not provoking opportunity attacks when flying out of reach.</p>",
+    "description": "<p>An aerosaur is a pterosaur the size of ancient dragons, with a wingspan of nearly 200 feet. Elemental energy traces patterns like lightning across its scales, giving thunderous power to its wingbeats.</p>"
+  }, 
+  {
+    "name": "Air Myrmidon",
+    "size": "Medium",
+    "type": "Elemental",
+    "alignment": "Neutral",
+    "environments": ["Varies"],
+    "armor class": "18 (Plate)",
+    "hit points": "117 (18d8 + 36)",
+    "speed": "30 ft., fly 30 ft. (hover)",
+    "str": "18 (+4)",
+    "dex": "14 (+2)",
+    "con": "14 (+2)",
+    "int": "9 (-1)",
+    "wis": "10 (0)",
+    "cha": "10 (0)",
+    "damage resistances": "Lightning, Thunder; Bludgeoning, Piercing, and Slashing from nonmagical attacks",
+    "damage immunities": "Poison",
+    "condition immunities": "Paralyzed, Petrified, Poisoned, Prone",
+    "senses": "Darkvision 60 ft., Passive Perception 10",
+    "languages": ["Auran", "one language of its creator's choice"],
+    "challenge": "7 (2,900 XP)",
+    "traits": "<p><em><strong>Magic Weapons.</strong></em> The myrmidon's weapon attacks are magical.</p>",
+    "number of attacks": "3",
+    "attacks": {
+      "Flail": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+7",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "8 (1d8 + 4)",
+        "damage type": "bludgeoning"
+      }
+    },
+    "actions": "<p><em><strong>Multiattack.</strong></em> The myrmidon makes three flail attacks.</p><p><em><strong>Flail.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft., one target. <em>Hit:</em> 8 (1d8 + 4) bludgeoning damage.</p><p><em><strong>Lightning Strike (Recharge 6).</strong></em> The myrmidon makes one flail attack. If the attack hits, it deals an extra 18 (4d8) lightning damage, and the target must succeed on a DC 13 or 14 Constitution saving throw or be stunned until the end of the myrmidon's next turn.</p>"
+  },
+  {
+    "name": "Akroan Hoplite",
+    "size": "Medium",
+    "type": "Humanoid",
+    "alignment": "Lawful Neutral",
+    "environments": ["Urban", "Grassland"],
+    "armor class": "18 (Breastplate, Shield)",
+    "hit points": "52 (8d8 + 16)",
+    "speed": "25 ft.",
+    "saving throws": "STR +5, DEX +5",
+    "damage immunities": "Poison",
+    "condition immunities": "Blinded, Deafened, Frightened, Paralyzed, Poisoned, Prone",
+    "senses": "Passive Perception 12",
+    "languages": ["Common"],
+    "challenge": "3 (700 XP)",
+    "traits": "<p><em><strong>Hold the Line.</strong></em> When a creature moves within 5 feet of the hoplite, it can make an opportunity attack against that creature. If the attack hits, it deals an extra 4 (1d8) piercing damage, and the creature's speed becomes 0 until the end of the hoplite's next turn.</p>",
+    "number of attacks": "3 melee or 2 ranged",
+    "attacks": {
+      "Spear (Melee)": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+5",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "6 (1d6 + 3) piercing damage, or 7 (1d8 + 3) if used with two hands",
+        "damage type": "piercing"
+      },
+      "Spear (Ranged)": {
+        "type": "Ranged Weapon Attack",
+        "to hit": "+5",
+        "range": "20/60 ft.",
+        "target": "one target",
+        "hit": "6 (1d6 + 3) piercing damage, or 7 (1d8 + 3) if used with two hands",
+        "damage type": "piercing"
+      },
+      "Shield Bash": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+5",
+        "reach": "5 ft.",
+        "target": "one creature",
+        "hit": "5 (1d4 + 3)",
+        "damage type": "bludgeoning"
+      }
+    },
+    "actions": "<p><em><strong>Multiattack.</strong></em> The hoplite makes three melee attacks or two ranged attacks.</p><p><em><strong>Spear.</strong></em> <em>Melee or Ranged Weapon Attack:</em> +5 to hit, reach 5 ft. or range 20/60 ft., one target. <em>Hit:</em> 6 (1d6 + 3) piercing damage, or 7 (1d8 + 3) piercing damage if used with two hands to make a melee attack.</p><p><em><strong>Shield Bash.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft., one creature. <em>Hit:</em> 5 (1d4 + 3) bludgeoning damage. If the target is Medium or smaller, it must succeed on a DC 13 Strength saving throw or be knocked prone.</p>"
+  },
+  {
+    "name": "Aldani",
+    "size": "Medium",
+    "type": "Monstrosity",
+    "alignment": "Lawful Neutral",
+    "environments": ["Coastal", "Underwater"],
+    "armor class": "14 (natural armor)",
+    "hit points": "49 (9d8 + 9)",
+    "speed": "20 ft., swim 30 ft.",
+    "str": "13 (+1)",
+    "dex": "8 (-1)",
+    "con": "12 (+1)",
+    "int": "10 (0)",
+    "wis": "14 (+2)",
+    "cha": "10 (0)",
+    "skills": "Perception +4, Survival +4",
+    "senses": "Darkvision 60 ft., Passive Perception 14",
+    "languages": ["Common"],
+    "challenge": "1 (200 XP)",
+    "traits": "<p><em><strong>Amphibious.</strong></em> The aldani can breathe air and water.</p>",
+    "number of attacks": "2",
+    "attacks": {
+      "Claw": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+3",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "5 (1d8 + 1)",
+        "damage type": "slashing"
+      }
+    },
+    "actions": "<p><em><strong>Multiattack.</strong></em> The aldani makes two claw attacks.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +3 to hit, reach 5 ft., one target. <em>Hit:</em> 5 (1d8 + 1) slashing damage, and the target is grappled (escape DC 11) if it is a Large or smaller creature. The aldani has two claws, each of which can grapple only one target.</p>"
+  },
+  {
+    "name": "Almiraj",
+    "size": "Small",
+    "type": "Beast",
+    "alignment": "Unaligned",
+    "environments": ["Forest", "Grassland"],
+    "armor class": "13",
+    "hit points": "3 (1d6)",
+    "speed": "50 ft.",
+    "str": "2 (-4)",
+    "dex": "16 (+3)",
+    "con": "10 (0)",
+    "int": "2 (-4)",
+    "wis": "14 (+2)",
+    "cha": "10 (0)",
+    "skills": "Perception +4, Stealth +5",
+    "senses": "Darkvision 30 ft., Passive Perception 14",
+    "languages": ["N/A"],
+    "challenge": "0 (10 XP)",
+    "traits": "<p><em><strong>Keen Senses.</strong></em> The almiraj has advantage on Wisdom (Perception) checks that rely on hearing or sight.</p>",
+    "attacks": {
+      "Horn": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+5",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "5 (1d4 + 3)",
+        "damage type": "piercing"
+      }
+    },
+    "actions": "<p><em><strong>Horn.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft., one target. <em>Hit:</em> 5 (1d4 + 3) piercing damage.</p>"
+  },
+  {
+    "name": "Alseid",
+    "size": "Medium",
+    "type": "Fey",
+    "alignment": "Chaotic Good",
+    "environments": ["Grassland"],
+    "armor class": "15 (natural armor)",
+    "hit points": "22 (4d8 + 4)",
+    "speed": "30 ft.",
+    "str": "15 (+2)",
+    "dex": "10 (+0)",
+    "con": "12 (+1)",
+    "int": "13 (+1)",
+    "wis": "16 (+3)",
+    "cha": "18 (+4)",
+    "skills": "Persuasion +6",
+    "damage resistances": "Radiant",
+    "damage immunities": "Poison",
+    "condition immunities": "Charmed, Frightened, Poisoned",
+    "senses": "Passive Perception 12",
+    "languages": ["Common", "Sylvan"],
+    "challenge": "1 (200 XP)",
+    "traits": "<p><em><strong>Innate Spellcasting.</strong></em> The alseid's innate spellcasting ability is Charisma (spell save DC 14). It can innately cast the following spells, requiring no material components:</p><ul><li>3/day each: <em>cure wounds, charm person, sleep</em></li><li>1/day each: <em>calm emotions, lesser restoration, plant growth</em></li></ul><p><em><strong>Hide in Plain Sight.</strong></em> The alseid has advantage on Dexterity (Stealth) checks made to hide in grassland or similar natural environments.</p><p><em><strong>Magic Resistance.</strong></em> The alseid has advantage on saving throws against spells and other magical effects.</p>",
+    "number of attacks": "2",
+    "attacks": {
+      "Radiant Touch": {
+        "type": "Melee Spell Attack",
+        "to hit": "+6",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "9 (1d10 + 4)",
+        "damage type": "radiant"
+      }
+    },
+    "actions": "<p><em><strong>Multiattack.</strong></em> The alseid makes two radiant touch attacks.</p><p><em><strong>Radiant Touch.</strong></em> <em>Melee Spell Attack:</em> +6 to hit, reach 5 ft., one target. <em>Hit:</em> 9 (1d10 + 4) radiant damage.</p>"
+  },
+  {
+    "name": "Amber Golem",
+    "size": "Large",
+    "type": "Construct",
+    "alignment": "Unaligned",
+    "environments": ["Dungeon"],
+    "armor class": "17 (natural armor)",
+    "hit points": "178 (17d10 + 85)",
+    "speed": "30 ft.",
+    "str": "22 (+6)",
+    "dex": "9 (-1)",
+    "con": "20 (+5)",
+    "int": "3 (-4)",
+    "wis": "11 (+0)",
+    "cha": "1 (-5)",
+    "skills": "Perception +4",
+    "damage vulnerabilities": "Thunder",
+    "damage immunities": "Acid, Poison, Psychic; Bludgeoning, Piercing, and Slashing from nonmagical attacks",
+    "condition immunities": "Charmed, Exhaustion, Frightened, Paralyzed, Petrified, Poisoned",
+    "senses": "Darkvision 60 ft., Passive Perception 9",
+    "languages": ["Understands the languages of its creator but can't speak"],
+    "challenge": "10 (5,900 XP)",
+    "traits": "<p><em><strong>Immutable Form.</strong></em> The golem is immune to any spell or effect that would alter its form.</p><p><em><strong>Magic Resistance.</strong></em> The golem has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Magic Weapons.</strong></em> The golem's weapon attacks are magical.</p><p><em><strong>Tracker.</strong></em> The golem is a faultless tracker.</p>",
+    "number of attacks": "3",
+    "attacks": {
+      "Bite": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+10",
+        "reach": "5 ft.",
+        "target": "one creature",
+        "hit": "17 (2d10 + 6)",
+        "damage type": "piercing"
+      },
+      "Claw": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+10",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "13 (2d6 + 6)",
+        "damage type": "slashing"
+      }
+    },
+    "actions": "<p><em><strong>Multiattack.</strong></em> The golem makes two claw attacks and one bite attack.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +10 to hit, reach 5 ft., one creature. <em>Hit:</em> 17 (2d10 + 6) piercing damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +10 to hit, reach 5 ft., one target. <em>Hit:</em> 13 (2d6 + 6) slashing damage.</p><p><em><strong>Slow (Recharge 5–6).</strong></em> The golem targets one or more creatures it can see within 10 feet of it. Each target must make a DC 17 Wisdom saving throw. On a failed save, a target's speed is halved, it takes a −2 penalty to AC and Dexterity saving throws, and it can't use reactions. On its turn, it can use either an action or a bonus action, not both. These effects last for 1 minute. A target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p>"
+  },
+  {
+    "name": "Ambush Drake",
+    "size": "Medium",
+    "type": "Dragon",
+    "alignment": "Unaligned",
+    "environments": ["Forest", "Hill", "Grassland"],
+    "armor class": "13 (natural armor)",
+    "hit points": "22 (4d6 + 8)",
+    "speed": "30 ft.",
+    "skills": "Perception +4, Stealth +4",
+    "damage resistances": "Poison",
+    "senses": "Darkvision 60 ft., Passive Perception 14",
+    "languages": ["Understands Draconic but can't speak"],
+    "challenge": "1/2 (100 XP)",
+    "traits": "<p><em><strong>Pack Tactics.</strong></em> The drake has advantage on an attack roll against a creature if at least one of the drake's allies is within 5 feet of the creature and the ally isn't incapacitated.</p><p><em><strong>Surprise Attack.</strong></em> If the drake surprises a creature and hits it with an attack during the first round of combat, the target takes an extra 7 (2d6) damage from the attack.</p>",
+    "attacks": {
+      "Bite": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+4",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "4 (1d6 + 1)",
+        "damage type": "piercing"
+      }
+    },
+    "actions": "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft., one target. <em>Hit:</em> 4 (1d6 + 1) piercing damage.</p>"
+  },
+  {
+    "name": "Amphisbaena",
+    "size": "Large",
+    "type": "Monstrosity",
+    "alignment": "Unaligned",
+    "environments": ["Desert", "Wasteland"],
+    "armor class": "15 (natural armor)",
+    "hit points": "60 (8d10 + 16)",
+    "speed": "20 ft., climb 20 ft., swim 30 ft.",
+    "str": "17 (+3)",
+    "dex": "15 (+2)",
+    "con": "14 (+2)",
+    "int": "2 (-4)",
+    "wis": "12 (+1)",
+    "cha": "2 (-4)",
+    "skills": "Stealth +6",
+    "senses": "Darkvision 60 ft., Passive Perception 11",
+    "languages": ["N/A"],
+    "challenge": "3 (700 XP)",
+    "traits": "<p><em><strong>Split.</strong></em> If the amphisbaena takes a critical hit from a slashing weapon, it splits into two identical amphisbaenas, each with half the original's hit points (rounded down). Each amphisbaena can rejoin with another if they are within 5 feet of each other for at least 1 minute after a short or long rest. Each amphisbaena can regrow any lost portion over the course of 1d4 days if it has at least 1 hit point and is fed.</p>",
+    "number of attacks": "2",
+    "attacks": {
+      "Bite": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+5",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "12 (2d8 + 3)",
+        "damage type": "piercing"
+      }
+    },
+    "actions": "<p><em><strong>Multiattack.</strong></em> The amphisbaena makes one bite attack with each of its two heads.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft., one target. <em>Hit:</em> 12 (2d8 + 3) piercing damage, and the target must succeed on a DC 13 Constitution saving throw or be poisoned for 1 hour.</p>"
+  },
+  {
+    "name": "Anchorite of Talos",
+    "size": "Medium",
+    "type": "Humanoid",
+    "alignment": "Chaotic Evil",
+    "environments": ["Coastal", "Mountain", "Grassland"],
+    "armor class": "13 (hide armor)",
+    "hit points": "58 (9d8 + 18)",
+    "speed": "30 ft.",
+    "str": "16 (+3)",
+    "dex": "13 (+1)",
+    "con": "14 (+2)",
+    "int": "9 (-1)",
+    "wis": "15 (+2)",
+    "cha": "12 (+1)",
+    "skills": "Nature +1, Stealth +3, Survival +4",
+    "senses": "Darkvision 60 ft., Passive Perception 12",
+    "languages": ["Common", "Orcish"],
+    "challenge": "3 (700 XP)",
+    "traits": "<p><em><strong>Shapechanger.</strong></em> The anchorite can use its action to polymorph into a boar or back into its true (half-orc) form. Its statistics, other than its size and AC, are the same in each form. Any equipment it is wearing or carrying isn't transformed. It reverts to its true form if it dies.</p><p><em><strong>Innate Spellcasting.</strong></em> The anchorite's innate spellcasting ability is Wisdom (spell save DC 12). It can innately cast the following spells, requiring no material components:</p><ul><li>3/day: <em>thunderwave</em></li><li>1/day each: <em>augury, bless, lightning bolt, revivify</em></li></ul>",
+    "attacks": {
+      "Clawed Gauntlet": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+5",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "5 (1d4 + 3)",
+        "damage type": "slashing"
+      },
+      "Tusk": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+5",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "6 (1d6 + 3)",
+        "damage type": "slashing"
+      }
+    },
+    "actions": "<p><em><strong>Clawed Gauntlet (Humanoid Form Only).</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft., one target. <em>Hit:</em> 5 (1d4 + 3) slashing damage.</p><p><em><strong>Tusk (Boar Form Only).</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft., one target. <em>Hit:</em> 6 (1d6 + 3) slashing damage.</p>"
+  },
+  {
+    "name": "Animated Broom",
+    "size": "Small",
+    "type": "Construct",
+    "alignment": "Unaligned",
+    "environments": ["Urban", "Dungeon"],
+    "armor class": "15",
+    "hit points": "14 (4d6)",
+    "speed": "5 ft., fly 50 ft. (hover)",
+    "str": "10 (0)",
+    "dex": "17 (+3)",
+    "con": "10 (0)",
+    "int": "1 (-5)",
+    "wis": "5 (-3)",
+    "cha": "1 (-5)",
+    "damage immunities": "Poison, Psychic",
+    "condition immunities": "Charmed, Deafened, Exhaustion, Frightened, Paralyzed, Petrified, Poisoned, Prone",
+    "senses": "Blindsight 60 ft., Passive Perception 7",
+    "languages": ["N/A"],
+    "challenge": "1/4 (50 XP)",
+    "traits": "<p><em><strong>Antimagic Susceptibility.</strong></em> The broom is incapacitated while in the area of an antimagic field. If targeted by <em>dispel magic</em>, the broom must succeed on a Constitution saving throw against the caster's spell save DC or fall unconscious for 1 minute.</p><p><em><strong>False Appearance.</strong></em> While the broom remains motionless, it is indistinguishable from a normal broom.</p><p><em><strong>Flyby.</strong></em> The broom doesn't provoke an opportunity attack when it flies out of an enemy's reach.</p>",
+    "attacks": {
+      "Slam/Broomstick": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+5",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "5 (1d4 + 3)",
+        "damage type": "bludgeoning"
+      }
+    },
+    "actions": "<p><em><strong>Slam/Broomstick.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft., one target. <em>Hit:</em> 5 (1d4 + 3) bludgeoning damage.</p>"
   }
 ];
 
