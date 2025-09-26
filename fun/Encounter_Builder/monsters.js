@@ -18378,7 +18378,27 @@ const monsters = [
     traits:
       "<p><em><strong>Legendary Resistance (3/Day).</strong></em> If the death knight fails a saving throw, it can choose to succeed instead.</p><p><em><strong>Magic Resistance.</strong></em> The death knight has Advantage on saving throws against spells and other magical effects.</p><p><em><strong>Marshal Undead.</strong></em> Undead creatures of the death knight's choice (excluding itself) in a 60-foot Emanation originating from it have Advantage on attack rolls and saving throws. It can't use this trait if it has the Incapacitated condition.</p><p><em><strong>Undead Restoration.</strong></em> If the death knight is destroyed before it atones for its evil, it gains a new body in 1d10 days, reviving with all its hit points in an unoccupied space within 5 feet of its soul. If the death knight atones for its evil, it dies and doesn't return.</p>",
     "number of attacks": 3,
-    attacks: {},
+    attacks: {
+      "Dread Blade": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+10",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "12 (2d6 + 5)",
+        "damage type": "slashing plus necrotic"
+        }
+      },
+"Death Kiss": {
+    "attacks": {
+      "Tentacle": {
+      "type": "Melee Weapon Attack",
+      "to hit": "+8",
+      "reach": "20 ft.",
+      "target": "one target",
+      "hit": "14 (3d6+4)",
+      "damage type": "piercing"
+      }
+    },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The death knight makes three Dread Blade attacks.</p><p><em><strong>Dread Blade.</strong></em> <em>Melee Weapon Attack:</em> +10 to hit, reach 5 ft. one target. <em>Hit:</em> 12 (2d6 + 5) slashing damage plus 7 (2d6) necrotic damage.</p><p><em><strong>Spellcasting.</strong></em> The death knight casts one of the following spells, using Charisma as the spellcasting ability (spell save DC 16):</p><ul><li>At will: <em>dispel magic, revivify</em></li><li>3/day each: <em>darkness, fear, locate creature</em></li><li>1/day each: <em>plane shift (self only), power word heal, power word kill</em></li></ul><p><em><strong>Hellfire Orb (1/Day).</strong></em> The death knight hurls a magical ball of fire that explodes at a point it can see within 120 feet of it. Each creature in a 20-foot-radius sphere centered on that point must make a DC 18 Dexterity saving throw. On a failed save, the creature takes 35 (10d6) fire damage and 35 (10d6) necrotic damage, or half as much damage on a successful one.</p>",
     "legendary actions":
@@ -18464,7 +18484,22 @@ const monsters = [
     languages: ["Common", "Draconic", "Telepathy 120 ft."],
     challenge: "5 (1,800 XP)",
     "number of attacks": 3,
-    attacks: {},
+    attacks: {"Bite": {
+"type": "Melee Weapon Attack",
+"to hit": "+6",
+"reach": "10 ft.",
+"target": "one target",
+"hit": "14 (2d10+3)",
+"damage type": "piercing plus radiant"
+},
+"Claw": {
+"type": "Melee Weapon Attack",
+"to hit": "+6",
+"reach": "5 ft.",
+"target": "one target",
+"hit": "6 (1d6+3)",
+"damage type": "slashing"
+}},
     actions:
       "<p><em><strong>Multiattack.</strong></em> The dragon makes one Bite attack and two Claw attacks.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 10 ft. one target. <em>Hit:</em> 14 (2d10+3) piercing damage plus 4 (1d8) radiant damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft. one target. <em>Hit:</em> 6 (1d6+3) slashing damage.</p><p><em><strong>Scintillating Breath (Recharge 5-6).</strong></em> The dragon exhales a burst of brilliant radiance in a 30-foot cone. Each creature in that area must make a DC 15 Constitution saving throw, taking 27 (6d8) radiant damage on a failed save, or half as much damage on a successful one. The dragon then gains 10 temporary hit points by absorbing a portion of the radiant energy.</p><p><em><strong>Spellcasting (Psionics).</strong></em> The dragon casts one of the following spells, requiring no spell components and using Intelligence as the spellcasting ability (spell save DC 16): At will: <em>dancing lights, guidance</em>; 1/day each: <em>hypnotic pattern, lesser restoration</em></p>",
   },
