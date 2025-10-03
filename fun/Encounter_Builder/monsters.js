@@ -4210,7 +4210,16 @@ const monsters = [
     traits:
       "<p><em><strong>Spellcasting.</strong></em> The druid is a 4th-level spellcaster. Its spellcasting ability is Wisdom (spell save DC 12, +4 to hit with spell attacks). It has the following druid spells prepared: </p><p>Cantrips (at will): druidcraft, produce flame, shillelagh </p><p>1st level (4 slots): entangle, longstrider, speak with animals, thunderwave </p><p>2nd level (3 slots): animal messenger, barkskin</p>",
     "number of attacks": 1,
-    attacks: {},
+    attacks: {
+      "Club": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+2",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "3 (1d6)",
+        "damage type": "bludgeoning"
+      }
+    },
     actions:
       "<p><em><strong>Quarterstaff.</strong></em> <em>Melee Weapon Attack:</em> +2 to hit (+4 to hit with shillelagh), reach 5 ft. one target. <em>Hit:</em> 3 (1d6) bludgeoning damage, 4 (1d8) bludgeoning damage if wielded with two hands, or 6 (1d8 + 2) bludgeoning damage with shillelagh.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/299/1000/1000/636252771583275655.jpeg",
@@ -4238,7 +4247,16 @@ const monsters = [
     traits:
       "<p><em><strong>Innate Spellcasting.</strong></em> The dryad's innate spellcasting ability is Charisma (spell save DC 14). The dryad can innately cast the following spells, requiring no material components: </p><p>At will: druidcraft </p><p>3/day each: entangle, goodberry </p><p>1/day each: barkskin, pass without trace, shillelagh </p><p><em><strong>Magic Resistance.</strong></em> The dryad has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Speak with Beasts and Plants.</strong></em> The dryad can communicate with beasts and plants as if they shared a language.</p><p><em><strong>Tree Stride.</strong></em> Once on her turn, the dryad can use 10 feet of her movement to step magically into one living tree within her reach and emerge from a second living tree within 60 feet of the first tree, appearing in an unoccupied space within 5 feet of the second tree. Both trees must be Large or bigger.</p>",
     "number of attacks": 1,
-    attacks: {},
+    attacks: {
+      "Club": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+2",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "2 (1d4)",
+        "damage type": "bludgeoning"
+      }
+    },
     actions:
       "<p><em><strong>Club.</strong></em> <em>Melee Weapon Attack:</em> +2 to hit (+6 to hit with shillelagh), reach 5 ft. one target. <em>Hit:</em> 2 (1d4) bludgeoning damage, or 8 (1d8 + 4) bludgeoning damage with shillelagh.</p><p><em><strong>Fey Charm.</strong></em> The dryad targets one humanoid or beast that she can see within 30 feet of her. If the target can see the dryad, it must succeed on a DC 14 Wisdom saving throw or be magically charmed. The charmed creature regards the dryad as a trusted friend to be heeded and protected. Although the target isn't under the dryad's control, it takes the dryad's requests or actions in the most favorable way it can.</p><p>Each time the dryad or its allies do anything harmful to the target, it can repeat the saving throw, ending the effect on itself on a success. Otherwise, the effect lasts 24 hours or until the dryad dies, is on a different plane of existence from the target, or ends the effect as a bonus action. If a target's saving throw is successful, the target is immune to the dryad's Fey Charm for the next 24 hours.</p><p>The dryad can have no more than one humanoid and up to three beasts charmed at a time.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/307/1000/1000/636252771953950206.jpeg",
@@ -20538,7 +20556,7 @@ const monsters = [
     type: "Undead",
     alignment: "Neutral Evil",
     environments: ["Varies"],
-    associates: ["Lich", "Lich (Spellcaster)"],
+    associates: ["Lich", "Lich (Spellcaster)", "Acererak"],
     "img url": "https://5e.tools/bestiary/demilich-mm.html",
     "armor class": "20 (natural armor)",
     "hit points": "80 (32d4)",
@@ -20556,8 +20574,8 @@ const monsters = [
     senses: "Truesight 120 ft., Passive Perception 13",
     languages: ["Common", "Draconic", "Infernal", "Telepathy 120 ft."],
     challenge: "18 (20,000 XP, or 25,000 in lair)",
-    traits:
-      "<p><em><strong>Avoidance.</strong></em> If the demilich is subjected to an effect that allows it to make a saving throw to take only half damage, it instead takes no damage if it succeeds on the saving throw, and only half damage if it fails.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the demilich fails a saving throw, it can choose to succeed instead.</p><p><em><strong>Turn Immunity.</strong></em> The demilich is immune to effects that turn undead.</p>",
+    "traits": "<p><em><strong>Damage Reduction.</strong></em> The demilich has damage reduction 15/Epic and bludgeoning.</p><p><em><strong>Epic Natural Weapons.</strong></em> The demilich's natural weapons are considered epic for overcoming damage reduction.</p><p><em><strong>Envision Magic Items.</strong></em> The demilich can replace \"Interact\" components for magic items with \"envision\" components.</p><p><em><strong>Eye Gems.</strong></em> Demilich eye gems, which glow when active, contain 8th-level spells (often <em>maze</em> and <em>polar ray</em>) that can be activated, though the eye stops glowing for 1d4 rounds afterward.</p><p><em><strong>Magic Immunity.</strong></em></p><p><em><strong>Phylactery Transference.</strong></em> The demilich's eight gems act as a phylactery, allowing it to reappear within ten days unless all eight gems and the phylactery are destroyed.</p><p><em><strong>Soul Consumption.</strong></em> The demilich can consume souls, utterly destroying them, and regain hit points equal to double the creature's level.</p><p><em><strong>Turn Resistance.</strong></em> The demilich has a +20 bonus to saving throws against effects that turn undead.</p><p><em><strong>Undead Traits.</strong></em></p><p><em><strong>Verbal Spell Components.</strong></em> The demilich can replace material and somatic spell components with verbal components.</p>",
+    "description": "<p>Demiliches are formed when a lich loses its soul cage, causing its body to crumble to dust, leaving only the skull as the seat of its necromantic power. The lich then enters a state of torpor, with its mind wandering the planes, and gradually loses the ability to cast spells as its magic items subsume into its new form. Negative energy concentrates around the skull, petrifying some bones and teeth into blight crystals, and arcane gemstones become embedded in the skull, suffused with powerful magic. One notorious demilich in <em>Dungeons & Dragons</em> is Acererak, known for constructing the Tomb of Horrors. Demiliches in <em>Dungeons & Dragons</em> settings are more resilient than normal liches, with stronger magical defenses, and their eight gems act as a phylactery, allowing them to reappear within ten days unless all eight gems and the phylactery are destroyed. A demilich's form is concentrated into a single body part, typically its skull, with costly gems incorporated into it.</p>",
     "number of attacks": 1,
     attacks: {},
     actions:
@@ -27010,6 +27028,1621 @@ const monsters = [
       }
     },
     "actions": "<p><em><strong>Slam/Broomstick.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft., one target. <em>Hit:</em> 5 (1d4 + 3) bludgeoning damage.</p>"
+  },
+  {
+    name: "Violet Fungus Necrohulk",
+    "size": "Large",
+    "type": "Plant",
+    "environments": [
+      "Dungeon"
+    ],
+    "associates": [
+      "Violet Fungus"
+    ],
+    "armor class": "17",
+    "hit points": "102 (13d10 + 30)",
+    "speed": "40 ft.",
+    "str": "19",
+    "dex": "12",
+    "con": "18",
+    "int": "7",
+    "wis": "14",
+    "cha": "10",
+    "damage immunities": "Necrotic, Poison",
+    "condition immunities": "Blinded, Charmed, Deafened, Frightened, Poisoned",
+    "senses": "Blindsight 60 ft, Passive Perception 12",
+    "languages": [
+      "N/A"
+    ],
+    "challenge": "7",
+    "number of attacks": "2",
+    "attacks": {
+      "Rotting Slam": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+7",
+        "reach": "10 ft.",
+        "target": "one target",
+        "hit": "9 (1d10 + 4) bludgeoning damage plus 7 (2d6) necrotic damage",
+        "damage type": "bludgeoning, necrotic"
+      }
+    },
+    "actions": "<p><em><strong>Multiattack.</strong></em> The Necrohulk makes two Rotting Slam attacks.</p><p><em><strong>Spore Bomb (Recharge 5–6).</strong></em> The Necrohulk emits spores in a 20-foot-radius sphere centered on itself. Each creature in that area must make a DC 15 Constitution saving throw. On a failed save, a creature takes 28 (8d6) necrotic damage and is poisoned until the start of the Necrohulk's next turn, and it can't regain hit points. On a successful save, a creature takes half as much damage and isn't poisoned.</p>",
+    "bonus actions": "<p><em><strong>Absorb Body.</strong></em> The Necrohulk targets one Medium or Small creature within 5 feet of it. The target must succeed on a DC 15 Strength saving throw or be pulled into the Necrohulk's space, becoming grafted to its body. A grafted target is restrained and has disadvantage on Constitution saving throws. The Necrohulk can have only one target grafted at a time. The grafted target moves with the Necrohulk. If a grafted target dies, its body is destroyed, and the Necrohulk regains 10 hit points. A grafted target or a creature within 5 feet can use an action to make a DC 15 Strength (Athletics) check, freeing the grafted target on a success.</p>",
+    "description": "<p>A Violet Fungus Necrohulk forms when a violet fungus colony infests and animates a large pile of decay, attacking prey and spreading fungal spores for the colony. The artwork for the Necrohulk depicts skulls adorning its head and a 'poor soul' dangling partially in and out of its form.</p>"
+  },
+  {
+    name: "Vistana Assassin",
+    "size": "Medium",
+    "type": "Humanoid",
+    "environments": [
+      "Varies"
+    ],
+    "associates": [
+      "Vistana"
+    ],
+    "traits": "<p><em><strong>Assassinate.</strong></em> During its first turn, the assassin has advantage on attack rolls against any creature that hasn't taken a turn. Any hit the assassin scores against a surprised creature is a critical hit.</p><p><em><strong>Evasion.</strong></em> If the assassin is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, the assassin instead takes no damage if it succeeds on the saving throw, and only half damage if it fails.</p><p><em><strong>Sneak Attack (1/Turn).</strong></em> The assassin deals an extra 14 (4d6) damage when it hits a target with a weapon attack and has advantage on the attack roll, or when the target is within 5 feet of an ally of the assassin that isn't incapacitated and the assassin doesn't have disadvantage on the attack roll.</p>",
+    "actions": "<p><em><strong>Curse (Recharges After a Long Rest).</strong></em> The Vistana targets one creature it can see within 30 feet of it. The target must succeed on a DC 11 Wisdom saving throw or be cursed. The curse lasts until ended by <em>greater restoration</em>, <em>remove curse</em>, or similar magic, and persists even if the target dies and is returned to life. When the curse ends, the Vistana takes psychic damage. The curse effect can be one of the following (Vistana's choice):</p><ol><li>The target is unable to perform fine motor control acts. When the curse ends, the Vistana takes 1d6 psychic damage.</li><li>The target's appearance changes in a sinister cosmetic way. When the curse ends, the Vistana takes 1d6 psychic damage.</li><li>A nonmagical item on the target's person disappears. When the curse ends, the Vistana takes 1d6 psychic damage.</li><li>The target gains vulnerability to a damage type. When the curse ends, the Vistana takes 3d6 psychic damage.</li><li>The target has disadvantage on ability checks and saving throws for one ability score. When the curse ends, the Vistana takes 3d6 psychic damage.</li><li>The target ends attunement to one magic item. When the curse ends, the Vistana takes 5d6 psychic damage.</li><li>The target is blinded or deafened. When the curse ends, the Vistana takes 5d6 psychic damage.</li></ol><p><em><strong>Evil Eye (Recharges after a Short or Long Rest).</strong></em> The Vistana targets one creature within 10 feet of it. The Evil Eye duplicates the duration and effect of <em>animal friendship</em>, <em>charm person</em>, or <em>hold person</em> (Vistana's choice, spell DC 11) without somatic or material components.</p>"
+  },
+  {
+    name: "Vistana Bandit",
+    "size": "Medium",
+    "type": "Humanoid",
+    "environments": [
+      "Varies"
+    ],
+    "associates": [
+      "Vistana",
+      "Vistana Bandit Captain"
+    ],
+    "attacks": {
+      "Scimitar": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+3",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "4 (1d6 + 1)",
+        "damage type": "slashing"
+      },
+      "Light Crossbow": {
+        "type": "Ranged Weapon Attack",
+        "to hit": "+3",
+        "range": "80/320 ft.",
+        "target": "one target",
+        "hit": "5 (1d8 + 1)",
+        "damage type": "piercing"
+      }
+    },
+    "actions": "<p><em><strong>Curse (Recharges After a Long Rest).</strong></em> The Vistana targets one creature it can see within 30 feet of it. The target must succeed on a DC 10 Wisdom saving throw or be cursed. The curse effects are similar to those of the Vistana Assassin, with varying psychic damage dealt to the Vistana when the curse ends (1d6 to 5d6 depending on the severity of the effect).</p>"
+  },
+  {
+    name: "Vistana Bandit Captain",
+    "size": "Medium",
+    "type": "Humanoid",
+    "environments": [
+      "Varies"
+    ],
+    "associates": [
+      "Vistana",
+      "Vistana Bandit"
+    ],
+    "str": "15",
+    "dex": "16",
+    "con": "14",
+    "int": "14",
+    "wis": "11",
+    "cha": "14",
+    "saving throws": "STR +4, DEX +5, WIS +2",
+    "skills": "Athletics +4, Deception +4",
+    "senses": "Passive Perception 10",
+    "languages": [
+      "Any two languages"
+    ],
+    "challenge": "2 (450 XP)",
+    "traits": "<p><em><strong>Proficiency Bonus.</strong></em> The Vistana Bandit Captain has a proficiency bonus of +2.</p>",
+    "number of attacks": "3 (melee) or 2 (ranged)",
+    "attacks": {
+      "Scimitar": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+5",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "6 (1d6 + 3)",
+        "damage type": "slashing"
+      },
+      "Dagger": {
+        "type": "Melee or Ranged Weapon Attack",
+        "to hit": "+5",
+        "reach": "5 ft.",
+        "range": "20/60 ft.",
+        "target": "one target",
+        "hit": "5 (1d4 + 3)",
+        "damage type": "piercing"
+      }
+    },
+    "actions": "<p><em><strong>Multiattack.</strong></em> The Vistana Bandit Captain makes three melee attacks (two with its scimitar and one with its dagger) or two ranged attacks with its daggers.</p><p><em><strong>Curse (Recharges After a Long Rest).</strong></em> The Vistana targets one creature it can see within 30 feet of it. The target must succeed on a DC 12 Wisdom saving throw or be cursed. The curse effects are similar to other Vistani, with psychic damage dealt to the Vistana upon the curse's end, ranging from 1d6 to 5d6 depending on the effect.</p><p><em><strong>Evil Eye (Recharges after a Short or Long Rest).</strong></em> The Vistana targets one creature within 10 feet of it. The Evil Eye duplicates the duration and effect of <em>animal friendship</em>, <em>charm person</em>, or <em>hold person</em> (Vistana's choice, spell DC 12) without somatic or material components.</p>",
+    "description": "<p>Bandit captains are characterized by strong personality, ruthless cunning, and a silver tongue, and they crave infamy more than treasure.</p>"
+  },
+  {
+    name: "Vistana Commoner",
+    "size": "Medium",
+    "type": "Humanoid",
+    "environments": [
+      "Varies"
+    ],
+    "associates": [
+      "Vistana"
+    ],
+    "languages": [
+      "Common"
+    ],
+    "traits": "<p><em><strong>Vistana Protections.</strong></em> Vistani are not attacked by normal threats in Barovia, such as wolves and werewolves, and Strahd does not hunt them for blood or consorts.</p>",
+    "actions": "<p><em><strong>Evil Eye (Recharges after a Short or Long Rest).</strong></em> The Vistana targets one creature within 10 feet of it. The Evil Eye duplicates the duration and effect of <em>animal friendship</em>, <em>charm person</em>, or <em>hold person</em> (Vistana's choice, spell save DC 8 + the caster's proficiency bonus + the caster's Charisma modifier) without somatic or material components. If a target succeeds on the save against Evil Eye, the Vistana is blinded until the end of their next turn.</p><p><em><strong>Curse (Recharges After a Long Rest).</strong></em> Vistani curses are a repayment for an injustice or slight, and the Vistana takes psychic damage when the curse ends.</p>",
+    "description": "<p>Vistana commoners generally have stat blocks based on standard <em>Monster Manual</em> NPC stat blocks, with the addition of Vistani curses and the Evil Eye ability.</p>"
+  },
+  {
+    name: "Vistana Guard",
+    "size": "Medium",
+    "type": "Humanoid",
+    "environments": [
+      "Varies"
+    ],
+    "associates": [
+      "Vistana"
+    ],
+    "languages": [
+      "Common"
+    ],
+    "traits": "<p><em><strong>Vistana Protections.</strong></em> Vistani are not attacked by normal threats in Barovia, such as wolves and werewolves, and Strahd does not hunt them for blood or consorts.</p>",
+    "actions": "<p><em><strong>Evil Eye (Recharges after a Short or Long Rest).</strong></em> The Vistana targets one creature within 10 feet of it. The Evil Eye duplicates the duration and effect of <em>animal friendship</em>, <em>charm person</em>, or <em>hold person</em> (Vistana's choice, spell save DC 8 + the caster's proficiency bonus + the caster's Charisma modifier) without somatic or material components. If a target succeeds on the save against Evil Eye, the Vistana is blinded until the end of their next turn.</p><p><em><strong>Curse (Recharges After a Long Rest).</strong></em> Vistani curses are a repayment for an injustice or slight, and the Vistana takes psychic damage when the curse ends.</p>",
+    "description": "<p>Vistana guards generally have stat blocks based on standard <em>Monster Manual</em> NPC stat blocks, with the addition of Vistani curses and the Evil Eye ability.</p>"
+  },
+  {
+    name: "Vistana Spy",
+    "size": "Medium",
+    "type": "Humanoid",
+    "environments": [
+      "Varies"
+    ],
+    "associates": [
+      "Vistana"
+    ],
+    "languages": [
+      "Any two languages"
+    ],
+    "traits": "<p><em><strong>Vistana Protections.</strong></em> Vistani are not attacked by normal threats in Barovia, such as wolves and werewolves, and Strahd does not hunt them for blood or consorts.</p>",
+    "actions": "<p><em><strong>Evil Eye (Recharges after a Short or Long Rest).</strong></em> The Vistana targets one creature within 10 feet of it. The Evil Eye duplicates the duration and effect of <em>animal friendship</em>, <em>charm person</em>, or <em>hold person</em> (Vistana's choice, spell save DC 8 + the caster's proficiency bonus + the caster's Charisma modifier) without somatic or material components. If a target succeeds on the save against Evil Eye, the Vistana is blinded until the end of their next turn.</p><p><em><strong>Curse (Recharges After a Long Rest).</strong></em> Vistani curses are a repayment for an injustice or slight, and the Vistana takes psychic damage when the curse ends.</p>",
+    "description": "<p>Vistana spies generally have stat blocks based on standard <em>Monster Manual</em> NPC stat blocks, with the addition of Vistani curses and the Evil Eye ability.</p>"
+  },
+  {
+    name: "Vistana Thug",
+    "size": "Medium",
+    "type": "Humanoid",
+    "environments": [
+      "Varies"
+    ],
+    "associates": [
+      "Vistana"
+    ],
+    "languages": [
+      "Common"
+    ],
+    "traits": "<p><em><strong>Vistana Protections.</strong></em> Vistani are not attacked by normal threats in Barovia, such as wolves and werewolves, and Strahd does not hunt them for blood or consorts.</p>",
+    "actions": "<p><em><strong>Evil Eye (Recharges after a Short or Long Rest).</strong></em> The Vistana targets one creature within 10 feet of it. The Evil Eye duplicates the duration and effect of <em>animal friendship</em>, <em>charm person</em>, or <em>hold person</em> (Vistana's choice, spell save DC 8 + the caster's proficiency bonus + the caster's Charisma modifier) without somatic or material components. If a target succeeds on the save against Evil Eye, the Vistana is blinded until the end of their next turn.</p><p><em><strong>Curse (Recharges After a Long Rest).</strong></em> Vistani curses are a repayment for an injustice or slight, and the Vistana takes psychic damage when the curse ends.</p>",
+    "description": "<p>Vistana thugs generally have stat blocks based on standard <em>Monster Manual</em> NPC stat blocks, with the addition of Vistani curses and the Evil Eye ability.</p>"
+  },
+  {
+    name: "Vlazok",
+    "size": "Large",
+    "type": "Fiend",
+    "alignment": "Chaotic Evil",
+    "environments": [
+      "Wasteland"
+    ],
+    "associates": [
+      "Demon Lord"
+    ],
+    "armor class": "17 (natural armor)",
+    "hit points": "136 (16d10 + 48)",
+    "speed": "30 ft., climb 30 ft.",
+    "traits": "<p><em><strong>All-Around Vision.</strong></em> Vlazoks possess keen senses due to eyes positioned all around their hideous heads, granting them all-around vision. They cannot be surprised.</p><p><em><strong>Blood Frenzy.</strong></em> Vlazoks have advantage on melee attack rolls against creatures that don't have all their hit points.</p><p><em><strong>Magic Resistance.</strong></em> Vlazoks have advantage on saving throws against spells and other magical effects.</p><p><em><strong>Spider Climb.</strong></em> Vlazoks can climb difficult surfaces, including upside down on ceilings, without an ability check.</p>",
+    "number of attacks": "2",
+    "attacks": {
+      "Gore": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+9",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "23 (4d8 + 5)",
+        "damage type": "piercing"
+      }
+    },
+    "actions": "<p><em><strong>Multiattack.</strong></em> The Vlazok makes two Gore attacks.</p>",
+    "bonus actions": "<p><em><strong>Stomp.</strong></em> The Vlazok targets one prone creature within 5 feet of it. <em>Melee Weapon Attack:</em> +9 to hit, 5 ft. reach, one target. <em>Hit:</em> 27 (4d10 + 5) bludgeoning damage.</p>",
+    "description": "<p>Vlazoks are skeletal, quadrupedal horrors particularly suited for battlefield cleanup in the Outer Planes. They enjoy trampling survivors and crushing resistance after fierce fighting. When anticipating enemies, they jump from above to crush them. Vlazoks easily lose interest in tasks unless powerful commanders, like demon lords, keep them in line, otherwise becoming unhinged agents of chaos. They are a relatively recent phenomenon from the Abyss, often seen after demonic battles, functioning as scavengers and cleanup crews. Despite negligible intelligence, their tactics suggest a minor degree of sentience, hinting at a deeper origin than mere Abyssal animals. Vlazoks are not undead, but naturally arise as bony, roughly bovine creatures with incongruous traits like humanoid hands and feet, and multiple eyes on their horns, suggesting intentional creation, possibly by Baphomet. They are new monsters from <em>Eve of Ruin</em>.</p>"
+  },
+  {
+    name: "Void Scavver",
+    "size": "Huge",
+    "type": "Monstrosity",
+    "alignment": "Unaligned",
+    "environments": [
+      "Wasteland"
+    ],
+    "armor class": "15 (natural armor)",
+    "hit points": "157",
+    "speed": "0 ft., fly 40 ft.",
+    "senses": "Darkvision 120 ft., Passive Perception 15",
+    "languages": [
+      "N/A"
+    ],
+    "number of attacks": "1",
+    "attacks": {
+      "Swallowing Bite": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+10",
+        "reach": "10 ft.",
+        "target": "one target",
+        "hit": "45 (6d12 + 6)",
+        "damage type": "piercing"
+      }
+    },
+    "actions": "<p><em><strong>Swallow.</strong></em> If a Large or smaller creature is hit by the Swallowing Bite attack, it must succeed on a DC 16 Dexterity saving throw or be swallowed by the Void Scavver. A swallowed creature is blinded and restrained, has total cover against attacks and other effects outside the scavver, and takes 11 (2d10) acid damage at the start of each of the scavver's turns. The scavver can only have one creature swallowed at a time. If the scavver takes 25 damage or more in a single turn from a creature inside it, the scavver must succeed on a DC 20 Constitution saving throw or regurgitate the creature, which falls prone in a space within 5 feet of the scavver. If the scavver dies, a swallowed creature is no longer restrained by it and can escape from the corpse by using 10 feet of movement, exiting prone.</p>",
+    "bonus actions": "<p><em><strong>Ray of Fear (Recharge 4–6).</strong></em> The scavver emits an invisible magical ray from its eye that targets one creature within 60 feet of it. The target must succeed on a DC 16 Wisdom saving throw or be frightened of the scavver until the start of its next turn.</p>",
+    "notes": "<p>Harvesting items from a Void Scavver requires a Nature Check, with many items having an expiration. The creature produces 90 pieces of meat, weighing a total of 360 lbs.</p>",
+    "description": "<p>Void Scavvers are 20 feet long with pitch-black skin, resembling shark-like scavengers with a single large eye on the leading edge of their head that glows when awake. Their mouths are full of razor-sharp teeth, which are used in jewelry and decoration, and can also be made into serrated blades and saws. Their skin is covered in small, rough, hard scales that can be dried, treated, and ground down by leatherworkers to create pebbled leather. Void Scavvers are solitary menaces that prefer to hunt sentient prey rather than scraps. They are featured in <em>Spelljammer Adventures in Space</em>.</p>"
+  },
+  {
+    name: "Walking Statue Of Waterdeep",
+    "size": "Gargantuan",
+    "type": "Construct",
+    "alignment": "Unaligned",
+    "environments": [
+      "Urban"
+    ],
+    "associates": [
+      "Blackstaff"
+    ],
+    "armor class": "17 (natural armor)",
+    "hit points": "314 (17d20 + 136)",
+    "speed": "60 ft.",
+    "damage resistances": "Bludgeoning, Piercing, and Slashing from nonmagical attacks not made with adamantine weapons",
+    "damage immunities": "Cold, Fire, Poison, Psychic",
+    "condition immunities": "Charmed, Exhaustion, Frightened, Paralyzed, Petrified, Poisoned",
+    "senses": "Truesight 120 ft., Passive Perception 10",
+    "languages": [
+      "Common",
+      "Draconic"
+    ],
+    "challenge": "18",
+    "traits": "<p><em><strong>Crumbling Colossus.</strong></em> When the statue is reduced to 0 hit points, it crumbles, and creatures within 30 feet of it must make a DC 22 Dexterity saving throw, taking 22 (4d10) bludgeoning damage on a failed save.</p><p><em><strong>Immutable Form.</strong></em> The statue is immune to any spell or effect that would alter its form.</p><p><em><strong>Magic Resistance.</strong></em> The statue has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Siege Monster.</strong></em> The statue deals double damage to objects and structures.</p>",
+    "number of attacks": "2",
+    "attacks": {
+      "Slam": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+16",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "29 (3d12 + 10)",
+        "damage type": "bludgeoning"
+      },
+      "Hurled Stone": {
+        "type": "Ranged Weapon Attack",
+        "to hit": "+16",
+        "range": "200/800 ft.",
+        "target": "one target",
+        "hit": "43 (6d10 + 10)",
+        "damage type": "bludgeoning"
+      }
+    },
+    "actions": "<p><em><strong>Multiattack.</strong></em> The walking statue makes two melee attacks.</p>",
+    "description": "<p>The Walking Statues of Waterdeep are eight enormous constructs scattered throughout the city, designed to defend it in times of great peril. They are used only to fend off armies and seemingly insurmountable foes due to their destructive nature. Each statue has a unique name and appearance, but similar statistics. The \"Swordmaiden\" statue is too broken to be animated, and only the wielder of the Blackstaff can animate the other seven. Waterdavians have built structures around and on top of several statues, believing them to be landmarks, but these structures are destroyed if a statue animates. Walking statues do not require air, food, drink, or sleep. They are free-willed, thinking creatures that can reason, learn, and remember, and are unswervingly loyal to their instructions. They understand Common and Draconic, but only speak if commanded by their creator or recognized authority. A walking statue is a great colossus made of dense stone (dolomite or andesite), standing 40 feet tall and weighing about 1,000 tons. A premium figure of the Walking Statue of Waterdeep, \"The Honorable Knight,\" stands 57' 3\" tall in lore.</p>"
+  },
+  {
+    name: "Wizard",
+    "size": "Medium",
+    "type": "Humanoid",
+    "environments": [
+      "Dungeon"
+    ],
+    "associates": [
+      "Undead",
+      "Construct"
+    ],
+    "armor class": "10 (13 with mage armor)",
+    "hit points": "13 (3d8)",
+    "speed": "30 ft.",
+    "traits": "<p><em><strong>Magical Enhancement.</strong></em> If depleted of spells, they can engage in melee with magically enhanced blows that reinvigorate them. Wizards can make foes more vulnerable to magic, and enhance allies' attacks.</p><p><em><strong>Reality Manipulation.</strong></em> Wizards can manipulate reality with teleportation magic.</p><p><em><strong>Spellcasting.</strong></em> Wizards are spellcasters who can deal high damage with spells like <em>Fireball</em> or banish targets to the Abyss. They can cast complex and dangerous spells, excel at ending battles swiftly from afar with well-chosen and timed spells.</p>",
+    "number of attacks": "1",
+    "attacks": {
+      "Arcane Burst": {
+        "type": "Melee or Ranged Spell Attack",
+        "to hit": "+4",
+        "reach": "5 ft.",
+        "range": "120 ft.",
+        "target": "one target",
+        "hit": "7 (1d10 + 2)",
+        "damage type": "force"
+      }
+    },
+    "notes": "<p>The provided numerical statistics for attacks and basic stats are for an Apprentice Wizard.</p>",
+    "description": "<p>Wizards are dedicated scholars of magical arts, seeking mastery through study and practice. They are typically flimsy and can be found in areas like the late Dungeon, the Vaults, the Depths, and Lom Lobon's Pandemonium floor. They are not very evasive, cannot see invisible creatures, and lack strong willpower, making them vulnerable when silenced or waterlogged. Banishment spells require line of fire and can be resisted with high willpower. Fire resistance is helpful against their <em>Fireball</em> spells. Variant wizards, such as mad acolytes of Lugonu, can be encountered in the Abyss, wielding distortion-branded weapons and casting spells like <em>Smiting</em>, <em>Malign Gateway</em>, <em>Blink</em>, <em>Blink Other</em>, and <em>Invisibility</em>. Their role in adventuring parties is often focused on dealing as much harm as possible, as quickly as possible. Wizards can wear cloth armor and wield staves, swords, and daggers. Some monsters, like owlbears and constructs, are said to be the result of wizard experiments, and many undead, such as zombies, skeletons, ghouls, and liches, are also creations of wizards, often intentional. A Boneclaw is created when a wizard attempts to become a Lich but fails. Nothics are also a result of wizards \"f***ing around and finding out.\"</p>"
+  },
+  {
+    "name": "Verbeeg Longstrider",
+    "size": "Large",
+    "type": "Giant",
+    "alignment": "Neutral",
+    "environments": ["Forest", "Mountain", "Hill"],
+    "armor class": "14 (Hide Armour)",
+    "hit points": "119 (14d10 + 42)",
+    "speed": "50 ft.",
+    "senses": "passive Perception 12",
+    "languages": ["Giant", "Common"],
+    "challenge": "5 (1,800 XP)",
+    "traits": "<p><em><strong>Innate Spellcasting.</strong></em> The verbeeg's innate spellcasting ability is Wisdom. It can innately cast the following spells, requiring no components:</p><ul><li>1/day each: <em>animal messenger</em>, <em>fog cloud</em>, <em>freedom of movement</em>, <em>pass without trace</em>, <em>silence</em>, <em>water walk</em></li></ul><p><em><strong>Simple Weapon Wielder.</strong></em> A simple weapon deals one extra die of its damage when the verbeeg hits with it (this extra damage is included in the attacks below).</p>",
+    "number of attacks": "2",
+    "attacks": {
+      "Spear (Melee)": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+7",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "14 (3d6 + 4)",
+        "damage type": "piercing"
+      },
+      "Spear (Ranged/Two-Handed Melee)": {
+        "type": "Melee or Ranged Weapon Attack",
+        "to hit": "+7",
+        "reach": "5 ft.",
+        "range": "20/60 ft.",
+        "target": "one target",
+        "hit": "17 (3d8 + 4)",
+        "damage type": "piercing"
+      },
+      "Sling": {
+        "type": "Ranged Weapon Attack",
+        "to hit": "+5",
+        "range": "30/120 ft.",
+        "target": "one target",
+        "hit": "9 (3d4 + 2)",
+        "damage type": "bludgeoning"
+      }
+    },
+    "actions": "<p><em><strong>Multiattack.</strong></em> The verbeeg makes two melee attacks.</p><p><em><strong>Spear.</strong></em> Melee or Ranged Weapon Attack: +7 to hit, reach 5 ft. (melee) or range 20/60 ft. (ranged), one target. Hit: 14 (3d6 + 4) piercing damage, or 17 (3d8 + 4) piercing damage if used as a ranged attack or with two hands for melee.</p><p><em><strong>Sling.</strong></em> Ranged Weapon Attack: +5 to hit, range 30/120 ft., one target. Hit: 9 (3d4 + 2) bludgeoning damage. If the target is a creature, it must succeed on a DC 15 Constitution saving throw or be stunned until the end of its next turn.</p>",
+    "description": "<p>Verbeeg are giants resembling oversized humans with gangly limbs and elongated faces. Longstriders are even-tempered verbeeg who worship nature gods and defend the natural world.</p>"
+  },
+  {
+    "name": "Tressym",
+    "size": "Tiny",
+    "type": "Beast",
+    "alignment": "Chaotic Neutral",
+    "environments": ["Urban", "Forest", "Grassland"],
+    "associates": ["Humanoid", "Ranger", "Wizard"],
+    "armor class": "12",
+    "hit points": "5 (2d4)",
+    "speed": "40 ft., climb 30 ft., fly 40 ft.",
+    "damage immunities": "poison",
+    "condition immunities": "poisoned",
+    "senses": "Detect Invisibility 60 ft.",
+    "languages": ["Common"],
+    "challenge": "0 (10 XP)",
+    "traits": "<p><em><strong>Keen Smell.</strong></em> The tressym has advantage on Wisdom (Perception) checks that rely on smell.</p><p><em><strong>Poison Sense.</strong></em> The tressym can detect poison by taste, touch, or smell.</p>",
+    "number of attacks": "1",
+    "attacks": {
+      "Claws": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+0",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "1",
+        "damage type": "slashing"
+      }
+    },
+    "actions": "<p><em><strong>Claws.</strong></em> Melee Weapon Attack: +0 to hit, reach 5 ft., one target. Hit: 1 slashing damage.</p>",
+    "notes": "<p>With the DM's permission, a person casting <em>find familiar</em> can conjure a tressym instead of a normal cat.</p>",
+    "description": "<p>A Tressym is a mischievous winged cat, roughly the size of a house cat with a 3-foot wingspan. They are intelligent and are believed to be the result of wizardly experimentation on house cats. Tressyms can form strong friendships with humanoids, especially rangers and wizards. Tressyms feed on small rodents, birds, and insects, and enjoy teasing dogs.</p>"
+  },
+  {
+    "name": "Tribal Warrior",
+    "size": "Medium",
+    "type": "Humanoid",
+    "alignment": "Any",
+    "environments": ["Grassland", "Forest"],
+    "associates": ["Chief"],
+    "armor class": "12 (hide armor)",
+    "hit points": "11 (2d8 + 2)",
+    "speed": "30 ft.",
+    "senses": "passive Perception 10",
+    "languages": ["Any one language"],
+    "challenge": "1/8 (25 XP)",
+    "traits": "<p><em><strong>Pack Tactics.</strong></em> The warrior has advantage on an attack roll against a creature if at least one of the warrior's allies is within 5 feet of the creature and the ally isn't incapacitated.</p>",
+    "number of attacks": "1",
+    "attacks": {
+      "Spear (Melee)": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+3",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "4 (1d6 + 1)",
+        "damage type": "piercing"
+      },
+      "Spear (Melee, Two-Handed)": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+3",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "5 (1d8 + 1)",
+        "damage type": "piercing"
+      },
+      "Spear (Ranged)": {
+        "type": "Ranged Weapon Attack",
+        "to hit": "+3",
+        "range": "20/60 ft.",
+        "target": "one target",
+        "hit": "4 (1d6 + 1)",
+        "damage type": "piercing"
+      }
+    },
+    "actions": "<p><em><strong>Spear.</strong></em> Melee or Ranged Weapon Attack: +3 to hit, reach 5 ft. (melee) or 20/60 ft. (ranged), one target. Hit: 4 (1d6 + 1) piercing damage, or 5 (1d8 + 1) piercing damage if used with two hands for a melee attack.</p>",
+    "description": "<p>Tribal warriors live outside civilization, primarily subsisting on fishing and hunting, and their tribe's actions are guided by their chief.</p>"
+  },
+  {
+    "name": "Tridrone",
+    "size": "Medium",
+    "type": "Construct",
+    "alignment": "Lawful Neutral",
+    "environments": ["Dungeon"],
+    "armor class": "15 (natural armor)",
+    "hit points": "16 (3d8 + 3)",
+    "speed": "30 ft.",
+    "damage resistances": "acid, cold, fire",
+    "condition immunities": "charmed, frightened, stunned",
+    "senses": "truesight 120 ft., passive Perception 10",
+    "languages": ["Modron"],
+    "challenge": "1/2 (100 XP)",
+    "traits": "<p><em><strong>Axiomatic Mind.</strong></em> The tridrone can't be compelled to act contrary to its nature or its instructions.</p><p><em><strong>Disintegration.</strong></em> The tridrone's body disintegrates into dust upon death, leaving behind any equipment it was carrying.</p>",
+    "number of attacks": "3",
+    "attacks": {
+      "Fist": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+3",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "3 (1d4 + 1)",
+        "damage type": "bludgeoning"
+      },
+      "Javelin (Melee)": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+3",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "4 (1d6 + 1)",
+        "damage type": "piercing"
+      },
+      "Javelin (Ranged)": {
+        "type": "Ranged Weapon Attack",
+        "to hit": "+3",
+        "range": "30/120 ft.",
+        "target": "one target",
+        "hit": "4 (1d6 + 1)",
+        "damage type": "piercing"
+      }
+    },
+    "actions": "<p><em><strong>Multiattack.</strong></em> The tridrone makes three attacks: three with its fists, or three with its javelins, or a mix of both.</p><p><em><strong>Fist.</strong></i> Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 3 (1d4 + 1) bludgeoning damage.</p><p><em><strong>Javelin.</strong></i> Melee or Ranged Weapon Attack: +3 to hit, reach 5 ft. (melee) or 30/120 ft. (ranged), one target. Hit: 4 (1d6 + 1) piercing damage.</p>",
+    "description": "<p>Tridrones appear as three-sided pyramids with spidery arms and legs, capable of performing three tasks simultaneously.</p>"
+  },
+  {
+    "name": "Triton",
+    "size": "Medium",
+    "type": "Humanoid",
+    "alignment": "Lawful Good",
+    "environments": ["Underwater"],
+    "armor class": "14 (scale mail)",
+    "hit points": "60 (11d8 + 11)",
+    "speed": "30 ft., swim 30 ft.",
+    "challenge": "2",
+    "traits": "<p><em><strong>Amphibious.</strong></em> The triton can breathe air and water.</p><p><em><strong>Fearless.</strong></em> The triton has advantage on saving throws against being frightened.</p><p><em><strong>Innate Spellcasting.</strong></em> The triton's innate spellcasting ability is Charisma. It can innately cast the following spells, requiring no components:</p><ul><li>1/day each: <em>fog cloud</em>, <em>gust of wind</em>, <em>wall of water</em></li></ul><p><em><strong>Life Aquatic.</strong></em> The triton can communicate simple ideas with any water-breathing beast.</p><p><em><strong>Trident Master.</strong></em> The triton's trident deals one extra die of damage on a hit (included in the attack).</p>",
+    "number of attacks": "2",
+    "attacks": {
+      "Trident": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+6",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "11 (2d8 + 2)",
+        "damage type": "piercing"
+      },
+      "Bow": {
+        "type": "Ranged Weapon Attack",
+        "to hit": "+4",
+        "range": "80/320 ft. (10/40 ft. underwater)",
+        "target": "one target",
+        "hit": "5 (1d8 + 1)",
+        "damage type": "piercing"
+      }
+    },
+    "actions": "<p><em><strong>Multiattack.</strong></em> The triton makes two attacks: one with its trident and one with its bow.</p><p><em><strong>Trident.</strong></em> Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 11 (2d8 + 2) piercing damage.</p><p><em><strong>Bow.</strong></em> Ranged Weapon Attack: +4 to hit, range 80/320 ft. (10/40 ft. underwater), one target. Hit: 5 (1d8 + 1) piercing damage. If a summoned ally is adjacent to the target, the triton has advantage on ranged attacks with its bow.</p><p><em><strong>Summon Aquatic Allies (1/Day).</strong></em> The triton can summon aquatic allies once per day.</p>",
+    "description": "<p>Tritons are humanoids with webbed hands and feet, small fins on their calves, and blue-green coloration. They typically have a base walking speed of 30 feet and a swimming speed of 30 feet. Tritons reach maturity around age 15 and can live up to 200 years. They tend towards lawful good alignment, acting as guardians of the ocean depths.</p>"
+  },
+  {
+    "name": "Troll Mutate",
+    "size": "Large",
+    "type": "Giant",
+    "alignment": "Chaotic Evil",
+    "environments": ["Wasteland"],
+    "associates": ["Troll", "Psionic Matriarch"],
+    "armor class": "16 (natural armor)",
+    "hit points": "95 (10d10 + 40)",
+    "speed": "30 ft.",
+    "traits": "<p><em><strong>Regeneration.</strong></em> The troll mutate regains 10 hit points at the start of its turn. If the troll mutate takes acid or fire damage, this trait doesn't function at the start of its next turn. The troll mutate dies only if it starts its turn with 0 hit points and doesn't regenerate. If the troll mutate starts its turn with 0 hit points and regenerates, it randomly gains a new mutation (up to four). Possible mutations include: <strong>Elastic Body</strong> (Amorphous, can move through 1-inch space), <strong>Psionic Mirror</strong> (Psychic Rebuke, psychic damage taken is also dealt to creatures within 20 feet), <strong>Spell Scarred</strong> (Magic Resistance, advantage on saves against spells), or <strong>Winged Form</strong> (fly speed of 30 ft.).</p>",
+    "number of attacks": "2",
+    "attacks": {
+      "Rend": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+7",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "15 (2d10 + 4) slashing plus 9 (2d8) force",
+        "damage type": "slashing, force"
+      },
+      "Rend (Elastic Body)": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+7",
+        "reach": "15 ft.",
+        "target": "one target",
+        "hit": "15 (2d10 + 4) slashing plus 9 (2d8) force",
+        "damage type": "slashing, force"
+      }
+    },
+    "actions": "<p><em><strong>Multiattack.</strong></em> The troll mutate makes two Rend attacks.</p><p><em><strong>Rend.</strong></em> Melee Weapon Attack: +7 to hit, reach 5 ft. (or 15 ft. with Elastic Body), one target. Hit: 15 (2d10 + 4) slashing damage plus 9 (2d8) force damage.</p><p><em><strong>Psychic Burst (Recharge 5–6).</strong></em> Each creature within 30 feet of the troll mutate must make a DC 14 Intelligence saving throw, taking 28 (8d6) psychic damage on a failed save, or half as much damage on a successful one.</p>",
+    "description": "<p>Troll Mutates are the result of generations of exposure to corrupting alien energies, such as those from a gate to the Far Realm. They are more cunning than other trolls and live in savage tribes ruled by a psionic matriarch.</p>"
+  },
+  {
+    "name": "Typhon",
+    "size": "Huge",
+    "type": "Monstrosity",
+    "alignment": "Chaotic Evil",
+    "environments": ["Underdark"],
+    "armor class": "17 (natural armor)",
+    "hit points": "195 (17d12 + 85)",
+    "speed": "40 ft.",
+    "damage immunities": "acid, necrotic",
+    "senses": "darkvision 120 ft., passive Perception 11",
+    "languages": ["Common"],
+    "challenge": "15 (13,000 XP)",
+    "traits": "<p><em><strong>Keen Smell.</strong></em> Typhon has advantage on Wisdom (Perception) checks that rely on smell.</p><p><em><strong>Regeneration.</strong></em> Typhon regains 20 hit points at the start of its turn. If Typhon takes radiant damage, this trait doesn't function at the start of Typhon's next turn. Typhon dies only if it starts its turn with 0 hit points and doesn't regenerate.</p>",
+    "number of attacks": "3",
+    "attacks": {
+      "Flurry of Bites": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+12",
+        "reach": "10 ft.",
+        "target": "one target",
+        "hit": "35 (8d6 + 7)",
+        "damage type": "piercing"
+      },
+      "Constrict": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+12",
+        "reach": "15 ft.",
+        "target": "one Large or smaller creature",
+        "hit": "17 (3d6 + 7)",
+        "damage type": "bludgeoning"
+      },
+      "Maw": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+12",
+        "reach": "10 ft.",
+        "target": "one target",
+        "hit": "26 (3d12 + 7) piercing plus 19 (3d12) acid",
+        "damage type": "piercing, acid"
+      }
+    },
+    "actions": "<p><em><strong>Multiattack.</strong></em> Typhon makes three attacks: one with Flurry of Bites, one to Constrict, and one with its Maw.</p><p><em><strong>Flurry of Bites.</strong></em> Melee Weapon Attack: +12 to hit, reach 10 ft., one target. Hit: 35 (8d6 + 7) piercing damage.</p><p><em><strong>Constrict.</strong></em> Melee Weapon Attack: +12 to hit, reach 15 ft., one Large or smaller creature. Hit: 17 (3d6 + 7) bludgeoning damage. The target is grappled (escape DC 19) and restrained, and takes 17 (3d6 + 7) bludgeoning damage at the start of each of its turns. Typhon can constrict up to two creatures.</p><p><em><strong>Maw.</strong></em> Melee Weapon Attack: +12 to hit, reach 10 ft., one target. Hit: 26 (3d12 + 7) piercing damage plus 19 (3d12) acid damage.</p>",
+    "description": "<p>Typhon is described as a huge multiheaded snake-like monster from the Underworld, or titanic horrors of writhing flesh and gnashing maws that consume souls.</p>"
+  },
+  {
+    "name": "Ulitharid",
+    "size": "Large",
+    "type": "Aberration",
+    "alignment": "Lawful Evil",
+    "environments": ["Underdark"],
+    "associates": ["Elder Brain", "Mind Flayer"],
+    "armor class": "15 (breastplate)",
+    "hit points": "127 (17d10 + 34)",
+    "speed": "30 ft.",
+    "senses": "darkvision 120 ft., passive Perception 18",
+    "languages": ["Deep Speech", "Undercommon", "Telepathy 2 miles"],
+    "challenge": "9 (5,000 XP)",
+    "traits": "<p><em><strong>Creature Sense.</strong></em> The ulitharid is aware of the presence of creatures within 2 miles of it that have an Intelligence score of 4 or higher. It knows the distance and direction to each such creature, as well as each one's Intelligence score.</p><p><em><strong>Magic Resistance.</strong></em> The ulitharid has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Psionic Hub.</strong></em> If the ulitharid is linked to an elder brain, it can form a psychic link with any creature it can detect with its Creature Sense. Creatures linked to the elder brain by the ulitharid are also linked to the ulitharid.</p><p><em><strong>Innate Spellcasting (Psionics).</strong></em> The ulitharid's innate spellcasting ability is Intelligence (spell save DC 17). It can innately cast the following spells, requiring no components:</p><ul><li>At will: <em>detect thoughts</em>, <em>levitate</em></li><li>1/day each: <em>confusion</em>, <em>dominate monster</em>, <em>eyebite</em>, <em>feeblemind</em>, <em>mass suggestion</em>, <em>plane shift</em> (self only), <em>project image</em>, <em>scrying</em>, <em>telekinesis</em></li></ul>",
+    "attacks": {
+      "Tentacles": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+9",
+        "reach": "10 ft.",
+        "target": "one creature",
+        "hit": "27 (4d10 + 5)",
+        "damage type": "psychic"
+      },
+      "Extract Brain": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+9",
+        "reach": "5 ft.",
+        "target": "one incapacitated humanoid grappled by the ulitharid",
+        "hit": "55 (10d10)",
+        "damage type": "piercing"
+      }
+    },
+    "actions": "<p><em><strong>Tentacles.</strong></em> Melee Weapon Attack: +9 to hit, reach 10 ft., one creature. Hit: 27 (4d10 + 5) psychic damage. If the target is Large or smaller, it is grappled (escape DC 14) and must succeed on a DC 17 Intelligence saving throw or be stunned until the grapple ends.</p><p><em><strong>Extract Brain.</strong></em> Melee Weapon Attack: +9 to hit, reach 5 ft., one incapacitated humanoid grappled by the ulitharid. Hit: 55 (10d10) piercing damage. If this damage reduces the target to 0 hit points, the ulitharid kills the target by devouring its brain.</p><p><em><strong>Mind Blast (Recharge 5–6).</strong></em> The ulitharid emits psychic energy in a 60-foot cone. Each creature in that area must succeed on a DC 17 Intelligence saving throw or take 31 (4d12 + 5) psychic damage and be stunned for 1 minute.</p>"
+  },
+  {
+    "name": "Ultroloth",
+    "size": "Medium",
+    "type": "Fiend",
+    "alignment": "Neutral Evil",
+    "environments": ["Varies"],
+    "armor class": "19 (natural armor)",
+    "hit points": "153 (18d8 + 72)",
+    "speed": "30 ft., fly 60 ft.",
+    "damage resistances": "cold, fire, lightning; bludgeoning, piercing, and slashing from nonmagical attacks",
+    "damage immunities": "acid, poison",
+    "condition immunities": "charmed, frightened",
+    "senses": "truesight 120 ft., passive Perception 17",
+    "languages": ["Abyssal", "Infernal", "Telepathy 120 ft."],
+    "challenge": "13 (10,000 XP)",
+    "traits": "<p><em><strong>Magic Resistance.</strong></em> The ultroloth has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Magic Weapons.</strong></em> The ultroloth's weapon attacks are magical.</p>",
+    "number of attacks": "3",
+    "attacks": {
+      "Longsword (one-handed)": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+8",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "7 (1d8 + 3)",
+        "damage type": "slashing"
+      },
+      "Longsword (two-handed)": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+8",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "8 (1d10 + 3)",
+        "damage type": "slashing"
+      }
+    },
+    "actions": "<p><em><strong>Multiattack.</strong></em> The ultroloth uses Hypnotic Gaze and makes three melee attacks.</p><p><em><strong>Longsword.</strong></em> Melee Weapon Attack: +8 to hit, reach 5 ft., one target. Hit: 7 (1d8 + 3) slashing damage, or 8 (1d10 + 3) slashing damage if used with two hands.</p><p><em><strong>Hypnotic Gaze.</strong></em> One creature within 30 feet of the ultroloth that can see the ultroloth must succeed on a DC 17 Wisdom saving throw or be charmed and stunned until the end of the ultroloth's next turn. If the target's saving throw is successful, the target is immune to the ultroloth's gaze for the next 24 hours.</p><p><em><strong>Teleport.</strong></em> The ultroloth magically teleports, along with any equipment it is wearing or carrying, up to 60 feet to an unoccupied space it can see.</p>",
+    "description": "<p>Ultroloths appear as faceless humanoids with bulbous, ovoid eyes that resemble fire opals. They are lithe, slender, 6-6.5 ft tall, and weigh 160 pounds. Their mottled dark gray skin contrasts with the swirling colors in their eyes. They communicate via telepathy.</p>"
+  },
+  {
+    "name": "Undying Councilor",
+    "size": "Medium",
+    "type": "Undead",
+    "alignment": "Neutral Good",
+    "environments": ["Dungeon"],
+    "associates": ["Elf"],
+    "armor class": "17 (natural armor)",
+    "hit points": "104 (16d8 + 32)",
+    "speed": "30 ft.",
+    "saving throws": "CON +6, INT +7, WIS +9",
+    "skills": "Arcana +7, History +11, Insight +9, Perception +9, Religion +7",
+    "damage vulnerabilities": "necrotic",
+    "damage immunities": "poison, radiant",
+    "condition immunities": "charmed, exhaustion, frightened, paralyzed, poisoned",
+    "senses": "darkvision 120 ft., passive Perception 19",
+    "languages": ["Common", "Elvish"],
+    "challenge": "10",
+    "traits": "<p><em><strong>Aura of Radiance.</strong></em> The undying councilor sheds bright light in a 15-foot radius and dim light for an additional 15 feet. Magical darkness of 3rd level or lower within this radius is dispelled.</p><p><em><strong>Magic Resistance.</strong></em> The undying councilor has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Spellcasting.</strong></em> The undying councilor is a 13th-level spellcaster. Its spellcasting ability is Wisdom (spell save DC 17, +9 to hit with spell attacks). It has the following cleric spell prepared:</p><ul><li>5th level: <em>flame strike</em> (see Actions)</li></ul>",
+    "number of attacks": "2",
+    "attacks": {
+      "Radiant Touch": {
+        "type": "Melee Spell Attack",
+        "to hit": "+9",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "15 (3d6 + 5)",
+        "damage type": "radiant"
+      }
+    },
+    "actions": "<p><em><strong>Multiattack.</strong></em> The undying councilor makes two Radiant Touch attacks.</p><p><em><strong>Radiant Touch.</strong></em> Melee Spell Attack: +9 to hit, reach 5 ft., one target. Hit: 15 (3d6 + 5) radiant damage.</p><p><em><strong>Healing Touch (3/Day).</strong></em> The councilor touches another creature. The target regains 18 (3d8 + 5) hit points and is freed from one curse.</p><p><em><strong>Flame Strike (5th-Level Spell; Requires a Spell Slot).</strong></em> The councilor creates a 10-foot-radius, 40-foot-high cylinder of fire and radiant damage centered on a point within 60 feet. Each creature in the cylinder must make a DC 17 Dexterity saving throw, taking 4d6 fire damage and 4d6 radiant damage on a failed save, or half as much damage on a successful one.</p>",
+    "legendary actions": "<p>The undying councilor can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The undying councilor regains spent legendary actions at the start of its turn.</p><p><em><strong>Touch (1 Action).</strong></em> The councilor makes one Radiant Touch attack.</p><p><em><strong>Shimmering Aura (2 Actions).</strong></em> The councilor's Aura of Radiance brightens for 1 minute. Each creature within 15 feet of the councilor that can see it must succeed on a DC 15 Constitution saving throw or be blinded until the end of its next turn.</p>",
+    "description": "<p>Undying councilors are benevolent undead elves that guide and protect the elf nation of Aerenal.</p>"
+  },
+  {
+    "name": "Vargouille",
+    "size": "Tiny",
+    "type": "Fiend",
+    "alignment": "Chaotic Evil",
+    "environments": ["Dungeon"],
+    "armor class": "12 (natural armor)",
+    "hit points": "13 (3d4 + 6)",
+    "speed": "5 ft., fly 40 ft.",
+    "damage resistances": "cold, fire, lightning",
+    "damage immunities": "poison",
+    "condition immunities": "poisoned",
+    "senses": "darkvision 60 ft., passive Perception 8",
+    "languages": ["Abyssal", "Infernal"],
+    "challenge": "1 (200 XP)",
+    "number of attacks": "1",
+    "attacks": {
+      "Bite": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+4",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "5 (1d6 + 2) piercing plus 10 (3d6) poison",
+        "damage type": "piercing, poison"
+      }
+    },
+    "actions": "<p><em><strong>Bite.</strong></em> Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) piercing damage plus 10 (3d6) poison damage.</p><p><em><strong>Kiss.</strong></em> The vargouille kisses one incapacitated humanoid within 5 feet of it. The target must succeed on a DC 12 Charisma saving throw or be cursed. The cursed target loses 1 Charisma point each hour. If the curse reduces the target's Charisma to 2, the target dies, and its head transforms into a new vargouille. The curse can be removed by the <em>remove curse</em> or <em>greater restoration</em> spell, or similar magic. The curse is halted by direct sunlight or a <em>daylight</em> spell.</p><p><em><strong>Stunning Shriek (Recharge 5–6).</strong></em> Each humanoid and beast within 30 feet of the vargouille that can hear it must succeed on a DC 12 Wisdom saving throw or be frightened and stunned until the end of the vargouille's next turn.</p>",
+    "description": "<p>A Vargouille is a hideous, disgusting, and vile creature that is little more than a severed head with bat wings. It is about 18 inches high and weighs 10 pounds, with a foot-long wingspan.</p>"
+  },
+  {
+    "name": "Tiamat",
+    "size": "Gargantuan",
+    "type": "Dragon",
+    "alignment": "Chaotic Evil",
+    "environments": [
+      "Varies"
+    ],
+    "associates": [
+      "Evil Dragon"
+    ],
+    "armor class": "25 (natural armor)",
+    "hit points": "615 (30d20 + 300)",
+    "speed": "60 ft., fly 120 ft.",
+    "saving throws": "Strength +19, Dexterity +9, Constitution +17, Intelligence +17, Wisdom +17, Charisma +21",
+    "skills": "Arcana +17, Deception +19, Insight +17, Perception +26, Religion +17",
+    "damage immunities": "Acid, cold, fire, lightning, poison; bludgeoning, piercing, and slashing from nonmagical attacks",
+    "condition immunities": "Blinded, charmed, deafened, frightened, poisoned, stunned",
+    "senses": "Darkvision 240 ft., truesight 120 ft., passive Perception 36",
+    "languages": [
+      "Common",
+      "Draconic",
+      "Infernal"
+    ],
+    "challenge": "30 (155,000 XP)",
+    "traits": "<p><em><strong>Magic Weapons.</strong></em></p><p><em><strong>Multiple Heads.</strong></em></p><p><em><strong>Regeneration.</strong></em></p><p><em><strong>Legendary Resistance (5/Day).</strong></em></p>",
+    "number of attacks": "3",
+    "attacks": {
+      "Bite": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+19",
+        "reach": "20 ft.",
+        "hit": "32 (4d10 + 10) slashing damage plus elemental damage"
+      },
+      "Claw": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+19",
+        "reach": "15 ft.",
+        "hit": "24 (4d6 + 10) slashing damage"
+      },
+      "Tail": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+19",
+        "reach": "25 ft.",
+        "hit": "28 (4d8 + 10) piercing damage"
+      }
+    },
+    "actions": "<p><em><strong>Multiattack.</strong></em> Tiamat makes three attacks: two claws and one tail.</p><p><em><strong>Frightful Presence.</strong></em> Tiamat forces creatures within 240 feet to make a DC 26 Wisdom saving throw or become frightened.</p><p><em><strong>Elemental Breath Weapons.</strong></em> Tiamat has various elemental breath weapons (acid, cold, fire, lightning, poison).</p><p><em><strong>Spellcasting.</strong></em> Tiamat is a 24th-level sorcerer. Her spellcasting ability is Charisma (Spell Save DC 27, +17 to hit with spell attack).</p>",
+    "description": "<p>Tiamat is the Queen of Evil Dragons, a colossal dragon with five heads, each capable of a different breath weapon (fire, lightning, poison, acid, or cold). She can also transform into a humanoid form known as the Dark Lady.</p>"
+  },
+  {
+    "name": "Tiny Servant",
+    "size": "Tiny",
+    "type": "Construct",
+    "alignment": "Unaligned",
+    "environments": [
+      "Dungeon"
+    ],
+    "armor class": "15 (natural armor)",
+    "hit points": "10 (4d4)",
+    "speed": "30 ft., climb 30 ft.",
+    "damage immunities": "Poison, psychic",
+    "condition immunities": "Blinded, charmed, deafened, exhaustion, frightened, paralyzed, petrified, poisoned",
+    "senses": "Blindsight 60 ft. (blind beyond this radius), passive Perception 10",
+    "languages": [
+      "N/A"
+    ],
+    "number of attacks": "1",
+    "attacks": {
+      "Slam": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+5",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "5 (1d4 + 3) bludgeoning damage"
+      }
+    },
+    "actions": "<p><em><strong>Slam.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft., one target. <em>Hit:</em> 5 (1d4 + 3) bludgeoning damage.</p>",
+    "description": "<p>A Tiny Servant is created by a 3rd-level transmutation spell that animates a Tiny, nonmagical object, giving it little arms and legs. It follows mental commands from its creator.</p>"
+  },
+  {
+    "name": "Titanothere",
+    "size": "Huge",
+    "type": "Beast",
+    "alignment": "Unaligned",
+    "environments": [
+      "Grassland"
+    ],
+    "armor class": "15 (natural)",
+    "hit points": "126 (12d8+72)",
+    "speed": "30 ft.",
+    "str": "30",
+    "dex": "10",
+    "con": "23",
+    "int": "2",
+    "wis": "13",
+    "cha": "4",
+    "senses": "low-light vision, Passive Perception 11",
+    "challenge": "8",
+    "traits": "<p><em><strong>Beast of Burden.</strong></em> Titanotheres are considered one size larger for carrying capacity.</p>",
+    "number of attacks": "1",
+    "attacks": {
+      "Stomp": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+10",
+        "reach": "10 ft.",
+        "hit": "20 (3d8+7) bludgeoning damage"
+      }
+    },
+    "actions": "<p><em><strong>Trample.</strong></em> The Titanothere deals 2d6+15 damage to large or smaller creatures, with a DC 26 Reflex save for half damage.</p><p><em><strong>Stomp Prone.</strong></em> If the Titanothere moved at least 20 feet straight toward a target before a Stomp attack, the target takes an extra 13 (3d8) bludgeoning damage and must succeed on a DC 18 Strength saving throw or be prone.</p>",
+    "description": "<p>Huge, rhino-like herbivores with massive, blunt horns, found in small herds in grasslands. Generally peaceful but will defend themselves.</p>"
+  },
+  {
+    "name": "Titivilus",
+    "size": "Medium",
+    "type": "Fiend",
+    "alignment": "Lawful Evil",
+    "environments": [
+      "Dungeon",
+      "Urban"
+    ],
+    "armor class": "20 (natural armor)",
+    "hit points": "127 (17d8 + 51)",
+    "speed": "40 ft., fly 60 ft.",
+    "saving throws": "Dexterity +11, Constitution +8, Wisdom +11, Charisma +13",
+    "skills": "Deception +13, Insight +11, Intimidation +13, Persuasion +13",
+    "damage immunities": "Fire, poison",
+    "damage resistances": "Cold; bludgeoning, piercing, and slashing from nonmagical attacks that aren't silvered",
+    "condition immunities": "Charmed, exhaustion, frightened, poisoned",
+    "senses": "Darkvision 120 ft., passive Perception 16, telepathy 120 ft.",
+    "languages": [
+      "All",
+      "Telepathy 120 ft"
+    ],
+    "challenge": "16 (15,000 XP)",
+    "traits": "<p><em><strong>Legendary Resistance (3/Day).</strong></em></p><p><em><strong>Magic Resistance.</strong></em></p><p><em><strong>Regeneration.</strong></em> Titivilus regains 10 hit points at the start of his turn.</p><p><em><strong>Ventriloquism.</strong></em></p>",
+    "number of attacks": "1",
+    "attacks": {
+      "Silver Sword": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+9",
+        "reach": "5 ft.",
+        "hit": "8 (1d8 + 4) slashing damage plus 16 (3d10) necrotic damage"
+      }
+    },
+    "actions": "<p><em><strong>Multiattack.</strong></em> Titivilus makes one Silver Sword attack and uses Frightful Word.</p><p><em><strong>Silver Sword.</strong></em> The target's hit point maximum is reduced.</p><p><em><strong>Frightful Word.</strong></em> Titivilus targets a creature within 10 feet, forcing a DC 21 Wisdom saving throw or becoming frightened for 1 minute.</p><p><em><strong>Teleport.</strong></em> Titivilus teleports up to 120 feet.</p><p><em><strong>Twisting Words.</strong></em> Titivilus targets a creature within 60 feet, forcing a DC 21 Charisma saving throw or becoming charmed for 1 minute.</p>",
+    "legendary actions": "<p><em><strong>Corrupting Guidance.</strong></em></p><p><em><strong>Teleport.</strong></em></p><p><em><strong>Assault (Costs 2 Actions).</strong></em></p>",
+    "description": "<p>Titivilus is a Duke of Hell, Dispater's primary advisor, and a master manipulator. He resembles a 5.5 to 6-foot-tall satyr-like creature with pale skin, bat-like wings, a bald head, small devil horns, goat-like legs ending in hooves, and clawed hands. His eyes are the color of coal. He is physically inferior to other archdevils but compensates with cunning and political shrewdness. He spends most of his days in his tower, Martyr's Curse, a large structure of blackened iron.</p>"
+  },
+  {
+    "name": "Tlincalli",
+    "size": "Large",
+    "type": "Monstrosity",
+    "alignment": "Neutral Evil",
+    "environments": [
+      "Desert"
+    ],
+    "armor class": "15 (natural armor)",
+    "hit points": "85 (10d10 + 30)",
+    "speed": "40 ft.",
+    "skills": "Perception +4, Stealth +4, Survival +4",
+    "senses": "Darkvision 60 ft., passive Perception 13",
+    "languages": [
+      "Tlincalli",
+      "Traditional Zejaach",
+      "Flicking"
+    ],
+    "challenge": "5 (1,800 XP)",
+    "number of attacks": "2",
+    "attacks": {
+      "Longsword": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+6",
+        "hit": "7 (1d8+3) slashing damage (or 8 (1d10+3) with two hands)"
+      },
+      "Spiked Chain": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+6",
+        "reach": "10 ft.",
+        "hit": "6 (1d6+3) piercing damage"
+      },
+      "Sting": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+6",
+        "hit": "6 (1d6+3) piercing damage"
+      }
+    },
+    "actions": "<p><em><strong>Multiattack.</strong></em> The Tlincalli makes two attacks: one with a longsword or spiked chain, and one with their sting.</p><p><em><strong>Spiked Chain Grapple.</strong></em> The spiked chain attack grapples Large or smaller creatures (escape DC 11).</p><p><em><strong>Sting Poison.</strong></em> The sting attack deals an additional 14 (4d6) poison damage. The target must make a DC 14 Constitution saving throw or be poisoned for 1 minute, or paralyzed if the save fails by 5 or more.</p>",
+    "description": "<p>Large monstrosity, neutral evil, with a humanlike upper body and the lower body of a giant scorpion, including a stinger. They are intelligent, sentient, and capable of language and culture, but view all living creatures as prey. They are desert nomads, hunting at dawn and dusk, and burying themselves in sand or lurking in ruins during extreme temperatures.</p>"
+  },
+  {
+    "name": "Tomb Guardian",
+    "size": "Large",
+    "type": "Construct",
+    "alignment": "Unaligned",
+    "environments": [
+      "Dungeon"
+    ],
+    "armor class": "13 (natural armor)",
+    "hit points": "114 (12d10 + 48)",
+    "speed": "30 ft.",
+    "damage immunities": "Poison, psychic",
+    "condition immunities": "Charmed, exhaustion, frightened, paralyzed, petrified, poisoned",
+    "senses": "Darkvision 60 ft., passive Perception 8",
+    "challenge": "6 (2,300 XP)",
+    "traits": "<p><em><strong>Bound Regeneration.</strong></em> The Tomb Guardian regenerates 10 hit points at the start of its turn as long as the item it is bound to is not destroyed.</p>",
+    "number of attacks": "1",
+    "attacks": {
+      "Slam": {
+        "type": "Melee Attack",
+        "to hit": "+8",
+        "reach": "5 ft.",
+        "hit": "14 (2d8 + 5) bludgeoning damage"
+      },
+      "Debris Toss": {
+        "type": "Ranged Attack",
+        "to hit": "+8",
+        "range": "30/90 ft.",
+        "hit": "12 (2d6 + 5) bludgeoning damage"
+      }
+    },
+    "actions": "<p><em><strong>Haunting Spirits.</strong></em> The Tomb Guardian can cause spirits of the dead to haunt a creature, potentially frightening them and reducing their speed to 0.</p>",
+    "description": "<p>Tomb Guardians can be large constructs, unaligned, with natural armor, or animated skeletons, or human sentinels. The construct version is bound to an item within the tomb. It understands the languages of its creator but cannot speak.</p>"
+  },
+  {
+    "name": "Tomb Tapper",
+    "size": "Huge",
+    "type": "Construct",
+    "alignment": "Neutral",
+    "environments": [
+      "Underdark",
+      "Dungeon"
+    ],
+    "armor class": "21 (natural armor)",
+    "hit points": "92 (8d12 + 40)",
+    "speed": "30 ft., burrow 30 ft.",
+    "damage immunities": "Cold, fire, poison",
+    "damage resistances": "Lightning",
+    "condition immunities": "Charmed, frightened, blinded, petrification",
+    "senses": "Blindsight 240 ft. (blind beyond this radius), passive Perception 16",
+    "languages": [
+      "Telepathy 60 ft"
+    ],
+    "challenge": "10 (5,900 XP)",
+    "traits": "<p><em><strong>Petrified Death.</strong></em> The Tomb Tapper turns into a lifeless stone statue at 0 hit points.</p><p><em><strong>Sense Magic.</strong></em> The Tomb Tapper can pinpoint magic within 30 feet.</p><p><em><strong>Tunneler.</strong></em> The Tomb Tapper can burrow through solid rock and leave a 10-foot-wide, 20-foot-tall tunnel.</p><p><em><strong>Unusual Nature.</strong></em> The Tomb Tapper does not require air or sleep.</p><p><em><strong>Echolocation.</strong></em></p><p><em><strong>Innate Spellcasting.</strong></em> The Tomb Tapper can innately cast <em>detect magic</em> and <em>stone shape</em>.</p><p><em><strong>Jumping Bite.</strong></em></p><p><em><strong>Keen Hearing.</strong></em></p><p><em><strong>Repair.</strong></em></p>",
+    "number of attacks": "2",
+    "attacks": {
+      "Sledgehammer": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+10",
+        "reach": "15 ft.",
+        "hit": "27 (6d6 + 6) bludgeoning or force damage"
+      },
+      "Claw": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+10",
+        "reach": "10 ft.",
+        "hit": "16 (3d6 + 6) slashing damage"
+      },
+      "Bite": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+10",
+        "reach": "5 ft.",
+        "hit": "22 (3d10 + 6) slashing damage"
+      }
+    },
+    "actions": "<p><em><strong>Multiattack.</strong></em> The Tomb Tapper makes two melee attacks with a sledgehammer or claws. If both claws hit, it can make a bite attack.</p><p><em><strong>Animate Stone (1/Day).</strong></em></p>",
+    "notes": "<p>Understands Common and Undercommon but doesn't speak.</p>",
+    "description": "<p>Tomb Tappers, also known as Thaalud, are huge constructs made of enchanted rock and iron, standing 15 to 21 feet tall and weighing around 16,000 pounds. They have a blank, smooth oval face and an enormous maw in the center of their torso. They were originally created by Netherese arcanists to fight phaerimms and are now an independent race driven to hoard magic. They roam the deep places of the world, tunneling into crypts to pillage treasures and often robbing adventurers of magic items, which they conceal in hidden vaults.</p>"
+  },
+  {
+    "name": "Tough",
+    "size": "Medium",
+    "type": "Humanoid",
+    "alignment": "Unaligned",
+    "environments": [
+      "Urban",
+      "Dungeon"
+    ],
+    "armor class": "12",
+    "hit points": "32 (5d8 + 10)",
+    "speed": "30 ft.",
+    "senses": "Passive Perception 10",
+    "languages": [
+      "Common"
+    ],
+    "challenge": "1/2 (100 XP)",
+    "traits": "<p><em><strong>Pack Tactics.</strong></em> The Tough has advantage on attack rolls against a creature if an ally is within 5 feet and not incapacitated.</p>",
+    "number of attacks": "1",
+    "attacks": {
+      "Mace": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+4",
+        "reach": "5 ft.",
+        "hit": "5 (1d6 + 2) bludgeoning damage"
+      },
+      "Heavy Crossbow": {
+        "type": "Ranged Weapon Attack",
+        "to hit": "+3",
+        "range": "100/400 ft.",
+        "hit": "6 (1d10 + 1) piercing damage"
+      }
+    },
+    "description": "<p>Toughs are humanoids who might work in groups under a leader or bully weaker individuals. They are described as a new NPC group, potentially replacing the Thug.</p>"
+  },
+  {
+    "name": "Tough Boss",
+    "size": "Medium",
+    "type": "Humanoid",
+    "alignment": "Unaligned",
+    "environments": [
+      "Urban",
+      "Dungeon"
+    ],
+    "armor class": "16",
+    "hit points": "82 (11d8 + 33)",
+    "speed": "30 ft.",
+    "senses": "Passive Perception 10",
+    "languages": [
+      "Common"
+    ],
+    "challenge": "4 (1,100 XP)",
+    "traits": "<p><em><strong>Pack Tactics.</strong></em> The Tough Boss has advantage on attack rolls against a creature if an ally is within 5 feet and not incapacitated.</p>",
+    "number of attacks": "2",
+    "attacks": {
+      "Warhammer": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+5",
+        "reach": "5 ft.",
+        "hit": "12 (2d8 + 3) bludgeoning damage"
+      },
+      "Heavy Crossbow": {
+        "type": "Ranged Weapon Attack",
+        "to hit": "+4",
+        "range": "100/400 ft.",
+        "hit": "13 (2d10 + 2) piercing damage"
+      }
+    },
+    "actions": "<p><em><strong>Multiattack.</strong></em> The Tough Boss makes two attacks, with a Warhammer or Heavy Crossbow.</p><p><em><strong>Warhammer Push.</strong></em> The Warhammer attack can push a Large or smaller target up to 10 feet.</p>",
+    "description": "<p>Tough Bosses are humanoids who leverage their street smarts, brawling prowess, and reputation to compel others.</p>"
+  },
+  {
+    "name": "Transmuter",
+    "size": "Medium",
+    "type": "Humanoid",
+    "alignment": "Any",
+    "environments": [
+      "Urban",
+      "Dungeon"
+    ],
+    "armor class": "12 (15 with mage armor)",
+    "hit points": "40 (9d8)",
+    "speed": "30 ft.",
+    "saving throws": "Intelligence +6, Wisdom +4",
+    "skills": "Arcana +6, History +6",
+    "senses": "Passive Perception 11",
+    "challenge": "5 (1,800 XP)",
+    "traits": "<p><em><strong>Spellcasting.</strong></em> The Transmuter is a 9th-level spellcaster. Its spellcasting ability is Intelligence (spell save DC 14, +6 to hit with spell attacks). The Transmuter has various wizard spells prepared, including cantrips like <em>light</em>, <em>mending</em>, <em>prestidigitation</em>, and <em>ray of frost</em>, and higher-level transmutation spells.</p><p><em><strong>Transmuter's Stone.</strong></em> The Transmuter carries a magic stone that grants its bearer one of several effects (darkvision, increased speed, Constitution saving throw proficiency, or elemental damage resistance). The effect of the stone can be changed if the transmuter casts a transmutation spell of 1st level or higher.</p>",
+    "number of attacks": "1",
+    "attacks": {
+      "Quarterstaff": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+2",
+        "reach": "5 ft.",
+        "hit": "2 (1d6-1) bludgeoning damage, or 3 (1d8-1) bludgeoning damage if used with two hands"
+      }
+    },
+    "description": "<p>Transmuters are specialist wizards who embrace change and view magical transmutation as a path to riches, enlightenment, or apotheosis. They are 9th-level spellcasters.</p>"
+  },
+  {
+    "name": "Tanarukk",
+    "size": "Medium",
+    "type": "Fiend",
+    "alignment": "Chaotic Evil",
+    "environments": [
+      "Varies"
+    ],
+    "associates": [
+      "Orc",
+      "Demon",
+      "Baphomet"
+    ],
+    "armor class": "14 (natural armor)",
+    "hit points": "95 (10d8 + 50)",
+    "speed": "30 ft.",
+    "str": "18",
+    "dex": "13",
+    "con": "20",
+    "int": "9",
+    "wis": "9",
+    "cha": "9",
+    "saving throws": "STR +7, CON +8",
+    "skills": "Intimidation +2, Perception +2",
+    "damage resistances": "Fire, Poison",
+    "senses": "Darkvision 60 ft., Passive Perception 12",
+    "languages": [
+      "Abyssal",
+      "Common",
+      "Orc"
+    ],
+    "challenge": "5 (1,800 XP)",
+    "traits": "<p><em><strong>Aggressive.</strong></em> As a bonus action, the tanarukk can move up to its speed toward a hostile creature it can see.</p><p><em><strong>Magic Resistance.</strong></em> The tanarukk has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Unbridled Fury.</strong></em> In response to being hit by a melee attack, the Tanarukk can make one melee weapon attack with advantage against the attacker.</p>",
+    "number of attacks": "2",
+    "attacks": {
+      "Bite": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+7",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "5 (1d8 + 4)",
+        "damage type": "piercing"
+      },
+      "Greatsword": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+7",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "11 (2d6 + 4)",
+        "damage type": "slashing"
+      }
+    },
+    "actions": "<p><em><strong>Multiattack.</strong></em> The tanarukk makes two attacks: one with its bite and one with its greatsword.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft., one target. <em>Hit:</em> 5 (1d8 + 4) piercing damage.</p><p><em><strong>Greatsword.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft., one target. <em>Hit:</em> 11 (2d6 + 4) slashing damage.</p>",
+    "description": "<p>A monstrous hybrid of orc and demon, created by Baphomet's dark magic. They have brutish orc features with a fiendish twist: gray-green or brown skin, glowing red eyes, and horns, ridges, or bristles on their heads. They emit a smell of brimstone. Tanarukks are shorter than average orcs but more muscular and heavy, with razor-sharp teeth and tusks, and claws that can ignite with hellish fire.</p>"
+  },
+  {
+    "name": "Tarkanan Assassin",
+    "size": "Medium",
+    "type": "Humanoid",
+    "alignment": "Lawful Chaotic Evil",
+    "environments": [
+      "Urban"
+    ],
+    "associates": [
+      "Thora Tavin",
+      "Boromar Clan"
+    ],
+    "armor class": "15 (studded leather armor)",
+    "hit points": "45 (7d8 + 14)",
+    "speed": "30 ft.",
+    "str": "12",
+    "dex": "16",
+    "con": "14",
+    "int": "10",
+    "wis": "14",
+    "cha": "11",
+    "skills": "Athletics +3, Deception +2, Perception +4, Sleight of Hand +5, Stealth +5",
+    "senses": "Darkvision 60 ft., Passive Perception 14",
+    "languages": [
+      "Common",
+      "Thieves' Cant"
+    ],
+    "challenge": "2",
+    "traits": "<p><em><strong>Innate Spellcasting.</strong></em> The assassin's spellcasting ability is Constitution (+4 to hit with spell attacks). It can innately cast the following spells, requiring no material components: At will: <em>fire bolt</em>. 1/day: <em>chromatic orb</em>.</p><p><em><strong>Unstable Mark.</strong></em> When the assassin casts an innate spell, each creature within 10 feet of the assassin must make a DC 12 Constitution saving throw, taking 4 (1d8) force damage on a failed save, or half as much damage on a successful one.</p>",
+    "number of attacks": "2",
+    "attacks": {
+      "Shortsword": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+5",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "6 (1d6 + 3) piercing damage plus 7 (2d6) poison damage",
+        "damage type": "piercing, poison"
+      },
+      "Fire Bolt": {
+        "type": "Ranged Spell Attack",
+        "to hit": "+4",
+        "range": "120 ft.",
+        "target": "one target",
+        "hit": "11 (2d10)",
+        "damage type": "fire"
+      },
+      "Chromatic Orb": {
+        "type": "Ranged Spell Attack",
+        "to hit": "+4",
+        "range": "90 ft.",
+        "target": "one creature",
+        "hit": "18 (4d8) damage of a type chosen by the assassin",
+        "damage type": "acid, cold, fire, lightning, poison, or thunder"
+      }
+    },
+    "actions": "<p><em><strong>Multiattack.</strong></em> The assassin makes two shortsword attacks.</p><p><em><strong>Shortsword.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft., one target. <em>Hit:</em> 6 (1d6 + 3) piercing damage plus 7 (2d6) poison damage.</p><p><em><strong>Fire Bolt (Cantrip).</strong></em> <em>Ranged Spell Attack:</em> +4 to hit, range 120 ft., one target. <em>Hit:</em> 11 (2d10) fire damage. A flammable object hit by this spell ignites if it isn't being worn or carried.</p><p><em><strong>Chromatic Orb (1/Day).</strong></em> <em>Ranged Spell Attack:</em> +4 to hit, range 90 ft., one creature. <em>Hit:</em> 18 (4d8) damage of a type chosen by the assassin: acid, cold, fire, lightning, poison, or thunder.</p>",
+    "description": "<p>Elite killers, spies, and thieves working for House Tarkanan, a criminal organization specializing in theft and assassination. They possess an aberrant dragonmark, a twisted sigil granting magical power. House Tarkanan actively recruits individuals with aberrant dragonmarks. This organization emerged in Sharn six years prior to the provided information, resisting assimilation or elimination by the Boromar Clan. They operate under an agreement not to accept contracts against Boromars. House Tarkanan offers theft, assassination, and manslaughter services, with pricing based on difficulty and value. They also offer a unique \"assassination of the soul\" service using a \"+1 Keeper's fang\" dagger, which traps the victim's soul and prevents resurrection. The leader of House Tarkanan is Thora Tavin, an adept killer and shrewd leader.</p>"
+  },
+  {
+    "name": "Telepathic Pentacle",
+    "size": "Large",
+    "type": "Aberration",
+    "alignment": "Unaligned",
+    "environments": [
+      "Dungeon"
+    ],
+    "associates": [
+      "Iriolarthas"
+    ],
+    "speed": "30 ft., climb 30 ft., swim 30 ft.",
+    "number of attacks": "5",
+    "attacks": {
+      "Bite": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+8",
+        "reach": "10 ft.",
+        "target": "one target",
+        "hit": "10 (1d10 + 5)",
+        "damage type": "piercing"
+      }
+    },
+    "traits": "<p><em><strong>Hold Breath.</strong></em> Can hold its breath for 1 hour.</p><p><em><strong>Multiple Heads.</strong></em> Has five heads, gaining advantage on saves against various conditions while more than one head remains. Takes 25+ damage in a turn, one head dies. All heads dead, it dies. Regrows two heads at end of turn for each head lost, unless it took fire damage. Regains 10 hp per head regrown.</p><p><em><strong>Reactive Heads.</strong></em> Gets an extra reaction for opportunity attacks for each head beyond one.</p><p><em><strong>Wakeful.</strong></em> At least one head is awake while it sleeps.</p>",
+    "actions": "<p><em><strong>Multiattack.</strong></em> The Telepathic Pentacle makes as many bite attacks as it has heads.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +8 to hit, reach 10 ft., one target. <em>Hit:</em> 10 (1d10 + 5) piercing damage.</p>",
+    "notes": "<p>Optional additional abilities include: Whispers of Madness, Forgetfulness, Mind Blindness, Break Concentration, Psychic Pulse, Phantasmal Killer. Potential Abilities (Homebrew/Variant): Some variations suggest abilities like \"Whispers of Madness\" (psychic damage and forced melee attack), \"Forgetfulness\" (stun and memory loss), \"Mind Blindness\" (blinds target on bite), \"Break Concentration\" (breaks spell concentration and deals psychic damage), and \"Psychic Pulse\" (psychic damage to enemies near a linked creature).</p>",
+    "description": "<p>A monstrosity formed when a circle of mages attempted to fuse their minds, resulting in their bodies and minds melding into a single entity. Iriolarthas imprisoned it in a well to tap its latent telepathic powers.</p>"
+  },
+  {
+    "name": "The Wretched",
+    "size": "Small",
+    "type": "Monstrosity",
+    "alignment": "Neutral Evil",
+    "environments": [
+      "Varies"
+    ],
+    "armor class": "15 (natural armor)",
+    "hit points": "10 (4d6 - 4)",
+    "speed": "40 ft.",
+    "str": "7",
+    "dex": "12",
+    "con": "9",
+    "int": "5",
+    "wis": "6",
+    "cha": "5",
+    "damage resistances": "Bludgeoning, piercing, and slashing while in dim light or darkness.",
+    "senses": "Darkvision 60 ft., Passive Perception 8",
+    "languages": [
+      "N/A"
+    ],
+    "challenge": "1/4 (50 XP)",
+    "traits": "<p><em><strong>Wretched Pack Tactics.</strong></em> Has advantage on an attack roll against a creature if an ally is within 5 feet and not incapacitated; otherwise, has disadvantage on attack rolls.</p>",
+    "number of attacks": "1",
+    "attacks": {
+      "Bite": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+3",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "6 (1d10 + 1) piercing damage, and the Wretched attaches to the target",
+        "damage type": "piercing"
+      }
+    },
+    "actions": "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +3 to hit, reach 5 ft., one target. <em>Hit:</em> 6 (1d10 + 1) piercing damage, and the Wretched attaches to the target. While attached, it can't attack, and the target takes 6 (1d10 + 1) necrotic damage at the start of each of its turns. Can detach itself by spending 5 ft. of movement.</p>",
+    "notes": "<p>Pathfinder RPG Variant: In Pathfinder, \"Wretched\" is an acquired template that can be added to corporeal animals, humanoids, or monstrous humanoids. Wretched creatures take a -4 AC penalty and lose aggressiveness unless willed by a master. They gain \"Gloom Touch\" (transmits disease on touch) and \"Wretchedness\" (opponents attacking them must make a Will save or lose their action). They are immune to charm effects and have Charisma reduced to 1.</p>",
+    "description": "<p>Small, twisted monstrosities embodying the despair and hopelessness of the Shadowfell. They are malformed with disproportionate limbs, pale leathery skin, sunken dull eyes, and no hair or teeth. They are scavengers and opportunists, feeding on carrion, garbage, or each other, with a low metabolism allowing long survival without food or water. They reproduce by budding, with new individuals being identical to the parent. In Warcraft lore, \"The Wretched\" are blood elves or high elves who overindulged in magic, leading to deformity and insanity, becoming obsessed with devouring magic.</p>"
+  },
+  {
+    "name": "Theran Chimera",
+    "size": "Large",
+    "type": "Monstrosity",
+    "alignment": "Unaligned",
+    "environments": [
+      "Varies"
+    ],
+    "armor class": "15 (natural armor)",
+    "hit points": "95 (10d10 + 40)",
+    "speed": "30 ft., fly 60 ft.",
+    "str": "18",
+    "dex": "13",
+    "con": "19",
+    "int": "3",
+    "wis": "14",
+    "cha": "10",
+    "languages": [
+      "N/A"
+    ],
+    "traits": "<p><em><strong>Spell Turning.</strong></em> Has advantage on saves against single-target spells. If successful against a 4th-level or lower spell, it has no effect on the chimera and targets the caster instead.</p>",
+    "number of attacks": "3",
+    "attacks": {
+      "Claws": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+7",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "13 (2d8 + 4)",
+        "damage type": "slashing"
+      },
+      "Head": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+7",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "10 (1d12 + 4)",
+        "damage type": "piercing"
+      },
+      "Tail": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+7",
+        "reach": "10 ft.",
+        "target": "one target",
+        "hit": "11 (2d6 + 4)",
+        "damage type": "bludgeoning"
+      },
+      "Breath Weapon": {
+        "type": "Ranged Attack",
+        "to hit": "DC 15 Dexterity save",
+        "range": "15-foot cone",
+        "target": "creatures in area",
+        "hit": "32 (5d12)",
+        "damage type": "fire"
+      }
+    },
+    "actions": "<p><em><strong>Multiattack.</strong></em> The chimera makes three attacks: one with its claws, one with its head, and one with its tail. When its breath weapon is available, it can use it in place of its head or claws.</p><p><em><strong>Claws.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft., one target. <em>Hit:</em> 13 (2d8 + 4) slashing damage.</p><p><em><strong>Head.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft., one target. <em>Hit:</em> 10 (1d12 + 4) piercing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 10 ft., one target. <em>Hit:</em> 11 (2d6 + 4) bludgeoning damage.</p><p><em><strong>Breath Weapon (Recharge 5-6).</strong></em> Exhales fire in a 15-foot cone. Each creature in that area must make a DC 15 Dexterity saving throw, taking 32 (5d12) fire damage on a failed save, or half as much damage on a successful one.</p>",
+    "notes": "<p>The Theran chimera stat block is customizable, with options for different body compositions (plains, coast, mountain, swamp), head attacks (e.g., petrifying gaze), and breath weapons (e.g., lightning, acid, venom).</p>",
+    "description": "<p>A wide variety of monsters combining features of multiple beasts, not just the traditional lion, ram, and dragon. They roam deep wilds, constantly seeking a suitable lair. Unrestrained magical energy or portals to Nyx can cause more chimeras to appear.</p>"
+  },
+  {
+    "name": "Thief",
+    "size": "Medium",
+    "type": "Humanoid",
+    "alignment": "Any",
+    "environments": [
+      "Urban"
+    ],
+    "armor class": "10",
+    "hit points": "8 (4d8)",
+    "speed": "30 ft.",
+    "senses": "Passive Perception 11",
+    "languages": [
+      "Common",
+      "Thieves' Cant"
+    ],
+    "challenge": "1/4 (50 XP)",
+    "traits": "<p><em><strong>Cunning Action.</strong></em> On each of its turns, the thief can use a bonus action to take the Dash, Disengage, Hide, or Use an Object action.</p><p><em><strong>Sneak Attack (1/Turn).</strong></em> The thief deals an extra 3 (1d6) damage when it hits a target with a weapon attack and has advantage on the attack roll, or when the target is within 5 ft. of an ally of the thief that isn't incapacitated and the thief doesn't have disadvantage on the attack roll.</p>",
+    "number of attacks": "1",
+    "attacks": {
+      "Dagger": {
+        "type": "Melee or Ranged Weapon Attack",
+        "to hit": "+4",
+        "reach": "5 ft.",
+        "range": "20/60 ft.",
+        "target": "one target",
+        "hit": "4 (1d4 + 2)",
+        "damage type": "piercing"
+      }
+    },
+    "actions": "<p><em><strong>Dagger.</strong></em> <em>Melee or Ranged Weapon Attack:</em> +4 to hit, reach 5 ft. or range 20/60 ft., one target. <em>Hit:</em> 4 (1d4 + 2) piercing damage.</p>",
+    "description": "<p>Thieves specialize in stealing and breaking into buildings, preferring lock picking over fights, and engaging in combat only as a last resort.</p>"
+  },
+  {
+    "name": "Thief Lord",
+    "size": "Medium",
+    "type": "Humanoid",
+    "alignment": "Any",
+    "environments": [
+      "Urban"
+    ],
+    "armor class": "17 (studded leather)",
+    "hit points": "117 (18d8 + 36)",
+    "speed": "30 ft., climb 30 ft.",
+    "str": "12",
+    "dex": "20",
+    "con": "14",
+    "int": "16",
+    "wis": "17",
+    "cha": "15",
+    "saving throws": "Dexterity +9, Intelligence +7, Wisdom +7",
+    "skills": "Acrobatics +9, Athletics +5, Deception +6, Perception +7, Sleight of Hand +13, Stealth +13",
+    "senses": "Blindsight 10 ft., Passive Perception 17",
+    "languages": [
+      "Common",
+      "Thieves' Cant",
+      "Any two languages"
+    ],
+    "challenge": "11 (7,200 XP)",
+    "traits": "<p><em><strong>Cunning Action.</strong></em> On each of its turns, the thief can use a bonus action to take the Dash, Disengage, Hide, or Use an Object action.</p><p><em><strong>Evasion.</strong></em> If the thief is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, the thief instead takes no damage if it succeeds on the saving throw and only half damage if it fails.</p><p><em><strong>Sneak Attack (1/Turn).</strong></em> The thief deals an extra 31 (9d6) damage when it hits a target with a weapon attack and has advantage on the attack roll, or when the target is within 5 feet of an ally of the thief that isn't incapacitated and the thief doesn't have disadvantage on the attack roll.</p><p><em><strong>Daggermaster.</strong></em> The master thief deals an additional die of damage when attacking with daggers, and doubles both the short and long ranges of a thrown dagger (included in the attack).</p>",
+    "number of attacks": "3",
+    "attacks": {
+      "Shortsword": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+9",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "8 (1d6 + 5)",
+        "damage type": "piercing"
+      },
+      "Dagger": {
+        "type": "Melee or Ranged Weapon Attack",
+        "to hit": "+9",
+        "reach": "5 ft.",
+        "range": "60/120 ft.",
+        "target": "one target",
+        "hit": "10 (2d4 + 5)",
+        "damage type": "piercing"
+      }
+    },
+    "actions": "<p><em><strong>Multiattack.</strong></em> The thief makes three attacks with its shortsword or shortbow.</p><p><em><strong>Shortsword.</strong></em> <em>Melee Weapon Attack:</em> +9 to hit, reach 5ft., one target. <em>Hit:</em> 8 (1d6+5) piercing damage.</p><p><em><strong>Dagger.</strong></em> <em>Melee or Ranged Weapon Attack:</em> +9 to hit, reach 5 ft. or range 60/120 ft., one target. <em>Hit:</em> 10 (2d4 + 5) piercing damage.</p><p><em><strong>Dagger Flourish.</strong></em> One creature wielding a weapon within 5 feet must make a DC 17 Strength save. On a fail, attacks against it have advantage, and the master thief can apply an effect.</p>",
+    "reactions": "<p><em><strong>Uncanny Dodge.</strong></em> The thief halves the damage that it takes from an attack that hits it. The thief must be able to see the attacker.</p>",
+    "notes": "<p>CR 5 Variant: AC 16 (studded leather), HP 84 (13d8 + 26), Speed 30 ft. STR 11 (0), DEX 18 (+4), CON 14 (+2), INT 11 (0), WIS 11 (0), CHA 12 (+1). Saving Throws: Dex +7, Int +3. Skills: Acrobatics +7, Athletics +3, Perception +3, Sleight of Hand +7, Stealth +7. Senses: Passive Perception 13. Languages: Any one language (usually Common) plus thieves' cant. Challenge Rating: 5 (1,800 XP). Sneak Attack (1/Turn): 14 (4d6) damage. Actions include Light Crossbow and Shortbow (with poison damage variants).</p>"
+  },
+  {
+    "name": "Thorn Slinger",
+    "size": "Medium",
+    "type": "Plant",
+    "alignment": "Unaligned",
+    "environments": [
+      "Forest"
+    ],
+    "speed": "10 ft.",
+    "traits": "<p><em><strong>Adhesive Blossoms.</strong></em> The thorn slinger adheres to anything that touches it. A Medium or smaller creature adhered to it is also grappled (escape DC 11). Ability checks to escape have disadvantage. At the end of each of its turns, anything grappled takes 3 (1d6) acid damage.</p><p><em><strong>False Appearance.</strong></em> While the thorn slinger remains motionless, it is indistinguishable from an inanimate bush.</p>",
+    "number of attacks": "1",
+    "attacks": {
+      "Thorns": {
+        "type": "Melee or Ranged Weapon Attack",
+        "to hit": "+3",
+        "reach": "5 ft.",
+        "range": "30 ft.",
+        "target": "one target",
+        "hit": "8 (2d6 + 1)",
+        "damage type": "piercing"
+      }
+    },
+    "actions": "<p><em><strong>Thorns.</strong></em> <em>Melee or Ranged Weapon Attack:</em> +3 to hit, reach 5 ft. or range 30 ft., one target. <em>Hit:</em> 8 (2d6 + 1) piercing damage.</p>",
+    "notes": "<p>Older edition information mentions 1 point of damage per thorn, 2d4 damage in a spread pattern within 30 feet, and inexhaustible supply.</p><p>Vulnerabilities: Not very flammable, but flame causes normal damage. Open flame is extinguished after one round, and oil burns for only two rounds.</p><p>Last Epoch Item: The \"Thorn Slinger Unique Leather Belt\" in the game Last Epoch enhances damage over time (especially poison, bleed), provides augmented health/resistances, and features unique affixes that modify playstyle or improve skills. It's a world drop, meaning it can drop from any enemy, with higher chances in high-level zones and the Monolith of Fate. It can have up to 4 legendary potential, allowing additional stats.</p>",
+    "description": "<p>A mobile plant that can throw its thorns. Its leaves and central stem are covered with an adhesive sap.</p>"
+  },
+  {
+    "name": "Thorny Vegepygmy",
+    "size": "Medium",
+    "type": "Plant",
+    "alignment": "Neutral",
+    "environments": [
+      "Forest"
+    ],
+    "associates": [
+      "Vegepygmy",
+      "Russet Mold"
+    ],
+    "armor class": "14 (natural armor)",
+    "hit points": "27 (5d8 + 5)",
+    "speed": "30 ft.",
+    "str": "13",
+    "dex": "12",
+    "con": "13",
+    "int": "2",
+    "wis": "10",
+    "cha": "6",
+    "skills": "Perception +4, Stealth +3",
+    "damage resistances": "Lightning, Piercing",
+    "senses": "Darkvision 60 ft., Passive Perception 14",
+    "languages": [
+      "N/A"
+    ],
+    "challenge": "1 (200 XP)",
+    "traits": "<p><em><strong>Plant Camouflage.</strong></em> The thorny has advantage on Dexterity (Stealth) checks it makes in any terrain with ample obscuring vegetation.</p><p><em><strong>Regeneration.</strong></em> The thorny regains 5 hit points at the start of its turn. If it takes cold, fire, or necrotic damage, this trait doesn't function at the start of the thorny's next turn. The thorny dies only if it starts its turn with 0 hit points and doesn't regenerate.</p><p><em><strong>Thorny Body.</strong></em> At the start of its turn, the thorny deals 2 (1d4) piercing damage to any creature grappling it.</p><p><em><strong>Pack Tactics (Thorny Hunter variant).</strong></em> The vegepygmy has advantage on attack rolls against a creature if at least one of the vegepygmy's allies is within 5 feet of the creature and the ally doesn't have the incapacitated condition.</p>",
+    "number of attacks": "1",
+    "attacks": {
+      "Bite": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+3",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "10 (2d8 + 1)",
+        "damage type": "piercing"
+      }
+    },
+    "actions": "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +3 to hit, reach 5 ft., one target. <em>Hit:</em> 10 (2d8 + 1) piercing damage.</p>",
+    "notes": "<p>Pathfinder RPG Variant: In Pathfinder, a Thorny Vegepygmy (CR 3) has AC 16, HP 26 (4d8+8), Speed 40 ft. It has thorny hide (DR 5/slashing or bludgeoning, deals 1d3 piercing damage and poison to grapplers/natural attackers) and is immune to electricity and plant traits. It can use a \"thorn cluster\" ranged attack (30 ft. range), hitting with 1d3 poisoned thorns, each dealing 1d3 piercing damage and applying poison.</p>",
+    "description": "<p>A mass of plant matter resembling an oversized dog, covered in jagged thorns. Also known as \"vegepygmy hounds,\" they are larger and more ferocious than other vegepygmies, serving as watchdogs or mounts. They infect prey with a weak paralytic toxin. They are fungal creatures that can arise from the corpses of beasts (like dogs or bears) killed by russet mold.</p>"
+  },
+  {
+    "name": "Thri-Kreen",
+    "size": "Medium",
+    "type": "Humanoid",
+    "alignment": "Chaotic Neutral",
+    "environments": [
+      "Desert",
+      "Grassland"
+    ],
+    "armor class": "15 (natural armor)",
+    "hit points": "33 (6d8 + 6)",
+    "speed": "40 ft.",
+    "str": "12",
+    "dex": "15",
+    "con": "13",
+    "int": "8",
+    "wis": "12",
+    "cha": "7",
+    "skills": "Perception +3, Stealth +4, Survival +3",
+    "senses": "Darkvision 60 ft., Passive Perception 13",
+    "languages": [
+      "Thri-kreen"
+    ],
+    "challenge": "1 (200 XP)",
+    "traits": "<p><em><strong>Chameleon Carapace.</strong></em> The thri-kreen can change the color of its carapace to match its surroundings, gaining advantage on Dexterity (Stealth) checks to hide.</p><p><em><strong>Standing Leap.</strong></em> The thri-kreen's long jump is up to 30 feet and its high jump is up to 15 feet, with or without a running start.</p><p><em><strong>Sleepless.</strong></em> Don't require sleep, can rest while alert.</p>",
+    "number of attacks": "2",
+    "attacks": {
+      "Bite": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+3",
+        "reach": "5 ft.",
+        "target": "one creature",
+        "hit": "4 (1d6 + 1) piercing damage",
+        "damage type": "piercing"
+      },
+      "Claws": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+3",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "6 (2d4 + 1)",
+        "damage type": "slashing"
+      },
+      "Gythka": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+3",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "5 (1d8 + 1)",
+        "damage type": "slashing"
+      },
+      "Chatkcha": {
+        "type": "Ranged Weapon Attack",
+        "to hit": "+4",
+        "range": "30/120 ft.",
+        "target": "one target",
+        "hit": "5 (1d6 + 2)",
+        "damage type": "slashing"
+      }
+    },
+    "actions": "<p><em><strong>Multiattack.</strong></em> The thri-kreen makes two attacks: one with its bite and one with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +3 to hit, reach 5 ft., one creature. <em>Hit:</em> 4 (1d6 + 1) piercing damage, and target must succeed on a DC 11 Constitution saving throw or be poisoned for 1 minute. If save fails by 5 or more, target is also paralyzed while poisoned. Target can repeat save at end of each turn.</p><p><em><strong>Claws.</strong></em> <em>Melee Weapon Attack:</em> +3 to hit, reach 5 ft., one target. <em>Hit:</em> 6 (2d4 + 1) slashing damage.</p><p><em><strong>Variant: Thri-kreen Weapons.</strong></em> The thri-kreen makes two gythka attacks or two chatkcha attacks.</p><p><em><strong>Gythka.</strong></em> <em>Melee Weapon Attack:</em> +3 to hit, reach 5 ft., one target. <em>Hit:</em> 5 (1d8 + 1) slashing damage.</p><p><em><strong>Chatkcha.</strong></em> <em>Ranged Weapon Attack:</em> +4 to hit, range 30/120 ft., one target. <em>Hit:</em> 5 (1d6 + 2) slashing damage.</p>",
+    "notes": "<p>Racial Traits (Player Character): Strength +2, Wisdom +1 (or Dexterity +2, Wisdom +1). Adulthood at 3-4 years, lifespan around 30 years. Tend towards neutral alignment. Size Medium, 6-8 feet long, 100-375 pounds. Walking speed 30 ft., hovering speed 40 ft. Darkvision 60 ft. Exoskeleton provides AC 12 + Constitution modifier (or 13 + Dex modifier). Four arms (two regular, two smaller with 5 ft. reach). Telepathy 60 ft. (requires shared language to understand replies). Proficiency with dagger, spear, pike, and glaive.</p>",
+    "description": "<p>Thri-kreen are insectoid humanoids resembling giant praying mantises with six limbs (four arms), two black compound eyes, and a hard chitinous carapace that can change color to match their surroundings. They are native to warm, arid regions like deserts and savannas. They have a short lifespan of about 30 years and do not sleep or dream, instead entering a trance-like state to rest and meditate. Thri-kreen are highly agile and strong, capable of leaping great distances (long jump up to 30 feet, high jump up to 15 feet) and wielding weapons with each of their arms. They are also naturally psionic, able to manipulate objects and minds. They have their own language of clicks, hisses, and gestures, and some can speak Common. Their culture is based on hunting, survival, and spirituality, valuing courage, skill, wisdom, and harmony with nature. They have no written language, passing traditions through oral and psionic sharing, and revere ancestors and the spirit of the land rather than gods. Thri-kreen hatch from eggs, and those from the same clutch share a bond beyond family or friendship.</p>"
+  },
+  {
+    "name": "Thri-Kreen Psion",
+    "size": "Medium",
+    "type": "Humanoid",
+    "alignment": "Chaotic Neutral",
+    "environments": [
+      "Desert",
+      "Grassland"
+    ],
+    "armor class": "16",
+    "hit points": "149 (23d8 + 46)",
+    "speed": "40 ft., fly 20 ft. (hover)",
+    "int": "19",
+    "wis": "12",
+    "cha": "11",
+    "skills": "Perception +4, Stealth +8",
+    "damage resistances": "Psychic",
+    "senses": "Darkvision 60 ft., Passive Perception 14",
+    "languages": [
+      "Thri-kreen",
+      "Telepathy 120 ft."
+    ],
+    "challenge": "8 (3,900 XP)",
+    "traits": "<p><em><strong>Chameleon Carapace.</strong></em> Can change carapace color to match surroundings, gaining advantage on Dexterity (Stealth) checks.</p><p><em><strong>Standing Leap.</strong></em> Long jump up to 30 feet and high jump up to 15 feet.</p><p><em><strong>Innate Spellcasting (Psionics).</strong></em> The thri-kreen's innate spellcasting ability is Intelligence (spell save DC 15). It can innately cast the following spells, requiring no components: At will: <em>Mage Hand</em> (invisible). 1/day each: <em>Detect Thoughts</em>, <em>Sending</em>, <em>Synaptic Static</em>.</p>",
+    "number of attacks": "3",
+    "attacks": {
+      "Psionic Lance": {
+        "type": "Melee or Ranged Attack Roll",
+        "to hit": "+7",
+        "reach": "10 ft.",
+        "range": "120 ft.",
+        "target": "Hit",
+        "hit": "18 (4d6 + 4)",
+        "damage type": "Psychic"
+      }
+    },
+    "actions": "<p><em><strong>Multiattack.</strong></em> The thri-kreen makes three Psionic Lance attacks.</p><p><em><strong>Psionic Lance.</strong></em> <em>Melee or Ranged Attack Roll:</em> +7, reach 10 ft. or range 120 ft. <em>Hit:</em> 18 (4d6 + 4) Psychic damage.</p>",
+    "notes": "<p>CR 1 Variant: AC 15 (natural armor), HP 33 (6d8 + 6), Speed 40 ft. STR 12 (+1), DEX 15 (+2), CON 13 (+1), INT 8 (-1), WIS 12 (+1), CHA 7 (-2). Skills: Perception +3, Stealth +4, Survival +3. Languages: Thri-kreen, Telepathy 60 ft. Challenge Rating: 1 (200 XP). Innate Spellcasting (Psionics): Wisdom spellcasting. At will: <em>mage hand</em> (invisible). 2/day: <em>blur</em>, <em>magic weapon</em>. 1/day: <em>invisibility</em> (self only). Actions include Multiattack (one bite and one claws), Bite (Melee +3, 5ft reach, 4 (1d6+1) piercing, DC 11 Con save or poisoned/paralyzed), Claws (Melee +3, 5ft reach, 6 (2d4+1) slashing). Can also use Gythka (Melee +3, 5ft reach, 5 (1d8+1) slashing) or Chatkcha (Ranged +4, 30/120ft range, 5 (1d6+2) slashing).</p>",
+    "description": "<p>Thri-kreen psions harness psychic powers to avoid danger and manipulate objects from afar.</p>"
   }
 ];
 
