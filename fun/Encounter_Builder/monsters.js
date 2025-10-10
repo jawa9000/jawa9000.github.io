@@ -19220,13 +19220,39 @@ const monsters = [
     "number of attacks": 2,
     attacks: {
       "Pseudopod": {
-"type": "Melee Weapon Attack",
-"to hit": "+7",
-"reach": "10 ft.",
-"target": "one target",
-"hit": "9 (1d10 + 4)",
-"damage type": "bludgeoning plus acid"
-}
+      "type": "Melee Weapon Attack",
+      "to hit": "+7",
+      "reach": "10 ft.",
+      "target": "one target",
+      "hit": "9 (1d10 + 4)",
+      "damage type": "bludgeoning",
+      "on hit damage": "14 (4d6)",
+      "on hit damage type": "acid",
+      "effects": [
+        {
+          "type": "grapple",
+          "condition": "If the target is a Large or smaller creature",
+          "escape_dc": 15,
+          "ability": "Dexterity",
+          "ongoing damage": "7 (2d6)",
+          "ongoing damage type": "acid, grappled",
+          "ongoing damage timing": "start of each of its turns"
+        }
+      ]
+      },
+      "Slime Breath": {
+        "type": "Area Effect Attack",
+        "area": "30-foot cone",
+        "save": {
+          "ability": "Dexterity",
+          "dc": 14,
+          "on fail damage": "22 (4d10)",
+          "on fail effect": "pulled up to 30 feet straight toward the ooze",
+          "on success damage modifier": "half"
+        },
+        "damage type": "acid",
+        "recharge": "6"
+      }
     },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The ooze makes two Pseudopod attacks. The ooze can replace one Pseudopod attack with its Slime Breath, if available.</p><p><em><strong>Pseudopod.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 10 ft. one target. <em>Hit:</em> 9 (1d10 + 4) bludgeoning damage plus 14 (4d6) acid damage. If the target is a Large or smaller creature, it is grappled (escape DC 15). Until this grapple ends, the target takes 7 (2d6) acid damage at the start of each of its turns.</p><p><em><strong>Slime Breath (Recharge 6).</strong></em> The ooze expels a spray of its gelatinous mass in a 30-foot cone. Each creature in that area must make a DC 14 Dexterity saving throw. On a failed save, the creature takes 22 (4d10) acid damage and is pulled up to 30 feet straight toward the ooze. On a successful save, the creature takes half as much damage and isn't pulled.</p>",
@@ -19461,30 +19487,46 @@ const monsters = [
       "<p><em><strong>Fey Ancestry.</strong></em> The drow has advantage on saving throws against being charmed, and magic can't put the drow to sleep.</p><p><em><strong>Spider Climb.</strong></em> The drow can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check.</p><p><em><strong>Sunlight Sensitivity.</strong></em> While in sunlight, the drow has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight.</p><p><em><strong>Web Walker.</strong></em> The drow ignores movement restrictions caused by webbing.</p>",
     "number of attacks": 3,
     attacks: {
-      "Bite (Spider Form Only)": {
-"type": "Melee Weapon Attack",
-"to hit": "+8",
-"reach": "5 ft.",
-"target": "one target",
-"hit": "12 (2d8 + 3)",
-"damage type": "piercing plus poison"
-},
-"Poisonous Touch (Humanoid Form Only)": {
-"type": "Melee Weapon Attack",
-"to hit": "+8",
-"reach": "5 ft.",
-"target": "one target",
-"hit": "35 (10d6)",
-"damage type": "poison"
-},
-"Web (Spider Form Only)": {
-"type": "Ranged Weapon Attack",
-"to hit": "+8",
-"reach": "30/60 ft.",
-"target": "one target",
-"hit": "The target is restrained by webbing.",
-"damage type": "N/A"
-}
+      "Bite": {
+      "type": "Melee Weapon Attack",
+      "to hit": "+8",
+      "reach": "5 ft.",
+      "target": "one target",
+      "hit": "12 (2d8 + 3)",
+      "damage type": "piercing",
+      "on hit damage": "31 (7d8)",
+      "on hit damage type": "poison",
+      "effects": [
+        {
+          "type": "Poison",
+          "condition": "The target is stable but poisoned for 1 hour, even after regaining hit points, and is paralyzed while poisoned in this way (on a failed DC 15 Constitution saving throw, if the poison damage reduces the target to 0 hit points).",
+          "escape dc": 15,
+          "escape ability": "Constitution"
+        }
+      ]
+    },
+    "Poisonous Touch": {
+      "type": "Melee Weapon Attack",
+      "to hit": "+8",
+      "reach": "5 ft.",
+      "target": "one target",
+      "hit": "35 (10d6)",
+      "damage type": "poison"
+    },
+    "Web": {
+      "type": "Ranged Weapon Attack",
+      "to hit": "+8",
+      "range": "30/60 ft.",
+      "target": "one target",
+      "effects": [
+        {
+          "type": "Restrained",
+          "condition": "The target is restrained by webbing.",
+          "escape dc": 15,
+          "escape ability": "Strength"
+        }
+      ]
+    }
     },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The drow makes three attacks, using Bite, Poisonous Touch, Web, or a combination of them. One attack can be replaced by a use of Spellcasting.</p><p><em><strong>Bite (Spider Form Only).</strong></em> <em>Melee Weapon Attack:</em> +8 to hit, reach 5 ft. one target. <em>Hit:</em> 12 (2d8 + 3) piercing damage, and the target must make a DC 15 Constitution saving throw, taking 31 (7d8) poison damage on a failed save, or half as much damage on a successful one. If the poison damage reduces the target to 0 hit points, the target is stable but poisoned for 1 hour, even after regaining hit points, and is paralyzed while poisoned in this way.</p><p><em><strong>Poisonous Touch (Humanoid Form Only).</strong></em> <em>Melee Weapon Attack:</em> +8 to hit, reach 5 ft. one target. <em>Hit:</em> 35 (10d6) poison damage.</p><p><em><strong>Web (Spider Form Only; (Recharge 5-6)).</strong></em> <em>Ranged Weapon Attack:</em> +8 to hit, range 30/60 ft. one target. <em>Hit:</em> The target is restrained by webbing. As an action, the restrained target can make a DC 15 Strength check, bursting the webbing on a success. The webbing can also be attacked and destroyed (AC 10; hp 5; vulnerability to fire damage; immunity to bludgeoning, poison, and psychic damage).</p><p><em><strong>Spellcasting.</strong></em> The drow casts one of the following spells, requiring no material components and using Intelligence as the spellcasting ability (spell save DC 17):</p><ul><li>At will: dancing lights, mage hand</li><li>1/day each: darkness, dispel magic, etherealness, faerie fire, fly, insect plague, invisibility</li></ul>",
@@ -19517,23 +19559,42 @@ const monsters = [
     traits:
       "<p><em><strong>Special Equipment.</strong></em> The drow wields a tentacle rod.</p><p><em><strong>Fey Ancestry.</strong></em> The drow has advantage on saving throws against being charmed, and magic can't put the drow to sleep.</p><p><em><strong>Sunlight Sensitivity.</strong></em> While in sunlight, the drow has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight.</p><p><em><strong>Spellcasting.</strong></em> The drow is a 20th-level spellcaster. Her spellcasting ability is Charisma (spell save DC 20). She has the following cleric spells prepared:</p><ul><li>Cantrips (at will): command, dancing lights, detect magic, thaumaturgy</li><li>1st level (4 slots): cure wounds, guiding bolt, sanctuary, shield of faith</li><li>2nd level (3 slots): spiritual weapon, hold person, silence</li><li>3rd level (3 slots): dispel magic, spirit guardians, sending</li><li>4th level (3 slots): blight, death ward, freedom of movement</li><li>5th level (3 slots): flame strike, scrying, insect plague</li><li>6th level (2 slots): harm, word of recall</li><li>7th level (2 slots): divine word, regenerate</li><li>8th level (1 slot): holy aura</li><li>9th level (1 slot): mass heal</li></ul><p><em><strong>Innate Spellcasting.</strong></em> The drow's innate spellcasting ability is Charisma (spell save DC 19). She can innately cast the following spells, requiring no material components:</p><ul><li>At will: dancing lights, detect magic</li><li>3/day each: darkness, faerie fire, levitate (self only), suggestion, dispel magic</li><li>1/day each: clairvoyance, detect thoughts, divine word, dominate monster, gate, invisibility, plane shift (self only)</li></ul>",
     "number of attacks": 3,
-    attacks: {
+    "attacks": {
       "Demon Staff": {
-"type": "Melee Weapon Attack",
-"to hit": "+10",
-"reach": "5 ft.",
-"target": "one target",
-"hit": "7 (1d6 + 4)",
-"damage type": "bludgeoning plus psychic"
-},
-"Tentacle Rod": {
-"type": "Melee Weapon Attack",
-"to hit": "+9",
-"reach": "15 ft.",
-"target": "one creature",
-"hit": "3 (1d6)",
-"damage type": "bludgeoning"
-}
+        "type": "Melee Weapon Attack",
+        "to hit": "+10",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "7 (1d6 + 4) bludgeoning damage (or 8 (1d8 + 4) if two-handed) plus 14 (4d6) psychic damage",
+        "damage type": "bludgeoning, psychic",
+        "effects": [
+          {
+            "type": "Frightened",
+            "condition": "The target must also succeed on a DC 19 Wisdom saving throw or become frightened for 1 minute."
+          }
+        ]
+      },
+      "Tentacle Rod": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+9",
+        "reach": "15 ft.",
+        "target": "one creature",
+        "hit": "3 (1d6) bludgeoning damage",
+        "damage type": "bludgeoning",
+        "effects": [
+          {
+            "type": "Debilitating Condition",
+            "condition": "If hit three times in one turn, the target must succeed on a DC 15 Constitution saving throw or suffer halved speed, disadvantage on Dexterity saving throws, inability to use reactions, and can only take an action or bonus action (not both) for 1 minute."
+          }
+        ]
+      },
+      "Divine Flame": {
+        "type": "Spell Attack",
+        "range": "10-foot-radius, 40-foot-high column, up to 120 feet away",
+        "target": "Creatures in the column",
+        "hit": "14 (4d6) fire damage and 14 (4d6) radiant damage (DC 20 Dexterity save for half damage)",
+        "damage type": "fire, radiant"
+      }
     },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The drow makes two Demon Staff attacks or one Demon Staff attack and three Tentacle Rod attacks.</p><p><em><strong>Demon Staff.</strong></em> <em>Melee Weapon Attack:</em> +10 to hit, reach 5 ft., one target. <em>Hit:</em> 7 (1d6 + 4) bludgeoning damage, or 8 (1d8+4) bludgeoning damage if used with two hands, plus 14 (4d6) psychic damage. The target must succeed on a DC 19 Wisdom saving throw or become frightened of the drow for 1 minute. The frightened target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p><p><em><strong>Tentacle Rod.</strong></em> <em>Melee Weapon Attack:</em> +9 to hit, reach 15 ft., one creature. <em>Hit:</em> 3 (1d6) bludgeoning damage. If the target is hit three times by the rod on one turn, the target must succeed on a DC 15 Constitution saving throw or suffer the following effects for 1 minute: the target's speed is halved, it has disadvantage on Dexterity saving throws, and it can't use reactions. Moreover, on each of its turns, it can take either an action or a bonus action, but not both. At the end of each of its turns, it can repeat the saving throw, ending the effect on itself on a success.</p><p><em><strong>Divine Flame (2/Day).</strong></em> A 10-foot-radius, 40-foot-high column of divine fire sprouts in an area up to 120 feet away from the drow. Each creature in the column must make a DC 20 Dexterity saving throw, taking 14 (4d6) fire damage and 14 (4d6) radiant damage on a failed save, or half as much damage on a successful one.</p>",
@@ -19988,15 +20049,17 @@ const monsters = [
     traits:
       "<p><em><strong>Duergar Resilience.</strong></em> The duergar has advantage on saving throws against spells and the charmed, paralyzed, and poisoned conditions.</p><p><em><strong>Sunlight Sensitivity.</strong></em> While in sunlight, the duergar has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight.</p>",
     "number of attacks": 1,
-    attacks: {
+    "attacks": {
       "Fire Lance": {
-"type": "Melee Weapon Attack",
-"to hit": "+5",
-"reach": "10 ft.",
-"target": "one target",
-"hit": "9 (1d12 + 3)",
-"damage type": "piercing plus fire"
-}
+        "type": "Melee Weapon Attack",
+        "to hit": "+5",
+        "reach": "10 ft.",
+        "target": "one target",
+        "hit": "9 (1d12 + 3) piercing damage plus 3 (1d6) fire damage, or 16 (2d12 + 3) piercing damage plus 3 (1d6) fire damage while enlarged.",
+        "damage type": "piercing, fire",
+        "on hit damage": "9 (1d12 + 3)",
+        "on hit damage type": "piercing"
+      }
     },
     actions:
       "<p><em><strong>Fire Lance.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 10 ft., one target. <em>Hit:</em> 9 (1d12 + 3) piercing damage, or 16 (2d12 + 3) piercing damage while under the effect of Enlarge, plus 3 (1d6) fire damage.</p><p><em><strong>Fire Spray (Recharge 5-6).</strong></em> From its fire lance, the duergar shoots a 15-foot cone of fire or a line of fire 30 feet long and 5 feet wide. Each creature in that area must make a DC 12 Dexterity saving throw, taking 10 (3d6) fire damage on a failed save, or half as much damage on a successful one.</p><p><em><strong>Invisibility (Recharges after a Short or Long Rest).</strong></em> The duergar magically turns invisible for up to 1 hour or until it attacks, it forces a creature to make a saving throw, or its concentration is broken (as if concentrating on a spell). Any equipment the duergar wears or carries is invisible with it.</p>",
@@ -23740,7 +23803,7 @@ const monsters = [
         "reach": "5 ft.",
         "target": "one target",
         "hit": "15 (3d6 + 5)",
-        "damage_type": "piercing"
+        "damage type": "piercing"
       },
       "Claw": {
         type: "Melee Weapon Attack",
@@ -23748,7 +23811,7 @@ const monsters = [
         "reach": "5 ft.",
         "target": "one target",
         "hit": "15 (3d6 + 5)",
-        "damage_type": "slashing"
+        "damage type": "slashing"
       },
       "Crushing Hug": {
         type: "Melee Weapon Attack",
@@ -23756,7 +23819,7 @@ const monsters = [
         "reach": "5 ft.",
         "target": "one target",
         "hit": "36 (9d6 + 5)",
-        "damage_type": "bludgeoning"
+        "damage type": "bludgeoning"
       }
 },
     actions: "<p><em><strong>Multiattack.</strong></em> The annis makes three attacks: one with her bite and two with her claws. </p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +8 to hit, reach 5 ft., one target. <em>Hit:</em> 15 (3d6 + 5) piercing damage. </p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +8 to hit, reach 5 ft., one target. <em>Hit:</em> 15 (3d6 + 5) slashing damage. </p><p><em><strong>Crushing Hug.</strong></em> <em>Melee Weapon Attack:</em> +8 to hit, reach 5 ft., one target.  <em>Hit:</em> 36 (9d6 + 5) bludgeoning damage, and the target is grappled (escape DC 15) if it is a Large or smaller creature.  Until the grapple ends, the target takes 36 (9d6 + 5) bludgeoning damage at the start of each of the hag's turns.  The hag can't make attacks while grappling a creature in this way. </p>",
@@ -23794,7 +23857,7 @@ const monsters = [
         "reach": "5 ft.",
         "target": "one target",
         "hit": "4 (1d8)",
-        "damage_type": "piercing"
+        "damage type": "piercing"
       },
       "Hooves": {
         type: "Melee Weapon Attack",
@@ -23802,7 +23865,7 @@ const monsters = [
         "reach": "5 ft.",
         "target": "one target",
         "hit": "3 (1d6)",
-        "damage_type": "bludgeoning"
+        "damage type": "bludgeoning"
       }
 },
     actions: "<p><em><strong>Gore.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft., one target. <em>Hit:</em> 4 (1d8) piercing damage. </p><p><em><strong>Hooves.</strong></em> <em>Melee Weapon Attack:</em> +2 to hit, reach 5 ft., one target. <em>Hit:</em> 3 (1d6) bludgeoning damage. </p>",
@@ -23878,7 +23941,7 @@ const monsters = [
         "reach": "5 ft.",
         "target": "one target",
         "hit": "8 (2d4 + 3)",
-        "damage_type": "slashing"
+        "damage type": "slashing"
       }
 },
     actions: "<p><em><strong>Claws.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft., one target. <em>Hit:</em> 8 (2d4 + 3) slashing damage.  The target must make a DC 14 Constitution saving throw, taking 10 (3d6) poison damage on a failed save, or half as much damage on a successful one. </p><p><em><strong>Teleport.</strong></em> The arcanaloth magically teleports, along with any equipment it is wearing or carrying, up to 60 feet to an unoccupied space it can see. </p>",
@@ -23918,7 +23981,7 @@ const monsters = [
         "reach": "5 ft.",
         "target": "one target",
         "hit": "27 (6d8)",
-        "damage_type": "lightning"
+        "damage type": "lightning"
       }
 },
     actions: "<p><em><strong>Arclight Touch.</strong></em> <em>Melee Weapon Attack:</em> +10 to hit, reach 5 ft., one target.  <em>Hit:</em> 27 (6d8) lightning damage, and lightning jumps from the target to one creature of the phoenix's choice that it can see within 30 feet of the target.  That second creature must succeed on a DC 18 Dexterity saving throw or take 27 (6d8) lightning damage. </p>",
@@ -23957,7 +24020,7 @@ const monsters = [
         "reach": "5 ft.",
         "target": "one target",
         "hit": "12 (2d6 + 5)",
-        "damage_type": "bludgeoning"
+        "damage type": "bludgeoning"
       },
       "Claws": {
         type: "Melee Weapon Attack",
@@ -23965,7 +24028,7 @@ const monsters = [
         "reach": "5 ft.",
         "target": "one target",
         "hit": "10 (2d4 + 5)",
-        "damage_type": "slashing"
+        "damage type": "slashing"
       },
       "Serrated Tail": {
         type: "Melee Weapon Attack",
@@ -23973,7 +24036,7 @@ const monsters = [
         "reach": "10 ft.",
         "target": "one target",
         "hit": "16 (2d10 + 5)",
-        "damage_type": "slashing"
+        "damage type": "slashing"
       }
 },
     actions: "<p><em><strong>Multiattack.</strong></em> The armanite makes three attacks: one with its hooves, one with its claws, and one with its serrated tail. </p><p><em><strong>Hooves.</strong></em> <em>Melee Weapon Attack:</em> +8 to hit, reach 5 ft., one target. <em>Hit:</em> 12 (2d6 + 5) bludgeoning damage.</p><p><em><strong>Claws.</strong></em> <em>Melee Weapon Attack:</em> +8 to hit, reach 5 ft., one target. <em>Hit:</em> 10 (2d4 + 5) slashing damage. </p><p><em><strong>Serrated Tail.</strong></em> <em>Melee Weapon Attack:</em> +8 to hit, reach 10 ft., one target. <em>Hit:</em> 16 (2d10 + 5) slashing damage. </p><p><em><strong>Lightning Lance (Recharge 5-6).</strong></em> The armanite looses a bolt of lightning in a line 60 feet long and 10 feet wide.  Each creature in the line must make a DC 15 Dexterity saving throw, taking 27 (6d8) lightning damage on a failed save, or half as much damage on a successful one. </p>",
@@ -24010,7 +24073,7 @@ const monsters = [
         "reach": "5 ft.",
         "target": "one target",
         "hit": "4 (1d6 + 1)",
-        "damage_type": "bludgeoning"
+        "damage type": "bludgeoning"
       }
 },
     actions: "<p><em><strong>Slam.</strong></em> <em>Melee Weapon Attack:</em> +3 to hit, reach 5 ft., one target. <em>Hit:</em> 4 (1d6 + 1) bludgeoning damage. </p>",
@@ -24050,7 +24113,7 @@ const monsters = [
         "reach": "5 ft.",
         "target": "one target",
         "hit": "14 (2d8 + 5)",
-        "damage_type": "slashing"
+        "damage type": "slashing"
       }
 },
     actions: "<p><em><strong>Multiattack.</strong></em> The ash phoenix makes two ash talon attacks. If both attacks hit the same target, the phoenix plunges its beak into the target, and the target must succeed on a DC 16 Strength saving throw or take 7 (2d6) necrotic damage.  The ash phoenix regains hp equal to half the necrotic damage dealt. </p><p><em><strong>Ash Talons.</strong></em> <em>Melee Weapon Attack:</em> +8 to hit, reach 5 ft., one target. <em>Hit:</em> 14 (2d8 + 5) slashing damage plus 7 (2d6) fire damage. </p><p><em><strong>Ash Storm (Recharge 5-6).</strong></em> The ash phoenix furiously beats its wings, throwing clinging ash into a 30-foot cone.  Each creature in the area must make a DC 16 Dexterity saving throw.  On a failure, a creature takes 28 (8d6) necrotic damage and is blinded until the end of its next turn.  On a success, a creature takes half the damage and isn't blinded. </p>",
@@ -24090,7 +24153,7 @@ const monsters = [
         "reach": "5 ft.",
         "target": "one target",
         "hit": "21 (2d8 + 12)",
-        "damage_type": "necrotic"
+        "damage type": "necrotic"
       },
       "Chilling Gaze": {
         type: "Ranged Spell Attack",
@@ -24098,7 +24161,7 @@ const monsters = [
         "reach": "60 ft.",
         "target": "one target",
         "hit": "18 (2d10 + 7)",
-        "damage_type": "cold"
+        "damage type": "cold"
       }
 },
     actions: "<p><em><strong>Multiattack.</strong></em> Asmodeus makes four attacks using Ruby Rod, Chilling Gaze, or a combination of the two.  He can replace one of the attacks with Hellish Smite. </p><p><em><strong>Ruby Rod.</strong></em> <em>Melee Weapon Attack:</em> +21 to hit, reach 5 ft., one target.  <em>Hit:</em> 21 (2d8 + 12) necrotic damage, which also reduces the target's hit point maximum by the damage taken.  This damage can't reduce a target's hit point maximum below 1. Any effect that removes a disease allows a creature's hit point maximum to return to normal. </p><p><em><strong>Chilling Gaze.</strong></em> <em>Ranged Spell Attack:</em> +16 to hit, range 60 ft., one target.  <em>Hit:</em> 18 (2d10 + 7) cold damage, and the target has a -1 penalty to all attack rolls they make until the end of their next turn.  This penalty can stack. </p><p><em><strong>Hellish Smite.</strong></em> Asmodeus targets a creature he can see within 300 feet of him, calling down a bolt of hellish lightning.  The target must make a DC 24 Dexterity saving throw, taking 14 (4d6) lightning damage plus 14 (4d6) fire damage on a failed save, or half as much damage on a successful one. </p><p><em><strong>Infernal Word: Stun (Recharge 4-6).</strong></em> Asmodeus targets a creature he can see within 120 feet of him.  The target must make a DC 24 Intelligence saving throw, taking 45 (10d8) force damage on a failed save, or half as much damage on a successful one.  A creature that failed the save is stunned for up to 1 minute.  The stunned creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success, but taking the damage again on a failed save. </p><p><em><strong>Hell-Lord's Suggestion (Recharge 5-6).</strong></em> Asmodeus targets a creature he can see within 120 feet of him.  The target must make a DC 24 Charisma saving throw, taking 44 (8d10) psychic damage on a failed save, or half as much damage on a successful one.  A creature that failed the save has the charmed condition for up to 1 minute.  While charmed, a creature is controlled by Asmodeus, performing only actions that he suggests.  A charmed creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success, but taking the damage again on a failed save. </p><p><em><strong>Fires of the Nine Hells (Recharge 5-6).</strong></em> Asmodeus chooses a point he can see within 500 feet of him, which explodes into a roaring inferno.  All creatures within a 60-foot-radius sphere centered on that point must make a DC 24 Dexterity saving throw, taking 70 (20d6) fire damage on a failed save, or half as much damage on a successful one. </p><p><em><strong>Spellcasting.</strong></em> Asmodeus casts one of the following spells, requiring no material components and using Wisdom as the spellcasting ability (spell save DC 27):</p><p>At will: Bane, Bestow Curse, Command, Cure Wounds, Darkness, Lesser Restoration, Remove Curse</p><p>1/day each: Antimagic Field, Earthquake, Flame Strike, Gate, Heal, Mass Heal, Wish</p>",
@@ -24140,7 +24203,7 @@ const monsters = [
         "reach": "10 ft.",
         "target": "one target",
         "hit": "36 (5d10 + 9)",
-        "damage_type": "piercing"
+        "damage type": "piercing"
       },
       "Claw": {
         type: "Melee Weapon Attack",
@@ -24148,7 +24211,7 @@ const monsters = [
         "reach": "20 ft.",
         "target": "one target",
         "hit": "19 (3d6 + 9)",
-        "damage_type": "slashing"
+        "damage type": "slashing"
       }
 },
     actions: "<p><em><strong>Multiattack.</strong></em> The astral dreadnought makes three attacks: one with its bite and two with its claws. </p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 10 ft., one target. <em>Hit:</em> 36 (5d10 + 9) piercing damage.  If the target is a creature of Huge size or smaller and this damage reduces it to 0 hit points or it is incapacitated, the astral dreadnought swallows it.  The swallowed target, along with everything it is wearing and carrying, appears in an unoccupied space on the floor of the astral dreadnought's Demiplanar Donjon. </p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 20 ft., one target. <em>Hit:</em> 19 (3d6 + 9) slashing damage. </p>",
