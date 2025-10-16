@@ -21177,15 +21177,28 @@ const monsters = [
     traits:
       "<p><em><strong>Amphibious.</strong></em> The firenewt can breathe air and water.</p>",
     "number of attacks": 2,
-    attacks: {
-      "Scimitar": {
-        "type": "Melee Weapon Attack",
-        "to hit": "+3",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "4 (1d6 + 1)",
-        "damage type": "slashing"
-      }
+    "Scimitar": {
+      "type": "Melee Weapon Attack",
+      "to hit": "+3",
+      "reach": "5 ft.",
+      "target": "one target",
+      "hit": "4 (1d6 + 1)",
+      "damage type": "slashing"
+    },
+    "Spit Fire": {
+      "type": "Action (Save)",
+      "reach": "10 ft.",
+      "target": "one creature",
+      "damage type": "fire",
+      "effects": [
+        {
+          "type": "Fire",
+          "condition": "Target must make a Dexterity saving throw, taking fire damage on a failed save, or half as much damage on a successful one.",
+          "dc": 11,
+          "ability": "Dexterity",
+          "one-time damage": "9 (2d8)"
+        }
+      ]
     },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The firenewt makes two attacks with its scimitar.</p><p><em><strong>Scimitar.</strong></em> <em>Melee Weapon Attack:</em> +3 to hit, reach 5 ft., one target. <em>Hit:</em> 4 (1d6 + 1) slashing damage.</p><p><em><strong>Spit Fire (Recharges after a Short or Long Rest).</strong></em> The firenewt spits fire at a creature within 10 feet of it. The creature must make a DC 11 Dexterity saving throw, taking 9 (2d8) fire damage on a failed save, or half as much damage on a successful one.</p>",
@@ -22293,16 +22306,31 @@ const monsters = [
     challenge: "7 (2,900 XP)",
     traits: "<p><em><strong>Dark One's Own Luck (Recharges after a Short or Long Rest).</strong></em> When the warlock makes an ability check or saving throw, it can add a d10 to the roll. It can do this after the roll is made but before any of the roll's effects occur.</p>",
     "number of attacks": 3, 
-    attacks: {
-      "Scimitar": {
-        type: "Melee Weapon Attack",
-        "to hit": "+6",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "6 (1d6+3) slashing damage plus 14 (4d6) fire damage",
-        "damage type": "slashing, fire"
-      }
-},
+    "attacks": {
+    "Scimitar": {
+      "type": "Melee Weapon Attack",
+      "to hit": "+6",
+      "reach": "5 ft.",
+      "target": "one target",
+      "hit": "6 (1d6+3) slashing damage plus 14 (4d6) fire damage",
+      "damage type": "slashing, fire"
+    },
+    "Hellfire": {
+      "type": "Action (Save)",
+      "reach": "120 ft.",
+      "target": "10-foot-radius sphere centered on a point",
+      "damage type": "fire, necrotic",
+      "effects": [
+        {
+          "type": "Fire",
+          "condition": "Each creature in the area must make a Dexterity saving throw, taking fire and necrotic damage on a failed save, or half as much damage on a successful one.",
+          "dc": 15,
+          "ability": "Dexterity",
+          "one-time damage": "16 (3d10) fire damage and 11 (2d10) necrotic damage"
+        }
+      ]
+    }
+  },
     actions: "<p><em><strong>Multiattack.</strong></em> The warlock makes three Scimitar attacks.</p><p><em><strong>Scimitar.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft., one target. <em>Hit:</em> 6 (1d6+3) slashing damage plus 14 (4d6) fire damage.</p><p><em><strong>Hellfire.</strong></em> Green flame explodes in a 10-foot-radius sphere centered on a point within 120 feet of the warlock. Each creature in that area must make a DC 15 Dexterity saving throw, taking 16 (3d10) fire damage and 11 (2d10) necrotic damage on a failed save, or half as much damage on a successful one.</p><p><em><strong>Spellcasting.</strong></em> The warlock casts one of the following spells, using Charisma as the spellcasting ability (spell save DC 15):<br>At will: alter self, mage armor (self only), mage hand, minor illusion, prestidigitation<br>1/day each: banishment, plane shift, suggestion</p>",
     reactions: "<p><em><strong>Fiendish Rebuke (3/Day).</strong></em> In response to being damaged by a visible creature within 60 feet of it, the warlock forces that creature to make a DC 15 Constitution saving throw, taking 22 (4d10) necrotic damage on a failed save, or half as much damage on a successful one.</p>",
     "description": "<p>Warlocks of the Fiend gain their powers through magical pacts forged with archfiends of the Lower Planes. These warlocks often keep imps or quasits as companions, and they tend toward philosophical extremes: consorting with fiendish cults or dedicating their lives to destroying such cults. Warlocks gain arcane might through magical pacts with mysterious entities. While some use their abilities to serve the sources of their power, others use them to undermine or even destroy these entities.</p>"
