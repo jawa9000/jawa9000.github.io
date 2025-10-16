@@ -20217,14 +20217,30 @@ const monsters = [
     languages: ["Understands Dwarvish but can't speak"],
     challenge: "3 (700 XP)",
     "number of attacks": 2,
-    attacks: {
+    "attacks": {
       "Drill": {
         "type": "Melee Weapon Attack",
         "to hit": "+6",
         "reach": "5 ft.",
         "target": "one target",
         "hit": "10 (1d12 + 4)",
-        "damage type": "piercing"
+        "damage type": "piercing",
+      },
+      "Sonic Scream": {
+        "type": "Action (Area Effect)",
+        "to hit": "DC 11 Save",
+        "reach": "15-foot cube",
+        "target": "Each creature in that area",
+        "hit": "7 (2d6) on failed save",
+        "damage type": "thunder",
+        "effects": [
+          {
+            "type": "Knock prone",
+            "condition": "Target is knocked prone on a failed saving throw.",
+            "escape dc": "DC 11",
+            "escape ability": "Strength",
+          }
+        ]
       }
     },
     actions:
@@ -20388,15 +20404,24 @@ const monsters = [
     challenge: "12 (8,400 XP)",
     traits:
       "<p><em><strong>Innate Spellcasting (Psionics).</strong></em> The duergar despot's innate spellcasting ability is Intelligence (spell save DC 12). It can cast the following spells, requiring no components:</p><ul><li>At will: mage hand, minor illusion</li><li>1/day each: counterspell, misty step, stinking cloud</li></ul><p><em><strong>Magic Resistance.</strong></em> The duergar has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Psychic Engine.</strong></em> When the duergar despot suffers a critical hit or is reduced to 0 hit points, psychic energy erupts from its frame to deal 14 (4d6) psychic damage to each creature within 5 feet of it.</p><p><em><strong>Sunlight Sensitivity.</strong></em> While in sunlight, the duergar has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight.</p>",
-    "number of attacks": 4,
-    attacks: {
+      "number of attacks": 4,
+      "attacks": {
       "Iron Fist": {
         "type": "Melee Weapon Attack",
         "to hit": "+9",
         "reach": "5 ft.",
         "target": "one target",
         "hit": "14 (2d8 + 5)",
-        "damage type": "bludgeoning"
+        "damage type": "bludgeoning",
+        "effects": [
+          {
+            "type": "Knock prone / Throw",
+            "condition": "If the target is a Large or smaller creature, it must make a successful DC 17 Strength saving throw or be thrown up to 30 feet away in a straight line and knocked prone.",
+            "dc": 17,
+            "ability": "Strength",
+            "one-time damage": "10 (3d6)"
+          }
+        ]
       },
       "Stomping Foot": {
         "type": "Melee Weapon Attack",
@@ -20405,10 +20430,25 @@ const monsters = [
         "target": "one target",
         "hit": "9 (1d8 + 5) bludgeoning damage, or 18 (3d8 + 5) bludgeoning damage to a prone target",
         "damage type": "bludgeoning"
+      },
+      "Flame Jet": {
+        "type": "Action (Area Effect)",
+        "to hit": "DC 16 Save",
+        "reach": "Line 100 ft. long and 5 ft. wide",
+        "target": "Each creature in the line",
+        "hit": "18 (4d8) on failed save (half on success)",
+        "damage type": "fire",
+        "effects": [
+          {
+            "type": "Fire",
+            "condition": "Dexterity save for half damage.",
+            "dc": 16,
+            "ability": "Dexterity",
+            "one-time damage": "18 (4d8)"
+          }
+        ]
       }
     },
-    actions:
-      "<p><em><strong>Multiattack.</strong></em> The despot makes two iron fist attacks and two stomping foot attacks. It can replace up to four of these attacks with uses of its Flame Jet.</p><p><em><strong>Iron Fist.</strong></em> <em>Melee Weapon Attack:</em> +9 to hit, reach 5 ft., one target. <em>Hit:</em> 14 (2d8 + 5) bludgeoning damage. If the target is a Large or smaller creature, it must make a successful DC 17 Strength saving throw or be thrown up to 30 feet away in a straight line. The target is knocked prone and then takes 10 (3d6) bludgeoning damage.</p><p><em><strong>Stomping Foot.</strong></em> <em>Melee Weapon Attack:</em> +9 to hit, reach 5 ft., one target. <em>Hit:</em> 9 (1d8 + 5) bludgeoning damage, or 18 (3d8 + 5) bludgeoning damage to a prone target.</p><p><em><strong>Flame Jet.</strong></em> The duergar spews flames in a line 100 feet long and 5 feet wide. Each creature in the line must make a DC 16 Dexterity saving throw, taking 18 (4d8) fire damage on a failed save, or half as much damage on a successful one.</p>",
     "bonus actions": "<p><strong>Enlarge (Recharges after a Short or Long Rest)</strong>: For 1 minute, the duergar magically increases in size, along with anything it is wearing or carrying. While enlarged, the duergar is Large, doubles its damage dice on Strength-based weapon attacks (included in the attacks), and makes Strength checks and Strength saving throws with advantage. If the duergar lacks the room to become Large, it attains the maximum size possible in the space available.</p>"
   },
   {
@@ -20516,16 +20556,24 @@ const monsters = [
     traits:
       "<p><em><strong>Heated Body.</strong></em> Any creature that touches the fire snake or hits it with a melee attack while within 5 feet of it takes 3 (1d6) fire damage.</p><p><em><strong>Fire Stealth.</strong></em> When the fire snake is within 5 feet of an open flame larger than a torch, it may take the Hide action as a bonus action.</p>",
     "number of attacks": 1,
-    attacks: {
-      "Bite": {
-        "type": "Melee Weapon Attack",
-        "to hit": "+5",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "4 (1d3+3) piercing damage plus 3 (1d6) fire damage",
-        "damage type": "piercing, fire"
-      }
-    },
+    "attacks": {
+    "Bite": {
+      "type": "Melee Weapon Attack",
+      "to hit": "+5",
+      "reach": "5 ft.",
+      "target": "one target",
+      "hit": "4 (1d3+3) piercing damage plus 3 (1d6) fire damage",
+      "damage type": "piercing, fire",
+      "effects": [
+        {
+          "type": "Paralyze",
+          "condition": "Target must make a Constitution saving throw or be paralyzed for 1d6 rounds.",
+          "dc": 12,
+          "ability": "Constitution"
+        }
+      ]
+    }
+  },
     actions:
       "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft., one target. <em>Hit:</em> 4 (1d3+3) piercing damage plus 3 (1d6) fire damage, and the target must make a DC 12 Constitution saving throw or be paralyzed for 1d6 rounds.</p>",
   },
@@ -20819,24 +20867,50 @@ const monsters = [
     traits:
       "<p><em><strong>Spider Climb.</strong></em> The gem stalker can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check.</p><p><em><strong>Unusual Nature.</strong></em> The gem stalker doesn't require food or drink.</p>",
     "number of attacks": 4,
-    attacks: {
-      "Claw": {
-        "type": "Melee Weapon Attack",
-        "to hit": "+6",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "10 (2d6 + 3)",
-        "damage type": "slashing"
-      },
-      "Crystal Dart": {
-        "type": "Ranged Spell Attack",
-        "to hit": "+5",
-        "reach": "30 ft.",
-        "target": "one target",
-        "hit": "7 (1d10 + 2)",
-        "damage type": "force"
-      }
+    "attacks": {
+    "Claw": {
+      "type": "Melee Weapon Attack",
+      "to hit": "+6",
+      "reach": "5 ft.",
+      "target": "one target",
+      "hit": "10 (2d6 + 3)",
+      "damage type": "slashing"
     },
+    "Crystal Dart": {
+      "type": "Ranged Spell Attack",
+      "to hit": "+5",
+      "reach": "30 ft.",
+      "target": "one target",
+      "hit": "7 (1d10 + 2)",
+      "damage type": "force",
+      "effects": [
+        {
+          "type": "Amethyst",
+          "condition": "The gem stalker can teleport to an unoccupied space it can see within 30 feet of it."
+        },
+        {
+          "type": "Crystal",
+          "condition": "The gem stalker gains a number of temporary hit points equal to the damage dealt."
+        },
+        {
+          "type": "Emerald",
+          "condition": "The target must roll a d4 and subtract the number rolled from the next attack roll it makes before the start of the gem stalker's next turn."
+        },
+        {
+          "type": "Sapphire",
+          "condition": "Target must succeed on a Strength saving throw or be pushed horizontally up to 10 feet away and be knocked prone.",
+          "dc": 13,
+          "ability": "Strength"
+        },
+        {
+          "type": "Topaz",
+          "condition": "Target must succeed on a Constitution saving throw or be poisoned until the start of the gem stalker's next turn.",
+          "dc": 13,
+          "ability": "Constitution"
+        }
+      ]
+    }
+  },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The gem stalker makes four Claw attacks.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft., one target. <em>Hit:</em> 10 (2d6 + 3) slashing damage.</p><p><em><strong>Crystal Dart.</strong></em> <em>Ranged Spell Attack:</em> +5 to hit, range 30 ft., one target. <em>Hit:</em> 7 (1d10 + 2) force damage, and one of the following effects occurs, determined by the kind of dragon that created the gem stalker:</p><p><em><strong>Amethyst.</strong></em> The gem stalker can teleport to an unoccupied space it can see within 30 feet of it.</p><p><em><strong>Crystal.</strong></em> The gem stalker gains a number of temporary hit points equal to the damage dealt.</p><p><em><strong>Emerald.</strong></em> The target must roll a d4 and subtract the number rolled from the next attack roll it makes before the start of the gem stalker's next turn.</p><p><em><strong>Sapphire.</strong></em> The target must succeed on a DC 13 Strength saving throw or be pushed horizontally up to 10 feet away from the gem stalker and be knocked prone.</p><p><em><strong>Topaz.</strong></em> The target must succeed on a DC 13 Constitution saving throw or be poisoned until the start of the gem stalker's next turn.</p>",
     reactions:
@@ -20903,24 +20977,42 @@ const monsters = [
     traits:
       "<p><em><strong>Keen Smell.</strong></em> The giant ant has advantage on Wisdom (Perception) checks that rely on smell.</p>",
     "number of attacks": 2,
-    attacks: {
-      "Bite": {
-        "type": "Melee Weapon Attack",
-        "to hit": "+4",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "6 (1d8 + 2)",
-        "damage type": "bludgeoning"
-      },
-      "Sting": {
-        "type": "Melee Weapon Attack",
-        "to hit": "+4",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "6 (1d8 + 2)",
-        "damage type": "piercing"
-      }
+    "attacks": {
+    "Bite": {
+      "type": "Melee Weapon Attack",
+      "to hit": "+4",
+      "reach": "5 ft.",
+      "target": "one target",
+      "hit": "6 (1d8 + 2)",
+      "damage type": "bludgeoning",
+      "effects": [
+        {
+          "type": "Grapple",
+          "condition": "Target is grappled (escape DC 12). Until this grapple ends, the target is restrained, and the giant ant can't Bite a different target.",
+          "dc": 12,
+          "ability": "Strength"
+        }
+      ]
     },
+    "Sting": {
+      "type": "Melee Weapon Attack",
+      "to hit": "+4",
+      "reach": "5 ft.",
+      "target": "one target",
+      "hit": "6 (1d8 + 2)",
+      "damage type": "piercing",
+      "effects": [
+        {
+          "type": "Poison",
+          "condition": "Target must make a Constitution saving throw, taking poison damage on a failed save, or half as much damage on a successful one.",
+          "dc": 12,
+          "ability": "Constitution",
+          "one-time damage": "11 (2d10)",
+          "ongoing damage type": "poison"
+        }
+      ]
+    }
+  },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The giant ant makes one Bite attack and one Sting attack.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft., one target. <em>Hit:</em> 6 (1d8 + 2) bludgeoning damage, and the target is grappled (escape DC 12). Until this grapple ends, the target is restrained, and the giant ant can't Bite a different target.</p><p><em><strong>Sting.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft., one target. <em>Hit:</em> 6 (1d8 + 2) piercing damage. The target must make a DC 12 Constitution saving throw, taking 11 (2d10) poison damage on a failed save, or half as much damage on a successful one.</p>",
   },
