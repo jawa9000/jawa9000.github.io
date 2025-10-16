@@ -199,6 +199,11 @@ class CombatSimulator {
         // Parse AC from string like "17 (Natural Armor)" to just the number
         const ac = this.parseAC(monsterData['armor class']);
         
+		// Parse resistances and immunities as comma-separated lists
+		const damageResistances = this.parseCommaList(monsterData['damage resistances']);
+		const damageImmunities = this.parseCommaList(monsterData['damage immunities']);
+		const conditionImmunities = this.parseCommaList(monsterData['condition immunities']);
+		
         // Get attack bonus from first attack if available
         let attackBonus = 0;
         if (monsterData.attacks && typeof monsterData.attacks === 'object') {
@@ -235,7 +240,11 @@ class CombatSimulator {
             attacksRemaining: this.parseNumberOfAttacks(monsterData['number of attacks']),
             team: 'Neutral', // Default team, will be overridden when selected
             initiative: null,
-            conditions: [],
+			conditions: [],
+			attacks: monsterData.attacks || null,
+			damageResistances: damageResistances,
+			damageImmunities: damageImmunities,
+			conditionImmunities: conditionImmunities,
             isDead: false,
             originalData: monsterData // Keep reference to original data
         };
@@ -308,6 +317,43 @@ class CombatSimulator {
         }
         return 1;
     }
+
+	// Parse comma-separated fields like damage/condition immunities and resistances
+	parseCommaList(str) {
+		if (!str || typeof str !== 'string') return [];
+		return str
+			.split(',')
+			.map(s => s.trim())
+			.filter(Boolean)
+			.map(s => s.toLowerCase());
+	}
+
+	// Checkers for immunities
+	hasDamageImmunity(target, damageType) {
+		if (!damageType) return false;
+		return Array.isArray(target.damageImmunities) && target.damageImmunities.includes(String(damageType).toLowerCase());
+	}
+
+	hasConditionImmunity(target, condition) {
+		if (!condition) return false;
+		return Array.isArray(target.conditionImmunities) && target.conditionImmunities.includes(String(condition).toLowerCase());
+	}
+
+	// Checker for resistances
+	hasDamageResistance(target, damageType) {
+		if (!damageType) return false;
+		return Array.isArray(target.damageResistances) && target.damageResistances.includes(String(damageType).toLowerCase());
+	}
+
+	// Roll a saving throw for a target
+	rollSavingThrow(target, ability, dc) {
+		const abilityKey = (ability || '').toLowerCase().slice(0, 3); // 'str','dex','con','int','wis','cha'
+		const abilityScore = parseInt(target.originalData?.[abilityKey] ?? 10, 10);
+		const mod = getAbilityModifier(abilityScore);
+		const roll = this.rollDice(20) + mod;
+		this.logMessage(`${target.name} ${ability} save: ${roll} vs DC ${dc}`);
+		return roll >= dc;
+	}
 
     filterMonsters() {
         const searchTerm = $('#monsterSearch').val().toLowerCase();
@@ -482,13 +528,37 @@ class CombatSimulator {
         this.updateActionButtons();
     }
 
-    resetAttacksForCurrentTurn() {
-        const currentCombatant = this.getCurrentCombatant();
-        if (currentCombatant) {
-            currentCombatant.attacksRemaining = currentCombatant.numberOfAttacks || 1;
-            this.logMessage(`${currentCombatant.name} starts their turn with ${currentCombatant.attacksRemaining} attack${currentCombatant.attacksRemaining !== 1 ? 's' : ''} remaining.`);
-        }
-    }
+	resetAttacksForCurrentTurn() {
+		const currentCombatant = this.getCurrentCombatant();
+		if (currentCombatant) {
+			// Apply ongoing start-of-turn effects before actions
+			this.applyStartOfTurnEffects(currentCombatant);
+			currentCombatant.attacksRemaining = currentCombatant.numberOfAttacks || 1;
+			this.logMessage(`${currentCombatant.name} starts their turn with ${currentCombatant.attacksRemaining} attack${currentCombatant.attacksRemaining !== 1 ? 's' : ''} remaining.`);
+		}
+	}
+
+	// Apply ongoing start-of-turn effects like ongoing damage from grapple
+	applyStartOfTurnEffects(combatant) {
+		if (!Array.isArray(combatant.conditions)) return;
+		for (const cond of combatant.conditions) {
+			if (cond.ongoing && /(start of each of its turns)/i.test(cond.ongoing.timing || '')) {
+				const dmgType = (cond.ongoing.type || '').toLowerCase();
+				if (this.hasDamageImmunity(combatant, dmgType)) {
+					this.logMessage(`${combatant.name} is immune to ${dmgType} damage (ongoing).`);
+					continue;
+				}
+				const dmg = this.rollDamage(cond.ongoing.dice);
+				combatant.hp -= dmg;
+				this.logMessage(`${combatant.name} takes ${dmg} ${dmgType || 'damage'} (ongoing).`);
+			}
+		}
+		if (combatant.hp <= 0) {
+			combatant.isDead = true;
+			this.logMessage(`${combatant.name} drops to 0 HP and is defeated!`);
+		}
+		this.updateDisplay();
+	}
 
     // Attack System
     openAttackModal() {
@@ -515,45 +585,233 @@ class CombatSimulator {
         this.performAttack(currentCombatant, targets[0]);
     }
 
-    performAttack(attacker, target, attack) {
-        // If attack is not provided, use the first available attack from attacker
-        if (!attack) {
-            if (attacker.attacks && typeof attacker.attacks === 'object') {
-                attack = Object.values(attacker.attacks)[0];
-            } else {
-                // Fallback to a default attack
-                attack = { "to hit": "+0", hit: "1d6" };
-            }
-        }
+	performAttack(attacker, target, attack) {
+		// If attack is not provided, use the first available attack from attacker
+		if (!attack) {
+			if (attacker.attacks && typeof attacker.attacks === 'object') {
+				attack = Object.values(attacker.attacks)[0];
+			} else {
+				// Fallback to a default attack
+				attack = { "to hit": "+0", hit: "1d6" };
+			}
+		}
 
-        const rawRoll = this.rollDice(20);
-        const attackBonus = attack["to hit"] ? parseInt(attack["to hit"]) : 0;
-        const attackRoll = rawRoll + attackBonus;
-        let isCritical = false;
-        let damage = this.rollDamage(attack.hit);
+		// Save-based attack path (e.g., cones/breaths with DC and half on success)
+		if (attack.save && attack.save.dc && attack.save.ability) {
+			const succeeded = this.rollSavingThrow(target, attack.save.ability, attack.save.dc);
+			const baseDamageDice = attack.save.damage || attack.hit || '1d6';
+			let damage = this.rollDamage(baseDamageDice);
+			const dmgType = (attack['damage type'] || attack.save.damageType || '').toLowerCase();
+			if (this.hasDamageImmunity(target, dmgType)) {
+				this.logMessage(`${target.name} is immune to ${dmgType || 'this'} damage.`);
+				damage = 0;
+			} else if (succeeded && attack.save.halfOnSuccess) {
+				damage = Math.floor(damage / 2);
+				this.logMessage(`${target.name} succeeds and takes half damage: ${damage}.`);
+			} else if (!succeeded) {
+				this.logMessage(`${target.name} fails the save and takes ${damage} damage.`);
+			} else {
+				this.logMessage(`${target.name} takes ${damage} damage.`);
+			}
 
-        // Check for critical hit (natural 20 on the d20)
-        if (rawRoll === 20) {
-            isCritical = true;
-            damage *= 2;
-            this.logMessage(`CRITICAL HIT! ${attacker.name} rolls a natural 20 against ${target.name} and deals ${damage} damage!`);
-        } else {
-            this.logMessage(`${attacker.name} attacks ${target.name} with ${attackRoll >= target.ac ? "a hit" : "a miss"} (roll: ${attackRoll}).`);
-            if (attackRoll >= target.ac) {
-                this.logMessage(`${attacker.name} deals ${damage} damage to ${target.name}.`);
-            }
-        }
+			// Apply resistance for save-based damage
+			if (damage > 0 && this.hasDamageResistance(target, dmgType)) {
+				const before = damage;
+				damage = Math.floor(damage / 2);
+				this.logMessage(`${target.name} resists ${dmgType} damage (${before} -> ${damage}).`);
+			}
 
-        // Apply damage if hit
-        if (attackRoll >= target.ac) {
-            target.hp -= damage;
-            if (target.hp <= 0) {
-                target.isDead = true;
-                this.logMessage(`${target.name} drops to 0 HP and is defeated!`);
-            }
-            this.updateDisplay();
-        }
-    }
+			if (damage > 0) {
+				target.hp -= damage;
+				if (target.hp <= 0) {
+					target.isDead = true;
+					this.logMessage(`${target.name} drops to 0 HP and is defeated!`);
+				}
+				this.updateDisplay();
+			}
+
+			// Optional rider on failed save
+			if (!succeeded && attack.save.onFail && attack.save.onFail.pull) {
+				this.logMessage(`${target.name} is pulled ${attack.save.onFail.pull} ft. toward ${attacker.name}.`);
+			}
+			return;
+		}
+
+		// Attack roll path
+		const rawRoll = this.rollDice(20);
+		const attackBonus = attack["to hit"] ? parseInt(attack["to hit"]) : 0;
+		const attackRoll = rawRoll + attackBonus;
+		const isCritical = rawRoll === 20;
+
+		let damage = this.rollDamage(attack.hit || '1d6');
+		if (isCritical) damage *= 2;
+
+		const damageTypeField = (attack['damage type'] || '').toLowerCase();
+		// For strings like "bludgeoning plus acid", treat first segment as primary type
+		const mainDmgType = damageTypeField.split(' plus ')[0].trim();
+
+		if (attackRoll >= target.ac) {
+			this.logMessage(`${attacker.name} hits ${target.name} (roll ${attackRoll}).`);
+			// Apply primary damage if not immune
+			if (!this.hasDamageImmunity(target, mainDmgType)) {
+				if (damage > 0) {
+					// Apply resistance if present
+					if (this.hasDamageResistance(target, mainDmgType)) {
+						const before = damage;
+						damage = Math.floor(damage / 2);
+						this.logMessage(`${target.name} resists ${mainDmgType} damage (${before} -> ${damage}).`);
+					}
+					this.logMessage(`${attacker.name} deals ${damage} ${mainDmgType || 'damage'} to ${target.name}.`);
+					target.hp -= damage;
+				}
+			} else {
+				this.logMessage(`${target.name} is immune to ${mainDmgType || 'this'} damage.`);
+			}
+
+			// Apply extra damage parts (e.g., plus acid)
+			if (attack.extraDamage && Array.isArray(attack.extraDamage)) {
+				for (const part of attack.extraDamage) {
+					const partType = (part.type || '').toLowerCase();
+					if (this.hasDamageImmunity(target, partType)) {
+						this.logMessage(`${target.name} is immune to ${partType} damage.`);
+						continue;
+					}
+					let partDmg = this.rollDamage(part.dice || '1d6');
+					if (this.hasDamageResistance(target, partType)) {
+						const before = partDmg;
+						partDmg = Math.floor(partDmg / 2);
+						this.logMessage(`${target.name} resists ${partType} damage (${before} -> ${partDmg}).`);
+					}
+					target.hp -= partDmg;
+					this.logMessage(`${target.name} takes ${partDmg} ${partType || 'damage'}.`);
+				}
+			}
+
+			// Poison handling if provided on attack (save, damage, condition)
+			if (attack.poison) {
+				this.logMessage(`${attacker.name} attempts to poison ${target.name}!`);
+				const poisonCfg = attack.poison;
+				const dmgType = 'poison';
+				let applyCondition = true;
+				if (poisonCfg.save && poisonCfg.save.dc && poisonCfg.save.ability) {
+					const succeeded = this.rollSavingThrow(target, poisonCfg.save.ability, poisonCfg.save.dc);
+					if (succeeded && poisonCfg.save.halfOnSuccess && poisonCfg.damage) {
+						let pdmg = this.rollDamage(poisonCfg.damage);
+						if (this.hasDamageImmunity(target, dmgType)) {
+							this.logMessage(`${target.name} is immune to poison damage.`);
+							pdmg = 0;
+						} else if (this.hasDamageResistance(target, dmgType)) {
+							const before = pdmg;
+							pdmg = Math.floor(pdmg / 2);
+							this.logMessage(`${target.name} resists poison damage (${before} -> ${pdmg}).`);
+						}
+						pdmg = Math.floor(pdmg / 2);
+						target.hp -= pdmg;
+						this.logMessage(`${target.name} succeeds the poison save and takes ${pdmg} poison damage.`);
+						applyCondition = false;
+					} else if (!succeeded) {
+						if (poisonCfg.damage) {
+							let pdmg = this.rollDamage(poisonCfg.damage);
+							if (this.hasDamageImmunity(target, dmgType)) {
+								this.logMessage(`${target.name} is immune to poison damage.`);
+								pdmg = 0;
+							} else if (this.hasDamageResistance(target, dmgType)) {
+								const before = pdmg;
+								pdmg = Math.floor(pdmg / 2);
+								this.logMessage(`${target.name} resists poison damage (${before} -> ${pdmg}).`);
+							}
+							target.hp -= pdmg;
+							this.logMessage(`${target.name} fails the poison save and takes ${pdmg} poison damage.`);
+						}
+						applyCondition = true;
+					} else {
+						// No halfOnSuccess or no damage specified: just a binary save
+						applyCondition = !succeeded;
+					}
+				}
+				if (applyCondition && poisonCfg.condition && !this.hasConditionImmunity(target, 'poisoned')) {
+					target.conditions.push({ name: 'Poisoned', sourceId: attacker.id, duration: poisonCfg.duration || null });
+					this.logMessage(`${target.name} is poisoned${poisonCfg.duration ? ` for ${poisonCfg.duration}` : ''}.`);
+				} else if (applyCondition && this.hasConditionImmunity(target, 'poisoned')) {
+					this.logMessage(`${target.name} is immune to the poisoned condition.`);
+				}
+			}
+
+			// On-hit effects (e.g., grapple)
+			if (attack.effects && Array.isArray(attack.effects)) {
+				for (const effect of attack.effects) {
+					if ((effect.type || '').toLowerCase() === 'grapple') {
+						if (this.hasConditionImmunity(target, 'grappled')) {
+							this.logMessage(`${target.name} is immune to being grappled.`);
+							continue;
+						}
+						// If the effect specifies a saving throw on hit, allow it; else apply and use escape DC later
+						let applyGrapple = true;
+						if (effect.save && effect.save.dc && effect.save.ability) {
+							const resisted = this.rollSavingThrow(target, effect.save.ability, effect.save.dc);
+							applyGrapple = !resisted;
+						}
+						if (applyGrapple) {
+							target.conditions.push({
+								name: 'Grappled',
+								sourceId: attacker.id,
+								escapeDc: effect.escape_dc,
+								ability: effect.ability || 'Strength',
+								ongoing: effect['ongoing damage'] ? {
+									dice: effect['ongoing damage'],
+									type: effect['ongoing damage type'],
+									timing: effect['ongoing damage timing']
+								} : null
+							});
+							this.logMessage(`${target.name} is grappled (escape DC ${effect.escape_dc}).`);
+						} else {
+							this.logMessage(`${target.name} resists the grapple.`);
+						}
+					} else if ((effect.type || '').toLowerCase() === 'poison') {
+						// Support Giant Ant-style effects objects with dc, ability, and "one-time damage"
+						const dc = effect.dc;
+						const ability = effect.ability || 'Constitution';
+						const damageField = effect['one-time damage'] || effect['damage'] || null;
+						const poisonType = (effect['ongoing damage type'] || 'poison').toLowerCase();
+						if (dc && ability && damageField) {
+							const succeeded = this.rollSavingThrow(target, ability, dc);
+							let poisonDice = this.parseDamage(String(damageField));
+							let pdmg = this.rollDamage(poisonDice || '1d6');
+							// Apply immunity and resistance
+							if (this.hasDamageImmunity(target, poisonType)) {
+								this.logMessage(`${target.name} is immune to ${poisonType} damage.`);
+								pdmg = 0;
+							} else if (this.hasDamageResistance(target, poisonType)) {
+								const before = pdmg;
+								pdmg = Math.floor(pdmg / 2);
+								this.logMessage(`${target.name} resists ${poisonType} damage (${before} -> ${pdmg}).`);
+							}
+							if (succeeded) {
+								const half = Math.floor(pdmg / 2);
+								target.hp -= half;
+								this.logMessage(`${target.name} succeeds the ${ability} save vs poison (DC ${dc}) and takes ${half} ${poisonType} damage.`);
+							} else {
+								target.hp -= pdmg;
+								this.logMessage(`${target.name} fails the ${ability} save vs poison (DC ${dc}) and takes ${pdmg} ${poisonType} damage.`);
+							}
+							this.updateDisplay();
+						} else {
+							// Missing fields; log for visibility
+							this.logMessage(`Poison effect present but missing dc/ability/one-time damage; skipping detailed processing.`);
+						}
+					}
+				}
+			}
+
+			if (target.hp <= 0) {
+				target.isDead = true;
+				this.logMessage(`${target.name} drops to 0 HP and is defeated!`);
+			}
+			this.updateDisplay();
+		} else {
+			this.logMessage(`${attacker.name} misses ${target.name} (roll ${attackRoll}).`);
+		}
+	}
 
     rollDamage(damageString) {
         const match = damageString.match(/(\d+)d(\d+)([+-]\d+)?/);
@@ -630,9 +888,36 @@ class CombatSimulator {
                 this.endTurn();
                 return;
             }
-            // Attack first valid target
-            this.performAttack(currentCombatant, targets[0]);
-        }, 1200); // 1.2 seconds per turn for readability
+            // Attack first valid target with proper attack selection
+            this.performAttack(currentCombatant, targets[0], this.selectAttackForSimulation(currentCombatant));
+        }, 100); // 0.1 seconds per turn for fast simulation
+    }
+
+    // Select an attack for simulation, prioritizing attacks with special effects
+    selectAttackForSimulation(combatant) {
+        if (!combatant.attacks || typeof combatant.attacks !== 'object') {
+            return null; // Will use fallback in performAttack
+        }
+        
+        const attacks = Object.values(combatant.attacks);
+        if (attacks.length === 0) return null;
+        
+        // Prioritize attacks with poison, save effects, or special abilities
+        const specialAttacks = attacks.filter(attack => 
+            attack.poison || attack.save || attack.effects || attack.extraDamage
+        );
+        
+        if (specialAttacks.length > 0) {
+            // Randomly select from special attacks
+            const selectedAttack = specialAttacks[Math.floor(Math.random() * specialAttacks.length)];
+            if (selectedAttack.poison) {
+                this.logMessage(`${combatant.name} uses a poison attack!`);
+            }
+            return selectedAttack;
+        }
+        
+        // Fall back to first available attack
+        return attacks[0];
     }
 
     // Utility Methods
