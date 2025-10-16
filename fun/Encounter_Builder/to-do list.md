@@ -1390,50 +1390,18 @@ Physical Damage:
 * Piercing
 * Slashing
 Magical Damage:
-* Acid
-* Cold
-* Fire
-* Force
-* Lightning
-* Necrotic
-* Poison
-* Psychic
-* Radiant
-* Thunder
+* Acid - code added but the monster properties haven't been updated as this attack type seems to be rather complicated.
+* Cold - code added but the monster properties haven't been updated as this attack type seems to be rather complicated.
+* Fire - done
+* Force - code added but the monster properties haven't been updated yet, untested and no effect properties added to the monsters yet.
+* Lightning - code added but the monster properties haven't been updated yet, untested and no effect properties added to the monsters yet.
+* Necrotic - code added but the monster properties haven't been updated yet, untested and no effect properties added to the monsters yet.
+* Poison - done
+* Psychic - code added but the monster properties haven't been updated yet, untested and no effect properties added to the monsters yet.
+* Radiant - code added but the monster properties haven't been updated yet, untested and no effect properties added to the monsters yet.
+* Thunder - code added but the monster properties haven't been updated yet, untested and no effect properties added to the monsters yet.
+
+Note: I've been using this Gemini session (https://gemini.google.com/app/aa2282d7bc91cf8c) to convert the JSON data of various monsters to include attack effects.
 
 Attack properties that extend beyond normal damage:
 * 
-
-Looking through all the monster's properties in "damage resistances", "damage immunities", and "condition immunities", process the values of these keys as strings. Separate and identify the values by a comma. If an attack was successful against a target, and it doesn't have damage or condition immunities, then that target must make a saving throw
-
-
-Looking at the following JSON data, provide a suggestion how this code can include attack hit effects. In this case, if the monster hits with it's Pseudopod attack, the target could be grappled and must make a DC 15 saving throw to escape. It also has acid damage as well too on a successful hit. It has another attack called Slime Breath that requires targets to make a Dexterity saving throw of 14 that gives 4d10 acid damage or half on a successful saving throw.
-
-JSON code
-:::
-attacks: {
-      "Pseudopod": {
-"type": "Melee Weapon Attack",
-"to hit": "+7",
-"reach": "10 ft.",
-"target": "one target",
-"hit": "9 (1d10 + 4)",
-"damage type": "bludgeoning plus acid"
-}
-    },
-    actions:
-      "<p><em><strong>Multiattack.</strong></em> The ooze makes two Pseudopod attacks. The ooze can replace one Pseudopod attack with its Slime Breath, if available.</p><p><em><strong>Pseudopod.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 10 ft. one target. <em>Hit:</em> 9 (1d10 + 4) bludgeoning damage plus 14 (4d6) acid damage. If the target is a Large or smaller creature, it is grappled (escape DC 15). Until this grapple ends, the target takes 7 (2d6) acid damage at the start of each of its turns.</p><p><em><strong>Slime Breath (Recharge 6).</strong></em> The ooze expels a spray of its gelatinous mass in a 30-foot cone. Each creature in that area must make a DC 14 Dexterity saving throw. On a failed save, the creature takes 22 (4d10) acid damage and is pulled up to 30 feet straight toward the ooze. On a successful save, the creature takes half as much damage and isn't pulled.</p>",
-:::
-
-
-"effects": [
-  {
-    "type": "grapple",
-    "condition": "If the target is a Large or smaller creature",
-    "escape_dc": 15,
-    "ability": "Dexterity",
-    "ongoing damage": "7 (2d6)",
-    "ongoing damage type": "acid",
-    "ongoing damage timing": "start of each of its turns"
-  }
-]
