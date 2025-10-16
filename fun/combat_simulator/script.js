@@ -42,11 +42,6 @@ class CombatSimulator {
         // Monster selection controls
         $('#monsterSearch').on('input', () => this.filterMonsters());
         $('#monsterFilter').change(() => this.filterMonsters());
-        $('#monsterTeam').change(() => {
-            this.selectedMonsterTeam = $('#monsterTeam').val();
-            this.updateMonsterModalHeader();
-            console.log('Monster team changed to:', this.selectedMonsterTeam); // Debug log
-        });
         
         // Team filter controls
         $('#switchTeamA').click(() => this.setTeamFilter('Team A'));
@@ -63,6 +58,9 @@ class CombatSimulator {
         // Remove Team Monsters buttons
         $('#removeTeamAMonsters').click(() => this.removeMonstersFromTeam('Team A'));
         $('#removeTeamBMonsters').click(() => this.removeMonstersFromTeam('Team B'));
+        
+        // Copy Team Info button
+        $('#copyTeamInfo').click(() => this.copyTeamInfoToClipboard());
     }
 
     // Character Management
@@ -78,10 +76,8 @@ class CombatSimulator {
     openMonsterSelectionModal() {
         $('#monsterModal').show();
 
-        // Use current team filter if it's a specific team, otherwise default to Team A
-        const defaultTeam = (this.currentTeamFilter !== 'All Teams') ? this.currentTeamFilter : 'Team A';
-        $('#monsterTeam').val(defaultTeam);
-        this.selectedMonsterTeam = defaultTeam;
+        // Use current team filter as the monster team - no separate team picker in modal
+        this.selectedMonsterTeam = this.currentTeamFilter !== 'All Teams' ? this.currentTeamFilter : 'Team A';
         this.updateMonsterModalHeader();
         this.populateMonsterList();
 
@@ -106,8 +102,10 @@ class CombatSimulator {
 
     updateMonsterModalHeader() {
         const teamClass = this.selectedMonsterTeam.toLowerCase().replace(' ', '-');
-        const header = $(`<h2>Select Monster <span class="team-indicator ${teamClass}">${this.selectedMonsterTeam}</span></h2>`);
+        const header = $(`<h2>Select Monster for <span class="team-indicator ${teamClass}">${this.selectedMonsterTeam}</span></h2>`);
         $('#monsterModal .modal-content h2').replaceWith(header);
+        // Log team assignment info to combat log
+        this.logMessage(`Adding monsters to: ${this.selectedMonsterTeam} (Use team controls to change)`);
     }
 
     populateMonsterList() {
@@ -454,7 +452,6 @@ class CombatSimulator {
         this.resetCharacterForm();
         $('#monsterSearch').val('');
         $('#monsterFilter').val('');
-        $('#monsterTeam').val('Team A');
         $('#switchAll').addClass('active');
         $('.btn-team').removeClass('active');
         
@@ -514,6 +511,7 @@ class CombatSimulator {
         if (!this.combatActive) return;
 
         this.currentTurnIndex++;
+        this.logMessage(`Ending turn ${this.currentTurnIndex}.`);
         
         // Check if round is complete
         if (this.currentTurnIndex >= this.initiativeOrder.length) {
@@ -639,7 +637,7 @@ class CombatSimulator {
 
 		// Attack roll path
 		const rawRoll = this.rollDice(20);
-		const attackBonus = attack["to hit"] ? parseInt(attack["to hit"]) : 0;
+		const attackBonus = attack["to hit"] ? parseInt(attack["to hit"].replace('+', '')) || 0 : 0;
 		const attackRoll = rawRoll + attackBonus;
 		const isCritical = rawRoll === 20;
 
@@ -651,7 +649,7 @@ class CombatSimulator {
 		const mainDmgType = damageTypeField.split(' plus ')[0].trim();
 
 		if (attackRoll >= target.ac) {
-			this.logMessage(`${attacker.name} hits ${target.name} (roll ${attackRoll}).`);
+			this.logMessage(`${attacker.name} (${attacker.team}) hits ${target.name} (${target.team}) (roll ${attackRoll}).`);
 			// Apply primary damage if not immune
 			if (!this.hasDamageImmunity(target, mainDmgType)) {
 				if (damage > 0) {
@@ -799,6 +797,38 @@ class CombatSimulator {
 							// Missing fields; log for visibility
 							this.logMessage(`Poison effect present but missing dc/ability/one-time damage; skipping detailed processing.`);
 						}
+					} else if ((effect.type || '').toLowerCase() === 'fire') {
+						// Support fire effects with dc, ability, and "one-time damage"
+						const dc = effect.dc;
+						const ability = effect.ability || 'Dexterity';
+						const damageField = effect['one-time damage'] || effect['damage'] || null;
+						const fireType = (effect['ongoing damage type'] || 'fire').toLowerCase();
+						if (dc && ability && damageField) {
+							const succeeded = this.rollSavingThrow(target, ability, dc);
+							let fireDice = this.parseDamage(String(damageField));
+							let fdmg = this.rollDamage(fireDice || '1d6');
+							// Apply immunity and resistance
+							if (this.hasDamageImmunity(target, fireType)) {
+								this.logMessage(`${target.name} is immune to ${fireType} damage.`);
+								fdmg = 0;
+							} else if (this.hasDamageResistance(target, fireType)) {
+								const before = fdmg;
+								fdmg = Math.floor(fdmg / 2);
+								this.logMessage(`${target.name} resists ${fireType} damage (${before} -> ${fdmg}).`);
+							}
+							if (succeeded) {
+								const half = Math.floor(fdmg / 2);
+								target.hp -= half;
+								this.logMessage(`${target.name} succeeds the ${ability} save vs fire (DC ${dc}) and takes ${half} ${fireType} damage.`);
+							} else {
+								target.hp -= fdmg;
+								this.logMessage(`${target.name} fails the ${ability} save vs fire (DC ${dc}) and takes ${fdmg} ${fireType} damage.`);
+							}
+							this.updateDisplay();
+						} else {
+							// Missing fields; log for visibility
+							this.logMessage(`Fire effect present but missing dc/ability/one-time damage; skipping detailed processing.`);
+						}
 					}
 				}
 			}
@@ -809,7 +839,7 @@ class CombatSimulator {
 			}
 			this.updateDisplay();
 		} else {
-			this.logMessage(`${attacker.name} misses ${target.name} (roll ${attackRoll}).`);
+			this.logMessage(`${attacker.name} (${attacker.team}) misses ${target.name} (${target.team}) (roll ${attackRoll}).`);
 		}
 	}
 
@@ -858,6 +888,8 @@ class CombatSimulator {
             return;
         }
         this.logMessage('Battle simulation started!', 'attack');
+        // Debug: Log initiative order
+        this.logMessage(`Initiative order: ${this.initiativeOrder.map(c => `${c.name} (${c.team})`).join(', ')}`);
         let interval = setInterval(() => {
             // Check for end condition
             const aliveTeams = {};
@@ -877,19 +909,26 @@ class CombatSimulator {
             // Simulate current turn
             const currentCombatant = this.getCurrentCombatant();
             if (!currentCombatant || currentCombatant.isDead) {
+                this.logMessage(`Turn ${this.currentTurnIndex + 1}: No valid combatant, ending turn.`);
                 this.endTurn();
                 return;
             }
+            this.logMessage(`Turn ${this.currentTurnIndex + 1}: ${currentCombatant.name} (${currentCombatant.team}) acts.`);
             // Find valid targets
             const targets = this.initiativeOrder.filter(c => 
                 c.id !== currentCombatant.id && !c.isDead && c.team !== currentCombatant.team
             );
             if (targets.length === 0) {
+                this.logMessage(`${currentCombatant.name} (${currentCombatant.team}) has no valid targets.`);
                 this.endTurn();
                 return;
             }
+            // Debug: Log target selection
+            this.logMessage(`${currentCombatant.name} (${currentCombatant.team}) targets ${targets[0].name} (${targets[0].team}).`);
             // Attack first valid target with proper attack selection
             this.performAttack(currentCombatant, targets[0], this.selectAttackForSimulation(currentCombatant));
+            // End turn after attack to advance to next combatant
+            this.endTurn();
         }, 100); // 0.1 seconds per turn for fast simulation
     }
 
@@ -902,7 +941,7 @@ class CombatSimulator {
         const attacks = Object.values(combatant.attacks);
         if (attacks.length === 0) return null;
         
-        // Prioritize attacks with poison, save effects, or special abilities
+        // Prioritize attacks with poison, fire, save effects, or special abilities
         const specialAttacks = attacks.filter(attack => 
             attack.poison || attack.save || attack.effects || attack.extraDamage
         );
@@ -912,6 +951,8 @@ class CombatSimulator {
             const selectedAttack = specialAttacks[Math.floor(Math.random() * specialAttacks.length)];
             if (selectedAttack.poison) {
                 this.logMessage(`${combatant.name} uses a poison attack!`);
+            } else if (selectedAttack.effects && selectedAttack.effects.some(e => (e.type || '').toLowerCase() === 'fire')) {
+                this.logMessage(`${combatant.name} uses a fire attack!`);
             }
             return selectedAttack;
         }
@@ -1041,15 +1082,15 @@ class CombatSimulator {
     }
 
     updateActionButtons() {
+        // Disable all action buttons except #simulateBattleBtn
+        $(".action-buttons button").not("#simulateBattleBtn").prop("disabled", true);
+        // Only enable #simulateBattleBtn if appropriate
         const currentCombatant = this.getCurrentCombatant();
         const hasActiveCombatant = currentCombatant !== null;
         const hasValidTargets = this.initiativeOrder.filter(c => !c.isDead).length > 1;
         const hasAttacksRemaining = currentCombatant ? currentCombatant.attacksRemaining > 0 : false;
-        
-        $('#attackBtn').prop('disabled', !hasActiveCombatant || !hasValidTargets || !hasAttacksRemaining);
-        $('#castSpellBtn').prop('disabled', !hasActiveCombatant);
-        $('#dodgeBtn').prop('disabled', !hasActiveCombatant);
-        $('#endTurnBtn').prop('disabled', !hasActiveCombatant);
+        // If you want to control #simulateBattleBtn's enabled state, you can do so here:
+        // $('#simulateBattleBtn').prop('disabled', !this.combatActive || this.initiativeOrder.length === 0);
     }
 
     // Additional Methods
@@ -1100,6 +1141,78 @@ class CombatSimulator {
         this.initiativeOrder = this.initiativeOrder.filter(c => !(c.type === 'monster' && c.team === team));
         this.updateDisplay();
         this.logMessage(`Removed ${beforeCount - afterCount} monster(s) from ${team}.`);
+    }
+
+    copyTeamInfoToClipboard() {
+        try {
+            // Get team information
+            const teamInfo = this.getTeamInfo();
+            
+            // Copy to clipboard
+            navigator.clipboard.writeText(teamInfo).then(() => {
+                this.logMessage('Team information copied to clipboard!');
+            }).catch(err => {
+                // Fallback for older browsers
+                this.fallbackCopyToClipboard(teamInfo);
+            });
+        } catch (err) {
+            this.logMessage('Failed to copy team information to clipboard.');
+            console.error('Copy error:', err);
+        }
+    }
+
+    getTeamInfo() {
+        const teams = {};
+        
+        // Group combatants by team
+        this.combatants.forEach(combatant => {
+            if (!teams[combatant.team]) {
+                teams[combatant.team] = [];
+            }
+            teams[combatant.team].push(combatant);
+        });
+
+        // Format team information
+        let teamInfo = '=== D&D Combat Simulator - Team Information ===\n\n';
+        
+        Object.keys(teams).forEach(teamName => {
+            teamInfo += `--- ${teamName} ---\n`;
+            teams[teamName].forEach(combatant => {
+                const status = combatant.isDead ? ' (DEAD)' : '';
+                const hp = `${combatant.hp}/${combatant.maxHp}`;
+                teamInfo += `• ${combatant.name}${status} - HP: ${hp}, AC: ${combatant.ac}\n`;
+            });
+            teamInfo += '\n';
+        });
+
+        // Add current view and round info
+        teamInfo += `Current View: ${this.currentTeamFilter}\n`;
+        if (this.combatActive) {
+            teamInfo += `Combat Round: ${this.combatRound}\n`;
+            teamInfo += `Current Turn: ${this.currentTurnIndex + 1} of ${this.initiativeOrder.length}\n`;
+        }
+
+        return teamInfo;
+    }
+
+    fallbackCopyToClipboard(text) {
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-999999px';
+        textArea.style.top = '-999999px';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        
+        try {
+            document.execCommand('copy');
+            this.logMessage('Team information copied to clipboard!');
+        } catch (err) {
+            this.logMessage('Failed to copy team information to clipboard.');
+        }
+        
+        document.body.removeChild(textArea);
     }
 }
 
