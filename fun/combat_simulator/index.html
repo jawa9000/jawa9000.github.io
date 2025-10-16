@@ -61,6 +61,9 @@
 
         <div class="combat-log">
             <h2>Combat Log</h2>
+            <div class="log-controls">
+                <button id="copyTeamInfo" class="btn btn-secondary">Copy Team Info</button>
+            </div>
             <div id="combatLog" class="log-content">
                 <p>Combat log will appear here...</p>
             </div>
@@ -149,14 +152,6 @@
                     <option value="Plant">Plant</option>
                     <option value="Undead">Undead</option>
                 </select>
-                <div class="team-selection">
-                    <label for="monsterTeam">Add to Team:</label>
-                    <select id="monsterTeam">
-                        <option value="Team A">Team A</option>
-                        <option value="Team B">Team B</option>
-                        <option value="Neutral">Neutral</option>
-                    </select>
-                </div>
             </div>
             <div id="monsterList" class="monster-list">
                 <!-- Monster list will be populated here -->
