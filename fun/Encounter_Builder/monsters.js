@@ -5129,16 +5129,37 @@ const monsters = [
     traits:
       "<p><em><strong>Ooze Cube.</strong></em> The cube takes up its entire space. Other creatures can enter the space, but a creature that does so is subjected to the cube's Engulf and has disadvantage on the saving throw.</p><p>Creatures inside the cube can be seen but have total cover.</p><p>A creature within 5 feet of the cube can take an action to pull a creature or object out of the cube. Doing so requires a successful DC 12 Strength check, and the creature making the attempt takes 10 (3d6) acid damage.</p><p>The cube can hold only one Large creature or up to four Medium or smaller creatures inside it at a time.</p><p><em><strong>Transparent.</strong></em> Even when the cube is in plain sight, it takes a successful DC 15 Wisdom (Perception) check to spot a cube that has neither moved nor attacked. A creature that tries to enter the cube's space while unaware of the cube is surprised by the cube.</p>",
     "number of attacks": 1,
-    attacks: {
-      "Pseudopod": {
-        "type": "Melee Weapon Attack",
-        "to hit": "+4",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "10 (3d6)",
-        "damage type": "acid"
-      }
+    "attacks": {
+    "Pseudopod": {
+      "type": "Melee Weapon Attack",
+      "to hit": "+4",
+      "reach": "5 ft.",
+      "target": "one target",
+      "hit": "10 (3d6)",
+      "damage type": "acid"
     },
+    "Engulf": {
+      "type": "Other",
+      "target": "Large or smaller creatures",
+      "effects": [
+        {
+          "type": "Engulf",
+          "dc": 12,
+          "ability": "Dexterity",
+          "one-time damage": "10 (3d6)",
+          "condition": "The creature takes the damage and is engulfed. The engulfed creature can't breathe, is restrained, and takes ongoing damage at the start of each of the cube's turns.",
+          "ongoing damage": "21 (6d6)",
+          "ongoing damage type": "acid"
+        },
+        {
+          "type": "Escape Engulf",
+          "dc": 12,
+          "ability": "Strength",
+          "condition": "The engulfed creature can try to escape by taking an action to make this check. On a success, the creature escapes and enters a space of its choice within 5 feet of the cube."
+        }
+      ]
+    }
+  },
     actions:
       "<p><em><strong>Pseudopod.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft. one creature. <em>Hit:</em> 10 (3d6) acid damage.</p><p><em><strong>Engulf.</strong></em> The cube moves up to its speed. While doing so, it can enter Large or smaller creatures' spaces. Whenever the cube enters a creature's space, the creature must make a DC 12 Dexterity saving throw.</p><p>On a successful save, the creature can choose to be pushed 5 feet back or to the side of the cube. A creature that chooses not to be pushed suffers the consequences of a failed saving throw.</p><p>On a failed save, the cube enters the creature's space, and the creature takes 10 (3d6) acid damage and is engulfed. The engulfed creature can't breathe, is restrained, and takes 21 (6d6) acid damage at the start of each of the cube's turns. When the cube moves, the engulfed creature moves with it.</p><p>An engulfed creature can try to escape by taking an action to make a DC 12 Strength check. On a success, the creature escapes and enters a space of its choice within 5 feet of the cube.</p>",
     "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/409/1000/1000/636252786406028958.jpeg",
@@ -21094,24 +21115,47 @@ const monsters = [
     traits:
       "<p><em><strong>Ice Walk.</strong></em> The hoarfrost drake can move across and climb icy surfaces without needing to make an ability check. Additionally, difficult terrain composed of ice or snow doesn't cost it extra movement.</p><p><em><strong>Icy Scales.</strong></em> The hoarfrost drake has advantage on ability checks and saving throws made to escape a grapple.</p>",
     "number of attacks": 3,
-    attacks: {
-      "Bite": {
-        "type": "Melee Weapon Attack",
-        "to hit": "+4",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "5 (1d6 + 2) piercing damage plus 2 (1d4) cold damage",
-        "damage type": "piercing, cold"
-      },
-      "Claw": {
-        "type": "Melee Weapon Attack",
-        "to hit": "+4",
-        "reach": "5 ft.",
-        "target": "one target",
-        "hit": "4 (1d4 + 2)",
-        "damage type": "slashing"
-      }
+    "attacks": {
+    "Bite": {
+      "type": "Melee Weapon Attack",
+      "to hit": "+4",
+      "reach": "5 ft.",
+      "target": "one target",
+      "hit": "5 (1d6 + 2)",
+      "damage type": "piercing, cold",
+      "on hit damage": "2 (1d4)",
+      "on hit damage type": "cold"
     },
+    "Claw": {
+      "type": "Melee Weapon Attack",
+      "to hit": "+4",
+      "reach": "5 ft.",
+      "target": "one target",
+      "hit": "4 (1d4 + 2)",
+      "damage type": "slashing"
+    },
+    "Cloud of Riming Ice": {
+      "type": "Action (Save)",
+      "reach": "20 ft.",
+      "target": "Each creature within 20 feet",
+      "damage type": "cold",
+      "effects": [
+        {
+          "type": "Cold",
+          "condition": "Target takes cold damage on a failed save, or half on a successful one.",
+          "dc": 14,
+          "ability": "Constitution",
+          "one-time damage": "14 (4d6)"
+        },
+        {
+          "type": "Disarm/Drop",
+          "condition": "On a failed Constitution save, the target must succeed on a secondary Dexterity saving throw or drop whatever it's holding. The area becomes difficult terrain.",
+          "dc": 12,
+          "ability": "Dexterity"
+        }
+      ]
+    }
+  },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The hoarfrost drake makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft., one target. <em>Hit:</em> 5 (1d6 + 2) piercing damage plus 2 (1d4) cold damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft., one target. <em>Hit:</em> 4 (1d4 + 2) slashing damage.</p><p><em><strong>Cloud of Riming Ice (Recharge 5-6).</strong></em> The hoarfrost drake creates a cloud of freezing fog that rimes everything in frost. Each creature within 20 feet of it must make a DC 14 Constitution saving throw. On a failure, the target takes 14 (4d6) cold damage and must succeed on a DC 12 Dexterity saving throw or drop whatever it's holding. On a success, the target takes half the damage and doesn't drop what it's holding. The area becomes difficult terrain until the end of the hoarfrost drake's next turn. A creature that enters the area or ends its turn there must succeed on a DC 14 Dexterity saving throw or fall prone.</p>",
     reactions:
