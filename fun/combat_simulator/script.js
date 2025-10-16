@@ -201,7 +201,7 @@ class CombatSimulator {
 		const damageResistances = this.parseCommaList(monsterData['damage resistances']);
 		const damageImmunities = this.parseCommaList(monsterData['damage immunities']);
 		const conditionImmunities = this.parseCommaList(monsterData['condition immunities']);
-		
+        
         // Get attack bonus from first attack if available
         let attackBonus = 0;
         if (monsterData.attacks && typeof monsterData.attacks === 'object') {
@@ -238,7 +238,7 @@ class CombatSimulator {
             attacksRemaining: this.parseNumberOfAttacks(monsterData['number of attacks']),
             team: 'Neutral', // Default team, will be overridden when selected
             initiative: null,
-			conditions: [],
+            conditions: [],
 			attacks: monsterData.attacks || null,
 			damageResistances: damageResistances,
 			damageImmunities: damageImmunities,
@@ -351,7 +351,7 @@ class CombatSimulator {
 		const roll = this.rollDice(20) + mod;
 		this.logMessage(`${target.name} ${ability} save: ${roll} vs DC ${dc}`);
 		return roll >= dc;
-	}
+    }
 
     filterMonsters() {
         const searchTerm = $('#monsterSearch').val().toLowerCase();
@@ -526,15 +526,15 @@ class CombatSimulator {
         this.updateActionButtons();
     }
 
-	resetAttacksForCurrentTurn() {
-		const currentCombatant = this.getCurrentCombatant();
-		if (currentCombatant) {
+    resetAttacksForCurrentTurn() {
+        const currentCombatant = this.getCurrentCombatant();
+        if (currentCombatant) {
 			// Apply ongoing start-of-turn effects before actions
 			this.applyStartOfTurnEffects(currentCombatant);
-			currentCombatant.attacksRemaining = currentCombatant.numberOfAttacks || 1;
-			this.logMessage(`${currentCombatant.name} starts their turn with ${currentCombatant.attacksRemaining} attack${currentCombatant.attacksRemaining !== 1 ? 's' : ''} remaining.`);
-		}
-	}
+            currentCombatant.attacksRemaining = currentCombatant.numberOfAttacks || 1;
+            this.logMessage(`${currentCombatant.name} starts their turn with ${currentCombatant.attacksRemaining} attack${currentCombatant.attacksRemaining !== 1 ? 's' : ''} remaining.`);
+        }
+    }
 
 	// Apply ongoing start-of-turn effects like ongoing damage from grapple
 	applyStartOfTurnEffects(combatant) {
@@ -583,16 +583,16 @@ class CombatSimulator {
         this.performAttack(currentCombatant, targets[0]);
     }
 
-	performAttack(attacker, target, attack) {
-		// If attack is not provided, use the first available attack from attacker
-		if (!attack) {
-			if (attacker.attacks && typeof attacker.attacks === 'object') {
-				attack = Object.values(attacker.attacks)[0];
-			} else {
-				// Fallback to a default attack
-				attack = { "to hit": "+0", hit: "1d6" };
-			}
-		}
+    performAttack(attacker, target, attack) {
+        // If attack is not provided, use the first available attack from attacker
+        if (!attack) {
+            if (attacker.attacks && typeof attacker.attacks === 'object') {
+                attack = Object.values(attacker.attacks)[0];
+            } else {
+                // Fallback to a default attack
+                attack = { "to hit": "+0", hit: "1d6" };
+            }
+        }
 
 		// Save-based attack path (e.g., cones/breaths with DC and half on success)
 		if (attack.save && attack.save.dc && attack.save.ability) {
@@ -636,9 +636,9 @@ class CombatSimulator {
 		}
 
 		// Attack roll path
-		const rawRoll = this.rollDice(20);
+        const rawRoll = this.rollDice(20);
 		const attackBonus = attack["to hit"] ? parseInt(attack["to hit"].replace('+', '')) || 0 : 0;
-		const attackRoll = rawRoll + attackBonus;
+        const attackRoll = rawRoll + attackBonus;
 		const isCritical = rawRoll === 20;
 
 		let damage = this.rollDamage(attack.hit || '1d6');
@@ -648,7 +648,7 @@ class CombatSimulator {
 		// For strings like "bludgeoning plus acid", treat first segment as primary type
 		const mainDmgType = damageTypeField.split(' plus ')[0].trim();
 
-		if (attackRoll >= target.ac) {
+            if (attackRoll >= target.ac) {
 			this.logMessage(`${attacker.name} (${attacker.team}) hits ${target.name} (${target.team}) (roll ${attackRoll}).`);
 			// Apply primary damage if not immune
 			if (!this.hasDamageImmunity(target, mainDmgType)) {
@@ -829,19 +829,268 @@ class CombatSimulator {
 							// Missing fields; log for visibility
 							this.logMessage(`Fire effect present but missing dc/ability/one-time damage; skipping detailed processing.`);
 						}
+					} else if ((effect.type || '').toLowerCase() === 'acid') {
+						// Support acid effects with dc, ability, and "one-time damage"
+						const dc = effect.dc;
+						const ability = effect.ability || 'Dexterity';
+						const damageField = effect['one-time damage'] || effect['damage'] || null;
+						const acidType = (effect['ongoing damage type'] || 'acid').toLowerCase();
+						if (dc && ability && damageField) {
+							const succeeded = this.rollSavingThrow(target, ability, dc);
+							let acidDice = this.parseDamage(String(damageField));
+							let admg = this.rollDamage(acidDice || '1d6');
+							// Apply immunity and resistance
+							if (this.hasDamageImmunity(target, acidType)) {
+								this.logMessage(`${target.name} is immune to ${acidType} damage.`);
+								admg = 0;
+							} else if (this.hasDamageResistance(target, acidType)) {
+								const before = admg;
+								admg = Math.floor(admg / 2);
+								this.logMessage(`${target.name} resists ${acidType} damage (${before} -> ${admg}).`);
+							}
+							if (succeeded) {
+								const half = Math.floor(admg / 2);
+								target.hp -= half;
+								this.logMessage(`${target.name} succeeds the ${ability} save vs acid (DC ${dc}) and takes ${half} ${acidType} damage.`);
+							} else {
+								target.hp -= admg;
+								this.logMessage(`${target.name} fails the ${ability} save vs acid (DC ${dc}) and takes ${admg} ${acidType} damage.`);
+							}
+							this.updateDisplay();
+						} else {
+							// Missing fields; log for visibility
+							this.logMessage(`Acid effect present but missing dc/ability/one-time damage; skipping detailed processing.`);
+						}
+					} else if ((effect.type || '').toLowerCase() === 'cold') {
+						// Support cold effects with dc, ability, and "one-time damage"
+						const dc = effect.dc;
+						const ability = effect.ability || 'Constitution';
+						const damageField = effect['one-time damage'] || effect['damage'] || null;
+						const coldType = (effect['ongoing damage type'] || 'cold').toLowerCase();
+						if (dc && ability && damageField) {
+							const succeeded = this.rollSavingThrow(target, ability, dc);
+							let coldDice = this.parseDamage(String(damageField));
+							let cdmg = this.rollDamage(coldDice || '1d6');
+							// Apply immunity and resistance
+							if (this.hasDamageImmunity(target, coldType)) {
+								this.logMessage(`${target.name} is immune to ${coldType} damage.`);
+								cdmg = 0;
+							} else if (this.hasDamageResistance(target, coldType)) {
+								const before = cdmg;
+								cdmg = Math.floor(cdmg / 2);
+								this.logMessage(`${target.name} resists ${coldType} damage (${before} -> ${cdmg}).`);
+							}
+							if (succeeded) {
+								const half = Math.floor(cdmg / 2);
+								target.hp -= half;
+								this.logMessage(`${target.name} succeeds the ${ability} save vs cold (DC ${dc}) and takes ${half} ${coldType} damage.`);
+							} else {
+								target.hp -= cdmg;
+								this.logMessage(`${target.name} fails the ${ability} save vs cold (DC ${dc}) and takes ${cdmg} ${coldType} damage.`);
+							}
+							this.updateDisplay();
+						} else {
+							this.logMessage(`Cold effect present but missing dc/ability/one-time damage; skipping detailed processing.`);
+						}
+					} else if ((effect.type || '').toLowerCase() === 'force') {
+						// Support force effects with dc, ability, and "one-time damage"
+						const dc = effect.dc;
+						const ability = effect.ability || 'Dexterity';
+						const damageField = effect['one-time damage'] || effect['damage'] || null;
+						const forceType = (effect['ongoing damage type'] || 'force').toLowerCase();
+						if (dc && ability && damageField) {
+							const succeeded = this.rollSavingThrow(target, ability, dc);
+							let forceDice = this.parseDamage(String(damageField));
+							let fdmg = this.rollDamage(forceDice || '1d6');
+							// Apply immunity and resistance
+							if (this.hasDamageImmunity(target, forceType)) {
+								this.logMessage(`${target.name} is immune to ${forceType} damage.`);
+								fdmg = 0;
+							} else if (this.hasDamageResistance(target, forceType)) {
+								const before = fdmg;
+								fdmg = Math.floor(fdmg / 2);
+								this.logMessage(`${target.name} resists ${forceType} damage (${before} -> ${fdmg}).`);
+							}
+							if (succeeded) {
+								const half = Math.floor(fdmg / 2);
+								target.hp -= half;
+								this.logMessage(`${target.name} succeeds the ${ability} save vs force (DC ${dc}) and takes ${half} ${forceType} damage.`);
+							} else {
+								target.hp -= fdmg;
+								this.logMessage(`${target.name} fails the ${ability} save vs force (DC ${dc}) and takes ${fdmg} ${forceType} damage.`);
+							}
+							this.updateDisplay();
+						} else {
+							this.logMessage(`Force effect present but missing dc/ability/one-time damage; skipping detailed processing.`);
+						}
+					} else if ((effect.type || '').toLowerCase() === 'lightning') {
+						// Support lightning effects with dc, ability, and "one-time damage"
+						const dc = effect.dc;
+						const ability = effect.ability || 'Dexterity';
+						const damageField = effect['one-time damage'] || effect['damage'] || null;
+						const lightningType = (effect['ongoing damage type'] || 'lightning').toLowerCase();
+						if (dc && ability && damageField) {
+							const succeeded = this.rollSavingThrow(target, ability, dc);
+							let lightningDice = this.parseDamage(String(damageField));
+							let ldmg = this.rollDamage(lightningDice || '1d6');
+							// Apply immunity and resistance
+							if (this.hasDamageImmunity(target, lightningType)) {
+								this.logMessage(`${target.name} is immune to ${lightningType} damage.`);
+								ldmg = 0;
+							} else if (this.hasDamageResistance(target, lightningType)) {
+								const before = ldmg;
+								ldmg = Math.floor(ldmg / 2);
+								this.logMessage(`${target.name} resists ${lightningType} damage (${before} -> ${ldmg}).`);
+							}
+							if (succeeded) {
+								const half = Math.floor(ldmg / 2);
+								target.hp -= half;
+								this.logMessage(`${target.name} succeeds the ${ability} save vs lightning (DC ${dc}) and takes ${half} ${lightningType} damage.`);
+							} else {
+								target.hp -= ldmg;
+								this.logMessage(`${target.name} fails the ${ability} save vs lightning (DC ${dc}) and takes ${ldmg} ${lightningType} damage.`);
+							}
+							this.updateDisplay();
+						} else {
+							this.logMessage(`Lightning effect present but missing dc/ability/one-time damage; skipping detailed processing.`);
+						}
+					} else if ((effect.type || '').toLowerCase() === 'necrotic') {
+						// Support necrotic effects with dc, ability, and "one-time damage"
+						const dc = effect.dc;
+						const ability = effect.ability || 'Constitution';
+						const damageField = effect['one-time damage'] || effect['damage'] || null;
+						const necroticType = (effect['ongoing damage type'] || 'necrotic').toLowerCase();
+						if (dc && ability && damageField) {
+							const succeeded = this.rollSavingThrow(target, ability, dc);
+							let necroticDice = this.parseDamage(String(damageField));
+							let ndmg = this.rollDamage(necroticDice || '1d6');
+							// Apply immunity and resistance
+							if (this.hasDamageImmunity(target, necroticType)) {
+								this.logMessage(`${target.name} is immune to ${necroticType} damage.`);
+								ndmg = 0;
+							} else if (this.hasDamageResistance(target, necroticType)) {
+								const before = ndmg;
+								ndmg = Math.floor(ndmg / 2);
+								this.logMessage(`${target.name} resists ${necroticType} damage (${before} -> ${ndmg}).`);
+							}
+							if (succeeded) {
+								const half = Math.floor(ndmg / 2);
+								target.hp -= half;
+								this.logMessage(`${target.name} succeeds the ${ability} save vs necrotic (DC ${dc}) and takes ${half} ${necroticType} damage.`);
+							} else {
+								target.hp -= ndmg;
+								this.logMessage(`${target.name} fails the ${ability} save vs necrotic (DC ${dc}) and takes ${ndmg} ${necroticType} damage.`);
+							}
+							this.updateDisplay();
+						} else {
+							this.logMessage(`Necrotic effect present but missing dc/ability/one-time damage; skipping detailed processing.`);
+						}
+					} else if ((effect.type || '').toLowerCase() === 'psychic') {
+						// Support psychic effects with dc, ability, and "one-time damage"
+						const dc = effect.dc;
+						const ability = effect.ability || 'Wisdom';
+						const damageField = effect['one-time damage'] || effect['damage'] || null;
+						const psychicType = (effect['ongoing damage type'] || 'psychic').toLowerCase();
+						if (dc && ability && damageField) {
+							const succeeded = this.rollSavingThrow(target, ability, dc);
+							let psychicDice = this.parseDamage(String(damageField));
+							let pdmg = this.rollDamage(psychicDice || '1d6');
+							// Apply immunity and resistance
+							if (this.hasDamageImmunity(target, psychicType)) {
+								this.logMessage(`${target.name} is immune to ${psychicType} damage.`);
+								pdmg = 0;
+							} else if (this.hasDamageResistance(target, psychicType)) {
+								const before = pdmg;
+								pdmg = Math.floor(pdmg / 2);
+								this.logMessage(`${target.name} resists ${psychicType} damage (${before} -> ${pdmg}).`);
+							}
+							if (succeeded) {
+								const half = Math.floor(pdmg / 2);
+								target.hp -= half;
+								this.logMessage(`${target.name} succeeds the ${ability} save vs psychic (DC ${dc}) and takes ${half} ${psychicType} damage.`);
+							} else {
+								target.hp -= pdmg;
+								this.logMessage(`${target.name} fails the ${ability} save vs psychic (DC ${dc}) and takes ${pdmg} ${psychicType} damage.`);
+							}
+							this.updateDisplay();
+						} else {
+							this.logMessage(`Psychic effect present but missing dc/ability/one-time damage; skipping detailed processing.`);
+						}
+					} else if ((effect.type || '').toLowerCase() === 'radiant') {
+						// Support radiant effects with dc, ability, and "one-time damage"
+						const dc = effect.dc;
+						const ability = effect.ability || 'Constitution';
+						const damageField = effect['one-time damage'] || effect['damage'] || null;
+						const radiantType = (effect['ongoing damage type'] || 'radiant').toLowerCase();
+						if (dc && ability && damageField) {
+							const succeeded = this.rollSavingThrow(target, ability, dc);
+							let radiantDice = this.parseDamage(String(damageField));
+							let rdmg = this.rollDamage(radiantDice || '1d6');
+							// Apply immunity and resistance
+							if (this.hasDamageImmunity(target, radiantType)) {
+								this.logMessage(`${target.name} is immune to ${radiantType} damage.`);
+								rdmg = 0;
+							} else if (this.hasDamageResistance(target, radiantType)) {
+								const before = rdmg;
+								rdmg = Math.floor(rdmg / 2);
+								this.logMessage(`${target.name} resists ${radiantType} damage (${before} -> ${rdmg}).`);
+							}
+							if (succeeded) {
+								const half = Math.floor(rdmg / 2);
+								target.hp -= half;
+								this.logMessage(`${target.name} succeeds the ${ability} save vs radiant (DC ${dc}) and takes ${half} ${radiantType} damage.`);
+							} else {
+								target.hp -= rdmg;
+								this.logMessage(`${target.name} fails the ${ability} save vs radiant (DC ${dc}) and takes ${rdmg} ${radiantType} damage.`);
+							}
+							this.updateDisplay();
+						} else {
+							this.logMessage(`Radiant effect present but missing dc/ability/one-time damage; skipping detailed processing.`);
+						}
+					} else if ((effect.type || '').toLowerCase() === 'thunder') {
+						// Support thunder effects with dc, ability, and "one-time damage"
+						const dc = effect.dc;
+						const ability = effect.ability || 'Constitution';
+						const damageField = effect['one-time damage'] || effect['damage'] || null;
+						const thunderType = (effect['ongoing damage type'] || 'thunder').toLowerCase();
+						if (dc && ability && damageField) {
+							const succeeded = this.rollSavingThrow(target, ability, dc);
+							let thunderDice = this.parseDamage(String(damageField));
+							let tdmg = this.rollDamage(thunderDice || '1d6');
+							// Apply immunity and resistance
+							if (this.hasDamageImmunity(target, thunderType)) {
+								this.logMessage(`${target.name} is immune to ${thunderType} damage.`);
+								tdmg = 0;
+							} else if (this.hasDamageResistance(target, thunderType)) {
+								const before = tdmg;
+								tdmg = Math.floor(tdmg / 2);
+								this.logMessage(`${target.name} resists ${thunderType} damage (${before} -> ${tdmg}).`);
+							}
+							if (succeeded) {
+								const half = Math.floor(tdmg / 2);
+								target.hp -= half;
+								this.logMessage(`${target.name} succeeds the ${ability} save vs thunder (DC ${dc}) and takes ${half} ${thunderType} damage.`);
+							} else {
+								target.hp -= tdmg;
+								this.logMessage(`${target.name} fails the ${ability} save vs thunder (DC ${dc}) and takes ${tdmg} ${thunderType} damage.`);
+							}
+							this.updateDisplay();
+						} else {
+							this.logMessage(`Thunder effect present but missing dc/ability/one-time damage; skipping detailed processing.`);
+						}
 					}
 				}
 			}
 
-			if (target.hp <= 0) {
-				target.isDead = true;
-				this.logMessage(`${target.name} drops to 0 HP and is defeated!`);
-			}
-			this.updateDisplay();
+            if (target.hp <= 0) {
+                target.isDead = true;
+                this.logMessage(`${target.name} drops to 0 HP and is defeated!`);
+            }
+            this.updateDisplay();
 		} else {
 			this.logMessage(`${attacker.name} (${attacker.team}) misses ${target.name} (${target.team}) (roll ${attackRoll}).`);
-		}
-	}
+        }
+    }
 
     rollDamage(damageString) {
         const match = damageString.match(/(\d+)d(\d+)([+-]\d+)?/);
@@ -941,7 +1190,7 @@ class CombatSimulator {
         const attacks = Object.values(combatant.attacks);
         if (attacks.length === 0) return null;
         
-        // Prioritize attacks with poison, fire, save effects, or special abilities
+        // Prioritize attacks with special damage effects, save effects, or special abilities
         const specialAttacks = attacks.filter(attack => 
             attack.poison || attack.save || attack.effects || attack.extraDamage
         );
@@ -953,6 +1202,22 @@ class CombatSimulator {
                 this.logMessage(`${combatant.name} uses a poison attack!`);
             } else if (selectedAttack.effects && selectedAttack.effects.some(e => (e.type || '').toLowerCase() === 'fire')) {
                 this.logMessage(`${combatant.name} uses a fire attack!`);
+            } else if (selectedAttack.effects && selectedAttack.effects.some(e => (e.type || '').toLowerCase() === 'acid')) {
+                this.logMessage(`${combatant.name} uses an acid attack!`);
+            } else if (selectedAttack.effects && selectedAttack.effects.some(e => (e.type || '').toLowerCase() === 'cold')) {
+                this.logMessage(`${combatant.name} uses a cold attack!`);
+            } else if (selectedAttack.effects && selectedAttack.effects.some(e => (e.type || '').toLowerCase() === 'force')) {
+                this.logMessage(`${combatant.name} uses a force attack!`);
+            } else if (selectedAttack.effects && selectedAttack.effects.some(e => (e.type || '').toLowerCase() === 'lightning')) {
+                this.logMessage(`${combatant.name} uses a lightning attack!`);
+            } else if (selectedAttack.effects && selectedAttack.effects.some(e => (e.type || '').toLowerCase() === 'necrotic')) {
+                this.logMessage(`${combatant.name} uses a necrotic attack!`);
+            } else if (selectedAttack.effects && selectedAttack.effects.some(e => (e.type || '').toLowerCase() === 'psychic')) {
+                this.logMessage(`${combatant.name} uses a psychic attack!`);
+            } else if (selectedAttack.effects && selectedAttack.effects.some(e => (e.type || '').toLowerCase() === 'radiant')) {
+                this.logMessage(`${combatant.name} uses a radiant attack!`);
+            } else if (selectedAttack.effects && selectedAttack.effects.some(e => (e.type || '').toLowerCase() === 'thunder')) {
+                this.logMessage(`${combatant.name} uses a thunder attack!`);
             }
             return selectedAttack;
         }
