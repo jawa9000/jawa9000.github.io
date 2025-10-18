@@ -244,7 +244,8 @@ class CombatSimulator {
 			damageImmunities: damageImmunities,
 			conditionImmunities: conditionImmunities,
             isDead: false,
-            originalData: monsterData // Keep reference to original data
+            originalData: monsterData, // Keep reference to original data
+            attackMemory: {} // Track ineffective attacks against specific targets
         };
     }
 
@@ -266,7 +267,8 @@ class CombatSimulator {
             initiative: null,
             conditions: [],
             isDead: false,
-            originalData: null
+            originalData: null,
+            attackMemory: {} // Track ineffective attacks against specific targets
         };
     }
 
@@ -319,11 +321,18 @@ class CombatSimulator {
 	// Parse comma-separated fields like damage/condition immunities and resistances
 	parseCommaList(str) {
 		if (!str || typeof str !== 'string') return [];
-		return str
+		const result = str
 			.split(',')
 			.map(s => s.trim())
 			.filter(Boolean)
 			.map(s => s.toLowerCase());
+		
+		// If the result contains "none", return empty array
+		if (result.includes('none')) {
+			return [];
+		}
+		
+		return result;
 	}
 
 	// Checkers for immunities
@@ -580,7 +589,7 @@ class CombatSimulator {
 
         // For now, attack the first available target
         // In a full implementation, you'd have a target selection UI
-        const selectedAttack = this.selectAttackForSimulation(currentCombatant);
+        const selectedAttack = this.selectAttackForSimulation(currentCombatant, targets[0]);
         this.performAttack(currentCombatant, targets[0], selectedAttack);
     }
 
@@ -625,20 +634,36 @@ class CombatSimulator {
 				this.logMessage(`${target.name} is immune to ${dmgType || 'this'} damage from ${attacker.name}'s ${attackName}.`);
 				damage = 0;
 			} else if (succeeded && attack.save.halfOnSuccess) {
+				const originalDamage = damage;
 				damage = Math.floor(damage / 2);
-				this.logMessage(`${target.name} succeeds against ${attacker.name}'s ${attackName} and takes half ${dmgType || 'damage'}: ${damage}.`);
+				if (this.hasDamageResistance(target, dmgType)) {
+					const beforeResistance = damage;
+					damage = Math.floor(damage / 2);
+					this.logMessage(`${target.name} succeeds against ${attacker.name}'s ${attackName} and takes half ${dmgType || 'damage'}: ${damage} (resistance: ${beforeResistance - damage}).`);
+				} else {
+					this.logMessage(`${target.name} succeeds against ${attacker.name}'s ${attackName} and takes half ${dmgType || 'damage'}: ${damage}.`);
+				}
 			} else if (!succeeded) {
-				this.logMessage(`${target.name} fails the save against ${attacker.name}'s ${attackName} and takes ${damage} ${dmgType || 'damage'}.`);
+				const originalDamage = damage;
+				if (this.hasDamageResistance(target, dmgType)) {
+					const beforeResistance = damage;
+					damage = Math.floor(damage / 2);
+					this.logMessage(`${target.name} fails the save against ${attacker.name}'s ${attackName} and takes ${damage} ${dmgType || 'damage'} (resistance: ${beforeResistance - damage}).`);
+				} else {
+					this.logMessage(`${target.name} fails the save against ${attacker.name}'s ${attackName} and takes ${damage} ${dmgType || 'damage'}.`);
+				}
 			} else {
-				this.logMessage(`${target.name} takes ${damage} ${dmgType || 'damage'} from ${attacker.name}'s ${attackName}.`);
+				const originalDamage = damage;
+				if (this.hasDamageResistance(target, dmgType)) {
+					const beforeResistance = damage;
+					damage = Math.floor(damage / 2);
+					this.logMessage(`${target.name} takes ${damage} ${dmgType || 'damage'} from ${attacker.name}'s ${attackName} (resistance: ${beforeResistance - damage}).`);
+				} else {
+					this.logMessage(`${target.name} takes ${damage} ${dmgType || 'damage'} from ${attacker.name}'s ${attackName}.`);
+				}
 			}
 
-			// Apply resistance for save-based damage
-			if (damage > 0 && this.hasDamageResistance(target, dmgType)) {
-				const before = damage;
-				damage = Math.floor(damage / 2);
-				this.logMessage(`${target.name} resists ${dmgType} damage (${before} -> ${damage}).`);
-			}
+			// Remove the separate resistance handling since it's now integrated above
 
 			if (damage > 0) {
 				target.hp -= damage;
@@ -665,24 +690,33 @@ class CombatSimulator {
 				const succeeded = this.rollSavingThrow(target, effect.ability, effect.dc);
 				const baseDamageDice = effect['one-time damage'] || '1d6';
 				let damage = this.rollDamage(baseDamageDice);
-				const dmgType = (effect['ongoing damage type'] || effect['damage type'] || '').toLowerCase();
+				const dmgType = (attack['damage type'] || effect['ongoing damage type'] || effect['damage type'] || '').toLowerCase();
 				
 				if (this.hasDamageImmunity(target, dmgType)) {
 					this.logMessage(`${target.name} is immune to ${dmgType || 'this'} damage from ${attacker.name}'s ${attackName}.`);
 					damage = 0;
 				} else if (succeeded) {
+					const originalDamage = damage;
 					damage = Math.floor(damage / 2);
-					this.logMessage(`${target.name} succeeds against ${attacker.name}'s ${attackName} and takes half ${dmgType || 'damage'}: ${damage}.`);
+					if (this.hasDamageResistance(target, dmgType)) {
+						const beforeResistance = damage;
+						damage = Math.floor(damage / 2);
+						this.logMessage(`${target.name} succeeds against ${attacker.name}'s ${attackName} and takes half ${dmgType || 'damage'}: ${damage} (resistance: ${beforeResistance - damage}).`);
+					} else {
+						this.logMessage(`${target.name} succeeds against ${attacker.name}'s ${attackName} and takes half ${dmgType || 'damage'}: ${damage}.`);
+					}
 				} else {
-					this.logMessage(`${target.name} fails the save against ${attacker.name}'s ${attackName} and takes ${damage} ${dmgType || 'damage'}.`);
+					const originalDamage = damage;
+					if (this.hasDamageResistance(target, dmgType)) {
+						const beforeResistance = damage;
+						damage = Math.floor(damage / 2);
+						this.logMessage(`${target.name} fails the save against ${attacker.name}'s ${attackName} and takes ${damage} ${dmgType || 'damage'} (resistance: ${beforeResistance - damage}).`);
+					} else {
+						this.logMessage(`${target.name} fails the save against ${attacker.name}'s ${attackName} and takes ${damage} ${dmgType || 'damage'}.`);
+					}
 				}
 
-				// Apply resistance for effects-based damage
-				if (damage > 0 && this.hasDamageResistance(target, dmgType)) {
-					const before = damage;
-					damage = Math.floor(damage / 2);
-					this.logMessage(`${target.name} resists ${dmgType} damage (${before} -> ${damage}).`);
-				}
+				// Remove the separate resistance handling since it's now integrated above
 
 				if (damage > 0) {
 					target.hp -= damage;
@@ -731,12 +765,11 @@ class CombatSimulator {
 			if (!this.hasDamageImmunity(target, mainDmgType)) {
 				if (damage > 0) {
 					// Apply resistance if present
+					const originalDamage = damage;
 					if (this.hasDamageResistance(target, mainDmgType)) {
-						const before = damage;
 						damage = Math.floor(damage / 2);
-						this.logMessage(`${target.name} resists ${mainDmgType} damage (${before} -> ${damage}).`);
 					}
-					this.logMessage(`${attacker.name} deals ${damage} ${mainDmgType || 'damage'} to ${target.name}.`);
+					this.logMessage(this.formatDamageMessage(attacker, target, damage, mainDmgType, originalDamage));
 					target.hp -= damage;
 				}
 			} else {
@@ -752,13 +785,12 @@ class CombatSimulator {
 						continue;
 					}
 					let partDmg = this.rollDamage(part.dice || '1d6');
+					const originalPartDmg = partDmg;
 					if (this.hasDamageResistance(target, partType)) {
-						const before = partDmg;
 						partDmg = Math.floor(partDmg / 2);
-						this.logMessage(`${target.name} resists ${partType} damage (${before} -> ${partDmg}).`);
 					}
 					target.hp -= partDmg;
-					this.logMessage(`${target.name} takes ${partDmg} ${partType || 'damage'}.`);
+					this.logMessage(this.formatDamageMessage(attacker, target, partDmg, partType, originalPartDmg));
 				}
 			}
 
@@ -1169,6 +1201,13 @@ class CombatSimulator {
 			const attackName = this.getAttackName(attacker, attack);
 			this.logMessage(`${attacker.name} (${attacker.team}) misses ${target.name} (${target.team}) with ${attackName} (roll ${attackRoll}).`);
         }
+        
+        // Record attack effectiveness for learning (only if attack hit)
+        if (attackRoll >= target.ac) {
+            const totalDamageDealt = this.calculateTotalDamageDealt(attacker, target, attack);
+            const damageType = this.getAttackDamageType(attack);
+            this.recordAttackEffectiveness(attacker, target, attack, totalDamageDealt, damageType);
+        }
     }
 
     rollDamage(damageString) {
@@ -1208,6 +1247,137 @@ class CombatSimulator {
         
         // Final fallback
         return 'attack';
+    }
+
+    // Helper method to format damage message with resistance information
+    formatDamageMessage(attacker, target, damage, damageType, originalDamage = null) {
+        let message = `${attacker.name} deals ${damage} ${damageType || 'damage'} to ${target.name}`;
+        
+        // Add resistance information if applicable
+        if (originalDamage && originalDamage > damage && this.hasDamageResistance(target, damageType)) {
+            message += ` (resistance: ${originalDamage - damage})`;
+        }
+        
+        message += '.';
+        return message;
+    }
+
+    // Track ineffective attacks for learning purposes
+    recordAttackEffectiveness(attacker, target, attack, damageDealt, damageType) {
+        if (!attacker.attackMemory) {
+            attacker.attackMemory = {};
+        }
+        
+        const targetId = target.id;
+        if (!attacker.attackMemory[targetId]) {
+            attacker.attackMemory[targetId] = {};
+        }
+        
+        const attackName = this.getAttackName(attacker, attack);
+        const effectiveness = this.calculateAttackEffectiveness(attack);
+        
+        // Consider attack ineffective if:
+        // 1. No damage dealt (0 damage)
+        // 2. Very low damage compared to attack effectiveness (less than 25% of expected)
+        const isIneffective = damageDealt === 0 || damageDealt < (effectiveness * 0.25);
+        
+        if (isIneffective) {
+            attacker.attackMemory[targetId][attackName] = {
+                ineffective: true,
+                damageType: damageType,
+                lastUsed: Date.now(),
+                attempts: (attacker.attackMemory[targetId][attackName]?.attempts || 0) + 1
+            };
+            
+            // Log the learning
+            const intScore = parseInt(attacker.originalData?.int || 10);
+            const wisScore = parseInt(attacker.originalData?.wis || 10);
+            const higherMentalScore = Math.max(intScore, wisScore);
+            
+            if (higherMentalScore >= 12) {
+                this.logMessage(`${attacker.name} remembers that ${attackName} was ineffective against ${target.name}.`);
+            }
+        } else {
+            // Remove from ineffective list if attack was effective
+            if (attacker.attackMemory[targetId][attackName]) {
+                delete attacker.attackMemory[targetId][attackName];
+            }
+        }
+    }
+
+    // Check if an attack is remembered as ineffective against a specific target
+    isAttackRememberedAsIneffective(attacker, target, attack) {
+        if (!attacker.attackMemory || !attacker.attackMemory[target.id]) {
+            return false;
+        }
+        
+        const attackName = this.getAttackName(attacker, attack);
+        const memory = attacker.attackMemory[target.id][attackName];
+        
+        if (!memory || !memory.ineffective) {
+            return false;
+        }
+        
+        // Check if memory is recent (within last 5 rounds)
+        const memoryAge = Date.now() - memory.lastUsed;
+        const fiveRoundsMs = 5 * 60 * 1000; // 5 minutes in milliseconds
+        
+        return memoryAge < fiveRoundsMs;
+    }
+
+    // Calculate total damage dealt by an attack (for learning purposes)
+    calculateTotalDamageDealt(attacker, target, attack) {
+        // This is a simplified calculation - in a real implementation, 
+        // you'd track the actual damage dealt during the attack
+        let totalDamage = 0;
+        
+        // For regular attacks
+        if (attack.hit) {
+            totalDamage += this.parseAverageDamage(attack.hit);
+        }
+        
+        // For save-based attacks
+        if (attack.save && attack.save.damage) {
+            totalDamage += this.parseAverageDamage(attack.save.damage);
+        }
+        
+        // For effects-based attacks
+        if (attack.effects && Array.isArray(attack.effects)) {
+            for (const effect of attack.effects) {
+                if (effect['one-time damage']) {
+                    totalDamage += this.parseAverageDamage(effect['one-time damage']);
+                }
+            }
+        }
+        
+        return totalDamage;
+    }
+
+    // Get the primary damage type of an attack
+    getAttackDamageType(attack) {
+        // Check attack level first
+        if (attack['damage type']) {
+            return attack['damage type'].toLowerCase();
+        }
+        
+        // Check save-based damage type
+        if (attack.save && attack.save.damageType) {
+            return attack.save.damageType.toLowerCase();
+        }
+        
+        // Check effects-based damage type
+        if (attack.effects && Array.isArray(attack.effects)) {
+            for (const effect of attack.effects) {
+                if (effect['ongoing damage type']) {
+                    return effect['ongoing damage type'].toLowerCase();
+                }
+                if (effect['damage type']) {
+                    return effect['damage type'].toLowerCase();
+                }
+            }
+        }
+        
+        return 'unknown';
     }
 
     // Spell System (Basic)
@@ -1274,14 +1444,14 @@ class CombatSimulator {
             // Debug: Log target selection
             this.logMessage(`${currentCombatant.name} (${currentCombatant.team}) targets ${targets[0].name} (${targets[0].team}).`);
             // Attack first valid target with proper attack selection
-            this.performAttack(currentCombatant, targets[0], this.selectAttackForSimulation(currentCombatant));
+            this.performAttack(currentCombatant, targets[0], this.selectAttackForSimulation(currentCombatant, targets[0]));
             // End turn after attack to advance to next combatant
             this.endTurn();
         }, 100); // 0.1 seconds per turn for fast simulation
     }
 
     // Select an attack for simulation, prioritizing attacks with special effects
-    selectAttackForSimulation(combatant) {
+    selectAttackForSimulation(combatant, target = null) {
         if (!combatant.attacks || typeof combatant.attacks !== 'object') {
             return null; // Will use fallback in performAttack
         }
@@ -1299,8 +1469,24 @@ class CombatSimulator {
         const wisScore = parseInt(combatant.originalData?.wis || 10);
         const higherMentalScore = Math.max(intScore, wisScore);
         
-        // Calculate attack effectiveness for each attack
-        const attackEffectiveness = attacks.map(attack => {
+        // Filter out attacks remembered as ineffective against this target
+        let availableAttacks = attacks;
+        if (target && higherMentalScore >= 10) {
+            availableAttacks = attacks.filter(attack => 
+                !this.isAttackRememberedAsIneffective(combatant, target, attack)
+            );
+            
+            // If all attacks are remembered as ineffective, use all attacks anyway
+            if (availableAttacks.length === 0) {
+                availableAttacks = attacks;
+                this.logMessage(`${combatant.name} has no effective attacks remembered, trying any attack.`);
+            } else if (availableAttacks.length < attacks.length) {
+                this.logMessage(`${combatant.name} avoids attacks remembered as ineffective against ${target.name}.`);
+            }
+        }
+        
+        // Calculate attack effectiveness for each available attack
+        const attackEffectiveness = availableAttacks.map(attack => {
             const effectiveness = this.calculateAttackEffectiveness(attack);
             return { attack, effectiveness };
         });
@@ -1321,8 +1507,8 @@ class CombatSimulator {
             this.logMessage(`${combatant.name} (Int ${intScore}/Wis ${wisScore}) chooses the most effective attack.`);
             return bestAttack;
         } else {
-            // Monster chooses randomly from all attacks
-            const randomAttack = attacks[Math.floor(Math.random() * attacks.length)];
+            // Monster chooses randomly from available attacks
+            const randomAttack = availableAttacks[Math.floor(Math.random() * availableAttacks.length)];
             this.logMessage(`${combatant.name} (Int ${intScore}/Wis ${wisScore}) chooses an attack randomly.`);
             return randomAttack;
         }

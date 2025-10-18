@@ -18,7 +18,7 @@ const monsters = [
     "saving throws": "DEX +7, CON +10, WIS +6, CHA +8",
     skills: "Perception +11, Stealth +7",
     "damage immunities": "None",
-    "damage resistances": "None",
+    "damage resistances": "Cold, Fire, Thunder",
     senses: "Blindsight 60 ft. Darkvision 120 ft. Passive Perception 21",
     languages: ["Common", "Draconic"],
     challenge: "14 (11,500 XP)",
@@ -49,21 +49,21 @@ const monsters = [
                 }
             ]
         }, 
-        "Spit Poison": {
-            "type": "Action (Save)",
-            "reach": "10 ft.",
-            "target": "one creature",
-            "damage type": "poison",
-            "effects": [
-                {
-                "type": "Poison",
-                "condition": "Target must make a Dexterity saving throw, taking poison damage on a failed save, or half as much damage on a successful one.",
-                "dc": 11,
-                "ability": "Constitution",
-                "one-time damage": "9 (2d8)"
-                }
-            ]
-        }, 
+        // "Spit Poison": {
+        //     "type": "Action (Save)",
+        //     "reach": "10 ft.",
+        //     "target": "one creature",
+        //     "damage type": "poison",
+        //     "effects": [
+        //         {
+        //         "type": "Poison",
+        //         "condition": "Target must make a Dexterity saving throw, taking poison damage on a failed save, or half as much damage on a successful one.",
+        //         "dc": 11,
+        //         "ability": "Constitution",
+        //         "one-time damage": "9 (2d8)"
+        //         }
+        //     ]
+        // }, 
         // "Spit Fire": {
         //     "type": "Action (Save)",
         //     "reach": "10 ft.",
