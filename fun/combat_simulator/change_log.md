@@ -25,6 +25,8 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
 
 
 ## Active Projects
+Implement damage immunities.
+
 Separate the functionality of script.js into different JavaScript files that is logical and is easier to maintain.
 
 ## Do-to List
