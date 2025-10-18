@@ -583,6 +583,25 @@ class CombatSimulator {
         this.performAttack(currentCombatant, targets[0]);
     }
 
+    // helper: parse damage strings like "10 (3d6)" or "17 (2d10 + 6)"
+    parseDamageString(damageStr) {
+        if (!damageStr) return 0;
+        // prefer the parenthetical dice expression if present
+        const paren = damageStr.match(/\(([^)]+)\)/);
+        const expr = paren ? paren[1].trim() : damageStr.trim();
+        // If rollDamage helper exists use it (common in this project)
+        if (typeof this.rollDamage === 'function') {
+            try {
+                return this.rollDamage(expr);
+            } catch (e) {
+                // fallthrough to numeric parse
+            }
+        }
+        // fallback: take leading number (e.g. "10 (3d6)" -> 10)
+        const num = damageStr.match(/^\s*(\d+)/);
+        return num ? parseInt(num[1], 10) : 0;
+    }
+
     performAttack(attacker, target, attack) {
         // If attack is not provided, use the first available attack from attacker
         if (!attack) {
@@ -596,20 +615,21 @@ class CombatSimulator {
 
 		// Save-based attack path (e.g., cones/breaths with DC and half on success)
 		if (attack.save && attack.save.dc && attack.save.ability) {
+			const attackName = this.getAttackName(attacker, attack);
 			const succeeded = this.rollSavingThrow(target, attack.save.ability, attack.save.dc);
 			const baseDamageDice = attack.save.damage || attack.hit || '1d6';
 			let damage = this.rollDamage(baseDamageDice);
 			const dmgType = (attack['damage type'] || attack.save.damageType || '').toLowerCase();
 			if (this.hasDamageImmunity(target, dmgType)) {
-				this.logMessage(`${target.name} is immune to ${dmgType || 'this'} damage.`);
+				this.logMessage(`${target.name} is immune to ${dmgType || 'this'} damage from ${attacker.name}'s ${attackName}.`);
 				damage = 0;
 			} else if (succeeded && attack.save.halfOnSuccess) {
 				damage = Math.floor(damage / 2);
-				this.logMessage(`${target.name} succeeds and takes half damage: ${damage}.`);
+				this.logMessage(`${target.name} succeeds against ${attacker.name}'s ${attackName} and takes half ${dmgType || 'damage'}: ${damage}.`);
 			} else if (!succeeded) {
-				this.logMessage(`${target.name} fails the save and takes ${damage} damage.`);
+				this.logMessage(`${target.name} fails the save against ${attacker.name}'s ${attackName} and takes ${damage} ${dmgType || 'damage'}.`);
 			} else {
-				this.logMessage(`${target.name} takes ${damage} damage.`);
+				this.logMessage(`${target.name} takes ${damage} ${dmgType || 'damage'} from ${attacker.name}'s ${attackName}.`);
 			}
 
 			// Apply resistance for save-based damage
@@ -635,6 +655,60 @@ class CombatSimulator {
 			return;
 		}
 
+		// Effects-based attack path (e.g., Omni Monster's Engulf attack)
+		if (attack.effects && Array.isArray(attack.effects)) {
+			const attackName = this.getAttackName(attacker, attack);
+			// Process the first effect that has DC and damage
+			const effect = attack.effects.find(e => e.dc && e.ability && e['one-time damage']);
+			if (effect) {
+				const succeeded = this.rollSavingThrow(target, effect.ability, effect.dc);
+				const baseDamageDice = effect['one-time damage'] || '1d6';
+				let damage = this.rollDamage(baseDamageDice);
+				const dmgType = (effect['ongoing damage type'] || effect['damage type'] || '').toLowerCase();
+				
+				if (this.hasDamageImmunity(target, dmgType)) {
+					this.logMessage(`${target.name} is immune to ${dmgType || 'this'} damage from ${attacker.name}'s ${attackName}.`);
+					damage = 0;
+				} else if (succeeded) {
+					damage = Math.floor(damage / 2);
+					this.logMessage(`${target.name} succeeds against ${attacker.name}'s ${attackName} and takes half ${dmgType || 'damage'}: ${damage}.`);
+				} else {
+					this.logMessage(`${target.name} fails the save against ${attacker.name}'s ${attackName} and takes ${damage} ${dmgType || 'damage'}.`);
+				}
+
+				// Apply resistance for effects-based damage
+				if (damage > 0 && this.hasDamageResistance(target, dmgType)) {
+					const before = damage;
+					damage = Math.floor(damage / 2);
+					this.logMessage(`${target.name} resists ${dmgType} damage (${before} -> ${damage}).`);
+				}
+
+				if (damage > 0) {
+					target.hp -= damage;
+					if (target.hp <= 0) {
+						target.isDead = true;
+						this.logMessage(`${target.name} drops to 0 HP and is defeated!`);
+					}
+					this.updateDisplay();
+				}
+
+				// Apply ongoing effects if specified
+				if (!succeeded && effect.condition && !this.hasConditionImmunity(target, 'restrained')) {
+					target.conditions.push({
+						name: 'Restrained',
+						sourceId: attacker.id,
+						ongoing: effect['ongoing damage'] ? {
+							dice: effect['ongoing damage'],
+							type: effect['ongoing damage type'],
+							timing: 'start of each of its turns'
+						} : null
+					});
+					this.logMessage(`${target.name} is ${effect.condition.toLowerCase()}.`);
+				}
+			}
+			return;
+		}
+
 		// Attack roll path
         const rawRoll = this.rollDice(20);
 		const attackBonus = attack["to hit"] ? parseInt(attack["to hit"].replace('+', '')) || 0 : 0;
@@ -649,7 +723,9 @@ class CombatSimulator {
 		const mainDmgType = damageTypeField.split(' plus ')[0].trim();
 
             if (attackRoll >= target.ac) {
-			this.logMessage(`${attacker.name} (${attacker.team}) hits ${target.name} (${target.team}) (roll ${attackRoll}).`);
+			// Get attack name from the attack object or use a default
+			const attackName = this.getAttackName(attacker, attack);
+			this.logMessage(`${attacker.name} (${attacker.team}) hits ${target.name} (${target.team}) with ${attackName} (roll ${attackRoll}).`);
 			// Apply primary damage if not immune
 			if (!this.hasDamageImmunity(target, mainDmgType)) {
 				if (damage > 0) {
@@ -715,7 +791,7 @@ class CombatSimulator {
 								pdmg = 0;
 							} else if (this.hasDamageResistance(target, dmgType)) {
 								const before = pdmg;
-								pdmg = Math.floor(pdmg / 2);
+								pdmg = Math.floor(pdg / 2);
 								this.logMessage(`${target.name} resists poison damage (${before} -> ${pdmg}).`);
 							}
 							target.hp -= pdmg;
@@ -781,7 +857,7 @@ class CombatSimulator {
 								pdmg = 0;
 							} else if (this.hasDamageResistance(target, poisonType)) {
 								const before = pdmg;
-								pdmg = Math.floor(pdmg / 2);
+								pdmg = Math.floor(pdg / 2);
 								this.logMessage(`${target.name} resists ${poisonType} damage (${before} -> ${pdmg}).`);
 							}
 							if (succeeded) {
@@ -900,8 +976,8 @@ class CombatSimulator {
 						const forceType = (effect['ongoing damage type'] || 'force').toLowerCase();
 						if (dc && ability && damageField) {
 							const succeeded = this.rollSavingThrow(target, ability, dc);
-							let forceDice = this.parseDamage(String(damageField));
-							let fdmg = this.rollDamage(forceDice || '1d6');
+						 let forceDice = this.parseDamage(String(damageField));
+						 let fdmg = this.rollDamage(forceDice || '1d6');
 							// Apply immunity and resistance
 							if (this.hasDamageImmunity(target, forceType)) {
 								this.logMessage(`${target.name} is immune to ${forceType} damage.`);
@@ -1088,7 +1164,9 @@ class CombatSimulator {
             }
             this.updateDisplay();
 		} else {
-			this.logMessage(`${attacker.name} (${attacker.team}) misses ${target.name} (${target.team}) (roll ${attackRoll}).`);
+			// Get attack name from the attack object or use a default
+			const attackName = this.getAttackName(attacker, attack);
+			this.logMessage(`${attacker.name} (${attacker.team}) misses ${target.name} (${target.team}) with ${attackName} (roll ${attackRoll}).`);
         }
     }
 
@@ -1109,6 +1187,26 @@ class CombatSimulator {
 
     rollDice(sides) {
         return Math.floor(Math.random() * sides) + 1;
+    }
+
+    // Helper method to get attack name from attacker and attack object
+    getAttackName(attacker, attack) {
+        // If attacker has attacks object, find the attack name by matching the attack object
+        if (attacker.attacks && typeof attacker.attacks === 'object') {
+            for (const [attackName, attackData] of Object.entries(attacker.attacks)) {
+                if (attackData === attack) {
+                    return attackName;
+                }
+            }
+        }
+        
+        // Fallback: try to get attack name from attack object properties
+        if (attack && attack.name) {
+            return attack.name;
+        }
+        
+        // Final fallback
+        return 'attack';
     }
 
     // Spell System (Basic)
