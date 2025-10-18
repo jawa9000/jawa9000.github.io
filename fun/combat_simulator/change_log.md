@@ -3,7 +3,8 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
 ## Change Log
 
 * 10/18/25
-    * Updated attack effect damage system as it wasn't applying acid damage during combat.
+    * Updated attack effect damage system as it wasn't applying acid, fire, force, necrotic, psychic, radiant, cold, lightning, thunder, and poison damage during combat.
+    * Added an attack decision system. Monsters with multiple attacks choose the most effective attack—calculated by attack bonus, damage potential, and special effects—with the chance of an intelligent choice being highly dependent on their Intelligence or Wisdom score.
 * 10/17/25
     * Added functionality that handles attack effects (i.e. acid, fire, poison, etc.).
     * Added a button to the combat log that will copy the content of that element.
@@ -20,13 +21,10 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
     * Started creating a monster combat system.
 
 
+
+
 ## Active Projects
 Separate the functionality of script.js into different JavaScript files that is logical and is easier to maintain.
-
-Update the combat log to include what kind of attack each monster uses during their turn. For example "Orc (Team B) hits Goblin (Team A) (roll 15)." becomes "Orc (Team B) hits Goblin (Team A) with a Greataxe (roll 15)."
-
-
-
 
 ## Do-to List
 

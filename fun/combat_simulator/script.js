@@ -580,7 +580,8 @@ class CombatSimulator {
 
         // For now, attack the first available target
         // In a full implementation, you'd have a target selection UI
-        this.performAttack(currentCombatant, targets[0]);
+        const selectedAttack = this.selectAttackForSimulation(currentCombatant);
+        this.performAttack(currentCombatant, targets[0], selectedAttack);
     }
 
     // helper: parse damage strings like "10 (3d6)" or "17 (2d10 + 6)"
@@ -1288,40 +1289,111 @@ class CombatSimulator {
         const attacks = Object.values(combatant.attacks);
         if (attacks.length === 0) return null;
         
-        // Prioritize attacks with special damage effects, save effects, or special abilities
-        const specialAttacks = attacks.filter(attack => 
-            attack.poison || attack.save || attack.effects || attack.extraDamage
-        );
-        
-        if (specialAttacks.length > 0) {
-            // Randomly select from special attacks
-            const selectedAttack = specialAttacks[Math.floor(Math.random() * specialAttacks.length)];
-            if (selectedAttack.poison) {
-                this.logMessage(`${combatant.name} uses a poison attack!`);
-            } else if (selectedAttack.effects && selectedAttack.effects.some(e => (e.type || '').toLowerCase() === 'fire')) {
-                this.logMessage(`${combatant.name} uses a fire attack!`);
-            } else if (selectedAttack.effects && selectedAttack.effects.some(e => (e.type || '').toLowerCase() === 'acid')) {
-                this.logMessage(`${combatant.name} uses an acid attack!`);
-            } else if (selectedAttack.effects && selectedAttack.effects.some(e => (e.type || '').toLowerCase() === 'cold')) {
-                this.logMessage(`${combatant.name} uses a cold attack!`);
-            } else if (selectedAttack.effects && selectedAttack.effects.some(e => (e.type || '').toLowerCase() === 'force')) {
-                this.logMessage(`${combatant.name} uses a force attack!`);
-            } else if (selectedAttack.effects && selectedAttack.effects.some(e => (e.type || '').toLowerCase() === 'lightning')) {
-                this.logMessage(`${combatant.name} uses a lightning attack!`);
-            } else if (selectedAttack.effects && selectedAttack.effects.some(e => (e.type || '').toLowerCase() === 'necrotic')) {
-                this.logMessage(`${combatant.name} uses a necrotic attack!`);
-            } else if (selectedAttack.effects && selectedAttack.effects.some(e => (e.type || '').toLowerCase() === 'psychic')) {
-                this.logMessage(`${combatant.name} uses a psychic attack!`);
-            } else if (selectedAttack.effects && selectedAttack.effects.some(e => (e.type || '').toLowerCase() === 'radiant')) {
-                this.logMessage(`${combatant.name} uses a radiant attack!`);
-            } else if (selectedAttack.effects && selectedAttack.effects.some(e => (e.type || '').toLowerCase() === 'thunder')) {
-                this.logMessage(`${combatant.name} uses a thunder attack!`);
-            }
-            return selectedAttack;
+        // If only one attack, use it
+        if (attacks.length === 1) {
+            return attacks[0];
         }
         
-        // Fall back to first available attack
-        return attacks[0];
+        // Get intelligence and wisdom scores from original monster data
+        const intScore = parseInt(combatant.originalData?.int || 10);
+        const wisScore = parseInt(combatant.originalData?.wis || 10);
+        const higherMentalScore = Math.max(intScore, wisScore);
+        
+        // Calculate attack effectiveness for each attack
+        const attackEffectiveness = attacks.map(attack => {
+            const effectiveness = this.calculateAttackEffectiveness(attack);
+            return { attack, effectiveness };
+        });
+        
+        // Sort by effectiveness (highest first)
+        attackEffectiveness.sort((a, b) => b.effectiveness - a.effectiveness);
+        
+        // Determine decision-making ability based on mental score
+        // Higher mental scores = more likely to choose the best attack
+        const decisionThreshold = Math.min(0.9, Math.max(0.1, (higherMentalScore - 8) / 20));
+        
+        // Roll to see if monster makes the "smart" choice
+        const roll = Math.random();
+        
+        if (roll < decisionThreshold) {
+            // Monster chooses the most effective attack
+            const bestAttack = attackEffectiveness[0].attack;
+            this.logMessage(`${combatant.name} (Int ${intScore}/Wis ${wisScore}) chooses the most effective attack.`);
+            return bestAttack;
+        } else {
+            // Monster chooses randomly from all attacks
+            const randomAttack = attacks[Math.floor(Math.random() * attacks.length)];
+            this.logMessage(`${combatant.name} (Int ${intScore}/Wis ${wisScore}) chooses an attack randomly.`);
+            return randomAttack;
+        }
+    }
+
+    // Calculate attack effectiveness based on attack bonus and damage potential
+    calculateAttackEffectiveness(attack) {
+        let effectiveness = 0;
+        
+        // Factor 1: Attack bonus (higher = more likely to hit)
+        const attackBonus = attack["to hit"] ? parseInt(attack["to hit"].replace('+', '')) || 0 : 0;
+        effectiveness += attackBonus * 2; // Weight attack bonus heavily
+        
+        // Factor 2: Damage potential
+        let damagePotential = 0;
+        
+        // For regular attacks with hit damage
+        if (attack.hit) {
+            damagePotential = this.parseAverageDamage(attack.hit);
+        }
+        
+        // For save-based attacks
+        if (attack.save && attack.save.damage) {
+            damagePotential = Math.max(damagePotential, this.parseAverageDamage(attack.save.damage));
+        }
+        
+        // For effects-based attacks
+        if (attack.effects && Array.isArray(attack.effects)) {
+            for (const effect of attack.effects) {
+                if (effect['one-time damage']) {
+                    damagePotential = Math.max(damagePotential, this.parseAverageDamage(effect['one-time damage']));
+                }
+                if (effect['ongoing damage']) {
+                    damagePotential += this.parseAverageDamage(effect['ongoing damage']) * 0.5; // Ongoing damage is worth less
+                }
+            }
+        }
+        
+        effectiveness += damagePotential;
+        
+        // Factor 3: Special effects bonus
+        if (attack.poison || attack.save || attack.effects || attack.extraDamage) {
+            effectiveness += 5; // Bonus for special effects
+        }
+        
+        return effectiveness;
+    }
+
+    // Parse average damage from damage strings like "10 (3d6)" or "17 (2d10 + 6)"
+    parseAverageDamage(damageString) {
+        if (!damageString || typeof damageString !== 'string') return 0;
+        
+        // Try to extract the average damage (the number before the parentheses)
+        const avgMatch = damageString.match(/^(\d+)/);
+        if (avgMatch) {
+            return parseInt(avgMatch[1]);
+        }
+        
+        // Fallback: try to parse dice expression
+        const diceMatch = damageString.match(/(\d+)d(\d+)([+-]\d+)?/);
+        if (diceMatch) {
+            const numDice = parseInt(diceMatch[1]);
+            const dieSize = parseInt(diceMatch[2]);
+            const modifier = diceMatch[3] ? parseInt(diceMatch[3]) : 0;
+            
+            // Calculate average damage
+            const avgDieRoll = (dieSize + 1) / 2;
+            return Math.floor(numDice * avgDieRoll + modifier);
+        }
+        
+        return 0;
     }
 
     // Utility Methods

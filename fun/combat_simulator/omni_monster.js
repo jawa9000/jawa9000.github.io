@@ -26,7 +26,15 @@ const monsters = [
       "<p><em><strong>Amphibious.</strong></em> The dragon can breathe air and water.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
     "number of attacks": 2, 
     attacks: {
-        "Thunder": {
+        "Greataxe": {
+            "type": "Melee Weapon Attack",
+            "to hit": "+6",
+            "reach": "5 ft.",
+            "target": "one target",
+            "hit": "17 (2d12 + 4)",
+            "damage type": "slashing"
+        },
+        "Booming Axe": {
             "type": "Action (Save)",
             "reach": "10 ft.",
             "target": "one creature",
@@ -41,21 +49,21 @@ const monsters = [
                 }
             ]
         }, 
-        // "Spit Poison": {
-        //     "type": "Action (Save)",
-        //     "reach": "10 ft.",
-        //     "target": "one creature",
-        //     "damage type": "poison",
-        //     "effects": [
-        //         {
-        //         "type": "Poison",
-        //         "condition": "Target must make a Dexterity saving throw, taking poison damage on a failed save, or half as much damage on a successful one.",
-        //         "dc": 11,
-        //         "ability": "Constitution",
-        //         "one-time damage": "9 (2d8)"
-        //         }
-        //     ]
-        // }, 
+        "Spit Poison": {
+            "type": "Action (Save)",
+            "reach": "10 ft.",
+            "target": "one creature",
+            "damage type": "poison",
+            "effects": [
+                {
+                "type": "Poison",
+                "condition": "Target must make a Dexterity saving throw, taking poison damage on a failed save, or half as much damage on a successful one.",
+                "dc": 11,
+                "ability": "Constitution",
+                "one-time damage": "9 (2d8)"
+                }
+            ]
+        }, 
         // "Spit Fire": {
         //     "type": "Action (Save)",
         //     "reach": "10 ft.",
