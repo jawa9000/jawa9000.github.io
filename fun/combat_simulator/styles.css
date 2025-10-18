@@ -733,3 +733,9 @@ header h1 {
     position: relative;
     margin: 5px 0;
 }
+
+#initiativeList {
+    height: 400px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch; /* smoother scrolling on touch devices */
+}
