@@ -2,30 +2,38 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
 
 ## Change Log
 
-* 10/18/25
+* 10/21/25: 0.2.2
+    * Implemented damage immunities across all effect damage types and paths.
+    * Made minor updates to the UI of the Combat Log.
+    * Implemented damage vulnerabilities across all effect damage types and paths.
+
+* 10/18/25: 0.2.0
     * Updated attack effect damage system as it wasn't applying acid, fire, force, necrotic, psychic, radiant, cold, lightning, thunder, and poison damage during combat.
     * Added an attack decision system. Monsters with multiple attacks choose the most effective attack—calculated by attack bonus, damage potential, and special effects—with the chance of an intelligent choice being highly dependent on their Intelligence or Wisdom score.
     * Implemented damage resistance system. I also implemented a learning system where monsters remember ineffective attacks and adapt their strategy based on their intelligence or wisdom scores.
-* 10/17/25
+* 10/17/25: 0.1.3
     * Added functionality that handles attack effects (i.e. acid, fire, poison, etc.).
     * Added a button to the combat log that will copy the content of that element.
     * Removed the team selector from the monster selector modal.
     * Fixed an issue where the team selector was pushing all monsters into the same team.
-* 9/14/25
+* 9/14/25: 0.0.8
     * Fixed issue where attack data is empty.
     * Removed delay between each action (defaulted to 1.2 seconds).
     * Added element height limit and conditional scroll bar displaying the monster list in Initiative Order.
     * Added functionality to handle damage from the attacks properties.
-* 9/7/25
+* 9/7/25: 0.0.4
     * Made adjustments to initiative system, added critical damage to critical hits, and added system to add multiples of the same monster.
-* 9/6/25
-    * Started creating a monster combat system.
+* 9/6/25: 0.0.1
+    * Started creating a monster simulation combat system.
 
 
 
 
 ## Active Projects
-Implement damage immunities.
+
+Figure a system to handle legendary resistances.
+
+Figure out a system for Frightful Presence.
 
 Separate the functionality of script.js into different JavaScript files that is logical and is easier to maintain.
 
@@ -33,17 +41,11 @@ Separate the functionality of script.js into different JavaScript files that is 
 
 In monsters.js, update the speed, skills, saving throws, senses properties to use an object instead of a string and then update script.js and Encounter_Builder/main.js to handle this change. Also, update the prompt that is used to generate monster JSON data to reflect this change.
 
-Figure a system to handle legendary resistances.
-
-Figure out a system that uses the monster's int or wis to determine which attack to use if they have multiple attack types to choose from.
-
 Figure out a system for attacks that use recharge.
 
-Figure out a system for Frightful Presence.
 
 Add the following mechanics:
 * Advantage/Disadvantage on attack rolls
-* More detailed turn order display (e.g., showing conditions, HP bars)
 * Initiative bonuses from feats or abilities
 * Conditions (e.g., stunned, poisoned) that affect combatants
 * keep track of used reactions (e.g., opportunity attacks)
@@ -52,7 +54,6 @@ Add the following mechanics:
 * keep track of effects that trigger at the start/end of turns
 * keep track of saves versus spells and effects
 * decision engine to choose actions for monsters/NPCs based on their spells, attacks, conditions, and abilities
-* More detailed damage types (e.g., slashing, fire, necrotic)
 * dropping to 0 HP and dying state
 * opportunity attacks
 * Death saving throws
@@ -62,7 +63,6 @@ Add the following mechanics:
 * effects of blindness on combat
 * rechargable monster abilities and attacks
 * using Frightful Presence and other aura effects
-* damage immunities, resistances, and vulnerabilities
 * Spellcasting (with a few example spells)
 * More detailed spell effects (e.g., healing, buffs, debuffs)
 * Saving throws for spells and effects
@@ -77,7 +77,7 @@ Add the following mechanics:
 * Reactions (e.g., opportunity attacks)
 * Legendary Resistance
 * pick between multiple attack options for monsters
-* using int and/or wis to pick attack options (different weapons, spells, abilities)
+* using int and/or wis to pick attack options (different spells, abilities)
 * Flanking bonuses
 * environment effects (e.g. water-based vs land-based monsters)
 * Team-based combat with team-specific actions
@@ -88,4 +88,4 @@ Add the following mechanics:
 * Inventory and equipment for characters
 * User interface improvements (e.g., better modals, animations)
 * Save/load combat sessions
-* Export combat logs
+* Export combat logs (beyond copy to clipboard functionality)
