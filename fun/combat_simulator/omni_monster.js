@@ -17,8 +17,9 @@ const monsters = [
     cha: 12,
     "saving throws": "DEX +7, CON +10, WIS +6, CHA +8",
     skills: "Perception +11, Stealth +7",
-    "damage immunities": "None",
-    "damage resistances": "Cold, Fire, Thunder",
+    "Damage Vulnerabilities": "Cold",
+    "damage immunities": "Thunder, Poison",
+    "damage resistances": "Fire",
     senses: "Blindsight 60 ft. Darkvision 120 ft. Passive Perception 21",
     languages: ["Common", "Draconic"],
     challenge: "14 (11,500 XP)",
@@ -49,6 +50,21 @@ const monsters = [
                 }
             ]
         }, 
+        "Frost Breath": {
+            "type": "Action (Save)",
+            "reach": "10 ft.",
+            "target": "one creature",
+            "damage type": "cold",
+            "effects": [
+                {
+                "type": "Cold",
+                "condition": "Target must make a Dexterity saving throw, taking cold damage on a failed save, or half as much damage on a successful one.",
+                "dc": 11,
+                "ability": "Dexterity",
+                "one-time damage": "9 (2d8)"
+                }
+            ]
+        },
         // "Spit Poison": {
         //     "type": "Action (Save)",
         //     "reach": "10 ft.",
