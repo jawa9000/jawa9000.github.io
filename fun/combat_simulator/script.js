@@ -191,15 +191,19 @@ class CombatSimulator {
             return this.createDefaultMonster();
         }
         
-        // Parse HP from string like "135 (18d10 + 36)" to just the number
+        // Parse HP from string like "135 (18d10 + 36)" or "9 (2d8)"
         const hp = this.parseHP(monsterData['hit points']);
         
-        // Parse AC from string like "17 (Natural Armor)" to just the number
+        // Parse AC from string like "17 (Natural Armor)" or "10"
         const ac = this.parseAC(monsterData['armor class']);
         
-		// Parse resistances and immunities as comma-separated lists
+		// Parse resistances, immunities, and vulnerabilities as comma-separated lists
 		const damageResistances = this.parseCommaList(monsterData['damage resistances']);
 		const damageImmunities = this.parseCommaList(monsterData['damage immunities']);
+		// Support multiple casings for vulnerabilities (e.g., "Damage Vulnerabilities")
+		const damageVulnerabilities = this.parseCommaList(
+			monsterData['damage vulnerabilities'] || monsterData['Damage Vulnerabilities']
+		);
 		const conditionImmunities = this.parseCommaList(monsterData['condition immunities']);
         
         // Get attack bonus from first attack if available
@@ -242,6 +246,7 @@ class CombatSimulator {
 			attacks: monsterData.attacks || null,
 			damageResistances: damageResistances,
 			damageImmunities: damageImmunities,
+			damageVulnerabilities: damageVulnerabilities,
 			conditionImmunities: conditionImmunities,
             isDead: false,
             originalData: monsterData, // Keep reference to original data
@@ -350,6 +355,12 @@ class CombatSimulator {
 	hasDamageResistance(target, damageType) {
 		if (!damageType) return false;
 		return Array.isArray(target.damageResistances) && target.damageResistances.includes(String(damageType).toLowerCase());
+	}
+
+	// Checker for vulnerabilities
+	hasDamageVulnerability(target, damageType) {
+		if (!damageType) return false;
+		return Array.isArray(target.damageVulnerabilities) && target.damageVulnerabilities.includes(String(damageType).toLowerCase());
 	}
 
 	// Roll a saving throw for a target
@@ -555,7 +566,12 @@ class CombatSimulator {
 					this.logMessage(`${combatant.name} is immune to ${dmgType} damage (ongoing).`);
 					continue;
 				}
-				const dmg = this.rollDamage(cond.ongoing.dice);
+				let dmg = this.rollDamage(cond.ongoing.dice);
+				if (this.hasDamageVulnerability(combatant, dmgType)) {
+					const before = dmg;
+					dmg = dmg * 2;
+					this.logMessage(`${combatant.name} is vulnerable to ${dmgType} damage (ongoing doubled: ${before} -> ${dmg}).`);
+				}
 				combatant.hp -= dmg;
 				this.logMessage(`${combatant.name} takes ${dmg} ${dmgType || 'damage'} (ongoing).`);
 			}
@@ -626,14 +642,16 @@ class CombatSimulator {
 		// Save-based attack path (e.g., cones/breaths with DC and half on success)
 		if (attack.save && attack.save.dc && attack.save.ability) {
 			const attackName = this.getAttackName(attacker, attack);
+			const dmgType = (attack['damage type'] || attack.save.damageType || '').toLowerCase();
+			// Early immunity: skip rolling saves entirely
+			if (this.hasDamageImmunity(target, dmgType)) {
+				this.logMessage(`${target.name} is immune to ${dmgType || 'this'} damage from ${attacker.name}'s ${attackName}. No save required.`);
+				return;
+			}
 			const succeeded = this.rollSavingThrow(target, attack.save.ability, attack.save.dc);
 			const baseDamageDice = attack.save.damage || attack.hit || '1d6';
 			let damage = this.rollDamage(baseDamageDice);
-			const dmgType = (attack['damage type'] || attack.save.damageType || '').toLowerCase();
-			if (this.hasDamageImmunity(target, dmgType)) {
-				this.logMessage(`${target.name} is immune to ${dmgType || 'this'} damage from ${attacker.name}'s ${attackName}.`);
-				damage = 0;
-			} else if (succeeded && attack.save.halfOnSuccess) {
+			if (succeeded && attack.save.halfOnSuccess) {
 				const originalDamage = damage;
 				damage = Math.floor(damage / 2);
 				if (this.hasDamageResistance(target, dmgType)) {
@@ -662,8 +680,11 @@ class CombatSimulator {
 					this.logMessage(`${target.name} takes ${damage} ${dmgType || 'damage'} from ${attacker.name}'s ${attackName}.`);
 				}
 			}
-
-			// Remove the separate resistance handling since it's now integrated above
+			if (this.hasDamageVulnerability(target, dmgType)) {
+				const beforeVuln = damage;
+				damage = damage * 2;
+				this.logMessage(`${target.name} is vulnerable to ${dmgType || 'this'} damage (doubled: ${beforeVuln} -> ${damage}).`);
+			}
 
 			if (damage > 0) {
 				target.hp -= damage;
@@ -687,15 +708,16 @@ class CombatSimulator {
 			// Process the first effect that has DC and damage
 			const effect = attack.effects.find(e => e.dc && e.ability && e['one-time damage']);
 			if (effect) {
+				const dmgType = (attack['damage type'] || effect['ongoing damage type'] || effect['damage type'] || '').toLowerCase();
+				// Early immunity: skip rolling saves entirely
+				if (this.hasDamageImmunity(target, dmgType)) {
+					this.logMessage(`${target.name} is immune to ${dmgType || 'this'} damage from ${attacker.name}'s ${attackName}. No save required.`);
+					return;
+				}
 				const succeeded = this.rollSavingThrow(target, effect.ability, effect.dc);
 				const baseDamageDice = effect['one-time damage'] || '1d6';
 				let damage = this.rollDamage(baseDamageDice);
-				const dmgType = (attack['damage type'] || effect['ongoing damage type'] || effect['damage type'] || '').toLowerCase();
-				
-				if (this.hasDamageImmunity(target, dmgType)) {
-					this.logMessage(`${target.name} is immune to ${dmgType || 'this'} damage from ${attacker.name}'s ${attackName}.`);
-					damage = 0;
-				} else if (succeeded) {
+				if (succeeded) {
 					const originalDamage = damage;
 					damage = Math.floor(damage / 2);
 					if (this.hasDamageResistance(target, dmgType)) {
@@ -705,6 +727,11 @@ class CombatSimulator {
 					} else {
 						this.logMessage(`${target.name} succeeds against ${attacker.name}'s ${attackName} and takes half ${dmgType || 'damage'}: ${damage}.`);
 					}
+					if (this.hasDamageVulnerability(target, dmgType)) {
+						const beforeVuln = damage;
+						damage = damage * 2;
+						this.logMessage(`${target.name} is vulnerable to ${dmgType || 'this'} damage (doubled: ${beforeVuln} -> ${damage}).`);
+					}
 				} else {
 					const originalDamage = damage;
 					if (this.hasDamageResistance(target, dmgType)) {
@@ -713,6 +740,11 @@ class CombatSimulator {
 						this.logMessage(`${target.name} fails the save against ${attacker.name}'s ${attackName} and takes ${damage} ${dmgType || 'damage'} (resistance: ${beforeResistance - damage}).`);
 					} else {
 						this.logMessage(`${target.name} fails the save against ${attacker.name}'s ${attackName} and takes ${damage} ${dmgType || 'damage'}.`);
+					}
+					if (this.hasDamageVulnerability(target, dmgType)) {
+						const beforeVuln = damage;
+						damage = damage * 2;
+						this.logMessage(`${target.name} is vulnerable to ${dmgType || 'this'} damage (doubled: ${beforeVuln} -> ${damage}).`);
 					}
 				}
 
@@ -769,6 +801,10 @@ class CombatSimulator {
 					if (this.hasDamageResistance(target, mainDmgType)) {
 						damage = Math.floor(damage / 2);
 					}
+					if (this.hasDamageVulnerability(target, mainDmgType)) {
+						damage = damage * 2;
+						this.logMessage(`${target.name} is vulnerable to ${mainDmgType || 'this'} damage (doubled).`);
+					}
 					this.logMessage(this.formatDamageMessage(attacker, target, damage, mainDmgType, originalDamage));
 					target.hp -= damage;
 				}
@@ -789,6 +825,10 @@ class CombatSimulator {
 					if (this.hasDamageResistance(target, partType)) {
 						partDmg = Math.floor(partDmg / 2);
 					}
+					if (this.hasDamageVulnerability(target, partType)) {
+						partDmg = partDmg * 2;
+						this.logMessage(`${target.name} is vulnerable to ${partType} damage (doubled).`);
+					}
 					target.hp -= partDmg;
 					this.logMessage(this.formatDamageMessage(attacker, target, partDmg, partType, originalPartDmg));
 				}
@@ -801,39 +841,55 @@ class CombatSimulator {
 				const dmgType = 'poison';
 				let applyCondition = true;
 				if (poisonCfg.save && poisonCfg.save.dc && poisonCfg.save.ability) {
-					const succeeded = this.rollSavingThrow(target, poisonCfg.save.ability, poisonCfg.save.dc);
-					if (succeeded && poisonCfg.save.halfOnSuccess && poisonCfg.damage) {
-						let pdmg = this.rollDamage(poisonCfg.damage);
-						if (this.hasDamageImmunity(target, dmgType)) {
-							this.logMessage(`${target.name} is immune to poison damage.`);
-							pdmg = 0;
-						} else if (this.hasDamageResistance(target, dmgType)) {
-							const before = pdmg;
-							pdmg = Math.floor(pdmg / 2);
-							this.logMessage(`${target.name} resists poison damage (${before} -> ${pdmg}).`);
-						}
-						pdmg = Math.floor(pdmg / 2);
-						target.hp -= pdmg;
-						this.logMessage(`${target.name} succeeds the poison save and takes ${pdmg} poison damage.`);
+					// Early immunity: skip rolling saves entirely
+					if (this.hasDamageImmunity(target, dmgType)) {
+						this.logMessage(`${target.name} is immune to poison damage. No save required.`);
 						applyCondition = false;
-					} else if (!succeeded) {
-						if (poisonCfg.damage) {
+					} else {
+						const succeeded = this.rollSavingThrow(target, poisonCfg.save.ability, poisonCfg.save.dc);
+						if (succeeded && poisonCfg.save.halfOnSuccess && poisonCfg.damage) {
 							let pdmg = this.rollDamage(poisonCfg.damage);
 							if (this.hasDamageImmunity(target, dmgType)) {
 								this.logMessage(`${target.name} is immune to poison damage.`);
 								pdmg = 0;
 							} else if (this.hasDamageResistance(target, dmgType)) {
 								const before = pdmg;
-								pdmg = Math.floor(pdg / 2);
+								pdmg = Math.floor(pdmg / 2);
 								this.logMessage(`${target.name} resists poison damage (${before} -> ${pdmg}).`);
 							}
+							pdmg = Math.floor(pdmg / 2);
+							if (this.hasDamageVulnerability(target, dmgType)) {
+								const beforeV = pdmg;
+								pdmg = pdmg * 2;
+								this.logMessage(`${target.name} is vulnerable to ${dmgType} damage (doubled: ${beforeV} -> ${pdmg}).`);
+							}
 							target.hp -= pdmg;
-							this.logMessage(`${target.name} fails the poison save and takes ${pdmg} poison damage.`);
+							this.logMessage(`${target.name} succeeds the poison save and takes ${pdmg} poison damage.`);
+							applyCondition = false;
+						} else if (!succeeded) {
+							if (poisonCfg.damage) {
+								let pdmg = this.rollDamage(poisonCfg.damage);
+								if (this.hasDamageImmunity(target, dmgType)) {
+									this.logMessage(`${target.name} is immune to poison damage.`);
+									pdmg = 0;
+								} else if (this.hasDamageResistance(target, dmgType)) {
+									const before = pdmg;
+									pdmg = Math.floor(pdmg / 2);
+									this.logMessage(`${target.name} resists poison damage (${before} -> ${pdmg}).`);
+								}
+								if (this.hasDamageVulnerability(target, dmgType)) {
+									const beforeV = pdmg;
+									pdmg = pdmg * 2;
+									this.logMessage(`${target.name} is vulnerable to ${dmgType} damage (doubled: ${beforeV} -> ${pdmg}).`);
+								}
+								target.hp -= pdmg;
+								this.logMessage(`${target.name} fails the poison save and takes ${pdmg} poison damage.`);
+							}
+							applyCondition = true;
+						} else {
+							// No halfOnSuccess or no damage specified: just a binary save
+							applyCondition = !succeeded;
 						}
-						applyCondition = true;
-					} else {
-						// No halfOnSuccess or no damage specified: just a binary save
-						applyCondition = !succeeded;
 					}
 				}
 				if (applyCondition && poisonCfg.condition && !this.hasConditionImmunity(target, 'poisoned')) {
@@ -890,16 +946,28 @@ class CombatSimulator {
 								pdmg = 0;
 							} else if (this.hasDamageResistance(target, poisonType)) {
 								const before = pdmg;
-								pdmg = Math.floor(pdg / 2);
+								pdmg = Math.floor(pdmg / 2);
 								this.logMessage(`${target.name} resists ${poisonType} damage (${before} -> ${pdmg}).`);
 							}
 							if (succeeded) {
 								const half = Math.floor(pdmg / 2);
-								target.hp -= half;
-								this.logMessage(`${target.name} succeeds the ${ability} save vs poison (DC ${dc}) and takes ${half} ${poisonType} damage.`);
+								let apply = half;
+								if (this.hasDamageVulnerability(target, poisonType)) {
+									const before = apply;
+									apply = apply * 2;
+									this.logMessage(`${target.name} is vulnerable to ${poisonType} damage (doubled: ${before} -> ${apply}).`);
+								}
+								target.hp -= apply;
+								this.logMessage(`${target.name} succeeds the ${ability} save vs poison (DC ${dc}) and takes ${apply} ${poisonType} damage.`);
 							} else {
-								target.hp -= pdmg;
-								this.logMessage(`${target.name} fails the ${ability} save vs poison (DC ${dc}) and takes ${pdmg} ${poisonType} damage.`);
+								let apply = pdmg;
+								if (this.hasDamageVulnerability(target, poisonType)) {
+									const before = apply;
+									apply = apply * 2;
+									this.logMessage(`${target.name} is vulnerable to ${poisonType} damage (doubled: ${before} -> ${apply}).`);
+								}
+								target.hp -= apply;
+								this.logMessage(`${target.name} fails the ${ability} save vs poison (DC ${dc}) and takes ${apply} ${poisonType} damage.`);
 							}
 							this.updateDisplay();
 						} else {
@@ -913,25 +981,39 @@ class CombatSimulator {
 						const damageField = effect['one-time damage'] || effect['damage'] || null;
 						const fireType = (effect['ongoing damage type'] || 'fire').toLowerCase();
 						if (dc && ability && damageField) {
+							// Early immunity: skip rolling saves entirely
+							if (this.hasDamageImmunity(target, fireType)) {
+								this.logMessage(`${target.name} is immune to ${fireType} damage. No save required.`);
+								continue;
+							}
 							const succeeded = this.rollSavingThrow(target, ability, dc);
 							let fireDice = this.parseDamage(String(damageField));
 							let fdmg = this.rollDamage(fireDice || '1d6');
 							// Apply immunity and resistance
-							if (this.hasDamageImmunity(target, fireType)) {
-								this.logMessage(`${target.name} is immune to ${fireType} damage.`);
-								fdmg = 0;
-							} else if (this.hasDamageResistance(target, fireType)) {
+							if (this.hasDamageResistance(target, fireType)) {
 								const before = fdmg;
 								fdmg = Math.floor(fdmg / 2);
 								this.logMessage(`${target.name} resists ${fireType} damage (${before} -> ${fdmg}).`);
 							}
 							if (succeeded) {
 								const half = Math.floor(fdmg / 2);
-								target.hp -= half;
-								this.logMessage(`${target.name} succeeds the ${ability} save vs fire (DC ${dc}) and takes ${half} ${fireType} damage.`);
+								let apply = half;
+								if (this.hasDamageVulnerability(target, fireType)) {
+									const before = apply;
+									apply = apply * 2;
+									this.logMessage(`${target.name} is vulnerable to ${fireType} damage (doubled: ${before} -> ${apply}).`);
+								}
+								target.hp -= apply;
+								this.logMessage(`${target.name} succeeds the ${ability} save vs fire (DC ${dc}) and takes ${apply} ${fireType} damage.`);
 							} else {
-								target.hp -= fdmg;
-								this.logMessage(`${target.name} fails the ${ability} save vs fire (DC ${dc}) and takes ${fdmg} ${fireType} damage.`);
+								let apply = fdmg;
+								if (this.hasDamageVulnerability(target, fireType)) {
+									const before = apply;
+									apply = apply * 2;
+									this.logMessage(`${target.name} is vulnerable to ${fireType} damage (doubled: ${before} -> ${apply}).`);
+								}
+								target.hp -= apply;
+								this.logMessage(`${target.name} fails the ${ability} save vs fire (DC ${dc}) and takes ${apply} ${fireType} damage.`);
 							}
 							this.updateDisplay();
 						} else {
@@ -945,25 +1027,39 @@ class CombatSimulator {
 						const damageField = effect['one-time damage'] || effect['damage'] || null;
 						const acidType = (effect['ongoing damage type'] || 'acid').toLowerCase();
 						if (dc && ability && damageField) {
+							// Early immunity: skip rolling saves entirely
+							if (this.hasDamageImmunity(target, acidType)) {
+								this.logMessage(`${target.name} is immune to ${acidType} damage. No save required.`);
+								continue;
+							}
 							const succeeded = this.rollSavingThrow(target, ability, dc);
 							let acidDice = this.parseDamage(String(damageField));
 							let admg = this.rollDamage(acidDice || '1d6');
 							// Apply immunity and resistance
-							if (this.hasDamageImmunity(target, acidType)) {
-								this.logMessage(`${target.name} is immune to ${acidType} damage.`);
-								admg = 0;
-							} else if (this.hasDamageResistance(target, acidType)) {
+							if (this.hasDamageResistance(target, acidType)) {
 								const before = admg;
 								admg = Math.floor(admg / 2);
 								this.logMessage(`${target.name} resists ${acidType} damage (${before} -> ${admg}).`);
 							}
 							if (succeeded) {
 								const half = Math.floor(admg / 2);
-								target.hp -= half;
-								this.logMessage(`${target.name} succeeds the ${ability} save vs acid (DC ${dc}) and takes ${half} ${acidType} damage.`);
+								let apply = half;
+								if (this.hasDamageVulnerability(target, acidType)) {
+									const before = apply;
+									apply = apply * 2;
+									this.logMessage(`${target.name} is vulnerable to ${acidType} damage (doubled: ${before} -> ${apply}).`);
+								}
+								target.hp -= apply;
+								this.logMessage(`${target.name} succeeds the ${ability} save vs acid (DC ${dc}) and takes ${apply} ${acidType} damage.`);
 							} else {
-								target.hp -= admg;
-								this.logMessage(`${target.name} fails the ${ability} save vs acid (DC ${dc}) and takes ${admg} ${acidType} damage.`);
+								let apply = admg;
+								if (this.hasDamageVulnerability(target, acidType)) {
+									const before = apply;
+									apply = apply * 2;
+									this.logMessage(`${target.name} is vulnerable to ${acidType} damage (doubled: ${before} -> ${apply}).`);
+								}
+								target.hp -= apply;
+								this.logMessage(`${target.name} fails the ${ability} save vs acid (DC ${dc}) and takes ${apply} ${acidType} damage.`);
 							}
 							this.updateDisplay();
 						} else {
@@ -977,25 +1073,39 @@ class CombatSimulator {
 						const damageField = effect['one-time damage'] || effect['damage'] || null;
 						const coldType = (effect['ongoing damage type'] || 'cold').toLowerCase();
 						if (dc && ability && damageField) {
+							// Early immunity: skip rolling saves entirely
+							if (this.hasDamageImmunity(target, coldType)) {
+								this.logMessage(`${target.name} is immune to ${coldType} damage. No save required.`);
+								continue;
+							}
 							const succeeded = this.rollSavingThrow(target, ability, dc);
 							let coldDice = this.parseDamage(String(damageField));
 							let cdmg = this.rollDamage(coldDice || '1d6');
 							// Apply immunity and resistance
-							if (this.hasDamageImmunity(target, coldType)) {
-								this.logMessage(`${target.name} is immune to ${coldType} damage.`);
-								cdmg = 0;
-							} else if (this.hasDamageResistance(target, coldType)) {
+							if (this.hasDamageResistance(target, coldType)) {
 								const before = cdmg;
 								cdmg = Math.floor(cdmg / 2);
 								this.logMessage(`${target.name} resists ${coldType} damage (${before} -> ${cdmg}).`);
 							}
 							if (succeeded) {
 								const half = Math.floor(cdmg / 2);
-								target.hp -= half;
-								this.logMessage(`${target.name} succeeds the ${ability} save vs cold (DC ${dc}) and takes ${half} ${coldType} damage.`);
+								let apply = half;
+								if (this.hasDamageVulnerability(target, coldType)) {
+									const before = apply;
+									apply = apply * 2;
+									this.logMessage(`${target.name} is vulnerable to ${coldType} damage (doubled: ${before} -> ${apply}).`);
+								}
+								target.hp -= apply;
+								this.logMessage(`${target.name} succeeds the ${ability} save vs cold (DC ${dc}) and takes ${apply} ${coldType} damage.`);
 							} else {
-								target.hp -= cdmg;
-								this.logMessage(`${target.name} fails the ${ability} save vs cold (DC ${dc}) and takes ${cdmg} ${coldType} damage.`);
+								let apply = cdmg;
+								if (this.hasDamageVulnerability(target, coldType)) {
+									const before = apply;
+									apply = apply * 2;
+									this.logMessage(`${target.name} is vulnerable to ${coldType} damage (doubled: ${before} -> ${apply}).`);
+								}
+								target.hp -= apply;
+								this.logMessage(`${target.name} fails the ${ability} save vs cold (DC ${dc}) and takes ${apply} ${coldType} damage.`);
 							}
 							this.updateDisplay();
 						} else {
@@ -1008,25 +1118,39 @@ class CombatSimulator {
 						const damageField = effect['one-time damage'] || effect['damage'] || null;
 						const forceType = (effect['ongoing damage type'] || 'force').toLowerCase();
 						if (dc && ability && damageField) {
+							// Early immunity: skip rolling saves entirely
+							if (this.hasDamageImmunity(target, forceType)) {
+								this.logMessage(`${target.name} is immune to ${forceType} damage. No save required.`);
+								continue;
+							}
 							const succeeded = this.rollSavingThrow(target, ability, dc);
 						 let forceDice = this.parseDamage(String(damageField));
 						 let fdmg = this.rollDamage(forceDice || '1d6');
 							// Apply immunity and resistance
-							if (this.hasDamageImmunity(target, forceType)) {
-								this.logMessage(`${target.name} is immune to ${forceType} damage.`);
-								fdmg = 0;
-							} else if (this.hasDamageResistance(target, forceType)) {
+							if (this.hasDamageResistance(target, forceType)) {
 								const before = fdmg;
 								fdmg = Math.floor(fdmg / 2);
 								this.logMessage(`${target.name} resists ${forceType} damage (${before} -> ${fdmg}).`);
 							}
 							if (succeeded) {
 								const half = Math.floor(fdmg / 2);
-								target.hp -= half;
-								this.logMessage(`${target.name} succeeds the ${ability} save vs force (DC ${dc}) and takes ${half} ${forceType} damage.`);
+								let apply = half;
+								if (this.hasDamageVulnerability(target, forceType)) {
+									const before = apply;
+									apply = apply * 2;
+									this.logMessage(`${target.name} is vulnerable to ${forceType} damage (doubled: ${before} -> ${apply}).`);
+								}
+								target.hp -= apply;
+								this.logMessage(`${target.name} succeeds the ${ability} save vs force (DC ${dc}) and takes ${apply} ${forceType} damage.`);
 							} else {
-								target.hp -= fdmg;
-								this.logMessage(`${target.name} fails the ${ability} save vs force (DC ${dc}) and takes ${fdmg} ${forceType} damage.`);
+								let apply = fdmg;
+								if (this.hasDamageVulnerability(target, forceType)) {
+									const before = apply;
+									apply = apply * 2;
+									this.logMessage(`${target.name} is vulnerable to ${forceType} damage (doubled: ${before} -> ${apply}).`);
+								}
+								target.hp -= apply;
+								this.logMessage(`${target.name} fails the ${ability} save vs force (DC ${dc}) and takes ${apply} ${forceType} damage.`);
 							}
 							this.updateDisplay();
 						} else {
@@ -1039,25 +1163,39 @@ class CombatSimulator {
 						const damageField = effect['one-time damage'] || effect['damage'] || null;
 						const lightningType = (effect['ongoing damage type'] || 'lightning').toLowerCase();
 						if (dc && ability && damageField) {
+							// Early immunity: skip rolling saves entirely
+							if (this.hasDamageImmunity(target, lightningType)) {
+								this.logMessage(`${target.name} is immune to ${lightningType} damage. No save required.`);
+								continue;
+							}
 							const succeeded = this.rollSavingThrow(target, ability, dc);
 							let lightningDice = this.parseDamage(String(damageField));
 							let ldmg = this.rollDamage(lightningDice || '1d6');
 							// Apply immunity and resistance
-							if (this.hasDamageImmunity(target, lightningType)) {
-								this.logMessage(`${target.name} is immune to ${lightningType} damage.`);
-								ldmg = 0;
-							} else if (this.hasDamageResistance(target, lightningType)) {
+							if (this.hasDamageResistance(target, lightningType)) {
 								const before = ldmg;
 								ldmg = Math.floor(ldmg / 2);
 								this.logMessage(`${target.name} resists ${lightningType} damage (${before} -> ${ldmg}).`);
 							}
 							if (succeeded) {
 								const half = Math.floor(ldmg / 2);
-								target.hp -= half;
-								this.logMessage(`${target.name} succeeds the ${ability} save vs lightning (DC ${dc}) and takes ${half} ${lightningType} damage.`);
+								let apply = half;
+								if (this.hasDamageVulnerability(target, lightningType)) {
+									const before = apply;
+									apply = apply * 2;
+									this.logMessage(`${target.name} is vulnerable to ${lightningType} damage (doubled: ${before} -> ${apply}).`);
+								}
+								target.hp -= apply;
+								this.logMessage(`${target.name} succeeds the ${ability} save vs lightning (DC ${dc}) and takes ${apply} ${lightningType} damage.`);
 							} else {
-								target.hp -= ldmg;
-								this.logMessage(`${target.name} fails the ${ability} save vs lightning (DC ${dc}) and takes ${ldmg} ${lightningType} damage.`);
+								let apply = ldmg;
+								if (this.hasDamageVulnerability(target, lightningType)) {
+									const before = apply;
+									apply = apply * 2;
+									this.logMessage(`${target.name} is vulnerable to ${lightningType} damage (doubled: ${before} -> ${apply}).`);
+								}
+								target.hp -= apply;
+								this.logMessage(`${target.name} fails the ${ability} save vs lightning (DC ${dc}) and takes ${apply} ${lightningType} damage.`);
 							}
 							this.updateDisplay();
 						} else {
@@ -1070,25 +1208,39 @@ class CombatSimulator {
 						const damageField = effect['one-time damage'] || effect['damage'] || null;
 						const necroticType = (effect['ongoing damage type'] || 'necrotic').toLowerCase();
 						if (dc && ability && damageField) {
+							// Early immunity: skip rolling saves entirely
+							if (this.hasDamageImmunity(target, necroticType)) {
+								this.logMessage(`${target.name} is immune to ${necroticType} damage. No save required.`);
+								continue;
+							}
 							const succeeded = this.rollSavingThrow(target, ability, dc);
 							let necroticDice = this.parseDamage(String(damageField));
 							let ndmg = this.rollDamage(necroticDice || '1d6');
 							// Apply immunity and resistance
-							if (this.hasDamageImmunity(target, necroticType)) {
-								this.logMessage(`${target.name} is immune to ${necroticType} damage.`);
-								ndmg = 0;
-							} else if (this.hasDamageResistance(target, necroticType)) {
+							if (this.hasDamageResistance(target, necroticType)) {
 								const before = ndmg;
 								ndmg = Math.floor(ndmg / 2);
 								this.logMessage(`${target.name} resists ${necroticType} damage (${before} -> ${ndmg}).`);
 							}
 							if (succeeded) {
 								const half = Math.floor(ndmg / 2);
-								target.hp -= half;
-								this.logMessage(`${target.name} succeeds the ${ability} save vs necrotic (DC ${dc}) and takes ${half} ${necroticType} damage.`);
+								let apply = half;
+								if (this.hasDamageVulnerability(target, necroticType)) {
+									const before = apply;
+									apply = apply * 2;
+									this.logMessage(`${target.name} is vulnerable to ${necroticType} damage (doubled: ${before} -> ${apply}).`);
+								}
+								target.hp -= apply;
+								this.logMessage(`${target.name} succeeds the ${ability} save vs necrotic (DC ${dc}) and takes ${apply} ${necroticType} damage.`);
 							} else {
-								target.hp -= ndmg;
-								this.logMessage(`${target.name} fails the ${ability} save vs necrotic (DC ${dc}) and takes ${ndmg} ${necroticType} damage.`);
+								let apply = ndmg;
+								if (this.hasDamageVulnerability(target, necroticType)) {
+									const before = apply;
+									apply = apply * 2;
+									this.logMessage(`${target.name} is vulnerable to ${necroticType} damage (doubled: ${before} -> ${apply}).`);
+								}
+								target.hp -= apply;
+								this.logMessage(`${target.name} fails the ${ability} save vs necrotic (DC ${dc}) and takes ${apply} ${necroticType} damage.`);
 							}
 							this.updateDisplay();
 						} else {
@@ -1101,25 +1253,39 @@ class CombatSimulator {
 						const damageField = effect['one-time damage'] || effect['damage'] || null;
 						const psychicType = (effect['ongoing damage type'] || 'psychic').toLowerCase();
 						if (dc && ability && damageField) {
+							// Early immunity: skip rolling saves entirely
+							if (this.hasDamageImmunity(target, psychicType)) {
+								this.logMessage(`${target.name} is immune to ${psychicType} damage. No save required.`);
+								continue;
+							}
 							const succeeded = this.rollSavingThrow(target, ability, dc);
 							let psychicDice = this.parseDamage(String(damageField));
 							let pdmg = this.rollDamage(psychicDice || '1d6');
 							// Apply immunity and resistance
-							if (this.hasDamageImmunity(target, psychicType)) {
-								this.logMessage(`${target.name} is immune to ${psychicType} damage.`);
-								pdmg = 0;
-							} else if (this.hasDamageResistance(target, psychicType)) {
+							if (this.hasDamageResistance(target, psychicType)) {
 								const before = pdmg;
 								pdmg = Math.floor(pdmg / 2);
 								this.logMessage(`${target.name} resists ${psychicType} damage (${before} -> ${pdmg}).`);
 							}
 							if (succeeded) {
 								const half = Math.floor(pdmg / 2);
-								target.hp -= half;
-								this.logMessage(`${target.name} succeeds the ${ability} save vs psychic (DC ${dc}) and takes ${half} ${psychicType} damage.`);
+								let apply = half;
+								if (this.hasDamageVulnerability(target, psychicType)) {
+									const before = apply;
+									apply = apply * 2;
+									this.logMessage(`${target.name} is vulnerable to ${psychicType} damage (doubled: ${before} -> ${apply}).`);
+								}
+								target.hp -= apply;
+								this.logMessage(`${target.name} succeeds the ${ability} save vs psychic (DC ${dc}) and takes ${apply} ${psychicType} damage.`);
 							} else {
-								target.hp -= pdmg;
-								this.logMessage(`${target.name} fails the ${ability} save vs psychic (DC ${dc}) and takes ${pdmg} ${psychicType} damage.`);
+								let apply = pdmg;
+								if (this.hasDamageVulnerability(target, psychicType)) {
+									const before = apply;
+									apply = apply * 2;
+									this.logMessage(`${target.name} is vulnerable to ${psychicType} damage (doubled: ${before} -> ${apply}).`);
+								}
+								target.hp -= apply;
+								this.logMessage(`${target.name} fails the ${ability} save vs psychic (DC ${dc}) and takes ${apply} ${psychicType} damage.`);
 							}
 							this.updateDisplay();
 						} else {
@@ -1132,25 +1298,39 @@ class CombatSimulator {
 						const damageField = effect['one-time damage'] || effect['damage'] || null;
 						const radiantType = (effect['ongoing damage type'] || 'radiant').toLowerCase();
 						if (dc && ability && damageField) {
+							// Early immunity: skip rolling saves entirely
+							if (this.hasDamageImmunity(target, radiantType)) {
+								this.logMessage(`${target.name} is immune to ${radiantType} damage. No save required.`);
+								continue;
+							}
 							const succeeded = this.rollSavingThrow(target, ability, dc);
 							let radiantDice = this.parseDamage(String(damageField));
 							let rdmg = this.rollDamage(radiantDice || '1d6');
 							// Apply immunity and resistance
-							if (this.hasDamageImmunity(target, radiantType)) {
-								this.logMessage(`${target.name} is immune to ${radiantType} damage.`);
-								rdmg = 0;
-							} else if (this.hasDamageResistance(target, radiantType)) {
+							if (this.hasDamageResistance(target, radiantType)) {
 								const before = rdmg;
 								rdmg = Math.floor(rdmg / 2);
 								this.logMessage(`${target.name} resists ${radiantType} damage (${before} -> ${rdmg}).`);
 							}
 							if (succeeded) {
 								const half = Math.floor(rdmg / 2);
-								target.hp -= half;
-								this.logMessage(`${target.name} succeeds the ${ability} save vs radiant (DC ${dc}) and takes ${half} ${radiantType} damage.`);
+								let apply = half;
+								if (this.hasDamageVulnerability(target, radiantType)) {
+									const before = apply;
+									apply = apply * 2;
+									this.logMessage(`${target.name} is vulnerable to ${radiantType} damage (doubled: ${before} -> ${apply}).`);
+								}
+								target.hp -= apply;
+								this.logMessage(`${target.name} succeeds the ${ability} save vs radiant (DC ${dc}) and takes ${apply} ${radiantType} damage.`);
 							} else {
-								target.hp -= rdmg;
-								this.logMessage(`${target.name} fails the ${ability} save vs radiant (DC ${dc}) and takes ${rdmg} ${radiantType} damage.`);
+								let apply = rdmg;
+								if (this.hasDamageVulnerability(target, radiantType)) {
+									const before = apply;
+									apply = apply * 2;
+									this.logMessage(`${target.name} is vulnerable to ${radiantType} damage (doubled: ${before} -> ${apply}).`);
+								}
+								target.hp -= apply;
+								this.logMessage(`${target.name} fails the ${ability} save vs radiant (DC ${dc}) and takes ${apply} ${radiantType} damage.`);
 							}
 							this.updateDisplay();
 						} else {
@@ -1163,25 +1343,39 @@ class CombatSimulator {
 						const damageField = effect['one-time damage'] || effect['damage'] || null;
 						const thunderType = (effect['ongoing damage type'] || 'thunder').toLowerCase();
 						if (dc && ability && damageField) {
+							// Early immunity: skip rolling saves entirely
+							if (this.hasDamageImmunity(target, thunderType)) {
+								this.logMessage(`${target.name} is immune to ${thunderType} damage. No save required.`);
+								continue;
+							}
 							const succeeded = this.rollSavingThrow(target, ability, dc);
 							let thunderDice = this.parseDamage(String(damageField));
 							let tdmg = this.rollDamage(thunderDice || '1d6');
 							// Apply immunity and resistance
-							if (this.hasDamageImmunity(target, thunderType)) {
-								this.logMessage(`${target.name} is immune to ${thunderType} damage.`);
-								tdmg = 0;
-							} else if (this.hasDamageResistance(target, thunderType)) {
+							if (this.hasDamageResistance(target, thunderType)) {
 								const before = tdmg;
 								tdmg = Math.floor(tdmg / 2);
 								this.logMessage(`${target.name} resists ${thunderType} damage (${before} -> ${tdmg}).`);
 							}
 							if (succeeded) {
 								const half = Math.floor(tdmg / 2);
-								target.hp -= half;
-								this.logMessage(`${target.name} succeeds the ${ability} save vs thunder (DC ${dc}) and takes ${half} ${thunderType} damage.`);
+								let apply = half;
+								if (this.hasDamageVulnerability(target, thunderType)) {
+									const before = apply;
+									apply = apply * 2;
+									this.logMessage(`${target.name} is vulnerable to ${thunderType} damage (doubled: ${before} -> ${apply}).`);
+								}
+								target.hp -= apply;
+								this.logMessage(`${target.name} succeeds the ${ability} save vs thunder (DC ${dc}) and takes ${apply} ${thunderType} damage.`);
 							} else {
-								target.hp -= tdmg;
-								this.logMessage(`${target.name} fails the ${ability} save vs thunder (DC ${dc}) and takes ${tdmg} ${thunderType} damage.`);
+								let apply = tdmg;
+								if (this.hasDamageVulnerability(target, thunderType)) {
+									const before = apply;
+									apply = apply * 2;
+									this.logMessage(`${target.name} is vulnerable to ${thunderType} damage (doubled: ${before} -> ${apply}).`);
+								}
+								target.hp -= apply;
+								this.logMessage(`${target.name} fails the ${ability} save vs thunder (DC ${dc}) and takes ${apply} ${thunderType} damage.`);
 							}
 							this.updateDisplay();
 						} else {
