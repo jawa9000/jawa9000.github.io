@@ -2,6 +2,9 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
 
 ## Change Log
 
+* 10/23/25: 0.2.6
+    * Implemented the legendary action system.
+
 * 10/22/25: 0.2.5
     * Implemented the Legendary Resistance system.
     * Implemented the frightful presence system.
@@ -37,8 +40,6 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
 ## Active Projects
 
 Rechargable monster abilities and attacks.
-
-Legendary actions for monsters.
 
 Separate the functionality of script.js into different JavaScript files that is logical and is easier to maintain.
 

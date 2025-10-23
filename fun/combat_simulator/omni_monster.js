@@ -7,7 +7,7 @@ const monsters = [
     environments: ["Any"],
     associates: [],
     "armor class": 15,
-    "hit points": "50 (10d10)",
+    "hit points": "150 (10d10)",
     speed: "40 ft. fly 80 ft. swim 40ft.",
     str: 12,
     dex: 12,
@@ -21,6 +21,7 @@ const monsters = [
     // "damage immunities": "Poison",
     // "damage resistances": "Fire",
     // legendary_resistances: 3,
+    "legendaryActionsPerRound": 3,
     // frightful_presence: {
     //     dc: 18,
     //     save_ability: "WIS", // or "CHA"
@@ -36,6 +37,31 @@ const monsters = [
     traits:
       "<p><em><strong>Amphibious.</strong></em> The dragon can breathe air and water.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
     "number of attacks": 2, 
+    "legendaryActions": {
+        "Greataxe": {
+            "type": "Melee Weapon Attack",
+            "to hit": "+6",
+            "reach": "5 ft.",
+            "target": "one target",
+            "hit": "17 (2d12 + 4)",
+            "damage type": "slashing"
+        },
+        "Booming Axe": {
+            "type": "Action (Save)",
+            "reach": "10 ft.",
+            "target": "one creature",
+            "damage type": "Thunder",
+            "effects": [
+                {
+                "type": "Thunder",
+                "condition": "Target must make a Dexterity saving throw, taking Thunder damage on a failed save, or half as much damage on a successful one.",
+                "dc": 11,
+                "ability": "Dexterity",
+                "one-time damage": "9 (2d8)"
+                }
+            ]
+        }
+    },
     attacks: {
         "Greataxe": {
             "type": "Melee Weapon Attack",

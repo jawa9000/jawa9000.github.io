@@ -234,6 +234,12 @@ class CombatSimulator {
             10
         ) || 0;
         const lrCurrent = lrMax;
+        const laPerRound = parseInt(
+            monsterData.legendary_actions_per_round ??
+            monsterData.legendaryActionsPerRound ??
+            0,
+            10
+        ) || 0;
         
         return {
             id: Date.now() + Math.random(),
@@ -258,6 +264,12 @@ class CombatSimulator {
 			conditionImmunities: conditionImmunities,
             legendary_resistances_max: lrMax,
             legendary_resistances_current: lrCurrent,
+            // Legendary resources
+            legendaryResistances: lrMax,
+            currentLR: lrCurrent,
+            legendaryActionsPerRound: laPerRound,
+            legendaryActions: monsterData.legendaryActions || null,
+            currentLA: laPerRound,
             // Frightful Presence related state
             frightful_presence: monsterData.frightful_presence || null,
             frightened: false,
@@ -381,7 +393,7 @@ class CombatSimulator {
 	}
 
 	// Roll a saving throw for a target
-	rollSavingThrow(target, ability, dc) {
+    rollSavingThrow(target, ability, dc) {
         const abilityKey = (ability || '').toLowerCase().slice(0, 3);
         const abilityScore = parseInt(target.originalData?.[abilityKey] ?? 10, 10);
         const mod = getAbilityModifier(abilityScore);
@@ -389,12 +401,17 @@ class CombatSimulator {
         this.logMessage(`${target.name} ${ability} save: ${roll} vs DC ${dc}`);
         let succeeded = roll >= dc;
         if (!succeeded) {
-            const remaining = parseInt(target.legendary_resistances_current ?? 0, 10) || 0;
+            const remaining = parseInt((target.currentLR ?? target.legendary_resistances_current ?? 0), 10) || 0;
             if (remaining > 0) {
-                // Auto-use Legendary Resistance without a popup; log to combat log
-                target.legendary_resistances_current = remaining - 1;
-                succeeded = true;
-                this.logMessage(`${target.name} uses a Legendary Resistance to succeed on the save. (${target.legendary_resistances_current} remaining)`);
+                const promptMsg = `${target.name} failed the save. Use 1 Legendary Resistance? (${remaining} remaining)`;
+                const confirmUse = (typeof window !== 'undefined' && window.confirm) ? window.confirm(promptMsg) : false;
+                if (confirmUse) {
+                    const newRemaining = remaining - 1;
+                    target.currentLR = newRemaining;
+                    target.legendary_resistances_current = newRemaining; // keep legacy in sync
+                    succeeded = true;
+                    this.logMessage(`${target.name} uses a Legendary Resistance to succeed on the save. (${newRemaining} remaining)`);
+                }
             }
         }
         return succeeded;
@@ -417,6 +434,66 @@ class CombatSimulator {
                 target.regeneration_disabled = true;
             }
         }
+    }
+
+    // Legendary Action Phase: called after a creature ends its turn, before next creature starts
+    legendaryActionPhase(exitingCombatantId) {
+        // Iterate all living legendary monsters except the one whose turn just ended
+        const legendaryMonsters = this.initiativeOrder.filter(c => !c.isDead && parseInt(c.legendaryActionsPerRound || 0, 10) > 0);
+        for (const lm of legendaryMonsters) {
+            if (exitingCombatantId && lm.id === exitingCombatantId) continue; // cannot use LAs on its own turn
+            // Skip if no actions available
+            lm.currentLA = parseInt(lm.currentLA || 0, 10) || 0;
+            if (lm.currentLA <= 0) continue;
+            // If no actions defined, skip
+            if (!lm.legendaryActions || typeof lm.legendaryActions !== 'object') continue;
+
+            // Loop allowing multiple actions until pass or no LA left
+            let keepGoing = true;
+            while (keepGoing && lm.currentLA > 0) {
+                // Pick a target: choose first living enemy by team
+                const targets = this.initiativeOrder.filter(c => !c.isDead && c.id !== lm.id && c.team !== lm.team);
+                if (targets.length === 0) {
+                    this.logMessage(` -> No valid targets for ${lm.name}'s Legendary Action.`);
+                    keepGoing = false;
+                    break;
+                }
+                const target = targets[0];
+
+                // Auto-select best legendary action based on current conditions
+                const action = this.selectLegendaryActionForConditions(lm, target);
+                if (!action) {
+                    // Nothing suitable; pass
+                    keepGoing = false;
+                    break;
+                }
+                const actionCost = parseInt(action.cost || 1, 10) || 1;
+                if (actionCost > lm.currentLA) {
+                    // Not enough points; pass for now
+                    keepGoing = false;
+                    break;
+                }
+                // Find the action name for logging
+                const entry = Object.entries(lm.legendaryActions).find(([k, v]) => v === action);
+                const selectionKey = entry ? entry[0] : 'Legendary Action';
+                this.logMessage(`${lm.name} uses a Legendary Action: ${selectionKey} (cost ${actionCost}).`);
+                // Execute via existing attack pipeline
+                this.performAttack(lm, target, action);
+                lm.currentLA -= actionCost;
+                if (lm.currentLA <= 0) {
+                    this.logMessage(` -> ${lm.name} has no Legendary Actions remaining until its next turn.`);
+                    keepGoing = false;
+                }
+            }
+        }
+    }
+
+    // Select the best legendary action using the same logic as regular attack selection
+    selectLegendaryActionForConditions(combatant, target = null) {
+        if (!combatant || !combatant.legendaryActions || typeof combatant.legendaryActions !== 'object') return null;
+        // Reuse selectAttackForSimulation by temporarily substituting the actions map
+        const temp = { ...combatant, attacks: combatant.legendaryActions };
+        return this.selectAttackForSimulation(temp, target);
     }
 
     // Regeneration handler: heals at start of turn unless disabled by prior damage type
@@ -585,6 +662,17 @@ class CombatSimulator {
     this.combatActive = true;
     this.currentTurnIndex = 0;
     this.combatRound = 1;
+    // Initialize Legendary resources at combat start
+    for (const c of this.initiativeOrder) {
+        if (c && !c.isDead && (parseInt(c.legendaryActionsPerRound || 0, 10) > 0)) {
+            c.currentLA = parseInt(c.legendaryActionsPerRound || 0, 10);
+        }
+        if (c && !c.isDead && (parseInt(c.legendaryResistances || c.legendary_resistances_max || 0, 10) > 0)) {
+            const lrMaxInit = parseInt(c.legendaryResistances || c.legendary_resistances_max || 0, 10) || 0;
+            c.currentLR = lrMaxInit;
+            c.legendary_resistances_current = lrMaxInit; // keep legacy field in sync
+        }
+    }
     
     // Reset attacks for the first turn
     this.resetAttacksForCurrentTurn();
@@ -600,12 +688,23 @@ class CombatSimulator {
 
     endTurn() {
         if (!this.combatActive) return;
+        const justWent = this.getCurrentCombatant();
+        this.logMessage(`Ending turn for ${justWent ? justWent.name : 'unknown combatant'}.`);
+        // Legendary Action Phase occurs after a creature's turn ends
+        this.legendaryActionPhase(justWent ? justWent.id : null);
 
         this.currentTurnIndex++;
-        this.logMessage(`Ending turn ${this.currentTurnIndex}.`);
         
         // Check if round is complete
         if (this.currentTurnIndex >= this.initiativeOrder.length) {
+            // End of round: recharge Legendary Actions for eligible monsters
+            for (const c of this.initiativeOrder) {
+                if (!c || c.isDead) continue;
+                const perRound = parseInt(c.legendaryActionsPerRound || 0, 10) || 0;
+                if (perRound > 0) {
+                    c.currentLA = perRound;
+                }
+            }
             this.currentTurnIndex = 0;
             this.combatRound++;
             this.logMessage(`Combat Round ${this.combatRound} begins!`);
