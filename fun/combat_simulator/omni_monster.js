@@ -21,10 +21,14 @@ const monsters = [
     // "damage immunities": "Poison",
     // "damage resistances": "Fire",
     // legendary_resistances: 3,
-    frightful_presence: {
-        dc: 18,
-        save_ability: "WIS", // or "CHA"
-        range: 120, // in feet
+    // frightful_presence: {
+    //     dc: 18,
+    //     save_ability: "WIS", // or "CHA"
+    //     range: 120, // in feet
+    // },
+    regeneration: {
+        hp_amount: 10,        // Amount of HP to heal
+        disable_type: ["Acid", "Fire"]  // ARRAY of damage types that prevent regeneration
     },
     senses: "Blindsight 60 ft. Darkvision 120 ft. Passive Perception 21",
     languages: ["Common", "Draconic"],

@@ -2,9 +2,10 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
 
 ## Change Log
 
-* 10/22/25: 0.2.4
+* 10/22/25: 0.2.5
     * Implemented the Legendary Resistance system.
     * Implemented the frightful presence system.
+    * Implemented the regeneration system.
 
 * 10/21/25: 0.2.2
     * Implemented damage immunities across all effect damage types and paths.
@@ -35,10 +36,8 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
 
 ## Active Projects
 
-Figure out a system for Frightful Presence.
-
 Rechargable monster abilities and attacks.
-Regeneration.
+
 Legendary actions for monsters.
 
 Separate the functionality of script.js into different JavaScript files that is logical and is easier to maintain.
@@ -51,6 +50,7 @@ Figure out a system for attacks that use recharge.
 
 
 Add the following mechanics:
+* sense could offset some effects (like darkness or magical darkeness doesn't work against blindsight)
 * Advantage/Disadvantage on attack rolls
 * Initiative bonuses from feats or abilities
 * Conditions (e.g., stunned, poisoned) that affect combatants
@@ -91,5 +91,6 @@ Add the following mechanics:
 * if there more than two monsters, decide who attacks who and keep track of it
 * Inventory and equipment for characters
 * User interface improvements (e.g., better modals, animations)
+* Hiding versus perception
 * Save/load combat sessions
 * Export combat logs (beyond copy to clipboard functionality)
