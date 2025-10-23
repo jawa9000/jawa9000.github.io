@@ -17,9 +17,15 @@ const monsters = [
     cha: 12,
     "saving throws": "DEX +7, CON +10, WIS +6, CHA +8",
     skills: "Perception +11, Stealth +7",
-    "Damage Vulnerabilities": "Cold",
-    "damage immunities": "Thunder, Poison",
-    "damage resistances": "Fire",
+    // "Damage Vulnerabilities": "Cold",
+    // "damage immunities": "Poison",
+    // "damage resistances": "Fire",
+    // legendary_resistances: 3,
+    frightful_presence: {
+        dc: 18,
+        save_ability: "WIS", // or "CHA"
+        range: 120, // in feet
+    },
     senses: "Blindsight 60 ft. Darkvision 120 ft. Passive Perception 21",
     languages: ["Common", "Draconic"],
     challenge: "14 (11,500 XP)",

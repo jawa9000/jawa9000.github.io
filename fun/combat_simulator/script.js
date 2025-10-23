@@ -226,6 +226,14 @@ class CombatSimulator {
         
         // Calculate initiative bonus from Dexterity
         const dexMod = Math.floor((parseInt(monsterData.dex || 10) - 10) / 2);
+        const lrMax = parseInt(
+            monsterData.legendary_resistances_max ??
+            monsterData.legendary_resistances ??
+            monsterData.legendaryResistances ??
+            0,
+            10
+        ) || 0;
+        const lrCurrent = lrMax;
         
         return {
             id: Date.now() + Math.random(),
@@ -248,6 +256,13 @@ class CombatSimulator {
 			damageImmunities: damageImmunities,
 			damageVulnerabilities: damageVulnerabilities,
 			conditionImmunities: conditionImmunities,
+            legendary_resistances_max: lrMax,
+            legendary_resistances_current: lrCurrent,
+            // Frightful Presence related state
+            frightful_presence: monsterData.frightful_presence || null,
+            frightened: false,
+            frightenedSourceId: null,
+            frightful_presence_immune: false,
             isDead: false,
             originalData: monsterData, // Keep reference to original data
             attackMemory: {} // Track ineffective attacks against specific targets
@@ -266,7 +281,7 @@ class CombatSimulator {
             attackBonus: 0,
             damage: '1d6',
             speed: 30,
-            numberOfAttacks: 1,
+            numberOfAttacks: 1, // Default to 1 attack for player characters
             attacksRemaining: 1,
             team: 'Neutral',
             initiative: null,
@@ -336,7 +351,6 @@ class CombatSimulator {
 		if (result.includes('none')) {
 			return [];
 		}
-		
 		return result;
 	}
 
@@ -365,12 +379,33 @@ class CombatSimulator {
 
 	// Roll a saving throw for a target
 	rollSavingThrow(target, ability, dc) {
-		const abilityKey = (ability || '').toLowerCase().slice(0, 3); // 'str','dex','con','int','wis','cha'
-		const abilityScore = parseInt(target.originalData?.[abilityKey] ?? 10, 10);
-		const mod = getAbilityModifier(abilityScore);
-		const roll = this.rollDice(20) + mod;
-		this.logMessage(`${target.name} ${ability} save: ${roll} vs DC ${dc}`);
-		return roll >= dc;
+        const abilityKey = (ability || '').toLowerCase().slice(0, 3);
+        const abilityScore = parseInt(target.originalData?.[abilityKey] ?? 10, 10);
+        const mod = getAbilityModifier(abilityScore);
+        const roll = this.rollDice(20) + mod;
+        this.logMessage(`${target.name} ${ability} save: ${roll} vs DC ${dc}`);
+        let succeeded = roll >= dc;
+        if (!succeeded) {
+            const remaining = parseInt(target.legendary_resistances_current ?? 0, 10) || 0;
+            if (remaining > 0) {
+                // Auto-use Legendary Resistance without a popup; log to combat log
+                target.legendary_resistances_current = remaining - 1;
+                succeeded = true;
+                this.logMessage(`${target.name} uses a Legendary Resistance to succeed on the save. (${target.legendary_resistances_current} remaining)`);
+            }
+        }
+        return succeeded;
+    }
+
+    // Called whenever a target takes damage from an attacker; clears Frightened
+    handleDamageTaken(target, attacker) {
+        if (!attacker) return;
+        if (target && target.frightened) {
+            target.frightened = false;
+            target.frightenedSourceId = null;
+            this.logMessage(`${target.name} takes damage and is no longer Frightened.`);
+            this.updateDisplay();
+        }
     }
 
     filterMonsters() {
@@ -551,6 +586,20 @@ class CombatSimulator {
         if (currentCombatant) {
 			// Apply ongoing start-of-turn effects before actions
 			this.applyStartOfTurnEffects(currentCombatant);
+            // If frightened, and the source is gone (e.g., dead or missing), remove condition
+            if (currentCombatant.frightened && currentCombatant.frightenedSourceId) {
+                const src = this.initiativeOrder.find(c => c.id === currentCombatant.frightenedSourceId);
+                if (!src || src.isDead) {
+                    currentCombatant.frightened = false;
+                    currentCombatant.frightenedSourceId = null;
+                    this.logMessage(`${currentCombatant.name} is no longer Frightened.`);
+                }
+            }
+
+            // Auto-activate Frightful Presence at start of turn if available
+            if (currentCombatant.frightful_presence) {
+                this.useFrightfulPresence(currentCombatant.id);
+            }
             currentCombatant.attacksRemaining = currentCombatant.numberOfAttacks || 1;
             this.logMessage(`${currentCombatant.name} starts their turn with ${currentCombatant.attacksRemaining} attack${currentCombatant.attacksRemaining !== 1 ? 's' : ''} remaining.`);
         }
@@ -582,6 +631,51 @@ class CombatSimulator {
 		}
 		this.updateDisplay();
 	}
+
+    // Frightful Presence: core action
+    useFrightfulPresence(sourceId) {
+        const source = this.initiativeOrder.find(c => c.id === sourceId);
+        if (!source || !source.frightful_presence || source.isDead) return;
+
+        const params = source.frightful_presence;
+        const dc = params.dc;
+        const ability = params.save_ability || 'WIS';
+        const range = params.range || 120;
+
+        // Log activation
+        this.logMessage(`${source.name} unleashes its terrifying Frightful Presence (DC ${dc} ${ability}).`);
+
+        // Iterate targets: all other living combatants
+        for (const target of this.initiativeOrder) {
+            if (!target || target.id === sourceId || target.isDead) continue;
+
+            // 24-hour immunity check
+            if (target.frightful_presence_immune) {
+                this.logMessage(` -> ${target.name} is immune to this Frightful Presence (24 hours).`);
+                continue;
+            }
+
+            // LoS/Range checks would go here; lacking positions/LoS, assume visible and in range
+            // If you later add positions, filter by distance/visibility here using 'range'
+
+            // Force saving throw
+            const saveSucceeded = this.rollSavingThrow(target, ability, dc);
+
+            if (!saveSucceeded) {
+                // Apply frightened condition
+                target.frightened = true;
+                target.frightenedSourceId = sourceId;
+                this.logMessage(` -> ${target.name} fails the save and is FRIGHTENED.`);
+            } else {
+                // Grant 24-hour immunity
+                target.frightful_presence_immune = true;
+                this.logMessage(` -> ${target.name} succeeds on the save and is immune to this Frightful Presence for 24 hours.`);
+            }
+        }
+
+        // Update UI after applying conditions
+        this.updateDisplay();
+    }
 
     // Attack System
     openAttackModal() {
@@ -807,6 +901,7 @@ class CombatSimulator {
 					}
 					this.logMessage(this.formatDamageMessage(attacker, target, damage, mainDmgType, originalDamage));
 					target.hp -= damage;
+					this.handleDamageTaken(target, attacker);
 				}
 			} else {
 				this.logMessage(`${target.name} is immune to ${mainDmgType || 'this'} damage.`);
@@ -830,6 +925,7 @@ class CombatSimulator {
 						this.logMessage(`${target.name} is vulnerable to ${partType} damage (doubled).`);
 					}
 					target.hp -= partDmg;
+					this.handleDamageTaken(target, attacker);
 					this.logMessage(this.formatDamageMessage(attacker, target, partDmg, partType, originalPartDmg));
 				}
 			}
@@ -864,6 +960,7 @@ class CombatSimulator {
 								this.logMessage(`${target.name} is vulnerable to ${dmgType} damage (doubled: ${beforeV} -> ${pdmg}).`);
 							}
 							target.hp -= pdmg;
+							this.handleDamageTaken(target, attacker);
 							this.logMessage(`${target.name} succeeds the poison save and takes ${pdmg} poison damage.`);
 							applyCondition = false;
 						} else if (!succeeded) {
@@ -883,6 +980,7 @@ class CombatSimulator {
 									this.logMessage(`${target.name} is vulnerable to ${dmgType} damage (doubled: ${beforeV} -> ${pdmg}).`);
 								}
 								target.hp -= pdmg;
+								this.handleDamageTaken(target, attacker);
 								this.logMessage(`${target.name} fails the poison save and takes ${pdmg} poison damage.`);
 							}
 							applyCondition = true;
@@ -958,6 +1056,7 @@ class CombatSimulator {
 									this.logMessage(`${target.name} is vulnerable to ${poisonType} damage (doubled: ${before} -> ${apply}).`);
 								}
 								target.hp -= apply;
+								this.handleDamageTaken(target, attacker);
 								this.logMessage(`${target.name} succeeds the ${ability} save vs poison (DC ${dc}) and takes ${apply} ${poisonType} damage.`);
 							} else {
 								let apply = pdmg;
@@ -967,6 +1066,7 @@ class CombatSimulator {
 									this.logMessage(`${target.name} is vulnerable to ${poisonType} damage (doubled: ${before} -> ${apply}).`);
 								}
 								target.hp -= apply;
+								this.handleDamageTaken(target, attacker);
 								this.logMessage(`${target.name} fails the ${ability} save vs poison (DC ${dc}) and takes ${apply} ${poisonType} damage.`);
 							}
 							this.updateDisplay();
@@ -1004,6 +1104,7 @@ class CombatSimulator {
 									this.logMessage(`${target.name} is vulnerable to ${fireType} damage (doubled: ${before} -> ${apply}).`);
 								}
 								target.hp -= apply;
+								this.handleDamageTaken(target, attacker);
 								this.logMessage(`${target.name} succeeds the ${ability} save vs fire (DC ${dc}) and takes ${apply} ${fireType} damage.`);
 							} else {
 								let apply = fdmg;
@@ -1013,6 +1114,7 @@ class CombatSimulator {
 									this.logMessage(`${target.name} is vulnerable to ${fireType} damage (doubled: ${before} -> ${apply}).`);
 								}
 								target.hp -= apply;
+								this.handleDamageTaken(target, attacker);
 								this.logMessage(`${target.name} fails the ${ability} save vs fire (DC ${dc}) and takes ${apply} ${fireType} damage.`);
 							}
 							this.updateDisplay();
@@ -1050,6 +1152,7 @@ class CombatSimulator {
 									this.logMessage(`${target.name} is vulnerable to ${acidType} damage (doubled: ${before} -> ${apply}).`);
 								}
 								target.hp -= apply;
+								this.handleDamageTaken(target, attacker);
 								this.logMessage(`${target.name} succeeds the ${ability} save vs acid (DC ${dc}) and takes ${apply} ${acidType} damage.`);
 							} else {
 								let apply = admg;
@@ -1059,6 +1162,7 @@ class CombatSimulator {
 									this.logMessage(`${target.name} is vulnerable to ${acidType} damage (doubled: ${before} -> ${apply}).`);
 								}
 								target.hp -= apply;
+								this.handleDamageTaken(target, attacker);
 								this.logMessage(`${target.name} fails the ${ability} save vs acid (DC ${dc}) and takes ${apply} ${acidType} damage.`);
 							}
 							this.updateDisplay();
@@ -1096,6 +1200,7 @@ class CombatSimulator {
 									this.logMessage(`${target.name} is vulnerable to ${coldType} damage (doubled: ${before} -> ${apply}).`);
 								}
 								target.hp -= apply;
+								this.handleDamageTaken(target, attacker);
 								this.logMessage(`${target.name} succeeds the ${ability} save vs cold (DC ${dc}) and takes ${apply} ${coldType} damage.`);
 							} else {
 								let apply = cdmg;
@@ -1105,6 +1210,7 @@ class CombatSimulator {
 									this.logMessage(`${target.name} is vulnerable to ${coldType} damage (doubled: ${before} -> ${apply}).`);
 								}
 								target.hp -= apply;
+								this.handleDamageTaken(target, attacker);
 								this.logMessage(`${target.name} fails the ${ability} save vs cold (DC ${dc}) and takes ${apply} ${coldType} damage.`);
 							}
 							this.updateDisplay();
@@ -1124,8 +1230,8 @@ class CombatSimulator {
 								continue;
 							}
 							const succeeded = this.rollSavingThrow(target, ability, dc);
-						 let forceDice = this.parseDamage(String(damageField));
-						 let fdmg = this.rollDamage(forceDice || '1d6');
+							let forceDice = this.parseDamage(String(damageField));
+							let fdmg = this.rollDamage(forceDice || '1d6');
 							// Apply immunity and resistance
 							if (this.hasDamageResistance(target, forceType)) {
 								const before = fdmg;
@@ -1141,6 +1247,7 @@ class CombatSimulator {
 									this.logMessage(`${target.name} is vulnerable to ${forceType} damage (doubled: ${before} -> ${apply}).`);
 								}
 								target.hp -= apply;
+								this.handleDamageTaken(target, attacker);
 								this.logMessage(`${target.name} succeeds the ${ability} save vs force (DC ${dc}) and takes ${apply} ${forceType} damage.`);
 							} else {
 								let apply = fdmg;
@@ -1150,6 +1257,7 @@ class CombatSimulator {
 									this.logMessage(`${target.name} is vulnerable to ${forceType} damage (doubled: ${before} -> ${apply}).`);
 								}
 								target.hp -= apply;
+								this.handleDamageTaken(target, attacker);
 								this.logMessage(`${target.name} fails the ${ability} save vs force (DC ${dc}) and takes ${apply} ${forceType} damage.`);
 							}
 							this.updateDisplay();
@@ -1186,6 +1294,7 @@ class CombatSimulator {
 									this.logMessage(`${target.name} is vulnerable to ${lightningType} damage (doubled: ${before} -> ${apply}).`);
 								}
 								target.hp -= apply;
+								this.handleDamageTaken(target, attacker);
 								this.logMessage(`${target.name} succeeds the ${ability} save vs lightning (DC ${dc}) and takes ${apply} ${lightningType} damage.`);
 							} else {
 								let apply = ldmg;
@@ -1195,6 +1304,7 @@ class CombatSimulator {
 									this.logMessage(`${target.name} is vulnerable to ${lightningType} damage (doubled: ${before} -> ${apply}).`);
 								}
 								target.hp -= apply;
+								this.handleDamageTaken(target, attacker);
 								this.logMessage(`${target.name} fails the ${ability} save vs lightning (DC ${dc}) and takes ${apply} ${lightningType} damage.`);
 							}
 							this.updateDisplay();
@@ -1231,6 +1341,7 @@ class CombatSimulator {
 									this.logMessage(`${target.name} is vulnerable to ${necroticType} damage (doubled: ${before} -> ${apply}).`);
 								}
 								target.hp -= apply;
+								this.handleDamageTaken(target, attacker);
 								this.logMessage(`${target.name} succeeds the ${ability} save vs necrotic (DC ${dc}) and takes ${apply} ${necroticType} damage.`);
 							} else {
 								let apply = ndmg;
@@ -1240,6 +1351,7 @@ class CombatSimulator {
 									this.logMessage(`${target.name} is vulnerable to ${necroticType} damage (doubled: ${before} -> ${apply}).`);
 								}
 								target.hp -= apply;
+								this.handleDamageTaken(target, attacker);
 								this.logMessage(`${target.name} fails the ${ability} save vs necrotic (DC ${dc}) and takes ${apply} ${necroticType} damage.`);
 							}
 							this.updateDisplay();
@@ -1276,6 +1388,7 @@ class CombatSimulator {
 									this.logMessage(`${target.name} is vulnerable to ${psychicType} damage (doubled: ${before} -> ${apply}).`);
 								}
 								target.hp -= apply;
+								this.handleDamageTaken(target, attacker);
 								this.logMessage(`${target.name} succeeds the ${ability} save vs psychic (DC ${dc}) and takes ${apply} ${psychicType} damage.`);
 							} else {
 								let apply = pdmg;
@@ -1285,6 +1398,7 @@ class CombatSimulator {
 									this.logMessage(`${target.name} is vulnerable to ${psychicType} damage (doubled: ${before} -> ${apply}).`);
 								}
 								target.hp -= apply;
+								this.handleDamageTaken(target, attacker);
 								this.logMessage(`${target.name} fails the ${ability} save vs psychic (DC ${dc}) and takes ${apply} ${psychicType} damage.`);
 							}
 							this.updateDisplay();
@@ -1321,6 +1435,7 @@ class CombatSimulator {
 									this.logMessage(`${target.name} is vulnerable to ${radiantType} damage (doubled: ${before} -> ${apply}).`);
 								}
 								target.hp -= apply;
+								this.handleDamageTaken(target, attacker);
 								this.logMessage(`${target.name} succeeds the ${ability} save vs radiant (DC ${dc}) and takes ${apply} ${radiantType} damage.`);
 							} else {
 								let apply = rdmg;
@@ -1330,6 +1445,7 @@ class CombatSimulator {
 									this.logMessage(`${target.name} is vulnerable to ${radiantType} damage (doubled: ${before} -> ${apply}).`);
 								}
 								target.hp -= apply;
+								this.handleDamageTaken(target, attacker);
 								this.logMessage(`${target.name} fails the ${ability} save vs radiant (DC ${dc}) and takes ${apply} ${radiantType} damage.`);
 							}
 							this.updateDisplay();
@@ -1366,6 +1482,7 @@ class CombatSimulator {
 									this.logMessage(`${target.name} is vulnerable to ${thunderType} damage (doubled: ${before} -> ${apply}).`);
 								}
 								target.hp -= apply;
+								this.handleDamageTaken(target, attacker);
 								this.logMessage(`${target.name} succeeds the ${ability} save vs thunder (DC ${dc}) and takes ${apply} ${thunderType} damage.`);
 							} else {
 								let apply = tdmg;
@@ -1375,6 +1492,7 @@ class CombatSimulator {
 									this.logMessage(`${target.name} is vulnerable to ${thunderType} damage (doubled: ${before} -> ${apply}).`);
 								}
 								target.hp -= apply;
+								this.handleDamageTaken(target, attacker);
 								this.logMessage(`${target.name} fails the ${ability} save vs thunder (DC ${dc}) and takes ${apply} ${thunderType} damage.`);
 							}
 							this.updateDisplay();
@@ -1845,7 +1963,6 @@ class CombatSimulator {
                 this.updateInitiativeList();
                 this.logMessage(`${combatant.name} has been removed from ${combatant.team}.`);
             });
-
             container.append(combatantDiv);
         });
     }
@@ -1867,7 +1984,7 @@ class CombatSimulator {
             const teamClass = combatant.team.toLowerCase().replace(' ', '-');
             const initiativeItem = $(`
                 <div class="initiative-item ${isCurrentTurn ? 'current-turn' : ''} ${combatant.isDead ? 'dead' : ''} ${teamClass}">
-                    <div class="name">${combatant.name} <span class="team-indicator ${teamClass}">${combatant.team}</span></div>
+                    <div class="name">${combatant.name} <span class="team-indicator ${teamClass}">${combatant.team}</span> ${combatant.frightened ? '<span class="condition-badge">[FRIGHTENED]</span>' : ''}</div>
                     <div class="stats">
                         <span>Initiative: ${combatant.initiative !== null ? combatant.initiative : '-'}</span>
                         <span>AC: ${combatant.ac}</span>

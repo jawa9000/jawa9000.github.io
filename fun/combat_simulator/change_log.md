@@ -2,6 +2,10 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
 
 ## Change Log
 
+* 10/22/25: 0.2.4
+    * Implemented the Legendary Resistance system.
+    * Implemented the frightful presence system.
+
 * 10/21/25: 0.2.2
     * Implemented damage immunities across all effect damage types and paths.
     * Made minor updates to the UI of the Combat Log.
@@ -31,9 +35,11 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
 
 ## Active Projects
 
-Figure a system to handle legendary resistances.
-
 Figure out a system for Frightful Presence.
+
+Rechargable monster abilities and attacks.
+Regeneration.
+Legendary actions for monsters.
 
 Separate the functionality of script.js into different JavaScript files that is logical and is easier to maintain.
 
@@ -61,8 +67,7 @@ Add the following mechanics:
 * bonus actions (attacks, spells, abilities)
 * effects of invisibility on combat
 * effects of blindness on combat
-* rechargable monster abilities and attacks
-* using Frightful Presence and other aura effects
+* using aura effects
 * Spellcasting (with a few example spells)
 * More detailed spell effects (e.g., healing, buffs, debuffs)
 * Saving throws for spells and effects
@@ -70,7 +75,6 @@ Add the following mechanics:
 * Ranged vs. melee attacks with range considerations
 * Cover mechanics for ranged attacks?
 * regeneration and healing between rounds
-* legendary actions for monsters
 * Monster special abilities (e.g., breath weapons, spellcasting)
 * Monster lair actions and environmental effects
 * Morale system for NPCs/monsters
