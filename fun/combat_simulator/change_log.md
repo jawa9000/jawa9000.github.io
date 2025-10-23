@@ -2,16 +2,17 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
 
 ## Change Log
 
-* 10/23/25: 0.2.7
+* 10/23/25: 0.11.0
     * Implemented the legendary action system.
     * Implemented rechargeable monster abilities and attacks.
+    * Implemented ongoing effects.
 
-* 10/22/25: 0.2.5
+* 10/22/25: 0.7.0
     * Implemented the Legendary Resistance system.
     * Implemented the frightful presence system.
     * Implemented the regeneration system.
 
-* 10/21/25: 0.2.2
+* 10/21/25: 0.4.1
     * Implemented damage immunities across all effect damage types and paths.
     * Made minor updates to the UI of the Combat Log.
     * Implemented damage vulnerabilities across all effect damage types and paths.
@@ -35,9 +36,6 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
 * 9/6/25: 0.0.1
     * Started creating a monster simulation combat system.
 
-
-
-
 ## Active Projects
 
 Separate the functionality of script.js into different JavaScript files that is logical and is easier to maintain.
@@ -46,15 +44,30 @@ Separate the functionality of script.js into different JavaScript files that is 
 
 In monsters.js, update the speed, skills, saving throws, senses properties to use an object instead of a string and then update script.js and Encounter_Builder/main.js to handle this change. Also, update the prompt that is used to generate monster JSON data to reflect this change.
 
-Figure out a system for attacks that use recharge.
-
-
 Add the following mechanics:
+* keep track of used reactions (e.g., opportunity attacks)
+    * retaliatory strikes
+    * opportunity attacks
+    * area-of-effect attacks
+    * teleportation
+    * forced movement
+    * damage mitigation
+    * regeneration/healing
+    * status effect application (inflict a negative status effect)
+* Bonus actions (attacks)
+    * pounce
+    * rampage
+    * trampling charge
+    * aggressive (move to target)
+    * Nimble escape
+    * ethereal jaunt
+    * spell casting
+    * Battle cry
+    * luring song
 * sense could offset some effects (like darkness or magical darkeness doesn't work against blindsight)
 * Advantage/Disadvantage on attack rolls
-* Initiative bonuses from feats or abilities
+* Initiative bonuses from feats or abilities (attribute bonuses have already been implemented)
 * Conditions (e.g., stunned, poisoned) that affect combatants
-* keep track of used reactions (e.g., opportunity attacks)
 * keep track of spell slots for monsters
 * keep track of effect durations (e.g., buffs, debuffs)
 * keep track of effects that trigger at the start/end of turns
@@ -64,7 +77,7 @@ Add the following mechanics:
 * opportunity attacks
 * Death saving throws
 * dropping to 0 hp and regenation
-* bonus actions (attacks, spells, abilities)
+* bonus actions (spells, abilities)
 * effects of invisibility on combat
 * effects of blindness on combat
 * using aura effects
@@ -78,9 +91,6 @@ Add the following mechanics:
 * Monster special abilities (e.g., breath weapons, spellcasting)
 * Monster lair actions and environmental effects
 * Morale system for NPCs/monsters
-* Reactions (e.g., opportunity attacks)
-* Legendary Resistance
-* pick between multiple attack options for monsters
 * using int and/or wis to pick attack options (different spells, abilities)
 * Flanking bonuses
 * environment effects (e.g. water-based vs land-based monsters)

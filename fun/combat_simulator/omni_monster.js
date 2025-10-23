@@ -62,22 +62,22 @@ const monsters = [
     //         ]
     //     }
     // },
-    rechargeable_attack: {
-        "Fire Breath (Recharge 5-6)": {
-            // Recharge properties (must be at the top level for recharge logic)
-            recharge: "5-6", // The criteria (d6 roll of 5 or 6)
-            used: false, // Initial state: ready to use
-            "effects": [
-                {
-                    "type": "Fire",
-                    "condition": "Target must make a DC 17 Dexterity saving throw, taking 49 (14d6) Fire damage on a failed save, or half as much damage on a successful one.",
-                    "dc": 17,
-                    "ability": "Dexterity",
-                    "one-time damage": "29 (7d6)"
-                }
-            ]
-        }
-    },
+    // rechargeable_attack: {
+    //     "Fire Breath (Recharge 5-6)": {
+    //         // Recharge properties (must be at the top level for recharge logic)
+    //         recharge: "5-6", // The criteria (d6 roll of 5 or 6)
+    //         used: false, // Initial state: ready to use
+    //         "effects": [
+    //             {
+    //                 "type": "Fire",
+    //                 "condition": "Target must make a DC 17 Dexterity saving throw, taking 49 (14d6) Fire damage on a failed save, or half as much damage on a successful one.",
+    //                 "dc": 17,
+    //                 "ability": "Dexterity",
+    //                 "one-time damage": "29 (7d6)"
+    //             }
+    //         ]
+    //     }
+    // },
     attacks: {
         "Greataxe": {
             "type": "Melee Weapon Attack",
@@ -101,22 +101,41 @@ const monsters = [
                 "one-time damage": "9 (2d8)"
                 }
             ]
-        }, 
-        "Frost Breath": {
-            "type": "Action (Save)",
-            "reach": "10 ft.",
-            "target": "one creature",
-            "damage type": "cold",
-            "effects": [
-                {
-                "type": "Cold",
-                "condition": "Target must make a Dexterity saving throw, taking cold damage on a failed save, or half as much damage on a successful one.",
-                "dc": 11,
-                "ability": "Dexterity",
-                "one-time damage": "9 (2d8)"
-                }
-            ]
         },
+        "Flame Breath": {
+            // Attack that applies the ongoing effect
+            "to hit": "DC 15 DEX Save", // Initial Save to avoid damage/effect
+            hit: "21 (6d6) Fire damage on a failed save, half on a success.",
+            
+            // ✨ NEW: Ongoing Effect Definition
+            ongoing_effect: {
+                name: "Burning",
+                // Damage the target takes each turn
+                damage: "3 (1d6) Fire",
+                // The ability and DC required to end the effect
+                save_ability: "CON", 
+                save_dc: 15,
+                // When the save is attempted
+                save_timing: "End of Turn", 
+                // How long the effect lasts if the save is not made
+                duration: "Until Save" 
+            }
+        },
+        // "Frost Breath": {
+        //     "type": "Action (Save)",
+        //     "reach": "10 ft.",
+        //     "target": "one creature",
+        //     "damage type": "cold",
+        //     "effects": [
+        //         {
+        //         "type": "Cold",
+        //         "condition": "Target must make a Dexterity saving throw, taking cold damage on a failed save, or half as much damage on a successful one.",
+        //         "dc": 11,
+        //         "ability": "Dexterity",
+        //         "one-time damage": "9 (2d8)"
+        //         }
+        //     ]
+        // },
         // "Spit Poison": {
         //     "type": "Action (Save)",
         //     "reach": "10 ft.",
@@ -187,17 +206,6 @@ const monsters = [
     //     "hit": "15 (2d8 + 6)",
     //     "damage type": "bludgeoning"
     //   },
-    //   "Frightful Presence": {
-    //     type: "Frightful Presence",
-    //     "description": "Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 16 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours."
-    //   },
-    //   "Acid Breath": {
-    //     type: "Acid Breath",
-    //     "recharge": "5–6",
-    //     "dc": 18,
-    //     "damage": "54 (12d8)",
-    //     "description": "The dragon exhales acid in a 60-foot line that is 5 feet wide. Each creature in that line must make a DC 18 Dexterity saving throw, taking 54 (12d8) acid damage on a failed save, or half as much damage on a successful one."
-    //   }
     },
     actions:
       "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +11 to hit, reach 10 ft. one target. <em>Hit:</em> 17 (2d10 + 6) piercing damage plus 4 (1d8) acid damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +11 to hit, reach 5 ft. one target. <em>Hit:</em> 13 (2d6 + 6) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +11 to hit, reach 15 ft. one target. <em>Hit:</em> 15 (2d8 + 6) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 16 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Acid Breath (Recharge 5–6).</strong></em> The dragon exhales acid in a 60-­foot line that is 5 feet wide. Each creature in that line must make a DC 18 Dexterity saving throw, taking 54 (12d8) acid damage on a failed save, or half as much damage on a successful one.</p>",

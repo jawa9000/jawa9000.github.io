@@ -299,6 +299,8 @@ class CombatSimulator {
             originalData: monsterData, // Keep reference to original data
             // Deep-clone rechargeable attacks so state doesn't leak across instances
             rechargeable_attack: monsterData.rechargeable_attack ? JSON.parse(JSON.stringify(monsterData.rechargeable_attack)) : null,
+            // Ongoing effects currently affecting this creature
+            ongoing_effects: [],
             attackMemory: {} // Track ineffective attacks against specific targets
         };
     }
@@ -717,6 +719,10 @@ class CombatSimulator {
         if (!this.combatActive) return;
         const justWent = this.getCurrentCombatant();
         this.logMessage(`Ending turn for ${justWent ? justWent.name : 'unknown combatant'}.`);
+        // End-of-turn save checks for ongoing effects
+        if (justWent) {
+            this.resolveEndOfTurnOngoingEffects(justWent);
+        }
         // Legendary Action Phase occurs after a creature's turn ends
         this.legendaryActionPhase(justWent ? justWent.id : null);
 
@@ -756,6 +762,8 @@ class CombatSimulator {
         if (currentCombatant) {
 			// Apply ongoing start-of-turn effects before actions
 			this.applyStartOfTurnEffects(currentCombatant);
+            // Apply ongoing effect damage at start of turn
+            this.applyOngoingEffectsStartOfTurn(currentCombatant);
             // If frightened, and the source is gone (e.g., dead or missing), remove condition
             if (currentCombatant.frightened && currentCombatant.frightenedSourceId) {
                 const src = this.initiativeOrder.find(c => c.id === currentCombatant.frightenedSourceId);
@@ -804,6 +812,68 @@ class CombatSimulator {
 			combatant.isDead = true;
 			this.logMessage(`${combatant.name} drops to 0 HP and is defeated!`);
 		}
+		this.updateDisplay();
+	}
+
+	// New: Apply damage from ongoing_effects array at start of turn
+	applyOngoingEffectsStartOfTurn(combatant) {
+		if (!Array.isArray(combatant.ongoing_effects) || combatant.ongoing_effects.length === 0) return;
+		for (const effect of combatant.ongoing_effects) {
+			if (!effect || !effect.damage) continue;
+			// Parse damage like "3 (1d6) Fire" -> dice: 1d6, type: fire
+			let diceExpr = null;
+			let dmgType = null;
+			const paren = String(effect.damage).match(/\(([^)]+)\)/);
+			if (paren) {
+				diceExpr = paren[1].trim();
+				const tail = String(effect.damage).replace(paren[0], '').trim();
+				dmgType = tail.split(/\s+/).pop();
+			} else {
+				const m = String(effect.damage).match(/(\d+d\d+(?:\s*[+-]\s*\d+)?)/i);
+				if (m) diceExpr = m[1];
+				const parts = String(effect.damage).trim().split(/\s+/);
+				dmgType = parts[parts.length - 1];
+			}
+			const rolled = this.rollDamage(diceExpr || '1d6');
+			const type = (dmgType || '').toLowerCase();
+			if (type && this.hasDamageImmunity(combatant, type)) {
+				this.logMessage(`${combatant.name} is immune to ${type} damage; no damage taken from ${effect.name}.`);
+				continue;
+			}
+			let final = rolled;
+			if (type && this.hasDamageResistance(combatant, type)) final = Math.floor(final / 2);
+			if (type && this.hasDamageVulnerability(combatant, type)) final = final * 2;
+			combatant.hp -= final;
+			this.logMessage(`❌ ${combatant.name} takes ${final}${type ? ' ' + type : ''} damage from ${effect.name}.`);
+			if (combatant.hp <= 0) {
+				combatant.isDead = true;
+				this.logMessage(`${combatant.name} drops to 0 HP and is defeated!`);
+			}
+		}
+		this.updateDisplay();
+	}
+
+	// New: End-of-turn saves to remove ongoing_effects when applicable
+	resolveEndOfTurnOngoingEffects(combatant) {
+		if (!Array.isArray(combatant.ongoing_effects) || combatant.ongoing_effects.length === 0) return;
+		const remaining = [];
+		for (const effect of combatant.ongoing_effects) {
+			if (effect && /end of turn/i.test(String(effect.save_timing || ''))) {
+				const ability = effect.save_ability || 'CON';
+				const dc = parseInt(effect.save_dc || 0, 10) || 0;
+				if (dc > 0) {
+					const saved = this.rollSavingThrow(combatant, ability, dc);
+					if (saved) {
+						this.logMessage(`✅ ${combatant.name} succeeds on a DC ${dc} ${ability} save, ending ${effect.name}.`);
+						continue; // remove
+					} else {
+						this.logMessage(`🔴 ${combatant.name} fails the DC ${dc} ${ability} save. ${effect.name} persists.`);
+					}
+				}
+			}
+			remaining.push(effect);
+		}
+		combatant.ongoing_effects = remaining;
 		this.updateDisplay();
 	}
 
@@ -918,6 +988,79 @@ class CombatSimulator {
                     }
                     break;
                 }
+            }
+        }
+
+		// Special case: allow save-based notation inside 'to hit' like "DC 15 DEX Save"
+        if (typeof attack["to hit"] === 'string' && /DC\s*\d+/i.test(attack["to hit"])) {
+            const m = attack["to hit"].match(/DC\s*(\d+)\s*([A-Z]{3,}|Dexterity|Constitution|Wisdom|Intelligence|Charisma|Strength)?/i);
+            const dc = m ? parseInt(m[1], 10) : null;
+            const abilRaw = m && m[2] ? m[2].toUpperCase() : 'DEX';
+            const ability = (
+                abilRaw.startsWith('STR') ? 'Strength' :
+                abilRaw.startsWith('DEX') ? 'Dexterity' :
+                abilRaw.startsWith('CON') ? 'Constitution' :
+                abilRaw.startsWith('INT') ? 'Intelligence' :
+                abilRaw.startsWith('WIS') ? 'Wisdom' :
+                abilRaw.startsWith('CHA') ? 'Charisma' : 'Dexterity'
+            );
+            if (dc) {
+                const attackName = this.getAttackName(attacker, attack);
+                const succeeded = this.rollSavingThrow(target, ability, dc);
+                // Try to parse damage dice from hit field's parentheses, fallback to digits in hit
+                let baseDice = '1d6';
+                if (typeof attack.hit === 'string') {
+                    const paren = attack.hit.match(/\(([^)]+)\)/);
+                    if (paren) baseDice = paren[1].trim();
+                    else {
+                        const dm = attack.hit.match(/(\d+d\d+(?:\s*[+-]\s*\d+)?)/i);
+                        if (dm) baseDice = dm[1];
+                    }
+                }
+                let dmg = this.rollDamage(baseDice);
+                const dmgType = (attack['damage type'] || '').toLowerCase();
+                if (succeeded) {
+                    // Half on success if described
+                    if (/half/i.test(String(attack.hit || ''))) {
+                        dmg = Math.floor(dmg / 2);
+                    } else {
+                        dmg = 0; // Some save-for-none patterns; conservative if not specified
+                    }
+                }
+                // Apply immunity/resistance/vulnerability
+                if (dmg > 0) {
+                    if (this.hasDamageImmunity(target, dmgType)) {
+                        this.logMessage(`${target.name} is immune to ${dmgType || 'this'} damage from ${attacker.name}'s ${attackName}.`);
+                        dmg = 0;
+                    } else {
+                        const before = dmg;
+                        if (this.hasDamageResistance(target, dmgType)) dmg = Math.floor(dmg / 2);
+                        if (this.hasDamageVulnerability(target, dmgType)) dmg = dmg * 2;
+                        if (before !== dmg && this.hasDamageVulnerability(target, dmgType)) {
+                            this.logMessage(`${target.name} is vulnerable to ${dmgType || 'this'} damage (doubled).`);
+                        }
+                    }
+                }
+                if (dmg > 0) {
+                    target.hp -= dmg;
+                    if (target.hp <= 0) {
+                        target.isDead = true;
+                        this.logMessage(`${target.name} drops to 0 HP and is defeated!`);
+                    }
+                    this.logMessage(`${target.name} ${succeeded ? 'succeeds' : 'fails'} the ${ability} save against ${attackName} and takes ${dmg}${dmgType ? ' ' + dmgType : ''} damage.`);
+                    this.updateDisplay();
+                } else {
+                    this.logMessage(`${target.name} ${succeeded ? 'succeeds' : 'fails'} the ${ability} save against ${attackName}.`);
+                }
+
+                // Apply ongoing_effect only on failed save if present
+                if (!succeeded && attack.ongoing_effect) {
+                    if (!Array.isArray(target.ongoing_effects)) target.ongoing_effects = [];
+                    target.ongoing_effects.push(attack.ongoing_effect);
+                    this.logMessage(`🔥 ${target.name} is now ${attack.ongoing_effect.name} (Ongoing Effect)!`);
+                    this.updateDisplay();
+                }
+                return; // handled in this branch
             }
         }
 
@@ -1054,6 +1197,14 @@ class CombatSimulator {
 					});
 					this.logMessage(`${target.name} is ${effect.condition.toLowerCase()}.`);
 				}
+
+                // Apply new ongoing_effect system on failed save if present on the attack
+                if (!succeeded && attack.ongoing_effect) {
+                    if (!Array.isArray(target.ongoing_effects)) target.ongoing_effects = [];
+                    target.ongoing_effects.push(attack.ongoing_effect);
+                    this.logMessage(`🔥 ${target.name} is now ${attack.ongoing_effect.name} (Ongoing Effect)!`);
+                    this.updateDisplay();
+                }
 			}
 			return;
 		}
