@@ -21,43 +21,59 @@ const monsters = [
     // "damage immunities": "Poison",
     // "damage resistances": "Fire",
     // legendary_resistances: 3,
-    "legendaryActionsPerRound": 3,
+    // "legendaryActionsPerRound": 3,
     // frightful_presence: {
     //     dc: 18,
     //     save_ability: "WIS", // or "CHA"
     //     range: 120, // in feet
     // },
-    regeneration: {
-        hp_amount: 10,        // Amount of HP to heal
-        disable_type: ["Acid", "Fire"]  // ARRAY of damage types that prevent regeneration
-    },
+    // regeneration: {
+    //     hp_amount: 10,        // Amount of HP to heal
+    //     disable_type: ["Acid", "Fire"]  // ARRAY of damage types that prevent regeneration
+    // },
     senses: "Blindsight 60 ft. Darkvision 120 ft. Passive Perception 21",
     languages: ["Common", "Draconic"],
     challenge: "14 (11,500 XP)",
     traits:
       "<p><em><strong>Amphibious.</strong></em> The dragon can breathe air and water.</p><p><em><strong>Legendary Resistance (3/Day).</strong></em> If the dragon fails a saving throw, it can choose to succeed instead.</p>",
     "number of attacks": 2, 
-    "legendaryActions": {
-        "Greataxe": {
-            "type": "Melee Weapon Attack",
-            "to hit": "+6",
-            "reach": "5 ft.",
-            "target": "one target",
-            "hit": "17 (2d12 + 4)",
-            "damage type": "slashing"
-        },
-        "Booming Axe": {
-            "type": "Action (Save)",
-            "reach": "10 ft.",
-            "target": "one creature",
-            "damage type": "Thunder",
+    // "legendaryActions": {
+    //     "Greataxe": {
+    //         "type": "Melee Weapon Attack",
+    //         "to hit": "+6",
+    //         "reach": "5 ft.",
+    //         "target": "one target",
+    //         "hit": "17 (2d12 + 4)",
+    //         "damage type": "slashing"
+    //     },
+    //     "Booming Axe": {
+    //         "type": "Action (Save)",
+    //         "reach": "10 ft.",
+    //         "target": "one creature",
+    //         "damage type": "Thunder",
+    //         "effects": [
+    //             {
+    //             "type": "Thunder",
+    //             "condition": "Target must make a Dexterity saving throw, taking Thunder damage on a failed save, or half as much damage on a successful one.",
+    //             "dc": 11,
+    //             "ability": "Dexterity",
+    //             "one-time damage": "9 (2d8)"
+    //             }
+    //         ]
+    //     }
+    // },
+    rechargeable_attack: {
+        "Fire Breath (Recharge 5-6)": {
+            // Recharge properties (must be at the top level for recharge logic)
+            recharge: "5-6", // The criteria (d6 roll of 5 or 6)
+            used: false, // Initial state: ready to use
             "effects": [
                 {
-                "type": "Thunder",
-                "condition": "Target must make a Dexterity saving throw, taking Thunder damage on a failed save, or half as much damage on a successful one.",
-                "dc": 11,
-                "ability": "Dexterity",
-                "one-time damage": "9 (2d8)"
+                    "type": "Fire",
+                    "condition": "Target must make a DC 17 Dexterity saving throw, taking 49 (14d6) Fire damage on a failed save, or half as much damage on a successful one.",
+                    "dc": 17,
+                    "ability": "Dexterity",
+                    "one-time damage": "29 (7d6)"
                 }
             ]
         }

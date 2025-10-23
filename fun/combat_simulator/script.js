@@ -12,6 +12,30 @@ class CombatSimulator {
         this.updateDisplay();
     }
 
+    // Recharge any rechargeable abilities for a combatant (start of its turn)
+    rechargeAbilities(combatant) {
+        if (!combatant || !combatant.rechargeable_attack) return;
+
+        let recharged = false;
+        for (const [name, ability] of Object.entries(combatant.rechargeable_attack)) {
+            if (ability && ability.recharge && ability.used) {
+                const rechargeRoll = Math.floor(Math.random() * 6) + 1; // d6
+                const requiredRoll = parseInt(String(ability.recharge).split('-')[0], 10);
+                if (Number.isFinite(requiredRoll) && rechargeRoll >= requiredRoll) {
+                    ability.used = false;
+                    recharged = true;
+                    this.logMessage(`🎲 ${combatant.name}'s ${name} recharged on a roll of ${rechargeRoll}!`);
+                } else {
+                    this.logMessage(`🔴 ${combatant.name} failed to recharge ${name} (rolled ${rechargeRoll}).`);
+                }
+            }
+        }
+
+        if (recharged) {
+            this.updateDisplay();
+        }
+    }
+
     initializeEventListeners() {
         // Main control buttons
         $('#newCombat').click(() => this.startNewCombat());
@@ -273,6 +297,8 @@ class CombatSimulator {
             regeneration_disabled: false,
             isDead: false,
             originalData: monsterData, // Keep reference to original data
+            // Deep-clone rechargeable attacks so state doesn't leak across instances
+            rechargeable_attack: monsterData.rechargeable_attack ? JSON.parse(JSON.stringify(monsterData.rechargeable_attack)) : null,
             attackMemory: {} // Track ineffective attacks against specific targets
         };
     }
@@ -665,6 +691,14 @@ class CombatSimulator {
             c.currentLR = lrMaxInit;
             c.legendary_resistances_current = lrMaxInit; // keep legacy field in sync
         }
+        // Ensure rechargeable attacks start charged (used = false)
+        if (c && c.rechargeable_attack && typeof c.rechargeable_attack === 'object') {
+            for (const ability of Object.values(c.rechargeable_attack)) {
+                if (ability && typeof ability === 'object') {
+                    ability.used = false;
+                }
+            }
+        }
     }
     
     // Reset attacks for the first turn
@@ -701,6 +735,14 @@ class CombatSimulator {
             this.currentTurnIndex = 0;
             this.combatRound++;
             this.logMessage(`Combat Round ${this.combatRound} begins!`);
+        }
+
+        // Start-of-turn recharge checks for the next combatant
+        if (this.combatActive && this.initiativeOrder.length > 0) {
+            const nextCombatant = this.initiativeOrder[this.currentTurnIndex];
+            if (nextCombatant) {
+                this.rechargeAbilities(nextCombatant);
+            }
         }
 
         // Reset attacks for the new turn
@@ -863,6 +905,19 @@ class CombatSimulator {
             } else {
                 // Fallback to a default attack
                 attack = { "to hit": "+0", hit: "1d6" };
+            }
+        }
+
+        // If this attack is a rechargeable ability instance, mark it used now
+        if (attacker && attacker.rechargeable_attack && typeof attacker.rechargeable_attack === 'object') {
+            for (const [rName, rAbility] of Object.entries(attacker.rechargeable_attack)) {
+                if (rAbility === attack && rAbility.recharge) {
+                    if (rAbility.used === false) {
+                        rAbility.used = true;
+                        this.logMessage(`${attacker.name} uses ${rName}. It will require a recharge to use again.`);
+                    }
+                    break;
+                }
             }
         }
 
@@ -1897,11 +1952,21 @@ class CombatSimulator {
 
     // Select an attack for simulation, prioritizing attacks with special effects
     selectAttackForSimulation(combatant, target = null) {
-        if (!combatant.attacks || typeof combatant.attacks !== 'object') {
-            return null; // Will use fallback in performAttack
+        // Build a combined list of available attacks, including charged rechargeable abilities
+        let attacks = [];
+        if (combatant.attacks && typeof combatant.attacks === 'object') {
+            attacks = attacks.concat(Object.values(combatant.attacks));
         }
-        
-        const attacks = Object.values(combatant.attacks);
+        if (combatant.rechargeable_attack && typeof combatant.rechargeable_attack === 'object') {
+            for (const ability of Object.values(combatant.rechargeable_attack)) {
+                if (ability && ability.recharge) {
+                    if (ability.used === false) {
+                        attacks.push(ability);
+                    }
+                }
+            }
+        }
+        if (attacks.length === 0) return null;
         if (attacks.length === 0) return null;
         
         // If only one attack, use it
