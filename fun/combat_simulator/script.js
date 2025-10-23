@@ -1,10 +1,3 @@
-// to do list:
-/*
-    Execute this prompt:
-        Update this script to use the attack bonuses ("to hit") and damage ("hit"). The attack bonus should be included in the calculation of the attack. If the monster hits it's target, the include the damage from "hit". To parse the damage found in the hit property, you'll see a number (which is the average of the damage dice) followed by a pair of parentheses. In that parentheses, you'll find something like 2d6 + 8. That means you need to roll two d6 dice, add 8, and add all that up for the total damage.
-*/
-
-// D&D 5e Combat Simulator
 class CombatSimulator {
     constructor() {
         this.combatants = [];
