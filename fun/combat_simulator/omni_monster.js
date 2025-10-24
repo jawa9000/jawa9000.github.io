@@ -87,6 +87,16 @@ const monsters = [
             "hit": "17 (2d12 + 4)",
             "damage type": "slashing"
         },
+        "Mind Flay": {
+            "to hit": "+5", // Uses the same attack bonus
+            "hit": "9 (2d4 + 4) psychic damage",
+            "condition_effect": {
+                "save_ability": "CON",
+                "save_dc": 18,
+                "condition_name": "Stunned",
+                "duration": "1 round" // Stunned until the end of its next turn
+            }
+        },
         "Booming Axe": {
             "type": "Action (Save)",
             "reach": "10 ft.",
@@ -102,25 +112,25 @@ const monsters = [
                 }
             ]
         },
-        "Flame Breath": {
-            // Attack that applies the ongoing effect
-            "to hit": "DC 15 DEX Save", // Initial Save to avoid damage/effect
-            hit: "21 (6d6) Fire damage on a failed save, half on a success.",
+        // "Flame Breath": {
+        //     // Attack that applies the ongoing effect
+        //     "to hit": "DC 15 DEX Save", // Initial Save to avoid damage/effect
+        //     hit: "21 (6d6) Fire damage on a failed save, half on a success.",
             
-            // ✨ NEW: Ongoing Effect Definition
-            ongoing_effect: {
-                name: "Burning",
-                // Damage the target takes each turn
-                damage: "3 (1d6) Fire",
-                // The ability and DC required to end the effect
-                save_ability: "CON", 
-                save_dc: 15,
-                // When the save is attempted
-                save_timing: "End of Turn", 
-                // How long the effect lasts if the save is not made
-                duration: "Until Save" 
-            }
-        },
+        //     // ✨ NEW: Ongoing Effect Definition
+        //     ongoing_effect: {
+        //         name: "Burning",
+        //         // Damage the target takes each turn
+        //         damage: "3 (1d6) Fire",
+        //         // The ability and DC required to end the effect
+        //         save_ability: "CON", 
+        //         save_dc: 15,
+        //         // When the save is attempted
+        //         save_timing: "End of Turn", 
+        //         // How long the effect lasts if the save is not made
+        //         duration: "Until Save" 
+        //     }
+        // },
         // "Frost Breath": {
         //     "type": "Action (Save)",
         //     "reach": "10 ft.",
