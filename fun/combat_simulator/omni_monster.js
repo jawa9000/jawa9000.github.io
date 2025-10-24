@@ -31,7 +31,20 @@ const monsters = [
     //     hp_amount: 10,        // Amount of HP to heal
     //     disable_type: ["Acid", "Fire"]  // ARRAY of damage types that prevent regeneration
     // },
-    senses: "Blindsight 60 ft. Darkvision 120 ft. Passive Perception 21",
+    senses: {
+        "Blindsight": {
+            range: 60,
+        },
+        "Darkvision": {
+            range: 120,
+        },
+        "Tremorsense": {
+            range: 60,
+        },
+        "Passive Perception": {
+            value: 21,
+        }
+    },
     languages: ["Common", "Draconic"],
     challenge: "14 (11,500 XP)",
     traits:
@@ -112,6 +125,29 @@ const monsters = [
                 }
             ]
         },
+        "Sonic Burst": {
+            "to hit": "Auto-Hit (Area Effect)", // Assumes it affects all combatants in a certain radius
+            "hit": "5 (1d6 + 2) thunder damage", 
+            "area_effect": "10-foot radius",
+            "condition_effect": {
+                "save_ability": "CON",   // Constitution save to resist the painful pressure change
+                "save_dc": 14,           // Moderate DC
+                "condition_name": "Deafened",
+                "duration": "1 round"    // Short duration for a combat effect
+            }
+        },
+        // "Corrosive Spittle": {
+        //     "to hit": "+5", // Ranged attack roll bonus
+        //     "hit": "3 (1d4 + 1) acid damage", 
+        //     "range": "30 ft.",
+        //     "condition_effect": {
+        //         "save_ability": "CON",   // Constitution save to resist the corrosive effect
+        //         "save_dc": 14,           // Moderate DC
+        //         "condition_name": "Blinded",
+        //         "duration": "1 minute",  // Condition lasts for 1 minute (10 rounds)
+        //         "effect_on_save": "end of turn" // Save can be repeated at the end of the target's turn
+        //     }
+        // },
         // "Tail Sweep": {
         //     "to hit": "+5", // Uses the monster's standard attack bonus
         //     "hit": "6 (1d8 + 2) bludgeoning damage", 
@@ -123,17 +159,17 @@ const monsters = [
         //         "duration": "until stand up" // Prone lasts until the creature uses movement to stand
         //     }
         // },
-        "Paralyzing Touch": {
-            "to hit": "+5", // Uses the monster's standard attack bonus
-            "hit": "4 (1d4 + 2) necrotic damage", // Low damage for a high-impact condition
-            "condition_effect": {
-                "save_ability": "CON",   // Constitution save is common for resisting paralysis
-                "save_dc": 18,           // High DC reflects the severity of the condition
-                "condition_name": "Paralyzed",
-                "duration": "1 minute",  // Condition lasts for 1 minute (10 rounds)
-                "effect_on_save": "end of turn" // Save can be repeated at the end of each turn
-            }
-        }
+        // "Paralyzing Touch": {
+        //     "to hit": "+5", // Uses the monster's standard attack bonus
+        //     "hit": "4 (1d4 + 2) necrotic damage", // Low damage for a high-impact condition
+        //     "condition_effect": {
+        //         "save_ability": "CON",   // Constitution save is common for resisting paralysis
+        //         "save_dc": 18,           // High DC reflects the severity of the condition
+        //         "condition_name": "Paralyzed",
+        //         "duration": "1 minute",  // Condition lasts for 1 minute (10 rounds)
+        //         "effect_on_save": "end of turn" // Save can be repeated at the end of each turn
+        //     }
+        // }
         // "Kinetic Tangle": {
         //     "to hit": "+5",
         //     "hit": "3 (1d4 + 1) force damage", 

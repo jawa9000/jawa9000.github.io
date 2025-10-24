@@ -2,9 +2,8 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
 
 ## Change Log
 
-* 10/24/25: 0.16.0
-    * Implemented the stunned, poisoned, slowed, paralyzed, and prone conditions.
-    * 
+* 10/24/25: 0.18.0
+    * Implemented the stunned, poisoned, slowed, paralyzed, blinded, deafened, and prone conditions.
 * 10/23/25: 0.11.2
     * Implemented the legendary action system.
     * Implemented rechargeable monster abilities and attacks.
@@ -43,8 +42,7 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
 Conditions (e.g., stunned, poisoned) that affect combatants
 * charmed
 * frightened
-* blinded
-* deafened
+* 
 * petrified
 * restrained
 * incapacitated
@@ -55,6 +53,8 @@ Conditions (e.g., stunned, poisoned) that affect combatants
 * Hindered
 * Grappled
 * Surprised
+
+Does the system keep track of time? As in each round is 6 seconds and effects and conditions that have a time limit needs to be observed.
 
 Separate the functionality of script.js into different JavaScript files that is logical and is easier to maintain.
 

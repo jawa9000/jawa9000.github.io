@@ -478,11 +478,57 @@ class CombatSimulator {
         return { success: total >= dc, roll: d20, total, dc, ability };
     }
 
+    // Structured ability check (auto-fails if sight is required and the creature is Blinded)
+    performAbilityCheck(combatant, ability, dc, options = {}) {
+        const abilityKey = (ability || '').toLowerCase().slice(0, 3);
+        const abilityScore = parseInt(combatant.originalData?.[abilityKey] ?? 10, 10);
+        const mod = getAbilityModifier(abilityScore);
+        const requiresSight = !!options.requiresSight;
+        const requiresHearing = !!options.requiresHearing;
+        if (requiresSight && this.hasAnyCondition(combatant, ['Blinded']) && !this.hasBlindsight(combatant)) {
+            this.logMessage(`${combatant.name} automatically fails the ${ability} check due to being Blinded.`);
+            return { success: false, autoFail: true, roll: 1, total: mod + 1, dc, ability };
+        }
+        if (requiresHearing && this.hasAnyCondition(combatant, ['Deafened']) && !this.hasTremorsense(combatant)) {
+            this.logMessage(`${combatant.name} automatically fails the ${ability} check due to being Deafened.`);
+            return { success: false, autoFail: true, roll: 1, total: mod + 1, dc, ability };
+        }
+        if (requiresHearing && this.hasAnyCondition(combatant, ['Deafened']) && this.hasTremorsense(combatant)) {
+            this.logMessage(`🔎 ${combatant.name}'s Tremorsense negates the effects of being Deafened for this check.`);
+        }
+        const mode = this.getConditionModifiers(combatant, 'ability');
+        const d20 = this.rollD20WithMode(mode);
+        const total = d20 + mod;
+        return { success: total >= dc, roll: d20, total, dc, ability };
+    }
+
     // Returns true if combatant has any condition in names (case-insensitive)
     hasAnyCondition(combatant, names) {
         if (!Array.isArray(combatant?.conditions)) return false;
         const set = new Set(names.map(n => String(n).toLowerCase()));
         return combatant.conditions.some(c => set.has(String((typeof c === 'string' ? c : c.name) || '').toLowerCase()));
+    }
+
+    // Detects if a combatant has Blindsight in its senses
+    hasBlindsight(combatant) {
+        const senses = (combatant?.originalData?.senses ?? combatant?.senses ?? null);
+        if (!senses) return false;
+        if (typeof senses === 'string') return senses.toLowerCase().includes('blindsight');
+        if (typeof senses === 'object') {
+            return Object.keys(senses).some(k => String(k).toLowerCase() === 'blindsight');
+        }
+        return false;
+    }
+
+    // Detects if a combatant has Tremorsense in its senses
+    hasTremorsense(combatant) {
+        const senses = (combatant?.originalData?.senses ?? combatant?.senses ?? null);
+        if (!senses) return false;
+        if (typeof senses === 'string') return senses.toLowerCase().includes('tremorsense');
+        if (typeof senses === 'object') {
+            return Object.keys(senses).some(k => String(k).toLowerCase() === 'tremorsense');
+        }
+        return false;
     }
 
     // Determine advantage/disadvantage for a given roll type
@@ -493,7 +539,7 @@ class CombatSimulator {
         let adv = false, dis = false;
         if (rollType === 'attack') {
             if (has('Invisible')) adv = true;
-            if (has('Blinded')) dis = true;
+            if (has('Blinded') && !this.hasBlindsight(combatant)) dis = true;
             if (has('Frightened')) dis = true;
             if (has('Poisoned')) dis = true;
             if (has('Restrained')) dis = true;
@@ -972,24 +1018,26 @@ class CombatSimulator {
                 continue;
             }
             processed.add(name);
-            if (name === 'paralyzed' && typeof cond === 'object') {
-                // End-of-turn CON save to end the condition, if flagged
+            if (typeof cond === 'object' && (cond.save_check_at_turn_end || typeof cond.rounds_remaining === 'number')) {
                 let removed = false;
                 if (cond.save_check_at_turn_end) {
-                    const dc = parseInt(cond.end_save_dc || 18, 10) || 18;
-                    const success = this.rollSavingThrow(combatant, cond.end_save_ability || 'CON', dc);
-                    if (success) {
-                        this.logMessage(`${combatant.name} shakes off paralysis at the end of their turn!`);
-                        removed = true;
-                    }
-                }
-                if (!removed) {
-                    if (typeof cond.rounds_remaining === 'number') {
-                        cond.rounds_remaining = Math.max(0, cond.rounds_remaining - 1);
-                        if (cond.rounds_remaining <= 0) {
-                            this.logMessage(`${combatant.name}'s paralysis ends as the effect expires.`);
+                    const dc = parseInt(cond.end_save_dc || 0, 10) || 0;
+                    const ability = cond.end_save_ability || 'CON';
+                    if (dc > 0) {
+                        const success = this.rollSavingThrow(combatant, ability, dc);
+                        if (success) {
+                            const label = String(cond.name || 'condition');
+                            this.logMessage(`${combatant.name} shakes off ${label.toLowerCase()} at the end of their turn!`);
                             removed = true;
                         }
+                    }
+                }
+                if (!removed && typeof cond.rounds_remaining === 'number') {
+                    cond.rounds_remaining = Math.max(0, cond.rounds_remaining - 1);
+                    if (cond.rounds_remaining <= 0) {
+                        const label = String(cond.name || 'condition');
+                        this.logMessage(`${combatant.name}'s ${label.toLowerCase()} ends as the effect expires.`);
+                        removed = true;
                     }
                 }
                 if (!removed) next.push(cond);
@@ -1057,6 +1105,11 @@ class CombatSimulator {
 				cond.duration -= 1;
 				if (cond.duration <= 0) remove = true;
 			}
+            // Generic rounds_remaining support (e.g., Deafened 1 round)
+            if (!remove && typeof cond.rounds_remaining === 'number') {
+                cond.rounds_remaining = Math.max(0, cond.rounds_remaining - 1);
+                if (cond.rounds_remaining <= 0) remove = true;
+            }
 			if (!remove) retained.push(cond);
 		}
 		combatant.conditions = retained;
@@ -1492,6 +1545,10 @@ class CombatSimulator {
 		// Attack roll path
         // Advantage/disadvantage on attacks from attacker and target conditions
         const attackerMode = this.getConditionModifiers(attacker, 'attack');
+        // Log if Blindsight negates attacker's Blinded disadvantage
+        if (this.hasAnyCondition(attacker, ['Blinded']) && this.hasBlindsight(attacker)) {
+            this.logMessage(`🔎 ${attacker.name}'s Blindsight negates Disadvantage from being Blinded.`);
+        }
         // Target grants advantage to attacker in some states
         let targetAdv = false, targetDis = false;
         const targetHas = (n) => this.hasAnyCondition(target, [n]);
@@ -1512,6 +1569,12 @@ class CombatSimulator {
                 targetDis = true;
                 this.logMessage(`🎯 Disadvantage: target is Prone and at range.`);
             }
+        }
+        if (targetHas('Blinded') && !this.hasBlindsight(target)) {
+            targetAdv = true;
+            this.logMessage(`🎯 Advantage: target is Blinded.`);
+        } else if (targetHas('Blinded') && this.hasBlindsight(target)) {
+            this.logMessage(`🔎 ${target.name} is Blinded but has Blindsight; no Advantage granted to attackers.`);
         }
         let finalMode = attackerMode;
         if (targetAdv) finalMode = (finalMode === 'dis') ? 'normal' : 'adv';
@@ -1578,7 +1641,6 @@ class CombatSimulator {
 					this.logMessage(this.formatDamageMessage(attacker, target, partDmg, partType, originalPartDmg));
 				}
 			}
-
 			// On-hit condition effects (e.g., Mind Flay -> Stunned)
 			if (attack.condition_effect) {
 				const effect = attack.condition_effect;
@@ -1597,6 +1659,20 @@ class CombatSimulator {
 							}
 							this.applyCondition(target, cond, null, attacker.id);
 							this.logMessage(` ${target.name} is PARALYZED! Will attempt a CON ${dc} save at end of each turn.`);
+						} else if ((effect.condition_name || '').toLowerCase() === 'blinded') {
+							const cond = { name: 'Blinded', save_check_at_turn_end: true, end_save_dc: dc, end_save_ability: 'CON' };
+							if (typeof effect.duration === 'string' && /1\s*minute/i.test(effect.duration)) {
+								cond.rounds_remaining = 10;
+							}
+							this.applyCondition(target, cond, null, attacker.id);
+							this.logMessage(` ${target.name} is BLINDED! Will attempt a CON ${dc} save at end of each turn.`);
+						} else if ((effect.condition_name || '').toLowerCase() === 'deafened') {
+							const cond = { name: 'Deafened' };
+							if (typeof effect.duration === 'string' && /^\s*1\s*round\s*$/i.test(effect.duration)) {
+								cond.rounds_remaining = 1;
+							}
+							this.applyCondition(target, cond, null, attacker.id);
+							this.logMessage(` ${target.name} is DEAFENED.`);
 						} else {
 							this.applyCondition(target, effect.condition_name || 'Conditioned', effect.duration || null, attacker.id);
 							this.logMessage(` ${target.name} failed their save and is now ${effect.condition_name ? effect.condition_name.toUpperCase() : 'AFFECTED'}!`);
