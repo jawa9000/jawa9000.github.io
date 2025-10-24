@@ -47,6 +47,7 @@ class CombatSimulator {
         $('#attackBtn').click(() => combatSim.openAttackModal());
         $('#castSpellBtn').click(() => this.castSpell());
         $('#dodgeBtn').click(() => this.dodgeAction());
+        $('#standUpBtn').click(() => this.standUp());
         $('#endTurnBtn').click(() => this.endTurn());
 
         // Add Simulate Battle button event
@@ -424,8 +425,20 @@ class CombatSimulator {
         const abilityKey = (ability || '').toLowerCase().slice(0, 3);
         const abilityScore = parseInt(target.originalData?.[abilityKey] ?? 10, 10);
         const mod = getAbilityModifier(abilityScore);
-        const roll = this.rollDice(20) + mod;
-        this.logMessage(`${target.name} ${ability} save: ${roll} vs DC ${dc}`);
+        // Auto-fail STR/DEX on certain conditions
+        if ((abilityKey === 'str' || abilityKey === 'dex') && this.hasAnyCondition(target, ['Paralyzed','Stunned','Unconscious','Petrified'])) {
+            this.logMessage(`${target.name} automatically fails the ${ability.toUpperCase()} save due to condition.`);
+            return false;
+        }
+        let roll = this.rollDice(20) + mod;
+        // Slowed: -2 penalty to Dexterity saves
+        if (abilityKey === 'dex' && this.hasAnyCondition(target, ['Slowed'])) {
+            const adjusted = roll - 2;
+            this.logMessage(`${target.name} ${ability} save: ${adjusted} (−2 Slowed) vs DC ${dc}`);
+            roll = adjusted;
+        } else {
+            this.logMessage(`${target.name} ${ability} save: ${roll} vs DC ${dc}`);
+        }
         let succeeded = roll >= dc;
         if (!succeeded) {
             const remaining = parseInt((target.currentLR ?? target.legendary_resistances_current ?? 0), 10) || 0;
@@ -449,9 +462,96 @@ class CombatSimulator {
         const abilityKey = (ability || '').toLowerCase().slice(0, 3);
         const abilityScore = parseInt(target.originalData?.[abilityKey] ?? 10, 10);
         const mod = getAbilityModifier(abilityScore);
-        const roll = this.rollDice(20);
-        const total = roll + mod;
-        return { success: total >= dc, roll, total, dc, ability };
+        // Auto-fail STR/DEX saves for certain conditions
+        const autoFail = (['str','dex'].includes(abilityKey)) && this.hasAnyCondition(target, ['Paralyzed','Stunned','Unconscious','Petrified']);
+        if (autoFail) {
+            return { success: false, roll: 1, total: mod + 1, dc, ability };
+        }
+        // Determine disadvantage from conditions
+        const saveMode = this.getConditionModifiers(target, `save:${abilityKey}`);
+        const d20 = this.rollD20WithMode(saveMode);
+        let total = d20 + mod;
+        // Slowed: -2 penalty to Dexterity saves
+        if (abilityKey === 'dex' && this.hasAnyCondition(target, ['Slowed'])) {
+            total -= 2;
+        }
+        return { success: total >= dc, roll: d20, total, dc, ability };
+    }
+
+    // Returns true if combatant has any condition in names (case-insensitive)
+    hasAnyCondition(combatant, names) {
+        if (!Array.isArray(combatant?.conditions)) return false;
+        const set = new Set(names.map(n => String(n).toLowerCase()));
+        return combatant.conditions.some(c => set.has(String((typeof c === 'string' ? c : c.name) || '').toLowerCase()));
+    }
+
+    // Determine advantage/disadvantage for a given roll type
+    // rollType: 'attack', 'ability', or 'save:str' | 'save:dex' | ...
+    getConditionModifiers(combatant, rollType) {
+        if (!Array.isArray(combatant?.conditions)) return 'normal';
+        const has = (n) => this.hasAnyCondition(combatant, [n]);
+        let adv = false, dis = false;
+        if (rollType === 'attack') {
+            if (has('Invisible')) adv = true;
+            if (has('Blinded')) dis = true;
+            if (has('Frightened')) dis = true;
+            if (has('Poisoned')) dis = true;
+            if (has('Restrained')) dis = true;
+            if (has('Prone')) dis = true; // Prone creatures attack with disadvantage
+        } else if (rollType === 'ability') {
+            if (has('Frightened')) dis = true;
+            if (has('Poisoned')) dis = true;
+        } else if (rollType.startsWith('save:')) {
+            const ab = rollType.split(':')[1];
+            if (ab === 'dex' && has('Restrained')) dis = true;
+            // Exhaustion level 3+: Disadvantage on saving throws (if tracked with level)
+            const ex = combatant.conditions.find(c => (typeof c !== 'string') && /exhaustion/i.test(c.name || ''));
+            if (ex && Number(ex.level) >= 3) dis = true;
+        }
+        if (adv && dis) return 'normal';
+        if (adv) return 'adv';
+        if (dis) return 'dis';
+        return 'normal';
+    }
+
+    // Roll a d20 with mode: 'normal' | 'adv' | 'dis'
+    rollD20WithMode(mode) {
+        const a = this.rollDice(20);
+        if (mode === 'adv') { const b = this.rollDice(20); return Math.max(a, b); }
+        if (mode === 'dis') { const b = this.rollDice(20); return Math.min(a, b); }
+        return a;
+    }
+
+    // Incapacitation check for turn skipping
+    isCombatantIncapacitated(combatant) {
+        return this.hasAnyCondition(combatant, ['Incapacitated','Stunned','Paralyzed','Petrified','Unconscious']);
+    }
+
+    // Remove a named condition from a combatant
+    removeCondition(combatant, name) {
+        if (!Array.isArray(combatant?.conditions)) return;
+        const target = String(name || '').toLowerCase();
+        combatant.conditions = combatant.conditions.filter(c => String((typeof c === 'string' ? c : c.name) || '').toLowerCase() !== target);
+    }
+
+    // Action: Stand up from Prone, consuming half of speed this turn
+    standUp() {
+        const c = this.getCurrentCombatant();
+        if (!c) return;
+        if (!this.hasAnyCondition(c, ['Prone'])) {
+            this.logMessage(`${c.name} is not Prone.`);
+            return;
+        }
+        const cost = Math.floor((parseInt(c.speed || 0, 10) || 0) / 2);
+        if (typeof c.turnMovementRemaining !== 'number') c.turnMovementRemaining = Math.max(0, parseInt(c.speed || 0, 10) || 0);
+        if (c.turnMovementRemaining < cost) {
+            this.logMessage(`${c.name} does not have enough movement to stand up (needs ${cost} ft).`);
+            return;
+        }
+        c.turnMovementRemaining -= cost;
+        this.removeCondition(c, 'Prone');
+        this.logMessage(`${c.name} stands up, spending ${cost} ft of movement. (${c.turnMovementRemaining} ft remaining)`);
+        this.updateDisplay();
     }
 
     // Helper: push a condition onto target.conditions with optional duration/source
@@ -460,6 +560,15 @@ class CombatSimulator {
         const entry = typeof conditionName === 'string' ? { name: conditionName } : (conditionName || {});
         if (duration) entry.duration = duration;
         if (sourceId) entry.sourceId = sourceId;
+        const nameKey = String(entry.name || '').toLowerCase();
+        if (nameKey) {
+            const existing = target.conditions.find(c => String((typeof c === 'string' ? c : c.name) || '').toLowerCase() === nameKey);
+            if (existing && typeof existing === 'object') {
+                // Merge/refresh existing condition instead of duplicating
+                Object.assign(existing, entry);
+                return;
+            }
+        }
         target.conditions.push(entry);
     }
 
@@ -747,6 +856,7 @@ class CombatSimulator {
         // End-of-turn save checks for ongoing effects
         if (justWent) {
             this.resolveEndOfTurnOngoingEffects(justWent);
+            this.resolveEndOfTurnConditions(justWent);
         }
         // Legendary Action Phase occurs after a creature's turn ends
         this.legendaryActionPhase(justWent ? justWent.id : null);
@@ -808,20 +918,99 @@ class CombatSimulator {
             if (currentCombatant.frightful_presence) {
                 this.useFrightfulPresence(currentCombatant.id);
             }
-            currentCombatant.attacksRemaining = currentCombatant.numberOfAttacks || 1;
-            this.logMessage(`${currentCombatant.name} starts their turn with ${currentCombatant.attacksRemaining} attack${currentCombatant.attacksRemaining !== 1 ? 's' : ''} remaining.`);
+            // Early incapacitation gate: skip movement/logs for creatures that cannot act (e.g., Paralyzed)
+            if (this.isCombatantIncapacitated(currentCombatant)) {
+                currentCombatant.attacksRemaining = 0;
+                this.logMessage(`🛑 ${currentCombatant.name} is unable to act due to a condition!`);
+                // If Paralyzed, immediately end the turn (cannot act, move, or take reactions)
+                if (this.hasAnyCondition(currentCombatant, ['Paralyzed'])) {
+                    this.endTurn();
+                    return;
+                }
+            }
+            // Initialize per-turn movement points
+            currentCombatant.turnMovementRemaining = Math.max(0, parseInt(currentCombatant.speed || 0, 10) || 0);
+            // If Prone: can only crawl (half speed) unless they stand up
+            if (this.hasAnyCondition(currentCombatant, ['Prone']) && !this.hasAnyCondition(currentCombatant, ['Paralyzed'])) {
+                currentCombatant.turnMovementRemaining = Math.floor(currentCombatant.turnMovementRemaining / 2);
+                this.logMessage(`${currentCombatant.name} is Prone and can only crawl (${currentCombatant.turnMovementRemaining} ft this turn) unless they stand up.`);
+            }
+            // If Slowed: halve speed this turn and block reactions
+            if (this.hasAnyCondition(currentCombatant, ['Slowed'])) {
+                const before = currentCombatant.turnMovementRemaining;
+                currentCombatant.turnMovementRemaining = Math.floor(currentCombatant.turnMovementRemaining / 2);
+                currentCombatant.reactionBlocked = true;
+                this.logMessage(`${currentCombatant.name} is Slowed: movement halved (${before} -> ${currentCombatant.turnMovementRemaining}) and reactions are blocked this turn.`);
+            } else {
+                currentCombatant.reactionBlocked = false;
+            }
+            // Initialize slowed per-turn action limiter
+            currentCombatant.slowedActionConsumed = false;
+            // If still able to act, set attacksRemaining
+            if (!this.isCombatantIncapacitated(currentCombatant)) {
+                currentCombatant.attacksRemaining = currentCombatant.numberOfAttacks || 1;
+                // Slowed: can only make a single weapon attack this turn
+                if (this.hasAnyCondition(currentCombatant, ['Slowed'])) {
+                    currentCombatant.attacksRemaining = Math.min(currentCombatant.attacksRemaining, 1);
+                }
+                this.logMessage(`${currentCombatant.name} starts their turn with ${currentCombatant.attacksRemaining} attack${currentCombatant.attacksRemaining !== 1 ? 's' : ''} remaining.`);
+            }
         }
+    }
+
+    // End-of-turn condition resolution (e.g., Paralyzed save and duration)
+    resolveEndOfTurnConditions(combatant) {
+        if (!Array.isArray(combatant?.conditions) || combatant.conditions.length === 0) return;
+        const next = [];
+        const processed = new Set();
+        for (const cond of combatant.conditions) {
+            const cname = typeof cond === 'string' ? cond : (cond && cond.name);
+            const name = String(cname || '').toLowerCase();
+            if (!name) { next.push(cond); continue; }
+            if (processed.has(name)) {
+                // Drop duplicate named conditions to avoid repeated saves/logs
+                continue;
+            }
+            processed.add(name);
+            if (name === 'paralyzed' && typeof cond === 'object') {
+                // End-of-turn CON save to end the condition, if flagged
+                let removed = false;
+                if (cond.save_check_at_turn_end) {
+                    const dc = parseInt(cond.end_save_dc || 18, 10) || 18;
+                    const success = this.rollSavingThrow(combatant, cond.end_save_ability || 'CON', dc);
+                    if (success) {
+                        this.logMessage(`${combatant.name} shakes off paralysis at the end of their turn!`);
+                        removed = true;
+                    }
+                }
+                if (!removed) {
+                    if (typeof cond.rounds_remaining === 'number') {
+                        cond.rounds_remaining = Math.max(0, cond.rounds_remaining - 1);
+                        if (cond.rounds_remaining <= 0) {
+                            this.logMessage(`${combatant.name}'s paralysis ends as the effect expires.`);
+                            removed = true;
+                        }
+                    }
+                }
+                if (!removed) next.push(cond);
+            } else {
+                next.push(cond);
+            }
+        }
+        combatant.conditions = next;
+        this.updateDisplay();
     }
 
 	// Apply start-of-turn effects: ongoing bundles, condition damage, durations, and turn-preventing states
 	applyStartOfTurnEffects(combatant) {
 		if (!Array.isArray(combatant.conditions)) return;
+		if (combatant.isDead) return; // Do not process or log effects for defeated creatures
 		let stunnedThisTurn = false;
 		const retained = [];
 		for (const cond of combatant.conditions) {
 			const name = typeof cond === 'string' ? cond : (cond.name || '');
 			const lower = String(name).toLowerCase();
-			// 1) Ongoing damage bundles at start of turn
+			// 1) Ongoing damage bundles
 			if (cond.ongoing && /(start of each of its turns)/i.test(cond.ongoing.timing || '')) {
 				const dmgType = (cond.ongoing.type || '').toLowerCase();
 				if (this.hasDamageImmunity(combatant, dmgType)) {
@@ -842,7 +1031,7 @@ class CombatSimulator {
 				stunnedThisTurn = true;
 			}
 			if (lower === 'poisoned') {
-				// Simple model: 1d4 poison damage at start of turn
+				// Deal 1d4 poison at start of turn as a simple model
 				if (!this.hasDamageImmunity(combatant, 'poison')) {
 					let pdmg = this.rollDamage('1d4');
 					if (this.hasDamageResistance(combatant, 'poison')) pdmg = Math.floor(pdmg / 2);
@@ -850,9 +1039,18 @@ class CombatSimulator {
 					this.logMessage(`${combatant.name} takes ${pdmg} poison damage (poisoned).`);
 				}
 			}
+			if (lower === 'slowed') {
+				// Slowed state is enforced at turn start via movement halving; also block reactions
+				combatant.reactionBlocked = true;
+				this.logMessage(`${combatant.name} is Slowed and cannot take reactions until their next turn.`);
+			}
 			// 3) Duration handling
 			let remove = false;
 			if (typeof cond.duration === 'string' && /until start of turn/i.test(cond.duration)) {
+				remove = true;
+			}
+			// Remove "1 round" conditions at the start of the affected creature's next turn
+			if (typeof cond.duration === 'string' && /^\s*1\s*round\s*$/i.test(cond.duration)) {
 				remove = true;
 			}
 			if (typeof cond.duration === 'number') {
@@ -875,6 +1073,7 @@ class CombatSimulator {
 
 	// New: Apply damage from ongoing_effects array at start of turn
 	applyOngoingEffectsStartOfTurn(combatant) {
+		if (combatant.isDead) return; // Do not process or log effects for defeated creatures
 		if (!Array.isArray(combatant.ongoing_effects) || combatant.ongoing_effects.length === 0) return;
 		for (const effect of combatant.ongoing_effects) {
 			if (!effect || !effect.damage) continue;
@@ -913,6 +1112,7 @@ class CombatSimulator {
 
 	// New: End-of-turn saves to remove ongoing_effects when applicable
 	resolveEndOfTurnOngoingEffects(combatant) {
+		if (combatant.isDead) return; // Do not process or log for defeated creatures
 		if (!Array.isArray(combatant.ongoing_effects) || combatant.ongoing_effects.length === 0) return;
 		const remaining = [];
 		for (const effect of combatant.ongoing_effects) {
@@ -985,6 +1185,12 @@ class CombatSimulator {
         const currentCombatant = this.getCurrentCombatant();
         if (!currentCombatant) return;
 
+        // Slowed: only one action or bonus action per turn
+        if (this.hasAnyCondition(currentCombatant, ['Slowed']) && currentCombatant.slowedActionConsumed) {
+            this.logMessage(`${currentCombatant.name} is Slowed and has already used their action/bonus action this turn.`);
+            return;
+        }
+
         // Check if combatant has attacks remaining
         if (currentCombatant.attacksRemaining <= 0) {
             alert(`${currentCombatant.name} has no attacks remaining this turn.`);
@@ -1007,6 +1213,10 @@ class CombatSimulator {
         // For now, attack the first available target
         // In a full implementation, you'd have a target selection UI
         const selectedAttack = this.selectAttackForSimulation(currentCombatant, targets[0]);
+        if (this.hasAnyCondition(currentCombatant, ['Slowed']) && !currentCombatant.slowedActionConsumed) {
+            currentCombatant.slowedActionConsumed = true;
+            this.logMessage(`${currentCombatant.name} uses their action for the turn.`);
+        }
         this.performAttack(currentCombatant, targets[0], selectedAttack);
     }
 
@@ -1280,10 +1490,36 @@ class CombatSimulator {
 		}
 
 		// Attack roll path
-        const rawRoll = this.rollDice(20);
-		const attackBonus = attack["to hit"] ? parseInt(attack["to hit"].replace('+', '')) || 0 : 0;
+        // Advantage/disadvantage on attacks from attacker and target conditions
+        const attackerMode = this.getConditionModifiers(attacker, 'attack');
+        // Target grants advantage to attacker in some states
+        let targetAdv = false, targetDis = false;
+        const targetHas = (n) => this.hasAnyCondition(target, [n]);
+        const isMelee = /\b5\s*ft\.?/i.test(String(attack.reach || ''));
+        if (targetHas('Restrained') || targetHas('Paralyzed') || targetHas('Unconscious') || targetHas('Petrified')) targetAdv = true;
+        if (targetHas('Invisible')) targetDis = true; // Simplified: disadvantage if target is invisible
+        // If Paralyzed, explicitly log advantage source and suppress Prone messaging
+        const targetParalyzed = targetHas('Paralyzed');
+        if (targetParalyzed) {
+            this.logMessage(`🎯 Advantage: target is Paralyzed.`);
+        }
+        // Prone: melee attacks have advantage, ranged have disadvantage (log this explicitly) unless Paralyzed is active
+        if (!targetParalyzed && targetHas('Prone')) {
+            if (isMelee) {
+                targetAdv = true;
+                this.logMessage(`🎯 Advantage: target is Prone and within 5 ft.`);
+            } else {
+                targetDis = true;
+                this.logMessage(`🎯 Disadvantage: target is Prone and at range.`);
+            }
+        }
+        let finalMode = attackerMode;
+        if (targetAdv) finalMode = (finalMode === 'dis') ? 'normal' : 'adv';
+        if (targetDis) finalMode = (finalMode === 'adv') ? 'normal' : 'dis';
+        const rawRoll = this.rollD20WithMode(finalMode);
+        const attackBonus = attack["to hit"] ? parseInt(attack["to hit"].replace('+', '')) || 0 : 0;
+        let isCritical = rawRoll === 20;
         const attackRoll = rawRoll + attackBonus;
-		const isCritical = rawRoll === 20;
 
 		let damage = this.rollDamage(attack.hit || '1d6');
 		if (isCritical) damage *= 2;
@@ -1296,6 +1532,10 @@ class CombatSimulator {
 			// Get attack name from the attack object or use a default
 			const attackName = this.getAttackName(attacker, attack);
 			this.logMessage(`${attacker.name} (${attacker.team}) hits ${target.name} (${target.team}) with ${attackName} (roll ${attackRoll}).`);
+			// Auto-crit on certain target states for melee attacks
+			if (!isCritical && isMelee && (targetHas('Paralyzed') || targetHas('Unconscious'))) {
+				isCritical = true;
+			}
 			// Apply primary damage if not immune
 			if (!this.hasDamageImmunity(target, mainDmgType)) {
 				if (damage > 0) {
@@ -1347,10 +1587,20 @@ class CombatSimulator {
 				if (dc > 0) {
 					const result = this.performSavingThrow(target, ability, dc);
 					if (result.success) {
-						this.logMessage(`🛡️ ${target.name} successfully saved against ${this.getAttackName(attacker, attack)} (${ability} DC ${dc}).`);
+						this.logMessage(` ${target.name} successfully saved against ${this.getAttackName(attacker, attack)} (${ability} DC ${dc}).`);
 					} else {
-						this.applyCondition(target, effect.condition_name || 'Conditioned', effect.duration || null, attacker.id);
-						this.logMessage(`❌ ${target.name} failed their save and is now ${effect.condition_name ? effect.condition_name.toUpperCase() : 'AFFECTED'}!`);
+						// Special handling: Paralyzed with end-of-turn save and minute duration mapping
+						if ((effect.condition_name || '').toLowerCase() === 'paralyzed') {
+							const cond = { name: 'Paralyzed', save_check_at_turn_end: true, end_save_dc: dc, end_save_ability: 'CON' };
+							if (typeof effect.duration === 'string' && /1\s*minute/i.test(effect.duration)) {
+								cond.rounds_remaining = 10;
+							}
+							this.applyCondition(target, cond, null, attacker.id);
+							this.logMessage(` ${target.name} is PARALYZED! Will attempt a CON ${dc} save at end of each turn.`);
+						} else {
+							this.applyCondition(target, effect.condition_name || 'Conditioned', effect.duration || null, attacker.id);
+							this.logMessage(` ${target.name} failed their save and is now ${effect.condition_name ? effect.condition_name.toUpperCase() : 'AFFECTED'}!`);
+						}
 					}
 				}
 			}
@@ -2121,6 +2371,11 @@ class CombatSimulator {
     castSpell() {
         const currentCombatant = this.getCurrentCombatant();
         if (!currentCombatant) return;
+        if (this.hasAnyCondition(currentCombatant, ['Slowed']) && currentCombatant.slowedActionConsumed) {
+            this.logMessage(`${currentCombatant.name} is Slowed and cannot take another action/bonus action this turn.`);
+            return;
+        }
+        if (this.hasAnyCondition(currentCombatant, ['Slowed'])) currentCombatant.slowedActionConsumed = true;
 
         // Basic spell implementation - could be expanded
         this.logMessage(`${currentCombatant.name} casts a spell! (Spell system not fully implemented yet)`);
@@ -2130,9 +2385,13 @@ class CombatSimulator {
     dodgeAction() {
         const currentCombatant = this.getCurrentCombatant();
         if (!currentCombatant) return;
-
+        if (this.hasAnyCondition(currentCombatant, ['Slowed']) && currentCombatant.slowedActionConsumed) {
+            this.logMessage(`${currentCombatant.name} is Slowed and cannot take another action/bonus action this turn.`);
+            return;
+        }
         currentCombatant.conditions.push('Dodging');
         this.logMessage(`${currentCombatant.name} takes the Dodge action.`);
+        if (this.hasAnyCondition(currentCombatant, ['Slowed'])) currentCombatant.slowedActionConsumed = true;
         this.endTurn();
     }
 

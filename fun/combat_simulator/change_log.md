@@ -2,23 +2,23 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
 
 ## Change Log
 
+* 10/24/25: 0.16.0
+    * Implemented the stunned, poisoned, slowed, paralyzed, and prone conditions.
+    * 
 * 10/23/25: 0.11.2
     * Implemented the legendary action system.
     * Implemented rechargeable monster abilities and attacks.
     * Implemented ongoing effects.
     * Fixed bug where Copy Team Info wasn't copying the contents of the combat log.
     * Fixed issue where friendly fire was allowed.
-
 * 10/22/25: 0.7.0
     * Implemented the Legendary Resistance system.
     * Implemented the frightful presence system.
     * Implemented the regeneration system.
-
 * 10/21/25: 0.4.1
     * Implemented damage immunities across all effect damage types and paths.
     * Made minor updates to the UI of the Combat Log.
     * Implemented damage vulnerabilities across all effect damage types and paths.
-
 * 10/18/25: 0.2.0
     * Updated attack effect damage system as it wasn't applying acid, fire, force, necrotic, psychic, radiant, cold, lightning, thunder, and poison damage during combat.
     * Added an attack decision system. Monsters with multiple attacks choose the most effective attack—calculated by attack bonus, damage potential, and special effects—with the chance of an intelligent choice being highly dependent on their Intelligence or Wisdom score.
@@ -40,8 +40,21 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
 
 ## Active Projects
 
-
-Check to see if "friendly fire" can happen. As in, if a monster on the same team attacks another monster on the same team. Normally, monsters on the same team won't attack each other unless they were charmed or being controlled by their enemy.
+Conditions (e.g., stunned, poisoned) that affect combatants
+* charmed
+* frightened
+* blinded
+* deafened
+* petrified
+* restrained
+* incapacitated
+* Exhaustion
+* Unconscious
+* Invisible
+* Hidden
+* Hindered
+* Grappled
+* Surprised
 
 Separate the functionality of script.js into different JavaScript files that is logical and is easier to maintain.
 
@@ -75,7 +88,6 @@ Add the following mechanics and/or features:
 * Some senses could offset some effects (like darkness or magical darkeness doesn't work against blindsight)
 * Advantage/Disadvantage on attack rolls
 * Initiative bonuses from feats or abilities (attribute bonuses have already been implemented)
-* Conditions (e.g., stunned, poisoned) that affect combatants
 * keep track of spell slots for monsters
 * keep track of effect durations (e.g., buffs, debuffs)
 * keep track of effects that trigger at the start/end of turns

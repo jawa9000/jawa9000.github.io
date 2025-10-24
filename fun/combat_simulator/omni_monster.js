@@ -87,16 +87,16 @@ const monsters = [
             "hit": "17 (2d12 + 4)",
             "damage type": "slashing"
         },
-        "Mind Flay": {
-            "to hit": "+5", // Uses the same attack bonus
-            "hit": "9 (2d4 + 4) psychic damage",
-            "condition_effect": {
-                "save_ability": "CON",
-                "save_dc": 18,
-                "condition_name": "Stunned",
-                "duration": "1 round" // Stunned until the end of its next turn
-            }
-        },
+        // "Mind Flay": {
+        //     "to hit": "+5", // Uses the same attack bonus
+        //     "hit": "9 (2d4 + 4) psychic damage",
+        //     "condition_effect": {
+        //         "save_ability": "CON",
+        //         "save_dc": 18,
+        //         "condition_name": "Stunned",
+        //         "duration": "1 round" // Stunned until the end of its next turn
+        //     }
+        // },
         "Booming Axe": {
             "type": "Action (Save)",
             "reach": "10 ft.",
@@ -112,6 +112,50 @@ const monsters = [
                 }
             ]
         },
+        // "Tail Sweep": {
+        //     "to hit": "+5", // Uses the monster's standard attack bonus
+        //     "hit": "6 (1d8 + 2) bludgeoning damage", 
+        //     "condition_effect": {
+        //         // The prone condition is often resisted with a physical save
+        //         "save_ability": "STR", 
+        //         "save_dc": 15,          // A moderate difficulty class
+        //         "condition_name": "Prone",
+        //         "duration": "until stand up" // Prone lasts until the creature uses movement to stand
+        //     }
+        // },
+        "Paralyzing Touch": {
+            "to hit": "+5", // Uses the monster's standard attack bonus
+            "hit": "4 (1d4 + 2) necrotic damage", // Low damage for a high-impact condition
+            "condition_effect": {
+                "save_ability": "CON",   // Constitution save is common for resisting paralysis
+                "save_dc": 18,           // High DC reflects the severity of the condition
+                "condition_name": "Paralyzed",
+                "duration": "1 minute",  // Condition lasts for 1 minute (10 rounds)
+                "effect_on_save": "end of turn" // Save can be repeated at the end of each turn
+            }
+        }
+        // "Kinetic Tangle": {
+        //     "to hit": "+5",
+        //     "hit": "3 (1d4 + 1) force damage", 
+        //     "condition_effect": {
+        //         "save_ability": "DEX",   // Target must make a Dexterity save to avoid being tangled
+        //         "save_dc": 16,           // A strong difficulty class
+        //         "condition_name": "Slowed",
+        //         "duration": "1 round"    // Condition lasts until the end of the target's next turn
+        //     }
+        // },
+        // "Stinging Tail": {
+        //     "to hit": "+5",
+        //     hit: "5 (1d6 + 2) piercing damage",
+        //     // This is the object that defines the condition effect
+        //     "condition_effect": {
+        //         "save_ability": "CON", // Target must make a Constitution save
+        //         "save_dc": 14,         // Difficulty Class is 14
+        //         "condition_name": "Poisoned",
+        //         "duration": "1 minute",// The condition lasts for 1 minute (10 rounds)
+        //         "effect_on_save": "end of turn" // Save to end the condition can be made at the end of the target's turn
+        //     }
+        // },
         // "Flame Breath": {
         //     // Attack that applies the ongoing effect
         //     "to hit": "DC 15 DEX Save", // Initial Save to avoid damage/effect
