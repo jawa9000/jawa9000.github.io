@@ -2,10 +2,12 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
 
 ## Change Log
 
-* 10/23/25: 0.11.0
+* 10/23/25: 0.11.2
     * Implemented the legendary action system.
     * Implemented rechargeable monster abilities and attacks.
     * Implemented ongoing effects.
+    * Fixed bug where Copy Team Info wasn't copying the contents of the combat log.
+    * Fixed issue where friendly fire was allowed.
 
 * 10/22/25: 0.7.0
     * Implemented the Legendary Resistance system.
@@ -38,13 +40,19 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
 
 ## Active Projects
 
+
+Check to see if "friendly fire" can happen. As in, if a monster on the same team attacks another monster on the same team. Normally, monsters on the same team won't attack each other unless they were charmed or being controlled by their enemy.
+
 Separate the functionality of script.js into different JavaScript files that is logical and is easier to maintain.
 
 ## Do-to List
 
+
+
 In monsters.js, update the speed, skills, saving throws, senses properties to use an object instead of a string and then update script.js and Encounter_Builder/main.js to handle this change. Also, update the prompt that is used to generate monster JSON data to reflect this change.
 
-Add the following mechanics:
+Add the following mechanics and/or features:
+* Morale system for NPCs/monsters
 * keep track of used reactions (e.g., opportunity attacks)
     * retaliatory strikes
     * opportunity attacks
@@ -64,7 +72,7 @@ Add the following mechanics:
     * spell casting
     * Battle cry
     * luring song
-* sense could offset some effects (like darkness or magical darkeness doesn't work against blindsight)
+* Some senses could offset some effects (like darkness or magical darkeness doesn't work against blindsight)
 * Advantage/Disadvantage on attack rolls
 * Initiative bonuses from feats or abilities (attribute bonuses have already been implemented)
 * Conditions (e.g., stunned, poisoned) that affect combatants
@@ -90,7 +98,6 @@ Add the following mechanics:
 * regeneration and healing between rounds
 * Monster special abilities (e.g., breath weapons, spellcasting)
 * Monster lair actions and environmental effects
-* Morale system for NPCs/monsters
 * using int and/or wis to pick attack options (different spells, abilities)
 * Flanking bonuses
 * environment effects (e.g. water-based vs land-based monsters)

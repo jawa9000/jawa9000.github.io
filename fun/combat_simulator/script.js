@@ -329,23 +329,29 @@ class CombatSimulator {
     }
 
     parseHP(hpString) {
-        // Extract number from strings like "135 (18d10 + 36)" or "9 (2d8)"
-        if (!hpString || typeof hpString !== 'string') return 10;
-        const match = hpString.match(/(\d+)/);
+        if (typeof hpString === 'number') return hpString;
+        if (window.DataParser && typeof window.DataParser.parseHP === 'function') {
+            return window.DataParser.parseHP(hpString);
+        }
+        const match = String(hpString || '').match(/(\d+)/);
         return match ? parseInt(match[1]) : 10;
     }
 
     parseAC(acString) {
-        // Extract number from strings like "17 (Natural Armor)" or "10"
-        if (!acString || typeof acString !== 'string') return 10;
-        const match = acString.match(/(\d+)/);
+        if (typeof acString === 'number') return acString;
+        if (window.DataParser && typeof window.DataParser.parseAC === 'function') {
+            return window.DataParser.parseAC(acString);
+        }
+        const match = String(acString || '').match(/(\d+)/);
         return match ? parseInt(match[1]) : 10;
     }
 
     parseChallenge(challengeString) {
-        // Extract CR from strings like "10 (5,900 XP)" or "1/4 (50 XP)"
-        if (!challengeString || typeof challengeString !== 'string') return '1';
-        const match = challengeString.match(/(\d+(?:\/\d+)?)/);
+        if (typeof challengeString === 'number') return challengeString;
+        if (window.DataParser && typeof window.DataParser.parseChallenge === 'function') {
+            return window.DataParser.parseChallenge(challengeString);
+        }
+        const match = String(challengeString || '').match(/(\d+(?:\/\d+)?)/);
         return match ? match[1] : '1';
     }
 
@@ -933,8 +939,12 @@ class CombatSimulator {
             return;
         }
 
-        const targets = this.initiativeOrder.filter(c => 
-            c.id !== currentCombatant.id && !c.isDead
+        // Team-aware target selection: avoid friendly fire unless charmed/controlled
+        const isCharmedOrControlled = !!currentCombatant.charmed || !!currentCombatant.controlledByEnemy;
+        const targets = this.initiativeOrder.filter(c =>
+            c.id !== currentCombatant.id &&
+            !c.isDead &&
+            (isCharmedOrControlled || (c.team !== currentCombatant.team))
         );
 
         if (targets.length === 0) {
@@ -948,23 +958,25 @@ class CombatSimulator {
         this.performAttack(currentCombatant, targets[0], selectedAttack);
     }
 
-    // helper: parse damage strings like "10 (3d6)" or "17 (2d10 + 6)"
+    // helper: parse damage strings like "10 (3d6)" or "17 (2d10 + 6)" via DataParser
     parseDamageString(damageStr) {
         if (!damageStr) return 0;
-        // prefer the parenthetical dice expression if present
-        const paren = damageStr.match(/\(([^)]+)\)/);
-        const expr = paren ? paren[1].trim() : damageStr.trim();
-        // If rollDamage helper exists use it (common in this project)
-        if (typeof this.rollDamage === 'function') {
+        // Use utilities to extract dice expression first
+        const expr = (window.DataParser && typeof window.DataParser.parseDiceFromString === 'function')
+            ? window.DataParser.parseDiceFromString(String(damageStr))
+            : null;
+        if (expr && typeof this.rollDamage === 'function') {
             try {
                 return this.rollDamage(expr);
             } catch (e) {
                 // fallthrough to numeric parse
             }
         }
-        // fallback: take leading number (e.g. "10 (3d6)" -> 10)
-        const num = damageStr.match(/^\s*(\d+)/);
-        return num ? parseInt(num[1], 10) : 0;
+        // fallback to leading number via utilities
+        const num = (window.DataParser && typeof window.DataParser.parseLeadingNumber === 'function')
+            ? window.DataParser.parseLeadingNumber(String(damageStr))
+            : null;
+        return Number.isFinite(num) ? num : 0;
     }
 
     performAttack(attacker, target, attack) {
@@ -976,6 +988,12 @@ class CombatSimulator {
                 // Fallback to a default attack
                 attack = { "to hit": "+0", hit: "1d6" };
             }
+        }
+
+        // Guard-rail: prevent same-team attacks unless charmed/controlled
+        if (!attacker?.charmed && !attacker?.controlledByEnemy && attacker.team === target.team) {
+            this.logMessage(`${attacker.name} will not attack an ally.`);
+            return;
         }
 
         // If this attack is a rechargeable ability instance, mark it used now
@@ -2426,19 +2444,21 @@ class CombatSimulator {
 
     copyTeamInfoToClipboard() {
         try {
-            // Get team information
-            const teamInfo = this.getTeamInfo();
-            
-            // Copy to clipboard
-            navigator.clipboard.writeText(teamInfo).then(() => {
-                this.logMessage('Team information copied to clipboard!');
+            const el = document.getElementById('combatLog');
+            const text = el ? (el.innerText || el.textContent || '') : '';
+            if (!text) {
+                this.logMessage('Combat Log is empty; nothing to copy.');
+                return;
+            }
+            navigator.clipboard.writeText(text).then(() => {
+                this.logMessage('Combat Log copied to clipboard!');
             }).catch(err => {
-                // Fallback for older browsers
-                this.fallbackCopyToClipboard(teamInfo);
+                this.fallbackCopyToClipboard(text);
             });
         } catch (err) {
-            this.logMessage('Failed to copy team information to clipboard.');
-            console.error('Copy error:', err);
+            const el = document.getElementById('combatLog');
+            const text = el ? (el.innerText || el.textContent || '') : '';
+            this.fallbackCopyToClipboard(text);
         }
     }
 
