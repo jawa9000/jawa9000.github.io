@@ -444,6 +444,25 @@ class CombatSimulator {
         return succeeded;
     }
 
+    // Helper: perform structured saving throw (returns { success, roll, total, dc, ability })
+    performSavingThrow(target, ability, dc) {
+        const abilityKey = (ability || '').toLowerCase().slice(0, 3);
+        const abilityScore = parseInt(target.originalData?.[abilityKey] ?? 10, 10);
+        const mod = getAbilityModifier(abilityScore);
+        const roll = this.rollDice(20);
+        const total = roll + mod;
+        return { success: total >= dc, roll, total, dc, ability };
+    }
+
+    // Helper: push a condition onto target.conditions with optional duration/source
+    applyCondition(target, conditionName, duration = null, sourceId = null) {
+        if (!Array.isArray(target.conditions)) target.conditions = [];
+        const entry = typeof conditionName === 'string' ? { name: conditionName } : (conditionName || {});
+        if (duration) entry.duration = duration;
+        if (sourceId) entry.sourceId = sourceId;
+        target.conditions.push(entry);
+    }
+
     // Called whenever a target takes damage from an attacker; clears Frightened and may disable regeneration
     handleDamageTaken(target, attacker, damageType) {
         if (!attacker) return;
@@ -794,29 +813,62 @@ class CombatSimulator {
         }
     }
 
-	// Apply ongoing start-of-turn effects like ongoing damage from grapple
+	// Apply start-of-turn effects: ongoing bundles, condition damage, durations, and turn-preventing states
 	applyStartOfTurnEffects(combatant) {
 		if (!Array.isArray(combatant.conditions)) return;
+		let stunnedThisTurn = false;
+		const retained = [];
 		for (const cond of combatant.conditions) {
+			const name = typeof cond === 'string' ? cond : (cond.name || '');
+			const lower = String(name).toLowerCase();
+			// 1) Ongoing damage bundles at start of turn
 			if (cond.ongoing && /(start of each of its turns)/i.test(cond.ongoing.timing || '')) {
 				const dmgType = (cond.ongoing.type || '').toLowerCase();
 				if (this.hasDamageImmunity(combatant, dmgType)) {
 					this.logMessage(`${combatant.name} is immune to ${dmgType} damage (ongoing).`);
-					continue;
+				} else {
+					let dmg = this.rollDamage(cond.ongoing.dice);
+					if (this.hasDamageVulnerability(combatant, dmgType)) {
+						const before = dmg;
+						dmg = dmg * 2;
+						this.logMessage(`${combatant.name} is vulnerable to ${dmgType} damage (ongoing doubled: ${before} -> ${dmg}).`);
+					}
+					combatant.hp -= dmg;
+					this.logMessage(`${combatant.name} takes ${dmg} ${dmgType || 'damage'} (ongoing).`);
 				}
-				let dmg = this.rollDamage(cond.ongoing.dice);
-				if (this.hasDamageVulnerability(combatant, dmgType)) {
-					const before = dmg;
-					dmg = dmg * 2;
-					this.logMessage(`${combatant.name} is vulnerable to ${dmgType} damage (ongoing doubled: ${before} -> ${dmg}).`);
-				}
-				combatant.hp -= dmg;
-				this.logMessage(`${combatant.name} takes ${dmg} ${dmgType || 'damage'} (ongoing).`);
 			}
+			// 2) Condition-specific handling
+			if (lower === 'stunned') {
+				stunnedThisTurn = true;
+			}
+			if (lower === 'poisoned') {
+				// Simple model: 1d4 poison damage at start of turn
+				if (!this.hasDamageImmunity(combatant, 'poison')) {
+					let pdmg = this.rollDamage('1d4');
+					if (this.hasDamageResistance(combatant, 'poison')) pdmg = Math.floor(pdmg / 2);
+					combatant.hp -= pdmg;
+					this.logMessage(`${combatant.name} takes ${pdmg} poison damage (poisoned).`);
+				}
+			}
+			// 3) Duration handling
+			let remove = false;
+			if (typeof cond.duration === 'string' && /until start of turn/i.test(cond.duration)) {
+				remove = true;
+			}
+			if (typeof cond.duration === 'number') {
+				cond.duration -= 1;
+				if (cond.duration <= 0) remove = true;
+			}
+			if (!remove) retained.push(cond);
 		}
+		combatant.conditions = retained;
 		if (combatant.hp <= 0) {
 			combatant.isDead = true;
 			this.logMessage(`${combatant.name} drops to 0 HP and is defeated!`);
+		}
+		if (stunnedThisTurn) {
+			combatant.attacksRemaining = 0;
+			this.logMessage(`${combatant.name} is stunned and cannot act this turn.`);
 		}
 		this.updateDisplay();
 	}
@@ -1284,6 +1336,22 @@ class CombatSimulator {
 					target.hp -= partDmg;
 					this.handleDamageTaken(target, attacker, partType);
 					this.logMessage(this.formatDamageMessage(attacker, target, partDmg, partType, originalPartDmg));
+				}
+			}
+
+			// On-hit condition effects (e.g., Mind Flay -> Stunned)
+			if (attack.condition_effect) {
+				const effect = attack.condition_effect;
+				const ability = effect.save_ability || 'CON';
+				const dc = parseInt(effect.save_dc || 0, 10) || 0;
+				if (dc > 0) {
+					const result = this.performSavingThrow(target, ability, dc);
+					if (result.success) {
+						this.logMessage(`🛡️ ${target.name} successfully saved against ${this.getAttackName(attacker, attack)} (${ability} DC ${dc}).`);
+					} else {
+						this.applyCondition(target, effect.condition_name || 'Conditioned', effect.duration || null, attacker.id);
+						this.logMessage(`❌ ${target.name} failed their save and is now ${effect.condition_name ? effect.condition_name.toUpperCase() : 'AFFECTED'}!`);
+					}
 				}
 			}
 
