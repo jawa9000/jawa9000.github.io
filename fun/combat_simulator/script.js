@@ -2905,11 +2905,6 @@ const FALLBACK_MONSTERS = [
 // Initialize the combat simulator when the page loads
 let combatSim;
 $(document).ready(() => {
-    // Add Simulate Battle button to controls
-    if ($('#simulateBattleBtn').length === 0) {
-        $('<button id="simulateBattleBtn" class="btn btn-action btn-ml-10" disabled>Simulate Battle</button>')
-            .insertAfter('#attackBtn');
-    }
     combatSim = new CombatSimulator();
     
     // If external monsters didn't load, use fallback data

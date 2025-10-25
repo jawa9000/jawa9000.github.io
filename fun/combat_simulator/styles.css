@@ -1,4 +1,39 @@
 /* Reset and Base Styles */
+:root {
+    /* Teams */
+    /* Team A: Brown (accessible, non-pinkish) */
+    --color-team-a: #795548;         /* Brown 500 */
+    --color-team-a-dark: #5D4037;    /* Brown 700 */
+    --color-team-a-tint: #D7CCC8;    /* Brown 100 */
+    --shadow-team-a: rgba(121, 85, 72, 0.3);
+
+    /* Team B: Deep Teal (accessible) */
+    --color-team-b: #00796B;         /* Teal 700 */
+    --color-team-b-dark: #00695C;    /* Teal 800 */
+    --color-team-b-tint: #B2DFDB;    /* Teal 100 */
+    --shadow-team-b: rgba(0, 121, 107, 0.3);
+
+    /* Primary (action selection / blue) */
+    --color-primary: #3498db;
+    --color-primary-dark: #2980b9;
+
+    /* Secondary/Neutral */
+    --color-neutral: #95a5a6;
+    --color-neutral-dark: #7f8c8d;
+
+    /* Emphasis/Action (orange) */
+    --color-action: #f39c12;
+    --color-action-dark: #e67e22;
+
+    /* Danger (red) */
+    --color-danger: #e74c3c;
+    --color-danger-dark: #c0392b;
+
+    /* Spacing utilities */
+    --ml-5: 5px;
+    --ml-8: 8px;
+    --ml-10: 10px;
+}
 * {
     margin: 0;
     padding: 0;
@@ -65,22 +100,22 @@ header h1 {
 }
 
 .btn-primary {
-    background: linear-gradient(45deg, #3498db, #2980b9);
+    background: linear-gradient(45deg, var(--color-primary), var(--color-primary-dark));
     color: white;
 }
 
 .btn-secondary {
-    background: linear-gradient(45deg, #95a5a6, #7f8c8d);
+    background: linear-gradient(45deg, var(--color-neutral), var(--color-neutral-dark));
     color: white;
 }
 
 .btn-accent {
-    background: linear-gradient(45deg, #e74c3c, #c0392b);
+    background: linear-gradient(45deg, var(--color-danger), var(--color-danger-dark));
     color: white;
 }
 
 .btn-action {
-    background: linear-gradient(45deg, #f39c12, #e67e22);
+    background: linear-gradient(45deg, var(--color-action), var(--color-action-dark));
     color: white;
 }
 
@@ -88,6 +123,20 @@ header h1 {
     background: #bdc3c7;
     cursor: not-allowed;
     transform: none;
+}
+
+/* Button utility spacing and variants */
+.btn-ml-5 { margin-left: var(--ml-5); }
+.btn-ml-8 { margin-left: var(--ml-8); }
+.btn-ml-10 { margin-left: var(--ml-10); }
+
+/* Small danger-styled mini button (used for remove) */
+.btn-danger-mini {
+    color: #fff;
+    background: var(--color-danger);
+    border: none;
+    padding: 2px 8px;
+    border-radius: 3px;
 }
 
 /* Team Controls */
@@ -113,7 +162,7 @@ header h1 {
 }
 
 .team-a {
-    background: linear-gradient(45deg, #e74c3c, #c0392b);
+    background: linear-gradient(45deg, var(--color-team-a), var(--color-team-a-dark));
     color: white;
 }
 
@@ -122,7 +171,7 @@ header h1 {
 } */
 
 .team-b {
-    background: linear-gradient(45deg, #3498db, #2980b9);
+    background: linear-gradient(45deg, var(--color-team-b), var(--color-team-b-dark));
     color: white;
 }
 
@@ -131,13 +180,14 @@ header h1 {
 } */
 
 .team-all {
-    background: linear-gradient(45deg, #95a5a6, #7f8c8d);
+    /* background: linear-gradient(45deg, var(--color-neutral), var(--color-neutral-dark)); */
+    background: linear-gradient(45deg, var(--color-primary), var(--color-primary-dark));
     color: white;
 }
 
-.team-all:hover {
+/* .team-all:hover {
     background: linear-gradient(45deg, #7f8c8d, #6c7b7d);
-}
+} */
 
 .btn-team.active {
     transform: scale(1.05);
@@ -155,12 +205,12 @@ header h1 {
 }
 
 .team-indicator.team-a {
-    background: #e74c3c;
+    background: var(--color-team-a);
     color: white;
 }
 
 .team-indicator.team-b {
-    background: #3498db;
+    background: var(--color-team-b);
     color: white;
 }
 
@@ -171,11 +221,11 @@ header h1 {
 
 /* Initiative Item Team Styling */
 .initiative-item.team-a {
-    border-left: 4px solid #e74c3c;
+    border-left: 4px solid var(--color-team-a);
 }
 
 .initiative-item.team-b {
-    border-left: 4px solid #3498db;
+    border-left: 4px solid var(--color-team-b);
 }
 
 .initiative-item.neutral {
@@ -184,11 +234,11 @@ header h1 {
 
 /* Character Item Team Styling */
 .character-item.team-a {
-    border-left: 4px solid #e74c3c;
+    border-left: 4px solid var(--color-team-a);
 }
 
 .character-item.team-b {
-    border-left: 4px solid #3498db;
+    border-left: 4px solid var(--color-team-b);
 }
 
 .character-item.neutral {
@@ -240,11 +290,25 @@ header h1 {
     transition: all 0.3s ease;
 }
 
+/* Current turn highlighting - default (non-team-specific) */
 .initiative-item.current-turn {
-    background: linear-gradient(45deg, #f39c12, #e67e22);
+    background: linear-gradient(45deg, var(--color-action), var(--color-action-dark));
     color: white;
     transform: scale(1.02);
     box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+}
+
+/* Team-tinted current turn backgrounds */
+.initiative-item.team-a.current-turn {
+    background: linear-gradient(45deg, var(--color-team-a-tint), var(--color-team-a));
+    color: white;
+    box-shadow: 0 4px 15px var(--shadow-team-a);
+}
+
+.initiative-item.team-b.current-turn {
+    background: linear-gradient(45deg, var(--color-team-b-tint), var(--color-team-b));
+    color: white;
+    box-shadow: 0 4px 15px var(--shadow-team-b);
 }
 
 .initiative-item.dead {
@@ -613,7 +677,7 @@ header h1 {
 }
 
 .monster-cr {
-    background: #e74c3c;
+    background: var(--color-danger);
     color: white;
     padding: 2px 8px;
     border-radius: 12px;
