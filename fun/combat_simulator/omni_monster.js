@@ -125,16 +125,16 @@ const monsters = [
                 }
             ]
         },
-        "Shifting Cloak": {
-            "type": "Self-Buff",
-            "action_type": "Action",
-            "condition_effect": {
-                "save_ability": "None",   // No save required as it is a voluntary self-buff
-                "condition_name": "Invisible",
-                "duration": "1 minute",  // Lasts 1 minute (10 rounds) or until concentration is broken
-                "effect_ends_on": "Attack or Spell" // Crucially, the condition ends when the creature attacks
-            }
-        },
+        // "Shifting Cloak": {
+        //     "type": "Self-Buff",
+        //     "action_type": "Action",
+        //     "condition_effect": {
+        //         "save_ability": "None",   // No save required as it is a voluntary self-buff
+        //         "condition_name": "Invisible",
+        //         "duration": "1 minute",  // Lasts 1 minute (10 rounds) or until concentration is broken
+        //         "effect_ends_on": "Attack or Spell" // Crucially, the condition ends when the creature attacks
+        //     }
+        // },
         // "Stuttering Thought": {
         //     "to hit": "Auto-Hit (Mental)", 
         //     "hit": "0 (No damage)", 

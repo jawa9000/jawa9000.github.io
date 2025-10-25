@@ -2,13 +2,14 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
 
 ## Change Log
 
-* 10/25/25: 0.25.4
+* 10/25/25: 0.29.4
     * Implemented petrified, charmed, restrained, frightened, grappled, incapacitated, invisibility, and exhaustion conditions.
     * Updated the monster list display to include which conditions it has.
     * Added logic that a restrained monster should decide to break free from the restraint.
     * Updated decision logic so that a monster can only make one decision per round.
     * Added a temporary keybinding (Ctrl+Shift+M) to add 3 monsters to each team, roll initiative, and start combat.
     * Updated the combat logic to allow for a draw.
+    * Implemented the surprise round system.
 * 10/24/25: 0.18.0
     * Implemented the stunned, poisoned, slowed, paralyzed, blinded, deafened, and prone conditions.
 * 10/23/25: 0.11.2

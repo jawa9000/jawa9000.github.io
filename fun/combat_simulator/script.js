@@ -229,6 +229,41 @@ class CombatSimulator {
             this.updateDisplay();
         });
 
+        // Surprise toggle button (cycles None -> Team A -> Team B)
+        const ensureSurpriseToggle = () => {
+            if ($('#surpriseToggleBtn').length === 0) {
+                const btn = $('<button id="surpriseToggleBtn" class="btn btn-warning" style="margin-left:8px;">Surprise: None</button>');
+                if ($('#rollInitiative').length > 0) {
+                    $('#rollInitiative').after(btn);
+                } else {
+                    $('body').prepend(btn);
+                }
+            }
+            // Set initial label
+            const label = this.surprisedTeam ? `Surprise: ${this.surprisedTeam}` : 'Surprise: None';
+            $('#surpriseToggleBtn').text(label);
+        };
+        ensureSurpriseToggle();
+        // Initial enable/disable based on team readiness
+        const updateSurpriseToggleState = () => {
+            const hasA = this.combatants.some(c => c && c.team === 'Team A');
+            const hasB = this.combatants.some(c => c && c.team === 'Team B');
+            const enable = hasA && hasB;
+            $('#surpriseToggleBtn').prop('disabled', !enable).attr('title', enable ? '' : 'Add monsters to both Team A and Team B to enable Surprise');
+        };
+        updateSurpriseToggleState();
+        $(document).on('click', '#surpriseToggleBtn', () => {
+            const cur = this.surprisedTeam || '';
+            let next = null;
+            if (cur === '') next = 'Team A';
+            else if (cur === 'Team A') next = 'Team B';
+            else if (cur === 'Team B') next = null;
+            else next = 'Team A';
+            this.surprisedTeam = next;
+            $('#surpriseToggleBtn').text(next ? `Surprise: ${next}` : 'Surprise: None');
+            this.updateDisplay();
+        });
+
         $(document).on('keydown', (e) => {
             const key = (e.key || '').toUpperCase();
             if (e.ctrlKey && e.shiftKey && key === 'M') {
@@ -1280,7 +1315,12 @@ class CombatSimulator {
                 }
             }
             this.currentTurnIndex = 0;
+            const prevRound = this.combatRound;
             this.combatRound++;
+            if (prevRound === 1 && this.surprisedTeam) {
+                this.logMessage('Surprise round ends. Creatures act normally.');
+                this.surprisedTeam = null;
+            }
             this.logMessage(`Combat Round ${this.combatRound} begins!`);
         }
 
@@ -2481,6 +2521,13 @@ class CombatSimulator {
         for (const c of this.combatants) {
             this.applyExhaustionDerivedStats(c);
         }
+        // Keep Surprise toggle state in sync with team readiness
+        try {
+            const hasA = this.combatants.some(c => c && c.team === 'Team A');
+            const hasB = this.combatants.some(c => c && c.team === 'Team B');
+            const enable = hasA && hasB;
+            $('#surpriseToggleBtn').prop('disabled', !enable).attr('title', enable ? '' : 'Add monsters to both Team A and Team B to enable Surprise');
+        } catch {}
         this.updateCharacterList();
         this.updateInitiativeList();
         this.updateCurrentTurn();
