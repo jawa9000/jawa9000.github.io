@@ -13,9 +13,9 @@
     --color-team-b-tint: #B2DFDB;    /* Teal 100 */
     --shadow-team-b: rgba(0, 121, 107, 0.3);
 
-    /* Primary (action selection / blue) */
-    --color-primary: #3498db;
-    --color-primary-dark: #2980b9;
+    /* Primary (action selection / brownish) */
+    --color-primary: #f2ce9e;
+    --color-primary-dark: #f2ce9e;
 
     /* Secondary/Neutral */
     --color-neutral: #95a5a6;
@@ -33,6 +33,10 @@
     --ml-5: 5px;
     --ml-8: 8px;
     --ml-10: 10px;
+
+    /* Backgrounds */
+    --color-background-main: #d2b48c;
+    --color-background-secondary: rgba(0, 0, 0, 0.1);
 }
 * {
     margin: 0;
@@ -42,7 +46,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    background: linear-gradient(135deg, #d2b48c 0%, #776348 100%);
     color: #333;
     min-height: 100vh;
 }
@@ -55,7 +59,8 @@ body {
 
 /* Header Styles */
 header {
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--color-background-main);
+    /* background: rgba(255, 255, 255, 0.95); */
     border-radius: 15px;
     padding: 20px;
     margin-bottom: 20px;
@@ -64,7 +69,7 @@ header {
 }
 
 header h1 {
-    color: #2c3e50;
+    color: #8b4513;
     text-align: center;
     margin-bottom: 20px;
     font-size: 2.5em;
@@ -101,7 +106,7 @@ header h1 {
 
 .btn-primary {
     background: linear-gradient(45deg, var(--color-primary), var(--color-primary-dark));
-    color: white;
+    color: #23272f;
 }
 
 .btn-secondary {
@@ -123,20 +128,42 @@ header h1 {
     background: #bdc3c7;
     cursor: not-allowed;
     transform: none;
-}
+} 
 
 /* Button utility spacing and variants */
 .btn-ml-5 { margin-left: var(--ml-5); }
 .btn-ml-8 { margin-left: var(--ml-8); }
 .btn-ml-10 { margin-left: var(--ml-10); }
+.add-multiple-btn {
+    background-color: linear-gradient(45deg, var(--color-primary), var(--color-primary-dark));;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+.remove-monster-btn {
+    background-color: linear-gradient(45deg, var(--color-danger), var(--color-danger-dark));;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
 
 /* Small danger-styled mini button (used for remove) */
 .btn-danger-mini {
-    color: #fff;
+    /* color: #fff;
     background: var(--color-danger);
     border: none;
     padding: 2px 8px;
-    border-radius: 3px;
+    border-radius: 3px; */
+    background-color: linear-gradient(45deg, var(--color-danger), var(--color-danger-dark));;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: all 0.3s ease;
 }
 
 /* Team Controls */
@@ -154,9 +181,11 @@ header h1 {
 }
 
 .btn-team {
-    padding: 8px 16px;
-    font-size: 14px;
-    border-radius: 6px;
+    background: linear-gradient(45deg, var(--color-primary), var(--color-primary-dark));
+    color: #23272f;
+    padding: 12px 24px; /* match .btn */
+    font-size: 16px;    /* match .btn */
+    border-radius: 8px; /* match .btn */
     font-weight: 600;
     transition: all 0.3s ease;
 }
@@ -166,28 +195,20 @@ header h1 {
     color: white;
 }
 
-/* .team-a:hover {
-    background: linear-gradient(45deg, #c0392b, #a93226);
-} */
-
 .team-b {
     background: linear-gradient(45deg, var(--color-team-b), var(--color-team-b-dark));
     color: white;
 }
 
-/* .team-b:hover {
-    background: linear-gradient(45deg, #2980b9, #21618c);
-} */
+.team-a span, .team-b span {
+    padding: 0 0 0 5px;
+}
 
 .team-all {
     /* background: linear-gradient(45deg, var(--color-neutral), var(--color-neutral-dark)); */
     background: linear-gradient(45deg, var(--color-primary), var(--color-primary-dark));
-    color: white;
+    color: #23272f;
 }
-
-/* .team-all:hover {
-    background: linear-gradient(45deg, #7f8c8d, #6c7b7d);
-} */
 
 .btn-team.active {
     transform: scale(1.05);
@@ -248,14 +269,14 @@ header h1 {
 /* Main Content Layout */
 .main-content {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1.9fr 1.1fr;
     gap: 20px;
     margin-bottom: 20px;
 }
 
 /* Combat Area */
 .combat-area {
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--color-background-main);
     border-radius: 15px;
     padding: 20px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
@@ -267,13 +288,13 @@ header h1 {
 }
 
 .initiative-tracker h2 {
-    color: #2c3e50;
+    color: #8b4513;
     margin-bottom: 15px;
     font-size: 1.5em;
 }
 
 .initiative-list {
-    background: #ecf0f1;
+    background: var(--color-background-secondary);
     border-radius: 10px;
     padding: 15px;
     min-height: 200px;
@@ -312,9 +333,18 @@ header h1 {
 }
 
 .initiative-item.dead {
-    opacity: 0.5;
-    background: #e74c3c;
+    opacity: 0.8;
+    background: #a0190b;
     color: white;
+    /* Override team border color so team styles don't apply to dead */
+    border-left: 4px solid #a0190b;
+}
+
+/* Extra guard: if a dead item still has a team class, override its border color */
+.initiative-item.dead.team-a,
+.initiative-item.dead.team-b,
+.initiative-item.dead.neutral {
+    border-left-color: #a0190b !important;
 }
 
 .initiative-item .name {
@@ -339,13 +369,13 @@ header h1 {
 
 /* Combat Actions */
 .combat-actions h2 {
-    color: #2c3e50;
+    color: #8b4513;
     margin-bottom: 15px;
     font-size: 1.5em;
 }
 
 .current-turn {
-    background: #ecf0f1;
+    background: var(--color-background-secondary);
     border-radius: 10px;
     padding: 20px;
 }
@@ -370,7 +400,8 @@ header h1 {
 
 /* Character Panel */
 .character-panel {
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--color-background-main);
+    /* background: rgba(255, 255, 255, 0.95); */
     border-radius: 15px;
     padding: 20px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
@@ -378,7 +409,7 @@ header h1 {
 }
 
 .character-panel h2 {
-    color: #2c3e50;
+    color: #8b4513;
     margin-bottom: 15px;
     font-size: 1.5em;
 }
@@ -389,7 +420,7 @@ header h1 {
 }
 
 .character-item {
-    background: #ecf0f1;
+    background: var(--color-background-secondary);
     border-radius: 10px;
     padding: 15px;
     margin: 10px 0;
@@ -430,7 +461,8 @@ header h1 {
 
 /* Combat Log */
 .combat-log {
-    background: rgba(255, 255, 255, 0.95);
+    /* background: rgba(255, 255, 255, 0.95); */
+    background: var(--color-background-main);
     border-radius: 15px;
     padding: 20px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
@@ -438,14 +470,14 @@ header h1 {
 }
 
 .combat-log h2 {
-    color: #2c3e50;
+    color: #8b4513;
     margin-bottom: 15px;
     font-size: 1.5em;
 }
 
 .log-content {
-    background: #2c3e50;
-    color: #ecf0f1;
+    background: var(--color-background-secondary);
+    color: #ffffff;
     border-radius: 10px;
     padding: 15px;
     margin: 15px 0;
@@ -467,19 +499,19 @@ header h1 {
 }
 
 .log-entry.attack {
-    color: #e74c3c;
+    color: #a3382c;
 }
 
 .log-entry.damage {
-    color: #f39c12;
+    color: #a76b0c;
 }
 
 .log-entry.heal {
-    color: #27ae60;
+    color: #1f884b;
 }
 
 .log-entry.critical {
-    color: #e67e22;
+    color: #8a4b14;
     font-weight: bold;
 }
 
@@ -707,7 +739,7 @@ header h1 {
 }
 
 .roll-result {
-    background: #ecf0f1;
+    background: var(--color-background-secondary);
     padding: 15px;
     border-radius: 10px;
 }
@@ -728,7 +760,7 @@ header h1 {
 .attack-result {
     margin-top: 20px;
     padding: 15px;
-    background: #ecf0f1;
+    background: var(--color-background-secondary);
     border-radius: 10px;
 }
 

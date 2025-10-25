@@ -2,7 +2,7 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
 
 ## Change Log
 
-* 10/25/25: 0.31.11
+* 10/25/25: 0.33.13
     * Implemented petrified, charmed, restrained, frightened, grappled, incapacitated, invisibility, confused, and exhaustion conditions.
     * Updated the monster list display to include which conditions it has.
     * Added logic that a restrained monster should decide to break free from the restraint.
@@ -17,6 +17,12 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
     * Changed the color of the Team A and Team B buttons and backgrounds.
     * Set up CSS variables to ensure consistency throughout the application.
     * Made some minor color changes to the UI.
+    * Implemented saving throw bonuses.
+    * Fixed issue where condition effects were not showing up.
+    * Added the dead and survived badges to the initiative list.
+    * Adjusted the UI of the team buttons.
+
+    >> conditions seems to be broken as it the monsters never pick them. Double check this later.
 * 10/24/25: 0.18.0
     * Implemented the stunned, poisoned, slowed, paralyzed, blinded, deafened, and prone conditions.
 * 10/23/25: 0.11.2

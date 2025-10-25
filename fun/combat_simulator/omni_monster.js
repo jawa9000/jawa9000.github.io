@@ -8,7 +8,17 @@ const monsters = [
     associates: [],
     "armor class": 15,
     "hit points": "150 (10d10)",
-    speed: "40 ft. fly 80 ft. swim 40ft.",
+    speed: {
+        "surface": {
+            "movement": 40
+        },
+        "fly": {
+            "movement": 80
+        },
+        "swim": {
+            "movement": 40
+        }
+    },
     str: 12,
     dex: 12,
     con: 12,
@@ -169,18 +179,18 @@ const monsters = [
         //         "duration": "Persistent" // Exhaustion requires a long rest or magic to remove
         //     }
         // },
-        // "Snaring Claw": {
-        //     "to hit": "+5", // Standard attack roll
-        //     "hit": "5 (1d6 + 2) piercing damage", // Damage on a successful attack
-        //     "condition_effect": {
-        //         // Unlike other conditions, Grappled is inflicted on a successful attack roll,
-        //         // but targets can often break free with a contest instead of a DC save.
-        //         "condition_name": "Grappled",
-        //         "grappler_id": "Omni Monster", // Crucial: Tracks the source of the grapple
-        //         "escape_dc": 14, // The DC the target must beat to escape (often 8 + STR/DEX mod)
-        //         "duration": "Until released" 
-        //     }
-        // },
+        "Snaring Claw": {
+            "to hit": "+5", // Standard attack roll
+            "hit": "5 (1d6 + 2) piercing damage", // Damage on a successful attack
+            "condition_effect": {
+                // Unlike other conditions, Grappled is inflicted on a successful attack roll,
+                // but targets can often break free with a contest instead of a DC save.
+                "condition_name": "Grappled",
+                "grappler_id": "Omni Monster", // Crucial: Tracks the source of the grapple
+                "escape_dc": 14, // The DC the target must beat to escape (often 8 + STR/DEX mod)
+                "duration": "Until released" 
+            }
+        },
         // "Dreadful Presence": {
         //     "to hit": "Auto-Hit (Aura/Gaze)", 
         //     "hit": "0 (No damage)", 

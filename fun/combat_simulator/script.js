@@ -511,6 +511,11 @@ class CombatSimulator {
             10
         ) || 0;
         
+        // Parse explicit saving throws, e.g., "DEX +7, CON +10"
+        const savingThrowBonuses = this.parseSavingThrows(
+            monsterData['saving throws'] || monsterData['savingThrows'] || monsterData['saving_throws'] || null
+        );
+
         return {
             id: Date.now() + Math.random(),
             name: monsterData.name || 'Unknown Monster',
@@ -551,6 +556,8 @@ class CombatSimulator {
             regeneration_disabled: false,
             isDead: false,
             originalData: monsterData, // Keep reference to original data
+            // Explicit saving throw bonuses parsed from monster data
+            savingThrowBonuses: savingThrowBonuses,
             // Deep-clone rechargeable attacks so state doesn't leak across instances
             rechargeable_attack: monsterData.rechargeable_attack ? JSON.parse(JSON.stringify(monsterData.rechargeable_attack)) : null,
             // Ongoing effects currently affecting this creature
@@ -647,6 +654,33 @@ class CombatSimulator {
         return 1;
     }
 
+    // Parse a "saving throws" string like: "DEX +7, CON +10, WIS +6, CHA +8"
+    // Returns map: { dex: 7, con: 10, wis: 6, cha: 8 }
+    parseSavingThrows(val) {
+        const map = {};
+        if (!val) return map;
+        if (typeof val === 'object') {
+            for (const [k, v] of Object.entries(val)) {
+                const key = String(k).toLowerCase().slice(0, 3);
+                const num = parseInt(v, 10);
+                if (['str','dex','con','int','wis','cha'].includes(key) && Number.isFinite(num)) {
+                    map[key] = num;
+                }
+            }
+            return map;
+        }
+        const str = String(val);
+        for (const part of str.split(',')) {
+            const m = part.trim().match(/(STR|DEX|CON|INT|WIS|CHA)\s*([+-]?\d+)/i);
+            if (m) {
+                const key = m[1].toLowerCase().slice(0, 3);
+                const num = parseInt(m[2], 10);
+                if (Number.isFinite(num)) map[key] = num;
+            }
+        }
+        return map;
+    }
+
 	// Parse comma-separated fields like damage/condition immunities and resistances
 	parseCommaList(str) {
 		if (!str || typeof str !== 'string') return [];
@@ -686,24 +720,29 @@ class CombatSimulator {
 		return Array.isArray(target.damageVulnerabilities) && target.damageVulnerabilities.includes(String(damageType).toLowerCase());
 	}
 
-	// Roll a saving throw for a target
+    // Roll a saving throw for a target (uses explicit save bonus if provided)
     rollSavingThrow(target, ability, dc) {
         const abilityKey = (ability || '').toLowerCase().slice(0, 3);
         const abilityScore = parseInt(target.originalData?.[abilityKey] ?? 10, 10);
+        const explicit = (target?.savingThrowBonuses && Number.isFinite(target.savingThrowBonuses[abilityKey]))
+            ? target.savingThrowBonuses[abilityKey]
+            : null;
         const mod = getAbilityModifier(abilityScore);
+        const bonus = (explicit !== null) ? explicit : mod;
         // Auto-fail STR/DEX on certain conditions
         if ((abilityKey === 'str' || abilityKey === 'dex') && this.hasAnyCondition(target, ['Paralyzed','Stunned','Unconscious','Petrified'])) {
             this.logMessage(`${target.name} automatically fails the ${ability.toUpperCase()} save due to condition.`);
             return false;
         }
-        let roll = this.rollDice(20) + mod;
+        let roll = this.rollDice(20) + bonus;
+        const bonusLabel = explicit !== null ? `+${bonus} explicit save bonus` : `+${bonus} ability modifier`;
         // Slowed: -2 penalty to Dexterity saves
         if (abilityKey === 'dex' && this.hasAnyCondition(target, ['Slowed'])) {
             const adjusted = roll - 2;
-            this.logMessage(`${target.name} ${ability} save: ${adjusted} (−2 Slowed) vs DC ${dc}`);
+            this.logMessage(`${target.name} ${ability.toUpperCase()} save: ${adjusted} (${bonusLabel}; −2 Slowed) vs DC ${dc}`);
             roll = adjusted;
         } else {
-            this.logMessage(`${target.name} ${ability} save: ${roll} vs DC ${dc}`);
+            this.logMessage(`${target.name} ${ability.toUpperCase()} save: ${roll} (${bonusLabel}) vs DC ${dc}`);
         }
         let succeeded = roll >= dc;
         if (!succeeded) {
@@ -727,11 +766,15 @@ class CombatSimulator {
     performSavingThrow(target, ability, dc) {
         const abilityKey = (ability || '').toLowerCase().slice(0, 3);
         const abilityScore = parseInt(target.originalData?.[abilityKey] ?? 10, 10);
+        const explicit = (target?.savingThrowBonuses && Number.isFinite(target.savingThrowBonuses[abilityKey]))
+            ? target.savingThrowBonuses[abilityKey]
+            : null;
         const mod = getAbilityModifier(abilityScore);
+        const bonus = (explicit !== null) ? explicit : mod;
         // Auto-fail STR/DEX saves for certain conditions
         const autoFail = (['str','dex'].includes(abilityKey)) && this.hasAnyCondition(target, ['Paralyzed','Stunned','Unconscious','Petrified']);
         if (autoFail) {
-            return { success: false, roll: 1, total: mod + 1, dc, ability };
+            return { success: false, roll: 1, total: bonus + 1, dc, ability };
         }
         // Determine disadvantage from conditions
         const saveMode = this.getConditionModifiers(target, `save:${abilityKey}`);
@@ -740,10 +783,17 @@ class CombatSimulator {
             this.logMessage(`🎯 Disadvantage on ${ability.toUpperCase()} save: ${target.name} is Exhausted (level ${exLvlSave}).`);
         }
         const d20 = this.rollD20WithMode(saveMode);
-        let total = d20 + mod;
+        let total = d20 + bonus;
         // Slowed: -2 penalty to Dexterity saves
         if (abilityKey === 'dex' && this.hasAnyCondition(target, ['Slowed'])) {
             total -= 2;
+        }
+        // Log with explicit/ability modifier clarity
+        const bonusLabel2 = explicit !== null ? `+${bonus} explicit save bonus` : `+${bonus} ability modifier`;
+        if (abilityKey === 'dex' && this.hasAnyCondition(target, ['Slowed'])) {
+            this.logMessage(`${target.name} ${ability.toUpperCase()} save: ${total} (${bonusLabel2}; −2 Slowed) vs DC ${dc}`);
+        } else {
+            this.logMessage(`${target.name} ${ability.toUpperCase()} save: ${total} (${bonusLabel2}) vs DC ${dc}`);
         }
         return { success: total >= dc, roll: d20, total, dc, ability };
     }
@@ -2081,7 +2131,82 @@ class CombatSimulator {
             this.logMessage(`${attacker.name} becomes visible after attacking.`);
             this.updateDisplay();
         }
-        // (On-hit condition effects handled earlier in this function)
+        // On-hit condition effects
+        if (attack && attack.condition_effect) {
+            const effect = attack.condition_effect || {};
+            const condNameRaw = effect.condition_name || effect.condition || '';
+            const condName = String(condNameRaw).trim();
+            const ability = effect.save_ability || effect.ability || 'CON';
+            const dc = parseInt(effect.save_dc || effect.dc || 0, 10) || 0;
+            const parseRounds = (dur) => {
+                if (!dur) return null;
+                const s = String(dur).toLowerCase().trim();
+                if (s === '1 round') return { rounds_remaining: 1 };
+                if (s === '1 minute') return { duration: 10 }; // track as 10 start-of-turn ticks
+                return { duration: dur };
+            };
+            const applyNamed = (name) => {
+                const lower = String(name).toLowerCase();
+                if (lower === 'confused') {
+                    const obj = {
+                        name: 'Confused',
+                        duration: 10,
+                        save_check_at_turn_end: true,
+                        end_save_ability: 'WIS',
+                        end_save_dc: dc
+                    };
+                    this.applyCondition(target, obj, null, attacker.id);
+                    this.logMessage(`🔄 ${target.name} is Confused for up to 10 rounds (WIS ${dc} save at end of each turn).`);
+                    return;
+                }
+                if (lower === 'grappled') {
+                    const obj = { name: 'Grappled', duration: effect.duration || 'Until released', grappler_name: effect.grappler_id || attacker.name };
+                    if (effect.escape_dc) obj.escape_dc = parseInt(effect.escape_dc, 10) || 14;
+                    this.applyCondition(target, obj, null, attacker.id);
+                    this.logMessage(`⛓️ ${target.name} is Grappled by ${obj.grappler_name}${obj.escape_dc ? ` (escape DC ${obj.escape_dc})` : ''}.`);
+                    return;
+                }
+                if (lower === 'restrained') {
+                    const obj = { name: 'Restrained', duration: effect.duration || null, maintainer: effect.maintainer || attacker.name };
+                    if (effect.release_condition) obj.release_condition = effect.release_condition;
+                    this.applyCondition(target, obj, null, attacker.id);
+                    this.logMessage(`🪤 ${target.name} is Restrained${obj.maintainer ? ` by ${obj.maintainer}` : ''}.`);
+                    return;
+                }
+                if (lower === 'frightened') {
+                    const obj = { name: 'Frightened', duration: effect.duration || '1 minute', source_name: effect.fear_source || attacker.name };
+                    if (typeof obj.duration === 'string' && /1\s*minute/i.test(obj.duration)) obj.rounds_remaining = 10;
+                    if (dc > 0) { obj.save_check_at_turn_end = true; obj.end_save_dc = dc; obj.end_save_ability = ability; }
+                    this.applyCondition(target, obj, null, attacker.id);
+                    this.logMessage(`😨 ${target.name} becomes Frightened of ${obj.source_name}${obj.duration ? ` for ${obj.duration}` : ''}.`);
+                    return;
+                }
+                if (lower === 'charmed') {
+                    const obj = { name: 'Charmed', duration: effect.duration || '1 hour', charmer_name: effect.charmer_id || attacker.name };
+                    if (dc > 0) { obj.save_check_at_turn_end = true; obj.end_save_dc = dc; obj.end_save_ability = ability; }
+                    this.applyCondition(target, obj, null, attacker.id);
+                    this.logMessage(`✨ ${target.name} is Charmed by ${obj.charmer_name}${obj.duration ? ` for ${obj.duration}` : ''}.`);
+                    return;
+                }
+                // Generic fallback
+                const base = { name: condName };
+                const add = parseRounds(effect.duration);
+                const payload = add ? { ...base, ...add } : base;
+                this.applyCondition(target, payload, null, attacker.id);
+                this.logMessage(`⚠️ ${target.name} is affected by ${condName}.`);
+            };
+
+            if (dc > 0) {
+                const saved = this.rollSavingThrow(target, ability, dc);
+                if (saved) {
+                    this.logMessage(`✅ ${target.name} resists ${condName || 'the effect'} (DC ${dc} ${ability.toUpperCase()}).`);
+                } else {
+                    if (condName) applyNamed(condName);
+                }
+            } else if (condName) {
+                applyNamed(condName);
+            }
+        }
 
         // end performAttack
     }
@@ -2333,6 +2458,63 @@ class CombatSimulator {
             // End turn after attack to advance to next combatant
             this.endTurn();
         }, 100); // 0.1 seconds per turn for fast simulation
+    }
+
+    // Decide whether a creature should attempt to escape a movement-impairing condition this turn
+    shouldAttemptEscapeNow(combatant) {
+        if (!combatant) return false;
+        // Simple heuristic: try to escape if you still have at least 1 attack to trade for the attempt
+        // and you are either Restrained or Grappled.
+        const hasAttacks = (combatant.attacksRemaining || 0) > 0;
+        const isRestrained = this.hasAnyCondition && this.hasAnyCondition(combatant, ['Restrained']);
+        const isGrappled = this.hasAnyCondition && this.hasAnyCondition(combatant, ['Grappled']);
+        return hasAttacks && (isRestrained || isGrappled);
+    }
+
+    // Attempt to escape Restrained: STR or DEX check vs escape DC (default 14)
+    attemptEscapeRestrained() {
+        const c = this.getCurrentCombatant();
+        if (!c) return false;
+        const cond = this.getConditionObject ? this.getConditionObject(c, 'Restrained') : null;
+        const dc = parseInt(cond?.escape_dc, 10) || 14;
+        const str = parseInt(c.originalData?.str, 10) || 10;
+        const dex = parseInt(c.originalData?.dex, 10) || 10;
+        const strMod = getAbilityModifier(str);
+        const dexMod = getAbilityModifier(dex);
+        const rollStr = this.rollDice(20) + strMod;
+        const rollDex = this.rollDice(20) + dexMod;
+        const used = rollStr >= rollDex ? `STR ${rollStr}` : `DEX ${rollDex}`;
+        const total = Math.max(rollStr, rollDex);
+        if (total >= dc) {
+            this.removeConditionByName && this.removeConditionByName(c, 'Restrained');
+            this.logMessage(`${c.name} breaks free of Restraint (DC ${dc}, ${used} vs DC).`);
+            return true;
+        }
+        this.logMessage(`${c.name} fails to escape Restraint (DC ${dc}, ${used} vs DC).`);
+        return false;
+    }
+
+    // Attempt to escape Grappled: STR (Athletics) or DEX (Acrobatics) vs escape DC (default 14)
+    attemptEscapeGrappled() {
+        const c = this.getCurrentCombatant();
+        if (!c) return false;
+        const cond = this.getConditionObject ? this.getConditionObject(c, 'Grappled') : null;
+        const dc = parseInt(cond?.escape_dc, 10) || 14;
+        const str = parseInt(c.originalData?.str, 10) || 10;
+        const dex = parseInt(c.originalData?.dex, 10) || 10;
+        const strMod = getAbilityModifier(str);
+        const dexMod = getAbilityModifier(dex);
+        const rollStr = this.rollDice(20) + strMod;
+        const rollDex = this.rollDice(20) + dexMod;
+        const used = rollStr >= rollDex ? `STR ${rollStr}` : `DEX ${rollDex}`;
+        const total = Math.max(rollStr, rollDex);
+        if (total >= dc) {
+            this.removeConditionByName && this.removeConditionByName(c, 'Grappled');
+            this.logMessage(`${c.name} breaks free of the Grapple (DC ${dc}, ${used} vs DC).`);
+            return true;
+        }
+        this.logMessage(`${c.name} fails to escape the Grapple (DC ${dc}, ${used} vs DC).`);
+        return false;
     }
 
     // Select an attack for simulation, prioritizing attacks with special effects
@@ -2588,6 +2770,9 @@ class CombatSimulator {
             return;
         }
 
+        // Determine if we should show survivor badges: combat over and there were casualties
+        const showSurvivors = (!this.combatActive) && list.some(c => c.isDead) && list.some(c => !c.isDead);
+
         list.forEach((combatant, index) => {
             const isCurrentTurn = this.combatActive && index === this.currentTurnIndex;
             const teamClass = combatant.team.toLowerCase().replace(' ', '-');
@@ -2603,9 +2788,11 @@ class CombatSimulator {
                 return `<span class="condition-badge">[${upper}]</span>`;
             }) : []).filter(Boolean).join(' ');
             const conditionsHtml = (!combatant.isDead && condBadges) ? `<span class="conditions"> ${condBadges}</span>` : '';
+            const deadBadge = combatant.isDead ? '<span class="condition-badge">[DEAD]</span>' : '';
+            const survivedBadge = (!combatant.isDead && showSurvivors) ? '<span class="condition-badge">[SURVIVED]</span>' : '';
             const initiativeItem = $(`
                 <div class="initiative-item ${isCurrentTurn ? 'current-turn' : ''} ${combatant.isDead ? 'dead' : ''} ${teamClass}">
-                    <div class="name">${combatant.name} <span class="team-indicator ${teamClass}">${combatant.team}</span> ${combatant.frightened ? '<span class="condition-badge">[FRIGHTENED]</span>' : ''} ${conditionsHtml}</div>
+                    <div class="name">${combatant.name} <span class="team-indicator ${teamClass}">${combatant.team}</span> ${deadBadge || survivedBadge || (!combatant.isDead && combatant.frightened ? '<span class="condition-badge">[FRIGHTENED]</span>' : '')} ${conditionsHtml}</div>
                     <div class="stats">
                         <span>Initiative: ${combatant.initiative !== null ? combatant.initiative : '-'}</span>
                         <span>AC: ${combatant.ac}</span>
