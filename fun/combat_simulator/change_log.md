@@ -54,7 +54,6 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
 
 ## Active Projects
 
-* Does the system keep track of time? As in each round is 6 seconds and effects and conditions that have a time limit needs to be observed.
 * Intimidation
 * Separate the functionality of script.js into different JavaScript files that is logical and is easier to maintain.
 
