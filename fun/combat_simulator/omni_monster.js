@@ -125,6 +125,18 @@ const monsters = [
                 }
             ]
         },
+        // "Chaos Field": {
+        //     "to hit": "Auto-Hit (Area Effect)",
+        //     "hit": "3 (1d4 + 1) psychic damage", 
+        //     "area_effect": "20-foot radius",
+        //     "condition_effect": {
+        //         "save_ability": "WIS",   // Wisdom save to resist the mental disruption
+        //         "save_dc": 15,           // Moderate DC
+        //         "condition_name": "Confused",
+        //         "duration": "1 minute",  // Condition lasts 1 minute (10 rounds)
+        //         "effect_on_save": "end of turn" // Save can be repeated at the end of the target's turn
+        //     }
+        // },
         // "Shifting Cloak": {
         //     "type": "Self-Buff",
         //     "action_type": "Action",

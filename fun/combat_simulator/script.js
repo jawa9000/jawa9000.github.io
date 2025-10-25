@@ -1416,6 +1416,53 @@ class CombatSimulator {
                 this.endTurn();
                 return;
             }
+            // Confused gate: override turn behavior based on a d10 roll
+            const confusedObj = this.getConditionObject ? this.getConditionObject(currentCombatant, 'Confused') : null;
+            if (confusedObj) {
+                const roll = this.rollDice(10);
+                this.logMessage(`🤪 ${currentCombatant.name} is Confused (d10=${roll}).`);
+                // 1: uses all movement in random direction, no action
+                if (roll === 1) {
+                    if (currentCombatant.turnMovementRemaining > 0) {
+                        const feet = currentCombatant.turnMovementRemaining;
+                        currentCombatant.turnMovementRemaining = 0;
+                        this.logMessage(` -> Stumbles ${feet} ft in a random direction and takes no action.`);
+                    } else {
+                        this.logMessage(' -> Takes no action.');
+                    }
+                    currentCombatant.attacksRemaining = 0;
+                    this.endTurn();
+                    return;
+                }
+                // 2-6: does not move or act
+                if (roll >= 2 && roll <= 6) {
+                    this.logMessage(' -> Does nothing this turn.');
+                    currentCombatant.turnMovementRemaining = 0;
+                    currentCombatant.attacksRemaining = 0;
+                    this.endTurn();
+                    return;
+                }
+                // 7-8: melee attack a random creature within reach (we approximate by random living creature other than self)
+                if (roll === 7 || roll === 8) {
+                    const potentialTargets = this.initiativeOrder.filter(c => c && !c.isDead && c.id !== currentCombatant.id);
+                    if (potentialTargets.length > 0) {
+                        const target = potentialTargets[Math.floor(Math.random() * potentialTargets.length)];
+                        const selectedAttack = this.selectAttackForSimulation ? this.selectAttackForSimulation(currentCombatant, target) : null;
+                        if (selectedAttack) {
+                            this.logMessage(` -> Randomly lashes out at ${target.name}.`);
+                            this.performAttack(currentCombatant, target, selectedAttack);
+                        } else {
+                            this.logMessage(' -> No valid melee attack found; does nothing.');
+                        }
+                    } else {
+                        this.logMessage(' -> No targets available; does nothing.');
+                    }
+                    currentCombatant.attacksRemaining = 0;
+                    this.endTurn();
+                    return;
+                }
+                // 9-10: act normally (continue into standard flow)
+            }
             // Initialize per-turn movement points
             currentCombatant.turnMovementRemaining = Math.max(0, parseInt(currentCombatant.speed || 0, 10) || 0);
             // Clear any prior per-turn invisible detections
@@ -2022,109 +2069,7 @@ class CombatSimulator {
             this.logMessage(`${attacker.name} becomes visible after attacking.`);
             this.updateDisplay();
         }
-        // On-hit condition effects
-        if (attack.condition_effect) {
-            const effect = attack.condition_effect;
-            const ability = effect.save_ability || 'CON';
-            const dc = parseInt(effect.save_dc || 0, 10) || 0;
-            if (dc > 0) {
-                const result = this.performSavingThrow ? this.performSavingThrow(target, ability, dc) : { success: false };
-                if (result.success) {
-                    this.logMessage(` ${target.name} (${target.team}) successfully saved against ${attackName} (${ability} DC ${dc}).`);
-                } else {
-                    this.logMessage(` ${target.name} (${target.team}) fails the ${ability} save against ${attackName}.`);
-                    const durRounds = this.parseDurationToRounds(effect.duration);
-                    const condEntry = { name: effect.condition_name || effect.condition || 'Condition', level_gained: effect.level_gained };
-                    if (durRounds !== null) condEntry.duration = durRounds;
-                    this.applyCondition && this.applyCondition(target, condEntry, null, attacker?.id);
-                    const name = String(effect.condition_name || '').toLowerCase();
-                    if (name === 'blinded') {
-                        const cond = { name: 'Blinded' };
-                        if (typeof effect.duration === 'string' && /1\s*round/i.test(effect.duration)) { cond.rounds_remaining = 1; }
-                        this.applyCondition && this.applyCondition(target, cond, null, attacker.id);
-                        this.logMessage(` ${target.name} is BLINDED! Will attempt a CON ${dc} save at end of each turn.`);
-                    } else if (name === 'deafened') {
-                        const cond = { name: 'Deafened' };
-                        if (typeof effect.duration === 'string' && /1\s*round/i.test(effect.duration)) { cond.rounds_remaining = 1; }
-                        this.applyCondition && this.applyCondition(target, cond, null, attacker.id);
-                        this.logMessage(` ${target.name} is DEAFENED.`);
-                    } else if (name === 'petrified') {
-                        const cond = { name: 'Petrified', duration: 'Until cured' };
-                        this.applyCondition && this.applyCondition(target, cond, null, attacker.id);
-                        this.logMessage(` ${target.name} is PETRIFIED! Until cured.`);
-                    } else if (name === 'grappled') {
-                        const cond = { name: 'Grappled', duration: effect.duration || 'Until released', grappler_name: effect.grappler_id || attacker.name };
-                        if (effect.escape_dc) cond.escape_dc = parseInt(effect.escape_dc, 10) || 14;
-                        this.applyCondition && this.applyCondition(target, cond, null, attacker.id);
-                        this.logMessage(` ${target.name} is GRAPPLED by ${cond.grappler_name}${cond.escape_dc ? ` (escape DC ${cond.escape_dc})` : ''}.`);
-                    } else if (name === 'frightened') {
-                        const cond = { name: 'Frightened', duration: effect.duration || '1 minute', source_name: effect.fear_source || attacker.name };
-                        // Add duration tracking for 1 minute => 10 rounds
-                        if (typeof cond.duration === 'string' && /1\s*minute/i.test(cond.duration)) { cond.rounds_remaining = 10; }
-                        // End-of-turn save to shake it off, if DC provided
-                        if (dc > 0) { cond.save_check_at_turn_end = true; cond.end_save_dc = dc; cond.end_save_ability = ability; }
-                        this.applyCondition && this.applyCondition(target, cond, null, attacker.id);
-                        this.logMessage(` ${target.name} becomes FRIGHTENED of ${cond.source_name}${cond.duration ? ` for ${cond.duration}` : ''}.`);
-                    } else if (name === 'restrained') {
-                        const cond = { name: 'Restrained', duration: effect.duration || null, maintainer: effect.maintainer || attacker.name };
-                        if (effect.release_condition) cond.release_condition = effect.release_condition;
-                        this.applyCondition && this.applyCondition(target, cond, null, attacker.id);
-                        this.logMessage(` ${target.name} is RESTRAINED${cond.maintainer ? ` by ${cond.maintainer}` : ''}.`);
-                    } else if (name === 'charmed') {
-                        const cond = { name: 'Charmed', duration: effect.duration || '1 hour', charmer_name: effect.charmer_id || attacker.name };
-                        if (dc > 0) {
-                            cond.save_check_at_turn_end = true;
-                            cond.end_save_dc = dc;
-                            cond.end_save_ability = ability;
-                        }
-                        this.applyCondition && this.applyCondition(target, cond, null, attacker.id);
-                        this.logMessage(` ${target.name} is CHARMED by ${cond.charmer_name}${cond.duration ? ` for ${cond.duration}` : ''}.`);
-                    } else {
-                        this.applyCondition && this.applyCondition(target, effect.condition_name || 'Conditioned', effect.duration || null, attacker.id);
-                        this.logMessage(` ${target.name} failed their save and is now ${effect.condition_name ? effect.condition_name.toUpperCase() : 'AFFECTED'}!`);
-                    }
-                }
-            } else if (effect.condition_name) {
-                // No save specified, apply directly
-                const name = String(effect.condition_name || '').toLowerCase();
-                if (name === 'petrified') {
-                    this.applyCondition && this.applyCondition(target, { name: 'Petrified', duration: 'Until cured' }, null, attacker.id);
-                    this.logMessage(` ${target.name} is PETRIFIED! Until cured.`);
-                } else if (name === 'restrained') {
-                    const cond = { name: 'Restrained', duration: effect.duration || null, maintainer: effect.maintainer || attacker.name };
-                    if (effect.release_condition) cond.release_condition = effect.release_condition;
-                    this.applyCondition && this.applyCondition(target, cond, null, attacker.id);
-                    this.logMessage(` ${target.name} is RESTRAINED${cond.maintainer ? ` by ${cond.maintainer}` : ''}.`);
-                } else if (name === 'grappled') {
-                    const cond = { name: 'Grappled', duration: effect.duration || 'Until released', grappler_name: effect.grappler_id || attacker.name };
-                    if (effect.escape_dc) cond.escape_dc = parseInt(effect.escape_dc, 10) || 14;
-                    this.applyCondition && this.applyCondition(target, cond, null, attacker.id);
-                    this.logMessage(` ${target.name} is GRAPPLED by ${cond.grappler_name}${cond.escape_dc ? ` (escape DC ${cond.escape_dc})` : ''}.`);
-                } else if (name === 'frightened') {
-                    const cond = { name: 'Frightened', duration: effect.duration || '1 minute', source_name: effect.fear_source || attacker.name };
-                    if (typeof cond.duration === 'string' && /1\s*minute/i.test(cond.duration)) { cond.rounds_remaining = 10; }
-                    const dc2 = parseInt(effect.save_dc || 0, 10) || 0;
-                    const abil2 = effect.save_ability || 'WIS';
-                    if (dc2 > 0) { cond.save_check_at_turn_end = true; cond.end_save_dc = dc2; cond.end_save_ability = abil2; }
-                    this.applyCondition && this.applyCondition(target, cond, null, attacker.id);
-                    this.logMessage(` ${target.name} becomes FRIGHTENED of ${cond.source_name}${cond.duration ? ` for ${cond.duration}` : ''}.`);
-                } else if (name === 'charmed') {
-                    const cond = { name: 'Charmed', duration: effect.duration || '1 hour', charmer_name: effect.charmer_id || attacker.name };
-                    const dc2 = parseInt(effect.save_dc || 0, 10) || 0;
-                    const abil2 = effect.save_ability || 'WIS';
-                    if (dc2 > 0) {
-                        cond.save_check_at_turn_end = true;
-                        cond.end_save_dc = dc2;
-                        cond.end_save_ability = abil2;
-                    }
-                    this.applyCondition && this.applyCondition(target, cond, null, attacker.id);
-                    this.logMessage(` ${target.name} is CHARMED by ${cond.charmer_name}${cond.duration ? ` for ${cond.duration}` : ''}.`);
-                } else {
-                    this.applyCondition && this.applyCondition(target, effect.condition_name, effect.duration || null, attacker.id);
-                    this.logMessage(` ${target.name} is now ${effect.condition_name.toUpperCase()}${effect.duration ? ` for ${effect.duration}` : ''}.`);
-                }
-            }
-        }
+        // (On-hit condition effects handled earlier in this function)
 
         // end performAttack
     }

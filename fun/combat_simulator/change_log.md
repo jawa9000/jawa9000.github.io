@@ -2,8 +2,8 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
 
 ## Change Log
 
-* 10/25/25: 0.30.5
-    * Implemented petrified, charmed, restrained, frightened, grappled, incapacitated, invisibility, and exhaustion conditions.
+* 10/25/25: 0.31.11
+    * Implemented petrified, charmed, restrained, frightened, grappled, incapacitated, invisibility, confused, and exhaustion conditions.
     * Updated the monster list display to include which conditions it has.
     * Added logic that a restrained monster should decide to break free from the restraint.
     * Updated decision logic so that a monster can only make one decision per round.
@@ -12,6 +12,11 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
     * Implemented the surprise round system.
     * Implemented the time tracking system.
     * Updated the UI to disable buttons that should not be available during combat.
+    * Moved inline styling of buttons to a class and added them to the CSS file.
+    * Removed the buttons that were not used.
+    * Changed the color of the Team A and Team B buttons and backgrounds.
+    * Set up CSS variables to ensure consistency throughout the application.
+    * Made some minor color changes to the UI.
 * 10/24/25: 0.18.0
     * Implemented the stunned, poisoned, slowed, paralyzed, blinded, deafened, and prone conditions.
 * 10/23/25: 0.11.2
@@ -58,8 +63,8 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
 In monsters.js, update the speed, skills, saving throws, senses properties to use an object instead of a string and then update script.js and Encounter_Builder/main.js to handle this change. Also, update the prompt that is used to generate monster JSON data to reflect this change.
 
 Add the following mechanics and/or features:
+* confused state doesn't invoke random movement as movement isn't currently implemented.
 * immunity to normal and non-silver damage
-* Add time tracker: each round is 6 seconds and effects and conditions and other time-based effects that have a time limit needs to be observed.
 * Add functionality where a monster can use their skills as actions. They should decide if they want to use it and if it is appropriate to use it.
 * Morale system for NPCs/monsters
 * keep track of used reactions (e.g., opportunity attacks)
