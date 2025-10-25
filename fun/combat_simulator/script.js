@@ -617,10 +617,22 @@ class CombatSimulator {
         return match ? match[1] : '1d6';
     }
 
-    parseSpeed(speedString) {
-        // Extract first speed value from strings like "10 ft. swim 40ft." or "30ft."
-        if (!speedString || typeof speedString !== 'string') return 30;
-        const match = speedString.match(/(\d+)\s*ft/);
+    parseSpeed(speedVal) {
+        if (typeof speedVal === 'number') return speedVal;
+        if (speedVal && typeof speedVal === 'object') {
+            const s = speedVal.surface && speedVal.surface.movement;
+            if (Number.isFinite(s)) return s;
+            let max = 0;
+            try {
+                for (const v of Object.values(speedVal)) {
+                    const m = v && v.movement;
+                    if (Number.isFinite(m)) max = Math.max(max, m);
+                }
+            } catch {}
+            return max || 30;
+        }
+        if (!speedVal || typeof speedVal !== 'string') return 30;
+        const match = speedVal.match(/(\d+)\s*ft/);
         return match ? parseInt(match[1]) : 30;
     }
 
