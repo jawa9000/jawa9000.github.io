@@ -125,17 +125,110 @@ const monsters = [
                 }
             ]
         },
-        "Sonic Burst": {
-            "to hit": "Auto-Hit (Area Effect)", // Assumes it affects all combatants in a certain radius
-            "hit": "5 (1d6 + 2) thunder damage", 
-            "area_effect": "10-foot radius",
+        "Shifting Cloak": {
+            "type": "Self-Buff",
+            "action_type": "Action",
             "condition_effect": {
-                "save_ability": "CON",   // Constitution save to resist the painful pressure change
-                "save_dc": 14,           // Moderate DC
-                "condition_name": "Deafened",
-                "duration": "1 round"    // Short duration for a combat effect
+                "save_ability": "None",   // No save required as it is a voluntary self-buff
+                "condition_name": "Invisible",
+                "duration": "1 minute",  // Lasts 1 minute (10 rounds) or until concentration is broken
+                "effect_ends_on": "Attack or Spell" // Crucially, the condition ends when the creature attacks
             }
         },
+        // "Stuttering Thought": {
+        //     "to hit": "Auto-Hit (Mental)", 
+        //     "hit": "0 (No damage)", 
+        //     "range": "30 ft.",
+        //     "condition_effect": {
+        //         "save_ability": "INT",   // Targets the mind/willpower
+        //         "save_dc": 14,           // Moderate DC
+        //         "condition_name": "Incapacitated",
+        //         "duration": "1 round"    // Condition lasts until the end of the target's next turn
+        //     }
+        // },
+        // "Energy Drain": {
+        //     "to hit": "+5", // Standard melee attack
+        //     "hit": "10 (2d6 + 3) necrotic damage", 
+        //     "condition_effect": {
+        //         "save_ability": "CON",   // Constitution save to resist life force being drained
+        //         "save_dc": 15,           // Moderate DC
+        //         "condition_name": "Exhaustion",
+        //         "level_gained": 1,       // Specifies the number of levels gained on a failed save
+        //         "duration": "Persistent" // Exhaustion requires a long rest or magic to remove
+        //     }
+        // },
+        // "Snaring Claw": {
+        //     "to hit": "+5", // Standard attack roll
+        //     "hit": "5 (1d6 + 2) piercing damage", // Damage on a successful attack
+        //     "condition_effect": {
+        //         // Unlike other conditions, Grappled is inflicted on a successful attack roll,
+        //         // but targets can often break free with a contest instead of a DC save.
+        //         "condition_name": "Grappled",
+        //         "grappler_id": "Omni Monster", // Crucial: Tracks the source of the grapple
+        //         "escape_dc": 14, // The DC the target must beat to escape (often 8 + STR/DEX mod)
+        //         "duration": "Until released" 
+        //     }
+        // },
+        // "Dreadful Presence": {
+        //     "to hit": "Auto-Hit (Aura/Gaze)", 
+        //     "hit": "0 (No damage)", 
+        //     "range": "60 ft. radius", // Affects all enemies within 60 ft.
+        //     "condition_effect": {
+        //         "save_ability": "WIS",   // Wisdom save to resist the mental terror
+        //         "save_dc": 17,           // High DC for a strong fear effect
+        //         "condition_name": "Frightened",
+        //         "duration": "1 minute",  // Typically lasts until the source is removed or the save is passed
+        //         "fear_source": "Omni Monster" // Crucial: Tracks the source of the fear
+        //     }
+        // },
+        // "Constrict": {
+        //     "to hit": "+5", // Standard attack roll
+        //     "hit": "9 (2d6 + 2) bludgeoning damage", 
+        //     "condition_effect": {
+        //         "save_ability": "STR",   // Strength save to resist being grabbed/wrapped
+        //         "save_dc": 16,           // High DC for a strong restraint
+        //         "condition_name": "Restrained",
+        //         "duration": "Concentration", // Assumes the Omni Monster must maintain it (like a spell)
+        //         "release_condition": "STR/DEX DC 16 Check" // Requires an Action to attempt to break free
+        //     }
+        // },
+        // "Alluring Voice": {
+        //     "to hit": "Auto-Hit (Mental)", // No attack roll needed for a mental effect
+        //     "hit": "0 (No damage)", 
+        //     "range": "60 ft.",
+        //     "condition_effect": {
+        //         "save_ability": "WIS",   // Wisdom save to resist the mental influence
+        //         "save_dc": 15,           // Moderate DC
+        //         "condition_name": "Charmed",
+        //         "duration": "1 hour",    // Long duration, typical for Charm effects
+        //         // Crucially, we must identify the source of the condition
+        //         "charmer_id": "Omni Monster" 
+        //     }
+        // },
+        // "Gorgon's Gaze": {
+        //     "to hit": "Auto-Hit (Gaze)", // Gaze attacks usually don't require an attack roll
+        //     "hit": "0 (No damage)", 
+        //     "range": "30 ft.",
+        //     "condition_effect": {
+        //         "save_ability": "CON",   // Constitution save to resist the transmuting magic
+        //         "save_dc": 19,           // Extremely high DC for a deadly condition
+        //         "condition_name": "Petrified",
+        //         "duration": "Until cured", // Condition typically lasts until cured by magic
+        //         // This condition often requires a success/failure tracking
+        //         "effect_on_save": "Failed save is instantly Petrified" 
+        //     }
+        // },
+        // "Sonic Burst": {
+        //     "to hit": "Auto-Hit (Area Effect)", // Assumes it affects all combatants in a certain radius
+        //     "hit": "5 (1d6 + 2) thunder damage", 
+        //     "area_effect": "10-foot radius",
+        //     "condition_effect": {
+        //         "save_ability": "CON",   // Constitution save to resist the painful pressure change
+        //         "save_dc": 14,           // Moderate DC
+        //         "condition_name": "Deafened",
+        //         "duration": "1 round"    // Short duration for a combat effect
+        //     }
+        // },
         // "Corrosive Spittle": {
         //     "to hit": "+5", // Ranged attack roll bonus
         //     "hit": "3 (1d4 + 1) acid damage", 

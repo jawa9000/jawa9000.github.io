@@ -2,6 +2,13 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
 
 ## Change Log
 
+* 10/25/25: 0.25.4
+    * Implemented petrified, charmed, restrained, frightened, grappled, incapacitated, invisibility, and exhaustion conditions.
+    * Updated the monster list display to include which conditions it has.
+    * Added logic that a restrained monster should decide to break free from the restraint.
+    * Updated decision logic so that a monster can only make one decision per round.
+    * Added a temporary keybinding (Ctrl+Shift+M) to add 3 monsters to each team, roll initiative, and start combat.
+    * Updated the combat logic to allow for a draw.
 * 10/24/25: 0.18.0
     * Implemented the stunned, poisoned, slowed, paralyzed, blinded, deafened, and prone conditions.
 * 10/23/25: 0.11.2
@@ -39,32 +46,18 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
 
 ## Active Projects
 
-Conditions (e.g., stunned, poisoned) that affect combatants
-* charmed
-* frightened
-* 
-* petrified
-* restrained
-* incapacitated
-* Exhaustion
-* Unconscious
-* Invisible
-* Hidden
-* Hindered
-* Grappled
-* Surprised
-
-Does the system keep track of time? As in each round is 6 seconds and effects and conditions that have a time limit needs to be observed.
-
-Separate the functionality of script.js into different JavaScript files that is logical and is easier to maintain.
+* Does the system keep track of time? As in each round is 6 seconds and effects and conditions that have a time limit needs to be observed.
+* Intimidation
+* Separate the functionality of script.js into different JavaScript files that is logical and is easier to maintain.
 
 ## Do-to List
-
-
 
 In monsters.js, update the speed, skills, saving throws, senses properties to use an object instead of a string and then update script.js and Encounter_Builder/main.js to handle this change. Also, update the prompt that is used to generate monster JSON data to reflect this change.
 
 Add the following mechanics and/or features:
+* immunity to normal and non-silver damage
+* Add time tracker: each round is 6 seconds and effects and conditions and other time-based effects that have a time limit needs to be observed.
+* Add functionality where a monster can use their skills as actions. They should decide if they want to use it and if it is appropriate to use it.
 * Morale system for NPCs/monsters
 * keep track of used reactions (e.g., opportunity attacks)
     * retaliatory strikes
@@ -123,3 +116,8 @@ Add the following mechanics and/or features:
 * Hiding versus perception
 * Save/load combat sessions
 * Export combat logs (beyond copy to clipboard functionality)
+
+* Conditions (e.g., stunned, poisoned) that affect combatants
+  * Unconscious - skipping this one for now.
+  * Hidden - this may be difficult to implement as the encounter doesn't take into account terrain or other out of combat setup factors.
+  * Surprised - this may be difficult to implement as the encounter doesn't take into account terrain or other out of combat setup factors.

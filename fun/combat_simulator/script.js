@@ -1,3 +1,9 @@
+        // Attacker: Exhaustion level 3+ -> Disadvantage on attack rolls
+        const attackerExLvl = this.getExhaustionLevel ? this.getExhaustionLevel(attacker) : 0;
+        if (attackerExLvl >= 3) {
+            attackerDis = true;
+            this.logMessage(`🎯 Disadvantage: ${attacker.name} is Exhausted (level ${attackerExLvl}).`);
+        }
 class CombatSimulator {
     constructor() {
         this.combatants = [];
@@ -7,9 +13,143 @@ class CombatSimulator {
         this.initiativeOrder = [];
         this.currentTeamFilter = 'All Teams';
         this.selectedMonsterTeam = 'Team A'; // Track selected monster team
+        // Surprise Round: which team is surprised this combat (null | 'Team A' | 'Team B')
+        this.surprisedTeam = null;
         
         this.initializeEventListeners();
         this.updateDisplay();
+    }
+
+    // Remove Grappled conditions maintained by any incapacitated grappler
+    removeGrappledMaintainedByIncapacitated() {
+        for (const grappler of this.initiativeOrder) {
+            if (!grappler || !this.isCombatantIncapacitated(grappler)) continue;
+            this.removeGrappledMaintainedBy(grappler);
+        }
+    }
+
+    // Remove Grappled from all creatures grappled by the given grappler
+    removeGrappledMaintainedBy(grappler) {
+        if (!grappler) return;
+        for (const creature of this.initiativeOrder) {
+            if (!Array.isArray(creature?.conditions)) continue;
+            const before = creature.conditions.length;
+            creature.conditions = creature.conditions.filter(cond => {
+                if (typeof cond === 'object' && /grappled/i.test(cond.name || '') && String(cond.grappler_name || cond.grappler || '').toLowerCase() === String(grappler.name || '').toLowerCase()) {
+                    this.logMessage(`${creature.name} is no longer Grappled (grappler ${grappler.name} is incapacitated or gone).`);
+                    return false;
+                }
+                return true;
+            });
+            if (creature.conditions.length !== before) this.updateDisplay();
+        }
+    }
+
+    // Frightened helpers
+    findCombatantByName(name) {
+        if (!name) return null;
+        const lower = String(name).toLowerCase();
+        return (this.initiativeOrder || []).find(c => String(c.name || '').toLowerCase() === lower) || null;
+    }
+    isSourceVisibleTo(combatant, source) {
+        if (!combatant || !source) return false;
+        // If the observer is Blinded and lacks Blindsight, they can't see the source
+        if (this.hasAnyCondition(combatant, ['Blinded']) && !(this.hasBlindsight && this.hasBlindsight(combatant))) return false;
+        // If the source is Invisible and observer lacks Blindsight, assume not visible
+        if (this.hasAnyCondition(source, ['Invisible']) && !(this.hasBlindsight && this.hasBlindsight(combatant))) return false;
+        return true; // Without a grid/positions, assume LoS otherwise
+    }
+    isFrightenedActive(combatant) {
+        const cond = this.getConditionObject(combatant, 'Frightened');
+        if (!cond) return false;
+        const srcName = cond.source_name || cond.fear_source || cond.source || null;
+        const src = this.findCombatantByName(srcName);
+        if (!src) return false;
+        return this.isSourceVisibleTo(combatant, src);
+    }
+
+    // Remove Restrained from all creatures that are maintained by the given maintainer (by name/id)
+    removeRestrainedMaintainedBy(maintainer) {
+        if (!maintainer) return;
+        for (const creature of this.initiativeOrder) {
+            if (!Array.isArray(creature?.conditions)) continue;
+            const before = creature.conditions.length;
+            creature.conditions = creature.conditions.filter(cond => {
+                if (typeof cond === 'object' && /restrained/i.test(cond.name || '') && String(cond.maintainer || '').toLowerCase() === String(maintainer.name || '').toLowerCase()) {
+                    this.logMessage(`${creature.name} is no longer Restrained (maintainer ${maintainer.name} is gone).`);
+                    return false;
+                }
+                return true;
+            });
+            if (creature.conditions.length !== before) this.updateDisplay();
+        }
+    }
+
+    // Charmed helpers
+    getConditionObject(target, name) {
+        if (!target || !Array.isArray(target.conditions)) return null;
+        const lower = String(name).toLowerCase();
+        for (const c of target.conditions) {
+            if (typeof c === 'string') {
+                if (c.toLowerCase() === lower) return { name: c };
+            } else if (c && typeof c === 'object' && String(c.name || '').toLowerCase() === lower) {
+                return c;
+            }
+        }
+        return null;
+    }
+
+    removeConditionByName(target, name) {
+        if (!target) return;
+        if (!Array.isArray(target.conditions)) target.conditions = [];
+        target.conditions = target.conditions.filter(c => {
+            if (typeof c === 'string') return String(c).toLowerCase() !== String(name).toLowerCase();
+            return !(c && typeof c === 'object' && String(c.name || '').toLowerCase() === String(name).toLowerCase());
+        });
+    }
+
+    isCharmedAgainst(attacker, target) {
+        if (!attacker || !target) return false;
+        const cond = this.getConditionObject(attacker, 'Charmed');
+        if (!cond) return false;
+        const charmerName = cond.charmer_name || cond.charmer || cond.source || null;
+        return !!charmerName && String(charmerName).toLowerCase() === String(target.name || '').toLowerCase();
+    }
+
+    tryBreakCharmedOnDamage(target, attacker) {
+        if (!target || !attacker) return;
+        const charm = this.getConditionObject(target, 'Charmed');
+        if (!charm) return;
+        // Break charm on any damage from anyone
+        this.removeConditionByName(target, 'Charmed');
+        this.logMessage(`${target.name} is no longer Charmed because they took damage.`);
+        this.updateDisplay();
+    }
+
+    // Remove Frightened if the target takes any damage
+    tryBreakFrightenedOnDamage(target) {
+        if (!target) return;
+        const fear = this.getConditionObject(target, 'Frightened');
+        if (!fear) return;
+        this.removeConditionByName(target, 'Frightened');
+        this.logMessage(`${target.name} is no longer Frightened because they took damage.`);
+        this.updateDisplay();
+    }
+
+    // Petrified helper
+    isPetrified(combatant) {
+        return this.hasAnyCondition(combatant, ['Petrified']);
+    }
+
+    // Adjust damage for Petrified: immune to poison, resistance to all damage (halve)
+    adjustDamageForPetrified(target, amount, damageType) {
+        let dmg = amount;
+        if (this.isPetrified(target)) {
+            const dt = String(damageType || '').toLowerCase();
+            if (dt === 'poison') return 0;
+            dmg = Math.floor(dmg / 2);
+        }
+        return dmg;
     }
 
     // Recharge any rechargeable abilities for a combatant (start of its turn)
@@ -79,6 +219,67 @@ class CombatSimulator {
         
         // Copy Team Info button
         $('#copyTeamInfo').click(() => this.copyTeamInfoToClipboard());
+
+        // Attempt to Escape button, if present in DOM (handles Restrained or Grappled)
+        $('#attemptEscapeBtn').click(() => this.attemptEscape());
+
+        // Surprise team selector (if present in DOM)
+        $(document).on('change', '#surprisedTeamSelect', (e) => {
+            this.surprisedTeam = ($(e.target).val() || '').trim() || null;
+            this.updateDisplay();
+        });
+
+        $(document).on('keydown', (e) => {
+            const key = (e.key || '').toUpperCase();
+            if (e.ctrlKey && e.shiftKey && key === 'M') {
+                e.preventDefault();
+                try {
+                    const pick = (arr) => (Array.isArray(arr) && arr.length > 0) ? arr[0] : null;
+                    const srcA = (typeof monsters !== 'undefined') ? pick(monsters) : pick(FALLBACK_MONSTERS);
+                    const srcB = (typeof monsters !== 'undefined') ? pick(monsters) : pick(FALLBACK_MONSTERS);
+                    if (!srcA || !srcB) return;
+                    for (let i = 0; i < 3; i++) {
+                        const a = this.convertMonsterToCombatant(srcA);
+                        a.team = 'Team A';
+                        if (i > 0) a.name = `${a.name} #${this.combatants.length + 1}`;
+                        this.combatants.push(a);
+                        const b = this.convertMonsterToCombatant(srcB);
+                        b.team = 'Team B';
+                        if (i > 0) b.name = `${b.name} #${this.combatants.length + 1}`;
+                        this.combatants.push(b);
+                    }
+                    this.updateCharacterList();
+                    this.rollInitiative && this.rollInitiative();
+                    this.simulateBattle && this.simulateBattle();
+                } catch {}
+            }
+        });
+    }
+
+    // Resolve a human-friendly attack name for logs/memory
+    getAttackName(attacker, attack) {
+        if (!attack) return 'attack';
+        if (attack.name && typeof attack.name === 'string') return attack.name;
+        // Try to find the key in attack dictionaries by reference or deep equality
+        const tryFindKey = (obj) => {
+            try {
+                if (obj && typeof obj === 'object') {
+                    for (const [k, v] of Object.entries(obj)) {
+                        if (v === attack) return k;
+                        // fallback shallow compare on core fields
+                        if (v && typeof v === 'object' && attack && typeof attack === 'object') {
+                            if (v['to hit'] === attack['to hit'] && v.hit === attack.hit) return k;
+                        }
+                    }
+                }
+            } catch {}
+            return null;
+        };
+        let key = tryFindKey(attacker?.attacks);
+        if (key) return key;
+        key = tryFindKey(attacker?.rechargeable_attack);
+        if (key) return key;
+        return 'attack';
     }
 
     // Character Management
@@ -266,6 +467,7 @@ class CombatSimulator {
             ac: ac,
             hp: hp,
             maxHp: hp,
+            baseMaxHp: hp,
             initiativeBonus: dexMod,
             attackBonus: attackBonus,
             damage: damage,
@@ -314,6 +516,7 @@ class CombatSimulator {
             ac: 10,
             hp: 10,
             maxHp: 10,
+            baseMaxHp: 10,
             initiativeBonus: 0,
             attackBonus: 0,
             damage: '1d6',
@@ -469,6 +672,10 @@ class CombatSimulator {
         }
         // Determine disadvantage from conditions
         const saveMode = this.getConditionModifiers(target, `save:${abilityKey}`);
+        const exLvlSave = this.getExhaustionLevel ? this.getExhaustionLevel(target) : 0;
+        if (exLvlSave >= 3) {
+            this.logMessage(`🎯 Disadvantage on ${ability.toUpperCase()} save: ${target.name} is Exhausted (level ${exLvlSave}).`);
+        }
         const d20 = this.rollD20WithMode(saveMode);
         let total = d20 + mod;
         // Slowed: -2 penalty to Dexterity saves
@@ -497,6 +704,10 @@ class CombatSimulator {
             this.logMessage(`🔎 ${combatant.name}'s Tremorsense negates the effects of being Deafened for this check.`);
         }
         const mode = this.getConditionModifiers(combatant, 'ability');
+        const exLvlAbility = this.getExhaustionLevel ? this.getExhaustionLevel(combatant) : 0;
+        if (exLvlAbility >= 1) {
+            this.logMessage(`🎯 Disadvantage on ${ability.toUpperCase()} check: ${combatant.name} is Exhausted (level ${exLvlAbility}).`);
+        }
         const d20 = this.rollD20WithMode(mode);
         const total = d20 + mod;
         return { success: total >= dc, roll: d20, total, dc, ability };
@@ -531,6 +742,67 @@ class CombatSimulator {
         return false;
     }
 
+    // Detects if a combatant has a strong scent sense (heuristic: 'scent' or 'smell' or Keen Smell in traits/senses)
+    hasScentSense(combatant) {
+        const senses = (combatant?.originalData?.senses ?? combatant?.senses ?? null);
+        const traits = (combatant?.originalData?.traits ?? null);
+        const hasFromSenses = typeof senses === 'string' ? /scent|smell/i.test(senses) : (typeof senses === 'object' ? Object.keys(senses).some(k => /scent|smell/i.test(String(k))) : false);
+        const hasFromTraits = typeof traits === 'string' ? /keen\s+smell/i.test(traits) : false;
+        return !!(hasFromSenses || hasFromTraits);
+    }
+
+    // Heuristic: can take an action to detect invisible foes using scent or high perception (WIS mod >= +3)
+    canDetectInvisible(combatant) {
+        if (!combatant) return false;
+        const wisScore = parseInt(combatant.originalData?.wis ?? 10, 10);
+        const wisMod = getAbilityModifier ? getAbilityModifier(wisScore) : Math.floor((wisScore - 10) / 2);
+        return this.hasScentSense(combatant) || wisMod >= 3;
+    }
+
+    // Action: spend action to detect invisible enemies for this turn
+    detectInvisibleAction() {
+        const c = this.getCurrentCombatant();
+        if (!c) return false;
+        if (this.hasAnyCondition(c, ['Slowed']) && c.slowedActionConsumed) {
+            this.logMessage(`${c.name} is Slowed and cannot take another action this turn.`);
+            return false;
+        }
+        const invisibles = this.initiativeOrder.filter(x => x && !x.isDead && x.team !== c.team && this.getConditionObject && this.getConditionObject(x, 'Invisible'));
+        if (invisibles.length === 0) {
+            this.logMessage(`${c.name} attempts to detect, but finds no invisible foes.`);
+            return false;
+        }
+        if (!Array.isArray(c.detectedInvisibleIds)) c.detectedInvisibleIds = [];
+        c.detectedInvisibleIds = invisibles.map(x => x.id);
+        if (this.hasAnyCondition(c, ['Slowed'])) c.slowedActionConsumed = true;
+        c.attacksRemaining = Math.max(0, (c.attacksRemaining || 1) - 1);
+        this.logMessage(`${c.name} uses keen senses to detect invisible enemies this turn.`);
+        return true;
+    }
+
+    // Decide if a restrained or grappled creature should attempt to escape now, based on higher of INT/WIS (uses a d20-style decision check)
+    shouldAttemptEscapeNow(combatant) {
+        if (!combatant) return false;
+        const isRestrained = this.hasAnyCondition(combatant, ['Restrained']);
+        const isGrappled = this.hasAnyCondition(combatant, ['Grappled']);
+        if (!isRestrained && !isGrappled) return false;
+        const intScore = parseInt(combatant.originalData?.int || 10, 10);
+        const wisScore = parseInt(combatant.originalData?.wis || 10, 10);
+        const higher = Math.max(intScore, wisScore);
+        // Base chance scales with mental score
+        let chance = Math.min(0.9, Math.max(0.1, (higher - 8) / 12));
+        // If recently hit while restrained/grappled, increase inclination to escape
+        if (combatant.considerEscapeAfterHit) chance = Math.min(0.95, chance + 0.2);
+        // Convert chance to a d20 target number (higher chance -> lower target)
+        // Example: chance 0.5 -> target ~10; 0.9 -> target ~2; 0.1 -> target ~18
+        const targetTN = Math.max(2, Math.min(19, 20 - Math.round(chance * 18))); // clamp between 2 and 19
+        const d20 = this.rollDice(20);
+        const success = d20 >= targetTN;
+        const label = isRestrained ? 'escape (Restrained)' : 'escape (Grappled)';
+        this.logMessage(`${combatant.name} (${combatant.team}) ${label} decision check: ${d20} vs ${targetTN} (INT ${intScore}/WIS ${wisScore}${combatant.considerEscapeAfterHit ? ', post-hit bonus' : ''}).`);
+        return success;
+    }
+
     // Determine advantage/disadvantage for a given roll type
     // rollType: 'attack', 'ability', or 'save:str' | 'save:dex' | ...
     getConditionModifiers(combatant, rollType) {
@@ -540,19 +812,25 @@ class CombatSimulator {
         if (rollType === 'attack') {
             if (has('Invisible')) adv = true;
             if (has('Blinded') && !this.hasBlindsight(combatant)) dis = true;
-            if (has('Frightened')) dis = true;
+            if (has('Frightened') && this.isFrightenedActive(combatant)) dis = true;
             if (has('Poisoned')) dis = true;
             if (has('Restrained')) dis = true;
             if (has('Prone')) dis = true; // Prone creatures attack with disadvantage
+            // Exhaustion level 3+: Disadvantage on attack rolls
+            const exA = this.getExhaustionLevel(combatant);
+            if (exA >= 3) dis = true;
         } else if (rollType === 'ability') {
-            if (has('Frightened')) dis = true;
+            if (has('Frightened') && this.isFrightenedActive(combatant)) dis = true;
             if (has('Poisoned')) dis = true;
+            // Exhaustion level 1+: Disadvantage on ability checks
+            const exB = this.getExhaustionLevel(combatant);
+            if (exB >= 1) dis = true;
         } else if (rollType.startsWith('save:')) {
             const ab = rollType.split(':')[1];
             if (ab === 'dex' && has('Restrained')) dis = true;
             // Exhaustion level 3+: Disadvantage on saving throws (if tracked with level)
-            const ex = combatant.conditions.find(c => (typeof c !== 'string') && /exhaustion/i.test(c.name || ''));
-            if (ex && Number(ex.level) >= 3) dis = true;
+            const ex = this.getExhaustionLevel(combatant);
+            if (ex >= 3) dis = true;
         }
         if (adv && dis) return 'normal';
         if (adv) return 'adv';
@@ -571,6 +849,25 @@ class CombatSimulator {
     // Incapacitation check for turn skipping
     isCombatantIncapacitated(combatant) {
         return this.hasAnyCondition(combatant, ['Incapacitated','Stunned','Paralyzed','Petrified','Unconscious']);
+    }
+
+    // Remove Restrained conditions maintained by any incapacitated maintainer
+    removeRestrainedMaintainedByIncapacitated() {
+        for (const maintainer of this.initiativeOrder) {
+            if (!maintainer || !this.isCombatantIncapacitated(maintainer)) continue;
+            for (const creature of this.initiativeOrder) {
+                if (!Array.isArray(creature?.conditions)) continue;
+                const before = creature.conditions.length;
+                creature.conditions = creature.conditions.filter(cond => {
+                    if (typeof cond === 'object' && /restrained/i.test(cond.name || '') && String(cond.maintainer || '').toLowerCase() === String(maintainer.name || '').toLowerCase()) {
+                        this.logMessage(`${creature.name} is no longer Restrained because ${maintainer.name} is incapacitated.`);
+                        return false; // remove
+                    }
+                    return true;
+                });
+                if (creature.conditions.length !== before) this.updateDisplay();
+            }
+        }
     }
 
     // Remove a named condition from a combatant
@@ -609,6 +906,33 @@ class CombatSimulator {
         const nameKey = String(entry.name || '').toLowerCase();
         if (nameKey) {
             const existing = target.conditions.find(c => String((typeof c === 'string' ? c : c.name) || '').toLowerCase() === nameKey);
+            // Exhaustion: cumulative level stacking behavior
+            if (nameKey === 'exhaustion') {
+                const gain = parseInt(entry.level_gained || entry.level || 1, 10) || 1;
+                if (existing && typeof existing === 'object') {
+                    const nextLevel = Math.min(6, Math.max(1, parseInt(existing.level || 0, 10) + gain));
+                    existing.level = nextLevel;
+                } else {
+                    const lvl = Math.min(6, Math.max(1, parseInt(entry.level || entry.level_gained || 1, 10) || 1));
+                    target.conditions.push({ name: 'Exhaustion', level: lvl });
+                }
+                // Apply derived effects immediately (HP max halving, death at 6)
+                this.applyExhaustionDerivedStats(target);
+                if (this.getExhaustionLevel(target) >= 6) {
+                    target.hp = 0;
+                    target.isDead = true;
+                    // Release any conditions this creature maintains on others
+                    this.removeRestrainedMaintainedBy && this.removeRestrainedMaintainedBy(target);
+                    this.removeGrappledMaintainedBy && this.removeGrappledMaintainedBy(target);
+                    // Remove own Restrained/Grappled and clear conditions for display cleanliness
+                    this.removeConditionByName && this.removeConditionByName(target, 'Restrained');
+                    this.removeConditionByName && this.removeConditionByName(target, 'Grappled');
+                    target.conditions = [];
+                    this.logMessage(`${target.name} dies from reaching Exhaustion level 6.`);
+                    this.updateDisplay();
+                }
+                return;
+            }
             if (existing && typeof existing === 'object') {
                 // Merge/refresh existing condition instead of duplicating
                 Object.assign(existing, entry);
@@ -616,6 +940,27 @@ class CombatSimulator {
             }
         }
         target.conditions.push(entry);
+    }
+
+    // Exhaustion helpers
+    getExhaustionLevel(combatant) {
+        if (!Array.isArray(combatant?.conditions)) return 0;
+        const ex = combatant.conditions.find(c => (typeof c !== 'string') && /exhaustion/i.test(c.name || ''));
+        return ex ? Math.max(0, parseInt(ex.level || 0, 10) || 0) : 0;
+    }
+
+    applyExhaustionDerivedStats(combatant) {
+        const lvl = this.getExhaustionLevel(combatant);
+        // Ensure baseMaxHp exists
+        if (typeof combatant.baseMaxHp !== 'number') combatant.baseMaxHp = parseInt(combatant.maxHp || combatant.hp || 0, 10) || 0;
+        // Level 4: HP max halved, else restore to base
+        const desiredMax = (lvl >= 4) ? Math.max(1, Math.floor((parseInt(combatant.baseMaxHp || 0, 10) || 0) / 2)) : (parseInt(combatant.baseMaxHp || 0, 10) || combatant.maxHp);
+        if (typeof desiredMax === 'number' && desiredMax > 0) {
+            combatant.maxHp = desiredMax;
+            if (typeof combatant.hp === 'number' && combatant.hp > combatant.maxHp) {
+                combatant.hp = combatant.maxHp;
+            }
+        }
     }
 
     // Called whenever a target takes damage from an attacker; clears Frightened and may disable regeneration
@@ -860,6 +1205,21 @@ class CombatSimulator {
                 return bRoll - aRoll;
             });
 
+    // Apply Surprise selection, if any
+    try {
+        const sel = (typeof $ !== 'undefined' && $('#surprisedTeamSelect').length > 0) ? ($('#surprisedTeamSelect').val() || '') : '';
+        if (sel) this.surprisedTeam = sel;
+    } catch {}
+    if (this.surprisedTeam) {
+        this.logMessage(`⚠️ Surprise! ${this.surprisedTeam} is Surprised this round.`);
+        for (const c of this.initiativeOrder) {
+            if (c && !c.isDead && c.team === this.surprisedTeam) {
+                if (!Array.isArray(c.conditions)) c.conditions = [];
+                c.conditions.push({ name: 'Surprised', rounds_remaining: 1 });
+            }
+        }
+    }
+
     this.combatActive = true;
     this.currentTurnIndex = 0;
     this.combatRound = 1;
@@ -964,25 +1324,72 @@ class CombatSimulator {
             if (currentCombatant.frightful_presence) {
                 this.useFrightfulPresence(currentCombatant.id);
             }
-            // Early incapacitation gate: skip movement/logs for creatures that cannot act (e.g., Paralyzed)
+            // If any maintainer is incapacitated, clear maintained restrains/grapples now (do this early each turn)
+            this.removeRestrainedMaintainedByIncapacitated();
+            this.removeGrappledMaintainedByIncapacitated();
+            // Early incapacitation gate: skip the entire turn if a creature is Incapacitated (or Paralyzed, Stunned, Unconscious, Petrified)
             if (this.isCombatantIncapacitated(currentCombatant)) {
                 currentCombatant.attacksRemaining = 0;
-                this.logMessage(`🛑 ${currentCombatant.name} is unable to act due to a condition!`);
-                // If Paralyzed, immediately end the turn (cannot act, move, or take reactions)
-                if (this.hasAnyCondition(currentCombatant, ['Paralyzed'])) {
-                    this.endTurn();
-                    return;
+                currentCombatant.reactionBlocked = true;
+                const inc = this.getConditionObject ? this.getConditionObject(currentCombatant, 'Incapacitated') : null;
+                if (inc) {
+                    this.logMessage(`🛑 ${currentCombatant.name} is Incapacitated and loses their turn!`);
+                } else if (this.isPetrified(currentCombatant)) {
+                    this.logMessage(`${currentCombatant.name} is Petrified and can take no actions.`);
+                } else {
+                    this.logMessage(`🛑 ${currentCombatant.name} is unable to act due to a condition!`);
                 }
+                this.endTurn();
+                return;
+            }
+            // Surprise gate: if Surprised at start of first turn, remove it and skip actions/reactions this turn
+            const surpriseObj = this.getConditionObject ? this.getConditionObject(currentCombatant, 'Surprised') : null;
+            if (surpriseObj) {
+                this.removeConditionByName && this.removeConditionByName(currentCombatant, 'Surprised');
+                currentCombatant.attacksRemaining = 0;
+                currentCombatant.reactionBlocked = true;
+                this.logMessage(`😴 ${currentCombatant.name} is Surprised and cannot act this turn.`);
+                this.endTurn();
+                return;
             }
             // Initialize per-turn movement points
             currentCombatant.turnMovementRemaining = Math.max(0, parseInt(currentCombatant.speed || 0, 10) || 0);
+            // Clear any prior per-turn invisible detections
+            currentCombatant.detectedInvisibleIds = [];
+            // Exhaustion movement penalties
+            const exLvl = this.getExhaustionLevel(currentCombatant);
+            if (exLvl >= 5) {
+                if (currentCombatant.turnMovementRemaining > 0) {
+                    this.logMessage(`${currentCombatant.name} is Exhausted (level ${exLvl}) and cannot move this turn (speed set to 0).`);
+                }
+                currentCombatant.turnMovementRemaining = 0;
+            } else if (exLvl >= 2) {
+                const beforeEx = currentCombatant.turnMovementRemaining;
+                currentCombatant.turnMovementRemaining = Math.floor(currentCombatant.turnMovementRemaining / 2);
+                this.logMessage(`${currentCombatant.name} is Exhausted (level ${exLvl}): movement halved (${beforeEx} -> ${currentCombatant.turnMovementRemaining}).`);
+            }
+            // (already cleared incapacitated maintainers above)
+            // Restrained: speed becomes 0
+            if (this.hasAnyCondition(currentCombatant, ['Restrained'])) {
+                if (currentCombatant.turnMovementRemaining > 0) {
+                    this.logMessage(`${currentCombatant.name} is Restrained and cannot move this turn (speed set to 0).`);
+                }
+                currentCombatant.turnMovementRemaining = 0;
+            }
+            // Grappled: speed becomes 0 (but less severe than Restrained for rolls)
+            if (!this.hasAnyCondition(currentCombatant, ['Restrained']) && this.hasAnyCondition(currentCombatant, ['Grappled'])) {
+                if (currentCombatant.turnMovementRemaining > 0) {
+                    this.logMessage(`${currentCombatant.name} is Grappled and cannot move this turn (speed set to 0).`);
+                }
+                currentCombatant.turnMovementRemaining = 0;
+            }
             // If Prone: can only crawl (half speed) unless they stand up
-            if (this.hasAnyCondition(currentCombatant, ['Prone']) && !this.hasAnyCondition(currentCombatant, ['Paralyzed'])) {
+            if (!this.hasAnyCondition(currentCombatant, ['Restrained']) && this.hasAnyCondition(currentCombatant, ['Prone']) && !this.hasAnyCondition(currentCombatant, ['Paralyzed'])) {
                 currentCombatant.turnMovementRemaining = Math.floor(currentCombatant.turnMovementRemaining / 2);
                 this.logMessage(`${currentCombatant.name} is Prone and can only crawl (${currentCombatant.turnMovementRemaining} ft this turn) unless they stand up.`);
             }
             // If Slowed: halve speed this turn and block reactions
-            if (this.hasAnyCondition(currentCombatant, ['Slowed'])) {
+            if (!this.hasAnyCondition(currentCombatant, ['Restrained']) && this.hasAnyCondition(currentCombatant, ['Slowed'])) {
                 const before = currentCombatant.turnMovementRemaining;
                 currentCombatant.turnMovementRemaining = Math.floor(currentCombatant.turnMovementRemaining / 2);
                 currentCombatant.reactionBlocked = true;
@@ -1020,6 +1427,7 @@ class CombatSimulator {
             processed.add(name);
             if (typeof cond === 'object' && (cond.save_check_at_turn_end || typeof cond.rounds_remaining === 'number')) {
                 let removed = false;
+                // End-of-turn save, if configured
                 if (cond.save_check_at_turn_end) {
                     const dc = parseInt(cond.end_save_dc || 0, 10) || 0;
                     const ability = cond.end_save_ability || 'CON';
@@ -1032,6 +1440,7 @@ class CombatSimulator {
                         }
                     }
                 }
+                // Duration countdown
                 if (!removed && typeof cond.rounds_remaining === 'number') {
                     cond.rounds_remaining = Math.max(0, cond.rounds_remaining - 1);
                     if (cond.rounds_remaining <= 0) {
@@ -1295,23 +1704,22 @@ class CombatSimulator {
     }
 
     performAttack(attacker, target, attack) {
-        // If attack is not provided, use the first available attack from attacker
+        // Ensure attack exists
         if (!attack) {
             if (attacker.attacks && typeof attacker.attacks === 'object') {
                 attack = Object.values(attacker.attacks)[0];
             } else {
-                // Fallback to a default attack
                 attack = { "to hit": "+0", hit: "1d6" };
             }
         }
 
-        // Guard-rail: prevent same-team attacks unless charmed/controlled
+        // Prevent friendly fire unless charmed/controlled
         if (!attacker?.charmed && !attacker?.controlledByEnemy && attacker.team === target.team) {
             this.logMessage(`${attacker.name} will not attack an ally.`);
             return;
         }
 
-        // If this attack is a rechargeable ability instance, mark it used now
+        // Mark rechargeable usage
         if (attacker && attacker.rechargeable_attack && typeof attacker.rechargeable_attack === 'object') {
             for (const [rName, rAbility] of Object.entries(attacker.rechargeable_attack)) {
                 if (rAbility === attack && rAbility.recharge) {
@@ -1324,7 +1732,17 @@ class CombatSimulator {
             }
         }
 
-		// Special case: allow save-based notation inside 'to hit' like "DC 15 DEX Save"
+        const applyDR = (t, amount, type) => {
+            let dmg = Math.max(0, amount|0);
+            if (dmg <= 0) return 0;
+            try { if (this.hasDamageImmunity && this.hasDamageImmunity(t, type)) return 0; } catch {}
+            try { if (this.hasDamageResistance && this.hasDamageResistance(t, type)) dmg = Math.floor(dmg / 2); } catch {}
+            try { if (this.hasDamageVulnerability && this.hasDamageVulnerability(t, type)) dmg = dmg * 2; } catch {}
+            try { if (this.adjustDamageForPetrified) dmg = this.adjustDamageForPetrified(t, dmg, type); } catch {}
+            return Math.max(0, dmg|0);
+        };
+
+        // Inline save notation in to-hit: e.g., "DC 15 DEX Save"
         if (typeof attack["to hit"] === 'string' && /DC\s*\d+/i.test(attack["to hit"])) {
             const m = attack["to hit"].match(/DC\s*(\d+)\s*([A-Z]{3,}|Dexterity|Constitution|Wisdom|Intelligence|Charisma|Strength)?/i);
             const dc = m ? parseInt(m[1], 10) : null;
@@ -1334,953 +1752,326 @@ class CombatSimulator {
                 abilRaw.startsWith('DEX') ? 'Dexterity' :
                 abilRaw.startsWith('CON') ? 'Constitution' :
                 abilRaw.startsWith('INT') ? 'Intelligence' :
-                abilRaw.startsWith('WIS') ? 'Wisdom' :
-                abilRaw.startsWith('CHA') ? 'Charisma' : 'Dexterity'
+                abilRaw.startsWith('WIS') ? 'Wisdom' : 'Charisma'
             );
             if (dc) {
                 const attackName = this.getAttackName(attacker, attack);
                 const succeeded = this.rollSavingThrow(target, ability, dc);
-                // Try to parse damage dice from hit field's parentheses, fallback to digits in hit
-                let baseDice = '1d6';
+                let dice = '1d6';
                 if (typeof attack.hit === 'string') {
                     const paren = attack.hit.match(/\(([^)]+)\)/);
-                    if (paren) baseDice = paren[1].trim();
-                    else {
-                        const dm = attack.hit.match(/(\d+d\d+(?:\s*[+-]\s*\d+)?)/i);
-                        if (dm) baseDice = dm[1];
-                    }
+                    if (paren) dice = paren[1].trim();
                 }
-                let dmg = this.rollDamage(baseDice);
                 const dmgType = (attack['damage type'] || '').toLowerCase();
-                if (succeeded) {
-                    // Half on success if described
-                    if (/half/i.test(String(attack.hit || ''))) {
-                        dmg = Math.floor(dmg / 2);
-                    } else {
-                        dmg = 0; // Some save-for-none patterns; conservative if not specified
-                    }
-                }
-                // Apply immunity/resistance/vulnerability
-                if (dmg > 0) {
-                    if (this.hasDamageImmunity(target, dmgType)) {
-                        this.logMessage(`${target.name} is immune to ${dmgType || 'this'} damage from ${attacker.name}'s ${attackName}.`);
-                        dmg = 0;
-                    } else {
-                        const before = dmg;
-                        if (this.hasDamageResistance(target, dmgType)) dmg = Math.floor(dmg / 2);
-                        if (this.hasDamageVulnerability(target, dmgType)) dmg = dmg * 2;
-                        if (before !== dmg && this.hasDamageVulnerability(target, dmgType)) {
-                            this.logMessage(`${target.name} is vulnerable to ${dmgType || 'this'} damage (doubled).`);
-                        }
-                    }
-                }
+                let dmg = this.rollDamage(dice);
+                if (succeeded && /half/i.test(String(attack.hit || ''))) dmg = Math.floor(dmg / 2);
+                else if (succeeded) dmg = 0;
+                dmg = applyDR(target, dmg, dmgType);
                 if (dmg > 0) {
                     target.hp -= dmg;
-                    if (target.hp <= 0) {
-                        target.isDead = true;
-                        this.logMessage(`${target.name} drops to 0 HP and is defeated!`);
-                    }
-                    this.logMessage(`${target.name} ${succeeded ? 'succeeds' : 'fails'} the ${ability} save against ${attackName} and takes ${dmg}${dmgType ? ' ' + dmgType : ''} damage.`);
-                    this.updateDisplay();
-                } else {
-                    this.logMessage(`${target.name} ${succeeded ? 'succeeds' : 'fails'} the ${ability} save against ${attackName}.`);
+                    if (target.hp <= 0) { target.isDead = true; this.logMessage(`${target.name} drops to 0 HP and is defeated!`); }
                 }
-
-                // Apply ongoing_effect only on failed save if present
-                if (!succeeded && attack.ongoing_effect) {
-                    if (!Array.isArray(target.ongoing_effects)) target.ongoing_effects = [];
-                    target.ongoing_effects.push(attack.ongoing_effect);
-                    this.logMessage(`🔥 ${target.name} is now ${attack.ongoing_effect.name} (Ongoing Effect)!`);
-                    this.updateDisplay();
-                }
-                return; // handled in this branch
+                this.logMessage(`${target.name} ${succeeded ? 'succeeds' : 'fails'} the ${ability} save against ${attackName}${dmg > 0 ? ` and takes ${dmg}${dmgType ? ' ' + dmgType : ''}` : ''}.`);
+                return;
             }
         }
 
-		// Save-based attack path (e.g., cones/breaths with DC and half on success)
-		if (attack.save && attack.save.dc && attack.save.ability) {
-			const attackName = this.getAttackName(attacker, attack);
-			const dmgType = (attack['damage type'] || attack.save.damageType || '').toLowerCase();
-			// Early immunity: skip rolling saves entirely
-			if (this.hasDamageImmunity(target, dmgType)) {
-				this.logMessage(`${target.name} is immune to ${dmgType || 'this'} damage from ${attacker.name}'s ${attackName}. No save required.`);
-				return;
-			}
-			const succeeded = this.rollSavingThrow(target, attack.save.ability, attack.save.dc);
-			const baseDamageDice = attack.save.damage || attack.hit || '1d6';
-			let damage = this.rollDamage(baseDamageDice);
-			if (succeeded && attack.save.halfOnSuccess) {
-				const originalDamage = damage;
-				damage = Math.floor(damage / 2);
-				if (this.hasDamageResistance(target, dmgType)) {
-					const beforeResistance = damage;
-					damage = Math.floor(damage / 2);
-					this.logMessage(`${target.name} succeeds against ${attacker.name}'s ${attackName} and takes half ${dmgType || 'damage'}: ${damage} (resistance: ${beforeResistance - damage}).`);
-				} else {
-					this.logMessage(`${target.name} succeeds against ${attacker.name}'s ${attackName} and takes half ${dmgType || 'damage'}: ${damage}.`);
-				}
-			} else if (!succeeded) {
-				const originalDamage = damage;
-				if (this.hasDamageResistance(target, dmgType)) {
-					const beforeResistance = damage;
-					damage = Math.floor(damage / 2);
-					this.logMessage(`${target.name} fails the save against ${attacker.name}'s ${attackName} and takes ${damage} ${dmgType || 'damage'} (resistance: ${beforeResistance - damage}).`);
-				} else {
-					this.logMessage(`${target.name} fails the save against ${attacker.name}'s ${attackName} and takes ${damage} ${dmgType || 'damage'}.`);
-				}
-			} else {
-				const originalDamage = damage;
-				if (this.hasDamageResistance(target, dmgType)) {
-					const beforeResistance = damage;
-					damage = Math.floor(damage / 2);
-					this.logMessage(`${target.name} takes ${damage} ${dmgType || 'damage'} from ${attacker.name}'s ${attackName} (resistance: ${beforeResistance - damage}).`);
-				} else {
-					this.logMessage(`${target.name} takes ${damage} ${dmgType || 'damage'} from ${attacker.name}'s ${attackName}.`);
-				}
-			}
-			if (this.hasDamageVulnerability(target, dmgType)) {
-				const beforeVuln = damage;
-				damage = damage * 2;
-				this.logMessage(`${target.name} is vulnerable to ${dmgType || 'this'} damage (doubled: ${beforeVuln} -> ${damage}).`);
-			}
+        // Block if attacker is Charmed against this target
+        if (this.isCharmedAgainst && this.isCharmedAgainst(attacker, target)) {
+            this.logMessage(`${attacker.name} is Charmed by ${target.name} and refuses to attack their charmer.`);
+            return;
+        }
 
-			if (damage > 0) {
-				target.hp -= damage;
-				if (target.hp <= 0) {
-					target.isDead = true;
-					this.logMessage(`${target.name} drops to 0 HP and is defeated!`);
-				}
-				this.updateDisplay();
-			}
-
-			// Optional rider on failed save
-			if (!succeeded && attack.save.onFail && attack.save.onFail.pull) {
-				this.logMessage(`${target.name} is pulled ${attack.save.onFail.pull} ft. toward ${attacker.name}.`);
-			}
-			return;
-		}
-
-		// Effects-based attack path (e.g., Omni Monster's Engulf attack)
-		if (attack.effects && Array.isArray(attack.effects)) {
-			const attackName = this.getAttackName(attacker, attack);
-			// Process the first effect that has DC and damage
-			const effect = attack.effects.find(e => e.dc && e.ability && e['one-time damage']);
-			if (effect) {
-				const dmgType = (attack['damage type'] || effect['ongoing damage type'] || effect['damage type'] || '').toLowerCase();
-				// Early immunity: skip rolling saves entirely
-				if (this.hasDamageImmunity(target, dmgType)) {
-					this.logMessage(`${target.name} is immune to ${dmgType || 'this'} damage from ${attacker.name}'s ${attackName}. No save required.`);
-					return;
-				}
-				const succeeded = this.rollSavingThrow(target, effect.ability, effect.dc);
-				const baseDamageDice = effect['one-time damage'] || '1d6';
-				let damage = this.rollDamage(baseDamageDice);
-				if (succeeded) {
-					const originalDamage = damage;
-					damage = Math.floor(damage / 2);
-					if (this.hasDamageResistance(target, dmgType)) {
-						const beforeResistance = damage;
-						damage = Math.floor(damage / 2);
-						this.logMessage(`${target.name} succeeds against ${attacker.name}'s ${attackName} and takes half ${dmgType || 'damage'}: ${damage} (resistance: ${beforeResistance - damage}).`);
-					} else {
-						this.logMessage(`${target.name} succeeds against ${attacker.name}'s ${attackName} and takes half ${dmgType || 'damage'}: ${damage}.`);
-					}
-					if (this.hasDamageVulnerability(target, dmgType)) {
-						const beforeVuln = damage;
-						damage = damage * 2;
-						this.logMessage(`${target.name} is vulnerable to ${dmgType || 'this'} damage (doubled: ${beforeVuln} -> ${damage}).`);
-					}
-				} else {
-					const originalDamage = damage;
-					if (this.hasDamageResistance(target, dmgType)) {
-						const beforeResistance = damage;
-						damage = Math.floor(damage / 2);
-						this.logMessage(`${target.name} fails the save against ${attacker.name}'s ${attackName} and takes ${damage} ${dmgType || 'damage'} (resistance: ${beforeResistance - damage}).`);
-					} else {
-						this.logMessage(`${target.name} fails the save against ${attacker.name}'s ${attackName} and takes ${damage} ${dmgType || 'damage'}.`);
-					}
-					if (this.hasDamageVulnerability(target, dmgType)) {
-						const beforeVuln = damage;
-						damage = damage * 2;
-						this.logMessage(`${target.name} is vulnerable to ${dmgType || 'this'} damage (doubled: ${beforeVuln} -> ${damage}).`);
-					}
-				}
-
-				// Remove the separate resistance handling since it's now integrated above
-
-				if (damage > 0) {
-					target.hp -= damage;
-					if (target.hp <= 0) {
-						target.isDead = true;
-						this.logMessage(`${target.name} drops to 0 HP and is defeated!`);
-					}
-					this.updateDisplay();
-				}
-
-				// Apply ongoing effects if specified
-				if (!succeeded && effect.condition && !this.hasConditionImmunity(target, 'restrained')) {
-					target.conditions.push({
-						name: 'Restrained',
-						sourceId: attacker.id,
-						ongoing: effect['ongoing damage'] ? {
-							dice: effect['ongoing damage'],
-							type: effect['ongoing damage type'],
-							timing: 'start of each of its turns'
-						} : null
-					});
-					this.logMessage(`${target.name} is ${effect.condition.toLowerCase()}.`);
-				}
-
-                // Apply new ongoing_effect system on failed save if present on the attack
-                if (!succeeded && attack.ongoing_effect) {
-                    if (!Array.isArray(target.ongoing_effects)) target.ongoing_effects = [];
-                    target.ongoing_effects.push(attack.ongoing_effect);
-                    this.logMessage(`🔥 ${target.name} is now ${attack.ongoing_effect.name} (Ongoing Effect)!`);
+        // attack.save path (area effects etc.)
+        if (attack.save && attack.save.dc && attack.save.ability) {
+            const attackName = this.getAttackName(attacker, attack);
+            const dmgType = (attack['damage type'] || attack.save.damageType || '').toLowerCase();
+            const succeeded = this.rollSavingThrow(target, attack.save.ability, attack.save.dc);
+            const dice = attack.save.damage || attack.hit || '1d6';
+            let dmg = this.rollDamage(dice);
+            if (succeeded && attack.save.halfOnSuccess) dmg = Math.floor(dmg / 2);
+            else if (succeeded && !attack.save.halfOnSuccess) dmg = 0;
+            // DR stack
+            if (this.hasDamageImmunity && this.hasDamageImmunity(target, dmgType)) dmg = 0;
+            if (dmg > 0 && this.hasDamageResistance && this.hasDamageResistance(target, dmgType)) dmg = Math.floor(dmg / 2);
+            if (dmg > 0 && this.hasDamageVulnerability && this.hasDamageVulnerability(target, dmgType)) dmg = dmg * 2;
+            if (dmg > 0 && this.adjustDamageForPetrified) dmg = this.adjustDamageForPetrified(target, dmg, dmgType);
+            if (dmg > 0) {
+                target.hp -= dmg;
+                // Breaking charm if damaged by charmer or allies
+                this.tryBreakCharmedOnDamage && this.tryBreakCharmedOnDamage(target, attacker);
+                // Frightened ends on any damage
+                this.tryBreakFrightenedOnDamage && this.tryBreakFrightenedOnDamage(target);
+                // Maintainer concentration checks if target maintains conditions on others
+                this.tryBreakMaintainedConditionsOnMaintainerDamage && this.tryBreakMaintainedConditionsOnMaintainerDamage(target, dmg);
+                // Death handling and cleanup
+                if (target.hp <= 0) {
+                    target.isDead = true;
+                    this.logMessage(`${target.name} drops to 0 HP and is defeated!`);
+                    // Remove own conditions and any maintained
+                    this.removeConditionByName(target, 'Restrained');
+                    this.removeRestrainedMaintainedBy && this.removeRestrainedMaintainedBy(target);
+                    this.removeConditionByName(target, 'Grappled');
+                    this.removeGrappledMaintainedBy && this.removeGrappledMaintainedBy(target);
+                    target.conditions = [];
                     this.updateDisplay();
                 }
-			}
-			return;
-		}
+            }
+            this.logMessage(`${target.name} ${succeeded ? 'succeeds' : 'fails'} the ${ability} save against ${attackName}${dmg > 0 ? ` and takes ${dmg}${dmgType ? ' ' + dmgType : ''}` : ''}.`);
+            return;
+        }
 
-		// Attack roll path
-        // Advantage/disadvantage on attacks from attacker and target conditions
-        const attackerMode = this.getConditionModifiers(attacker, 'attack');
-        // Log if Blindsight negates attacker's Blinded disadvantage
-        if (this.hasAnyCondition(attacker, ['Blinded']) && this.hasBlindsight(attacker)) {
-            this.logMessage(`🔎 ${attacker.name}'s Blindsight negates Disadvantage from being Blinded.`);
-        }
-        // Target grants advantage to attacker in some states
-        let targetAdv = false, targetDis = false;
-        const targetHas = (n) => this.hasAnyCondition(target, [n]);
+        // Attack roll path
+        const attackName = this.getAttackName(attacker, attack);
         const isMelee = /\b5\s*ft\.?/i.test(String(attack.reach || ''));
-        if (targetHas('Restrained') || targetHas('Paralyzed') || targetHas('Unconscious') || targetHas('Petrified')) targetAdv = true;
-        if (targetHas('Invisible')) targetDis = true; // Simplified: disadvantage if target is invisible
-        // If Paralyzed, explicitly log advantage source and suppress Prone messaging
-        const targetParalyzed = targetHas('Paralyzed');
-        if (targetParalyzed) {
-            this.logMessage(`🎯 Advantage: target is Paralyzed.`);
+        const attackerMode = this.getConditionModifiers ? this.getConditionModifiers(attacker, 'attack') : 'normal';
+        const targetHas = (n) => this.hasAnyCondition && this.hasAnyCondition(target, [n]);
+        const attackerHas = (n) => this.hasAnyCondition && this.hasAnyCondition(attacker, [n]);
+        // Compute nuanced advantage/disadvantage
+        let attackerAdv = false, attackerDis = false, targetAdv = false, targetDis = false;
+        // Attacker: Blinded -> Disadvantage unless Blindsight
+        if (attackerHas && attackerHas('Blinded')) {
+            if (this.hasBlindsight && this.hasBlindsight(attacker)) {
+                this.logMessage(`🔎 ${attacker.name}'s Blindsight negates Disadvantage from being Blinded.`);
+            } else {
+                attackerDis = true;
+                this.logMessage(`🎯 Disadvantage: ${attacker.name} is Blinded.`);
+            }
         }
-        // Prone: melee attacks have advantage, ranged have disadvantage (log this explicitly) unless Paralyzed is active
-        if (!targetParalyzed && targetHas('Prone')) {
-            if (isMelee) {
-                targetAdv = true;
-                this.logMessage(`🎯 Advantage: target is Prone and within 5 ft.`);
+        // Attacker: Grappled by this specific target -> Disadvantage on attacks against that grappler
+        if (attackerHas && attackerHas('Grappled')) {
+            const g = this.getConditionObject ? this.getConditionObject(attacker, 'Grappled') : null;
+            const grapplerName = g && (g.grappler_name || g.grappler || '');
+            if (grapplerName && String(grapplerName).toLowerCase() === String(target.name || '').toLowerCase()) {
+                attackerDis = true;
+                this.logMessage(`🎯 Disadvantage: ${attacker.name} is Grappled by ${target.name}.`);
+            }
+        }
+        // Attacker: Poisoned -> Disadvantage on attack rolls
+        if (attackerHas && attackerHas('Poisoned')) {
+            attackerDis = true;
+            this.logMessage(`🎯 Disadvantage: ${attacker.name} is Poisoned.`);
+        }
+        // Target: Invisible -> Disadvantage to attacker unless attacker has Blindsight or detected this turn
+        if (targetHas && targetHas('Invisible')) {
+            const detectedNow = Array.isArray(attacker.detectedInvisibleIds) && attacker.detectedInvisibleIds.includes(target.id);
+            if (this.hasBlindsight && this.hasBlindsight(attacker)) {
+                this.logMessage(`🔎 ${attacker.name}'s Blindsight negates Disadvantage from attacking an Invisible target.`);
+            } else if (detectedNow) {
+                this.logMessage(`🔎 ${attacker.name} has detected ${target.name} this turn and ignores Invisibility penalties.`);
             } else {
                 targetDis = true;
-                this.logMessage(`🎯 Disadvantage: target is Prone and at range.`);
+                this.logMessage(`🎯 Disadvantage: target is Invisible.`);
             }
         }
-        if (targetHas('Blinded') && !this.hasBlindsight(target)) {
-            targetAdv = true;
-            this.logMessage(`🎯 Advantage: target is Blinded.`);
-        } else if (targetHas('Blinded') && this.hasBlindsight(target)) {
-            this.logMessage(`🔎 ${target.name} is Blinded but has Blindsight; no Advantage granted to attackers.`);
+        // Target: Flat advantage cases
+        if (targetHas && targetHas('Restrained')) { targetAdv = true; this.logMessage(`🎯 Advantage: target is Restrained.`); }
+        if (targetHas && targetHas('Paralyzed')) { targetAdv = true; this.logMessage(`🎯 Advantage: target is Paralyzed.`); }
+        if (targetHas && targetHas('Unconscious')) { targetAdv = true; this.logMessage(`🎯 Advantage: target is Unconscious.`); }
+        if (targetHas && targetHas('Petrified')) { targetAdv = true; this.logMessage(`🎯 Advantage: target is Petrified.`); }
+        // Target: Blinded -> Advantage to attackers
+        if (targetHas && targetHas('Blinded')) { targetAdv = true; this.logMessage(`🎯 Advantage: target is Blinded.`); }
+        // Target: Prone -> melee advantage, ranged disadvantage
+        if (targetHas && targetHas('Prone')) {
+            if (isMelee) { targetAdv = true; this.logMessage(`🎯 Advantage: target is Prone and within 5 ft.`); }
+            else { targetDis = true; this.logMessage(`🎯 Disadvantage: target is Prone and at range.`); }
         }
-        let finalMode = attackerMode;
-        if (targetAdv) finalMode = (finalMode === 'dis') ? 'normal' : 'adv';
-        if (targetDis) finalMode = (finalMode === 'adv') ? 'normal' : 'dis';
-        const rawRoll = this.rollD20WithMode(finalMode);
-        const attackBonus = attack["to hit"] ? parseInt(attack["to hit"].replace('+', '')) || 0 : 0;
-        let isCritical = rawRoll === 20;
-        const attackRoll = rawRoll + attackBonus;
-
-		let damage = this.rollDamage(attack.hit || '1d6');
-		if (isCritical) damage *= 2;
-
-		const damageTypeField = (attack['damage type'] || '').toLowerCase();
-		// For strings like "bludgeoning plus acid", treat first segment as primary type
-		const mainDmgType = damageTypeField.split(' plus ')[0].trim();
-
-            if (attackRoll >= target.ac) {
-			// Get attack name from the attack object or use a default
-			const attackName = this.getAttackName(attacker, attack);
-			this.logMessage(`${attacker.name} (${attacker.team}) hits ${target.name} (${target.team}) with ${attackName} (roll ${attackRoll}).`);
-			// Auto-crit on certain target states for melee attacks
-			if (!isCritical && isMelee && (targetHas('Paralyzed') || targetHas('Unconscious'))) {
-				isCritical = true;
-			}
-			// Apply primary damage if not immune
-			if (!this.hasDamageImmunity(target, mainDmgType)) {
-				if (damage > 0) {
-					// Apply resistance if present
-					const originalDamage = damage;
-					if (this.hasDamageResistance(target, mainDmgType)) {
-						damage = Math.floor(damage / 2);
-					}
-					if (this.hasDamageVulnerability(target, mainDmgType)) {
-						damage = damage * 2;
-						this.logMessage(`${target.name} is vulnerable to ${mainDmgType || 'this'} damage (doubled).`);
-					}
-					this.logMessage(this.formatDamageMessage(attacker, target, damage, mainDmgType, originalDamage));
-					target.hp -= damage;
-					this.handleDamageTaken(target, attacker, mainDmgType);
-				}
-			} else {
-				this.logMessage(`${target.name} is immune to ${mainDmgType || 'this'} damage.`);
-			}
-
-			// Apply extra damage parts (e.g., plus acid)
-			if (attack.extraDamage && Array.isArray(attack.extraDamage)) {
-				for (const part of attack.extraDamage) {
-					const partType = (part.type || '').toLowerCase();
-					if (this.hasDamageImmunity(target, partType)) {
-						this.logMessage(`${target.name} is immune to ${partType} damage.`);
-						continue;
-					}
-					let partDmg = this.rollDamage(part.dice || '1d6');
-					const originalPartDmg = partDmg;
-					if (this.hasDamageResistance(target, partType)) {
-						partDmg = Math.floor(partDmg / 2);
-					}
-					if (this.hasDamageVulnerability(target, partType)) {
-						partDmg = partDmg * 2;
-						this.logMessage(`${target.name} is vulnerable to ${partType} damage (doubled).`);
-					}
-					target.hp -= partDmg;
-					this.handleDamageTaken(target, attacker, partType);
-					this.logMessage(this.formatDamageMessage(attacker, target, partDmg, partType, originalPartDmg));
-				}
-			}
-			// On-hit condition effects (e.g., Mind Flay -> Stunned)
-			if (attack.condition_effect) {
-				const effect = attack.condition_effect;
-				const ability = effect.save_ability || 'CON';
-				const dc = parseInt(effect.save_dc || 0, 10) || 0;
-				if (dc > 0) {
-					const result = this.performSavingThrow(target, ability, dc);
-					if (result.success) {
-						this.logMessage(` ${target.name} successfully saved against ${this.getAttackName(attacker, attack)} (${ability} DC ${dc}).`);
-					} else {
-						// Special handling: Paralyzed with end-of-turn save and minute duration mapping
-						if ((effect.condition_name || '').toLowerCase() === 'paralyzed') {
-							const cond = { name: 'Paralyzed', save_check_at_turn_end: true, end_save_dc: dc, end_save_ability: 'CON' };
-							if (typeof effect.duration === 'string' && /1\s*minute/i.test(effect.duration)) {
-								cond.rounds_remaining = 10;
-							}
-							this.applyCondition(target, cond, null, attacker.id);
-							this.logMessage(` ${target.name} is PARALYZED! Will attempt a CON ${dc} save at end of each turn.`);
-						} else if ((effect.condition_name || '').toLowerCase() === 'blinded') {
-							const cond = { name: 'Blinded', save_check_at_turn_end: true, end_save_dc: dc, end_save_ability: 'CON' };
-							if (typeof effect.duration === 'string' && /1\s*minute/i.test(effect.duration)) {
-								cond.rounds_remaining = 10;
-							}
-							this.applyCondition(target, cond, null, attacker.id);
-							this.logMessage(` ${target.name} is BLINDED! Will attempt a CON ${dc} save at end of each turn.`);
-						} else if ((effect.condition_name || '').toLowerCase() === 'deafened') {
-							const cond = { name: 'Deafened' };
-							if (typeof effect.duration === 'string' && /^\s*1\s*round\s*$/i.test(effect.duration)) {
-								cond.rounds_remaining = 1;
-							}
-							this.applyCondition(target, cond, null, attacker.id);
-							this.logMessage(` ${target.name} is DEAFENED.`);
-						} else {
-							this.applyCondition(target, effect.condition_name || 'Conditioned', effect.duration || null, attacker.id);
-							this.logMessage(` ${target.name} failed their save and is now ${effect.condition_name ? effect.condition_name.toUpperCase() : 'AFFECTED'}!`);
-						}
-					}
-				}
-			}
-
-			// Poison handling if provided on attack (save, damage, condition)
-			if (attack.poison) {
-				this.logMessage(`${attacker.name} attempts to poison ${target.name}!`);
-				const poisonCfg = attack.poison;
-				const dmgType = 'poison';
-				let applyCondition = true;
-				if (poisonCfg.save && poisonCfg.save.dc && poisonCfg.save.ability) {
-					// Early immunity: skip rolling saves entirely
-					if (this.hasDamageImmunity(target, dmgType)) {
-						this.logMessage(`${target.name} is immune to poison damage. No save required.`);
-						applyCondition = false;
-					} else {
-						const succeeded = this.rollSavingThrow(target, poisonCfg.save.ability, poisonCfg.save.dc);
-						if (succeeded && poisonCfg.save.halfOnSuccess && poisonCfg.damage) {
-							let pdmg = this.rollDamage(poisonCfg.damage);
-							if (this.hasDamageImmunity(target, dmgType)) {
-								this.logMessage(`${target.name} is immune to poison damage.`);
-								pdmg = 0;
-							} else if (this.hasDamageResistance(target, dmgType)) {
-								const before = pdmg;
-								pdmg = Math.floor(pdmg / 2);
-								this.logMessage(`${target.name} resists poison damage (${before} -> ${pdmg}).`);
-							}
-							pdmg = Math.floor(pdmg / 2);
-							if (this.hasDamageVulnerability(target, dmgType)) {
-								const beforeV = pdmg;
-								pdmg = pdmg * 2;
-								this.logMessage(`${target.name} is vulnerable to ${dmgType} damage (doubled: ${beforeV} -> ${pdmg}).`);
-							}
-							target.hp -= pdmg;
-							this.handleDamageTaken(target, attacker, dmgType);
-							this.logMessage(`${target.name} succeeds the poison save and takes ${pdmg} poison damage.`);
-							applyCondition = false;
-						} else if (!succeeded) {
-							if (poisonCfg.damage) {
-								let pdmg = this.rollDamage(poisonCfg.damage);
-								if (this.hasDamageImmunity(target, dmgType)) {
-									this.logMessage(`${target.name} is immune to poison damage.`);
-									pdmg = 0;
-								} else if (this.hasDamageResistance(target, dmgType)) {
-									const before = pdmg;
-									pdmg = Math.floor(pdmg / 2);
-									this.logMessage(`${target.name} resists poison damage (${before} -> ${pdmg}).`);
-								}
-								if (this.hasDamageVulnerability(target, dmgType)) {
-									const beforeV = pdmg;
-									pdmg = pdmg * 2;
-									this.logMessage(`${target.name} is vulnerable to ${dmgType} damage (doubled: ${beforeV} -> ${pdmg}).`);
-								}
-								target.hp -= pdmg;
-								this.handleDamageTaken(target, attacker, dmgType);
-								this.logMessage(`${target.name} fails the poison save and takes ${pdmg} poison damage.`);
-							}
-							applyCondition = true;
-						} else {
-							// No halfOnSuccess or no damage specified: just a binary save
-							applyCondition = !succeeded;
-						}
-					}
-				}
-				if (applyCondition && poisonCfg.condition && !this.hasConditionImmunity(target, 'poisoned')) {
-					target.conditions.push({ name: 'Poisoned', sourceId: attacker.id, duration: poisonCfg.duration || null });
-					this.logMessage(`${target.name} is poisoned${poisonCfg.duration ? ` for ${poisonCfg.duration}` : ''}.`);
-				} else if (applyCondition && this.hasConditionImmunity(target, 'poisoned')) {
-					this.logMessage(`${target.name} is immune to the poisoned condition.`);
-				}
-			}
-
-			// On-hit effects (e.g., grapple)
-			if (attack.effects && Array.isArray(attack.effects)) {
-				for (const effect of attack.effects) {
-					if ((effect.type || '').toLowerCase() === 'grapple') {
-						if (this.hasConditionImmunity(target, 'grappled')) {
-							this.logMessage(`${target.name} is immune to being grappled.`);
-							continue;
-						}
-						// If the effect specifies a saving throw on hit, allow it; else apply and use escape DC later
-						let applyGrapple = true;
-						if (effect.save && effect.save.dc && effect.save.ability) {
-							const resisted = this.rollSavingThrow(target, effect.save.ability, effect.save.dc);
-							applyGrapple = !resisted;
-						}
-						if (applyGrapple) {
-							target.conditions.push({
-								name: 'Grappled',
-								sourceId: attacker.id,
-								escapeDc: effect.escape_dc,
-								ability: effect.ability || 'Strength',
-								ongoing: effect['ongoing damage'] ? {
-									dice: effect['ongoing damage'],
-									type: effect['ongoing damage type'],
-									timing: effect['ongoing damage timing']
-								} : null
-							});
-							this.logMessage(`${target.name} is grappled (escape DC ${effect.escape_dc}).`);
-						} else {
-							this.logMessage(`${target.name} resists the grapple.`);
-						}
-					} else if ((effect.type || '').toLowerCase() === 'poison') {
-						// Support Giant Ant-style effects objects with dc, ability, and "one-time damage"
-						const dc = effect.dc;
-						const ability = effect.ability || 'Constitution';
-						const damageField = effect['one-time damage'] || effect['damage'] || null;
-						const poisonType = (effect['ongoing damage type'] || 'poison').toLowerCase();
-						if (dc && ability && damageField) {
-							const succeeded = this.rollSavingThrow(target, ability, dc);
-							let poisonDice = this.parseDamage(String(damageField));
-							let pdmg = this.rollDamage(poisonDice || '1d6');
-							// Apply immunity and resistance
-							if (this.hasDamageImmunity(target, poisonType)) {
-								this.logMessage(`${target.name} is immune to ${poisonType} damage.`);
-								pdmg = 0;
-							} else if (this.hasDamageResistance(target, poisonType)) {
-								const before = pdmg;
-								pdmg = Math.floor(pdmg / 2);
-								this.logMessage(`${target.name} resists ${poisonType} damage (${before} -> ${pdmg}).`);
-							}
-							if (succeeded) {
-								const half = Math.floor(pdmg / 2);
-								let apply = half;
-								if (this.hasDamageVulnerability(target, poisonType)) {
-									const before = apply;
-									apply = apply * 2;
-									this.logMessage(`${target.name} is vulnerable to ${poisonType} damage (doubled: ${before} -> ${apply}).`);
-								}
-								target.hp -= apply;
-								this.handleDamageTaken(target, attacker, poisonType);
-								this.logMessage(`${target.name} succeeds the ${ability} save vs poison (DC ${dc}) and takes ${apply} ${poisonType} damage.`);
-							} else {
-								let apply = pdmg;
-								if (this.hasDamageVulnerability(target, poisonType)) {
-									const before = apply;
-									apply = apply * 2;
-									this.logMessage(`${target.name} is vulnerable to ${poisonType} damage (doubled: ${before} -> ${apply}).`);
-								}
-								target.hp -= apply;
-								this.handleDamageTaken(target, attacker, poisonType);
-								this.logMessage(`${target.name} fails the ${ability} save vs poison (DC ${dc}) and takes ${apply} ${poisonType} damage.`);
-							}
-							this.updateDisplay();
-						} else {
-							// Missing fields; log for visibility
-							this.logMessage(`Poison effect present but missing dc/ability/one-time damage; skipping detailed processing.`);
-						}
-					} else if ((effect.type || '').toLowerCase() === 'fire') {
-						// Support fire effects with dc, ability, and "one-time damage"
-						const dc = effect.dc;
-						const ability = effect.ability || 'Dexterity';
-						const damageField = effect['one-time damage'] || effect['damage'] || null;
-						const fireType = (effect['ongoing damage type'] || 'fire').toLowerCase();
-						if (dc && ability && damageField) {
-							// Early immunity: skip rolling saves entirely
-							if (this.hasDamageImmunity(target, fireType)) {
-								this.logMessage(`${target.name} is immune to ${fireType} damage. No save required.`);
-								continue;
-							}
-							const succeeded = this.rollSavingThrow(target, ability, dc);
-							let fireDice = this.parseDamage(String(damageField));
-							let fdmg = this.rollDamage(fireDice || '1d6');
-							// Apply immunity and resistance
-							if (this.hasDamageResistance(target, fireType)) {
-								const before = fdmg;
-								fdmg = Math.floor(fdmg / 2);
-								this.logMessage(`${target.name} resists ${fireType} damage (${before} -> ${fdmg}).`);
-							}
-							if (succeeded) {
-								const half = Math.floor(fdmg / 2);
-								let apply = half;
-								if (this.hasDamageVulnerability(target, fireType)) {
-									const before = apply;
-									apply = apply * 2;
-									this.logMessage(`${target.name} is vulnerable to ${fireType} damage (doubled: ${before} -> ${apply}).`);
-								}
-								target.hp -= apply;
-								this.handleDamageTaken(target, attacker, fireType);
-								this.logMessage(`${target.name} succeeds the ${ability} save vs fire (DC ${dc}) and takes ${apply} ${fireType} damage.`);
-							} else {
-								let apply = fdmg;
-								if (this.hasDamageVulnerability(target, fireType)) {
-									const before = apply;
-									apply = apply * 2;
-									this.logMessage(`${target.name} is vulnerable to ${fireType} damage (doubled: ${before} -> ${apply}).`);
-								}
-								target.hp -= apply;
-								this.handleDamageTaken(target, attacker, fireType);
-								this.logMessage(`${target.name} fails the ${ability} save vs fire (DC ${dc}) and takes ${apply} ${fireType} damage.`);
-							}
-							this.updateDisplay();
-						} else {
-							// Missing fields; log for visibility
-							this.logMessage(`Fire effect present but missing dc/ability/one-time damage; skipping detailed processing.`);
-						}
-					} else if ((effect.type || '').toLowerCase() === 'acid') {
-						// Support acid effects with dc, ability, and "one-time damage"
-						const dc = effect.dc;
-						const ability = effect.ability || 'Dexterity';
-						const damageField = effect['one-time damage'] || effect['damage'] || null;
-						const acidType = (effect['ongoing damage type'] || 'acid').toLowerCase();
-						if (dc && ability && damageField) {
-							// Early immunity: skip rolling saves entirely
-							if (this.hasDamageImmunity(target, acidType)) {
-								this.logMessage(`${target.name} is immune to ${acidType} damage. No save required.`);
-								continue;
-							}
-							const succeeded = this.rollSavingThrow(target, ability, dc);
-							let acidDice = this.parseDamage(String(damageField));
-							let admg = this.rollDamage(acidDice || '1d6');
-							// Apply immunity and resistance
-							if (this.hasDamageResistance(target, acidType)) {
-								const before = admg;
-								admg = Math.floor(admg / 2);
-								this.logMessage(`${target.name} resists ${acidType} damage (${before} -> ${admg}).`);
-							}
-							if (succeeded) {
-								const half = Math.floor(admg / 2);
-								let apply = half;
-								if (this.hasDamageVulnerability(target, acidType)) {
-									const before = apply;
-									apply = apply * 2;
-									this.logMessage(`${target.name} is vulnerable to ${acidType} damage (doubled: ${before} -> ${apply}).`);
-								}
-								target.hp -= apply;
-								this.handleDamageTaken(target, attacker, acidType);
-								this.logMessage(`${target.name} succeeds the ${ability} save vs acid (DC ${dc}) and takes ${apply} ${acidType} damage.`);
-							} else {
-								let apply = admg;
-								if (this.hasDamageVulnerability(target, acidType)) {
-									const before = apply;
-									apply = apply * 2;
-									this.logMessage(`${target.name} is vulnerable to ${acidType} damage (doubled: ${before} -> ${apply}).`);
-								}
-								target.hp -= apply;
-								this.handleDamageTaken(target, attacker, acidType);
-								this.logMessage(`${target.name} fails the ${ability} save vs acid (DC ${dc}) and takes ${apply} ${acidType} damage.`);
-							}
-							this.updateDisplay();
-						} else {
-							// Missing fields; log for visibility
-							this.logMessage(`Acid effect present but missing dc/ability/one-time damage; skipping detailed processing.`);
-						}
-					} else if ((effect.type || '').toLowerCase() === 'cold') {
-						// Support cold effects with dc, ability, and "one-time damage"
-						const dc = effect.dc;
-						const ability = effect.ability || 'Constitution';
-						const damageField = effect['one-time damage'] || effect['damage'] || null;
-						const coldType = (effect['ongoing damage type'] || 'cold').toLowerCase();
-						if (dc && ability && damageField) {
-							// Early immunity: skip rolling saves entirely
-							if (this.hasDamageImmunity(target, coldType)) {
-								this.logMessage(`${target.name} is immune to ${coldType} damage. No save required.`);
-								continue;
-							}
-							const succeeded = this.rollSavingThrow(target, ability, dc);
-							let coldDice = this.parseDamage(String(damageField));
-							let cdmg = this.rollDamage(coldDice || '1d6');
-							// Apply immunity and resistance
-							if (this.hasDamageResistance(target, coldType)) {
-								const before = cdmg;
-								cdmg = Math.floor(cdmg / 2);
-								this.logMessage(`${target.name} resists ${coldType} damage (${before} -> ${cdmg}).`);
-							}
-							if (succeeded) {
-								const half = Math.floor(cdmg / 2);
-								let apply = half;
-								if (this.hasDamageVulnerability(target, coldType)) {
-									const before = apply;
-									apply = apply * 2;
-									this.logMessage(`${target.name} is vulnerable to ${coldType} damage (doubled: ${before} -> ${apply}).`);
-								}
-								target.hp -= apply;
-								this.handleDamageTaken(target, attacker, coldType);
-								this.logMessage(`${target.name} succeeds the ${ability} save vs cold (DC ${dc}) and takes ${apply} ${coldType} damage.`);
-							} else {
-								let apply = cdmg;
-								if (this.hasDamageVulnerability(target, coldType)) {
-									const before = apply;
-									apply = apply * 2;
-									this.logMessage(`${target.name} is vulnerable to ${coldType} damage (doubled: ${before} -> ${apply}).`);
-								}
-								target.hp -= apply;
-								this.handleDamageTaken(target, attacker, coldType);
-								this.logMessage(`${target.name} fails the ${ability} save vs cold (DC ${dc}) and takes ${apply} ${coldType} damage.`);
-							}
-							this.updateDisplay();
-						} else {
-							this.logMessage(`Cold effect present but missing dc/ability/one-time damage; skipping detailed processing.`);
-						}
-					} else if ((effect.type || '').toLowerCase() === 'force') {
-						// Support force effects with dc, ability, and "one-time damage"
-						const dc = effect.dc;
-						const ability = effect.ability || 'Dexterity';
-						const damageField = effect['one-time damage'] || effect['damage'] || null;
-						const forceType = (effect['ongoing damage type'] || 'force').toLowerCase();
-						if (dc && ability && damageField) {
-							// Early immunity: skip rolling saves entirely
-							if (this.hasDamageImmunity(target, forceType)) {
-								this.logMessage(`${target.name} is immune to ${forceType} damage. No save required.`);
-								continue;
-							}
-							const succeeded = this.rollSavingThrow(target, ability, dc);
-							let forceDice = this.parseDamage(String(damageField));
-							let fdmg = this.rollDamage(forceDice || '1d6');
-							// Apply immunity and resistance
-							if (this.hasDamageResistance(target, forceType)) {
-								const before = fdmg;
-								fdmg = Math.floor(fdmg / 2);
-								this.logMessage(`${target.name} resists ${forceType} damage (${before} -> ${fdmg}).`);
-							}
-							if (succeeded) {
-								const half = Math.floor(fdmg / 2);
-								let apply = half;
-								if (this.hasDamageVulnerability(target, forceType)) {
-									const before = apply;
-									apply = apply * 2;
-									this.logMessage(`${target.name} is vulnerable to ${forceType} damage (doubled: ${before} -> ${apply}).`);
-								}
-								target.hp -= apply;
-								this.handleDamageTaken(target, attacker, forceType);
-								this.logMessage(`${target.name} succeeds the ${ability} save vs force (DC ${dc}) and takes ${apply} ${forceType} damage.`);
-							} else {
-								let apply = fdmg;
-								if (this.hasDamageVulnerability(target, forceType)) {
-									const before = apply;
-									apply = apply * 2;
-									this.logMessage(`${target.name} is vulnerable to ${forceType} damage (doubled: ${before} -> ${apply}).`);
-								}
-								target.hp -= apply;
-								this.handleDamageTaken(target, attacker, forceType);
-								this.logMessage(`${target.name} fails the ${ability} save vs force (DC ${dc}) and takes ${apply} ${forceType} damage.`);
-							}
-							this.updateDisplay();
-						} else {
-							this.logMessage(`Force effect present but missing dc/ability/one-time damage; skipping detailed processing.`);
-						}
-					} else if ((effect.type || '').toLowerCase() === 'lightning') {
-						// Support lightning effects with dc, ability, and "one-time damage"
-						const dc = effect.dc;
-						const ability = effect.ability || 'Dexterity';
-						const damageField = effect['one-time damage'] || effect['damage'] || null;
-						const lightningType = (effect['ongoing damage type'] || 'lightning').toLowerCase();
-						if (dc && ability && damageField) {
-							// Early immunity: skip rolling saves entirely
-							if (this.hasDamageImmunity(target, lightningType)) {
-								this.logMessage(`${target.name} is immune to ${lightningType} damage. No save required.`);
-								continue;
-							}
-							const succeeded = this.rollSavingThrow(target, ability, dc);
-							let lightningDice = this.parseDamage(String(damageField));
-							let ldmg = this.rollDamage(lightningDice || '1d6');
-							// Apply immunity and resistance
-							if (this.hasDamageResistance(target, lightningType)) {
-								const before = ldmg;
-								ldmg = Math.floor(ldmg / 2);
-								this.logMessage(`${target.name} resists ${lightningType} damage (${before} -> ${ldmg}).`);
-							}
-							if (succeeded) {
-								const half = Math.floor(ldmg / 2);
-								let apply = half;
-								if (this.hasDamageVulnerability(target, lightningType)) {
-									const before = apply;
-									apply = apply * 2;
-									this.logMessage(`${target.name} is vulnerable to ${lightningType} damage (doubled: ${before} -> ${apply}).`);
-								}
-								target.hp -= apply;
-								this.handleDamageTaken(target, attacker, lightningType);
-								this.logMessage(`${target.name} succeeds the ${ability} save vs lightning (DC ${dc}) and takes ${apply} ${lightningType} damage.`);
-							} else {
-								let apply = ldmg;
-								if (this.hasDamageVulnerability(target, lightningType)) {
-									const before = apply;
-									apply = apply * 2;
-									this.logMessage(`${target.name} is vulnerable to ${lightningType} damage (doubled: ${before} -> ${apply}).`);
-								}
-								target.hp -= apply;
-								this.handleDamageTaken(target, attacker, lightningType);
-								this.logMessage(`${target.name} fails the ${ability} save vs lightning (DC ${dc}) and takes ${apply} ${lightningType} damage.`);
-							}
-							this.updateDisplay();
-						} else {
-							this.logMessage(`Lightning effect present but missing dc/ability/one-time damage; skipping detailed processing.`);
-						}
-					} else if ((effect.type || '').toLowerCase() === 'necrotic') {
-						// Support necrotic effects with dc, ability, and "one-time damage"
-						const dc = effect.dc;
-						const ability = effect.ability || 'Constitution';
-						const damageField = effect['one-time damage'] || effect['damage'] || null;
-						const necroticType = (effect['ongoing damage type'] || 'necrotic').toLowerCase();
-						if (dc && ability && damageField) {
-							// Early immunity: skip rolling saves entirely
-							if (this.hasDamageImmunity(target, necroticType)) {
-								this.logMessage(`${target.name} is immune to ${necroticType} damage. No save required.`);
-								continue;
-							}
-							const succeeded = this.rollSavingThrow(target, ability, dc);
-							let necroticDice = this.parseDamage(String(damageField));
-							let ndmg = this.rollDamage(necroticDice || '1d6');
-							// Apply immunity and resistance
-							if (this.hasDamageResistance(target, necroticType)) {
-								const before = ndmg;
-								ndmg = Math.floor(ndmg / 2);
-								this.logMessage(`${target.name} resists ${necroticType} damage (${before} -> ${ndmg}).`);
-							}
-							if (succeeded) {
-								const half = Math.floor(ndmg / 2);
-								let apply = half;
-								if (this.hasDamageVulnerability(target, necroticType)) {
-									const before = apply;
-									apply = apply * 2;
-									this.logMessage(`${target.name} is vulnerable to ${necroticType} damage (doubled: ${before} -> ${apply}).`);
-								}
-								target.hp -= apply;
-								this.handleDamageTaken(target, attacker, necroticType);
-								this.logMessage(`${target.name} succeeds the ${ability} save vs necrotic (DC ${dc}) and takes ${apply} ${necroticType} damage.`);
-							} else {
-								let apply = ndmg;
-								if (this.hasDamageVulnerability(target, necroticType)) {
-									const before = apply;
-									apply = apply * 2;
-									this.logMessage(`${target.name} is vulnerable to ${necroticType} damage (doubled: ${before} -> ${apply}).`);
-								}
-								target.hp -= apply;
-								this.handleDamageTaken(target, attacker, necroticType);
-								this.logMessage(`${target.name} fails the ${ability} save vs necrotic (DC ${dc}) and takes ${apply} ${necroticType} damage.`);
-							}
-							this.updateDisplay();
-						} else {
-							this.logMessage(`Necrotic effect present but missing dc/ability/one-time damage; skipping detailed processing.`);
-						}
-					} else if ((effect.type || '').toLowerCase() === 'psychic') {
-						// Support psychic effects with dc, ability, and "one-time damage"
-						const dc = effect.dc;
-						const ability = effect.ability || 'Wisdom';
-						const damageField = effect['one-time damage'] || effect['damage'] || null;
-						const psychicType = (effect['ongoing damage type'] || 'psychic').toLowerCase();
-						if (dc && ability && damageField) {
-							// Early immunity: skip rolling saves entirely
-							if (this.hasDamageImmunity(target, psychicType)) {
-								this.logMessage(`${target.name} is immune to ${psychicType} damage. No save required.`);
-								continue;
-							}
-							const succeeded = this.rollSavingThrow(target, ability, dc);
-							let psychicDice = this.parseDamage(String(damageField));
-							let pdmg = this.rollDamage(psychicDice || '1d6');
-							// Apply immunity and resistance
-							if (this.hasDamageResistance(target, psychicType)) {
-								const before = pdmg;
-								pdmg = Math.floor(pdmg / 2);
-								this.logMessage(`${target.name} resists ${psychicType} damage (${before} -> ${pdmg}).`);
-							}
-							if (succeeded) {
-								const half = Math.floor(pdmg / 2);
-								let apply = half;
-								if (this.hasDamageVulnerability(target, psychicType)) {
-									const before = apply;
-									apply = apply * 2;
-									this.logMessage(`${target.name} is vulnerable to ${psychicType} damage (doubled: ${before} -> ${apply}).`);
-								}
-								target.hp -= apply;
-								this.handleDamageTaken(target, attacker, psychicType);
-								this.logMessage(`${target.name} succeeds the ${ability} save vs psychic (DC ${dc}) and takes ${apply} ${psychicType} damage.`);
-							} else {
-								let apply = pdmg;
-								if (this.hasDamageVulnerability(target, psychicType)) {
-									const before = apply;
-									apply = apply * 2;
-									this.logMessage(`${target.name} is vulnerable to ${psychicType} damage (doubled: ${before} -> ${apply}).`);
-								}
-								target.hp -= apply;
-								this.handleDamageTaken(target, attacker, psychicType);
-								this.logMessage(`${target.name} fails the ${ability} save vs psychic (DC ${dc}) and takes ${apply} ${psychicType} damage.`);
-							}
-							this.updateDisplay();
-						} else {
-							this.logMessage(`Psychic effect present but missing dc/ability/one-time damage; skipping detailed processing.`);
-						}
-					} else if ((effect.type || '').toLowerCase() === 'radiant') {
-						// Support radiant effects with dc, ability, and "one-time damage"
-						const dc = effect.dc;
-						const ability = effect.ability || 'Constitution';
-						const damageField = effect['one-time damage'] || effect['damage'] || null;
-						const radiantType = (effect['ongoing damage type'] || 'radiant').toLowerCase();
-						if (dc && ability && damageField) {
-							// Early immunity: skip rolling saves entirely
-							if (this.hasDamageImmunity(target, radiantType)) {
-								this.logMessage(`${target.name} is immune to ${radiantType} damage. No save required.`);
-								continue;
-							}
-							const succeeded = this.rollSavingThrow(target, ability, dc);
-							let radiantDice = this.parseDamage(String(damageField));
-							let rdmg = this.rollDamage(radiantDice || '1d6');
-							// Apply immunity and resistance
-							if (this.hasDamageResistance(target, radiantType)) {
-								const before = rdmg;
-								rdmg = Math.floor(rdmg / 2);
-								this.logMessage(`${target.name} resists ${radiantType} damage (${before} -> ${rdmg}).`);
-							}
-							if (succeeded) {
-								const half = Math.floor(rdmg / 2);
-								let apply = half;
-								if (this.hasDamageVulnerability(target, radiantType)) {
-									const before = apply;
-									apply = apply * 2;
-									this.logMessage(`${target.name} is vulnerable to ${radiantType} damage (doubled: ${before} -> ${apply}).`);
-								}
-								target.hp -= apply;
-								this.handleDamageTaken(target, attacker, radiantType);
-								this.logMessage(`${target.name} succeeds the ${ability} save vs radiant (DC ${dc}) and takes ${apply} ${radiantType} damage.`);
-							} else {
-								let apply = rdmg;
-								if (this.hasDamageVulnerability(target, radiantType)) {
-									const before = apply;
-									apply = apply * 2;
-									this.logMessage(`${target.name} is vulnerable to ${radiantType} damage (doubled: ${before} -> ${apply}).`);
-								}
-								target.hp -= apply;
-								this.handleDamageTaken(target, attacker, radiantType);
-								this.logMessage(`${target.name} fails the ${ability} save vs radiant (DC ${dc}) and takes ${apply} ${radiantType} damage.`);
-							}
-							this.updateDisplay();
-						} else {
-							this.logMessage(`Radiant effect present but missing dc/ability/one-time damage; skipping detailed processing.`);
-						}
-					} else if ((effect.type || '').toLowerCase() === 'thunder') {
-						// Support thunder effects with dc, ability, and "one-time damage"
-						const dc = effect.dc;
-						const ability = effect.ability || 'Constitution';
-						const damageField = effect['one-time damage'] || effect['damage'] || null;
-						const thunderType = (effect['ongoing damage type'] || 'thunder').toLowerCase();
-						if (dc && ability && damageField) {
-							// Early immunity: skip rolling saves entirely
-							if (this.hasDamageImmunity(target, thunderType)) {
-								this.logMessage(`${target.name} is immune to ${thunderType} damage. No save required.`);
-								continue;
-							}
-							const succeeded = this.rollSavingThrow(target, ability, dc);
-							let thunderDice = this.parseDamage(String(damageField));
-							let tdmg = this.rollDamage(thunderDice || '1d6');
-							// Apply immunity and resistance
-							if (this.hasDamageResistance(target, thunderType)) {
-								const before = tdmg;
-								tdmg = Math.floor(tdmg / 2);
-								this.logMessage(`${target.name} resists ${thunderType} damage (${before} -> ${tdmg}).`);
-							}
-							if (succeeded) {
-								const half = Math.floor(tdmg / 2);
-								let apply = half;
-								if (this.hasDamageVulnerability(target, thunderType)) {
-									const before = apply;
-									apply = apply * 2;
-									this.logMessage(`${target.name} is vulnerable to ${thunderType} damage (doubled: ${before} -> ${apply}).`);
-								}
-								target.hp -= apply;
-								this.handleDamageTaken(target, attacker, thunderType);
-								this.logMessage(`${target.name} succeeds the ${ability} save vs thunder (DC ${dc}) and takes ${apply} ${thunderType} damage.`);
-							} else {
-								let apply = tdmg;
-								if (this.hasDamageVulnerability(target, thunderType)) {
-									const before = apply;
-									apply = apply * 2;
-									this.logMessage(`${target.name} is vulnerable to ${thunderType} damage (doubled: ${before} -> ${apply}).`);
-								}
-								target.hp -= apply;
-								this.handleDamageTaken(target, attacker, thunderType);
-								this.logMessage(`${target.name} fails the ${ability} save vs thunder (DC ${dc}) and takes ${apply} ${thunderType} damage.`);
-							}
-							this.updateDisplay();
-						} else {
-							this.logMessage(`Thunder effect present but missing dc/ability/one-time damage; skipping detailed processing.`);
-						}
-					}
-				}
-			}
-
-            if (target.hp <= 0) {
-                target.isDead = true;
-                this.logMessage(`${target.name} drops to 0 HP and is defeated!`);
+        // Combine with attackerMode using a net system
+        let net = 0;
+        if (attackerMode === 'adv') net += 1;
+        if (attackerMode === 'dis') net -= 1;
+        if (attackerAdv) net += 1;
+        if (attackerDis) net -= 1;
+        if (targetAdv) net += 1;
+        if (targetDis) net -= 1;
+        let finalMode = 'normal';
+        if (net > 0) finalMode = 'adv';
+        else if (net < 0) finalMode = 'dis';
+        const roll = this.rollD20WithMode ? this.rollD20WithMode(finalMode) : (Math.floor(Math.random()*20)+1);
+        const toHit = attack["to hit"] ? parseInt(String(attack["to hit"]).replace('+','')) || 0 : 0;
+        let crit = roll === 20;
+        const total = roll + toHit;
+        if (total < target.ac) {
+            this.logMessage(`${attacker.name} (${attacker.team}) misses ${target.name} (${target.team}) with ${attackName} (roll ${total}).`);
+            // Invisibility ends when attacking
+            if (this.hasAnyCondition && this.hasAnyCondition(attacker, ['Invisible'])) {
+                this.removeConditionByName(attacker, 'Invisible');
+                this.logMessage(`${attacker.name} becomes visible after attacking.`);
+                this.updateDisplay();
             }
+            return;
+        }
+        if (!crit && isMelee && targetHas && (targetHas('Paralyzed') || targetHas('Unconscious'))) crit = true;
+        const primaryTypeField = (attack['damage type'] || '').toLowerCase();
+        const primaryType = primaryTypeField.split(' plus ')[0].trim();
+        let dmg = this.rollDamage(attack.hit || '1d6');
+        if (crit) dmg *= 2;
+        // DR stack
+        if (this.hasDamageImmunity && this.hasDamageImmunity(target, primaryType)) dmg = 0;
+        if (dmg > 0 && this.hasDamageResistance && this.hasDamageResistance(target, primaryType)) dmg = Math.floor(dmg / 2);
+        if (dmg > 0 && this.hasDamageVulnerability && this.hasDamageVulnerability(target, primaryType)) dmg = dmg * 2;
+        if (dmg > 0 && this.adjustDamageForPetrified) dmg = this.adjustDamageForPetrified(target, dmg, primaryType);
+        if (dmg > 0) {
+            target.hp -= dmg;
+            this.handleDamageTaken && this.handleDamageTaken(target, attacker, primaryType);
+            // Breaking charm if damaged by charmer or allies
+            this.tryBreakCharmedOnDamage && this.tryBreakCharmedOnDamage(target, attacker);
+            // Frightened ends on any damage
+            this.tryBreakFrightenedOnDamage && this.tryBreakFrightenedOnDamage(target);
+            // Maintainer concentration checks if target maintains conditions on others
+            this.tryBreakMaintainedConditionsOnMaintainerDamage && this.tryBreakMaintainedConditionsOnMaintainerDamage(target, dmg);
+            // If target is restrained or grappled, mark it to consider escaping on its turn
+            if (this.hasAnyCondition && (this.hasAnyCondition(target, ['Restrained']) || this.hasAnyCondition(target, ['Grappled']))) {
+                target.considerEscapeAfterHit = true;
+            }
+        }
+        this.logMessage(`${attacker.name} (${attacker.team}) hits ${target.name} (${target.team}) with ${attackName} for ${dmg}${primaryType ? ' ' + primaryType : ''}.`);
+        // Extra parts
+        if (attack.extraDamage && Array.isArray(attack.extraDamage)) {
+            for (const part of attack.extraDamage) {
+                const pType = (part.type || '').toLowerCase();
+                let pdmg = this.rollDamage(part.dice || '1d6');
+                if (this.hasDamageImmunity && this.hasDamageImmunity(target, pType)) pdmg = 0;
+                if (pdmg > 0 && this.hasDamageResistance && this.hasDamageResistance(target, pType)) pdmg = Math.floor(pdmg / 2);
+                if (pdmg > 0 && this.hasDamageVulnerability && this.hasDamageVulnerability(target, pType)) pdmg = pdmg * 2;
+                if (pdmg > 0 && this.adjustDamageForPetrified) pdmg = this.adjustDamageForPetrified(target, pdmg, pType);
+                if (pdmg > 0) {
+                    target.hp -= pdmg;
+                    this.handleDamageTaken && this.handleDamageTaken(target, attacker, pType);
+                    // Breaking charm if damaged by charmer or allies
+                    this.tryBreakCharmedOnDamage && this.tryBreakCharmedOnDamage(target, attacker);
+                    // Frightened ends on any damage
+                    this.tryBreakFrightenedOnDamage && this.tryBreakFrightenedOnDamage(target);
+                    // Maintainer concentration checks if target maintains conditions on others
+                    this.tryBreakMaintainedConditionsOnMaintainerDamage && this.tryBreakMaintainedConditionsOnMaintainerDamage(target, pdmg);
+                    // If target is restrained or grappled, mark it to consider escaping on its turn
+                    if (this.hasAnyCondition && (this.hasAnyCondition(target, ['Restrained']) || this.hasAnyCondition(target, ['Grappled']))) {
+                        target.considerEscapeAfterHit = true;
+                    }
+                }
+                this.logMessage(`${attacker.name} deals an additional ${pdmg}${pType ? ' ' + pType : ''} to ${target.name}.`);
+            }
+        }
+        // Invisibility ends when attacking
+        if (this.hasAnyCondition && this.hasAnyCondition(attacker, ['Invisible'])) {
+            this.removeConditionByName(attacker, 'Invisible');
+            this.logMessage(`${attacker.name} becomes visible after attacking.`);
             this.updateDisplay();
-		} else {
-			// Get attack name from the attack object or use a default
-			const attackName = this.getAttackName(attacker, attack);
-			this.logMessage(`${attacker.name} (${attacker.team}) misses ${target.name} (${target.team}) with ${attackName} (roll ${attackRoll}).`);
         }
-        
-        // Record attack effectiveness for learning (only if attack hit)
-        if (attackRoll >= target.ac) {
-            const totalDamageDealt = this.calculateTotalDamageDealt(attacker, target, attack);
-            const damageType = this.getAttackDamageType(attack);
-            this.recordAttackEffectiveness(attacker, target, attack, totalDamageDealt, damageType);
+        // On-hit condition effects
+        if (attack.condition_effect) {
+            const effect = attack.condition_effect;
+            const ability = effect.save_ability || 'CON';
+            const dc = parseInt(effect.save_dc || 0, 10) || 0;
+            if (dc > 0) {
+                const result = this.performSavingThrow ? this.performSavingThrow(target, ability, dc) : { success: false };
+                if (result.success) {
+                    this.logMessage(` ${target.name} (${target.team}) successfully saved against ${attackName} (${ability} DC ${dc}).`);
+                } else {
+                    const name = String(effect.condition_name || '').toLowerCase();
+                    if (name === 'paralyzed') {
+                        const cond = { name: 'Paralyzed', save_check_at_turn_end: true, end_save_dc: dc, end_save_ability: 'CON' };
+                        if (typeof effect.duration === 'string' && /1\s*minute/i.test(effect.duration)) { cond.rounds_remaining = 10; }
+                        this.applyCondition && this.applyCondition(target, cond, null, attacker.id);
+                        this.logMessage(` ${target.name} is PARALYZED! Will attempt a CON ${dc} save at end of each turn.`);
+                    } else if (name === 'blinded') {
+                        const cond = { name: 'Blinded', save_check_at_turn_end: true, end_save_dc: dc, end_save_ability: 'CON' };
+                        if (typeof effect.duration === 'string' && /1\s*minute/i.test(effect.duration)) { cond.rounds_remaining = 10; }
+                        this.applyCondition && this.applyCondition(target, cond, null, attacker.id);
+                        this.logMessage(` ${target.name} is BLINDED! Will attempt a CON ${dc} save at end of each turn.`);
+                    } else if (name === 'deafened') {
+                        const cond = { name: 'Deafened' };
+                        if (typeof effect.duration === 'string' && /1\s*round/i.test(effect.duration)) { cond.rounds_remaining = 1; }
+                        this.applyCondition && this.applyCondition(target, cond, null, attacker.id);
+                        this.logMessage(` ${target.name} is DEAFENED.`);
+                    } else if (name === 'petrified') {
+                        const cond = { name: 'Petrified', duration: 'Until cured' };
+                        this.applyCondition && this.applyCondition(target, cond, null, attacker.id);
+                        this.logMessage(` ${target.name} is PETRIFIED! Until cured.`);
+                    } else if (name === 'grappled') {
+                        const cond = { name: 'Grappled', duration: effect.duration || 'Until released', grappler_name: effect.grappler_id || attacker.name };
+                        if (effect.escape_dc) cond.escape_dc = parseInt(effect.escape_dc, 10) || 14;
+                        this.applyCondition && this.applyCondition(target, cond, null, attacker.id);
+                        this.logMessage(` ${target.name} is GRAPPLED by ${cond.grappler_name}${cond.escape_dc ? ` (escape DC ${cond.escape_dc})` : ''}.`);
+                    } else if (name === 'frightened') {
+                        const cond = { name: 'Frightened', duration: effect.duration || '1 minute', source_name: effect.fear_source || attacker.name };
+                        // Add duration tracking for 1 minute => 10 rounds
+                        if (typeof cond.duration === 'string' && /1\s*minute/i.test(cond.duration)) { cond.rounds_remaining = 10; }
+                        // End-of-turn save to shake it off, if DC provided
+                        if (dc > 0) { cond.save_check_at_turn_end = true; cond.end_save_dc = dc; cond.end_save_ability = ability; }
+                        this.applyCondition && this.applyCondition(target, cond, null, attacker.id);
+                        this.logMessage(` ${target.name} becomes FRIGHTENED of ${cond.source_name}${cond.duration ? ` for ${cond.duration}` : ''}.`);
+                    } else if (name === 'restrained') {
+                        const cond = { name: 'Restrained', duration: effect.duration || null, maintainer: effect.maintainer || attacker.name };
+                        if (effect.release_condition) cond.release_condition = effect.release_condition;
+                        this.applyCondition && this.applyCondition(target, cond, null, attacker.id);
+                        this.logMessage(` ${target.name} is RESTRAINED${cond.maintainer ? ` by ${cond.maintainer}` : ''}.`);
+                    } else if (name === 'charmed') {
+                        const cond = { name: 'Charmed', duration: effect.duration || '1 hour', charmer_name: effect.charmer_id || attacker.name };
+                        if (dc > 0) {
+                            cond.save_check_at_turn_end = true;
+                            cond.end_save_dc = dc;
+                            cond.end_save_ability = ability;
+                        }
+                        this.applyCondition && this.applyCondition(target, cond, null, attacker.id);
+                        this.logMessage(` ${target.name} is CHARMED by ${cond.charmer_name}${cond.duration ? ` for ${cond.duration}` : ''}.`);
+                    } else {
+                        this.applyCondition && this.applyCondition(target, effect.condition_name || 'Conditioned', effect.duration || null, attacker.id);
+                        this.logMessage(` ${target.name} failed their save and is now ${effect.condition_name ? effect.condition_name.toUpperCase() : 'AFFECTED'}!`);
+                    }
+                }
+            } else if (effect.condition_name) {
+                // No save specified, apply directly
+                const name = String(effect.condition_name || '').toLowerCase();
+                if (name === 'petrified') {
+                    this.applyCondition && this.applyCondition(target, { name: 'Petrified', duration: 'Until cured' }, null, attacker.id);
+                    this.logMessage(` ${target.name} is PETRIFIED! Until cured.`);
+                } else if (name === 'restrained') {
+                    const cond = { name: 'Restrained', duration: effect.duration || null, maintainer: effect.maintainer || attacker.name };
+                    if (effect.release_condition) cond.release_condition = effect.release_condition;
+                    this.applyCondition && this.applyCondition(target, cond, null, attacker.id);
+                    this.logMessage(` ${target.name} is RESTRAINED${cond.maintainer ? ` by ${cond.maintainer}` : ''}.`);
+                } else if (name === 'grappled') {
+                    const cond = { name: 'Grappled', duration: effect.duration || 'Until released', grappler_name: effect.grappler_id || attacker.name };
+                    if (effect.escape_dc) cond.escape_dc = parseInt(effect.escape_dc, 10) || 14;
+                    this.applyCondition && this.applyCondition(target, cond, null, attacker.id);
+                    this.logMessage(` ${target.name} is GRAPPLED by ${cond.grappler_name}${cond.escape_dc ? ` (escape DC ${cond.escape_dc})` : ''}.`);
+                } else if (name === 'frightened') {
+                    const cond = { name: 'Frightened', duration: effect.duration || '1 minute', source_name: effect.fear_source || attacker.name };
+                    if (typeof cond.duration === 'string' && /1\s*minute/i.test(cond.duration)) { cond.rounds_remaining = 10; }
+                    const dc2 = parseInt(effect.save_dc || 0, 10) || 0;
+                    const abil2 = effect.save_ability || 'WIS';
+                    if (dc2 > 0) { cond.save_check_at_turn_end = true; cond.end_save_dc = dc2; cond.end_save_ability = abil2; }
+                    this.applyCondition && this.applyCondition(target, cond, null, attacker.id);
+                    this.logMessage(` ${target.name} becomes FRIGHTENED of ${cond.source_name}${cond.duration ? ` for ${cond.duration}` : ''}.`);
+                } else if (name === 'charmed') {
+                    const cond = { name: 'Charmed', duration: effect.duration || '1 hour', charmer_name: effect.charmer_id || attacker.name };
+                    const dc2 = parseInt(effect.save_dc || 0, 10) || 0;
+                    const abil2 = effect.save_ability || 'WIS';
+                    if (dc2 > 0) {
+                        cond.save_check_at_turn_end = true;
+                        cond.end_save_dc = dc2;
+                        cond.end_save_ability = abil2;
+                    }
+                    this.applyCondition && this.applyCondition(target, cond, null, attacker.id);
+                    this.logMessage(` ${target.name} is CHARMED by ${cond.charmer_name}${cond.duration ? ` for ${cond.duration}` : ''}.`);
+                } else {
+                    this.applyCondition && this.applyCondition(target, effect.condition_name, effect.duration || null, attacker.id);
+                    this.logMessage(` ${target.name} is now ${effect.condition_name.toUpperCase()}${effect.duration ? ` for ${effect.duration}` : ''}.`);
+                }
+            }
         }
+
+        // end performAttack
     }
 
+    // Dice utilities
     rollDamage(damageString) {
-        const match = damageString.match(/(\d+)d(\d+)([+-]\d+)?/);
+        const match = String(damageString || '').match(/(\d+)d(\d+)([+-]\d+)?/);
         if (!match) return 0;
-
-        const numDice = parseInt(match[1]);
-        const dieSize = parseInt(match[2]);
-        const modifier = match[3] ? parseInt(match[3]) : 0;
-
+        const numDice = parseInt(match[1], 10) || 0;
+        const dieSize = parseInt(match[2], 10) || 0;
+        const modifier = match[3] ? parseInt(match[3], 10) : 0;
         let total = 0;
         for (let i = 0; i < numDice; i++) {
             total += this.rollDice(dieSize);
@@ -2289,131 +2080,8 @@ class CombatSimulator {
     }
 
     rollDice(sides) {
-        return Math.floor(Math.random() * sides) + 1;
-    }
-
-    // Helper method to get attack name from attacker and attack object
-    getAttackName(attacker, attack) {
-        // If attacker has attacks object, find the attack name by matching the attack object
-        if (attacker.attacks && typeof attacker.attacks === 'object') {
-            for (const [attackName, attackData] of Object.entries(attacker.attacks)) {
-                if (attackData === attack) {
-                    return attackName;
-                }
-            }
-        }
-        
-        // Fallback: try to get attack name from attack object properties
-        if (attack && attack.name) {
-            return attack.name;
-        }
-        
-        // Final fallback
-        return 'attack';
-    }
-
-    // Helper method to format damage message with resistance information
-    formatDamageMessage(attacker, target, damage, damageType, originalDamage = null) {
-        let message = `${attacker.name} deals ${damage} ${damageType || 'damage'} to ${target.name}`;
-        
-        // Add resistance information if applicable
-        if (originalDamage && originalDamage > damage && this.hasDamageResistance(target, damageType)) {
-            message += ` (resistance: ${originalDamage - damage})`;
-        }
-        
-        message += '.';
-        return message;
-    }
-
-    // Track ineffective attacks for learning purposes
-    recordAttackEffectiveness(attacker, target, attack, damageDealt, damageType) {
-        if (!attacker.attackMemory) {
-            attacker.attackMemory = {};
-        }
-        
-        const targetId = target.id;
-        if (!attacker.attackMemory[targetId]) {
-            attacker.attackMemory[targetId] = {};
-        }
-        
-        const attackName = this.getAttackName(attacker, attack);
-        const effectiveness = this.calculateAttackEffectiveness(attack);
-        
-        // Consider attack ineffective if:
-        // 1. No damage dealt (0 damage)
-        // 2. Very low damage compared to attack effectiveness (less than 25% of expected)
-        const isIneffective = damageDealt === 0 || damageDealt < (effectiveness * 0.25);
-        
-        if (isIneffective) {
-            attacker.attackMemory[targetId][attackName] = {
-                ineffective: true,
-                damageType: damageType,
-                lastUsed: Date.now(),
-                attempts: (attacker.attackMemory[targetId][attackName]?.attempts || 0) + 1
-            };
-            
-            // Log the learning
-            const intScore = parseInt(attacker.originalData?.int || 10);
-            const wisScore = parseInt(attacker.originalData?.wis || 10);
-            const higherMentalScore = Math.max(intScore, wisScore);
-            
-            if (higherMentalScore >= 12) {
-                this.logMessage(`${attacker.name} remembers that ${attackName} was ineffective against ${target.name}.`);
-            }
-        } else {
-            // Remove from ineffective list if attack was effective
-            if (attacker.attackMemory[targetId][attackName]) {
-                delete attacker.attackMemory[targetId][attackName];
-            }
-        }
-    }
-
-    // Check if an attack is remembered as ineffective against a specific target
-    isAttackRememberedAsIneffective(attacker, target, attack) {
-        if (!attacker.attackMemory || !attacker.attackMemory[target.id]) {
-            return false;
-        }
-        
-        const attackName = this.getAttackName(attacker, attack);
-        const memory = attacker.attackMemory[target.id][attackName];
-        
-        if (!memory || !memory.ineffective) {
-            return false;
-        }
-        
-        // Check if memory is recent (within last 5 rounds)
-        const memoryAge = Date.now() - memory.lastUsed;
-        const fiveRoundsMs = 5 * 60 * 1000; // 5 minutes in milliseconds
-        
-        return memoryAge < fiveRoundsMs;
-    }
-
-    // Calculate total damage dealt by an attack (for learning purposes)
-    calculateTotalDamageDealt(attacker, target, attack) {
-        // This is a simplified calculation - in a real implementation, 
-        // you'd track the actual damage dealt during the attack
-        let totalDamage = 0;
-        
-        // For regular attacks
-        if (attack.hit) {
-            totalDamage += this.parseAverageDamage(attack.hit);
-        }
-        
-        // For save-based attacks
-        if (attack.save && attack.save.damage) {
-            totalDamage += this.parseAverageDamage(attack.save.damage);
-        }
-        
-        // For effects-based attacks
-        if (attack.effects && Array.isArray(attack.effects)) {
-            for (const effect of attack.effects) {
-                if (effect['one-time damage']) {
-                    totalDamage += this.parseAverageDamage(effect['one-time damage']);
-                }
-            }
-        }
-        
-        return totalDamage;
+        const n = parseInt(sides, 10) || 20;
+        return Math.floor(Math.random() * n) + 1;
     }
 
     // Get the primary damage type of an attack
@@ -2443,6 +2111,58 @@ class CombatSimulator {
         return 'unknown';
     }
 
+    // Learning helpers used by selectAttackForSimulation
+    isAttackRememberedAsIneffective(attacker, target, attack) {
+        if (!attacker || !target || !attack) return false;
+        const memoryRoot = attacker.attackMemory || {};
+        const targetMemory = memoryRoot[target.id] || {};
+        const attackName = this.getAttackName(attacker, attack);
+        const mem = targetMemory[attackName];
+        if (!mem || !mem.ineffective) return false;
+        // Consider memory recent if within last 5 minutes (~5 rounds)
+        const ageMs = Date.now() - (mem.lastUsed || 0);
+        return ageMs < 5 * 60 * 1000;
+    }
+
+    recordAttackEffectiveness(attacker, target, attack, damageDealt, damageType) {
+        if (!attacker || !target || !attack) return;
+        if (!attacker.attackMemory) attacker.attackMemory = {};
+        if (!attacker.attackMemory[target.id]) attacker.attackMemory[target.id] = {};
+        const attackName = this.getAttackName(attacker, attack);
+        const effectiveness = this.calculateAttackEffectiveness(attack);
+        const ineffective = (damageDealt === 0) || (damageDealt < (effectiveness * 0.25));
+        if (ineffective) {
+            const existing = attacker.attackMemory[target.id][attackName] || {};
+            attacker.attackMemory[target.id][attackName] = {
+                ineffective: true,
+                damageType: damageType || existing.damageType || 'unknown',
+                lastUsed: Date.now(),
+                attempts: (existing.attempts || 0) + 1,
+            };
+            // Optional log for smarter creatures
+            const intScore = parseInt(attacker.originalData?.int || 10, 10);
+            const wisScore = parseInt(attacker.originalData?.wis || 10, 10);
+            if (Math.max(intScore, wisScore) >= 12) {
+                this.logMessage(`${attacker.name} remembers that ${attackName} was ineffective against ${target.name}.`);
+            }
+        } else {
+            if (attacker.attackMemory[target.id][attackName]) delete attacker.attackMemory[target.id][attackName];
+        }
+    }
+
+    calculateTotalDamageDealt(attacker, target, attack) {
+        // Estimate potential damage for learning; uses average damage parsing as a proxy
+        let total = 0;
+        if (attack.hit) total += this.parseAverageDamage(attack.hit);
+        if (attack.save && attack.save.damage) total += this.parseAverageDamage(attack.save.damage);
+        if (attack.effects && Array.isArray(attack.effects)) {
+            for (const effect of attack.effects) {
+                if (effect['one-time damage']) total += this.parseAverageDamage(effect['one-time damage']);
+            }
+        }
+        return total;
+    }
+
     // Spell System (Basic)
     castSpell() {
         const currentCombatant = this.getCurrentCombatant();
@@ -2455,6 +2175,12 @@ class CombatSimulator {
 
         // Basic spell implementation - could be expanded
         this.logMessage(`${currentCombatant.name} casts a spell! (Spell system not fully implemented yet)`);
+        // Invisibility ends on spellcasting
+        if (this.hasAnyCondition(currentCombatant, ['Invisible'])) {
+            this.removeConditionByName(currentCombatant, 'Invisible');
+            this.logMessage(`${currentCombatant.name} becomes visible after casting a spell.`);
+            this.updateDisplay();
+        }
         this.endTurn();
     }
 
@@ -2490,7 +2216,11 @@ class CombatSimulator {
             });
             const teams = Object.keys(aliveTeams);
             if (teams.length <= 1) {
-                this.logMessage(`Battle ended! Winning team: ${teams[0] || 'None'}`, 'critical');
+                if (teams.length === 0) {
+                    this.logMessage('Battle ended in a draw!', 'critical');
+                } else {
+                    this.logMessage(`Battle ended! Winning team: ${teams[0]}`, 'critical');
+                }
                 clearInterval(interval);
                 this.combatActive = false;
                 this.updateActionButtons();
@@ -2504,10 +2234,60 @@ class CombatSimulator {
                 return;
             }
             this.logMessage(`Turn ${this.currentTurnIndex + 1}: ${currentCombatant.name} (${currentCombatant.team}) acts.`);
-            // Find valid targets
-            const targets = this.initiativeOrder.filter(c => 
-                c.id !== currentCombatant.id && !c.isDead && c.team !== currentCombatant.team
+            // If restrained, decide whether to attempt to escape before attacking
+            if (this.hasAnyCondition(currentCombatant, ['Restrained'])) {
+                // Only one escape decision per creature per round
+                if (currentCombatant.lastEscapeDecisionRound !== this.combatRound) {
+                    currentCombatant.lastEscapeDecisionRound = this.combatRound;
+                    if (this.shouldAttemptEscapeNow(currentCombatant)) {
+                        this.logMessage(`${currentCombatant.name} (${currentCombatant.team}) attempts to escape Restraint before attacking.`);
+                        this.attemptEscapeRestrained();
+                        // Clear flag for next turns regardless of outcome
+                        currentCombatant.considerEscapeAfterHit = false;
+                        this.endTurn();
+                        return;
+                    }
+                    // If not attempting this turn, clear the post-hit urge after one turn
+                    this.logMessage(`${currentCombatant.name} (${currentCombatant.team}) remains Restrained and chooses not to attempt escape this turn.`);
+                    currentCombatant.considerEscapeAfterHit = false;
+                }
+            }
+            // If grappled (but not restrained), decide whether to attempt to escape before attacking
+            else if (this.hasAnyCondition(currentCombatant, ['Grappled'])) {
+                if (currentCombatant.lastGrappleEscapeDecisionRound !== this.combatRound) {
+                    currentCombatant.lastGrappleEscapeDecisionRound = this.combatRound;
+                    if (this.shouldAttemptEscapeNow(currentCombatant)) {
+                        this.logMessage(`${currentCombatant.name} (${currentCombatant.team}) attempts to escape Grapple before attacking.`);
+                        this.attemptEscapeGrappled();
+                        currentCombatant.considerEscapeAfterHit = false;
+                        this.endTurn();
+                        return;
+                    }
+                    this.logMessage(`${currentCombatant.name} (${currentCombatant.team}) remains Grappled and chooses not to attempt escape this turn.`);
+                    currentCombatant.considerEscapeAfterHit = false;
+                }
+            }
+            // Find valid targets (avoid charmer if attacker is Charmed)
+            let targets = this.initiativeOrder.filter(c => 
+                c.id !== currentCombatant.id && !c.isDead && c.team !== currentCombatant.team &&
+                !(this.isCharmedAgainst && this.isCharmedAgainst(currentCombatant, c)) &&
+                // Targeting restriction: cannot directly target Invisible enemies without Blindsight or detection this turn
+                !(this.getConditionObject && this.getConditionObject(c, 'Invisible') && !((this.hasBlindsight && this.hasBlindsight(currentCombatant)) || (Array.isArray(currentCombatant.detectedInvisibleIds) && currentCombatant.detectedInvisibleIds.includes(c.id))))
             );
+            // If no targets due to invisibility, try to detect if capable by spending an action
+            if (targets.length === 0) {
+                const anyInvisibleEnemies = this.initiativeOrder.some(c => c && !c.isDead && c.team !== currentCombatant.team && this.getConditionObject && this.getConditionObject(c, 'Invisible'));
+                if (anyInvisibleEnemies && this.canDetectInvisible(currentCombatant)) {
+                    const didDetect = this.detectInvisibleAction();
+                    if (didDetect) {
+                        targets = this.initiativeOrder.filter(c => 
+                            c.id !== currentCombatant.id && !c.isDead && c.team !== currentCombatant.team &&
+                            !(this.isCharmedAgainst && this.isCharmedAgainst(currentCombatant, c)) &&
+                            !(this.getConditionObject && this.getConditionObject(c, 'Invisible') && !((this.hasBlindsight && this.hasBlindsight(currentCombatant)) || (Array.isArray(currentCombatant.detectedInvisibleIds) && currentCombatant.detectedInvisibleIds.includes(c.id))))
+                        );
+                    }
+                }
+            }
             if (targets.length === 0) {
                 this.logMessage(`${currentCombatant.name} (${currentCombatant.team}) has no valid targets.`);
                 this.endTurn();
@@ -2675,6 +2455,19 @@ class CombatSimulator {
     }
 
     logMessage(message, type = 'normal') {
+        // Inject team labels for any known combatant names not already followed by a team label
+        try {
+            const everyone = (this.initiativeOrder && this.initiativeOrder.length > 0) ? this.initiativeOrder : (this.combatants || []);
+            const seen = new Set();
+            for (const c of everyone) {
+                if (!c || !c.name || !c.team) continue;
+                if (seen.has(c.name)) continue; // avoid duplicate replacements for same name
+                seen.add(c.name);
+                const pattern = new RegExp(`\\b${escapeRegExp(c.name)}\\b(?!\\s*\\()`, 'g');
+                message = message.replace(pattern, `${c.name} (${c.team})`);
+            }
+        } catch (_) { /* best-effort labeling; ignore errors */ }
+
         const timestamp = new Date().toLocaleTimeString();
         const logEntry = $(`<div class="log-entry ${type}">[${timestamp}] ${message}</div>`);
         // Prepend so latest is at the top
@@ -2684,6 +2477,10 @@ class CombatSimulator {
 
     // Display Updates
     updateDisplay() {
+        // Normalize Exhaustion-derived stats before rendering
+        for (const c of this.combatants) {
+            this.applyExhaustionDerivedStats(c);
+        }
         this.updateCharacterList();
         this.updateInitiativeList();
         this.updateCurrentTurn();
@@ -2752,9 +2549,21 @@ class CombatSimulator {
         list.forEach((combatant, index) => {
             const isCurrentTurn = this.combatActive && index === this.currentTurnIndex;
             const teamClass = combatant.team.toLowerCase().replace(' ', '-');
+            const conds = Array.isArray(combatant.conditions) ? combatant.conditions : [];
+            const condBadges = (!combatant.isDead ? conds.map(c => {
+                const n = typeof c === 'string' ? c : (c && c.name) || '';
+                if (!n) return '';
+                const upper = String(n).toUpperCase();
+                if (typeof c === 'object' && /exhaustion/i.test(n) && typeof c.level !== 'undefined') {
+                    const lvl = parseInt(c.level, 10) || 0;
+                    return `<span class="condition-badge">[EXHAUSTION L${lvl}]</span>`;
+                }
+                return `<span class="condition-badge">[${upper}]</span>`;
+            }) : []).filter(Boolean).join(' ');
+            const conditionsHtml = (!combatant.isDead && condBadges) ? `<span class="conditions"> ${condBadges}</span>` : '';
             const initiativeItem = $(`
                 <div class="initiative-item ${isCurrentTurn ? 'current-turn' : ''} ${combatant.isDead ? 'dead' : ''} ${teamClass}">
-                    <div class="name">${combatant.name} <span class="team-indicator ${teamClass}">${combatant.team}</span> ${combatant.frightened ? '<span class="condition-badge">[FRIGHTENED]</span>' : ''}</div>
+                    <div class="name">${combatant.name} <span class="team-indicator ${teamClass}">${combatant.team}</span> ${combatant.frightened ? '<span class="condition-badge">[FRIGHTENED]</span>' : ''} ${conditionsHtml}</div>
                     <div class="stats">
                         <span>Initiative: ${combatant.initiative !== null ? combatant.initiative : '-'}</span>
                         <span>AC: ${combatant.ac}</span>
@@ -2918,6 +2727,11 @@ class CombatSimulator {
         
         document.body.removeChild(textArea);
     }
+}
+
+// Escape a string for use inside a RegExp pattern (used by logMessage team labeling)
+function escapeRegExp(string) {
+    return String(string).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
 // Returns the ability modifier for a given score (e.g., dexterity)
