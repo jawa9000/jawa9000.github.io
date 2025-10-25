@@ -2,7 +2,7 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
 
 ## Change Log
 
-* 10/25/25: 0.29.4
+* 10/25/25: 0.30.5
     * Implemented petrified, charmed, restrained, frightened, grappled, incapacitated, invisibility, and exhaustion conditions.
     * Updated the monster list display to include which conditions it has.
     * Added logic that a restrained monster should decide to break free from the restraint.
@@ -10,6 +10,8 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
     * Added a temporary keybinding (Ctrl+Shift+M) to add 3 monsters to each team, roll initiative, and start combat.
     * Updated the combat logic to allow for a draw.
     * Implemented the surprise round system.
+    * Implemented the time tracking system.
+    * Updated the UI to disable buttons that should not be available during combat.
 * 10/24/25: 0.18.0
     * Implemented the stunned, poisoned, slowed, paralyzed, blinded, deafened, and prone conditions.
 * 10/23/25: 0.11.2
@@ -79,7 +81,24 @@ Add the following mechanics and/or features:
     * spell casting
     * Battle cry
     * luring song
-* Some senses could offset some effects (like darkness or magical darkeness doesn't work against blindsight)
+* Standard actions to be implemented:
+  * move
+  * dash
+  * disengage
+  * cast spell
+  * dodge
+  * help
+  * search
+  * hide
+  * ready
+  * use an object
+  * Athletics (Grapple): As part of the Attack action, you can replace one of your attacks with a special melee attack to grapple a creature. You make a Strength (Athletics) check contested by the target's Strength (Athletics) or Dexterity (Acrobatics) check.
+  * Athletics (Shove): Similar to grappling, you can replace one of your attacks with a special melee attack to shove a creature. This is a Strength (Athletics) check contested by the target's Strength (Athletics) or Dexterity (Acrobatics).
+  * Stealth (Hide): When you take the Hide action, you make a Dexterity (Stealth) check to conceal yourself. The check is contested by an enemy's Perception check.
+  * Investigation/Perception (Search): When you take the Search action, you use your Investigation or Perception to find something. For example, searching for a secret door or a hidden trap.
+  * Performance/Intimidation (Influence): Under the Dungeons & Dragons 2024 Player's Handbook rules, monsters can use the "Influence" action, which involves Charisma (Persuasion or Intimidation) checks, to sway players who are hesitant to act. 
+
+* Some senses could offset some effects (like darkness or magical darkeness doesn't work against blindsight; somewhat implemented)
 * Advantage/Disadvantage on attack rolls
 * Initiative bonuses from feats or abilities (attribute bonuses have already been implemented)
 * keep track of spell slots for monsters

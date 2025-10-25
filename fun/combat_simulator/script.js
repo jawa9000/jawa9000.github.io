@@ -1,14 +1,9 @@
-        // Attacker: Exhaustion level 3+ -> Disadvantage on attack rolls
-        const attackerExLvl = this.getExhaustionLevel ? this.getExhaustionLevel(attacker) : 0;
-        if (attackerExLvl >= 3) {
-            attackerDis = true;
-            this.logMessage(`🎯 Disadvantage: ${attacker.name} is Exhausted (level ${attackerExLvl}).`);
-        }
 class CombatSimulator {
     constructor() {
         this.combatants = [];
         this.currentTurnIndex = 0;
         this.combatActive = false;
+        this.simulationRunning = false;
         this.combatRound = 0;
         this.initiativeOrder = [];
         this.currentTeamFilter = 'All Teams';
@@ -18,6 +13,28 @@ class CombatSimulator {
         
         this.initializeEventListeners();
         this.updateDisplay();
+    }
+
+    // Decrement and expire timed conditions once per round (duration measured in rounds)
+    processTimedConditions() {
+        try {
+            for (const combatant of this.initiativeOrder) {
+                if (!combatant || !Array.isArray(combatant.conditions)) continue;
+                const next = [];
+                for (const cond of combatant.conditions) {
+                    if (cond && typeof cond === 'object' && typeof cond.duration === 'number' && cond.duration > 0) {
+                        cond.duration -= 1;
+                        if (cond.duration <= 0) {
+                            const nm = cond.name || 'condition';
+                            this.logMessage(`⌛ ${combatant.name}'s ${nm} expires.`);
+                            continue; // drop expired
+                        }
+                    }
+                    next.push(cond);
+                }
+                combatant.conditions = next;
+            }
+        } catch {}
     }
 
     // Remove Grappled conditions maintained by any incapacitated grappler
@@ -232,7 +249,7 @@ class CombatSimulator {
         // Surprise toggle button (cycles None -> Team A -> Team B)
         const ensureSurpriseToggle = () => {
             if ($('#surpriseToggleBtn').length === 0) {
-                const btn = $('<button id="surpriseToggleBtn" class="btn btn-warning" style="margin-left:8px;">Surprise: None</button>');
+                const btn = $('<button id="surpriseToggleBtn" class="btn btn-warning btn-ml-8">Surprise: None</button>');
                 if ($('#rollInitiative').length > 0) {
                     $('#rollInitiative').after(btn);
                 } else {
@@ -244,12 +261,11 @@ class CombatSimulator {
             $('#surpriseToggleBtn').text(label);
         };
         ensureSurpriseToggle();
-        // Initial enable/disable based on team readiness
+        // Initial enable/disable: enabled until simulation starts
         const updateSurpriseToggleState = () => {
-            const hasA = this.combatants.some(c => c && c.team === 'Team A');
-            const hasB = this.combatants.some(c => c && c.team === 'Team B');
-            const enable = hasA && hasB;
-            $('#surpriseToggleBtn').prop('disabled', !enable).attr('title', enable ? '' : 'Add monsters to both Team A and Team B to enable Surprise');
+            const enable = !this.simulationRunning;
+            const title = this.simulationRunning ? 'Disabled during simulation' : '';
+            $('#surpriseToggleBtn').prop('disabled', !enable).attr('title', title);
         };
         updateSurpriseToggleState();
         $(document).on('click', '#surpriseToggleBtn', () => {
@@ -341,7 +357,7 @@ class CombatSimulator {
                 <div style="margin-top:10px;">
                     <label for="monsterCountInput">Number to Add:</label>
                     <input type="number" id="monsterCountInput" min="1" value="1" style="width:60px; margin-left:5px;">
-                    <button id="addMonsterBtn" class="btn btn-primary" style="margin-left:10px;">Add Monster(s)</button>
+                    <button id="addMonsterBtn" class="btn btn-primary btn-ml-10">Add Monster(s)</button>
                 </div>
             `);
         }
@@ -1317,9 +1333,17 @@ class CombatSimulator {
             this.currentTurnIndex = 0;
             const prevRound = this.combatRound;
             this.combatRound++;
+            // Tick down any timed conditions at start of a new round
+            this.processTimedConditions();
             if (prevRound === 1 && this.surprisedTeam) {
                 this.logMessage('Surprise round ends. Creatures act normally.');
                 this.surprisedTeam = null;
+            }
+            // Log in-combat time elapsed using 1 round = 6 seconds
+            const elapsedRounds = prevRound; // full rounds completed
+            const elapsedSeconds = elapsedRounds * 6;
+            if (elapsedRounds > 0) {
+                this.logMessage(`⏱️ Time elapsed: ${elapsedRounds} round${elapsedRounds!==1?'s':''} (${elapsedSeconds} seconds).`);
             }
             this.logMessage(`Combat Round ${this.combatRound} begins!`);
         }
@@ -2008,15 +2032,15 @@ class CombatSimulator {
                 if (result.success) {
                     this.logMessage(` ${target.name} (${target.team}) successfully saved against ${attackName} (${ability} DC ${dc}).`);
                 } else {
+                    this.logMessage(` ${target.name} (${target.team}) fails the ${ability} save against ${attackName}.`);
+                    const durRounds = this.parseDurationToRounds(effect.duration);
+                    const condEntry = { name: effect.condition_name || effect.condition || 'Condition', level_gained: effect.level_gained };
+                    if (durRounds !== null) condEntry.duration = durRounds;
+                    this.applyCondition && this.applyCondition(target, condEntry, null, attacker?.id);
                     const name = String(effect.condition_name || '').toLowerCase();
-                    if (name === 'paralyzed') {
-                        const cond = { name: 'Paralyzed', save_check_at_turn_end: true, end_save_dc: dc, end_save_ability: 'CON' };
-                        if (typeof effect.duration === 'string' && /1\s*minute/i.test(effect.duration)) { cond.rounds_remaining = 10; }
-                        this.applyCondition && this.applyCondition(target, cond, null, attacker.id);
-                        this.logMessage(` ${target.name} is PARALYZED! Will attempt a CON ${dc} save at end of each turn.`);
-                    } else if (name === 'blinded') {
-                        const cond = { name: 'Blinded', save_check_at_turn_end: true, end_save_dc: dc, end_save_ability: 'CON' };
-                        if (typeof effect.duration === 'string' && /1\s*minute/i.test(effect.duration)) { cond.rounds_remaining = 10; }
+                    if (name === 'blinded') {
+                        const cond = { name: 'Blinded' };
+                        if (typeof effect.duration === 'string' && /1\s*round/i.test(effect.duration)) { cond.rounds_remaining = 1; }
                         this.applyCondition && this.applyCondition(target, cond, null, attacker.id);
                         this.logMessage(` ${target.name} is BLINDED! Will attempt a CON ${dc} save at end of each turn.`);
                     } else if (name === 'deafened') {
@@ -2244,6 +2268,12 @@ class CombatSimulator {
             return;
         }
         this.logMessage('Battle simulation started!', 'attack');
+        this.simulationRunning = true;
+        try {
+            $('#rollInitiative').prop('disabled', true).attr('title', 'Disabled during simulation');
+            $('#addMonster').prop('disabled', true).attr('title', 'Disabled during simulation');
+            $('#surpriseToggleBtn').prop('disabled', true).attr('title', 'Disabled during simulation');
+        } catch {}
         // Debug: Log initiative order
         this.logMessage(`Initiative order: ${this.initiativeOrder.map(c => `${c.name} (${c.team})`).join(', ')}`);
         let interval = setInterval(() => {
@@ -2263,6 +2293,12 @@ class CombatSimulator {
                 }
                 clearInterval(interval);
                 this.combatActive = false;
+                this.simulationRunning = false;
+                try {
+                    $('#rollInitiative').prop('disabled', false).attr('title', '');
+                    $('#addMonster').prop('disabled', false).attr('title', '');
+                    $('#surpriseToggleBtn').prop('disabled', false).attr('title', '');
+                } catch {}
                 this.updateActionButtons();
                 return;
             }
@@ -2521,12 +2557,14 @@ class CombatSimulator {
         for (const c of this.combatants) {
             this.applyExhaustionDerivedStats(c);
         }
-        // Keep Surprise toggle state in sync with team readiness
+        // Keep Surprise toggle state in sync with simulation status
         try {
-            const hasA = this.combatants.some(c => c && c.team === 'Team A');
-            const hasB = this.combatants.some(c => c && c.team === 'Team B');
-            const enable = hasA && hasB;
-            $('#surpriseToggleBtn').prop('disabled', !enable).attr('title', enable ? '' : 'Add monsters to both Team A and Team B to enable Surprise');
+            const enable = !this.simulationRunning;
+            const title = this.simulationRunning ? 'Disabled during simulation' : '';
+            $('#surpriseToggleBtn').prop('disabled', !enable).attr('title', title);
+            // Only disable Add Monster and Roll Initiative while simulation is running
+            $('#rollInitiative').prop('disabled', !!this.simulationRunning).attr('title', this.simulationRunning ? 'Disabled during simulation' : '');
+            $('#addMonster').prop('disabled', !!this.simulationRunning).attr('title', this.simulationRunning ? 'Disabled during simulation' : '');
         } catch {}
         this.updateCharacterList();
         this.updateInitiativeList();
@@ -2550,8 +2588,8 @@ class CombatSimulator {
                 <div class="combatant ${teamClass}" data-index="${index}">
                     <span class="combatant-name">${combatant.name}</span>
                     <span class="combatant-team"> (${combatant.team})</span>
-                    <button class="add-multiple-btn" style="margin-left:10px;">Add More</button>
-                    <button class="remove-monster-btn" style="margin-left:5px; color:#fff; background:#e74c3c; border:none; padding:2px 8px; border-radius:3px;">Remove</button>
+                    <button class="add-multiple-btn btn-ml-10">Add More</button>
+                    <button class="remove-monster-btn btn-danger-mini btn-ml-5">Remove</button>
                 </div>
             `);
 
@@ -2869,7 +2907,7 @@ let combatSim;
 $(document).ready(() => {
     // Add Simulate Battle button to controls
     if ($('#simulateBattleBtn').length === 0) {
-        $('<button id="simulateBattleBtn" class="btn btn-action" style="margin-left:10px;" disabled>Simulate Battle</button>')
+        $('<button id="simulateBattleBtn" class="btn btn-action btn-ml-10" disabled>Simulate Battle</button>')
             .insertAfter('#attackBtn');
     }
     combatSim = new CombatSimulator();
