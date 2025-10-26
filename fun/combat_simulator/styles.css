@@ -362,7 +362,7 @@ header h1 {
 
 .no-combatants, .no-characters {
     text-align: center;
-    color: #7f8c8d;
+    color: #23272f;
     font-style: italic;
     padding: 20px;
 }
@@ -675,9 +675,11 @@ header h1 {
 }
 
 .monster-item.selected {
-    background: #3498db;
-    color: white;
-    border-color: #2980b9;
+    background: linear-gradient(45deg, var(--color-primary), var(--color-primary-dark));
+    color: #23272f;
+    /* background: #3498db;
+    color: white; */
+    /* border-color: #2980b9; */
 }
 
 .monster-info {
@@ -692,14 +694,14 @@ header h1 {
 
 .monster-details {
     font-size: 0.9em;
-    color: #6c757d;
+    color: #23272f;
     display: flex;
     gap: 15px;
     flex-wrap: wrap;
 }
 
 .monster-item.selected .monster-details {
-    color: #e9ecef;
+    color: #23272f;
 }
 
 .monster-stats {
