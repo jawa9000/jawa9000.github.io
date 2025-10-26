@@ -113,6 +113,8 @@ const monsters = [
             "type": "Action (Save)",
             "reach": "10 ft.",
             "target": "one creature",
+            magical: true,
+            silvered: true,
             "damage type": "Thunder",
             "effects": [
                 {
