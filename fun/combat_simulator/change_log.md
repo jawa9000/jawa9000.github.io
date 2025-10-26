@@ -2,9 +2,10 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
 
 ## Change Log
 
-* 10/26/25: 0.34.14
+* 10/26/25: 0.34.16
     * More UI fixes to align with new color scheme.
     * Implemented Intimidation action and logic.
+    * Updated the UI for Team A and Team B in the div.character-panel element and the team view buttons.
 * 10/25/25: 0.33.13
     * Implemented petrified, charmed, restrained, frightened, grappled, incapacitated, invisibility, confused, and exhaustion conditions.
     * Updated the monster list display to include which conditions it has.
@@ -172,6 +173,7 @@ target.currentHp -= finalDamage;
 In monsters.js, update the speed, skills, saving throws, senses properties to use an object instead of a string and then update script.js and Encounter_Builder/main.js to handle this change. Also, update the prompt that is used to generate monster JSON data to reflect this change.
 
 Add the following mechanics and/or features:
+* Update the prompt JSON template to include templates for legendary resistance, recharge, frightful presence, condition effects, ongoing effects, and  one-time effect.
 * confused state doesn't invoke random movement as movement isn't currently implemented.
 * Add functionality where a monster can use their skills as actions. They should decide if they want to use it and if it is appropriate to use it.
 * Morale system for NPCs/monsters
@@ -249,7 +251,7 @@ Add the following mechanics and/or features:
 * Hiding versus perception
 * Save/load combat sessions
 * Export combat logs (beyond copy to clipboard functionality)
-
+* maybe use "traits" property as part of the monster's decision making process?
 * Update monster picker app JS to allow for arrays to be read from the "damage immunities" property.
 * Conditions (e.g., stunned, poisoned) that affect combatants
   * Unconscious - skipping this one for now.
