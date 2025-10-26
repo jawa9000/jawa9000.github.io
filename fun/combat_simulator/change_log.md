@@ -2,6 +2,9 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
 
 ## Change Log
 
+* 10/26/25: 0.34.14
+    * More UI fixes to align with new color scheme.
+    * Implemented Intimidation action and logic.
 * 10/25/25: 0.33.13
     * Implemented petrified, charmed, restrained, frightened, grappled, incapacitated, invisibility, confused, and exhaustion conditions.
     * Updated the monster list display to include which conditions it has.
@@ -21,8 +24,6 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
     * Fixed issue where condition effects were not showing up.
     * Added the dead and survived badges to the initiative list.
     * Adjusted the UI of the team buttons.
-
-    >> conditions seems to be broken as it the monsters never pick them. Double check this later.
 * 10/24/25: 0.18.0
     * Implemented the stunned, poisoned, slowed, paralyzed, blinded, deafened, and prone conditions.
 * 10/23/25: 0.11.2
@@ -60,8 +61,111 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
 
 ## Active Projects
 
-* Intimidation
+* immunity to normal and non-silvered weapon damage
+https://gemini.google.com/app/60f570356046a2cc
+// --- PROPOSED MODIFICATION TO script.js (INSIDE CombatSimulator CLASS) ---
+
+// 1. Add the following function inside the CombatSimulator class.
+// This function must be called by the main attack processing logic (e.g., handleAttackAction).
+
+    /**
+     * Helper to process damage against a target, checking for immunities and resistances.
+     * This function should be placed inside the CombatSimulator class.
+     *
+     * IMPORTANT: The calling function (e.g., handleAttackAction) must now pass:
+     * 1. rawDamage
+     * 2. damageType (e.g., 'Slashing')
+     * 3. isMagical (boolean, defaults to false)
+     * 4. isSilvered (boolean, defaults to false)
+     *
+     * @param {object} target - The combatant receiving the damage.
+     * @param {number} rawDamage - The calculated damage amount before reduction.
+     * @param {string} damageType - The type of damage (e.g., 'Slashing', 'Fire').
+     * @param {boolean} isMagical - True if the weapon is magical.
+     * @param {boolean} isSilvered - True if the weapon is silvered.
+     * @returns {number} The final, adjusted damage amount.
+     */
+    processDamageReduction(target, rawDamage, damageType, isMagical = false, isSilvered = false) {
+        let finalDamage = rawDamage;
+
+        // Check for the specific non-silvered/non-magical physical damage immunity
+        const isPhysical = ['Bludgeoning', 'Piercing', 'Slashing'].includes(damageType);
+        
+        // The exact string we are looking for in the monster's data
+        const nonsilveredImmunity = "Nonmagical Bludgeoning, Piercing, and Slashing from nonsilvered weapons";
+
+        // Check if the target has damage immunities defined and if it includes the specific immunity string
+        if (target['damage immunities'] && target['damage immunities'].includes(nonsilveredImmunity)) {
+
+            // Condition for triggering the full immunity (damage reduced to 0):
+            // 1. The damage type is physical (B, P, or S).
+            // 2. The attack is NOT magical.
+            // 3. The attack is NOT silvered.
+            if (isPhysical && !isMagical && !isSilvered) {
+                this.logMessage(`🛡️ ${target.name} is immune to nonmagical, nonsilvered ${damageType} damage! Damage reduced to 0.`);
+                return 0; // Damage reduced to zero
+            }
+        }
+
+        // Handle generic immunities (like "Poison" or "Fire")
+        if (target['damage immunities'] && target['damage immunities'].includes(damageType)) {
+            this.logMessage(`🛡️ ${target.name} is immune to ${damageType} damage! Damage reduced to 0.`);
+            return 0;
+        }
+
+        // Handle resistances (damage halved)
+        if (target['damage resistances'] && target['damage resistances'].includes(damageType)) {
+            this.logMessage(`⚔️ ${target.name} resists ${damageType} damage! Damage halved.`);
+            finalDamage = Math.floor(finalDamage / 2);
+        }
+
+        // Handle vulnerabilities (damage doubled)
+        if (target['Damage Vulnerabilities'] && target['Damage Vulnerabilities'].includes(damageType)) {
+            this.logMessage(`⚠️ ${target.name} is vulnerable to ${damageType} damage! Damage doubled.`);
+            finalDamage *= 2;
+        }
+
+        // Ensure final damage is non-negative
+        return Math.max(0, finalDamage);
+    }
+
+// 2. Integration Point (Developer needs to find and modify this existing function)
+// The function that handles the attack (e.g., handleAttackAction or similar) must be updated.
+
+/*
+// PSEUDO-CODE: Modify the existing attack handling function (e.g., handleAttackAction)
+
+// ... inside the existing function, after calculating rawDamage ...
+
+// *** NEW LOGIC TO DETERMINE ATTACK PROPERTIES ***
+// NOTE: This assumes player/monster attacks have 'magical' and 'silvered' properties defined.
+let isAttackMagical = attack.magical || false; 
+let isAttackSilvered = attack.silvered || false;
+
+// If a monster is attacking, their own attack is typically NOT silvered/magical 
+// unless explicitly stated in their 'attacks' definition.
+// For example, if the monster is attacking, and it's a standard Slam attack:
+// isAttackMagical = false;
+// isAttackSilvered = false; 
+
+// *** APPLY REDUCTION ***
+const finalDamage = this.processDamageReduction(
+    target,
+    rawDamage,
+    attack['damage type'], // The type of damage from the attack definition
+    isAttackMagical,
+    isAttackSilvered
+);
+
+// *** APPLY DAMAGE ***
+target.currentHp -= finalDamage;
+
+// ... rest of the function ...
+*/
+
+
 * Separate the functionality of script.js into different JavaScript files that is logical and is easier to maintain.
+>> conditions seems to be broken as it the monsters never pick them. Double check this later.
 
 ## Do-to List
 
@@ -69,7 +173,6 @@ In monsters.js, update the speed, skills, saving throws, senses properties to us
 
 Add the following mechanics and/or features:
 * confused state doesn't invoke random movement as movement isn't currently implemented.
-* immunity to normal and non-silver damage
 * Add functionality where a monster can use their skills as actions. They should decide if they want to use it and if it is appropriate to use it.
 * Morale system for NPCs/monsters
 * keep track of used reactions (e.g., opportunity attacks)
@@ -107,7 +210,7 @@ Add the following mechanics and/or features:
   * Stealth (Hide): When you take the Hide action, you make a Dexterity (Stealth) check to conceal yourself. The check is contested by an enemy's Perception check.
   * Investigation/Perception (Search): When you take the Search action, you use your Investigation or Perception to find something. For example, searching for a secret door or a hidden trap.
   * Performance/Intimidation (Influence): Under the Dungeons & Dragons 2024 Player's Handbook rules, monsters can use the "Influence" action, which involves Charisma (Persuasion or Intimidation) checks, to sway players who are hesitant to act. 
-
+* AoE effects (once placement and movement have been implemented)
 * Some senses could offset some effects (like darkness or magical darkeness doesn't work against blindsight; somewhat implemented)
 * Advantage/Disadvantage on attack rolls
 * Initiative bonuses from feats or abilities (attribute bonuses have already been implemented)
@@ -147,6 +250,7 @@ Add the following mechanics and/or features:
 * Save/load combat sessions
 * Export combat logs (beyond copy to clipboard functionality)
 
+* Update monster picker app JS to allow for arrays to be read from the "damage immunities" property.
 * Conditions (e.g., stunned, poisoned) that affect combatants
   * Unconscious - skipping this one for now.
   * Hidden - this may be difficult to implement as the encounter doesn't take into account terrain or other out of combat setup factors.
