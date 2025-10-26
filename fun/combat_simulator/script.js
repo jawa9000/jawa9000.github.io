@@ -2835,10 +2835,10 @@ class CombatSimulator {
             const teamClass = combatant.team.toLowerCase().replace(' ', '-');
             const combatantDiv = $(`
                 <div class="combatant ${teamClass}" data-index="${index}">
-                    <span class="combatant-name">${combatant.name}</span>
-                    <span class="combatant-team"> (${combatant.team})</span>
-                    <button class="add-multiple-btn btn-ml-10">Add More</button>
-                    <button class="remove-monster-btn btn-danger-mini btn-ml-5">Remove</button>
+                    <span class="combatant-name left-content">${combatant.name}</span>
+                    <span class="combatant-team left-content"> (${combatant.team})</span>
+                    <button class="add-multiple-btn btn-ml-10 right-content">Add More</button>
+                    <button class="remove-monster-btn btn-danger-mini btn-ml-5 right-content">Remove</button>
                 </div>
             `);
 
