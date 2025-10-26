@@ -5,25 +5,29 @@
     /*--color-team-a: #795548;         /* Brown 500 */
     --color-team-a: rgba(121, 85, 72, 0.5);         /* Brown 500 */
     --color-team-a-dark: rgba(93, 64, 55, 0.5);    /* Brown 700 */
-    --color-team-a-tint: #D7CCC8;    /* Brown 100 */
+    --color-team-a-tint: rgba(215,204,200, 0.1);    /* Brown 100 */
     --shadow-team-a: rgba(121, 85, 72, 0.3);
 
     /* Team B: Deep Teal (accessible) */
     --color-team-b: rgba(0, 121, 107, 0.5);         /* Teal 700 */
     --color-team-b-dark: rgba(0, 105, 92, 0.5);    /* Teal 800 */
-    --color-team-b-tint: #B2DFDB;    /* Teal 100 */
+    --color-team-b-tint: rgba(178,223,219, 0.1);    /* Teal 100 */
     --shadow-team-b: rgba(0, 121, 107, 0.3);
 
     /* Primary (action selection / brownish) */
     --color-primary: #f2ce9e;
     --color-primary-dark: #f2ce9e;
 
+    /* Primary selected (action selection / brownish) */
+    --color-primary-selected: #f7e1c4;
+    --color-primary-dark-selected: #f5d9b4;
+
     /* Secondary/Neutral */
     --color-neutral: #95a5a6;
     --color-neutral-dark: #7f8c8d;
 
     /* Emphasis/Action (orange) */
-    --color-action: #f39c12;
+    --color-action: rgba(243,156,18, 0.1);
     --color-action-dark: #e67e22;
 
     /* Danger (red) */
@@ -336,8 +340,8 @@ header h1 {
 }
 
 .initiative-item.dead {
-    opacity: 0.8;
-    background: #a0190b;
+    /* opacity: 0.8; */
+    background: rgba(160,25,11, 0.3);
     color: white;
     /* Override team border color so team styles don't apply to dead */
     border-left: 4px solid #a0190b;
@@ -577,7 +581,7 @@ header h1 {
 }
 
 .close {
-    color: #aaa;
+    color: #333;
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -717,7 +721,7 @@ input:focus {
 }
 
 .monster-item.selected {
-    background: linear-gradient(45deg, var(--color-primary), var(--color-primary-dark));
+    background: linear-gradient(45deg, var(--color-primary-selected), var(--color-primary-dark-selected));
     color: #23272f;
     /* background: #3498db;
     color: white; */
