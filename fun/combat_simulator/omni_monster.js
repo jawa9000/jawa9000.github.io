@@ -9,15 +9,9 @@ const monsters = [
     "armor class": 15,
     "hit points": "150 (10d10)",
     speed: {
-        "surface": {
-            "movement": 40
-        },
-        "fly": {
-            "movement": 80
-        },
-        "swim": {
-            "movement": 40
-        }
+        "surface": { "movement": 40 },
+        "fly": { "movement": 80 },
+        "swim": { "movement": 40 }
     },
     str: 12,
     dex: 12,
@@ -25,10 +19,13 @@ const monsters = [
     int: 12,
     wis: 12,
     cha: 12,
-    "saving throws": "DEX +7, CON +10, WIS +6, CHA +8",
-    skills: "Perception +11, Stealth +7",
+    "saving throws": "DEX +2, CON +2, WIS +2, CHA +2",
+    skills: "Perception +11, Stealth +7, Intimation +10",
     // "Damage Vulnerabilities": "Cold",
-    // "damage immunities": "Poison",
+    "damage immunities": [
+        "Poison",
+        "Nonmagical Bludgeoning, Piercing, and Slashing from nonsilvered weapons"
+    ],
     // "damage resistances": "Fire",
     // legendary_resistances: 3,
     // "legendaryActionsPerRound": 3,
@@ -42,18 +39,10 @@ const monsters = [
     //     disable_type: ["Acid", "Fire"]  // ARRAY of damage types that prevent regeneration
     // },
     senses: {
-        "Blindsight": {
-            range: 60,
-        },
-        "Darkvision": {
-            range: 120,
-        },
-        "Tremorsense": {
-            range: 60,
-        },
-        "Passive Perception": {
-            value: 21,
-        }
+        "Blindsight": { range: 60 },
+        "Darkvision": { range: 120 },
+        "Tremorsense": { range: 60 },
+        "Passive Perception": { value: 21 }
     },
     languages: ["Common", "Draconic"],
     challenge: "14 (11,500 XP)",
@@ -135,6 +124,16 @@ const monsters = [
                 }
             ]
         },
+        // "frightful_presence": {
+        //     "action_type": "Action",
+        //     "description": "Each creature of the dragon's choice that is within 120 ft of the dragon and aware of it must succeed on a DC 16 Wisdom saving throw or become Frightened for 1 minute.",
+        //     "dc": 16,
+        //     "save_ability": "WIS",
+        //     "range": 120, // in feet
+        //     "duration_rounds": 10, // 1 minute = 10 rounds
+        //     "recharge": "Once per combat",
+        //     "target_type": "AoE"
+        // },
         // "Chaos Field": {
         //     "to hit": "Auto-Hit (Area Effect)",
         //     "hit": "3 (1d4 + 1) psychic damage", 
@@ -179,18 +178,18 @@ const monsters = [
         //         "duration": "Persistent" // Exhaustion requires a long rest or magic to remove
         //     }
         // },
-        "Snaring Claw": {
-            "to hit": "+5", // Standard attack roll
-            "hit": "5 (1d6 + 2) piercing damage", // Damage on a successful attack
-            "condition_effect": {
-                // Unlike other conditions, Grappled is inflicted on a successful attack roll,
-                // but targets can often break free with a contest instead of a DC save.
-                "condition_name": "Grappled",
-                "grappler_id": "Omni Monster", // Crucial: Tracks the source of the grapple
-                "escape_dc": 14, // The DC the target must beat to escape (often 8 + STR/DEX mod)
-                "duration": "Until released" 
-            }
-        },
+        // "Snaring Claw": {
+        //     "to hit": "+5", // Standard attack roll
+        //     "hit": "5 (1d6 + 2) piercing damage", // Damage on a successful attack
+        //     "condition_effect": {
+        //         // Unlike other conditions, Grappled is inflicted on a successful attack roll,
+        //         // but targets can often break free with a contest instead of a DC save.
+        //         "condition_name": "Grappled",
+        //         "grappler_id": "Omni Monster", // Crucial: Tracks the source of the grapple
+        //         "escape_dc": 14, // The DC the target must beat to escape (often 8 + STR/DEX mod)
+        //         "duration": "Until released" 
+        //     }
+        // },
         // "Dreadful Presence": {
         //     "to hit": "Auto-Hit (Aura/Gaze)", 
         //     "hit": "0 (No damage)", 

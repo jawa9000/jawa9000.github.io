@@ -515,6 +515,9 @@ class CombatSimulator {
         const savingThrowBonuses = this.parseSavingThrows(
             monsterData['saving throws'] || monsterData['savingThrows'] || monsterData['saving_throws'] || null
         );
+        const skillBonuses = this.parseSkills(
+            monsterData.skills || monsterData['Skills'] || null
+        );
 
         return {
             id: Date.now() + Math.random(),
@@ -558,6 +561,7 @@ class CombatSimulator {
             originalData: monsterData, // Keep reference to original data
             // Explicit saving throw bonuses parsed from monster data
             savingThrowBonuses: savingThrowBonuses,
+            skillBonuses: skillBonuses,
             // Deep-clone rechargeable attacks so state doesn't leak across instances
             rechargeable_attack: monsterData.rechargeable_attack ? JSON.parse(JSON.stringify(monsterData.rechargeable_attack)) : null,
             // Ongoing effects currently affecting this creature
@@ -654,6 +658,37 @@ class CombatSimulator {
         return 1;
     }
 
+    parseSkills(skillsVal) {
+        const out = {};
+        if (!skillsVal) return out;
+        if (typeof skillsVal === 'string') {
+            const parts = skillsVal.split(/[,;]+/);
+            for (const p of parts) {
+                const m = String(p).trim().match(/([A-Za-z ]+)\s*\+?(-?\d+)/);
+                if (m) {
+                    const name = m[1].trim();
+                    const val = parseInt(m[2], 10);
+                    if (!isNaN(val)) out[name] = val;
+                }
+            }
+            return out;
+        }
+        if (typeof skillsVal === 'object') {
+            for (const [k,v] of Object.entries(skillsVal)) {
+                if (typeof v === 'number') out[k] = v;
+                else if (typeof v === 'string') {
+                    const m = v.match(/\+?(-?\d+)/);
+                    if (m) {
+                        const val = parseInt(m[1], 10);
+                        if (!isNaN(val)) out[k] = val;
+                    }
+                }
+            }
+            return out;
+        }
+        return out;
+    }
+
     // Parse a "saving throws" string like: "DEX +7, CON +10, WIS +6, CHA +8"
     // Returns map: { dex: 7, con: 10, wis: 6, cha: 8 }
     parseSavingThrows(val) {
@@ -681,20 +716,25 @@ class CombatSimulator {
         return map;
     }
 
-	// Parse comma-separated fields like damage/condition immunities and resistances
-	parseCommaList(str) {
-		if (!str || typeof str !== 'string') return [];
-		const result = str
-			.split(',')
-			.map(s => s.trim())
-			.filter(Boolean)
-			.map(s => s.toLowerCase());
-		
-		// If the result contains "none", return empty array
-		if (result.includes('none')) {
-			return [];
+	// Parse list-like fields (damage/condition immunities, resistances, vulnerabilities)
+	// Accepts either a comma-separated string or an array of strings
+	parseCommaList(val) {
+		if (!val) return [];
+		if (Array.isArray(val)) {
+			const arr = val
+				.map(s => String(s).trim().toLowerCase())
+				.filter(Boolean);
+			return arr.includes('none') ? [] : arr;
 		}
-		return result;
+		if (typeof val === 'string') {
+			const result = val
+				.split(',')
+				.map(s => s.trim())
+				.filter(Boolean)
+				.map(s => s.toLowerCase());
+			return result.includes('none') ? [] : result;
+		}
+		return [];
 	}
 
 	// Checkers for immunities
@@ -2451,6 +2491,12 @@ class CombatSimulator {
                 this.endTurn();
                 return;
             }
+            // Optional alternate action: small chance to Intimidate instead of attacking
+            if (targets.length > 0 && Math.random() < 0.10) {
+                this.handleIntimidateAction(currentCombatant, targets[0]);
+                this.endTurn();
+                return;
+            }
             // Debug: Log target selection
             this.logMessage(`${currentCombatant.name} (${currentCombatant.team}) targets ${targets[0].name} (${targets[0].team}).`);
             // Attack first valid target with proper attack selection
@@ -2458,6 +2504,70 @@ class CombatSimulator {
             // End turn after attack to advance to next combatant
             this.endTurn();
         }, 100); // 0.1 seconds per turn for fast simulation
+    }
+
+    // Estimate proficiency bonus from a monster's CR string (very rough fallback)
+    getProficiencyBonusFromCR(crString) {
+        try {
+            if (!crString) return 2;
+            const s = String(crString);
+            // Expect formats like "1/2 (100 XP)" or "5 (1,800 XP)"
+            const crMatch = s.match(/^(\d+\/?\d*)/);
+            if (!crMatch) return 2;
+            let crVal = 0;
+            const raw = crMatch[1];
+            if (raw.includes('/')) {
+                const [a,b] = raw.split('/');
+                crVal = parseFloat(a) / parseFloat(b);
+            } else {
+                crVal = parseFloat(raw);
+            }
+            // Basic mapping approximating 5e PB by CR bands
+            if (crVal < 5) return 2;
+            if (crVal < 9) return 3;
+            if (crVal < 13) return 4;
+            if (crVal < 17) return 5;
+            if (crVal < 21) return 6;
+            if (crVal < 25) return 7;
+            if (crVal < 29) return 8;
+            return 9;
+        } catch { return 2; }
+    }
+
+    // Handle an Intimidate action: CHA (Intimidation) vs WIS save; on failure, target is Frightened for 1 round
+    handleIntimidateAction(actor, target) {
+        if (!actor || !target) return;
+        const already = this.getConditionObject ? this.getConditionObject(target, 'Frightened') : null;
+        if (already) {
+            this.logMessage(` ${target.name} is already Frightened and immune to new fear effects.`);
+            return;
+        }
+        // Determine modifiers
+        const chaScore = parseInt(actor.originalData?.cha ?? actor.cha ?? 10, 10) || 10;
+        const wisScore = parseInt(target.originalData?.wis ?? target.wis ?? 10, 10) || 10;
+        const chaMod = getAbilityModifier(chaScore);
+        const wisMod = getAbilityModifier(wisScore);
+        const pb = this.getProficiencyBonusFromCR(actor.originalData?.challenge || actor.challenge || '0');
+        const saveDC = 8 + pb + chaMod;
+        // Use parsed Intimidation skill bonus if present; else fallback to CHA mod
+        let intimidateMod = chaMod;
+        try {
+            const skills = actor.skillBonuses || {};
+            if (Number.isFinite(skills.Intimidation)) intimidateMod = skills.Intimidation;
+            else if (Number.isFinite(skills.intimidation)) intimidateMod = skills.intimidation;
+        } catch {}
+        // Roll checks (actor roll for flavor; target makes a WIS save vs DC)
+        const intimidateRoll = this.rollDice(20) + intimidateMod;
+        this.logMessage(` ${actor.name} attempts to Intimidate ${target.name}! (Check total: ${intimidateRoll}, mod ${intimidateMod >= 0 ? '+' : ''}${intimidateMod})`);
+        const targetSave = this.rollDice(20) + wisMod;
+        this.logMessage(`DC ${saveDC}. ${target.name} rolls a WIS save of ${targetSave}.`);
+        if (targetSave < saveDC) {
+            const condition = { name: 'Frightened', rounds_remaining: 1, source_name: actor.name };
+            this.applyCondition && this.applyCondition(target, condition, null, actor.id);
+            this.logMessage(` Success! ${target.name} is Frightened until the end of its next turn.`);
+        } else {
+            this.logMessage(` Failure. ${target.name} is unmoved.`);
+        }
     }
 
     // Decide whether a creature should attempt to escape a movement-impairing condition this turn
