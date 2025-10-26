@@ -340,7 +340,6 @@ header h1 {
 }
 
 .initiative-item.dead {
-    /* opacity: 0.8; */
     background: rgba(160,25,11, 0.3);
     color: white;
     /* Override team border color so team styles don't apply to dead */
