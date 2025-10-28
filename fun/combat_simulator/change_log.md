@@ -2,6 +2,10 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
 
 ## Change Log
 
+* 10/27/25: 0.34.17
+    * Minor tweaks to remove unnecessary items from the modal for monster selection.
+    * Renamed a few headings.
+    * Hid the Add Character button.
 * 10/26/25: 0.34.16
     * More UI fixes to align with new color scheme.
     * Implemented Intimidation action and logic.
