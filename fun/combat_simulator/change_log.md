@@ -62,6 +62,8 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
 
 ## Active Projects
 
+Problem: When a monster dies, the badge doesn't say "[DEAD]", It says "[FRIGHTENED]".
+
 * immunity to normal and non-silvered weapon damage
 https://gemini.google.com/app/60f570356046a2cc
 // --- PROPOSED MODIFICATION TO script.js (INSIDE CombatSimulator CLASS) ---

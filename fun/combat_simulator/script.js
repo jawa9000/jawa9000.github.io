@@ -407,11 +407,8 @@ class CombatSimulator {
                             <span>${monster.size} ${monster.type}</span>
                             <span>AC: ${this.parseAC(monster['armor class'])}</span>
                             <span>HP: ${this.parseHP(monster['hit points'])}</span>
-                            <span>Speed: ${monster.speed}</span>
+                            <span>CR: ${this.parseChallenge(monster.challenge)}</span>
                         </div>
-                    </div>
-                    <div class="monster-stats">
-                        <div class="monster-cr">CR ${this.parseChallenge(monster.challenge)}</div>
                     </div>
                 </div>
             `);
@@ -2769,6 +2766,35 @@ class CombatSimulator {
         return 0;
     }
 
+    // Function to format the speed object into a readable string
+    formatSpeed(speed) {
+        if (!speed) return '';
+
+        let formattedSpeed = '';
+
+        if (speed.surface) {
+            formattedSpeed += `${speed.surface.movement} ft.`;
+        }
+        if (speed.fly) {
+            formattedSpeed += `${formattedSpeed ? ', ' : ''}fly ${speed.fly.movement} ft.`;
+        }
+        if (speed.swim) {
+            formattedSpeed += `${formattedSpeed ? ', ' : ''}swim ${speed.swim.movement} ft.`;
+        }
+
+        return formattedSpeed; // Ensure this is the last statement in the function
+    }
+
+    // Update the monster details display logic
+    displayMonsterDetails(monster) {
+        const speedElement = document.querySelector('.monster-details .speed .value');
+        if (speedElement) {
+            speedElement.textContent = this.formatSpeed(monster.speed); // Format the speed before displaying it
+        }
+
+        // ...other code to display monster details...
+    }
+
     // Utility Methods
     getCurrentCombatant() {
         if (!this.combatActive || this.initiativeOrder.length === 0) return null;
@@ -2902,7 +2928,7 @@ class CombatSimulator {
             const survivedBadge = (!combatant.isDead && showSurvivors) ? '<span class="condition-badge">[SURVIVED]</span>' : '';
             const initiativeItem = $(`
                 <div class="initiative-item ${isCurrentTurn ? 'current-turn' : ''} ${combatant.isDead ? 'dead' : ''} ${teamClass}">
-                    <div class="name">${combatant.name} <span class="team-indicator ${teamClass}">${combatant.team}</span> ${deadBadge || survivedBadge || (!combatant.isDead && combatant.frightened ? '<span class="condition-badge">[FRIGHTENED]</span>' : '')} ${conditionsHtml}</div>
+                    <div class="name">${combatant.name} <span class="team-indicator ${teamClass}">${combatant.team}</span> ${deadBadge || survivedBadge || (!combatant.isDead && combatant.frightened) ? '<span class="condition-badge">[FRIGHTENED]</span>' : ''} ${conditionsHtml}</div>
                     <div class="stats">
                         <span>Initiative: ${combatant.initiative !== null ? combatant.initiative : '-'}</span>
                         <span>AC: ${combatant.ac}</span>
