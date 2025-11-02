@@ -2926,9 +2926,10 @@ class CombatSimulator {
             const conditionsHtml = (!combatant.isDead && condBadges) ? `<span class="conditions"> ${condBadges}</span>` : '';
             const deadBadge = combatant.isDead ? '<span class="condition-badge">[DEAD]</span>' : '';
             const survivedBadge = (!combatant.isDead && showSurvivors) ? '<span class="condition-badge">[SURVIVED]</span>' : '';
+            const frightenedBadge = (!combatant.isDead && combatant.frightened) ? '<span class="condition-badge">[FRIGHTENED]</span>' : '';
             const initiativeItem = $(`
                 <div class="initiative-item ${isCurrentTurn ? 'current-turn' : ''} ${combatant.isDead ? 'dead' : ''} ${teamClass}">
-                    <div class="name">${combatant.name} <span class="team-indicator ${teamClass}">${combatant.team}</span> ${deadBadge || survivedBadge || (!combatant.isDead && combatant.frightened) ? '<span class="condition-badge">[FRIGHTENED]</span>' : ''} ${conditionsHtml}</div>
+                    <div class="name">${combatant.name} <span class="team-indicator ${teamClass}">${combatant.team}</span> ${deadBadge}${survivedBadge}${frightenedBadge} ${conditionsHtml}</div>
                     <div class="stats">
                         <span>Initiative: ${combatant.initiative !== null ? combatant.initiative : '-'}</span>
                         <span>AC: ${combatant.ac}</span>
