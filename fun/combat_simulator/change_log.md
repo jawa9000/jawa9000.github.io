@@ -176,11 +176,6 @@ target.currentHp -= finalDamage;
 >> conditions seems to be broken as it the monsters never pick them. Double check this later.
 
 ### Next sprint
-This is a complex and excellent requirement that moves the simulator from abstract to fully spatial. The new map sizing logic, which incorporates monster volume and dictates map boundaries based on the total occupied space, is a huge step.
-
-Here are the detailed instructions for the developer and their AI-copilot, focusing on the required logic changes, the new map sizing calculation, and the introduction of the Z-axis.
-
------
 
 ## Developer Instructions: Dynamic Spatial Combat
 
