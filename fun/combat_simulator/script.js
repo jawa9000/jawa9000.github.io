@@ -196,6 +196,7 @@ class CombatSimulator {
     initializeEventListeners() {
         // Main control buttons
         $('#newCombat').click(() => this.startNewCombat());
+        $('#clearCombatLog').click(() => this.clearCombatLog());
         $('#addCharacter').click(() => this.openCharacterModal());
         $('#addMonster').click(() => this.openMonsterSelectionModal());
         $('#rollInitiative').click(() => this.rollInitiative());
@@ -1297,6 +1298,10 @@ class CombatSimulator {
         $('#charTeam').val('Team A');
     }
 
+    clearCombatLog() {
+        $('#combatLog').empty();
+        this.logMessage('Combat log cleared.');
+    }
     // Combat Management
     startNewCombat() {
         $('#combatLog').empty(); // Clear the combat log history
