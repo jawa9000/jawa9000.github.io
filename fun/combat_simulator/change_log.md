@@ -2,8 +2,9 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
 
 ## Change Log
 
-* 11/2/25: 0.34.18
+* 11/2/25: 0.34.19
     * Fixed badge issue when it does it should say "[DEAD]".
+    * When clicking the #newCombat button, the combat log history is cleared out.
 * 10/27/25: 0.34.17
     * Minor tweaks to remove unnecessary items from the modal for monster selection.
     * Renamed a few headings.

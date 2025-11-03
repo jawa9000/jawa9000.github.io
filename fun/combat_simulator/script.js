@@ -1299,6 +1299,7 @@ class CombatSimulator {
 
     // Combat Management
     startNewCombat() {
+        $('#combatLog').empty(); // Clear the combat log history
         this.combatActive = false;
         this.currentTurnIndex = 0;
         this.combatRound = 0;
