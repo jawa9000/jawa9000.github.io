@@ -1,36 +1,11 @@
-## Developer Instructions: Dynamic Spatial Combat
 
-The goal is to implement a dynamic, 3D grid system where the battlefield size adapts to the total volume of combatants. We also introduce the Z-axis to account for flying/swimming.
+## Phase 1: Dynamic 3D Map Initialization and Sizing
 
-### Phase 2: 3D Placement and Movement
+This phase focuses on implementing the requested map size calculation: determining monster volume to set the battlefield dimensions (X, Y, Z).
 
-This phase modifies the placement logic to use 3D coordinates and updates the core functions to utilize the Z-axis.
-
-#### 2.1 Update 3D Cell Tracking
-
-**Developer/Copilot Task:** Modify cell tracking to manage $x, y, z$ coordinates.
-
-| Instruction Set | Implementation Focus |
-| :--- | :--- |
-| **Update `occupiedCells`:** | The key in the `occupiedCells` map must change from `"x,y"` to **`"x,y,z"`**. |
-| **Update `isCellOccupied`:** | The function must accept `x, y, z` and loop through the $x, y, z$ dimensions ($i, j, k$) up to the combatant's `size_cells` and `size_depth` respectively, checking keys like `${i},${j},${k}`. |
-| **Update `register/unregisterCombatantCells`:** | Update these methods to use the new 3D coordinate keys. |
-
-#### 2.2 3D Initial Placement
-
-**Developer/Copilot Task:** Update `placeCombatants` to use the Z-axis. Flying/Water movement must be accounted for by the initial Z-coordinate.
-
-| Instruction Set | Implementation Focus |
-| :--- | :--- |
-| **Placement Boundaries (Z-Axis):** | Assume ground level is $Z=0$. For simplicity, place all combatants at $Z=0$. Flying/swimming monsters can be placed at $Z=0$ and move later, or placed randomly up to $Z = \text{MAP\_DEPTH} / 4$ if they have a non-zero fly/swim speed. |
-| **Team Separation:** | Team A still occupies the left side (low X), Team B the right side (high X). The separation distance is now dynamically set by the map size. |
-| **Update `placeTeam`:** | Modify the `while` loop within `placeTeam` to generate a random $z$ coordinate (`k`) in addition to $x$ and $y$, and use the 3D check: `!this.isCellOccupied(x, y, z, size, size, size, combatant.id)`. |
-
-#### 2.3 3D Distance and Movement
-
-**Developer/Copilot Task:** Update the distance calculation and movement logic to include the Z-axis.
-
-| Instruction Set | Implementation Focus |
-| :--- | :--- |
-| **Update `calculateDistance(c1, c2)`:** | This function must now use 3D Euclidean distance: $$\text{Distance (feet)} = 5 \times \sqrt{ (x_1 - x_2)^2 + (y_1 - y_2)^2 + (z_1 - z_2)^2 }$$ |
-| **Update `moveCombatant`:** | 1. **Add `targetZ`** to the function arguments: `moveCombatant(combatant, targetX, targetY, targetZ)`. <br> 2. Include $\text{dz}$ and $\text{stepZ}$ in the directional vector calculation (`angle` becomes more complex, but for simple direct movement, calculate steps for all three axes). <br> 3. The `for` loop now iterates through $x, y, z$ steps, prioritizing steps that close the gap in all three axes. <br> 4. The movement check (`isCellOccupied`) must now include the $Z$ dimension. |
+| Instruction Set | Developer Task | AI-Copilot Focus |
+| :--- | :--- | :--- |
+| **1. Calculate Monster Volume ($\text{ft}^3$)** | Create a new helper function, `calculateMonsterVolume(combatant)`, that uses the monster's size properties (`size_cells`, `size_depth`) to calculate its space in cubic feet. | Verify the formula: $\text{Volume} = (5 \times \text{size\_cells}) \times (5 \times \text{size\_cells}) \times (5 \times \text{size\_depth})$. Ensure `size_depth` defaults to `size_cells` (1 for Medium, 2 for Large, etc.). |
+| **2. Calculate Total Team Volume** | Create `calculateTotalTeamVolume(team)` that sums the volume of all monsters on a given team. | Debugging: If any monster is missing a required size property, ensure the calculation defaults to $5 \times 5 \times 5$ feet (125 $\text{ft}^3$). |
+| **3. Determine Characteristic Distance ($\text{Dist}$)** | Implement a method that finds the maximum volume between Team A and Team B, $\text{Vol}_{\text{max}}$. Then, calculate the characteristic distance: $$\text{Dist} = \text{roundUpToNearest5}(\sqrt[3]{\text{Vol}_{\text{max}}})$$ | Ensure the rounding function correctly snaps the result up to the nearest multiple of 5 (e.g., 27.5 rounds up to 30). |
+| **4. Final Map Dimensions** | Update the `calculateMapDimensions()` method (called in `startCombat`) to use the $\text{Dist}$ value. Calculate total dimensions in feet using the formula: $$\text{Total Side Length} = (4 \times \text{Dist}) + (\text{Largest Team Width}) $$ Use the largest monster's size across both teams for "Largest Team Width" (e.g., if a Gargantuan is present, use 20 ft.). <br> Finally, convert feet to cells: `MAP_WIDTH = MAP_HEIGHT = MAP_DEPTH = Total Side Length / 5`. | Verification: Check edge cases. If $\text{Dist}$ is $25 \text{ ft}$ and the max width is $20 \text{ ft}$, the total side length should be $120 \text{ ft}$ ($4 \times 25 + 20$), and the map size should be $24 \times 24 \times 24$ cells. |
