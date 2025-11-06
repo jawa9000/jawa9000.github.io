@@ -2,8 +2,10 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
 
 ## Change Log
 
-* 11/6/25: 0.35.0
+* 11/6/25: 0.35.2
     * Implemented immunity to normal and non-silvered weapon damage.
+    * Fixed issue with ongoing effects not working.
+    * Fixed issue where attack names were not being displayed correctly.
 * 11/2/25: 0.34.20
     * Fixed badge issue when it does it should say "[DEAD]".
     * When clicking the #newCombat button, the combat log history is cleared out.

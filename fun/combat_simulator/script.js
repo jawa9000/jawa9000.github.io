@@ -1862,12 +1862,16 @@ class CombatSimulator {
 				const ability = effect.save_ability || 'CON';
 				const dc = parseInt(effect.save_dc || 0, 10) || 0;
 				if (dc > 0) {
-					const saved = this.rollSavingThrow(combatant, ability, dc);
+					const roll = this.rollD20();
+					const mod = this.getSavingThrowModifier(combatant, ability);
+					const total = roll + mod;
+					const saved = total >= dc;
+					
 					if (saved) {
-						this.logMessage(`✅ ${combatant.name} succeeds on a DC ${dc} ${ability} save, ending ${effect.name}.`);
+						this.logMessage(`✅ ${combatant.name} makes a DC ${dc} ${ability} save: ${roll} + ${mod} = ${total} (Success). ${effect.name} ends.`);
 						continue; // remove
 					} else {
-						this.logMessage(`🔴 ${combatant.name} fails the DC ${dc} ${ability} save. ${effect.name} persists.`);
+						this.logMessage(`🔴 ${combatant.name} fails a DC ${dc} ${ability} save: ${roll} + ${mod} = ${total} (Needed ${dc}). ${effect.name} continues.`);
 					}
 				}
 			}
@@ -2172,7 +2176,8 @@ class CombatSimulator {
         let crit = roll === 20;
         const total = roll + toHit;
         if (total < target.ac) {
-            this.logMessage(`${attacker.name} (${attacker.team}) misses ${target.name} (${target.team}) with ${attackName} (roll ${total}).`);
+            const formattedAttackName = attackName.replace(/_/g, ' ');
+            this.logMessage(`${attacker.name} (${attacker.team}) misses ${target.name} (${target.team}) with ${formattedAttackName} (roll ${total}).`);
             // Invisibility ends when attacking
             if (this.hasAnyCondition && this.hasAnyCondition(attacker, ['Invisible'])) {
                 this.removeConditionByName(attacker, 'Invisible');
@@ -2203,6 +2208,19 @@ class CombatSimulator {
         if (dmg > 0) {
             target.hp -= dmg;
             this.handleDamageTaken && this.handleDamageTaken(target, attacker, primaryType);
+            
+            // Check for and apply ongoing effects from the attack
+            if (attack.ongoing_effect) {
+                // Initialize ongoing_effects array if it doesn't exist
+                if (!Array.isArray(target.ongoing_effects)) {
+                    target.ongoing_effects = [];
+                }
+                
+                // Add the ongoing effect to the target
+                target.ongoing_effects.push({...attack.ongoing_effect});
+                this.logMessage(`🔥 ${target.name} is now affected by ${attack.ongoing_effect.name}!`);
+            }
+            
             // Breaking charm if damaged by charmer or allies
             this.tryBreakCharmedOnDamage && this.tryBreakCharmedOnDamage(target, attacker);
             // Frightened ends on any damage
@@ -2214,7 +2232,8 @@ class CombatSimulator {
                 target.considerEscapeAfterHit = true;
             }
         }
-        this.logMessage(`${attacker.name} (${attacker.team}) hits ${target.name} (${target.team}) with ${attackName} for ${dmg}${primaryType ? ' ' + primaryType : ''}.`);
+        const formattedAttackName = attackName.replace(/_/g, ' ');
+        this.logMessage(`${attacker.name} (${attacker.team}) hits ${target.name} (${target.team}) with ${formattedAttackName} for ${dmg}${primaryType ? ' ' + primaryType : ''}.`);
         // Extra parts
         if (attack.extraDamage && Array.isArray(attack.extraDamage)) {
             for (const part of attack.extraDamage) {
