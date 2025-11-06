@@ -7,7 +7,7 @@ const monsters = [
     environments: ["Any"],
     associates: [],
     "armor class": 15,
-    "hit points": "150 (10d10)",
+    "hit points": "50 (10d10)",
     speed: {
         "surface": { "movement": 40 },
         "fly": { "movement": 80 },
@@ -96,6 +96,8 @@ const monsters = [
             "to hit": "+6",
             "reach": "5 ft.",
             "target": "one target",
+            magical: false,
+            silvered: false,
             "hit": "17 (2d12 + 4)",
             "damage type": "slashing"
         },

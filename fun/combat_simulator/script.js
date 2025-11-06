@@ -173,7 +173,7 @@ class CombatSimulator {
     rechargeAbilities(combatant) {
         if (!combatant || !combatant.rechargeable_attack) return;
 
-        let recharged = false;
+        let recharged = false;  // Needs to be let because it's reassigned in the loop
         for (const [name, ability] of Object.entries(combatant.rechargeable_attack)) {
             if (ability && ability.recharge && ability.used) {
                 const rechargeRoll = Math.floor(Math.random() * 6) + 1; // d6
@@ -516,7 +516,7 @@ class CombatSimulator {
         const skillBonuses = this.parseSkills(
             monsterData.skills || monsterData['Skills'] || null
         );
-
+        
         return {
             id: Date.now() + Math.random(),
             name: monsterData.name || 'Unknown Monster',
@@ -718,20 +718,27 @@ class CombatSimulator {
 	// Accepts either a comma-separated string or an array of strings
 	parseCommaList(val) {
 		if (!val) return [];
-		if (Array.isArray(val)) {
-			const arr = val
-				.map(s => String(s).trim().toLowerCase())
-				.filter(Boolean);
-			return arr.includes('none') ? [] : arr;
+		
+		try {
+			// Handle array input
+			if (Array.isArray(val)) {
+				const arr = val
+					.map(s => String(s).trim())
+					.filter(Boolean);
+				return arr.includes('none') ? [] : arr;
+			}
+			
+			// Handle string input
+			if (typeof val === 'string') {
+				const result = val
+					.split(',')
+					.map(s => s.trim())
+					.filter(Boolean);
+				return result.includes('none') ? [] : result;
+			}
+		} catch (error) {
 		}
-		if (typeof val === 'string') {
-			const result = val
-				.split(',')
-				.map(s => s.trim())
-				.filter(Boolean)
-				.map(s => s.toLowerCase());
-			return result.includes('none') ? [] : result;
-		}
+		
 		return [];
 	}
 
@@ -809,31 +816,75 @@ class CombatSimulator {
             : null;
         const mod = getAbilityModifier(abilityScore);
         const bonus = (explicit !== null) ? explicit : mod;
+        
         // Auto-fail STR/DEX saves for certain conditions
-        const autoFail = (['str','dex'].includes(abilityKey)) && this.hasAnyCondition(target, ['Paralyzed','Stunned','Unconscious','Petrified']);
+        const autoFail = (['str','dex'].includes(abilityKey)) && 
+            this.hasAnyCondition(target, ['Paralyzed','Stunned','Unconscious','Petrified']);
         if (autoFail) {
-            return { success: false, roll: 1, total: bonus + 1, dc, ability };
+            return { 
+                success: false, 
+                roll: 1, 
+                total: bonus + 1, 
+                dc, 
+                ability: abilityKey,
+                mode: 'auto-fail',
+                bonus,
+                abilityScore,
+                modifier: mod
+            };
         }
+        
         // Determine disadvantage from conditions
-        const saveMode = this.getConditionModifiers(target, `save:${abilityKey}`);
-        const exLvlSave = this.getExhaustionLevel ? this.getExhaustionLevel(target) : 0;
-        if (exLvlSave >= 3) {
-            this.logMessage(`🎯 Disadvantage on ${ability.toUpperCase()} save: ${target.name} is Exhausted (level ${exLvlSave}).`);
+        let saveMode = this.getConditionModifiers(target, `save:${abilityKey}`);
+        
+        // Apply Frightened condition (disadvantage on STR/DEX saves)
+        if (['str', 'dex'].includes(abilityKey) && this.hasAnyCondition(target, ['Frightened'])) {
+            if (saveMode === 'adv') {
+                saveMode = 'normal'; // Advantage + Disadvantage = normal
+            } else if (saveMode !== 'dis') {
+                saveMode = 'dis';
+            }
         }
-        const d20 = this.rollD20WithMode(saveMode);
-        let total = d20 + bonus;
-        // Slowed: -2 penalty to Dexterity saves
+        
+        // Make the roll with the determined mode
+        const roll = this.rollD20WithMode(saveMode);
+        let total = roll + bonus;
+        
+        // Apply Slowed penalty to DEX saves
         if (abilityKey === 'dex' && this.hasAnyCondition(target, ['Slowed'])) {
             total -= 2;
         }
-        // Log with explicit/ability modifier clarity
-        const bonusLabel2 = explicit !== null ? `+${bonus} explicit save bonus` : `+${bonus} ability modifier`;
+        
+        // Log the result
+        const bonusLabel = explicit !== null ? `+${bonus} explicit save bonus` : `+${bonus} ability modifier`;
+        let logMessage = `${target.name} ${ability.toUpperCase()} save: ${total} (${roll} + ${bonusLabel}`;
+        
         if (abilityKey === 'dex' && this.hasAnyCondition(target, ['Slowed'])) {
-            this.logMessage(`${target.name} ${ability.toUpperCase()} save: ${total} (${bonusLabel2}; −2 Slowed) vs DC ${dc}`);
-        } else {
-            this.logMessage(`${target.name} ${ability.toUpperCase()} save: ${total} (${bonusLabel2}) vs DC ${dc}`);
+            logMessage += ' - 2 Slowed';
         }
-        return { success: total >= dc, roll: d20, total, dc, ability };
+        
+        if (saveMode === 'adv') {
+            logMessage += ' with advantage';
+        } else if (saveMode === 'dis') {
+            logMessage += ' with disadvantage';
+        }
+        
+        logMessage += `) vs DC ${dc}`;
+        this.logMessage(logMessage);
+        
+        // Check for success and return result
+        const success = total >= dc;
+        return { 
+            success, 
+            roll, 
+            total, 
+            dc, 
+            ability: abilityKey, 
+            mode: saveMode, 
+            bonus,
+            abilityScore,
+            modifier: mod
+        };
     }
 
     // Structured ability check (auto-fails if sight is required and the creature is Blinded)
@@ -959,29 +1010,42 @@ class CombatSimulator {
     getConditionModifiers(combatant, rollType) {
         if (!Array.isArray(combatant?.conditions)) return 'normal';
         const has = (n) => this.hasAnyCondition(combatant, [n]);
-        let adv = false, dis = false;
+        
+        // Conditions that grant advantage
+        const adv = has('Invisible');
+        
+        // Conditions that cause disadvantage
+        let dis = false;
+        
+        // Attack roll disadvantages
         if (rollType === 'attack') {
-            if (has('Invisible')) adv = true;
-            if (has('Blinded') && !this.hasBlindsight(combatant)) dis = true;
-            if (has('Frightened') && this.isFrightenedActive(combatant)) dis = true;
-            if (has('Poisoned')) dis = true;
-            if (has('Restrained')) dis = true;
-            if (has('Prone')) dis = true; // Prone creatures attack with disadvantage
+            dis = dis || (has('Blinded') && !this.hasBlindsight(combatant));
+            dis = dis || (has('Frightened') && this.isFrightenedActive(combatant));
+            dis = dis || has('Poisoned');
+            dis = dis || has('Restrained');
+            dis = dis || has('Prone');
+            
             // Exhaustion level 3+: Disadvantage on attack rolls
             const exA = this.getExhaustionLevel(combatant);
-            if (exA >= 3) dis = true;
-        } else if (rollType === 'ability') {
-            if (has('Frightened') && this.isFrightenedActive(combatant)) dis = true;
-            if (has('Poisoned')) dis = true;
+            dis = dis || exA >= 3;
+        } 
+        // Ability check disadvantages
+        else if (rollType === 'ability') {
+            dis = dis || (has('Frightened') && this.isFrightenedActive(combatant));
+            dis = dis || has('Poisoned');
+            
             // Exhaustion level 1+: Disadvantage on ability checks
             const exB = this.getExhaustionLevel(combatant);
-            if (exB >= 1) dis = true;
-        } else if (rollType.startsWith('save:')) {
+            dis = dis || exB >= 1;
+        } 
+        // Saving throw disadvantages
+        else if (rollType.startsWith('save:')) {
             const ab = rollType.split(':')[1];
-            if (ab === 'dex' && has('Restrained')) dis = true;
-            // Exhaustion level 3+: Disadvantage on saving throws (if tracked with level)
+            dis = dis || (ab === 'dex' && has('Restrained'));
+            
+            // Exhaustion level 3+: Disadvantage on saving throws
             const ex = this.getExhaustionLevel(combatant);
-            if (ex >= 3) dis = true;
+            dis = dis || ex >= 3;
         }
         if (adv && dis) return 'normal';
         if (adv) return 'adv';
@@ -1617,12 +1681,12 @@ class CombatSimulator {
             currentCombatant.slowedActionConsumed = false;
             // If still able to act, set attacksRemaining
             if (!this.isCombatantIncapacitated(currentCombatant)) {
-                currentCombatant.attacksRemaining = currentCombatant.numberOfAttacks || 1;
+            currentCombatant.attacksRemaining = currentCombatant.numberOfAttacks || 1;
                 // Slowed: can only make a single weapon attack this turn
                 if (this.hasAnyCondition(currentCombatant, ['Slowed'])) {
                     currentCombatant.attacksRemaining = Math.min(currentCombatant.attacksRemaining, 1);
                 }
-                this.logMessage(`${currentCombatant.name} starts their turn with ${currentCombatant.attacksRemaining} attack${currentCombatant.attacksRemaining !== 1 ? 's' : ''} remaining.`);
+            this.logMessage(`${currentCombatant.name} starts their turn with ${currentCombatant.attacksRemaining} attack${currentCombatant.attacksRemaining !== 1 ? 's' : ''} remaining.`);
             }
         }
     }
@@ -1877,7 +1941,7 @@ class CombatSimulator {
 
         // Team-aware target selection: avoid friendly fire unless charmed/controlled
         const isCharmedOrControlled = !!currentCombatant.charmed || !!currentCombatant.controlledByEnemy;
-        const targets = this.initiativeOrder.filter(c =>
+        const targets = this.initiativeOrder.filter(c => 
             c.id !== currentCombatant.id &&
             !c.isDead &&
             (isCharmedOrControlled || (c.team !== currentCombatant.team))
@@ -2021,9 +2085,9 @@ class CombatSimulator {
                 // Maintainer concentration checks if target maintains conditions on others
                 this.tryBreakMaintainedConditionsOnMaintainerDamage && this.tryBreakMaintainedConditionsOnMaintainerDamage(target, dmg);
                 // Death handling and cleanup
-                if (target.hp <= 0) {
-                    target.isDead = true;
-                    this.logMessage(`${target.name} drops to 0 HP and is defeated!`);
+            if (target.hp <= 0) {
+                target.isDead = true;
+                this.logMessage(`${target.name} drops to 0 HP and is defeated!`);
                     // Remove own conditions and any maintained
                     this.removeConditionByName(target, 'Restrained');
                     this.removeRestrainedMaintainedBy && this.removeRestrainedMaintainedBy(target);
@@ -2113,20 +2177,29 @@ class CombatSimulator {
             if (this.hasAnyCondition && this.hasAnyCondition(attacker, ['Invisible'])) {
                 this.removeConditionByName(attacker, 'Invisible');
                 this.logMessage(`${attacker.name} becomes visible after attacking.`);
-                this.updateDisplay();
-            }
+            this.updateDisplay();
+        }
             return;
         }
         if (!crit && isMelee && targetHas && (targetHas('Paralyzed') || targetHas('Unconscious'))) crit = true;
-        const primaryTypeField = (attack['damage type'] || '').toLowerCase();
-        const primaryType = primaryTypeField.split(' plus ')[0].trim();
+        // Extract and clean up damage type with detailed logging
+        const damageTypeField = (attack['damage type'] || 'bludgeoning').toLowerCase().trim();
+        const primaryType = damageTypeField.split(' plus ')[0].trim();
+        
+        // Attack properties used for damage calculation
+        
+        // Roll damage and apply critical hit if applicable
         let dmg = this.rollDamage(attack.hit || '1d6');
-        if (crit) dmg *= 2;
-        // DR stack
-        if (this.hasDamageImmunity && this.hasDamageImmunity(target, primaryType)) dmg = 0;
-        if (dmg > 0 && this.hasDamageResistance && this.hasDamageResistance(target, primaryType)) dmg = Math.floor(dmg / 2);
-        if (dmg > 0 && this.hasDamageVulnerability && this.hasDamageVulnerability(target, primaryType)) dmg = dmg * 2;
-        if (dmg > 0 && this.adjustDamageForPetrified) dmg = this.adjustDamageForPetrified(target, dmg, primaryType);
+        if (crit) {
+            dmg *= 2;
+        }
+        
+        // Process damage reduction including nonmagical weapon immunity
+        const isMagical = attack.magical || false;
+        const isSilvered = attack.silvered || false;
+        
+        dmg = this.processDamageReduction(target, dmg, primaryType, isMagical, isSilvered);
+        
         if (dmg > 0) {
             target.hp -= dmg;
             this.handleDamageTaken && this.handleDamageTaken(target, attacker, primaryType);
@@ -3098,6 +3171,92 @@ class CombatSimulator {
         }
         
         document.body.removeChild(textArea);
+    }
+
+    /**
+     * Helper to process damage against a target, checking for immunities and resistances.
+     * See prompts.md Prompt 1.
+     */
+    processDamageReduction(target, rawDamage, damageType, isMagical = false, isSilvered = false) {
+        
+        let finalDamage = rawDamage;
+        // Defensive: lowercase/trim damageType for all logic, always.
+        damageType = String(damageType).toLowerCase().trim();
+        
+        // Log initial damage reduction check
+        this.logMessage(`[DAMAGE] Processing ${rawDamage} ${damageType} damage (magical: ${isMagical}, silvered: ${isSilvered})`);
+        
+        // Lowercase/trim all immunities/resistances/vulnerabilities, and support substrings for special phrasing.
+        const getListLC = key => {
+            // Convert key to camelCase (e.g., 'damage immunities' -> 'damageImmunities')
+            const propName = key
+                .toLowerCase()
+                .split(' ')
+                .map((word, i) => i === 0 ? word : word.charAt(0).toUpperCase() + word.slice(1))
+                .join('');
+            
+            const value = target[propName];
+            return Array.isArray(value) 
+                ? value.map(x => String(x).toLowerCase().trim())
+                : [];
+        };
+        
+        const immunities = getListLC('damage immunities');
+        const resistances = getListLC('damage resistances');
+        const vulnerabilities = getListLC('Damage Vulnerabilities');
+        
+        if (immunities.length > 0) {
+            this.logMessage(`[IMMUNITIES] ${target.name} has: ${immunities.join(', ')}`);
+        }
+
+        // Check if damage type is physical
+        const isPhysical = ['bludgeoning','piercing','slashing'].includes(damageType);
+        
+        // Check for nonmagical damage immunity
+        const hasNonmagicalImmunity = immunities.some(im => {
+            const imLower = im.toLowerCase();
+            
+            // Look for the exact phrase that indicates nonmagical weapon damage immunity
+            const isNonmagicalWeaponImmunity = imLower.includes('nonmagical bludgeoning, piercing, and slashing from nonsilvered weapons');
+            
+            // Alternative check for partial matches (more lenient)
+            const hasNonmagic = imLower.includes('nonmagic');
+            const hasWeaponTypes = imLower.includes('bludgeon') || imLower.includes('pierc') || imLower.includes('slash');
+            const hasWeapon = imLower.includes('weapon');
+            
+            const matches = isNonmagicalWeaponImmunity || (hasNonmagic && hasWeaponTypes && hasWeapon);
+            
+            if (matches) {
+                this.logMessage(`[IMMUNITY] ${target.name} has nonmagical damage immunity: "${im}"`);
+            }
+            return matches;
+        });
+        
+        if (hasNonmagicalImmunity && isPhysical && !isMagical && !isSilvered) {
+            const msg = `🛡️ ${target.name} is immune to nonmagical, nonsilvered ${damageType} damage! Damage reduced from ${rawDamage} to 0.`;
+            this.logMessage(msg);
+            return 0;
+        }
+        // Generic immunities
+        if (immunities.includes(damageType)) {
+            const msg = `🛡️ ${target.name} is immune to ${damageType} damage! Damage reduced to 0.`;
+            this.logMessage(msg);
+            return 0;
+        } else {
+        }
+        // Resistances
+        if (resistances.includes(damageType)) {
+            const msg = `⚔️ ${target.name} resists ${damageType} damage! Damage halved from ${finalDamage} to ${Math.floor(finalDamage / 2)}.`;
+            this.logMessage(msg);
+            finalDamage = Math.floor(finalDamage / 2);
+        }
+        // Vulnerabilities
+        if (vulnerabilities.includes(damageType)) {
+            const msg = `⚠️ ${target.name} is vulnerable to ${damageType} damage! Damage doubled from ${finalDamage} to ${finalDamage * 2}.`;
+            this.logMessage(msg);
+            finalDamage *= 2;
+        }
+        return Math.max(0, finalDamage);
     }
 }
 

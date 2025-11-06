@@ -2,6 +2,8 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
 
 ## Change Log
 
+* 11/6/25: 0.35.0
+    * Implemented immunity to normal and non-silvered weapon damage.
 * 11/2/25: 0.34.20
     * Fixed badge issue when it does it should say "[DEAD]".
     * When clicking the #newCombat button, the combat log history is cleared out.
@@ -70,112 +72,10 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
 
 ## Active Projects
 
-* immunity to normal and non-silvered weapon damage
-https://gemini.google.com/app/60f570356046a2cc
-// --- PROPOSED MODIFICATION TO script.js (INSIDE CombatSimulator CLASS) ---
-
-### immunity to normal and non-silvered weapon damage section
-// 1. Add the following function inside the CombatSimulator class.
-// This function must be called by the main attack processing logic (e.g., handleAttackAction).
-
-    /**
-     * Helper to process damage against a target, checking for immunities and resistances.
-     * This function should be placed inside the CombatSimulator class.
-     *
-     * IMPORTANT: The calling function (e.g., handleAttackAction) must now pass:
-     * 1. rawDamage
-     * 2. damageType (e.g., 'Slashing')
-     * 3. isMagical (boolean, defaults to false)
-     * 4. isSilvered (boolean, defaults to false)
-     *
-     * @param {object} target - The combatant receiving the damage.
-     * @param {number} rawDamage - The calculated damage amount before reduction.
-     * @param {string} damageType - The type of damage (e.g., 'Slashing', 'Fire').
-     * @param {boolean} isMagical - True if the weapon is magical.
-     * @param {boolean} isSilvered - True if the weapon is silvered.
-     * @returns {number} The final, adjusted damage amount.
-     */
-    processDamageReduction(target, rawDamage, damageType, isMagical = false, isSilvered = false) {
-        let finalDamage = rawDamage;
-
-        // Check for the specific non-silvered/non-magical physical damage immunity
-        const isPhysical = ['Bludgeoning', 'Piercing', 'Slashing'].includes(damageType);
-        
-        // The exact string we are looking for in the monster's data
-        const nonsilveredImmunity = "Nonmagical Bludgeoning, Piercing, and Slashing from nonsilvered weapons";
-
-        // Check if the target has damage immunities defined and if it includes the specific immunity string
-        if (target['damage immunities'] && target['damage immunities'].includes(nonsilveredImmunity)) {
-
-            // Condition for triggering the full immunity (damage reduced to 0):
-            // 1. The damage type is physical (B, P, or S).
-            // 2. The attack is NOT magical.
-            // 3. The attack is NOT silvered.
-            if (isPhysical && !isMagical && !isSilvered) {
-                this.logMessage(`🛡️ ${target.name} is immune to nonmagical, nonsilvered ${damageType} damage! Damage reduced to 0.`);
-                return 0; // Damage reduced to zero
-            }
-        }
-
-        // Handle generic immunities (like "Poison" or "Fire")
-        if (target['damage immunities'] && target['damage immunities'].includes(damageType)) {
-            this.logMessage(`🛡️ ${target.name} is immune to ${damageType} damage! Damage reduced to 0.`);
-            return 0;
-        }
-
-        // Handle resistances (damage halved)
-        if (target['damage resistances'] && target['damage resistances'].includes(damageType)) {
-            this.logMessage(`⚔️ ${target.name} resists ${damageType} damage! Damage halved.`);
-            finalDamage = Math.floor(finalDamage / 2);
-        }
-
-        // Handle vulnerabilities (damage doubled)
-        if (target['Damage Vulnerabilities'] && target['Damage Vulnerabilities'].includes(damageType)) {
-            this.logMessage(`⚠️ ${target.name} is vulnerable to ${damageType} damage! Damage doubled.`);
-            finalDamage *= 2;
-        }
-
-        // Ensure final damage is non-negative
-        return Math.max(0, finalDamage);
-    }
-
-// 2. Integration Point (Developer needs to find and modify this existing function)
-// The function that handles the attack (e.g., handleAttackAction or similar) must be updated.
-
-/*
-// PSEUDO-CODE: Modify the existing attack handling function (e.g., handleAttackAction)
-
-// ... inside the existing function, after calculating rawDamage ...
-
-// *** NEW LOGIC TO DETERMINE ATTACK PROPERTIES ***
-// NOTE: This assumes player/monster attacks have 'magical' and 'silvered' properties defined.
-let isAttackMagical = attack.magical || false; 
-let isAttackSilvered = attack.silvered || false;
-
-// If a monster is attacking, their own attack is typically NOT silvered/magical 
-// unless explicitly stated in their 'attacks' definition.
-// For example, if the monster is attacking, and it's a standard Slam attack:
-// isAttackMagical = false;
-// isAttackSilvered = false; 
-
-// *** APPLY REDUCTION ***
-const finalDamage = this.processDamageReduction(
-    target,
-    rawDamage,
-    attack['damage type'], // The type of damage from the attack definition
-    isAttackMagical,
-    isAttackSilvered
-);
-
-// *** APPLY DAMAGE ***
-target.currentHp -= finalDamage;
-
-// ... rest of the function ...
-*/
-
-
 * Separate the functionality of script.js into different JavaScript files that is logical and is easier to maintain.
 >> conditions seems to be broken as it the monsters never pick them. Double check this later.
+
+Note: Cursor's default model is "composer-1".
 
 ### Next sprint
 
