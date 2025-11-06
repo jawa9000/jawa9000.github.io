@@ -1,9 +1,52 @@
-## Phase 3: 3D Movement and AI Tactical Logic
+To effectively track the new spatial elements, the combat log must be updated to clearly communicate *where* combatants start and *how* they moved.
 
-This phase integrates the Z-axis into movement and gives the AI intelligence regarding its optimal weapon range.
+The log entries should follow this structure for clarity:
 
-| Instruction Set | Developer Task | AI-Copilot Focus |
-| :--- | :--- | :--- |
-| **1. Determine Max Speed (3D)** | In `selectAttackForSimulation`, identify the monster's **best speed** (`walk_speed`, `fly_speed`, or `swim_speed` if applicable) to determine `maxMovementCells`. | Note that only monsters with `fly_speed` or `swim_speed` can move on the Z-axis without penalty. Assume only $Z$ movement is possible for flying/swimming. |
-| **2. Update 3D Movement (`moveCombatant`)** | Update `moveCombatant(combatant, targetX, targetY, targetZ)` to handle movement towards a target in 3D. <br> - Calculate movement steps in all three dimensions ($\text{stepX}, \text{stepY}, \text{stepZ}$) based on the vector toward the target. <br> - The movement loop must prioritize closing the 3D distance by the maximum speed in $\text{feet} \times 5$, while avoiding occupied cells in $X, Y, Z$. | Pathing logic: For simplicity, move straight toward the $X, Y, Z$ target, stopping if a cell is occupied. Ensure `unregister/registerCombatantCells` is called for every cell moved. |
-| **3. AI: Optimal Range Check** | In `selectAttackForSimulation`, refine the optimal range logic: <br> - **Melee Only:** Optimal range is $\mathbf{5 \text{ ft}}$. Move to get as close as possible without ending on the target's square. <br> - **Ranged Only:** Optimal range is $\mathbf{30 \text{ ft}}$. If closer than 30 ft., the AI should attempt to use its speed to move **away** to the 30 ft. range to prevent an opponent's melee counter-attack (or to avoid a potential Disadvantage from being too close). <br> - **Mixed:** Prioritize closing to $\mathbf{5 \text{ ft}}$ for melee damage unless the target is inaccessible (e.g., flying). | Target Position Calculation: If the AI needs to move away for ranged attacks, the `targetX, targetY, targetZ` for `moveCombatant` should be calculated to increase the distance to approximately 30 ft. |
+### 1\. Initial Placement Log
+
+This entry should occur once, at the start of combat, after `calculateMapDimensions()` and `placeCombatants()` run.
+
+**Log Format:**
+`🌍 Battlefield initialized: [W] x [H] x [D] feet ([X] x [Y] x [Z] cells).`
+`🟢 [Combatant Name] ([Team Name]) deployed at X:[#], Y:[#], Z:[#].`
+
+**Example:**
+
+```
+🌍 Battlefield initialized: 120 x 120 x 120 feet (24 x 24 x 24 cells).
+🟢 Ogre (Team A) deployed at X:[3], Y:[4], Z:[0].
+🟢 Dragon (Team B) deployed at X:[20], Y:[18], Z:[0].
+```
+
+### 2\. Movement Log (Per Turn)
+
+This entry should replace the simplified movement log in `moveCombatant` and must include the speed used and the full coordinate change.
+
+**Log Format:**
+`🚶 [Combatant Name] uses [Speed Type] speed, moving [Distance] ft. (From X:[#], Y:[#], Z:[#] to X:[#], Y:[#], Z:[#]).`
+
+**Example (Ground Movement):**
+
+```
+🚶 Goblin moves 30 ft. (From X:[2], Y:[3], Z:[0] to X:[5], Y:[3], Z:[0]).
+```
+
+**Example (Flying Movement):**
+
+```
+✈️ Dragon uses Fly speed, moving 60 ft. (From X:[20], Y:[18], Z:[1] to X:[15], Y:[13], Z:[10]).
+```
+
+### 3\. Attack Distance Log
+
+This entry should be part of the `processAttack` function to confirm the range at the time of the attack.
+
+**Log Format:**
+`🎯 [Combatant Name] targets [Target Name] at [Distance] ft.`
+
+**Example:**
+
+```
+🎯 Ogre targets Goblin at 10 ft. (Melee range).
+🎯 Elf targets Dragon at 95 ft. (Long Range, Disadvantage applied).
+```
