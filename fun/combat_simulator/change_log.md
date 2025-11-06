@@ -74,8 +74,9 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
 
 ## Active Projects
 
+>> Trying to debug the implementation of "Multidimensional Strike" attack and the condition of "disoriented". Nothing has worked so far.
+
 * Separate the functionality of script.js into different JavaScript files that is logical and is easier to maintain.
->> conditions seems to be broken as it the monsters never pick them. Double check this later.
 
 Note: Cursor's default model is "composer-1".
 
