@@ -83,7 +83,7 @@ const monsters = [
             "target": "one target",
             magical: false,
             silvered: false,
-            "hit": "17 (2d12 + 4)",
+            "hit": "2d12 + 4",
             "damage type": "slashing"
         },
         // "Mind Flay": {
@@ -113,16 +113,16 @@ const monsters = [
         //         }
         //     ]
         // },
-        "frightful_presence": {
-            "action_type": "Action",
-            "description": "Each creature of the dragon's choice that is within 120 ft of the dragon and aware of it must succeed on a DC 16 Wisdom saving throw or become Frightened for 1 minute.",
-            "dc": 16,
-            "save_ability": "WIS",
-            "range": 120, // in feet
-            "duration_rounds": 10, // 1 minute = 10 rounds
-            "recharge": "Once per combat",
-            "target_type": "AoE"
-        },
+        // "frightful_presence": {
+        //     "action_type": "Action",
+        //     "description": "Each creature of the dragon's choice that is within 120 ft of the dragon and aware of it must succeed on a DC 16 Wisdom saving throw or become Frightened for 1 minute.",
+        //     "dc": 16,
+        //     "save_ability": "WIS",
+        //     "range": 120, // in feet
+        //     "duration_rounds": 10, // 1 minute = 10 rounds
+        //     "recharge": "Once per combat",
+        //     "target_type": "AoE"
+        // },
         // "Chaos Field": {
         //     "to hit": "Auto-Hit (Area Effect)",
         //     "hit": "3 (1d4 + 1) psychic damage", 
