@@ -1,5 +1,22 @@
-class CombatSimulator {
-    constructor() {
+export class CombatSimulator {
+  /**
+   * Helper function to safely query the DOM
+   * @private
+   */
+  _query(selector) {
+    if (typeof $ !== 'undefined') {
+      return $(selector);
+    }
+    // Fallback to native DOM methods
+    if (selector.startsWith('#')) {
+      return document.getElementById(selector.substring(1));
+    }
+    if (selector.startsWith('.')) {
+      return document.getElementsByClassName(selector.substring(1))[0];
+    }
+    return document.querySelector(selector);
+  }
+    constructor(options = {}) {
         this.combatants = [];
         this.currentTurnIndex = 0;
         this.combatActive = false;
@@ -11,8 +28,14 @@ class CombatSimulator {
         // Surprise Round: which team is surprised this combat (null | 'Team A' | 'Team B')
         this.surprisedTeam = null;
         
-        this.initializeEventListeners();
-        this.updateDisplay();
+        // Allow passing in a custom jQuery instance for testing
+        this.$ = options.$ || (typeof window !== 'undefined' ? window.$ : null);
+        
+        // Only initialize event listeners if in browser environment with jQuery
+        if (this.$) {
+            this.initializeEventListeners();
+            this.updateDisplay();
+        }
     }
 
     // Decrement and expire timed conditions once per round (duration measured in rounds)
@@ -1394,86 +1417,100 @@ class CombatSimulator {
     }
 
     rollInitiative() {
-        if (this.combatants.length === 0) {
-            alert('Please add at least one character before rolling initiative.');
-            return;
-        }
-
+        this.logMessage('Rolling initiative for all combatants...');
+        
+        // Roll initiative for all combatants
         this.combatants.forEach(combatant => {
-            if (!combatant.isDead) {
-                const roll = this.rollDice(20) + combatant.initiativeBonus;
-                combatant.initiative = roll;
-                this.logMessage(`${combatant.name} rolled initiative: ${roll} (d20 + ${combatant.initiativeBonus})`);
-            }
+            const roll = Math.floor(Math.random() * 20) + 1;
+            const modifier = Math.floor((combatant.dex - 10) / 2);
+            combatant.initiative = roll + modifier;
+            this.logMessage(`${combatant.name} rolls ${roll} + ${modifier} = ${combatant.initiative} for initiative.`);
+            return combatant;
         });
 
-        // Sort by initiative, breaking ties by dexterity, then by a roll-off
-        this.initiativeOrder = this.combatants
-            .filter(c => !c.isDead)
-            .sort((a, b) => {
-                if (b.initiative !== a.initiative) {
-                    return b.initiative - a.initiative;
-                }
-                // Initiative tie: break by dexterity
-                if ((b.dex || 0) !== (a.dex || 0)) {
-                    return (b.dex || 0) - (a.dex || 0);
-                }
-                // Still tied: roll-off
+        // Sort combatants by initiative (highest first) with tiebreaker
+        this.combatants.sort((a, b) => {
+            if (b.initiative === a.initiative) {
                 const aRoll = Math.floor(Math.random() * 20) + 1;
                 const bRoll = Math.floor(Math.random() * 20) + 1;
                 this.logMessage(`Initiative tie between ${a.name} and ${b.name}: ${a.name} rolls ${aRoll}, ${b.name} rolls ${bRoll}`);
                 return bRoll - aRoll;
-            });
-
-    // Apply Surprise selection, if any
-    try {
-        const sel = (typeof $ !== 'undefined' && $('#surprisedTeamSelect').length > 0) ? ($('#surprisedTeamSelect').val() || '') : '';
-        if (sel) this.surprisedTeam = sel;
-    } catch {}
-    if (this.surprisedTeam) {
-        this.logMessage(`⚠️ Surprise! ${this.surprisedTeam} is Surprised this round.`);
-        for (const c of this.initiativeOrder) {
-            if (c && !c.isDead && c.team === this.surprisedTeam) {
-                if (!Array.isArray(c.conditions)) c.conditions = [];
-                c.conditions.push({ name: 'Surprised', rounds_remaining: 1 });
             }
-        }
-    }
+            return b.initiative - a.initiative;
+        });
 
-    this.combatActive = true;
-    this.currentTurnIndex = 0;
-    this.combatRound = 1;
-    // Initialize Legendary resources at combat start
-    for (const c of this.initiativeOrder) {
-        if (c && !c.isDead && (parseInt(c.legendaryActionsPerRound || 0, 10) > 0)) {
-            c.currentLA = parseInt(c.legendaryActionsPerRound || 0, 10);
+        this.initiativeOrder = this.combatants.map(c => c.id);
+        this.currentTurnIndex = 0;
+        this.combatActive = true;
+        this.combatRound = 1;
+
+        // Apply Surprise selection, if any
+        try {
+            const surpriseSelect = document.getElementById('surprisedTeamSelect');
+            const sel = surpriseSelect ? surpriseSelect.value : '';
+            if (sel) {
+                this.surprisedTeam = sel;
+            }
+        } catch (e) {
+            console.error('Error getting surprised team:', e);
         }
-        if (c && !c.isDead && (parseInt(c.legendaryResistances || c.legendary_resistances_max || 0, 10) > 0)) {
-            const lrMaxInit = parseInt(c.legendaryResistances || c.legendary_resistances_max || 0, 10) || 0;
-            c.currentLR = lrMaxInit;
-            c.legendary_resistances_current = lrMaxInit; // keep legacy field in sync
+
+        if (this.surprisedTeam) {
+            this.logMessage(`⚠️ Surprise! ${this.surprisedTeam} is Surprised this round.`);
+            this.combatants.forEach(c => {
+                if (c && !c.isDead && c.team === this.surprisedTeam) {
+                    if (!Array.isArray(c.conditions)) {
+                        c.conditions = [];
+                    }
+                    c.conditions.push({ name: 'Surprised', rounds_remaining: 1 });
+                }
+                return c;
+            });
         }
-        // Ensure rechargeable attacks start charged (used = false)
-        if (c && c.rechargeable_attack && typeof c.rechargeable_attack === 'object') {
-            for (const ability of Object.values(c.rechargeable_attack)) {
-                if (ability && typeof ability === 'object') {
-                    ability.used = false;
+
+        // Initialize Legendary resources at combat start
+        this.combatants.forEach(c => {
+            if (c && !c.isDead) {
+                // Initialize legendary actions
+                const laCount = parseInt(c.legendaryActionsPerRound || '0', 10) || 0;
+                if (laCount > 0) {
+                    c.currentLA = laCount;
+                }
+                
+                // Initialize legendary resistances
+                const lrMax = parseInt(c.legendaryResistances || c.legendary_resistances_max || '0', 10) || 0;
+                if (lrMax > 0) {
+                    c.currentLR = lrMax;
+                    c.legendary_resistances_current = lrMax; // keep legacy field in sync
+                }
+                
+                // Initialize rechargeable attacks
+                if (c.rechargeable_attack && typeof c.rechargeable_attack === 'object') {
+                    Object.values(c.rechargeable_attack).forEach(ability => {
+                        if (ability && typeof ability === 'object') {
+                            ability.used = false;
+                        }
+                    });
                 }
             }
+            return c;
+        });
+        
+        // Reset attacks for the first turn
+        this.resetAttacksForCurrentTurn();
+        
+        // Update UI
+        this.updateInitiativeList();
+        this.updateCurrentTurn();
+        this.updateActionButtons();
+        this.logMessage(`Combat Round ${this.combatRound} begins!`);
+
+        // Enable Simulate Battle button
+        const simulateButton = document.getElementById('simulateBattleBtn');
+        if (simulateButton) {
+            simulateButton.disabled = false;
         }
     }
-    
-    // Reset attacks for the first turn
-    this.resetAttacksForCurrentTurn();
-    
-    this.updateInitiativeList();
-    this.updateCurrentTurn();
-    this.updateActionButtons();
-    this.logMessage(`Combat Round ${this.combatRound} begins!`);
-
-    // Enable Simulate Battle button
-    $('#simulateBattleBtn').prop('disabled', false);
-}
 
     endTurn() {
         if (!this.combatActive) return;
@@ -1484,7 +1521,7 @@ class CombatSimulator {
             this.resolveEndOfTurnOngoingEffects(justWent);
             this.resolveEndOfTurnConditions(justWent);
         }
-        // Legendary Action Phase occurs after a creature's turn ends
+        // Legendary Action Phase occurs after a creature's turn ends;
         this.legendaryActionPhase(justWent ? justWent.id : null);
 
         this.currentTurnIndex++;
@@ -2946,8 +2983,9 @@ class CombatSimulator {
     }
 
     updateCharacterList() {
-        const container = $('.character-panel');
-        container.empty();
+        const container = this._query('.character-panel');
+        if (container && container.empty) container.empty();
+        else if (container) container.innerHTML = '';
 
         // Filter combatants by current team filter
         let filteredCombatants = this.combatants;
@@ -2957,17 +2995,24 @@ class CombatSimulator {
 
         filteredCombatants.forEach((combatant, index) => {
             const teamClass = combatant.team.toLowerCase().replace(' ', '-');
-            const combatantDiv = $(`
-                <div class="combatant ${teamClass}" data-index="${index}">
-                    <span class="combatant-name left-content">${combatant.name}</span>
-                    <span class="combatant-team left-content"> (${combatant.team})</span>
-                    <button class="add-multiple-btn btn-ml-10 right-content">Add More</button>
-                    <button class="remove-monster-btn btn-danger-mini btn-ml-5 right-content">Remove</button>
-                </div>
-            `);
+            const combatantDiv = document.createElement('div');
+            combatantDiv.className = `combatant ${teamClass}`;
+            combatantDiv.dataset.index = index;
 
-            // Add More button
-            combatantDiv.find('.add-multiple-btn').click(() => {
+            const combatantNameSpan = document.createElement('span');
+            combatantNameSpan.className = 'combatant-name left-content';
+            combatantNameSpan.textContent = combatant.name;
+            combatantDiv.appendChild(combatantNameSpan);
+
+            const combatantTeamSpan = document.createElement('span');
+            combatantTeamSpan.className = 'combatant-team left-content';
+            combatantTeamSpan.textContent = ` (${combatant.team})`;
+            combatantDiv.appendChild(combatantTeamSpan);
+
+            const addMultipleBtn = document.createElement('button');
+            addMultipleBtn.className = 'add-multiple-btn btn-ml-10 right-content';
+            addMultipleBtn.textContent = 'Add More';
+            addMultipleBtn.onclick = () => {
                 const count = parseInt(prompt(`How many more "${combatant.name}" would you like to add?`, "1"));
                 if (isNaN(count) || count < 1) return;
 
@@ -2978,29 +3023,44 @@ class CombatSimulator {
                     this.logMessage(`${newCombatant.name} has been added to ${newCombatant.team}.`);
                 }
                 this.updateCharacterList();
-            });
+            };
+            combatantDiv.appendChild(addMultipleBtn);
 
-            // Remove button
-            combatantDiv.find('.remove-monster-btn').click(() => {
+            const removeMonsterBtn = document.createElement('button');
+            removeMonsterBtn.className = 'remove-monster-btn btn-danger-mini btn-ml-5 right-content';
+            removeMonsterBtn.textContent = 'Remove';
+            removeMonsterBtn.onclick = () => {
                 this.combatants = this.combatants.filter((c, i) => i !== index);
                 this.initiativeOrder = this.initiativeOrder.filter((c, i) => i !== index);
                 this.updateCharacterList();
                 this.updateInitiativeList();
                 this.logMessage(`${combatant.name} has been removed from ${combatant.team}.`);
-            });
-            container.append(combatantDiv);
+            };
+            combatantDiv.appendChild(removeMonsterBtn);
+
+            container.appendChild(combatantDiv);
         });
     }
 
     updateInitiativeList() {
-        const container = $('#initiativeList');
-        container.empty();
+        const container = this._query('#initiativeList');
+        if (!container) return;
+        
+        // Clear the container
+        if (container.empty) {
+            container.empty();
+        } else if (container.innerHTML) {
+            container.innerHTML = '';
+        }
 
         // If initiative hasn't been rolled, show all combatants
         let list = this.initiativeOrder.length > 0 ? this.initiativeOrder : this.combatants;
 
         if (list.length === 0) {
-            container.append('<p class="no-combatants">No combatants in combat</p>');
+            const noCombatantsP = document.createElement('p');
+            noCombatantsP.className = 'no-combatants';
+            noCombatantsP.textContent = 'No combatants in combat';
+            container.appendChild(noCombatantsP);
             return;
         }
 
@@ -3025,47 +3085,93 @@ class CombatSimulator {
             const deadBadge = combatant.isDead ? '<span class="condition-badge">[DEAD]</span>' : '';
             const survivedBadge = (!combatant.isDead && showSurvivors) ? '<span class="condition-badge">[SURVIVED]</span>' : '';
             const frightenedBadge = (!combatant.isDead && combatant.frightened) ? '<span class="condition-badge">[FRIGHTENED]</span>' : '';
-            const initiativeItem = $(`
-                <div class="initiative-item ${isCurrentTurn ? 'current-turn' : ''} ${combatant.isDead ? 'dead' : ''} ${teamClass}">
-                    <div class="name">${combatant.name} <span class="team-indicator ${teamClass}">${combatant.team}</span> ${deadBadge}${survivedBadge}${frightenedBadge} ${conditionsHtml}</div>
-                    <div class="stats">
-                        <span>Initiative: ${combatant.initiative !== null ? combatant.initiative : '-'}</span>
-                        <span>AC: ${combatant.ac}</span>
-                        <span>HP: ${combatant.hp}/${combatant.maxHp}</span>
-                        <span>Attacks: ${combatant.attacksRemaining || 0}/${combatant.numberOfAttacks || 1}</span>
-                    </div>
-                </div>
-            `);
-            container.append(initiativeItem);
+            // Create initiative item using DOM methods
+            const initiativeItem = document.createElement('div');
+            initiativeItem.className = `initiative-item ${isCurrentTurn ? 'current-turn' : ''} ${combatant.isDead ? 'dead' : ''} ${teamClass}`;
+            
+            // Create name div
+            const nameDiv = document.createElement('div');
+            nameDiv.className = 'name';
+            nameDiv.innerHTML = `${combatant.name} <span class="team-indicator ${teamClass}">${combatant.team}</span> ${deadBadge}${survivedBadge}${frightenedBadge} ${conditionsHtml}`;
+            
+            // Create stats div
+            const statsDiv = document.createElement('div');
+            statsDiv.className = 'stats';
+            statsDiv.innerHTML = `
+                <span>Initiative: ${combatant.initiative !== null ? combatant.initiative : '-'}</span>
+                <span>AC: ${combatant.ac}</span>
+                <span>HP: ${combatant.hp}/${combatant.maxHp}</span>
+                <span>Attacks: ${combatant.attacksRemaining || 0}/${combatant.numberOfAttacks || 1}</span>
+            `;
+            
+            // Append elements
+            initiativeItem.appendChild(nameDiv);
+            initiativeItem.appendChild(statsDiv);
+            
+            // Append to container
+            if (container.appendChild) {
+                container.appendChild(initiativeItem);
+            } else if (container.append) {
+                container.append(initiativeItem);
+            }
         });
     }
 
     updateCurrentTurn() {
         const currentCombatant = this.getCurrentCombatant();
-        const container = $('#currentCombatant');
+        const container = this._query('#currentCombatant');
         
-        if (!currentCombatant) {
-            container.html('<p>No active combatant</p>');
+        if (!currentCombatant || !container) {
+            if (container) {
+                container.innerHTML = '<p>No active combatant</p>';
+            }
             return;
         }
 
-        container.html(`
+        // Create the HTML content
+        const html = `
             <h3>${currentCombatant.name}</h3>
             <p>Round ${this.combatRound} - Turn ${this.currentTurnIndex + 1}</p>
             <p>HP: ${currentCombatant.hp}/${currentCombatant.maxHp} | AC: ${currentCombatant.ac} | Attacks: ${currentCombatant.attacksRemaining || 0}/${currentCombatant.numberOfAttacks || 1}</p>
-        `);
+        `;
+        
+        // Set the HTML content
+        if (container.innerHTML !== undefined) {
+            container.innerHTML = html;
+        } else if (container.html) {
+            container.html(html);
+        }
     }
 
     updateActionButtons() {
+        // Get all action buttons except #simulateBattleBtn
+        const actionButtons = document.querySelectorAll('.action-buttons button:not(#simulateBattleBtn)');
+        
         // Disable all action buttons except #simulateBattleBtn
-        $(".action-buttons button").not("#simulateBattleBtn").prop("disabled", true);
+        actionButtons.forEach(button => {
+            if (button.disabled !== undefined) {
+                button.disabled = true;
+            } else if (button.prop) {
+                button.prop('disabled', true);
+            }
+        });
+        
         // Only enable #simulateBattleBtn if appropriate
         const currentCombatant = this.getCurrentCombatant();
         const hasActiveCombatant = currentCombatant !== null;
         const hasValidTargets = this.initiativeOrder.filter(c => !c.isDead).length > 1;
         const hasAttacksRemaining = currentCombatant ? currentCombatant.attacksRemaining > 0 : false;
+        
         // If you want to control #simulateBattleBtn's enabled state, you can do so here:
-        // $('#simulateBattleBtn').prop('disabled', !this.combatActive || this.initiativeOrder.length === 0);
+        const simulateBtn = document.getElementById('simulateBattleBtn');
+        if (simulateBtn) {
+            const shouldDisable = !this.combatActive || this.initiativeOrder.length === 0;
+            if (simulateBtn.disabled !== undefined) {
+                simulateBtn.disabled = shouldDisable;
+            } else if (simulateBtn.prop) {
+                simulateBtn.prop('disabled', shouldDisable);
+            }
+        }
     }
 
     // Additional Methods
@@ -3197,13 +3303,13 @@ class CombatSimulator {
      * See prompts.md Prompt 1.
      */
     processDamageReduction(target, rawDamage, damageType, isMagical = false, isSilvered = false) {
-        
-        let finalDamage = rawDamage;
         // Defensive: lowercase/trim damageType for all logic, always.
         damageType = String(damageType).toLowerCase().trim();
+        let finalDamage = rawDamage;
         
         // Log initial damage reduction check
         this.logMessage(`[DAMAGE] Processing ${rawDamage} ${damageType} damage (magical: ${isMagical}, silvered: ${isSilvered})`);
+        this.logMessage(`[DEBUG] Target: ${JSON.stringify(target, null, 2)}`);
         
         // Lowercase/trim all immunities/resistances/vulnerabilities, and support substrings for special phrasing.
         const getListLC = key => {
@@ -3220,9 +3326,21 @@ class CombatSimulator {
                 : [];
         };
         
+        // Get immunities and resistances (lowercase keys)
         const immunities = getListLC('damage immunities');
         const resistances = getListLC('damage resistances');
-        const vulnerabilities = getListLC('Damage Vulnerabilities');
+        
+        // For vulnerabilities, check both 'Damage Vulnerabilities' and 'damageVulnerabilities'
+        let vulnerabilities = [];
+        if (target['Damage Vulnerabilities']) {
+            vulnerabilities = Array.isArray(target['Damage Vulnerabilities']) 
+                ? target['Damage Vulnerabilities'].map(v => String(v).toLowerCase().trim())
+                : [String(target['Damage Vulnerabilities']).toLowerCase().trim()];
+        } else if (target.damageVulnerabilities) {
+            vulnerabilities = Array.isArray(target.damageVulnerabilities)
+                ? target.damageVulnerabilities.map(v => String(v).toLowerCase().trim())
+                : [String(target.damageVulnerabilities).toLowerCase().trim()];
+        }
         
         if (immunities.length > 0) {
             this.logMessage(`[IMMUNITIES] ${target.name} has: ${immunities.join(', ')}`);
@@ -3256,24 +3374,56 @@ class CombatSimulator {
             this.logMessage(msg);
             return 0;
         }
-        // Generic immunities
-        if (immunities.includes(damageType)) {
+        // Check for generic immunities (exact match or contains)
+        const isImmune = immunities.some(im => 
+            damageType.toLowerCase() === im.toLowerCase() ||
+            im.toLowerCase().includes(damageType.toLowerCase()) ||
+            damageType.toLowerCase().includes(im.toLowerCase())
+        );
+        if (isImmune) {
             const msg = `🛡️ ${target.name} is immune to ${damageType} damage! Damage reduced to 0.`;
             this.logMessage(msg);
             return 0;
-        } else {
         }
-        // Resistances
-        if (resistances.includes(damageType)) {
-            const msg = `⚔️ ${target.name} resists ${damageType} damage! Damage halved from ${finalDamage} to ${Math.floor(finalDamage / 2)}.`;
-            this.logMessage(msg);
-            finalDamage = Math.floor(finalDamage / 2);
-        }
-        // Vulnerabilities
-        if (vulnerabilities.includes(damageType)) {
-            const msg = `⚠️ ${target.name} is vulnerable to ${damageType} damage! Damage doubled from ${finalDamage} to ${finalDamage * 2}.`;
-            this.logMessage(msg);
+        
+        // Debug logging
+        this.logMessage(`[DEBUG] Checking vulnerabilities for damage type: '${damageType}'`);
+        this.logMessage(`[DEBUG] Vulnerabilities: ${JSON.stringify(vulnerabilities)}`);
+        
+        // Check for vulnerabilities - check if any vulnerability matches the damage type
+        const isVulnerable = vulnerabilities.some(vuln => {
+            // Normalize both strings for comparison
+            const vulnNormalized = vuln.toLowerCase().trim();
+            const damageNormalized = damageType.toLowerCase().trim();
+            
+            const matches = vulnNormalized === damageNormalized ||
+                          vulnNormalized.includes(damageNormalized) ||
+                          damageNormalized.includes(vulnNormalized);
+                          
+            this.logMessage(`[DEBUG] Comparing '${vulnNormalized}' with '${damageNormalized}': ${matches}`);
+            return matches;
+        });
+        
+        this.logMessage(`[DEBUG] Is vulnerable: ${isVulnerable}`);
+        
+        if (isVulnerable) {
+            const originalDamage = finalDamage;
             finalDamage *= 2;
+            const msg = `⚠️ ${target.name} is vulnerable to ${damageType} damage! Damage doubled from ${originalDamage} to ${finalDamage}.`;
+            this.logMessage(msg);
+        }
+        
+        // Check for resistances (after vulnerabilities)
+        const isResistant = resistances.some(res => 
+            damageType.toLowerCase().includes(res.toLowerCase()) || 
+            res.toLowerCase().includes(damageType.toLowerCase())
+        );
+        
+        if (isResistant) {
+            const originalDamage = finalDamage;
+            finalDamage = Math.floor(finalDamage / 2);
+            const msg = `⚔️ ${target.name} resists ${damageType} damage! Damage halved from ${originalDamage} to ${finalDamage}.`;
+            this.logMessage(msg);
         }
         return Math.max(0, finalDamage);
     }
@@ -3368,16 +3518,31 @@ const FALLBACK_MONSTERS = [
 ];
 
 // Initialize the combat simulator when the page loads
-let combatSim;
-$(document).ready(() => {
+export let combatSim;
+
+// Function to initialize the combat simulator
+export function initCombatSimulator() {
     combatSim = new CombatSimulator();
     
     // If external monsters didn't load, use fallback data
-    if (typeof monsters === 'undefined') {
+    if (typeof window.monsters === 'undefined') {
         window.monsters = FALLBACK_MONSTERS;
         console.log('Using fallback monster data');
     }
     
-    // Set default team filter
-    $('#switchAll').addClass('active');
-});
+    // Set default team filter if in browser environment with jQuery
+    if (typeof window !== 'undefined' && window.$) {
+        $(document).ready(() => {
+            $('#switchAll').addClass('active');
+        });
+    }
+    
+    return combatSim;
+}
+
+// Auto-initialize in browser environment with jQuery
+if (typeof window !== 'undefined' && window.$) {
+    $(document).ready(() => {
+        window.combatSim = initCombatSimulator();
+    });
+}

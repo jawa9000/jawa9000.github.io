@@ -1,4 +1,4 @@
-const monsters = [
+export const monsters = [
 {
     name: "Omni Monster",
     size: "Medium",
