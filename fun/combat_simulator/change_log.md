@@ -2,82 +2,93 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
 
 ## Change Log
 
+* 11/7/25: 0.36.3
+  * Implemented the combat map with placement of monsters.
+  * Implemented a system for centering the monsters on the opposite side of the map and grouped by teams (clustered positioning).
+  * Implemented a system for spacing the monsters on the map. This can be toggled on and off.
+  * Implemented a system for layout of the monsters on the map. This can be toggled between clustered, columns, and random.
 * 11/6/25: 0.35.2
-    * Implemented immunity to normal and non-silvered weapon damage.
-    * Fixed issue with ongoing effects not working.
-    * Fixed issue where attack names were not being displayed correctly.
+  * Implemented immunity to normal and non-silvered weapon damage.
+  * Fixed issue with ongoing effects not working.
+  * Fixed issue where attack names were not being displayed correctly.
 * 11/2/25: 0.34.20
-    * Fixed badge issue when it does it should say "[DEAD]".
-    * When clicking the #newCombat button, the combat log history is cleared out.
-    * Added clear combat log button and it's functionality to clear the combat log.
+  * Fixed badge issue when it does it should say "[DEAD]".
+  * When clicking the #newCombat button, the combat log history is cleared out.
+  * Added clear combat log button and it's functionality to clear the combat log.
 * 10/27/25: 0.34.17
-    * Minor tweaks to remove unnecessary items from the modal for monster selection.
-    * Renamed a few headings.
-    * Hid the Add Character button.
+  * Minor tweaks to remove unnecessary items from the modal for monster selection.
+  * Renamed a few headings.
+  * Hid the Add Character button.
 * 10/26/25: 0.34.16
-    * More UI fixes to align with new color scheme.
-    * Implemented Intimidation action and logic.
-    * Updated the UI for Team A and Team B in the div.character-panel element and the team view buttons.
+  * More UI fixes to align with new color scheme.
+  * Implemented Intimidation action and logic.
+  * Updated the UI for Team A and Team B in the div.character-panel element and the team view buttons.
 * 10/25/25: 0.33.13
-    * Implemented petrified, charmed, restrained, frightened, grappled, incapacitated, invisibility, confused, and exhaustion conditions.
-    * Updated the monster list display to include which conditions it has.
-    * Added logic that a restrained monster should decide to break free from the restraint.
-    * Updated decision logic so that a monster can only make one decision per round.
-    * Added a temporary keybinding (Ctrl+Shift+M) to add 3 monsters to each team, roll initiative, and start combat.
-    * Updated the combat logic to allow for a draw.
-    * Implemented the surprise round system.
-    * Implemented the time tracking system.
-    * Updated the UI to disable buttons that should not be available during combat.
-    * Moved inline styling of buttons to a class and added them to the CSS file.
-    * Removed the buttons that were not used.
-    * Changed the color of the Team A and Team B buttons and backgrounds.
-    * Set up CSS variables to ensure consistency throughout the application.
-    * Made some minor color changes to the UI.
-    * Implemented saving throw bonuses.
-    * Fixed issue where condition effects were not showing up.
-    * Added the dead and survived badges to the initiative list.
-    * Adjusted the UI of the team buttons.
+  * Implemented petrified, charmed, restrained, frightened, grappled, incapacitated, invisibility, confused, and exhaustion conditions.
+  * Updated the monster list display to include which conditions it has.
+  * Added logic that a restrained monster should decide to break free from the restraint.
+  * Updated decision logic so that a monster can only make one decision per round.
+  * Added a temporary keybinding (Ctrl+Shift+M) to add 3 monsters to each team, roll initiative, and start combat.
+  * Updated the combat logic to allow for a draw.
+  * Implemented the surprise round system.
+  * Implemented the time tracking system.
+  * Updated the UI to disable buttons that should not be available during combat.
+  * Moved inline styling of buttons to a class and added them to the CSS file.
+  * Removed the buttons that were not used.
+  * Changed the color of the Team A and Team B buttons and backgrounds.
+  * Set up CSS variables to ensure consistency throughout the application.
+  * Made some minor color changes to the UI.
+  * Implemented saving throw bonuses.
+  * Fixed issue where condition effects were not showing up.
+  * Added the dead and survived badges to the initiative list.
+  * Adjusted the UI of the team buttons.
 * 10/24/25: 0.18.0
-    * Implemented the stunned, poisoned, slowed, paralyzed, blinded, deafened, and prone conditions.
+  * Implemented the stunned, poisoned, slowed, paralyzed, blinded, deafened, and prone conditions.
 * 10/23/25: 0.11.2
-    * Implemented the legendary action system.
-    * Implemented rechargeable monster abilities and attacks.
-    * Implemented ongoing effects.
-    * Fixed bug where Copy Team Info wasn't copying the contents of the combat log.
-    * Fixed issue where friendly fire was allowed.
+  * Implemented the legendary action system.
+  * Implemented rechargeable monster abilities and attacks.
+  * Implemented ongoing effects.
+  * Fixed bug where Copy Team Info wasn't copying the contents of the combat log.
+  * Fixed issue where friendly fire was allowed.
 * 10/22/25: 0.7.0
-    * Implemented the Legendary Resistance system.
-    * Implemented the frightful presence system.
-    * Implemented the regeneration system.
+  * Implemented the Legendary Resistance system.
+  * Implemented the frightful presence system.
+  * Implemented the regeneration system.
 * 10/21/25: 0.4.1
-    * Implemented damage immunities across all effect damage types and paths.
-    * Made minor updates to the UI of the Combat Log.
-    * Implemented damage vulnerabilities across all effect damage types and paths.
+  * Implemented damage immunities across all effect damage types and paths.
+  * Made minor updates to the UI of the Combat Log.
+  * Implemented damage vulnerabilities across all effect damage types and paths.
 * 10/18/25: 0.2.0
-    * Updated attack effect damage system as it wasn't applying acid, fire, force, necrotic, psychic, radiant, cold, lightning, thunder, and poison damage during combat.
-    * Added an attack decision system. Monsters with multiple attacks choose the most effective attack—calculated by attack bonus, damage potential, and special effects—with the chance of an intelligent choice being highly dependent on their Intelligence or Wisdom score.
-    * Implemented damage resistance system. I also implemented a learning system where monsters remember ineffective attacks and adapt their strategy based on their intelligence or wisdom scores.
+  * Updated attack effect damage system as it wasn't applying acid, fire, force, necrotic, psychic, radiant, cold, lightning, thunder, and poison damage during combat.
+  * Added an attack decision system. Monsters with multiple attacks choose the most effective attack—calculated by attack bonus, damage potential, and special effects—with the chance of an intelligent choice being highly dependent on their Intelligence or Wisdom score.
+  * Implemented damage resistance system. I also implemented a learning system where monsters remember ineffective attacks and adapt their strategy based on their intelligence or wisdom scores.
 * 10/17/25: 0.1.3
-    * Added functionality that handles attack effects (i.e. acid, fire, poison, etc.).
-    * Added a button to the combat log that will copy the content of that element.
-    * Removed the team selector from the monster selector modal.
-    * Fixed an issue where the team selector was pushing all monsters into the same team.
+  * Added functionality that handles attack effects (i.e. acid, fire, poison, etc.).
+  * Added a button to the combat log that will copy the content of that element.
+  * Removed the team selector from the monster selector modal.
+  * Fixed an issue where the team selector was pushing all monsters into the same team.
 * 9/14/25: 0.0.8
-    * Fixed issue where attack data is empty.
-    * Removed delay between each action (defaulted to 1.2 seconds).
-    * Added element height limit and conditional scroll bar displaying the monster list in Initiative Order.
-    * Added functionality to handle damage from the attacks properties.
+  * Fixed issue where attack data is empty.
+  * Removed delay between each action (defaulted to 1.2 seconds).
+  * Added element height limit and conditional scroll bar displaying the monster list in Initiative Order.
+  * Added functionality to handle damage from the attacks properties.
 * 9/7/25: 0.0.4
-    * Made adjustments to initiative system, added critical damage to critical hits, and added system to add multiples of the same monster.
+  * Made adjustments to initiative system, added critical damage to critical hits, and added system to add multiples of the same monster.
 * 9/6/25: 0.0.1
-    * Started creating a monster simulation combat system.
+  * Started creating a monster simulation combat system.
 
 ## Active Projects
 
 >> Trying to debug the implementation of "Multidimensional Strike" attack and the condition of "disoriented". Nothing has worked so far.
 
+### Features
+* consider an option (toggle) make the placement of monsters interactive by the user.
+
+### Bugs
+* All monsters listed in both the Initiative Order and the div.character-panel element need to have a number behind their name to make it unique. For example: Omni Monster #1 (Team A), Omni Monster #2 (Team A), etc.
 * There seems to be a lot of CSS code in script.js. This should be moved to and handled by styles.css. There should be no style decisions made in any JS file.
 
+### Maintenance
 * Separate the functionality of script.js into different JavaScript files that is logical and is easier to maintain.
 
 Note: Cursor's default model is "composer-1". Using Windsurf's SWE-1 has been troublesome.
@@ -88,9 +99,9 @@ Consider refactoring the code to break it into several separate files.
 
 ## Do-to List
 
-In monsters.js, update the speed, skills, saving throws, senses properties to use an object instead of a string and then update script.js and Encounter_Builder/main.js to handle this change. Also, update the prompt that is used to generate monster JSON data to reflect this change.
+* In monsters.js, update the speed, skills, saving throws, senses properties to use an object instead of a string and then update script.js and Encounter_Builder/main.js to handle this change. Also, update the prompt that is used to generate monster JSON data to reflect this change.
 
-Consider building a test suite.
+* Consider building a test suite.
 
 Add the following mechanics and/or features:
 * Update the prompt JSON template to include templates for legendary resistance, recharge, frightful presence, condition effects, ongoing effects, and one-time effect.
@@ -99,24 +110,24 @@ Add the following mechanics and/or features:
 * Add functionality where a monster can use their skills as actions. They should decide if they want to use it and if it is appropriate to use it.
 * Morale system for NPCs/monsters
 * keep track of used reactions (e.g., opportunity attacks)
-    * retaliatory strikes
-    * opportunity attacks
-    * area-of-effect attacks
-    * teleportation
-    * forced movement
-    * damage mitigation
-    * regeneration/healing
-    * status effect application (inflict a negative status effect)
+  * retaliatory strikes
+  * opportunity attacks
+  * area-of-effect attacks
+  * teleportation
+  * forced movement
+  * damage mitigation
+  * regeneration/healing
+  * status effect application (inflict a negative status effect)
 * Bonus actions (attacks)
-    * pounce
-    * rampage
-    * trampling charge
-    * aggressive (move to target)
-    * Nimble escape
-    * ethereal jaunt
-    * spell casting
-    * Battle cry
-    * luring song
+  * pounce
+  * rampage
+  * trampling charge
+  * aggressive (move to target)
+  * Nimble escape
+  * ethereal jaunt
+  * spell casting
+  * Battle cry
+  * luring song
 * Standard actions to be implemented:
   * move
   * dash

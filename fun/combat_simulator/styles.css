@@ -899,3 +899,46 @@ select:focus {
     border-color: #3498db; /* Highlight border on focus */
     box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
 }
+
+/* Tabs */
+.main-tabs {
+    display: flex;
+    gap: 10px;
+    margin: 0 0 12px 0;
+}
+
+.tab-btn {
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(45deg, var(--color-neutral), var(--color-neutral-dark));
+    color: white;
+}
+
+.tab-btn.active {
+    background: linear-gradient(45deg, var(--color-primary), var(--color-primary-dark));
+    color: #23272f;
+}
+
+.tab-panels .tab-panel {
+    display: none;
+}
+
+.tab-panels .tab-panel.active {
+    display: block;
+}
+
+/* Combat Map */
+.combat-map {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0 20px 0;
+}
+
+#combatMap {
+    background: var(--color-primary);
+    border: 2px solid rgba(0,0,0,0.1);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
