@@ -85,7 +85,6 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
 * consider an option (toggle) make the placement of monsters interactive by the user.
 
 ### Bugs
-* All monsters listed in both the Initiative Order and the div.character-panel element need to have a number behind their name to make it unique. For example: Omni Monster #1 (Team A), Omni Monster #2 (Team A), etc.
 * There seems to be a lot of CSS code in script.js. This should be moved to and handled by styles.css. There should be no style decisions made in any JS file.
 
 ### Maintenance

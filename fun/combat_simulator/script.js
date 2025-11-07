@@ -424,6 +424,8 @@ class CombatSimulator {
 
         $(document).on('keydown', (e) => {
             const key = (e.key || '').toUpperCase();
+
+            // Build teams of three and test combat and logging systems
             if (e.ctrlKey && e.shiftKey && key === 'M') {
                 e.preventDefault();
                 try {
@@ -446,7 +448,35 @@ class CombatSimulator {
                     this.updateCharacterList();
                     this.rollInitiative && this.rollInitiative();
                     this.simulateBattle && this.simulateBattle();
-                } catch {}
+                } catch {
+                    console.error('Failed to launch team build and test.');
+                }
+            }
+
+            // Build teams of three
+            if (e.ctrlKey && e.shiftKey && key === '#') {
+                e.preventDefault();
+                try {
+                    const pick = (arr) => (Array.isArray(arr) && arr.length > 0) ? arr[0] : null;
+                    const srcA = (typeof monsters !== 'undefined') ? pick(monsters) : pick(FALLBACK_MONSTERS);
+                    const srcB = (typeof monsters !== 'undefined') ? pick(monsters) : pick(FALLBACK_MONSTERS);
+                    if (!srcA || !srcB) return;
+                    for (let i = 0; i < 3; i++) {
+                        const a = this.convertMonsterToCombatant(srcA);
+                        a.team = 'Team A';
+                        if (i > 0) a.name = `${a.name} #${this.combatants.length + 1}`;
+                        this.assignInitialPosition(a);
+                        this.combatants.push(a);
+                        const b = this.convertMonsterToCombatant(srcB);
+                        b.team = 'Team B';
+                        if (i > 0) b.name = `${b.name} #${this.combatants.length + 1}`;
+                        this.assignInitialPosition(b);
+                        this.combatants.push(b);
+                    }
+                    this.updateCharacterList();
+                } catch {
+                    console.error('Failed to launch team build and test.');
+                }
             }
         });
 
@@ -3141,7 +3171,7 @@ class CombatSimulator {
     }
 
     updateCharacterList() {
-        const container = $('.character-panel');
+        const container = $('#characterList');
         container.empty();
 
         // Filter combatants by current team filter
@@ -3153,7 +3183,7 @@ class CombatSimulator {
         filteredCombatants.forEach((combatant, index) => {
             const teamClass = combatant.team.toLowerCase().replace(' ', '-');
             const combatantDiv = $(`
-                <div class="combatant ${teamClass}" data-index="${index}">
+                <div class="combatant ${teamClass}" data-index="${index}" data-id="${combatant.id}">
                     <span class="combatant-name left-content">${combatant.name}</span>
                     <span class="combatant-team left-content"> (${combatant.team})</span>
                     <button class="add-multiple-btn btn-ml-10 right-content">Add More</button>
@@ -3520,6 +3550,33 @@ class CombatSimulator {
     drawCombatants() {
         if (!this.mapCtx) return;
         const ctx = this.mapCtx;
+        // Build per-team label map from the visible character list order
+        let labelMap = new Map();
+        try {
+            const teamCountersDOM = {};
+            const nodes = $('#characterList .combatant');
+            if (nodes && nodes.length > 0) {
+                nodes.each((i, el) => {
+                    const idKey = String($(el).attr('data-id') || '');
+                    if (!idKey) return;
+                    const c = this.combatants.find(x => String(x.id) === idKey);
+                    if (!c || c.type !== 'monster') return;
+                    const team = c.team || 'Neutral';
+                    teamCountersDOM[team] = (teamCountersDOM[team] || 0) + 1;
+                    labelMap.set(idKey, teamCountersDOM[team]);
+                });
+            }
+            // Fallback to in-memory order if DOM is empty
+            if (labelMap.size === 0) {
+                const teamCounters = {};
+                for (const cc of this.combatants) {
+                    if (!cc || cc.type !== 'monster') continue;
+                    const t = cc.team || 'Neutral';
+                    teamCounters[t] = (teamCounters[t] || 0) + 1;
+                    labelMap.set(String(cc.id), teamCounters[t]);
+                }
+            }
+        } catch {}
         for (const c of this.combatants) {
             const fp = Math.max(1, c.grid_footprint || 1);
             const gx = c.position_x;
@@ -3544,6 +3601,20 @@ class CombatSimulator {
             ctx.fill();
             ctx.strokeStyle = '#00000066';
             ctx.stroke();
+
+            // Draw number label centered on the token (monsters only), per-team numbering
+            const label = (c.type === 'monster') ? labelMap.get(String(c.id)) : null;
+            if (label) {
+                const fontSize = Math.max(12, Math.floor(this.SQUARE_PIXELS * 0.5));
+                ctx.font = `bold ${fontSize}px sans-serif`;
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.lineWidth = 3;
+                ctx.strokeStyle = '#FFFFFFB3';
+                ctx.strokeText(String(label), cx, cy);
+                ctx.fillStyle = '#000000';
+                ctx.fillText(String(label), cx, cy);
+            }
         }
     }
 
