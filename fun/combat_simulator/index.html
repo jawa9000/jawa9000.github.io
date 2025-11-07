@@ -29,6 +29,11 @@
             </div>
         </header>
 
+        <div class="main-tabs">
+            <button id="tabBtnTracker" class="tab-btn active">Tracker</button>
+            <button id="tabBtnMap" class="tab-btn">Combat Map</button>
+        </div>
+
         <div class="main-content">
             <div class="combat-area">
                 <div class="initiative-tracker">
@@ -54,12 +59,17 @@
                     </div>
                 </div>
             </div>
-
             <div class="character-panel">
                 <h2>Monsters & Teams</h2>
                 <div id="characterList" class="character-list">
                     <p class="no-characters">No characters added yet</p>
                 </div>
+            </div>
+        </div>
+
+        <div id="tab-map" class="tab-panel">
+            <div class="combat-map">
+                <canvas id="combatMap"></canvas>
             </div>
         </div>
 
