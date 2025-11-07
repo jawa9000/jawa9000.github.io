@@ -19,6 +19,8 @@ class CombatSimulator {
         this.mapCtx = null;
         this.draggingCombatant = null;
         this.dragOrig = null;
+        this.mapSpacingOn = false;
+        this.mapLayoutMode = 'clustered';
 
         this.initializeEventListeners();
         this.initializeMap();
@@ -53,6 +55,135 @@ class CombatSimulator {
             if (!grappler || !this.isCombatantIncapacitated(grappler)) continue;
             this.removeGrappledMaintainedBy(grappler);
         }
+    }
+
+    // ==== Team Layout System ====
+    layoutTeams(mode = 'clustered') {
+        this.mapLayoutMode = mode;
+        // Place Team A then Team B to minimize cross-team interference
+        this.layoutTeam('Team A', mode);
+        this.layoutTeam('Team B', mode);
+        this.drawGrid();
+        this.drawCombatants();
+    }
+
+    layoutTeam(team, mode) {
+        const members = this.combatants.filter(c => c && c.team === team);
+        if (members.length === 0) return;
+        // Sort large footprints first for easier packing
+        members.sort((a, b) => (Math.max(1, b.grid_footprint || 1)) - (Math.max(1, a.grid_footprint || 1)));
+        const opponents = this.combatants.filter(c => c && c.team !== team && Number.isFinite(c.position_x) && Number.isFinite(c.position_y));
+        const placed = []; // new positions for this team during layout
+        for (const c of members) {
+            const fp = Math.max(1, c.grid_footprint || 1);
+            const cand = this.generateCandidates(team, fp, mode);
+            let chosen = null;
+            for (const p of cand) {
+                if (this.isFreeConsidering(p.x, p.y, fp, placed, opponents, this.mapSpacingOn ? 1 : 0)) {
+                    chosen = p; break;
+                }
+            }
+            // Fallback: try anywhere in zone
+            if (!chosen) {
+                const any = this.generateCandidates(team, fp, 'clustered');
+                for (const p of any) {
+                    if (this.isFreeConsidering(p.x, p.y, fp, placed, opponents, this.mapSpacingOn ? 1 : 0)) { chosen = p; break; }
+                }
+            }
+            if (!chosen) { chosen = { x: 0, y: 0 }; }
+            c.position_x = chosen.x;
+            c.position_y = chosen.y;
+            placed.push({ x: chosen.x, y: chosen.y, fp });
+        }
+    }
+
+    generateCandidates(team, fp, mode) {
+        const zone = this.getTeamZone(team, fp);
+        const arr = [];
+        if (mode === 'columns') {
+            // Columns-first order: x near center first, y near vertical center first
+            const xs = [];
+            for (let x = zone.xmin; x <= zone.xmax; x++) xs.push(x);
+            xs.sort((a, b) => Math.abs((a + fp / 2) - zone.cx) - Math.abs((b + fp / 2) - zone.cx));
+            const ys = [];
+            for (let y = zone.ymin; y <= zone.ymax; y++) ys.push(y);
+            ys.sort((a, b) => Math.abs((a + fp / 2) - zone.cy) - Math.abs((b + fp / 2) - zone.cy));
+            for (const x of xs) {
+                for (const y of ys) {
+                    arr.push({ x, y });
+                }
+            }
+            return arr;
+        }
+        // Center-out (clustered) or random use same base list, then sort/shuffle
+        for (let y = zone.ymin; y <= zone.ymax; y++) {
+            for (let x = zone.xmin; x <= zone.xmax; x++) {
+                const mx = x + fp / 2, my = y + fp / 2;
+                const dx = mx - zone.cx, dy = my - zone.cy;
+                const d2 = dx * dx + dy * dy;
+                arr.push({ x, y, d2 });
+            }
+        }
+        if (mode === 'random') {
+            return this.shuffle(arr).map(o => ({ x: o.x, y: o.y }));
+        }
+        // clustered (default): sort by distance to zone center
+        arr.sort((a, b) => a.d2 - b.d2);
+        return arr.map(o => ({ x: o.x, y: o.y }));
+    }
+
+    getTeamZone(team, fp) {
+        const width = this.MAP_WIDTH_SQUARES;
+        const height = this.MAP_HEIGHT_SQUARES;
+        let xmin, xmax;
+        if (team === 'Team B') {
+            xmin = Math.floor(width / 2);
+            xmax = width - fp;
+        } else {
+            xmin = 0;
+            xmax = Math.ceil(width / 2) - fp;
+        }
+        if (xmin < 0) xmin = 0;
+        if (xmax < xmin) xmax = xmin;
+        const ymin = 0, ymax = height - fp;
+        const cx = (xmin + Math.min(xmax, width - fp)) / 2 + fp / 2;
+        const cy = (ymin + ymax) / 2 + fp / 2;
+        return { xmin, xmax, ymin, ymax, cx, cy };
+    }
+
+    isFreeConsidering(x, y, fp, placedTeamRects, opponentRects, spacing) {
+        // Check vs opponents (no spacing, just no overlap)
+        for (const o of opponentRects) {
+            if (!Number.isFinite(o.position_x) || !Number.isFinite(o.position_y)) continue;
+            if (this.rectsOverlap(x, y, fp, fp, o.position_x, o.position_y, Math.max(1, o.grid_footprint || 1), Math.max(1, o.grid_footprint || 1))) {
+                return false;
+            }
+        }
+        // Check vs already-placed same-team rects, with optional spacing (exactly 'spacing' squares of gap)
+        for (const r of placedTeamRects) {
+            const gap = Math.max(0, spacing);
+            const separated = (
+                r.x >= x + fp + gap ||
+                r.x + r.fp + gap <= x ||
+                r.y >= y + fp + gap ||
+                r.y + r.fp + gap <= y
+            );
+            if (!separated) return false;
+        }
+        return true;
+    }
+
+    rectsOverlap(x1, y1, w1, h1, x2, y2, w2, h2) {
+        return !(x2 >= x1 + w1 || x2 + w2 <= x1 || y2 >= y1 + h1 || y2 + h2 <= y1);
+    }
+
+    shuffle(arr) {
+        const a = arr.slice();
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
     }
 
     // Remove Grappled from all creatures grappled by the given grappler
@@ -328,6 +459,8 @@ class CombatSimulator {
             // Explicit show/hide for reliability
             $('.main-content').show();
             $('#tab-map').hide();
+            this.drawGrid();
+            this.drawCombatants();
         });
         $(document).on('click', '#tabBtnMap', () => {
             $('.tab-btn').removeClass('active');
@@ -340,6 +473,17 @@ class CombatSimulator {
             this.drawGrid();
             this.drawCombatants();
         });
+
+        // Map layout controls
+        $(document).on('click', '#layoutClustered', () => { this.layoutTeams('clustered'); });
+        $(document).on('click', '#layoutColumns', () => { this.layoutTeams('columns'); });
+        $(document).on('click', '#layoutRandom', () => { this.layoutTeams('random'); });
+        $(document).on('click', '#mapSpacingToggle', () => {
+            this.mapSpacingOn = !this.mapSpacingOn;
+            $('#mapSpacingToggle').text(this.mapSpacingOn ? 'Spacing: On' : 'Spacing: Off');
+            this.layoutTeams(this.mapLayoutMode || 'clustered');
+        });
+
         // Initial state: Tracker visible, Map hidden, log visible
         $('#tabBtnTracker').addClass('active');
         $('#tabBtnMap').removeClass('active');
@@ -3413,6 +3557,42 @@ class CombatSimulator {
         return { x: 0, y: 0 };
     }
 
+    findAvailablePositionInZone(team, footprint) {
+        const fp = Math.max(1, footprint || 1);
+        const width = this.MAP_WIDTH_SQUARES;
+        const height = this.MAP_HEIGHT_SQUARES;
+        let xmin, xmax;
+        if (team === 'Team B') {
+            xmin = Math.floor(width / 2);
+            xmax = width - fp;
+        } else {
+            xmin = 0;
+            xmax = Math.ceil(width / 2) - fp;
+        }
+        if (xmin < 0) xmin = 0;
+        if (xmax < 0) xmax = 0;
+        const ymin = 0;
+        const ymax = height - fp;
+        const cx = (xmin + Math.min(xmax, width - fp)) / 2 + fp / 2;
+        const cy = (ymin + ymax) / 2 + fp / 2;
+        const candidates = [];
+        for (let y = ymin; y <= ymax; y++) {
+            for (let x = xmin; x <= xmax; x++) {
+                const mx = x + fp / 2;
+                const my = y + fp / 2;
+                const dx = mx - cx;
+                const dy = my - cy;
+                const d2 = dx * dx + dy * dy;
+                candidates.push({ x, y, d2 });
+            }
+        }
+        candidates.sort((a, b) => a.d2 - b.d2);
+        for (const c of candidates) {
+            if (this.isAreaFree(c.x, c.y, fp)) return { x: c.x, y: c.y };
+        }
+        return this.findAvailablePosition(fp);
+    }
+
     isAreaFree(x, y, footprint) {
         return this.isAreaFreeExcluding(x, y, footprint, null);
     }
@@ -3439,7 +3619,12 @@ class CombatSimulator {
         if (!combatant) return;
         const fp = Math.max(1, combatant.grid_footprint || 1);
         if (Number.isFinite(combatant.position_x) && Number.isFinite(combatant.position_y)) return;
-        const pos = this.findAvailablePosition(fp);
+        let pos;
+        if (combatant.team === 'Team A' || combatant.team === 'Team B') {
+            pos = this.findAvailablePositionInZone(combatant.team, fp);
+        } else {
+            pos = this.findAvailablePosition(fp);
+        }
         combatant.position_x = pos.x;
         combatant.position_y = pos.y;
     }

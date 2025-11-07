@@ -2,8 +2,11 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
 
 ## Change Log
 
-* 11/7/25: 0.35.3
+* 11/7/25: 0.36.3
   * Implemented the combat map with placement of monsters.
+  * Implemented a system for centering the monsters on the opposite side of the map and grouped by teams (clustered positioning).
+  * Implemented a system for spacing the monsters on the map. This can be toggled on and off.
+  * Implemented a system for layout of the monsters on the map. This can be toggled between clustered, columns, and random.
 * 11/6/25: 0.35.2
   * Implemented immunity to normal and non-silvered weapon damage.
   * Fixed issue with ongoing effects not working.
@@ -79,7 +82,7 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
 >> Trying to debug the implementation of "Multidimensional Strike" attack and the condition of "disoriented". Nothing has worked so far.
 
 ### Features
-* For the map to appear, the div.main-content element should have two tabs: one for the Initiative Order and everything else that is currently there now and one for the Combat Map.
+* consider an option (toggle) make the placement of monsters interactive by the user.
 
 ### Bugs
 * All monsters listed in both the Initiative Order and the div.character-panel element need to have a number behind their name to make it unique. For example: Omni Monster #1 (Team A), Omni Monster #2 (Team A), etc.
