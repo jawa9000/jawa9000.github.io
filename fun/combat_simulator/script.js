@@ -3180,6 +3180,11 @@ class CombatSimulator {
             filteredCombatants = this.combatants.filter(c => c.team === this.currentTeamFilter);
         }
 
+        if (filteredCombatants.length === 0) {
+            container.append('<p class="no-characters">No characters added yet</p>');
+            return;
+        }
+
         filteredCombatants.forEach((combatant, index) => {
             const teamClass = combatant.team.toLowerCase().replace(' ', '-');
             const combatantDiv = $(`
