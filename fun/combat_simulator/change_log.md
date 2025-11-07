@@ -2,7 +2,7 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
 
 ## Change Log
 
-* 11/7/25: 0.36.5
+* 11/7/25: 0.36.6
   * Implemented the combat map with placement of monsters.
   * Implemented a system for centering the monsters on the opposite side of the map and grouped by teams (clustered positioning).
   * Implemented a system for spacing the monsters on the map. This can be toggled on and off.
@@ -10,6 +10,7 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
   * Fixed issue where the numbering of the monsters was not appearing in the Combat Map.
   * Added a keyboard shortcut (Ctrl+Shift+3) to add 3 monsters to each team.
   * Fixed issue where the heading of div.character-panel heading was disappearing.
+  * Added position logging to the combat log.
 * 11/6/25: 0.35.2
   * Implemented immunity to normal and non-silvered weapon damage.
   * Fixed issue with ongoing effects not working.

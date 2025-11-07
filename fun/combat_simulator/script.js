@@ -57,6 +57,20 @@ class CombatSimulator {
         }
     }
 
+    // Helper method to log position changes
+    logPositionChange(combatant, action, x, y, prevX = null, prevY = null) {
+        let message = `${combatant.name} (${combatant.team}) ${action} position (${x}, ${y})`;
+        
+        if (prevX !== null && prevY !== null && (x !== prevX || y !== prevY)) {
+            const dx = x - prevX;
+            const dy = y - prevY;
+            message += ` - Moved ${Math.abs(dx)} square${Math.abs(dx) !== 1 ? 's' : ''} ${dx >= 0 ? 'east' : 'west'}, `;
+            message += `${Math.abs(dy)} square${Math.abs(dy) !== 1 ? 's' : ''} ${dy >= 0 ? 'south' : 'north'}`;
+        }
+        
+        this.logMessage(message);
+    }
+
     // ==== Team Layout System ====
     layoutTeams(mode = 'clustered') {
         this.mapLayoutMode = mode;
@@ -70,29 +84,55 @@ class CombatSimulator {
     layoutTeam(team, mode) {
         const members = this.combatants.filter(c => c && c.team === team);
         if (members.length === 0) return;
+        
+        // Log the start of team placement
+        this.logMessage(`Placing ${team} in ${mode} formation...`);
+        
         // Sort large footprints first for easier packing
         members.sort((a, b) => (Math.max(1, b.grid_footprint || 1)) - (Math.max(1, a.grid_footprint || 1)));
         const opponents = this.combatants.filter(c => c && c.team !== team && Number.isFinite(c.position_x) && Number.isFinite(c.position_y));
         const placed = []; // new positions for this team during layout
+        
         for (const c of members) {
+            const oldX = c.position_x;
+            const oldY = c.position_y;
             const fp = Math.max(1, c.grid_footprint || 1);
             const cand = this.generateCandidates(team, fp, mode);
             let chosen = null;
+            
             for (const p of cand) {
                 if (this.isFreeConsidering(p.x, p.y, fp, placed, opponents, this.mapSpacingOn ? 1 : 0)) {
-                    chosen = p; break;
+                    chosen = p; 
+                    break;
                 }
             }
+            
             // Fallback: try anywhere in zone
             if (!chosen) {
                 const any = this.generateCandidates(team, fp, 'clustered');
                 for (const p of any) {
-                    if (this.isFreeConsidering(p.x, p.y, fp, placed, opponents, this.mapSpacingOn ? 1 : 0)) { chosen = p; break; }
+                    if (this.isFreeConsidering(p.x, p.y, fp, placed, opponents, this.mapSpacingOn ? 1 : 0)) { 
+                        chosen = p; 
+                        break; 
+                    }
                 }
             }
-            if (!chosen) { chosen = { x: 0, y: 0 }; }
-            c.position_x = chosen.x;
-            c.position_y = chosen.y;
+            
+            if (!chosen) { 
+                chosen = { x: 0, y: 0 }; 
+            }
+            
+            // Only update and log if position actually changed
+            if (!Number.isFinite(oldX) || !Number.isFinite(oldY) || oldX !== chosen.x || oldY !== chosen.y) {
+                c.position_x = chosen.x;
+                c.position_y = chosen.y;
+                if (Number.isFinite(oldX) && Number.isFinite(oldY)) {
+                    this.logPositionChange(c, 'repositioned to', chosen.x, chosen.y, oldX, oldY);
+                } else {
+                    this.logMessage(`${c.name} (${c.team}) placed at position (${chosen.x}, ${chosen.y})`);
+                }
+            }
+            
             placed.push({ x: chosen.x, y: chosen.y, fp });
         }
     }
@@ -3691,18 +3731,35 @@ class CombatSimulator {
         return true;
     }
 
+    // Helper method to log position changes
+    logPositionChange(combatant, action, x, y, prevX = null, prevY = null) {
+        let message = `${combatant.name} (${combatant.team}) ${action} position (${x}, ${y})`;
+        
+        if (prevX !== null && prevY !== null && (x !== prevX || y !== prevY)) {
+            const dx = x - prevX;
+            const dy = y - prevY;
+            message += ` - Moved ${Math.abs(dx)} square${Math.abs(dx) !== 1 ? 's' : ''} ${dx >= 0 ? 'east' : 'west'}, `;
+            message += `${Math.abs(dy)} square${Math.abs(dy) !== 1 ? 's' : ''} ${dy >= 0 ? 'south' : 'north'}`;
+        }
+        
+        this.logMessage(message);
+    }
+
     assignInitialPosition(combatant) {
         if (!combatant) return;
         const fp = Math.max(1, combatant.grid_footprint || 1);
         if (Number.isFinite(combatant.position_x) && Number.isFinite(combatant.position_y)) return;
+        
         let pos;
         if (combatant.team === 'Team A' || combatant.team === 'Team B') {
             pos = this.findAvailablePositionInZone(combatant.team, fp);
         } else {
             pos = this.findAvailablePosition(fp);
         }
+        
         combatant.position_x = pos.x;
         combatant.position_y = pos.y;
+        this.logPositionChange(combatant, 'placed at', pos.x, pos.y);
     }
 
     getMousePosInCanvas(e) {
@@ -3739,10 +3796,14 @@ class CombatSimulator {
         const fp = Math.max(1, this.draggingCombatant.grid_footprint || 1);
         const nx = Math.max(0, Math.min(this.MAP_WIDTH_SQUARES - fp, Math.floor(p.x / this.SQUARE_PIXELS)));
         const ny = Math.max(0, Math.min(this.MAP_HEIGHT_SQUARES - fp, Math.floor(p.y / this.SQUARE_PIXELS)));
-        this.draggingCombatant.position_x = nx;
-        this.draggingCombatant.position_y = ny;
-        this.drawGrid();
-        this.drawCombatants();
+        
+        // Only update if position actually changed
+        if (this.draggingCombatant.position_x !== nx || this.draggingCombatant.position_y !== ny) {
+            this.draggingCombatant.position_x = nx;
+            this.draggingCombatant.position_y = ny;
+            this.drawGrid();
+            this.drawCombatants();
+        }
     }
 
     onMapMouseUp(e) {
@@ -3751,10 +3812,17 @@ class CombatSimulator {
         const x = c.position_x;
         const y = c.position_y;
         const fp = Math.max(1, c.grid_footprint || 1);
+        
         if (!this.isAreaFreeExcluding(x, y, fp, c)) {
+            const oldX = c.position_x;
+            const oldY = c.position_y;
             c.position_x = this.dragOrig.x;
             c.position_y = this.dragOrig.y;
+            this.logMessage(`${c.name} (${c.team}) could not be placed at (${x}, ${y}) - position occupied`);
+        } else if (x !== this.dragOrig.x || y !== this.dragOrig.y) {
+            this.logPositionChange(c, 'moved to', x, y, this.dragOrig.x, this.dragOrig.y);
         }
+        
         this.draggingCombatant = null;
         this.dragOrig = null;
         this.drawGrid();
