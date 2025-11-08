@@ -1,3 +1,7 @@
+# Fantasy Combat Simulator
+
+## Tip
+
 Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61rxaPQYgDpTNQ08-MPI6YULu-4/edit?pli=1&tab=t.0) to generate monster JSON data.
 
 ## Change Log
@@ -12,6 +16,7 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
   * Fixed issue where the heading of div.character-panel heading was disappearing.
   * Added position logging to the combat log.
   * Fixed a few issues with keyboard shortcuts not working properly.
+  * Attempted to fix issue where all the monsters were "focusing fire" by default.
 * 11/6/25: 0.35.2
   * Implemented immunity to normal and non-silvered weapon damage.
   * Fixed issue with ongoing effects not working.
@@ -151,7 +156,7 @@ Add the following mechanics and/or features:
   * Athletics (Shove): Similar to grappling, you can replace one of your attacks with a special melee attack to shove a creature. This is a Strength (Athletics) check contested by the target's Strength (Athletics) or Dexterity (Acrobatics).
   * Stealth (Hide): When you take the Hide action, you make a Dexterity (Stealth) check to conceal yourself. The check is contested by an enemy's Perception check.
   * Investigation/Perception (Search): When you take the Search action, you use your Investigation or Perception to find something. For example, searching for a secret door or a hidden trap.
-  * Performance/Intimidation (Influence): Under the Dungeons & Dragons 2024 Player's Handbook rules, monsters can use the "Influence" action, which involves Charisma (Persuasion or Intimidation) checks, to sway players who are hesitant to act. 
+  * Performance/Intimidation (Influence): Under the Dungeons & Dragons 2024 Player's Handbook rules, monsters can use the "Influence" action, which involves Charisma (Persuasion or Intimidation) checks, to sway players who are hesitant to act.
 * AoE effects (once placement and movement have been implemented)
 * Some senses could offset some effects (like darkness or magical darkeness doesn't work against blindsight; somewhat implemented)
 * Advantage/Disadvantage on attack rolls
@@ -196,7 +201,6 @@ Add the following mechanics and/or features:
   * Unconscious - skipping this one for now.
   * Hidden - this may be difficult to implement as the encounter doesn't take into account terrain or other out of combat setup factors.
   * Surprised - this may be difficult to implement as the encounter doesn't take into account terrain or other out of combat setup factors.
-
 
   The following is the raw markdown code for the development sprint division, formatted to be copied directly into your `change_log.md` file.
 
