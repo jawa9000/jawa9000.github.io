@@ -1,12 +1,22 @@
+# Fantasy Combat Simulator
+
+## Tip
+
 Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61rxaPQYgDpTNQ08-MPI6YULu-4/edit?pli=1&tab=t.0) to generate monster JSON data.
 
 ## Change Log
 
-* 11/7/25: 0.36.3
+* 11/7/25: 0.36.7
   * Implemented the combat map with placement of monsters.
   * Implemented a system for centering the monsters on the opposite side of the map and grouped by teams (clustered positioning).
   * Implemented a system for spacing the monsters on the map. This can be toggled on and off.
   * Implemented a system for layout of the monsters on the map. This can be toggled between clustered, columns, and random.
+  * Fixed issue where the numbering of the monsters was not appearing in the Combat Map.
+  * Added a keyboard shortcut (Ctrl+Shift+3) to add 3 monsters to each team.
+  * Fixed issue where the heading of div.character-panel heading was disappearing.
+  * Added position logging to the combat log.
+  * Fixed a few issues with keyboard shortcuts not working properly.
+  * Attempted to fix issue where all the monsters were "focusing fire" by default.
 * 11/6/25: 0.35.2
   * Implemented immunity to normal and non-silvered weapon damage.
   * Fixed issue with ongoing effects not working.
@@ -82,13 +92,15 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
 >> Trying to debug the implementation of "Multidimensional Strike" attack and the condition of "disoriented". Nothing has worked so far.
 
 ### Features
+
 * consider an option (toggle) make the placement of monsters interactive by the user.
 
 ### Bugs
-* All monsters listed in both the Initiative Order and the div.character-panel element need to have a number behind their name to make it unique. For example: Omni Monster #1 (Team A), Omni Monster #2 (Team A), etc.
+
 * There seems to be a lot of CSS code in script.js. This should be moved to and handled by styles.css. There should be no style decisions made in any JS file.
 
 ### Maintenance
+
 * Separate the functionality of script.js into different JavaScript files that is logical and is easier to maintain.
 
 Note: Cursor's default model is "composer-1". Using Windsurf's SWE-1 has been troublesome.
@@ -104,6 +116,7 @@ Consider refactoring the code to break it into several separate files.
 * Consider building a test suite.
 
 Add the following mechanics and/or features:
+
 * Update the prompt JSON template to include templates for legendary resistance, recharge, frightful presence, condition effects, ongoing effects, and one-time effect.
 
 * confused state doesn't invoke random movement as movement isn't currently implemented.
@@ -143,7 +156,7 @@ Add the following mechanics and/or features:
   * Athletics (Shove): Similar to grappling, you can replace one of your attacks with a special melee attack to shove a creature. This is a Strength (Athletics) check contested by the target's Strength (Athletics) or Dexterity (Acrobatics).
   * Stealth (Hide): When you take the Hide action, you make a Dexterity (Stealth) check to conceal yourself. The check is contested by an enemy's Perception check.
   * Investigation/Perception (Search): When you take the Search action, you use your Investigation or Perception to find something. For example, searching for a secret door or a hidden trap.
-  * Performance/Intimidation (Influence): Under the Dungeons & Dragons 2024 Player's Handbook rules, monsters can use the "Influence" action, which involves Charisma (Persuasion or Intimidation) checks, to sway players who are hesitant to act. 
+  * Performance/Intimidation (Influence): Under the Dungeons & Dragons 2024 Player's Handbook rules, monsters can use the "Influence" action, which involves Charisma (Persuasion or Intimidation) checks, to sway players who are hesitant to act.
 * AoE effects (once placement and movement have been implemented)
 * Some senses could offset some effects (like darkness or magical darkeness doesn't work against blindsight; somewhat implemented)
 * Advantage/Disadvantage on attack rolls
@@ -188,7 +201,6 @@ Add the following mechanics and/or features:
   * Unconscious - skipping this one for now.
   * Hidden - this may be difficult to implement as the encounter doesn't take into account terrain or other out of combat setup factors.
   * Surprised - this may be difficult to implement as the encounter doesn't take into account terrain or other out of combat setup factors.
-
 
   The following is the raw markdown code for the development sprint division, formatted to be copied directly into your `change_log.md` file.
 

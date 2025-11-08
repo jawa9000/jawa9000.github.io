@@ -5,6 +5,7 @@ A comprehensive web-based combat simulation system for Dungeons & Dragons 5th Ed
 ## Features
 
 ### Core Combat System
+
 - **Initiative Tracking**: Automatic initiative rolling and turn order management
 - **Attack System**: D20 attack rolls with critical hits/misses
 - **Damage Calculation**: Support for various damage dice formats (e.g., 1d8+3)
@@ -12,24 +13,28 @@ A comprehensive web-based combat simulation system for Dungeons & Dragons 5th Ed
 - **Hit Points**: Visual HP bars and death tracking
 
 ### Character Management
+
 - **Character Creation**: Add player characters and monsters
 - **Stat Tracking**: AC, HP, initiative bonus, attack bonus, damage dice
 - **Visual Indicators**: HP bars, current turn highlighting, death status
 - **Healing System**: Basic healing mechanics
 
 ### Combat Actions
+
 - **Attack**: Roll to hit and deal damage
 - **Dodge**: Take defensive action
 - **Cast Spell**: Basic spell casting (expandable)
 - **End Turn**: Advance to next combatant
 
 ### Monster Database
+
 - **External Monster Database**: Loads monsters from `E:\jawa9000.github.io\fun\Encounter_Builder\monsters.js`
 - **Search & Filter**: Search by name and filter by creature type (Aberration, Beast, Dragon, etc.)
 - **Automatic Parsing**: Converts external monster data to combat simulator format
 - **Comprehensive Stats**: Includes AC, HP, attack bonuses, damage dice, and more
 
 ### User Interface
+
 - **Modern Design**: Clean, responsive interface with glassmorphism effects
 - **Real-time Updates**: Live combat log and status updates
 - **Mobile Friendly**: Responsive design for all screen sizes
@@ -47,6 +52,7 @@ A comprehensive web-based combat simulation system for Dungeons & Dragons 5th Ed
 ## Technical Details
 
 ### D&D 5e Rules Implementation
+
 - **Initiative**: d20 + Dexterity modifier
 - **Attack Rolls**: d20 + proficiency + ability modifier vs. AC
 - **Critical Hits**: Natural 20 on attack roll
@@ -54,18 +60,21 @@ A comprehensive web-based combat simulation system for Dungeons & Dragons 5th Ed
 - **Damage**: Roll damage dice + modifiers
 
 ### File Structure
+
 - `index.html` - Main HTML structure
 - `styles.css` - CSS styling and responsive design
 - `script.js` - JavaScript combat logic and UI management
 - `README.md` - This documentation
 
 ### Dependencies
+
 - jQuery 3.6.0 (loaded via CDN)
 - Modern web browser with JavaScript enabled
 
 ## Customization
 
 The system is designed to be easily extensible:
+
 - Add new monsters to the `MONSTER_DATABASE`
 - Implement additional spell effects
 - Add more combat actions (grapple, shove, etc.)
@@ -74,6 +83,7 @@ The system is designed to be easily extensible:
 ## Browser Compatibility
 
 Tested on:
+
 - Chrome 90+
 - Firefox 88+
 - Safari 14+

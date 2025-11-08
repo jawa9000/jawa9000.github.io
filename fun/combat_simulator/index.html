@@ -6,8 +6,15 @@
     <title>D&D Combat Simulator</title>
     <link rel="stylesheet" href="styles.css">
     <script src="../../js/jquery-3.7.1.min.js"></script>
-    <!-- <script src="../Encounter_Builder/monsters.js"></script> -->
-     <script src="omni_monster.js"></script>
+    <script src="omni_monster.js"></script>
+    <script>
+        // Initialize the monsters array if not already set
+        window.monsters = window.monsters || [];
+        if (window.omniMonsters && window.omniMonsters.length > 0) {
+            window.monsters = window.omniMonsters;
+        }
+        // console.log('Monsters loaded:', window.monsters.length > 0);
+    </script>
 </head>
 <body>
     <div class="container">
