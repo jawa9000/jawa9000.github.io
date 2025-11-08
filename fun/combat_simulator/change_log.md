@@ -2,7 +2,7 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
 
 ## Change Log
 
-* 11/7/25: 0.36.6
+* 11/7/25: 0.36.7
   * Implemented the combat map with placement of monsters.
   * Implemented a system for centering the monsters on the opposite side of the map and grouped by teams (clustered positioning).
   * Implemented a system for spacing the monsters on the map. This can be toggled on and off.
@@ -11,6 +11,7 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
   * Added a keyboard shortcut (Ctrl+Shift+3) to add 3 monsters to each team.
   * Fixed issue where the heading of div.character-panel heading was disappearing.
   * Added position logging to the combat log.
+  * Fixed a few issues with keyboard shortcuts not working properly.
 * 11/6/25: 0.35.2
   * Implemented immunity to normal and non-silvered weapon damage.
   * Fixed issue with ongoing effects not working.
@@ -86,12 +87,15 @@ Use the [PDF2JSON Prompt](https://docs.google.com/document/d/1-5uHuy5nKEDAXTc-61
 >> Trying to debug the implementation of "Multidimensional Strike" attack and the condition of "disoriented". Nothing has worked so far.
 
 ### Features
+
 * consider an option (toggle) make the placement of monsters interactive by the user.
 
 ### Bugs
+
 * There seems to be a lot of CSS code in script.js. This should be moved to and handled by styles.css. There should be no style decisions made in any JS file.
 
 ### Maintenance
+
 * Separate the functionality of script.js into different JavaScript files that is logical and is easier to maintain.
 
 Note: Cursor's default model is "composer-1". Using Windsurf's SWE-1 has been troublesome.
@@ -107,6 +111,7 @@ Consider refactoring the code to break it into several separate files.
 * Consider building a test suite.
 
 Add the following mechanics and/or features:
+
 * Update the prompt JSON template to include templates for legendary resistance, recharge, frightful presence, condition effects, ongoing effects, and one-time effect.
 
 * confused state doesn't invoke random movement as movement isn't currently implemented.

@@ -465,58 +465,30 @@ class CombatSimulator {
         $(document).on('keydown', (e) => {
             const key = (e.key || '').toUpperCase();
 
-            // Build teams of three and test combat and logging systems
+            // Build teams of two and test combat (Ctrl+Shift+M)
             if (e.ctrlKey && e.shiftKey && key === 'M') {
                 e.preventDefault();
-                try {
-                    const pick = (arr) => (Array.isArray(arr) && arr.length > 0) ? arr[0] : null;
-                    const srcA = (typeof monsters !== 'undefined') ? pick(monsters) : pick(FALLBACK_MONSTERS);
-                    const srcB = (typeof monsters !== 'undefined') ? pick(monsters) : pick(FALLBACK_MONSTERS);
-                    if (!srcA || !srcB) return;
-                    for (let i = 0; i < 3; i++) {
-                        const a = this.convertMonsterToCombatant(srcA);
-                        a.team = 'Team A';
-                        if (i > 0) a.name = `${a.name} #${this.combatants.length + 1}`;
-                        this.assignInitialPosition(a);
-                        this.combatants.push(a);
-                        const b = this.convertMonsterToCombatant(srcB);
-                        b.team = 'Team B';
-                        if (i > 0) b.name = `${b.name} #${this.combatants.length + 1}`;
-                        this.assignInitialPosition(b);
-                        this.combatants.push(b);
-                    }
-                    this.updateCharacterList();
-                    this.rollInitiative && this.rollInitiative();
-                    this.simulateBattle && this.simulateBattle();
-                } catch {
-                    console.error('Failed to launch team build and test.');
+                if ($('#monsterList').children().length === 0) {
+                    this.populateMonsterList();
+                    // Give the UI a moment to update
+                    setTimeout(() => this.buildTeams(3), 100);
+                } else {
+                    this.buildTeams(3);
                 }
+                return;
             }
 
-            // Build teams of three
+            // Build teams of three (Ctrl+Shift+#)
             if (e.ctrlKey && e.shiftKey && key === '#') {
                 e.preventDefault();
-                try {
-                    const pick = (arr) => (Array.isArray(arr) && arr.length > 0) ? arr[0] : null;
-                    const srcA = (typeof monsters !== 'undefined') ? pick(monsters) : pick(FALLBACK_MONSTERS);
-                    const srcB = (typeof monsters !== 'undefined') ? pick(monsters) : pick(FALLBACK_MONSTERS);
-                    if (!srcA || !srcB) return;
-                    for (let i = 0; i < 3; i++) {
-                        const a = this.convertMonsterToCombatant(srcA);
-                        a.team = 'Team A';
-                        if (i > 0) a.name = `${a.name} #${this.combatants.length + 1}`;
-                        this.assignInitialPosition(a);
-                        this.combatants.push(a);
-                        const b = this.convertMonsterToCombatant(srcB);
-                        b.team = 'Team B';
-                        if (i > 0) b.name = `${b.name} #${this.combatants.length + 1}`;
-                        this.assignInitialPosition(b);
-                        this.combatants.push(b);
-                    }
-                    this.updateCharacterList();
-                } catch {
-                    console.error('Failed to launch team build and test.');
+                if ($('#monsterList').children().length === 0) {
+                    this.populateMonsterList();
+                    // Give the UI a moment to update
+                    setTimeout(() => this.buildTeams(3), 100);
+                } else {
+                    this.buildTeams(3);
                 }
+                return;
             }
         });
 
@@ -633,24 +605,172 @@ class CombatSimulator {
         this.logMessage(`Adding monsters to: ${this.selectedMonsterTeam} (Use team controls to change)`);
     }
 
+    // Build teams with the specified number of monsters per team
+    buildTeams(monstersPerTeam = 2, retryCount = 0) {
+        // Prevent infinite recursion
+        if (retryCount > 3) {
+            console.error('Failed to load monsters after multiple attempts');
+            return false;
+        }
+
+        try {
+            // Check if we have monsters in the DOM first
+            const monsterElements = document.querySelectorAll('.monster-item');
+            
+            // If we don't have monsters in the DOM, try to load them
+            if (monsterElements.length === 0) {
+                // If we already tried loading, wait a bit before retrying
+                if (retryCount > 0) {
+                    console.log('Waiting for monsters to load...');
+                    setTimeout(() => this.buildTeams(monstersPerTeam, retryCount + 1), 300);
+                    return false;
+                }
+                
+                // First attempt - try to populate the monster list
+                console.log('Loading monsters...');
+                this.populateMonsterList();
+                
+                // Wait for the UI to update
+                setTimeout(() => this.buildTeams(monstersPerTeam, retryCount + 1), 500);
+                return false;
+            }
+            
+            // Process the available monsters
+            let availableMonsters = [];
+            
+            // First, try to get monsters from the DOM elements
+            if (monsterElements.length > 0) {
+                availableMonsters = Array.from(monsterElements).map(el => {
+                    try {
+                        // Try to get monster data from the element's dataset
+                        if (el.dataset.monster) {
+                            return JSON.parse(el.dataset.monster);
+                        }
+                        
+                        // If no dataset, try to find by name in window.monsters if available
+                        if (window.monsters && Array.isArray(window.monsters)) {
+                            const monsterName = el.textContent.trim();
+                            return window.monsters.find(m => m && m.name === monsterName);
+                        }
+                        return null;
+                    } catch (e) {
+                        console.warn('Failed to parse monster data', e);
+                        return null;
+                    }
+                }).filter(Boolean);
+            }
+            
+            // If we still don't have monsters, try to use default monsters
+            if (availableMonsters.length === 0 && window.monsters && window.monsters.length > 0) {
+                console.log('Using default monsters from window.monsters');
+                availableMonsters = window.monsters.slice(0, 2);
+            }
+            
+            // If we still don't have monsters, use the first monster from window.monsters
+            if (availableMonsters.length === 0 && window.monsters && window.monsters.length > 0) {
+                console.log('Using fallback monster data');
+                availableMonsters = [window.monsters[0]];
+            }
+            
+            if (availableMonsters.length === 0) {
+                console.error('No valid monsters available to build teams.');
+                return false;
+            }
+            
+            // Clear existing combatants
+            this.combatants = [];
+            
+            // Use the first available monster for all team members
+            const monsterTemplate = availableMonsters[0];
+            
+            // Create teams with the specified number of monsters each
+            for (let i = 0; i < monstersPerTeam; i++) {
+                // Add monster to Team A
+                const a = this.convertMonsterToCombatant(JSON.parse(JSON.stringify(monsterTemplate)));
+                a.team = 'Team A';
+                if (monstersPerTeam > 1 || availableMonsters.length === 1) {
+                    a.name = `${a.name} #${i + 1}`;
+                }
+                this.assignInitialPosition(a);
+                this.combatants.push(a);
+                
+                // Add monster to Team B
+                const b = this.convertMonsterToCombatant(JSON.parse(JSON.stringify(monsterTemplate)));
+                b.team = 'Team B';
+                if (monstersPerTeam > 1 || availableMonsters.length === 1) {
+                    b.name = `${b.name} #${i + 1 + monstersPerTeam}`;
+                }
+                this.assignInitialPosition(b);
+                this.combatants.push(b);
+            }
+            
+            // Update the UI and start combat
+            this.updateCharacterList();
+            if (typeof this.rollInitiative === 'function') {
+                this.rollInitiative();
+            }
+            if (typeof this.simulateBattle === 'function') {
+                this.simulateBattle();
+            }
+            
+            return true;
+        } catch (error) {
+            console.error('Failed to build teams:', error);
+            return false;
+        }
+    }
+
     populateMonsterList() {
+        console.log('populateMonsterList called');
+        console.log('window.monsters:', typeof window.monsters, window.monsters);
+        console.log('window.omniMonsters:', typeof window.omniMonsters, window.omniMonsters);
+        
         const container = $('#monsterList');
         container.empty();
 
-        if (typeof monsters === 'undefined') {
-            container.append(`
-                <div style="text-align: center; padding: 20px;">
-                    <p>Monster data not loaded. This could be due to CORS restrictions.</p>
-                    <p>Please try one of these solutions:</p>
-                    <ol style="text-align: left; margin: 10px 0;">
-                        <li>Copy the monsters.js file to the same directory as this HTML file</li>
-                        <li>Run a local web server (e.g., Python: <code>python -m http.server</code>)</li>
-                        <li>Use the manual character creation instead</li>
-                    </ol>
-                    <button class="btn btn-primary" onclick="combatSim.openCharacterModal()">Add Character Manually</button>
-                </div>
-            `);
-            return;
+        // Check if we have monsters data
+        if (typeof window.monsters === 'undefined' || !Array.isArray(window.monsters) || window.monsters.length === 0) {
+            // Try to get monsters from omniMonsters if available
+            if (typeof window.omniMonsters !== 'undefined' && Array.isArray(window.omniMonsters) && window.omniMonsters.length > 0) {
+                console.log('Using monsters from omniMonsters');
+                window.monsters = window.omniMonsters;
+            } else {
+                console.log('No monsters available, showing error message');
+                container.append(`
+                    <div style="text-align: center; padding: 20px;">
+                        <p>Monster data not loaded. Please check the following:</p>
+                        <ol style="text-align: left; margin: 10px 0;">
+                            <li>Is omni_monster.js loaded? (Check browser's Network tab)</li>
+                            <li>Is window.omniMonsters defined? (Check browser's Console)</li>
+                        </ol>
+                        <button class="btn btn-primary" onclick="location.reload()">Reload Page</button>
+                        <button class="btn btn-secondary" onclick="combatSim.openCharacterModal()">Add Character Manually</button>
+                        <div style="margin-top: 20px;">
+                            <button class="btn btn-small" onclick="console.log('omniMonsters:', window.omniMonsters)">Debug: Show omniMonsters</button>
+                            <button class="btn btn-small" onclick="console.log('monsters:', window.monsters)">Debug: Show monsters</button>
+                        </div>
+                    </div>
+                `);
+                
+                // Try to load monsters again after a delay if this is the first attempt
+                if (this.monsterLoadAttempts === undefined) {
+                    this.monsterLoadAttempts = 0;
+                }
+                
+                if (this.monsterLoadAttempts < 3) {
+                    this.monsterLoadAttempts++;
+                    console.log(`Retrying monster load (attempt ${this.monsterLoadAttempts}/3)...`);
+                    
+                    setTimeout(() => {
+                        console.log('Retry loading monsters...');
+                        if (typeof window.omniMonsters !== 'undefined') {
+                            window.monsters = window.omniMonsters;
+                        }
+                        this.populateMonsterList();
+                    }, 1000);
+                }
+                return;
+            }
         }
 
         monsters.forEach((monster, index) => {
@@ -914,35 +1034,65 @@ class CombatSimulator {
         return 1;
     }
 
-    parseSkills(skillsVal) {
-        const out = {};
-        if (!skillsVal) return out;
-        if (typeof skillsVal === 'string') {
-            const parts = skillsVal.split(/[,;]+/);
-            for (const p of parts) {
-                const m = String(p).trim().match(/([A-Za-z ]+)\s*\+?(-?\d+)/);
-                if (m) {
-                    const name = m[1].trim();
-                    const val = parseInt(m[2], 10);
-                    if (!isNaN(val)) out[name] = val;
-                }
-            }
-            return out;
+    drawCombatants() {
+        if (!this.mapCtx) return;
+        const ctx = this.mapCtx;
+        
+        // Clear the canvas
+        this.drawGrid();
+        
+        // Draw each combatant
+        for (const combatant of this.combatants) {
+            if (!combatant || !combatant.position_x || !combatant.position_y) continue;
+            
+            const x = combatant.position_x * this.SQUARE_PIXELS;
+            const y = combatant.position_y * this.SQUARE_PIXELS;
+            const size = this.SQUARE_PIXELS * 0.8;
+            const halfSize = size / 2;
+            
+            // Set color based on team
+            ctx.fillStyle = combatant.team === 'Team A' ? 'rgba(255, 0, 0, 0.7)' : 'rgba(0, 0, 255, 0.7)';
+            
+            // Draw token
+            ctx.beginPath();
+            ctx.arc(x + this.SQUARE_PIXELS / 2, y + this.SQUARE_PIXELS / 2, halfSize, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Draw name or initial
+            ctx.fillStyle = '#fff';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            const initial = combatant.name ? combatant.name.charAt(0).toUpperCase() : '?';
+            ctx.fillText(initial, x + this.SQUARE_PIXELS / 2, y + this.SQUARE_PIXELS / 2);
         }
-        if (typeof skillsVal === 'object') {
-            for (const [k,v] of Object.entries(skillsVal)) {
-                if (typeof v === 'number') out[k] = v;
-                else if (typeof v === 'string') {
-                    const m = v.match(/\+?(-?\d+)/);
-                    if (m) {
-                        const val = parseInt(m[1], 10);
-                        if (!isNaN(val)) out[k] = val;
+    }
+
+    // Parse a skills string like "Perception +5, Stealth +7"
+    // Returns map: { perception: 5, stealth: 7 }
+    parseSkills(skillsString) {
+        const skills = {};
+        if (!skillsString) return skills;
+        
+        try {
+            // Split by comma and trim each part
+            const skillEntries = skillsString.split(',').map(s => s.trim());
+            
+            for (const entry of skillEntries) {
+                // Match skill name and bonus (e.g., "Perception +5")
+                const match = entry.match(/([A-Za-z\s]+)\s*([+-]?\d+)/);
+                if (match) {
+                    const skillName = match[1].trim().toLowerCase();
+                    const bonus = parseInt(match[2], 10);
+                    if (!isNaN(bonus)) {
+                        skills[skillName] = bonus;
                     }
                 }
             }
-            return out;
+        } catch (e) {
+            console.warn('Error parsing skills:', e);
         }
-        return out;
+        
+        return skills;
     }
 
     // Parse a "saving throws" string like: "DEX +7, CON +10, WIS +6, CHA +8"
@@ -3414,10 +3564,12 @@ class CombatSimulator {
         
         // Group combatants by team
         this.combatants.forEach(combatant => {
-            if (!teams[combatant.team]) {
-                teams[combatant.team] = [];
+            if (!combatant) return;
+            const team = combatant.team || 'Neutral';
+            if (!teams[team]) {
+                teams[team] = [];
             }
-            teams[combatant.team].push(combatant);
+            teams[team].push(combatant);
         });
 
         // Format team information
@@ -3592,52 +3744,68 @@ class CombatSimulator {
         }
     }
 
+    // Assign consistent numbers to combatants for display
+    assignCombatantNumbers() {
+        // Group combatants by team
+        const teams = {};
+        this.combatants.forEach(combatant => {
+            if (!combatant) return;
+            const team = combatant.team || 'Neutral';
+            if (!teams[team]) {
+                teams[team] = [];
+            }
+            teams[team].push(combatant);
+        });
+
+        // Assign numbers within each team
+        Object.entries(teams).forEach(([team, teamCombatants]) => {
+            // Sort by ID for consistent ordering
+            teamCombatants.sort((a, b) => a.id - b.id);
+            
+            // Assign numbers starting from 1 for monsters only
+            teamCombatants.forEach((combatant, index) => {
+                if (combatant.type === 'monster') {
+                    combatant.displayNumber = index + 1;
+                }
+            });
+        });
+        
+        return this.combatants; // Return updated combatants for chaining
+    }
+
     drawCombatants() {
         if (!this.mapCtx) return;
         const ctx = this.mapCtx;
-        // Build per-team label map from the visible character list order
-        let labelMap = new Map();
-        try {
-            const teamCountersDOM = {};
-            const nodes = $('#characterList .combatant');
-            if (nodes && nodes.length > 0) {
-                nodes.each((i, el) => {
-                    const idKey = String($(el).attr('data-id') || '');
-                    if (!idKey) return;
-                    const c = this.combatants.find(x => String(x.id) === idKey);
-                    if (!c || c.type !== 'monster') return;
-                    const team = c.team || 'Neutral';
-                    teamCountersDOM[team] = (teamCountersDOM[team] || 0) + 1;
-                    labelMap.set(idKey, teamCountersDOM[team]);
-                });
-            }
-            // Fallback to in-memory order if DOM is empty
-            if (labelMap.size === 0) {
-                const teamCounters = {};
-                for (const cc of this.combatants) {
-                    if (!cc || cc.type !== 'monster') continue;
-                    const t = cc.team || 'Neutral';
-                    teamCounters[t] = (teamCounters[t] || 0) + 1;
-                    labelMap.set(String(cc.id), teamCounters[t]);
-                }
-            }
-        } catch {}
+        
+        // Ensure we have consistent numbering before drawing
+        this.assignCombatantNumbers();
+        
         for (const c of this.combatants) {
+            if (!c) continue;
+            
             const fp = Math.max(1, c.grid_footprint || 1);
             const gx = c.position_x;
             const gy = c.position_y;
+            
             if (!Number.isFinite(gx) || !Number.isFinite(gy)) continue;
+            
             const px = gx * this.SQUARE_PIXELS;
             const py = gy * this.SQUARE_PIXELS;
             const size = fp * this.SQUARE_PIXELS;
+            
+            // Set token color based on team
             let color = '#95a5a6';
             if (c.team === 'Team A') color = '#795548';
             else if (c.team === 'Team B') color = '#00796b';
+            
+            // Draw token background
             ctx.fillStyle = color + 'CC';
             ctx.strokeStyle = '#00000055';
             ctx.lineWidth = 2;
             ctx.fillRect(px, py, size, size);
             ctx.strokeRect(px, py, size, size);
+            
+            // Draw center dot
             const cx = px + (size / 2);
             const cy = py + (size / 2);
             ctx.beginPath();
@@ -3647,23 +3815,27 @@ class CombatSimulator {
             ctx.strokeStyle = '#00000066';
             ctx.stroke();
 
-            // Draw number label centered on the token (monsters only), per-team numbering
-            const label = (c.type === 'monster') ? labelMap.get(String(c.id)) : null;
-            if (label) {
+            // Draw number label centered on the token (monsters only), using displayNumber
+            if (c.type === 'monster' && c.displayNumber) {
                 const fontSize = Math.max(12, Math.floor(this.SQUARE_PIXELS * 0.5));
                 ctx.font = `bold ${fontSize}px sans-serif`;
                 ctx.textAlign = 'center';
                 ctx.textBaseline = 'middle';
                 ctx.lineWidth = 3;
+                
+                // Draw outline for better visibility
                 ctx.strokeStyle = '#FFFFFFB3';
-                ctx.strokeText(String(label), cx, cy);
+                ctx.strokeText(String(c.displayNumber), cx, cy);
+                
+                // Draw main text
                 ctx.fillStyle = '#000000';
-                ctx.fillText(String(label), cx, cy);
+                ctx.fillText(String(c.displayNumber), cx, cy);
             }
         }
     }
 
     findAvailablePosition(footprint) {
+        // ...
         const fp = Math.max(1, footprint || 1);
         for (let y = 0; y <= this.MAP_HEIGHT_SQUARES - fp; y++) {
             for (let x = 0; x <= this.MAP_WIDTH_SQUARES - fp; x++) {
