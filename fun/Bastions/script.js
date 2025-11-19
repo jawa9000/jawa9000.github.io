@@ -90,11 +90,13 @@ const FACILITY_SIZES = [
 function renderFacilityCheckboxes() {
     const container = document.getElementById('facilityCheckboxes');
     if (!container) return;
-    const effectiveLevel = character && Number.isFinite(character.level) ? character.level : 20;
+    const effectiveLevel = getEffectiveBastionLevel();
+    const hasLevelInfo = (bastion && Number.isFinite(bastion.level)) || (character && Number.isFinite(character.level));
+    sanitizeFacilitiesForLevel(effectiveLevel);
     // Basic Facilities
     let html = '';
-    if (!character) {
-        html += '<em>No character loaded; showing full facility list.</em><br>';
+    if (!hasLevelInfo) {
+        html += '<em>No bastion level specified; showing full facility list.</em><br>';
     }
     html += '<strong>Basic Facilities:</strong><br>';
     BASIC_FACILITIES.forEach(name => {
@@ -124,7 +126,7 @@ function renderFacilityCheckboxes() {
     });
     container.querySelectorAll('.special-facility').forEach(cb => {
         cb.addEventListener('change', function() {
-            const currentLevel = character && Number.isFinite(character.level) ? character.level : 20;
+            const currentLevel = getEffectiveBastionLevel();
             const allowed = currentLevel >= 5 ? (currentLevel >= 17 ? 6 : currentLevel >= 13 ? 5 : currentLevel >= 9 ? 4 : 2) : 0;
             const specialCount = facilities.filter(f => f.type === 'Special').length;
             if (this.checked) {
@@ -153,6 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
     maintainOptionsDiv = document.getElementById('maintainOptions');
     const bastionOrderInput = document.getElementById('bastionOrder');
     const spendGoldLabel = document.getElementById('spendGoldLabel');
+    const charLevelInput = document.getElementById('charLevel');
     const updateOrderUi = () => {
         const order = bastionOrderInput.value;
         if (maintainOptionsDiv) {
@@ -164,6 +167,12 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     bastionOrderInput.addEventListener('change', updateOrderUi);
     updateOrderUi();
+    if (charLevelInput) {
+        charLevelInput.addEventListener('input', () => {
+            syncStateFromForms();
+            renderFacilityCheckboxes();
+        });
+    }
     renderFacilityCheckboxes();
     updateFacilitiesList();
     renderTurnLog();
@@ -529,6 +538,29 @@ function updateBPButtons() {
     $('#spendMagicItemBtn').prop('disabled', bp < 20);
     $('#spendCharismaBtn').prop('disabled', bp < 10);
     $('#spendResurrectBtn').prop('disabled', bp < 100);
+}
+
+function getEffectiveBastionLevel() {
+    if (bastion) {
+        if (Number.isFinite(bastion.level)) return bastion.level;
+    }
+    if (character && Number.isFinite(character.level)) return character.level;
+    return 20;
+}
+
+function sanitizeFacilitiesForLevel(level) {
+    let changed = false;
+    facilities = facilities.filter(f => {
+        if (f.type !== 'Special') return true;
+        const facDef = SPECIAL_FACILITIES.find(def => def.name === f.name);
+        const requiredLevel = facDef ? facDef.level : Infinity;
+        if (requiredLevel <= level) return true;
+        changed = true;
+        return false;
+    });
+    if (changed) {
+        updateFacilitiesList();
+    }
 }
 
 function collectCharacterFromForm() {
