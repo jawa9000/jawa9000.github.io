@@ -7,6 +7,7 @@ $(function () {
     // --- State ---
     let minedOutputTotal = {};
     let grandTotal = 0;
+    let miningLocks = {}; // {coal: true, gold: true, ...} true=can mine
 
     // --- Event Handlers ---
     $('#mine').on('click', function () {
@@ -39,6 +40,14 @@ $(function () {
         generateResources();
     });
 
+    // Load locks from icons in DOM or default (nothing selected on first load, use existing state)
+    function initLocksFromDOMorDefault() {
+        $("#output .mining-lock-icon").each(function() {
+            const id = $(this).data('lock-id');
+            miningLocks[id] = $(this).attr('data-locked') === 'false' ? false : true;
+        });
+    }
+
     // --- Core Functions ---
     function generateResources() {
         // Get input values
@@ -68,7 +77,11 @@ $(function () {
         initTally(exotics);
         initTally(gemstones);
 
+        // Always re-initialize locks based on UI before running
+        initLocksFromDOMorDefault();
+
         // Mining simulation
+        // Start tallies for all outputs, but only add mined value if unlocked
         for (let d = 0; d < days; d++) {
             for (let m = 0; m < minerCount; m++) {
                 // 1. Pick mining product category
@@ -92,6 +105,8 @@ $(function () {
                     for (const key in group) {
                         const mat = group[key];
                         if (matRoll >= mat.first && matRoll <= mat.second) {
+                            // Only add output if unlocked
+                            if (miningLocks[key] === false) break;
                             // 3. Pick output from gpOutput
                             const output = mat.gpOutput[Math.floor(Math.random() * mat.gpOutput.length)];
                             minedOutputTotal[key].tally += output;
@@ -286,13 +301,21 @@ $(function () {
             if (context.minerPct !== undefined) $('#percentage_minerTip').val(context.minerPct);
             if (context.dragonPct !== undefined) $('#percentage_dragonTip').val(context.dragonPct);
         }
-        // Render output checkboxes, sorted by most value
+        // Render output for ALL items in minedOutputTotal, showing 0 for locked ones
         let outputHtml = '';
         Object.values(minedOutputTotal)
-            .filter(res => res.count > 0)
             .sort((a, b) => b.tally - a.tally)
             .forEach(res => {
-                outputHtml += `<p class="indented"><input type="checkbox" class="mined" id="${res.id}" checked> ${res.name}: <span>${numberWithCommas(Math.round(res.tally))} gp (${numberWithCommas(res.count)} units)</span></p>`;
+                const icon = miningLocks[res.id] === false ? '🔒' : '🔓';
+                const lockedAttr = miningLocks[res.id] === false ? 'false' : 'true';
+                // If locked, show 0; else show actual result
+                const displayTally = miningLocks[res.id] === false ? 0 : Math.round(res.tally);
+                const displayCount = miningLocks[res.id] === false ? 0 : res.count;
+                outputHtml += `<p class="indented">
+                    <input type="checkbox" class="mined" id="${res.id}" checked>
+                    <span class="mining-lock-icon" data-lock-id="${res.id}" data-locked="${lockedAttr}" title="Toggle mining lock" style="cursor:pointer;user-select:none;font-size:1.2em;margin-left:7px;vertical-align:middle;">${icon}</span>
+                    ${res.name}: <span>${numberWithCommas(displayTally)} gp (${numberWithCommas(displayCount)} units)</span>
+                </p>`;
             });
         $('#output').html(outputHtml);
         $('#toggle, #showHide').prop('disabled', false);
@@ -306,11 +329,21 @@ $(function () {
         }
     }
 
+    // Remove old .lock-mining event, add lock icon click handler
+    $('#output').off('change', "input[type='checkbox'].lock-mining");
+    $('#output').on('click', '.mining-lock-icon', function() {
+        const id = $(this).data('lock-id');
+        const wasLocked = $(this).attr('data-locked') === 'false';
+        miningLocks[id] = wasLocked ? true : false;
+        // Update icon and DOM attribute immediately
+        $(this).attr('data-locked', miningLocks[id] ? 'true' : 'false');
+        $(this).text(miningLocks[id] ? '🔓' : '🔒');
+    });
+
     function updateSummary() {
-        // Get checked resources
         let total = 0;
         Object.keys(minedOutputTotal).forEach(id => {
-            if ($(`#${id}`).is(':checked')) {
+            if ($(`#${id}`).is(':checked') && (miningLocks[id] !== false)) {
                 total += minedOutputTotal[id].tally;
             }
         });
@@ -370,6 +403,9 @@ $(function () {
             data.grandTotal = grandTotal;
         }
         
+        // Save miningLocks
+        data.miningLocks = miningLocks;
+        
         // Create JSON blob and download
         const jsonStr = JSON.stringify(data, null, 2);
         const blob = new Blob([jsonStr], { type: 'application/json' });
@@ -392,7 +428,7 @@ $(function () {
                 
                 // Load all input and select values
                 Object.keys(data).forEach(id => {
-                    if (id !== 'outputCheckboxStates' && id !== 'minedOutputTotal' && id !== 'grandTotal') {
+                    if (id !== 'outputCheckboxStates' && id !== 'minedOutputTotal' && id !== 'grandTotal' && id !== 'miningLocks') {
                         const $element = $('#' + id);
                         if ($element.length) {
                             if ($element.attr('type') === 'checkbox') {
@@ -403,6 +439,13 @@ $(function () {
                         }
                     }
                 });
+                
+                // Load miningLocks if any
+                if (data.miningLocks) {
+                    miningLocks = data.miningLocks;
+                } else {
+                    miningLocks = {}; // fallback
+                }
                 
                 // Regenerate resources if we have the data
                 if (data.minedOutputTotal && data.grandTotal !== undefined) {
@@ -418,7 +461,13 @@ $(function () {
                             const checked = data.outputCheckboxStates && data.outputCheckboxStates[res.id] !== undefined 
                                 ? data.outputCheckboxStates[res.id] 
                                 : true;
-                            outputHtml += `<p class="indented"><input type="checkbox" class="mined" id="${res.id}" ${checked ? 'checked' : ''}> ${res.name}: <span>${numberWithCommas(Math.round(res.tally))} gp (${numberWithCommas(res.count)} units)</span></p>`;
+                            const icon = miningLocks[res.id] === false ? '🔒' : '🔓';
+                            const lockedAttr = miningLocks[res.id] === false ? 'false' : 'true';
+                            outputHtml += `<p class="indented">
+                                <input type="checkbox" class="mined" id="${res.id}" ${checked ? 'checked' : ''}>
+                                <span class="mining-lock-icon" data-lock-id="${res.id}" data-locked="${lockedAttr}" title="Toggle mining lock" style="cursor:pointer;user-select:none;font-size:1.2em;margin-left:7px;vertical-align:middle;">${icon}</span>
+                                ${res.name}: <span>${numberWithCommas(Math.round(res.tally))} gp (${numberWithCommas(res.count)} units)</span>
+                            </p>`;
                         });
                     $('#output').html(outputHtml);
                     $('#toggle, #showHide').prop('disabled', false);
