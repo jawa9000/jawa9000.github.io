@@ -203,6 +203,17 @@ section {
     display: block;
 }
 
+.profile-sections {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5em;
+    align-items: stretch;
+    margin-bottom: 2.5em;
+}
+.profile-sections section {
+    flex: 1 1 320px;
+}
+
 @media (max-width: 700px) {
     .container {
         padding: 1em;

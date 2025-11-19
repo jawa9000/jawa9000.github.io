@@ -42,35 +42,37 @@
                 <input type="file" id="importJsonInput" accept="application/json" style="display:none;">
             </div>
         </section>
-        <section id="character-section">
-            <h2>Bastion Profile</h2>
-            <form id="characterForm">
-                <label>Character Name: <input type="text" class="input50" id="charName" required></label>
-                <label>Bastion Level: <input type="number" class="inputFitContent" id="charLevel" min="1" max="20" value="5" required></label>
-                <label>BastionGold: <input type="number" class="inputFitContent" id="charGold" min="0" value="1000" required></label>
-                <label>Bastion Points: <input type="number" class="inputFitContent" id="charBP" min="0" value="0" required></label>
-            </form>
-            <div id="characterSummary"></div>
-        </section>
-        <section id="bastion-section">
-            <h2>Bastion Overview</h2>
-            <form id="bastionForm">
-                <label>Bastion Name: <input type="text" id="bastionName" class="input50" required></label>
-                <label>Bastion Type:
-                    <select id="bastionType">
-                        <option>Castle</option><option>Encampment</option><option>Farm</option><option>Guildhouse</option><option>House</option><option>Laboratory</option><option>Library</option><option>Menagerie</option><option>Sacred Grove</option><option>Shop</option><option>Tavern</option><option>Temple</option><option>Training Hall</option><option>Workshop</option>
-                    </select>
-                </label>
-                <label>Size Grade: <input type="number" id="bastionSize" class="inputFitContent" min="1" max="8" value="1"></label>
-                <label>Quality:
-                    <select id="bastionQuality">
-                        <option>Frugal</option><option>Average</option><option>Luxurious</option><option>Legendary</option>
-                    </select>
-                </label>
-                <label>Unusual Traits: <input type="text" id="bastionTraits" class="input50" placeholder="Comma separated"></label>
-            </form>
-            <div id="bastionSummary"></div>
-        </section>
+        <div class="profile-sections">
+            <section id="character-section">
+                <h2>Bastion Profile</h2>
+                <form id="characterForm">
+                    <label>Character Name: <input type="text" class="input50" id="charName" required></label>
+                    <label>Character Level: <input type="number" class="inputFitContent" id="charLevel" min="1" max="20" value="5" required></label>
+                    <label>Bastion Gold: <input type="number" class="inputFitContent" id="charGold" min="0" value="1000" required></label>
+                    <label>Bastion Points: <input type="number" class="inputFitContent" id="charBP" min="0" value="0" required></label>
+                </form>
+                <div id="characterSummary"></div>
+            </section>
+            <section id="bastion-section">
+                <h2>Bastion Overview</h2>
+                <form id="bastionForm">
+                    <label>Bastion Name: <input type="text" id="bastionName" class="input50" required></label>
+                    <label>Bastion Type:
+                        <select id="bastionType">
+                            <option>Castle</option><option>Encampment</option><option>Farm</option><option>Guildhouse</option><option>House</option><option>Laboratory</option><option>Library</option><option>Menagerie</option><option>Sacred Grove</option><option>Shop</option><option>Tavern</option><option>Temple</option><option>Training Hall</option><option>Workshop</option>
+                        </select>
+                    </label>
+                    <label>Size Grade: <input type="number" id="bastionSize" class="inputFitContent" min="1" max="8" value="1"></label>
+                    <label>Quality:
+                        <select id="bastionQuality">
+                            <option>Frugal</option><option>Average</option><option>Luxurious</option><option>Legendary</option>
+                        </select>
+                    </label>
+                    <label>Unusual Traits: <input type="text" id="bastionTraits" class="input50" placeholder="Comma separated"></label>
+                </form>
+                <div id="bastionSummary"></div>
+            </section>
+        </div>
         <section id="facility-section">
             <h2>Facilities</h2>
             <div id="facilityCheckboxes"></div>

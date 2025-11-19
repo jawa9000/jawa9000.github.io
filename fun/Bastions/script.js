@@ -131,7 +131,7 @@ function renderFacilityCheckboxes() {
             const specialCount = facilities.filter(f => f.type === 'Special').length;
             if (this.checked) {
                 if (specialCount >= allowed) {
-                    alert(`You may only have ${allowed} special facilities at your level.`);
+                    alert(`You may only have ${allowed} special facilities at your current bastion level.`);
                     this.checked = false;
                     return;
                 }
@@ -416,8 +416,9 @@ function getOrderDetails(order, facility) {
 
 // Add Clear History button event
 $('#clearHistoryBtn').on('click', function() {
-    if (confirm('Are you sure you want to clear all Bastion data and reset the page?')) {
-        resetAllData();
+    if (confirm('Clear the turn log? This will not affect other data.')) {
+        turnLog = [];
+        renderTurnLog();
     }
 });
 
