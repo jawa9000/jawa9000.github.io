@@ -376,7 +376,7 @@ $(function () {
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = mineName + '.json';
+        a.download = 'fantasy_mine_' + mineName + '.json';
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
