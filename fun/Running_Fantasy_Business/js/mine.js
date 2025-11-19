@@ -18,7 +18,6 @@ $(function () {
         $('#output input[type="checkbox"]').prop('checked', enable);
         $(this).val(enable ? 'Disable' : 'Enable').text(enable ? 'Disable' : 'Enable');
         updateSummary();
-        saveCheckboxStates();
     });
 
     $('#showHide').on('click', function () {
@@ -33,7 +32,6 @@ $(function () {
 
     $('#output').on('change', 'input[type="checkbox"]', function () {
         updateSummary();
-        saveCheckboxStates();
     });
 
     // Auto-update on input changes
@@ -299,7 +297,6 @@ $(function () {
         $('#output').html(outputHtml);
         $('#toggle, #showHide').prop('disabled', false);
         updateSummary();
-        restoreCheckboxStates();
         // Show event message if any
         if (eventMsg) {
             $('.event-message').remove(); // Remove any previous event message
@@ -336,102 +333,135 @@ $(function () {
         );
     }
 
-    function saveCheckboxStates() {
-        const states = {};
-        $('#output input[type="checkbox"]').each(function () {
-            states[$(this).attr('id')] = $(this).is(':checked');
-        });
-        localStorage.setItem('checkboxStates', JSON.stringify(states));
-    }
-    function restoreCheckboxStates() {
-        const states = JSON.parse(localStorage.getItem('checkboxStates') || '{}');
-        $('#output input[type="checkbox"]').each(function () {
-            const id = $(this).attr('id');
-            if (typeof states[id] !== 'undefined') {
-                $(this).prop('checked', states[id]);
-            }
-        });
-    }
-
-    // Save all input values and output checkbox states to localStorage under mineName_fantasy_mine
-    function saveMineSettings() {
+    // Save all data to JSON file
+    function saveToJSON() {
         const mineName = $('#mineName').val().trim();
-        if (!mineName) return;
+        if (!mineName) {
+            alert('Please enter a mine name before saving.');
+            return;
+        }
+        
         const data = {};
+        // Save all input and select values
         $('input, select').each(function() {
             const id = $(this).attr('id');
-            if (id) data[id] = $(this).val();
+            if (id && id !== 'jsonFileInput') {
+                if ($(this).attr('type') === 'checkbox') {
+                    data[id] = $(this).is(':checked');
+                } else {
+                    data[id] = $(this).val();
+                }
+            }
         });
+        
         // Save output checkbox states
         data.outputCheckboxStates = {};
         $('#output input[type="checkbox"]').each(function() {
             const id = $(this).attr('id');
             data.outputCheckboxStates[id] = $(this).is(':checked');
         });
-        localStorage.setItem(mineName + '_fantasy_mine', JSON.stringify(data));
-        updateMineDropdown();
-    }
-
-    // Load all input values and output checkbox states from localStorage for a given key
-    function loadMineSettings(key) {
-        const data = JSON.parse(localStorage.getItem(key) || '{}');
-        Object.keys(data).forEach(id => {
-            if (id !== 'outputCheckboxStates') {
-                $('#' + id).val(data[id]);
-            }
-        });
-        generateResources();
-        // Restore output checkbox states after output is generated
-        if (data.outputCheckboxStates) {
-            Object.keys(data.outputCheckboxStates).forEach(id => {
-                const checked = data.outputCheckboxStates[id];
-                $('#' + id).prop('checked', checked);
+        
+        // Save mined output data if available
+        if (Object.keys(minedOutputTotal).length > 0) {
+            data.minedOutputTotal = {};
+            Object.keys(minedOutputTotal).forEach(key => {
+                data.minedOutputTotal[key] = minedOutputTotal[key];
             });
+            data.grandTotal = grandTotal;
         }
+        
+        // Create JSON blob and download
+        const jsonStr = JSON.stringify(data, null, 2);
+        const blob = new Blob([jsonStr], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = mineName + '.json';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
     }
 
-    // Populate dropdown with all saved mines
-    function updateMineDropdown() {
-        const $dropdown = $('#mineLoadDropdown');
-        $dropdown.empty();
-        $dropdown.append('<option value="">-- Load Saved Mine --</option>');
-        for (let i = 0; i < localStorage.length; i++) {
-            const key = localStorage.key(i);
-            if (/_fantasy_mine$/.test(key)) {
-                $dropdown.append(`<option value="${key}">${key.replace('_fantasy_mine','')}</option>`);
+    // Load data from JSON file
+    function loadFromJSON(file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            try {
+                const data = JSON.parse(e.target.result);
+                
+                // Load all input and select values
+                Object.keys(data).forEach(id => {
+                    if (id !== 'outputCheckboxStates' && id !== 'minedOutputTotal' && id !== 'grandTotal') {
+                        const $element = $('#' + id);
+                        if ($element.length) {
+                            if ($element.attr('type') === 'checkbox') {
+                                $element.prop('checked', data[id]);
+                            } else {
+                                $element.val(data[id]);
+                            }
+                        }
+                    }
+                });
+                
+                // Regenerate resources if we have the data
+                if (data.minedOutputTotal && data.grandTotal !== undefined) {
+                    minedOutputTotal = data.minedOutputTotal;
+                    grandTotal = data.grandTotal;
+                    
+                    // Re-render output checkboxes
+                    let outputHtml = '';
+                    Object.values(minedOutputTotal)
+                        .filter(res => res.count > 0)
+                        .sort((a, b) => b.tally - a.tally)
+                        .forEach(res => {
+                            const checked = data.outputCheckboxStates && data.outputCheckboxStates[res.id] !== undefined 
+                                ? data.outputCheckboxStates[res.id] 
+                                : true;
+                            outputHtml += `<p class="indented"><input type="checkbox" class="mined" id="${res.id}" ${checked ? 'checked' : ''}> ${res.name}: <span>${numberWithCommas(Math.round(res.tally))} gp (${numberWithCommas(res.count)} units)</span></p>`;
+                        });
+                    $('#output').html(outputHtml);
+                    $('#toggle, #showHide').prop('disabled', false);
+                } else {
+                    // If no output data, just regenerate
+                    generateResources();
+                    // Restore checkbox states after generation
+                    if (data.outputCheckboxStates) {
+                        Object.keys(data.outputCheckboxStates).forEach(id => {
+                            const $checkbox = $('#' + id);
+                            if ($checkbox.length) {
+                                $checkbox.prop('checked', data.outputCheckboxStates[id]);
+                            }
+                        });
+                    }
+                }
+                
+                updateSummary();
+            } catch (error) {
+                alert('Error loading JSON file: ' + error.message);
             }
-        }
+        };
+        reader.readAsText(file);
     }
 
-    // Save on mineName mouseout only
-    $('#mineName').on('mouseout blur', function() {
-        saveMineSettings();
+    // Save JSON button handler
+    $('#saveJSON').on('click', function() {
+        saveToJSON();
     });
 
-    // Load selected mine from dropdown
-    $('#mineLoadDropdown').on('change', function() {
-        const key = $(this).val();
-        if (key) loadMineSettings(key);
+    // Load JSON button handler
+    $('#loadJSON').on('click', function() {
+        $('#jsonFileInput').click();
     });
 
-    // Erase all *_fantasy_mine keys from localStorage
-    $('#eraseMines').on('click', function() {
-        if (!confirm('Are you sure you want to permanently erase all saved mines? This cannot be undone.')) return;
-        const keysToRemove = [];
-        for (let i = 0; i < localStorage.length; i++) {
-            const key = localStorage.key(i);
-            if (/_fantasy_mine$/.test(key)) {
-                keysToRemove.push(key);
-            }
+    // File input change handler
+    $('#jsonFileInput').on('change', function(e) {
+        const file = e.target.files[0];
+        if (file) {
+            loadFromJSON(file);
         }
-        keysToRemove.forEach(key => localStorage.removeItem(key));
-        updateMineDropdown();
-        alert('All saved mines have been erased.');
-    });
-
-    // Initial dropdown population
-    $(function() {
-        updateMineDropdown();
+        // Reset input so same file can be loaded again
+        $(this).val('');
     });
 
     // Format a number with commas (e.g., 1234567 -> 1,234,567)

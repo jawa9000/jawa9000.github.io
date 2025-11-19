@@ -19,7 +19,7 @@
     <meta name="keywords" content="javascript, random" />
     <meta name="author" content="Brian Immel" />
     <meta name="level" content="2" />
-    <meta name="version" content="2.1.0" />
+    <meta name="version" content="2.2.0" />
     <link rel="shortcut icon" href="../../assets/ico/favicon.ico" />
     <link href="../../css/normalize.css" rel="stylesheet" />
     <link href="../../css/bootstrap.min.css" rel="stylesheet" />
@@ -37,9 +37,9 @@
         <div class="col-md-12">
           <label for="mineName">Mine Name:</label>
           <input id="mineName" type="text" class="width250" placeholder="Enter mine name" />
-          <label for="mineLoadDropdown">Load Mine:</label>
-          <select id="mineLoadDropdown" class="width250"></select>
-          <button id="eraseMines" class="btn btn-danger">Erase All Mines</button>
+          <button id="loadJSON" class="btn btn-primary">Load JSON</button>
+          <button id="saveJSON" class="btn btn-success">Save JSON</button>
+          <input type="file" id="jsonFileInput" accept=".json" style="display: none;" />
           <br />
           <p>Mine Settings</p>
           <label for="percentage_mineUpkeep">Mine upkeep (%)</label>
