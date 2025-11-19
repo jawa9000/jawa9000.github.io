@@ -4,60 +4,43 @@ let bastion = null;
 let facilities = [];
 let bp = 0;
 let turnLog = [];
-// --- Add this near the top, after let bastion = null; ---
-let bastionList = [];
 
-// --- Character Management ---
-$('#characterForm').on('submit', function(e) {
-    e.preventDefault();
-    character = {
-        name: $('#charName').val(),
-        level: parseInt($('#charLevel').val(), 10),
-        gold: parseInt($('#charGold').val(), 10),
-        bp: parseInt($('#charBP').val(), 10)
-    };
-    bp = character.bp;
-    localStorage.setItem('bastion_character', JSON.stringify(character));
-    updateCharacterSummary();
-    renderFacilityCheckboxes();
-});
 function updateCharacterSummary() {
-    if (!character) return;
+    if (!character) {
+        $('#characterSummary').html('<em>No character loaded. Import a Bastion JSON file.</em>');
+        $('#charName').val('');
+        $('#charLevel').val('');
+        $('#charGold').val('');
+        $('#charBP').val('');
+        return;
+    }
     $('#characterSummary').html(
         `<strong>${character.name}</strong> (Level ${character.level})<br>Gold: ${character.gold} gp<br>Bastion Points: ${bp}`
     );
-    // Also update form fields
-    $('#charName').val(character.name);
-    $('#charLevel').val(character.level);
-    $('#charGold').val(character.gold);
-    $('#charBP').val(bp);
+    $('#charName').val(character.name || '');
+    $('#charLevel').val(character.level ?? '');
+    $('#charGold').val(character.gold ?? '');
+    $('#charBP').val(bp ?? '');
 }
 
-// --- Bastion Management ---
-$('#bastionForm').on('submit', function(e) {
-    e.preventDefault();
-    bastion = {
-        name: $('#bastionName').val(),
-        type: $('#bastionType').val(),
-        size: parseInt($('#bastionSize').val(), 10),
-        quality: $('#bastionQuality').val(),
-        traits: $('#bastionTraits').val().split(',').map(s => s.trim()).filter(Boolean)
-    };
-    saveFullBastionState();
-    updateBastionSummary();
-    populateBastionDropdown();
-});
 function updateBastionSummary() {
-    if (!bastion) return;
+    if (!bastion) {
+        $('#bastionSummary').html('<em>No bastion loaded. Import a Bastion JSON file.</em>');
+        $('#bastionName').val('');
+        $('#bastionType').val('Castle');
+        $('#bastionSize').val('');
+        $('#bastionQuality').val('Frugal');
+        $('#bastionTraits').val('');
+        return;
+    }
     $('#bastionSummary').html(
         `<strong>${bastion.name}</strong> (${bastion.type})<br>Size Grade: ${bastion.size}, Quality: ${bastion.quality}<br>Traits: ${bastion.traits.join(', ') || 'None'}`
     );
-    // Also update form fields
-    $('#bastionName').val(bastion.name);
-    $('#bastionType').val(bastion.type);
-    $('#bastionSize').val(bastion.size);
-    $('#bastionQuality').val(bastion.quality);
-    $('#bastionTraits').val(bastion.traits.join(', '));
+    $('#bastionName').val(bastion.name || '');
+    $('#bastionType').val(bastion.type || 'Castle');
+    $('#bastionSize').val(bastion.size ?? '');
+    $('#bastionQuality').val(bastion.quality || 'Frugal');
+    $('#bastionTraits').val((bastion.traits || []).join(', '));
 }
 
 // --- Facility Management ---
@@ -106,19 +89,21 @@ const FACILITY_SIZES = [
 
 function renderFacilityCheckboxes() {
     const container = document.getElementById('facilityCheckboxes');
-    if (!character) {
-        container.innerHTML = '<em>Save your character to select facilities.</em>';
-        return;
-    }
+    if (!container) return;
+    const effectiveLevel = character && Number.isFinite(character.level) ? character.level : 20;
     // Basic Facilities
-    let html = '<strong>Basic Facilities:</strong><br>';
+    let html = '';
+    if (!character) {
+        html += '<em>No character loaded; showing full facility list.</em><br>';
+    }
+    html += '<strong>Basic Facilities:</strong><br>';
     BASIC_FACILITIES.forEach(name => {
         const checked = facilities.some(f => f.name === name && f.type === 'Basic');
         html += `<label><input type="checkbox" class="basic-facility" value="${name}" ${checked ? 'checked' : ''}> ${name}</label> `;
     });
     html += '<br><strong>Special Facilities:</strong><br>';
     // Special Facilities (only those eligible by level)
-    SPECIAL_FACILITIES.filter(f => f.level <= character.level).forEach(fac => {
+    SPECIAL_FACILITIES.filter(f => f.level <= effectiveLevel).forEach(fac => {
         const checked = facilities.some(f => f.name === fac.name && f.type === 'Special');
         html += `<label><input type="checkbox" class="special-facility" value="${fac.name}" ${checked ? 'checked' : ''}> ${fac.name} <span title="${fac.desc}" class="info-icon">ⓘ</span></label> `;
     });
@@ -129,19 +114,18 @@ function renderFacilityCheckboxes() {
             if (this.checked) {
                 if (!facilities.some(f => f.name === this.value && f.type === 'Basic')) {
                     facilities.push({ name: this.value, type: 'Basic', size: 'Roomy', status: 'Active' });
-                    saveFacilities();
                     updateFacilitiesList();
                 }
             } else {
                 facilities = facilities.filter(f => !(f.name === this.value && f.type === 'Basic'));
-                saveFacilities();
                 updateFacilitiesList();
             }
         });
     });
     container.querySelectorAll('.special-facility').forEach(cb => {
         cb.addEventListener('change', function() {
-            const allowed = character.level >= 5 ? (character.level >= 17 ? 6 : character.level >= 13 ? 5 : character.level >= 9 ? 4 : 2) : 0;
+            const currentLevel = character && Number.isFinite(character.level) ? character.level : 20;
+            const allowed = currentLevel >= 5 ? (currentLevel >= 17 ? 6 : currentLevel >= 13 ? 5 : currentLevel >= 9 ? 4 : 2) : 0;
             const specialCount = facilities.filter(f => f.type === 'Special').length;
             if (this.checked) {
                 if (specialCount >= allowed) {
@@ -152,12 +136,10 @@ function renderFacilityCheckboxes() {
                 if (!facilities.some(f => f.name === this.value && f.type === 'Special')) {
                     const facObj = SPECIAL_FACILITIES.find(f => f.name === this.value);
                     facilities.push({ name: facObj.name, type: 'Special', status: 'Active', order: null, desc: facObj.desc });
-                    saveFacilities();
                     updateFacilitiesList();
                 }
             } else {
                 facilities = facilities.filter(f => !(f.name === this.value && f.type === 'Special'));
-                saveFacilities();
                 updateFacilitiesList();
             }
         });
@@ -168,36 +150,25 @@ function renderFacilityCheckboxes() {
 // --- Bastion Turn & Orders ---
 let maintainOptionsDiv;
 document.addEventListener('DOMContentLoaded', () => {
-    // Load from localStorage
-    const charData = localStorage.getItem('bastion_character');
-    if (charData) {
-        character = JSON.parse(charData);
-        bp = character.bp;
-        updateCharacterSummary();
-    }
-    const bastionData = localStorage.getItem('bastion_bastion');
-    if (bastionData) {
-        bastion = JSON.parse(bastionData);
-        updateBastionSummary();
-    }
-    const facData = localStorage.getItem('bastion_facilities');
-    if (facData) {
-        facilities = JSON.parse(facData);
-        updateFacilitiesList();
-    }
     maintainOptionsDiv = document.getElementById('maintainOptions');
     const bastionOrderInput = document.getElementById('bastionOrder');
-    bastionOrderInput.addEventListener('change', () => {
+    const spendGoldLabel = document.getElementById('spendGoldLabel');
+    const updateOrderUi = () => {
         const order = bastionOrderInput.value;
-        if (order === 'Maintain') {
-            maintainOptionsDiv.style.display = 'block';
-        } else {
-            maintainOptionsDiv.style.display = 'none';
+        if (maintainOptionsDiv) {
+            maintainOptionsDiv.style.display = order === 'Maintain' ? 'block' : 'none';
         }
-    });
+        if (spendGoldLabel) {
+            spendGoldLabel.style.display = order === 'Maintain' ? 'none' : 'inline-block';
+        }
+    };
+    bastionOrderInput.addEventListener('change', updateOrderUi);
+    updateOrderUi();
     renderFacilityCheckboxes();
-    loadTurnLog();
-    populateBastionDropdown();
+    updateFacilitiesList();
+    renderTurnLog();
+    updateBPButtons();
+    initializeImportExportControls();
 });
 document.getElementById('turnForm').addEventListener('submit', function(e) {
     e.preventDefault();
@@ -278,8 +249,6 @@ function resolveBastionTurn() {
         result += `<b>${order} Order:</b><br>${orderResults.join('<br>')}`;
     }
     if (character) character.bp = bp;
-    localStorage.setItem('bastion_character', JSON.stringify(character));
-    localStorage.setItem('bastion_facilities', JSON.stringify(facilities));
     updateCharacterSummary();
     updateFacilitiesList();
     turnResults.innerHTML = result;
@@ -290,10 +259,10 @@ function resolveBastionTurn() {
         result: result
     });
     if (turnLog.length > 50) turnLog = turnLog.slice(-50); // keep last 50
-    saveTurnLog();
     renderTurnLog();
     // --- Clear BP results ---
     document.getElementById('bpResults').innerHTML = '';
+    updateBPButtons();
 }
 function resolveBastionEvent() {
     // Simple event table
@@ -316,7 +285,6 @@ document.getElementById('spendMagicItemBtn').addEventListener('click', function(
     if (bp < 20) { alert('Not enough BP!'); return; }
     bp -= 20;
     if (character) character.bp = bp;
-    localStorage.setItem('bastion_character', JSON.stringify(character));
     updateCharacterSummary();
     document.getElementById('bpResults').innerHTML = 'You spent 20 BP for a magic item!';
     // --- Add to turn log ---
@@ -326,7 +294,6 @@ document.getElementById('spendMagicItemBtn').addEventListener('click', function(
         result: 'Spent 20 BP for a magic item.'
     });
     if (turnLog.length > 50) turnLog = turnLog.slice(-50);
-    saveTurnLog();
     renderTurnLog();
     updateBPButtons();
 });
@@ -335,7 +302,6 @@ document.getElementById('spendCharismaBtn').addEventListener('click', function()
     if (bp < 10) { alert('Not enough BP!'); return; }
     bp -= 10;
     if (character) character.bp = bp;
-    localStorage.setItem('bastion_character', JSON.stringify(character));
     updateCharacterSummary();
     document.getElementById('bpResults').innerHTML = 'You spent 10 BP for Charisma advantage!';
     // --- Add to turn log ---
@@ -345,7 +311,6 @@ document.getElementById('spendCharismaBtn').addEventListener('click', function()
         result: 'Spent 10 BP for Charisma advantage.'
     });
     if (turnLog.length > 50) turnLog = turnLog.slice(-50);
-    saveTurnLog();
     renderTurnLog();
     updateBPButtons();
 });
@@ -354,7 +319,6 @@ document.getElementById('spendResurrectBtn').addEventListener('click', function(
     if (bp < 100) { alert('Not enough BP!'); return; }
     bp -= 100;
     if (character) character.bp = bp;
-    localStorage.setItem('bastion_character', JSON.stringify(character));
     updateCharacterSummary();
     document.getElementById('bpResults').innerHTML = 'You spent 100 BP to return to life!';
     // --- Add to turn log ---
@@ -364,32 +328,15 @@ document.getElementById('spendResurrectBtn').addEventListener('click', function(
         result: 'Spent 100 BP to return to life.'
     });
     if (turnLog.length > 50) turnLog = turnLog.slice(-50);
-    saveTurnLog();
     renderTurnLog();
     updateBPButtons();
 });
-function saveFacilities() {
-    localStorage.setItem('bastion_facilities', JSON.stringify(facilities));
-}
 function updateFacilitiesList() {
     const list = document.getElementById('facilitiesList');
     if (!facilities.length) { list.innerHTML = '<em>No facilities yet.</em>'; return; }
     list.innerHTML = facilities.map(f =>
         `<div><strong>${f.name}</strong> (${f.type}${f.size ? ', ' + f.size : ''}) - ${f.status}${f.desc ? '<br><em>' + f.desc + '</em>' : ''}${f.type === 'Special' && f.order ? ' | Last Order: ' + f.order : ''}</div>`
     ).join('');
-}
-// --- Turn Log ---
-function loadTurnLog() {
-    const logData = localStorage.getItem('bastion_turnLog');
-    if (logData) {
-        turnLog = JSON.parse(logData);
-    } else {
-        turnLog = [];
-    }
-    renderTurnLog();
-}
-function saveTurnLog() {
-    localStorage.setItem('bastion_turnLog', JSON.stringify(turnLog));
 }
 function renderTurnLog() {
     const logDiv = document.getElementById('turnLog');
@@ -461,252 +408,174 @@ function getOrderDetails(order, facility) {
 // Add Clear History button event
 $('#clearHistoryBtn').on('click', function() {
     if (confirm('Are you sure you want to clear all Bastion data and reset the page?')) {
-        localStorage.removeItem('bastion_character');
-        localStorage.removeItem('bastion_bastion');
-        localStorage.removeItem('bastion_facilities');
-        localStorage.removeItem('bastion_turnLog');
-        location.reload();
+        resetAllData();
     }
 });
 
-// --- Utility to get all bastion keys from localStorage ---
-function getAllBastionKeys() {
-    const keys = [];
-    for (let i = 0; i < localStorage.length; i++) {
-        const key = localStorage.key(i);
-        if (key.startsWith('bastion_bastion_')) keys.push(key);
-    }
-    return keys;
-}
+// (All localStorage-based persistence removed in favor of JSON import/export.)
 
-// --- Populate the bastion dropdown ---
-function populateBastionDropdown() {
-    const select = document.getElementById('bastionLoadSelect');
-    // Save the current selection
-    const prevValue = select.value;
-    select.innerHTML = '';
-    const keys = getAllBastionKeys();
-    if (!keys.length) {
-        select.innerHTML = '<option value="">(No saved bastions)</option>';
-        return;
-    }
-    keys.forEach(key => {
-        const bastionObj = JSON.parse(localStorage.getItem(key));
-        const name = bastionObj && bastionObj.name ? bastionObj.name : key.replace('bastion_bastion_', '');
-        const opt = document.createElement('option');
-        opt.value = key;
-        opt.textContent = name;
-        select.appendChild(opt);
-    });
-    // Restore the previous selection if possible
-    if (prevValue && keys.includes(prevValue)) {
-        select.value = prevValue;
-    }
-}
-
-// --- Save bastion with unique key (by name) ---
-function saveBastionWithName() {
-    if (!bastion || !bastion.name) return;
-    const key = 'bastion_bastion_' + bastion.name.replace(/\s+/g, '_');
-    localStorage.setItem(key, JSON.stringify(bastion));
-    populateBastionDropdown();
-}
-
-// --- Load bastion by key ---
-function loadBastionByKey(key) {
-    const data = localStorage.getItem(key);
-    if (!data) return;
-    bastion = JSON.parse(data);
-    updateBastionSummary();
-    // Also update form fields
-    $('#bastionName').val(bastion.name);
-    $('#bastionType').val(bastion.type);
-    $('#bastionSize').val(bastion.size);
-    $('#bastionQuality').val(bastion.quality);
-    $('#bastionTraits').val(bastion.traits.join(', '));
-}
-
-// --- Hook up the dropdown and button ---
-document.addEventListener('DOMContentLoaded', () => {
-    // Load from localStorage
-    const charData = localStorage.getItem('bastion_character');
-    if (charData) {
-        character = JSON.parse(charData);
-        bp = character.bp;
-        updateCharacterSummary();
-    }
-    const bastionData = localStorage.getItem('bastion_bastion');
-    if (bastionData) {
-        bastion = JSON.parse(bastionData);
-        updateBastionSummary();
-    }
-    const facData = localStorage.getItem('bastion_facilities');
-    if (facData) {
-        facilities = JSON.parse(facData);
-        updateFacilitiesList();
-    }
-    maintainOptionsDiv = document.getElementById('maintainOptions');
-    const bastionOrderInput = document.getElementById('bastionOrder');
-    bastionOrderInput.addEventListener('change', () => {
-        const order = bastionOrderInput.value;
-        if (order === 'Maintain') {
-            maintainOptionsDiv.style.display = 'block';
-        } else {
-            maintainOptionsDiv.style.display = 'none';
-        }
-    });
-    renderFacilityCheckboxes();
-    loadTurnLog();
-    populateBastionDropdown();
-    document.getElementById('loadBastionBtn').addEventListener('click', function() {
-        const key = document.getElementById('bastionLoadSelect').value;
-        if (key) loadFullBastionState(key);
-    });
-});
-$(function() {
-    populateBastionDropdown();
-    setupAutoSave();
-});
-
-// Save state on any button, input, or checkbox change/click
-function setupAutoSave() {
-    // Save on any button click (except Load Bastion and Spend BP buttons, which have custom logic)
-    $('button:not(#loadBastionBtn):not(#spendMagicItemBtn):not(#spendCharismaBtn):not(#spendResurrectBtn)').on('click', saveFullBastionState);
-    // Save on any input or select change
-    $('input, select, textarea').on('change input', saveFullBastionState);
-    // Save on any checkbox click
-    $('input[type=checkbox]').on('click', saveFullBastionState);
-}
-
-function saveFullBastionState() {
-    if (!bastion || !bastion.name) return;
-    const key = 'bastion_bastion_' + bastion.name.replace(/\s+/g, '_');
-    const state = {
+function getCurrentState() {
+    return {
         character,
         bastion,
         facilities,
         turnLog,
         bp
     };
-    localStorage.setItem(key, JSON.stringify(state));
-    populateBastionDropdown();
-    updateBPButtons(); // <-- Add this line
 }
 
-function loadFullBastionState(key) {
-    const data = localStorage.getItem(key);
-    if (!data) return;
-    const state = JSON.parse(data);
-    // Restore all state
-    character = state.character || null;
-    bastion = state.bastion || null;
-    facilities = state.facilities || [];
-    turnLog = state.turnLog || [];
-    bp = state.bp || (character ? character.bp : 0);
-
-    // Update UI
+function refreshUiFromState() {
     updateCharacterSummary();
     updateBastionSummary();
     updateFacilitiesList();
     renderFacilityCheckboxes();
     renderTurnLog();
-
-    // Update all input fields with loaded data
-    if (character) {
-        $('#charName').val(character.name);
-        $('#charLevel').val(character.level);
-        $('#charGold').val(character.gold);
-        $('#charBP').val(character.bp);
-    }
-    if (bastion) {
-        $('#bastionName').val(bastion.name);
-        $('#bastionType').val(bastion.type);
-        $('#bastionSize').val(bastion.size);
-        $('#bastionQuality').val(bastion.quality);
-        $('#bastionTraits').val(bastion.traits.join(', '));
-    }
-    // Facilities checkboxes
-    renderFacilityCheckboxes();
-
-    // If you have any other custom checkboxes or fields, update them here as well
-    // Example: update order select and maintain options if present
-    if (bastion && bastion.order) {
-        $('#bastionOrder').val(bastion.order).trigger('change');
-    }
-    // If you have checkboxes for facilities, update their checked state
-    facilities.forEach(fac => {
-        $(`input[type=checkbox][value="${fac.name}"]`).prop('checked', true);
-    });
-    // Update BP fields if needed
-    $('#charBP').val(bp);
-
-    updateBPButtons(); // <-- Add this line
+    updateBPButtons();
 }
 
-// --- Also call updateBPButtons after any BP spend ---
-document.getElementById('spendMagicItemBtn').addEventListener('click', function() {
-    if (bp < 20) { alert('Not enough BP!'); return; }
-    bp -= 20;
-    if (character) character.bp = bp;
-    localStorage.setItem('bastion_character', JSON.stringify(character));
-    updateCharacterSummary();
-    document.getElementById('bpResults').innerHTML = 'You spent 20 BP for a magic item!';
-    // --- Add to turn log ---
-    const now = new Date();
-    turnLog.push({
-        date: now.toLocaleString(),
-        result: 'Spent 20 BP for a magic item.'
-    });
-    if (turnLog.length > 50) turnLog = turnLog.slice(-50);
-    saveTurnLog();
-    renderTurnLog();
-    updateBPButtons();
-});
-document.getElementById('spendCharismaBtn').addEventListener('click', function() {
-    if (bp < 10) { alert('Not enough BP!'); return; }
-    bp -= 10;
-    if (character) character.bp = bp;
-    localStorage.setItem('bastion_character', JSON.stringify(character));
-    updateCharacterSummary();
-    document.getElementById('bpResults').innerHTML = 'You spent 10 BP for Charisma advantage!';
-    // --- Add to turn log ---
-    const now = new Date();
-    turnLog.push({
-        date: now.toLocaleString(),
-        result: 'Spent 10 BP for Charisma advantage.'
-    });
-    if (turnLog.length > 50) turnLog = turnLog.slice(-50);
-    saveTurnLog();
-    renderTurnLog();
-    updateBPButtons();
-});
-document.getElementById('spendResurrectBtn').addEventListener('click', function() {
-    if (bp < 100) { alert('Not enough BP!'); return; }
-    bp -= 100;
-    if (character) character.bp = bp;
-    localStorage.setItem('bastion_character', JSON.stringify(character));
-    updateCharacterSummary();
-    document.getElementById('bpResults').innerHTML = 'You spent 100 BP to return to life!';
-    // --- Add to turn log ---
-    const now = new Date();
-    turnLog.push({
-        date: now.toLocaleString(),
-        result: 'Spent 100 BP to return to life.'
-    });
-    if (turnLog.length > 50) turnLog = turnLog.slice(-50);
-    saveTurnLog();
-    renderTurnLog();
-    updateBPButtons();
-});
+function exportBastionState() {
+    syncStateFromForms();
+    const state = getCurrentState();
+    const json = JSON.stringify(state, null, 2);
+    const blob = new Blob([json], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    const baseNameInput = $('#charName').val().trim();
+    const baseNameState = state.character && state.character.name ? state.character.name : (state.bastion && state.bastion.name ? state.bastion.name : '');
+    const baseNameRaw = baseNameInput || baseNameState || 'bastion';
+    const baseName = baseNameRaw.replace(/\s+/g, '_');
+    link.href = url;
+    link.download = `${baseName || 'bastion'}-state.json`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+}
 
-// --- Call updateBPButtons on page load ---
-$(function() {
-    populateBastionDropdown();
-    setupAutoSave();
-    updateBPButtons(); // <-- Add this line
-});
+function handleImportJsonSelection(event) {
+    const file = event.target.files && event.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+        try {
+            const data = JSON.parse(reader.result);
+            applyImportedState(data);
+        } catch (err) {
+            console.error('Invalid bastion JSON:', err);
+            alert('Unable to load JSON file. Please ensure it was exported from this tool.');
+        } finally {
+            event.target.value = '';
+        }
+    };
+    reader.readAsText(file);
+}
+
+function applyImportedState(state) {
+    if (!state || typeof state !== 'object') {
+        alert('Invalid bastion file format.');
+        return;
+    }
+    character = state.character || null;
+    bastion = state.bastion || null;
+    facilities = Array.isArray(state.facilities) ? state.facilities : [];
+    turnLog = Array.isArray(state.turnLog) ? state.turnLog : [];
+    const importedBp = typeof state.bp === 'number' && !Number.isNaN(state.bp) ? state.bp : null;
+    bp = importedBp !== null ? importedBp : (character && typeof character.bp === 'number' ? character.bp : 0);
+    if (character) {
+        character.bp = bp;
+    }
+    refreshUiFromState();
+    if (!character) {
+        $('#characterSummary').html('<em>No character data found in file.</em>');
+    }
+    if (!bastion) {
+        $('#bastionSummary').html('<em>No bastion data found in file.</em>');
+    }
+    const turnResults = document.getElementById('turnResults');
+    if (turnResults) turnResults.innerHTML = '';
+    const bpResults = document.getElementById('bpResults');
+    if (bpResults) bpResults.innerHTML = '';
+}
+
+function initializeImportExportControls() {
+    const exportBtn = document.getElementById('exportJsonBtn');
+    const importBtn = document.getElementById('importJsonBtn');
+    const importInput = document.getElementById('importJsonInput');
+    if (exportBtn) {
+        exportBtn.addEventListener('click', exportBastionState);
+    }
+    if (importBtn && importInput) {
+        importBtn.addEventListener('click', () => importInput.click());
+        importInput.addEventListener('change', handleImportJsonSelection);
+    }
+}
+
+function resetAllData() {
+    character = null;
+    bastion = null;
+    facilities = [];
+    turnLog = [];
+    bp = 0;
+    const spendGold = document.getElementById('spendGold');
+    if (spendGold) spendGold.checked = false;
+    const turnResults = document.getElementById('turnResults');
+    if (turnResults) turnResults.innerHTML = '';
+    const bpResults = document.getElementById('bpResults');
+    if (bpResults) bpResults.innerHTML = '';
+    refreshUiFromState();
+}
+
 function updateBPButtons() {
     $('#spendMagicItemBtn').prop('disabled', bp < 20);
     $('#spendCharismaBtn').prop('disabled', bp < 10);
     $('#spendResurrectBtn').prop('disabled', bp < 100);
+}
+
+function collectCharacterFromForm() {
+    const name = $('#charName').val().trim();
+    const levelVal = parseInt($('#charLevel').val(), 10);
+    const goldVal = parseInt($('#charGold').val(), 10);
+    const bpVal = parseInt($('#charBP').val(), 10);
+    const hasData = name || !Number.isNaN(levelVal) || !Number.isNaN(goldVal) || !Number.isNaN(bpVal);
+    if (!hasData) return null;
+    return {
+        name,
+        level: Number.isFinite(levelVal) ? levelVal : 1,
+        gold: Number.isFinite(goldVal) ? goldVal : 0,
+        bp: Number.isFinite(bpVal) ? bpVal : 0
+    };
+}
+
+function collectBastionFromForm() {
+    const name = $('#bastionName').val().trim();
+    const type = $('#bastionType').val() || 'Castle';
+    const sizeVal = parseInt($('#bastionSize').val(), 10);
+    const quality = $('#bastionQuality').val() || 'Frugal';
+    const traitsInput = $('#bastionTraits').val();
+    const traits = traitsInput ? traitsInput.split(',').map(s => s.trim()).filter(Boolean) : [];
+    const hasData = name || traits.length || !Number.isNaN(sizeVal);
+    if (!hasData) return null;
+    return {
+        name,
+        type,
+        size: Number.isFinite(sizeVal) ? sizeVal : 1,
+        quality,
+        traits
+    };
+}
+
+function syncStateFromForms() {
+    const formCharacter = collectCharacterFromForm();
+    if (formCharacter) {
+        character = formCharacter;
+        bp = formCharacter.bp;
+    } else {
+        character = null;
+        const bpInput = parseInt($('#charBP').val(), 10);
+        bp = Number.isFinite(bpInput) ? bpInput : 0;
+    }
+    const formBastion = collectBastionFromForm();
+    bastion = formBastion || null;
+    updateCharacterSummary();
+    updateBastionSummary();
 }

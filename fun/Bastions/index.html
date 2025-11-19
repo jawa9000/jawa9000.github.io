@@ -34,12 +34,13 @@
 </head>
 <body>
     <div class="container">
-        <h1>Bastion Management System</h1>
+        <h1>Bastion Management</h1>
         <section id="intro-section">
             <div id="bastionLoadDiv" style="margin: 1em 0;">
-                <label for="bastionLoadSelect"><strong>Load Bastion:</strong></label>
-                <select id="bastionLoadSelect"></select>
-                <button id="loadBastionBtn">Load</button>
+            <div id="storageControls" style="margin: 1em 0; display:flex; gap:0.5em; flex-wrap:wrap;">
+                <button type="button" id="exportJsonBtn">Save JSON</button>
+                <button type="button" id="importJsonBtn">Load JSON</button>
+                <input type="file" id="importJsonInput" accept="application/json" style="display:none;">
             </div>
         </section>
         <section id="character-section">
@@ -49,7 +50,6 @@
                 <label>Level: <input type="number" class="inputFitContent" id="charLevel" min="1" max="20" value="5" required></label>
                 <label>Gold: <input type="number" class="inputFitContent" id="charGold" min="0" value="1000" required></label>
                 <label>Bastion Points: <input type="number" class="inputFitContent" id="charBP" min="0" value="0" required></label>
-                <button type="submit">Save Character</button>
             </form>
             <div id="characterSummary"></div>
         </section>
@@ -69,7 +69,6 @@
                     </select>
                 </label>
                 <label>Unusual Traits: <input type="text" id="bastionTraits" class="input50" placeholder="Comma separated"></label>
-                <button type="submit">Save Bastion</button>
             </form>
             <div id="bastionSummary"></div>
         </section>
