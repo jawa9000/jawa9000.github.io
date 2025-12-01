@@ -315,7 +315,7 @@ const monsters = [
       actions: "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +12 to hit, reach 10 ft. one target. <em>Hit:</em> 18 (2d10 + 7) piercing damage plus 5 (1d10) lightning damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +12 to hit, reach 5 ft. one target. <em>Hit:</em> 14 (2d6 + 7) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +12 to hit, reach 15 ft. one target. <em>Hit:</em> 16 (2d8 + 7) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 17 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Lightning Breath (Recharge 5–6).</strong></em> The dragon exhales lightning in a 90-­foot line that is 5 feet wide. Each creature in that line must make a DC 19 Dexterity saving throw, taking 66 (12d10) lightning damage on a failed save, or half as much damage on a successful one.</p>",
       "legendary actions": "<p>The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn.</p><p><em><strong>Detect.</strong></em> The dragon makes a Wisdom (Perception) check.</p><p><em><strong>Tail Attack.</strong></em> The dragon makes a tail attack.</p><p><em><strong>Wing Attack (Costs 2 Actions).</strong></em> The dragon beats its wings. Each creature within 10 feet of the dragon must succeed on a DC 20 Dexterity saving throw or take 14 (2d6 + 7) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.</p>",
       "lair actions": "<p><strong>Misleading Mirage</strong>: Until initiative count 20 on the next round, at each intersection or branching passage in the lair, a creature other than the dragon has a 50 percent chance of going in a different direction from the direction it intends.</p><p><strong>Sudden Sinkhole</strong>: The dragon chooses a point on the ground that it can see within 120 feet of it. A 5-foot-radius, 20-foot-deep pit forms centered on that point. A creature on the ground above where the pit formed must make a **DC 15 Dexterity saving throw**. On a failed save, a creature falls to the bottom of the pit, taking 7 (2d6) bludgeoning damage and landing prone. On a successful save, a creature moves to the nearest unoccupied space instead of falling in the pit.</p>",
-      "regional effects": "<p>The region containing a legendary blue dragon's lair is warped by the dragon's magic, which creates one or more of the following effects:</p><p><ul><li>Thunderstorms rage within 6 miles of the lair.</li><li>Dust devils scour the land within 6 miles of the lair. A dust devil has the statistics of an air elemental, but it can't fly, has a speed of 50 feet, and has an Intelligence and Charisma of 1 (-5).</li><li>Hidden sinkholes form in and around the dragon's lair. A sinkhole can be spotted from a safe distance with a successful DC 20 Wisdom (Perception) check. Otherwise, the first creature to step on the thin crust covering the sinkhole must succeed on a DC 15 Dexterity saving throw or fall 1d6 × 10 feet into the sinkhole.</li></ul></p><p>If the dragon dies, the dust devils disappear immediately, and the thunderstorms abate within 1d10 days. Any sinkholes remain where they are.</p><p><strong>Additional Regional Effects</strong></p><p>Any of these effects might appear in the area around a blue dragon's lair, in addition to or instead of the effects described in the Monster Manual:</p><p><strong>Blue Luster</strong>. Creatures that spend a year within 1 mile of the dragon's lair find blue objects fascinating and feel compelled to acquire them at every opportunity.</p><p><strong>Mirage Terrain</strong>. The area immediately surrounding the lair appears to be a lush oasis. A creature carefully examining the illusion can attempt a DC 15 Intelligence (Investigation) check to disbelieve it. A creature who disbelieves the illusion sees it as a vague image superimposed on the underlying terrain.</p><p><strong>Sandstorm</strong>. A sandstorm blows constantly within 1 mile of the lair.</p>",
+      "regional effects": "<p>The region containing a legendary blue dragon's lair is warped by the dragon's magic, which creates one or more of the following effects:</p><p><ul><li>Thunderstorms rage within 6 miles of the lair.</li><li>Dust devils scour the land within 6 miles of the lair. A dust devil has the statistics of an air elemental, but it can't fly, has a speed of 50 feet, and has an Intelligence and Charisma of 1.</li><li>Hidden sinkholes form in and around the dragon's lair. A sinkhole can be spotted from a safe distance with a successful DC 20 Wisdom (Perception) check. Otherwise, the first creature to step on the thin crust covering the sinkhole must succeed on a DC 15 Dexterity saving throw or fall 1d6 × 10 feet into the sinkhole.</li></ul></p><p>If the dragon dies, the dust devils disappear immediately, and the thunderstorms abate within 1d10 days. Any sinkholes remain where they are.</p><p><strong>Additional Regional Effects</strong></p><p>Any of these effects might appear in the area around a blue dragon's lair, in addition to or instead of the effects described in the Monster Manual:</p><p><strong>Blue Luster</strong>. Creatures that spend a year within 1 mile of the dragon's lair find blue objects fascinating and feel compelled to acquire them at every opportunity.</p><p><strong>Mirage Terrain</strong>. The area immediately surrounding the lair appears to be a lush oasis. A creature carefully examining the illusion can attempt a DC 15 Intelligence (Investigation) check to disbelieve it. A creature who disbelieves the illusion sees it as a vague image superimposed on the underlying terrain.</p><p><strong>Sandstorm</strong>. A sandstorm blows constantly within 1 mile of the lair.</p>",
       notes: "<p><strong>Variant: Dragons as Innate Spellcasters</strong></p><p>This dragon can innately cast three spells, once per day each, requiring no material components. Each spell's level can be no higher than 4th. The dragon's spell save DC is DC 19, and it has +9 to hit with spell attacks.</p><p>A suggested spell list is shown below, but you can also choose spells to reflect the dragon's character. A dragon who innately casts druid spells feels different from one who casts warlock spells. You can also give a dragon spells of a higher level than this rule allows, but such a tweak might increase the dragon's challenge rating—especially if those spells deal damage or impose conditions on targets.</p><p><ul><li>lightning bolt</li><li>thunderwave</li><li>gust of wind</li></ul></p>",
       description: "<p>Adult blue dragons are known for their cunning and strategic thinking. They often manipulate their surroundings to create deadly traps and ambushes, using their lightning breath to devastating effect. Their lairs are typically found in arid or coastal regions, where they can command the elements to their advantage.</p>",
       "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/16/1000/1000/636238882493439723.jpeg"
@@ -1217,7 +1217,7 @@ const monsters = [
       actions: "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 15 ft. one target. <em>Hit:</em> 20 (2d10 + 9) piercing damage plus 11 (2d10) lightning damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 10 ft. one target. <em>Hit:</em> 16 (2d6 + 9) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 20 ft. one target. <em>Hit:</em> 18 (2d8 + 9) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 20 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Lightning Breath (Recharge 5–6).</strong></em> The dragon exhales lightning in a 120-­-foot line that is 10 feet wide. Each creature in that line must make a DC 23 Dexterity saving throw, taking 88 (16d10) lightning damage on a failed save, or half as much damage on a successful one.</p>",
       "legendary actions": "<p>The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn.</p><p><em><strong>Detect.</strong></em> The dragon makes a Wisdom (Perception) check.</p><p><em><strong>Tail Attack.</strong></em> The dragon makes a tail attack.</p><p><em><strong>Wing Attack (Costs 2 Actions).</strong></em> The dragon beats its wings. Each creature within 15 feet of the dragon must succeed on a DC 24 Dexterity saving throw or take 16 (2d6 + 9) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.</p>",
       "lair actions": "<p><strong>Misleading Mirage</strong>: Until initiative count 20 on the next round, at each intersection or branching passage in the lair, a creature other than the dragon has a 50 percent chance of going in a different direction from the direction it intends.</p><p><strong>Sudden Sinkhole</strong>: The dragon chooses a point on the ground that it can see within 120 feet of it. A 5-foot-radius, 20-foot-deep pit forms centered on that point. A creature on the ground above where the pit formed must make a **DC 15 Dexterity saving throw**. On a failed save, a creature falls to the bottom of the pit, taking 7 (2d6) bludgeoning damage and landing prone. On a successful save, a creature moves to the nearest unoccupied space instead of falling in the pit.</p>",
-      "regional effects": "<p>The region containing a legendary blue dragon's lair is warped by the dragon's magic, which creates one or more of the following effects:</p><p><ul><li>Thunderstorms rage within 6 miles of the lair.</li><li>Dust devils scour the land within 6 miles of the lair. A dust devil has the statistics of an air elemental, but it can't fly, has a speed of 50 feet, and has an Intelligence and Charisma of 1 (-5).</li><li>Hidden sinkholes form in and around the dragon's lair. A sinkhole can be spotted from a safe distance with a successful DC 20 Wisdom (Perception) check. Otherwise, the first creature to step on the thin crust covering the sinkhole must succeed on a DC 15 Dexterity saving throw or fall 1d6 × 10 feet into the sinkhole.</li></ul></p><p>If the dragon dies, the dust devils disappear immediately, and the thunderstorms abate within 1d10 days. Any sinkholes remain where they are.</p><p><strong>Additional Regional Effects</strong></p><p>Any of these effects might appear in the area around a blue dragon's lair, in addition to or instead of the effects described in the Monster Manual:</p><p><strong>Blue Luster</strong>. Creatures that spend a year within 1 mile of the dragon's lair find blue objects fascinating and feel compelled to acquire them at every opportunity.</p><p><strong>Mirage Terrain</strong>. The area immediately surrounding the lair appears to be a lush oasis. A creature carefully examining the illusion can attempt a DC 15 Intelligence (Investigation) check to disbelieve it. A creature who disbelieves the illusion sees it as a vague image superimposed on the underlying terrain.</p><p><strong>Sandstorm</strong>. A sandstorm blows constantly within 1 mile of the lair.</p>",
+      "regional effects": "<p>The region containing a legendary blue dragon's lair is warped by the dragon's magic, which creates one or more of the following effects:</p><p><ul><li>Thunderstorms rage within 6 miles of the lair.</li><li>Dust devils scour the land within 6 miles of the lair. A dust devil has the statistics of an air elemental, but it can't fly, has a speed of 50 feet, and has an Intelligence and Charisma of 1.</li><li>Hidden sinkholes form in and around the dragon's lair. A sinkhole can be spotted from a safe distance with a successful DC 20 Wisdom (Perception) check. Otherwise, the first creature to step on the thin crust covering the sinkhole must succeed on a DC 15 Dexterity saving throw or fall 1d6 × 10 feet into the sinkhole.</li></ul></p><p>If the dragon dies, the dust devils disappear immediately, and the thunderstorms abate within 1d10 days. Any sinkholes remain where they are.</p><p><strong>Additional Regional Effects</strong></p><p>Any of these effects might appear in the area around a blue dragon's lair, in addition to or instead of the effects described in the Monster Manual:</p><p><strong>Blue Luster</strong>. Creatures that spend a year within 1 mile of the dragon's lair find blue objects fascinating and feel compelled to acquire them at every opportunity.</p><p><strong>Mirage Terrain</strong>. The area immediately surrounding the lair appears to be a lush oasis. A creature carefully examining the illusion can attempt a DC 15 Intelligence (Investigation) check to disbelieve it. A creature who disbelieves the illusion sees it as a vague image superimposed on the underlying terrain.</p><p><strong>Sandstorm</strong>. A sandstorm blows constantly within 1 mile of the lair.</p>",
       notes: "<p><strong>Variant: Dragons as Innate Spellcasters</strong></p><p>This dragon can innately cast three spells, once per day each, requiring no material components. Each spell's level can be no higher than 4th. The dragon's spell save DC is DC 19, and it has +9 to hit with spell attacks.</p><p>A suggested spell list is shown below, but you can also choose spells to reflect the dragon's character. A dragon who innately casts druid spells feels different from one who casts warlock spells. You can also give a dragon spells of a higher level than this rule allows, but such a tweak might increase the dragon's challenge rating—especially if those spells deal damage or impose conditions on targets.</p><p><ul><li>lightning bolt</li><li>thunderwave</li><li>gust of wind</li></ul></p>",
       description: "<p>Blue dragons make their lairs in barren places, using their lightning breath and their burrowing ability to carve out crystallized caverns and tunnels beneath the sands. Thunderstorms rage around a legendary blue dragon’s lair, and narrow tubes lined with glassy sand ventilate the lair, all the while avoiding the deadly sinkholes that are the dragon’s first line of defense. A blue dragon will collapse the caverns that make up its lair if that lair is invaded. The dragon then burrows out, leaving its attackers to be crushed and suffocated. When it returns later, it collects its possessions — along with the wealth of the dead intruders.</p>",
       "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/131/1000/1000/636252756020185006.jpeg"
@@ -30708,10 +30708,12 @@ const monsters = [
       size: "Large",
       type: "Fey",
       alignment: "Chaotic Evil",
+      "armor class": 17,
+      "hit points": "75 (10d10 + 20)",
       environments: ["Hill", "Mountain"],
       associates: ["Ogre", "Troll"],
-      armor_class: "17 (natural armor)",
-      hit_points: "75 (10d10 + 20)",
+      "armor class": "17 (natural armor)",
+      "hit points": "75 (10d10 + 20)",
       speed: {
               surface: {
                         movement: 40
@@ -30783,8 +30785,8 @@ const monsters = [
       alignment: "Unaligned",
       associates: [],
       environments: ["Grassland", "Hill"],
-      armor_class: 13,
-      hit_points: "4 (1d8)",
+      "armor class": 15,
+      "hit points": "4 (1d8)",
       speed: {
               surface: {
                         movement: 60
@@ -30835,8 +30837,8 @@ const monsters = [
       alignment: "Any",
       associates: [],
       environments: ["Urban", "Dungeon"],
-      armor_class: 12,
-      hit_points: "33 (6d8 + 6)",
+      "armor class": 12,
+      "hit points": "33 (6d8 + 6)",
       speed: {
               surface: {
                         movement: 30
@@ -30879,8 +30881,8 @@ const monsters = [
       alignment: "Neutral Evil",
       associates: [],
       environments: ["Dungeon"],
-      armor_class: "17 (natural armor)",
-      hit_points: "104 (16d8 + 32)",
+      "armor class": "17 (natural armor)",
+      "hit points": "104 (16d8 + 32)",
       speed: {
               surface: {
                         movement: 30
@@ -30934,8 +30936,8 @@ const monsters = [
       alignment: "Chaotic Neutral",
       associates: [],
       environments: ["Mountain"],
-      armor_class: 16,
-      hit_points: "142 (19d8 + 57)",
+      "armor class": 16,
+      "hit points": "142 (19d8 + 57)",
       speed: {
               surface: {
                         movement: 0
@@ -30988,8 +30990,8 @@ const monsters = [
       alignment: "Chaotic Evil",
       associates: [],
       environments: ["Underdark"],
-      armor_class: "16 (natural armor)",
-      hit_points: "84 (8d10 + 40)",
+      "armor class": "16 (natural armor)",
+      "hit points": "84 (8d10 + 40)",
       speed: {
               surface: {
                         movement: 60
@@ -31059,8 +31061,8 @@ const monsters = [
       alignment: "Neutral Evil",
       associates: [],
       environments: ["Varies"],
-      armor_class: 8,
-      hit_points: "22 (3d8 + 9)",
+      "armor class": 8,
+      "hit points": "22 (3d8 + 9)",
       speed: {
               surface: {
                         movement: 20
@@ -31106,8 +31108,8 @@ const monsters = [
       alignment: "Neutral Evil",
       associates: [],
       environments: ["Wasteland"],
-      armor_class: 15,
-      hit_points: "105 (14d10 + 28)",
+      "armor class": 15,
+      "hit points": "105 (14d10 + 28)",
       speed: {
               surface: {
                         movement: 0
@@ -31161,8 +31163,8 @@ const monsters = [
       alignment: "Lawful Evil",
       associates: [],
       environments: ["Dungeon"],
-      armor_class: "22 (natural armor)",
-      hit_points: "725 (50d10 + 450)",
+      "armor class": "22 (natural armor)",
+      "hit points": "725 (50d10 + 450)",
       speed: {
               surface: {
                         movement: 30
@@ -31232,8 +31234,8 @@ const monsters = [
       alignment: "Unaligned",
       associates: [],
       environments: ["Dungeon"],
-      armor_class: "20 (natural armor)",
-      hit_points: "297 (17d20 + 119)",
+      "armor class": "20 (natural armor)",
+      "hit points": "297 (17d20 + 119)",
       speed: {
               surface: {
                         movement: 15
@@ -33856,12 +33858,12 @@ const monsters = [
                         movement: 50
                       }
             },
-      str: "10 (+0)",
-      dex: "16 (+3)",
-      con: "12 (+1)",
-      int: "13 (+1)",
-      wis: "17 (+3)",
-      cha: "11 (+1)",
+      str: "10",
+      dex: "16",
+      con: "12",
+      int: "13",
+      wis: "17",
+      cha: "11",
       skills: "Arcana +3, Nature +5, Perception +7",
       senses: {},
       languages: "Aarakocra, Primordial (Auran)",
@@ -33957,12 +33959,12 @@ const monsters = [
                         movement: 50
                       }
             },
-      str: "10 (+0)",
-      dex: "14 (+2)",
-      con: "12 (+1)",
-      int: "11 (+0)",
-      wis: "12 (+1)",
-      cha: "11 (+0)",
+      str: "10",
+      dex: "14",
+      con: "12",
+      int: "11",
+      wis: "12",
+      cha: "11",
       skills: "Perception +5",
       senses: {},
       languages: "Aarakocra, Primordial (Auran)",
@@ -34284,12 +34286,12 @@ const monsters = [
                         movement: 30
                       }
             },
-      str: "16 (+3)",
-      dex: "10 (+0)",
-      con: "15 (+2)",
-      int: "16 (+3)",
-      wis: "10 (+0)",
-      cha: "6 (-2)",
+      str: "16",
+      dex: "10",
+      con: "15",
+      int: "16",
+      wis: "10",
+      cha: "6",
       "damage immunities": ["Psychic"],
       senses: {
               Darkvision: {
@@ -34426,9 +34428,17 @@ const monsters = [
 {
       name: "Abhorrent Overlord",
       type: "Fiend",
+      size: "Large",
+      alignment: "Lawful Evil",
       environments: ["Varies"],
       "armor class": 16,
       "hit points": "136 (16d10 + 48)",
+      str: 20,
+      dex: 18,
+      con: 16,
+      int: 15,
+      wis: 14,
+      cha: 16,
       speed: {
               surface: {
                         movement: 30
@@ -34480,12 +34490,12 @@ const monsters = [
                         movement: 30
                       }
             },
-      str: "6 (-2)",
-      dex: "14 (+2)",
-      con: "13 (+1)",
-      int: "4 (-3)",
-      wis: "9 (-1)",
-      cha: "5 (-3)",
+      str: "6",
+      dex: "14",
+      con: "13",
+      int: "4",
+      wis: "9",
+      cha: "5",
       "damage resistances": "Cold, Fire, Lightning",
       "damage immunities": ["Poison"],
       "condition immunities": "Blinded, Poisoned",
@@ -34539,12 +34549,12 @@ const monsters = [
                         movement: 20
                       }
             },
-      str: "9 (-1)",
-      dex: "12 (+1)",
-      con: "11 (+0)",
-      int: "5 (-3)",
-      wis: "8 (-1)",
-      cha: "5 (-3)",
+      str: "9",
+      dex: "12",
+      con: "11",
+      int: "5",
+      wis: "8",
+      cha: "5",
       "damage resistances": "Cold, Fire, Lightning",
       "damage immunities": ["Poison"],
       "condition immunities": "Charmed, Frightened, Poisoned",
@@ -34586,12 +34596,12 @@ const monsters = [
                         movement: 20
                       }
             },
-      str: "8 (-1)",
-      dex: "18 (+4)",
-      con: "16 (+3)",
-      int: "19 (+4)",
-      wis: "12 (+1)",
-      cha: "15 (+2)",
+      str: "8",
+      dex: "18",
+      con: "16",
+      int: "19",
+      wis: "12",
+      cha: "15",
       "saving throws": "Intelligence +7, Charisma +5",
       skills: "Deception +5, Perception +4",
       "condition immunities": "Blinded, Charmed, Deafened, Exhaustion, Prone",
@@ -34636,6 +34646,34 @@ const monsters = [
       type: "Construct",
       alignment: "Unaligned",
       environments: ["Dungeon"],
+      "armor class": 17,
+      "hit points": "142 (15d10 + 60)",
+      speed: {
+              surface: {
+                        movement: 20
+                      },
+              fly: {
+                        movement: 30
+            },
+      },
+      str: 18,
+      dex: 8,
+      con: 18,
+      int: 7,
+      wis: 10,
+      cha: 3,
+      senses: {
+        Blindsight: {
+          range: 10
+        },
+        "Passive Perception": {
+          value: 10
+        },
+        "Darkvision": {
+          range: 60
+        }
+      },
+      languages: "Understands the languages of its creator but can't speak",
       challenge: "7",
       traits: "<p><em><strong>Regeneration.</strong></em> The drone regains 10 hit points at the start of its turn if it has at least 1 hit point.</p><p><em><strong>Spell Storing.</strong></em> A spellcaster wearing the drone's amulet can store one spell of 4th level or lower in the drone. The drone can then cast the stored spell, using the spell slot, spell attack bonus, and spell save DC of the wearer.</p><p><em><strong>Shield.</strong></em> If within 5 feet of its wearer, the drone grants a +2 bonus to the wearer's AC.</p>",
       "number of attacks": "2",
@@ -34666,6 +34704,7 @@ const monsters = [
       name: "Aerosaur",
       size: "Gargantuan",
       type: "Monstrosity",
+      alignment: "Unaligned",
       environments: ["Varies"],
       "armor class": 14,
       "hit points": "155",
@@ -34677,7 +34716,19 @@ const monsters = [
                         movement: 120
                       }
             },
-      challenge: "10",
+      challenge: 10,
+      str: 26,
+      dex: 10,
+      con: 21,
+      int: 3,
+      wis: 10,
+      cha: 5,
+      senses: {
+        "Passive Perception": {
+          value: 14
+        },
+      },
+      languages: "—",
       traits: "<p><em><strong>Magic Resistance.</strong></em> The aerosaur has advantage on saving throws against spells and other magical effects.</p>",
       "number of attacks": "2",
       attacks: {
@@ -34724,12 +34775,12 @@ const monsters = [
                         movement: 30
                       }
             },
-      str: "18 (+4)",
-      dex: "14 (+2)",
-      con: "14 (+2)",
-      int: "9 (-1)",
-      wis: "10 (0)",
-      cha: "10 (0)",
+      str: "18",
+      dex: "14",
+      con: "14",
+      int: "9",
+      wis: "10",
+      cha: "10",
       "damage resistances": "Lightning, Thunder; Bludgeoning, Piercing, and Slashing from nonmagical attacks",
       "damage immunities": ["Poison"],
       "condition immunities": "Paralyzed, Petrified, Poisoned, Prone",
@@ -34765,6 +34816,12 @@ const monsters = [
       environments: ["Urban", "Grassland"],
       "armor class": 18,
       "hit points": "52 (8d8 + 16)",
+      str: 16,
+      dex: 16,
+      con: 14,
+      int: 11,
+      wis: 14,
+      cha: 13,
       speed: {
               surface: {
                         movement: 25
@@ -34831,12 +34888,12 @@ const monsters = [
                         movement: 30
                       }
             },
-      str: "13 (+1)",
-      dex: "8 (-1)",
-      con: "12 (+1)",
-      int: "10 (0)",
-      wis: "14 (+2)",
-      cha: "10 (0)",
+      str: "13",
+      dex: "8",
+      con: "12",
+      int: "10",
+      wis: "14",
+      cha: "10",
       skills: "Perception +4, Survival +4",
       senses: {
               Darkvision: {
@@ -34875,12 +34932,12 @@ const monsters = [
                         movement: 50
                       }
             },
-      str: "2 (-4)",
-      dex: "16 (+3)",
-      con: "10 (0)",
-      int: "2 (-4)",
-      wis: "14 (+2)",
-      cha: "10 (0)",
+      str: "2",
+      dex: "16",
+      con: "10",
+      int: "2",
+      wis: "14",
+      cha: "10",
       skills: "Perception +4, Stealth +5",
       senses: {
               Darkvision: {
@@ -34918,12 +34975,12 @@ const monsters = [
                         movement: 30
                       }
             },
-      str: "15 (+2)",
-      dex: "10 (+0)",
-      con: "12 (+1)",
-      int: "13 (+1)",
-      wis: "16 (+3)",
-      cha: "18 (+4)",
+      str: "15",
+      dex: "10",
+      con: "12",
+      int: "13",
+      wis: "16",
+      cha: "18",
       skills: "Persuasion +6",
       "damage resistances": "Radiant",
       "damage immunities": ["Poison"],
@@ -34961,12 +35018,12 @@ const monsters = [
                         movement: 30
                       }
             },
-      str: "22 (+6)",
-      dex: "9 (-1)",
-      con: "20 (+5)",
-      int: "3 (-4)",
-      wis: "11 (+0)",
-      cha: "1 (-5)",
+      str: "22",
+      dex: "9",
+      con: "20",
+      int: "3",
+      wis: "11",
+      cha: "1",
       skills: "Perception +4",
       "damage vulnerabilities": "Thunder",
       "damage immunities": ["Acid", "Poison", "Psychic", "Bludgeoning", "Piercing", "and Slashing from nonmagical attacks"],
@@ -35014,6 +35071,12 @@ const monsters = [
       environments: ["Forest", "Hill", "Grassland"],
       "armor class": 13,
       "hit points": "22 (4d6 + 8)",
+      str: 13,
+      dex: 15,
+      con: 14,
+      int: 4,
+      wis: 11,
+      cha: 6,
       speed: {
               surface: {
                         movement: 30
@@ -35063,12 +35126,12 @@ const monsters = [
                         movement: 20
                       }
             },
-      str: "17 (+3)",
-      dex: "15 (+2)",
-      con: "14 (+2)",
-      int: "2 (-4)",
-      wis: "12 (+1)",
-      cha: "2 (-4)",
+      str: "17",
+      dex: "15",
+      con: "14",
+      int: "2",
+      wis: "12",
+      cha: "2",
       skills: "Stealth +6",
       senses: {
               Darkvision: {
@@ -35107,12 +35170,12 @@ const monsters = [
                         movement: 30
                       }
             },
-      str: "16 (+3)",
-      dex: "13 (+1)",
-      con: "14 (+2)",
-      int: "9 (-1)",
-      wis: "15 (+2)",
-      cha: "12 (+1)",
+      str: "16",
+      dex: "13",
+      con: "14",
+      int: "9",
+      wis: "15",
+      cha: "12",
       skills: "Nature +1, Stealth +3, Survival +4",
       senses: {
               Darkvision: {
@@ -35164,12 +35227,12 @@ const monsters = [
                         movement: 50
                       }
             },
-      str: "10 (0)",
-      dex: "17 (+3)",
-      con: "10 (0)",
-      int: "1 (-5)",
-      wis: "5 (-3)",
-      cha: "1 (-5)",
+      str: "10",
+      dex: "17",
+      con: "10",
+      int: "1",
+      wis: "5",
+      cha: "1",
       "damage immunities": ["Poison", "Psychic"],
       "condition immunities": "Charmed, Deafened, Exhaustion, Frightened, Paralyzed, Petrified, Poisoned, Prone",
       senses: {
@@ -35200,6 +35263,7 @@ const monsters = [
       size: "Large",
       type: "Plant",
       environments: ["Dungeon"],
+      alignment: "Neutral Evil",
       associates: ["Violet Fungus"],
       "armor class": 17,
       "hit points": "102 (13d10 + 30)",
@@ -35512,6 +35576,22 @@ const monsters = [
       associates: ["Demon Lord"],
       "armor class": 17,
       "hit points": "136 (16d10 + 48)",
+      str: 21,
+      dex: 18,
+      con: 16,
+      int: 6,
+      wis: 9,
+      cha: 9,
+      senses: {
+        Darkvision: {
+          range: 120
+        },
+        "Passive Perception": {
+          value: 13
+        }
+      },
+      languages: "Abyssal, telepathy 120 ft.",
+      challenge: "11 (7,200 XP)",
       speed: {
               surface: {
                         movement: 30
@@ -35547,6 +35627,13 @@ const monsters = [
       environments: ["Wasteland"],
       "armor class": 15,
       "hit points": "157",
+      str: 22,
+      dex: 16,
+      con: 19,
+      int: 4,
+      wis: 13,
+      cha: 5,
+      challenge: "11 (7,200 XP)",
       speed: {
               surface: {
                         movement: 0
@@ -35577,7 +35664,7 @@ const monsters = [
             },
       actions: "<p><em><strong>Swallow.</strong></em> If a Large or smaller creature is hit by the Swallowing Bite attack, it must succeed on a DC 16 Dexterity saving throw or be swallowed by the Void Scavver. A swallowed creature is blinded and restrained, has total cover against attacks and other effects outside the scavver, and takes 11 (2d10) acid damage at the start of each of the scavver's turns. The scavver can only have one creature swallowed at a time. If the scavver takes 25 damage or more in a single turn from a creature inside it, the scavver must succeed on a DC 20 Constitution saving throw or regurgitate the creature, which falls prone in a space within 5 feet of the scavver. If the scavver dies, a swallowed creature is no longer restrained by it and can escape from the corpse by using 10 feet of movement, exiting prone.</p>",
       "bonus actions": "<p><em><strong>Ray of Fear (Recharge 4–6).</strong></em> The scavver emits an invisible magical ray from its eye that targets one creature within 60 feet of it. The target must succeed on a DC 16 Wisdom saving throw or be frightened of the scavver until the start of its next turn.</p>",
-      notes: "<p>Harvesting items from a Void Scavver requires a Nature Check, with many items having an expiration. The creature produces 90 pieces of meat, weighing a total of 360 lbs.</p>",
+      notes: "<p>Harvesting items from a Void Scavver requires a Nature Check, with many items having an expiration. The creature produces 90 pieces of meat, weighing a total of 360 lbs. <br/>The scavver doesn't require air.</p>",
       description: "<p>Void Scavvers are 20 feet long with pitch-black skin, resembling shark-like scavengers with a single large eye on the leading edge of their head that glows when awake. Their mouths are full of razor-sharp teeth, which are used in jewelry and decoration, and can also be made into serrated blades and saws. Their skin is covered in small, rough, hard scales that can be dried, treated, and ground down by leatherworkers to create pebbled leather. Void Scavvers are solitary menaces that prefer to hunt sentient prey rather than scraps. They are featured in <em>Spelljammer Adventures in Space</em>.</p>"
     },
 {
@@ -35589,6 +35676,12 @@ const monsters = [
       associates: ["Blackstaff"],
       "armor class": 17,
       "hit points": "314 (17d20 + 136)",
+      str: 30,
+      dex: 8,
+      con: 27,
+      int: 1,
+      wis: 10,
+      cha: 1,
       speed: {
               surface: {
                         movement: 60
@@ -35602,7 +35695,7 @@ const monsters = [
                         range: 120
                       }
             },
-      languages: "Common, Draconic",
+      languages: "N/A",
       challenge: "18",
       traits: "<p><em><strong>Crumbling Colossus.</strong></em> When the statue is reduced to 0 hit points, it crumbles, and creatures within 30 feet of it must make a DC 22 Dexterity saving throw, taking 22 (4d10) bludgeoning damage on a failed save.</p><p><em><strong>Immutable Form.</strong></em> The statue is immune to any spell or effect that would alter its form.</p><p><em><strong>Magic Resistance.</strong></em> The statue has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Siege Monster.</strong></em> The statue deals double damage to objects and structures.</p>",
       "number of attacks": "2",
@@ -35643,10 +35736,10 @@ const monsters = [
       "armor class": 10,
       "hit points": "13 (3d8)",
       speed: {
-              surface: {
-                        movement: 30
-                      }
-            },
+        surface: {
+          movement: 30
+        }
+      },
       str: 9,
       dex: 14,
       con: 11,
@@ -35654,10 +35747,10 @@ const monsters = [
       wis: 12,
       cha: 11,
       senses: {
-              "Passive Perception": {
-                        value: 11
-                      }
-            },
+        "Passive Perception": {
+          value: 11
+        }
+      },
       languages: "Any four languages",
       challenge: "6 (2,300 XP)",
       traits: "<p><em><strong>Magical Enhancement.</strong></em> If depleted of spells, they can engage in melee with magically enhanced blows that reinvigorate them. Wizards can make foes more vulnerable to magic, and enhance allies' attacks.</p><p><em><strong>Reality Manipulation.</strong></em> Wizards can manipulate reality with teleportation magic.</p><p><em><strong>Spellcasting.</strong></em> Wizards are spellcasters who can deal high damage with spells like <em>Fireball</em> or banish targets to the Abyss. They can cast complex and dangerous spells, excel at ending battles swiftly from afar with well-chosen and timed spells.</p>",
@@ -35687,6 +35780,12 @@ const monsters = [
       environments: ["Forest", "Mountain", "Hill"],
       "armor class": 14,
       "hit points": "119 (14d10 + 42)",
+      str: 19,
+      dex: 15,
+      con: 16,
+      int: 13,
+      wis: 14,
+      cha: 10,
       speed: {
               surface: {
                         movement: 50
@@ -35800,6 +35899,12 @@ const monsters = [
                         movement: 30
                       }
             },
+      str: 13,
+      dex: 11,
+      con: 12,
+      int: 8,
+      wis: 11,
+      cha: 8,
       senses: {},
       languages: "Any one language",
       challenge: "1/8 (25 XP)",
@@ -35851,6 +35956,12 @@ const monsters = [
       environments: ["Dungeon"],
       "armor class": 15,
       "hit points": "16 (3d8 + 3)",
+      str: 12, 
+      dex: 13,
+      con: 12,
+      int: 9,
+      wis: 10,
+      cha:9,
       speed: {
               surface: {
                         movement: 30
@@ -35913,6 +36024,21 @@ const monsters = [
       environments: ["Underwater"],
       "armor class": 14,
       "hit points": "60 (11d8 + 11)",
+      str: 16,
+      dex: 11,
+      con: 16,
+      int: 10,
+      wis: 12,
+      cha: 19,
+      senses: {
+        "Passive Perception": {
+          value: 11
+        },
+        Darkvision: {
+          range: 60
+        }
+      },
+      languages: "Common, Primordial",
       speed: {
               surface: {
                         movement: 30
@@ -35960,6 +36086,22 @@ const monsters = [
       associates: ["Troll", "Psionic Matriarch"],
       "armor class": 16,
       "hit points": "95 (10d10 + 40)",
+      str: 19,
+      dex: 13,
+      con: 18,
+      int: 17,
+      wis: 9,
+      cha: 12,
+      senses: {
+        Blindsight: {
+          range: 60
+        },
+        "Passive Perception": {
+          value: 15
+        }
+      },
+      languages: "Giant, telepathy 60 ft.",
+      challenge: "7 (2,900 XP)",
       speed: {
               surface: {
                         movement: 30
@@ -36002,6 +36144,12 @@ const monsters = [
       environments: ["Underdark"],
       "armor class": 17,
       "hit points": "195 (17d12 + 85)",
+      str: 24,
+      dex: 10,
+      con: 20,
+      int: 7,
+      wis: 12,
+      cha: 13,
       speed: {
               surface: {
                         movement: 40
@@ -36179,6 +36327,12 @@ const monsters = [
       associates: ["Elf"],
       "armor class": 17,
       "hit points": "104 (16d8 + 32)",
+      str: 16,
+      dex: 10,
+      con: 14,
+      int: 17,
+      wis: 21,
+      cha: 16,
       speed: {
               surface: {
                         movement: 30
@@ -36273,6 +36427,12 @@ const monsters = [
       associates: ["Evil Dragon"],
       "armor class": 25,
       "hit points": "615 (30d20 + 300)",
+      str: 30,
+      dex: 10,
+      con: 30,
+      int: 26,
+      wis: 26,
+      cha: 28,
       speed: {
               surface: {
                         movement: 60
@@ -36337,6 +36497,13 @@ const monsters = [
       environments: ["Dungeon"],
       "armor class": 15,
       "hit points": "10 (4d4)",
+      str: 4,
+      dex: 16,
+      con: 10,
+      int: 2,
+      wis: 10,
+      cha: 1,
+      challenge: "0",
       speed: {
               surface: {
                         movement: 30
@@ -36390,6 +36557,7 @@ const monsters = [
       cha: "4",
       senses: {},
       challenge: "8",
+      languages: "N/A",
       traits: "<p><em><strong>Beast of Burden.</strong></em> Titanotheres are considered one size larger for carrying capacity.</p>",
       "number of attacks": "1",
       attacks: {
@@ -36427,6 +36595,12 @@ const monsters = [
       "damage immunities": ["Fire", "poison"],
       "damage resistances": "Cold; bludgeoning, piercing, and slashing from nonmagical attacks that aren't silvered",
       "condition immunities": "Charmed, exhaustion, frightened, poisoned",
+      str: 19,
+      dex: 22,
+      con: 17,
+      int: 24,
+      wis: 22,
+      cha: 26,
       senses: {
               Darkvision: {
                         range: 120
@@ -36465,6 +36639,12 @@ const monsters = [
                       }
             },
       skills: "Perception +4, Stealth +4, Survival +4",
+      str: 16,
+      dex: 13,
+      con: 16,
+      int: 8,
+      wis: 12,
+      cha: 8,
       senses: {
               Darkvision: {
                         range: 60
@@ -36511,6 +36691,13 @@ const monsters = [
       environments: ["Dungeon"],
       "armor class": 13,
       "hit points": "114 (12d10 + 48)",
+      str: 19,
+      dex: 9,
+      con: 18,
+      int: 6,
+      wis: 10,
+      cha: 5,
+      languages: "Understands the languages of its creator but can't speak",
       speed: {
               surface: {
                         movement: 30
@@ -36557,6 +36744,12 @@ const monsters = [
       environments: ["Underdark", "Dungeon"],
       "armor class": 21,
       "hit points": "92 (8d12 + 40)",
+      str: 22,
+      dex: 10,
+      con: 21,
+      int: 14,
+      wis: 14,
+      cha: 11,
       speed: {
               surface: {
                         movement: 30
@@ -36618,6 +36811,12 @@ const monsters = [
       environments: ["Urban", "Dungeon"],
       "armor class": 12,
       "hit points": "32 (5d8 + 10)",
+      str: 15,
+      dex: 12,
+      con: 14,
+      int: 10,
+      wis: 10,
+      cha: 11,
       speed: {
               surface: {
                         movement: 30
@@ -36658,6 +36857,12 @@ const monsters = [
       environments: ["Urban", "Dungeon"],
       "armor class": 16,
       "hit points": "82 (11d8 + 33)",
+      str: 17,
+      dex: 14,
+      con: 16,
+      int: 11,
+      wis: 10,
+      cha: 11,
       speed: {
               surface: {
                         movement: 30
@@ -36864,17 +37069,35 @@ const monsters = [
       alignment: "Unaligned",
       environments: ["Dungeon"],
       associates: ["Iriolarthas"],
+      "armor class": 15,
+      "hit points": "172 (15d12 + 75)",
+      str: 20,
+      dex: 12,
+      con: 20,
+      int: 2,
+      wis: 10,
+      cha: 7,
+      senses: {
+        Darkvision: {
+          range: 60
+        },
+        "Passive Perception": {
+          value: 10
+        },
+      },
       speed: {
-              surface: {
-                        movement: 30
-                      },
-              swim: {
-                        movement: 30
-                      },
-              climb: {
-                        movement: 30
-                      }
-            },
+        surface: {
+                  movement: 30
+                },
+        swim: {
+                  movement: 30
+                },
+        climb: {
+                  movement: 30
+                }
+      },
+      challenge: "8 (3,900 XP)",
+      languages: "none",
       "number of attacks": "5",
       attacks: {
               Bite: {
@@ -36956,6 +37179,15 @@ const monsters = [
                         movement: 60
                       }
             },
+      senses: {
+        Darkvision: {
+                  range: 60
+                },
+        "Passive Perception": {
+                  value: 15
+        }
+      },
+      challenge: "7 (XP 2,900)",
       str: "18",
       dex: "13",
       con: "19",
@@ -37116,13 +37348,31 @@ const monsters = [
             },
       actions: "<p><em><strong>Multiattack.</strong></em> The thief makes three attacks with its shortsword or shortbow.</p><p><em><strong>Shortsword.</strong></em> <em>Melee Weapon Attack:</em> +9 to hit, reach 5ft., one target. <em>Hit:</em> 8 (1d6+5) piercing damage.</p><p><em><strong>Dagger.</strong></em> <em>Melee or Ranged Weapon Attack:</em> +9 to hit, reach 5 ft. or range 60/120 ft., one target. <em>Hit:</em> 10 (2d4 + 5) piercing damage.</p><p><em><strong>Dagger Flourish.</strong></em> One creature wielding a weapon within 5 feet must make a DC 17 Strength save. On a fail, attacks against it have advantage, and the master thief can apply an effect.</p>",
       reactions: "<p><em><strong>Uncanny Dodge.</strong></em> The thief halves the damage that it takes from an attack that hits it. The thief must be able to see the attacker.</p>",
-      notes: "<p>CR 5 Variant: AC 16 (studded leather), HP 84 (13d8 + 26), Speed 30 ft. STR 11 (0), DEX 18 (+4), CON 14 (+2), INT 11 (0), WIS 11 (0), CHA 12 (+1). Saving Throws: Dex +7, Int +3. Skills: Acrobatics +7, Athletics +3, Perception +3, Sleight of Hand +7, Stealth +7. Senses: Passive Perception 13. Languages: Any one language (usually Common) plus thieves' cant. Challenge Rating: 5 (1,800 XP). Sneak Attack (1/Turn): 14 (4d6) damage. Actions include Light Crossbow and Shortbow (with poison damage variants).</p>"
+      notes: "<p>CR 5 Variant: AC 16 (studded leather), HP 84 (13d8 + 26), Speed 30 ft. STR 11, DEX 18, CON 14, INT 11, WIS 11, CHA 12. Saving Throws: Dex +7, Int +3. Skills: Acrobatics +7, Athletics +3, Perception +3, Sleight of Hand +7, Stealth +7. Senses: Passive Perception 13. Languages: Any one language (usually Common) plus thieves' cant. Challenge Rating: 5 (1,800 XP). Sneak Attack (1/Turn): 14 (4d6) damage. Actions include Light Crossbow and Shortbow (with poison damage variants).</p>"
     },
 {
       name: "Thorn Slinger",
       size: "Medium",
       type: "Plant",
       alignment: "Unaligned",
+      "armor class": 11,
+      "hit points": "32 (5d10 + 5)",
+      str: 13,
+      dex: 12,
+      con: 12,
+      int: 1,
+      wis: 10,
+      cha: 1,
+      senses: {
+          Blindsight: {
+            range: 60
+          },
+          "Passive Perception": {
+            value: 10
+          }
+        },
+      languages: "N/A",
+      challenge: "1/2 (100 XP)",
       environments: ["Forest"],
       speed: {
               surface: {
@@ -37292,9 +37542,12 @@ const monsters = [
                         movement: 20
                       }
             },
-      int: "19",
-      wis: "12",
-      cha: "11",
+      str: 18,
+      dex: 15,
+      con: 14,
+      int: 19,
+      wis: 12,
+      cha: 11,
       skills: "Perception +4, Stealth +8",
       "damage resistances": "Psychic",
       senses: {
@@ -37321,7 +37574,7 @@ const monsters = [
                       }
             },
       actions: "<p><em><strong>Multiattack.</strong></em> The thri-kreen makes three Psionic Lance attacks.</p><p><em><strong>Psionic Lance.</strong></em> <em>Melee or Ranged Attack Roll:</em> +7, reach 10 ft. or range 120 ft. <em>Hit:</em> 18 (4d6 + 4) Psychic damage.</p>",
-      notes: "<p>CR 1 Variant: AC 15 (natural armor), HP 33 (6d8 + 6), Speed 40 ft. STR 12 (+1), DEX 15 (+2), CON 13 (+1), INT 8 (-1), WIS 12 (+1), CHA 7 (-2). Skills: Perception +3, Stealth +4, Survival +3. Languages: Thri-kreen, Telepathy 60 ft. Challenge Rating: 1 (200 XP). Innate Spellcasting (Psionics): Wisdom spellcasting. At will: <em>mage hand</em> (invisible). 2/day: <em>blur</em>, <em>magic weapon</em>. 1/day: <em>invisibility</em> (self only). Actions include Multiattack (one bite and one claws), Bite (Melee +3, 5ft reach, 4 (1d6+1) piercing, DC 11 Con save or poisoned/paralyzed), Claws (Melee +3, 5ft reach, 6 (2d4+1) slashing). Can also use Gythka (Melee +3, 5ft reach, 5 (1d8+1) slashing) or Chatkcha (Ranged +4, 30/120ft range, 5 (1d6+2) slashing).</p>",
+      notes: "<p>CR 1 Variant: AC 15 (natural armor), HP 33 (6d8 + 6), Speed 40 ft. STR 12, DEX 15, CON 13, INT 8, WIS 12, CHA 7. Skills: Perception +3, Stealth +4, Survival +3. Languages: Thri-kreen, Telepathy 60 ft. Challenge Rating: 1 (200 XP). Innate Spellcasting (Psionics): Wisdom spellcasting. At will: <em>mage hand</em> (invisible). 2/day: <em>blur</em>, <em>magic weapon</em>. 1/day: <em>invisibility</em> (self only). Actions include Multiattack (one bite and one claws), Bite (Melee +3, 5ft reach, 4 (1d6+1) piercing, DC 11 Con save or poisoned/paralyzed), Claws (Melee +3, 5ft reach, 6 (2d4+1) slashing). Can also use Gythka (Melee +3, 5ft reach, 5 (1d8+1) slashing) or Chatkcha (Ranged +4, 30/120ft range, 5 (1d6+2) slashing).</p>",
       description: "<p>Thri-kreen psions harness psychic powers to avoid danger and manipulate objects from afar.</p>"
     }
 ];
