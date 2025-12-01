@@ -60,8 +60,17 @@ $(() => { // jQuery's DOM ready shorthand
         let hasTelepathy = false;
         let hasNA = false;
         monsters.forEach(monster => {
-            if (Array.isArray(monster.languages)) {
-                monster.languages.forEach(l => {
+            if (monster.languages) {
+                // Handle both array (legacy) and string (new format)
+                let langList = [];
+                if (Array.isArray(monster.languages)) {
+                    langList = monster.languages;
+                } else if (typeof monster.languages === 'string') {
+                    // Split by comma and clean up
+                    langList = monster.languages.split(',').map(l => l.trim()).filter(l => l);
+                }
+                
+                langList.forEach(l => {
                     if (/telepathy/i.test(l)) {
                         hasTelepathy = true;
                     }
@@ -113,7 +122,18 @@ $(() => { // jQuery's DOM ready shorthand
         });
         if (align) filtered = filtered.filter(m => m.alignment === align);
         if (language) {
-            filtered = filtered.filter(m => Array.isArray(m.languages) && m.languages.some(l => l.toLowerCase() === language.toLowerCase()));
+            filtered = filtered.filter(m => {
+                if (!m.languages) return false;
+                // Handle both array (legacy) and string (new format)
+                if (Array.isArray(m.languages)) {
+                    return m.languages.some(l => l.toLowerCase() === language.toLowerCase());
+                } else if (typeof m.languages === 'string') {
+                    // Split by comma and check each language
+                    const langList = m.languages.split(',').map(l => l.trim());
+                    return langList.some(l => l.toLowerCase() === language.toLowerCase());
+                }
+                return false;
+            });
         }
         filtered.sort((a, b) => {
             if (sort === 'cr') {
@@ -214,6 +234,68 @@ $(() => { // jQuery's DOM ready shorthand
         return undefined;
     }
 
+    // Helper: Format speed object to string
+    function formatSpeed(speed) {
+        if (!speed) return '';
+        if (typeof speed === 'string') return speed; // Legacy format support
+        if (typeof speed !== 'object') return '';
+        
+        const parts = [];
+        if (speed.surface && speed.surface.movement) {
+            parts.push(`${speed.surface.movement} ft.`);
+        }
+        if (speed.fly && speed.fly.movement) {
+            parts.push(`fly ${speed.fly.movement} ft.`);
+        }
+        if (speed.swim && speed.swim.movement) {
+            parts.push(`swim ${speed.swim.movement} ft.`);
+        }
+        if (speed.burrow && speed.burrow.movement) {
+            parts.push(`burrow ${speed.burrow.movement} ft.`);
+        }
+        if (speed.climb && speed.climb.movement) {
+            parts.push(`climb ${speed.climb.movement} ft.`);
+        }
+        if (speed.hover && speed.hover.movement) {
+            parts.push(`hover ${speed.hover.movement} ft.`);
+        }
+        
+        return parts.join(', ') || '';
+    }
+
+    // Helper: Format senses object to string
+    function formatSenses(senses) {
+        if (!senses) return '';
+        if (typeof senses === 'string') return senses; // Legacy format support
+        if (typeof senses !== 'object') return '';
+        
+        const parts = [];
+        if (senses.Blindsight && senses.Blindsight.range) {
+            parts.push(`Blindsight ${senses.Blindsight.range} ft.`);
+        }
+        if (senses.Darkvision && senses.Darkvision.range) {
+            parts.push(`Darkvision ${senses.Darkvision.range} ft.`);
+        }
+        if (senses.Tremorsense && senses.Tremorsense.range) {
+            parts.push(`Tremorsense ${senses.Tremorsense.range} ft.`);
+        }
+        if (senses.Truesight && senses.Truesight.range) {
+            parts.push(`Truesight ${senses.Truesight.range} ft.`);
+        }
+        
+        return parts.join(', ') || '';
+    }
+
+    // Helper: Format damage immunities array to string
+    function formatDamageImmunities(immunities) {
+        if (!immunities) return '';
+        if (typeof immunities === 'string') return immunities; // Legacy format support
+        if (Array.isArray(immunities)) {
+            return immunities.join(', ');
+        }
+        return '';
+    }
+
     function displayMonsterStats(monster) {
         $statBlockContainer.empty(); // Clear previous stats
         const $monsterDiv = $('<div></div>').addClass('stat-block');
@@ -242,12 +324,14 @@ $(() => { // jQuery's DOM ready shorthand
             associatesHtml = '<span>None</span>';
         }
 
-        // Show languages as comma-separated list if array
+        // Show languages - handle both array (legacy) and string (new format)
         let languagesDisplay = '';
-        if (Array.isArray(monster.languages)) {
-            languagesDisplay = monster.languages.join(', ');
-        } else {
-            languagesDisplay = monster.languages || '';
+        if (monster.languages) {
+            if (Array.isArray(monster.languages)) {
+                languagesDisplay = monster.languages.join(', ');
+            } else {
+                languagesDisplay = monster.languages;
+            }
         }
 
         $monsterDiv.html(`
@@ -257,7 +341,7 @@ $(() => { // jQuery's DOM ready shorthand
             <hr>
             ${createPropertyHtml('Armor Class', getProp(monster, 'armor class'))}
             ${createPropertyHtml('Hit Points', getProp(monster, 'hit points'))}
-            ${createPropertyHtml('Speed', monster.speed)}
+            ${createPropertyHtml('Speed', formatSpeed(monster.speed))}
             <hr>
             <table class="stats-table">
                 <tr><th>STR</th><th>DEX</th><th>CON</th><th>INT</th><th>WIS</th><th>CHA</th></tr>
@@ -271,13 +355,13 @@ $(() => { // jQuery's DOM ready shorthand
                     </tr>
             </table>
             <hr>
-            ${createPropertyHtml('Saving Throws', monster.saving_throws)}
+            ${createPropertyHtml('Saving Throws', getProp(monster, 'saving throws'))}
             ${createPropertyHtml('Skills', monster.skills)}
-            ${createPropertyHtml('Damage Vulnerabilities', monster.damage_vulnerabilities)}
-            ${createPropertyHtml('Damage Resistances', monster.damage_resistances)}
-            ${createPropertyHtml('Damage Immunities', monster.damage_immunities)}
-            ${createPropertyHtml('Condition Immunities', monster.condition_immunities)}
-            ${createPropertyHtml('Senses', monster.senses)}
+            ${createPropertyHtml('Damage Vulnerabilities', getProp(monster, 'damage vulnerabilities'))}
+            ${createPropertyHtml('Damage Resistances', getProp(monster, 'damage resistances'))}
+            ${createPropertyHtml('Damage Immunities', formatDamageImmunities(getProp(monster, 'damage immunities')))}
+            ${createPropertyHtml('Condition Immunities', getProp(monster, 'condition immunities'))}
+            ${createPropertyHtml('Senses', formatSenses(monster.senses))}
             ${createPropertyHtml('Languages', languagesDisplay)}
             ${createPropertyHtml('Challenge', monster.challenge)}
             ${createPropertyHtml('Environments', Array.isArray(monster.environments) ? monster.environments.join(', ') : monster.environments)}
