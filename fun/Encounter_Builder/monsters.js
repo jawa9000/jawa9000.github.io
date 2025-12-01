@@ -35591,7 +35591,7 @@ const monsters = [
         }
       },
       languages: "Abyssal, telepathy 120 ft.",
-      challenge: 11 (7,200 XP),
+      challenge: "11 (7,200 XP)",
       speed: {
               surface: {
                         movement: 30
@@ -35633,7 +35633,7 @@ const monsters = [
       int: 4,
       wis: 13,
       cha: 5,
-      challenge: 11 (7,200 XP),
+      challenge: "11 (7,200 XP)",
       speed: {
               surface: {
                         movement: 0
@@ -35695,7 +35695,7 @@ const monsters = [
                         range: 120
                       }
             },
-      languages: "Common, Draconic",
+      languages: "N/A",
       challenge: "18",
       traits: "<p><em><strong>Crumbling Colossus.</strong></em> When the statue is reduced to 0 hit points, it crumbles, and creatures within 30 feet of it must make a DC 22 Dexterity saving throw, taking 22 (4d10) bludgeoning damage on a failed save.</p><p><em><strong>Immutable Form.</strong></em> The statue is immune to any spell or effect that would alter its form.</p><p><em><strong>Magic Resistance.</strong></em> The statue has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Siege Monster.</strong></em> The statue deals double damage to objects and structures.</p>",
       "number of attacks": "2",

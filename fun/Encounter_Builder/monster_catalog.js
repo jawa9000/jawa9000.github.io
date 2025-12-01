@@ -282,6 +282,9 @@ $(() => { // jQuery's DOM ready shorthand
         if (senses.Truesight && senses.Truesight.range) {
             parts.push(`Truesight ${senses.Truesight.range} ft.`);
         }
+        if (senses['Passive Perception'] && senses['Passive Perception'].value) {
+            parts.push(`Passive Perception ${senses['Passive Perception'].value}`);
+        }
         
         return parts.join(', ') || '';
     }
