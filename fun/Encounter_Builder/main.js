@@ -165,6 +165,95 @@ function formatNumberWithCommas(number) {
 }
 
 /**
+ * @function formatSpeed
+ * @description Formats a speed object into a readable string.
+ * Handles both the new object format { surface: { movement: 30 }, fly: { movement: 60 } }
+ * and the legacy string format for backward compatibility.
+ *
+ * @param {object|string} speed - The speed object or string to format.
+ * @returns {string} The formatted speed string, or empty string if invalid.
+ */
+function formatSpeed(speed) {
+  if (!speed) return '';
+  if (typeof speed === 'string') return speed; // Legacy format support
+  if (typeof speed !== 'object') return '';
+  
+  const parts = [];
+  if (speed.surface && speed.surface.movement) {
+    parts.push(`${speed.surface.movement} ft.`);
+  }
+  if (speed.fly && speed.fly.movement) {
+    parts.push(`fly ${speed.fly.movement} ft.`);
+  }
+  if (speed.swim && speed.swim.movement) {
+    parts.push(`swim ${speed.swim.movement} ft.`);
+  }
+  if (speed.burrow && speed.burrow.movement) {
+    parts.push(`burrow ${speed.burrow.movement} ft.`);
+  }
+  if (speed.climb && speed.climb.movement) {
+    parts.push(`climb ${speed.climb.movement} ft.`);
+  }
+  if (speed.hover && speed.hover.movement) {
+    parts.push(`hover ${speed.hover.movement} ft.`);
+  }
+  
+  return parts.join(', ') || '';
+}
+
+/**
+ * @function formatSenses
+ * @description Formats a senses object into a readable string.
+ * Handles both the new object format { Darkvision: { range: 120 }, Blindsight: { range: 60 } }
+ * and the legacy string format for backward compatibility.
+ *
+ * @param {object|string} senses - The senses object or string to format.
+ * @returns {string} The formatted senses string, or empty string if invalid.
+ */
+function formatSenses(senses) {
+  if (!senses) return '';
+  if (typeof senses === 'string') return senses; // Legacy format support
+  if (typeof senses !== 'object') return '';
+  
+  const parts = [];
+  if (senses.Blindsight && senses.Blindsight.range) {
+    parts.push(`Blindsight ${senses.Blindsight.range} ft.`);
+  }
+  if (senses.Darkvision && senses.Darkvision.range) {
+    parts.push(`Darkvision ${senses.Darkvision.range} ft.`);
+  }
+  if (senses.Tremorsense && senses.Tremorsense.range) {
+    parts.push(`Tremorsense ${senses.Tremorsense.range} ft.`);
+  }
+  if (senses.Truesight && senses.Truesight.range) {
+    parts.push(`Truesight ${senses.Truesight.range} ft.`);
+  }
+  
+  // Try to extract Passive Perception from the original string if available
+  // This is a fallback - ideally it should be in the object format too
+  // For now, we'll just return what we can format from the object
+  
+  return parts.join(', ') || '';
+}
+
+/**
+ * @function formatDamageImmunities
+ * @description Formats damage immunities into a readable string.
+ * Handles both array format ["Fire", "Poison"] and string format for backward compatibility.
+ *
+ * @param {array|string} immunities - The damage immunities array or string to format.
+ * @returns {string} The formatted immunities string, or empty string if invalid.
+ */
+function formatDamageImmunities(immunities) {
+  if (!immunities) return '';
+  if (typeof immunities === 'string') return immunities; // Legacy format support
+  if (Array.isArray(immunities)) {
+    return immunities.join(', ');
+  }
+  return '';
+}
+
+/**
  * @function createMonsterSlug
  * @description Converts a monster name into a URL-friendly slug.
  * This involves converting the name to lowercase, replacing spaces with hyphens,
@@ -438,7 +527,8 @@ function generatePcLevelInputs(pcCount, pcLevel, difficulty, environment) {
                                     monsterStatsContent += `<p><em>${monsterDetails.size} ${monsterDetails.type}, ${monsterDetails.alignment}</em></p>`; // Using available fields for meta
                                     if (getProp(monsterDetails, "armor class")) monsterStatsContent += `<p><strong>Armor Class:</strong> ${getProp(monsterDetails, "armor class")}</p>`;
                                     if (getProp(monsterDetails, "hit points")) monsterStatsContent += `<p><strong>Hit Points:</strong> ${getProp(monsterDetails, "hit points")}</p>`;
-                                    if (monsterDetails.speed) monsterStatsContent += `<p><strong>Speed:</strong> ${monsterDetails.speed}</p>`; // lowercase 'speed'
+                                    const speedStr = formatSpeed(monsterDetails.speed);
+                                    if (speedStr) monsterStatsContent += `<p><strong>Speed:</strong> ${speedStr}</p>`;
                                     monsterStatsContent += `<hr>`;
                                     monsterStatsContent += `<p><strong>STR:</strong> ${monsterDetails.str} (${abilityScoreModifiers[0][String(monsterDetails.str)] ?? 'N/A'}) | ` +
                                                            `<strong>DEX:</strong> ${monsterDetails.dex} (${abilityScoreModifiers[0][String(monsterDetails.dex)] ?? 'N/A'}) | ` +
@@ -451,9 +541,11 @@ function generatePcLevelInputs(pcCount, pcLevel, difficulty, environment) {
                                     if (monsterDetails.skills) monsterStatsContent += `<p><strong>Skills:</strong> ${monsterDetails.skills}</p>`; // lowercase 'skills'
                                     if (monsterDetails["Damage Vulnerabilities"]) monsterStatsContent += `<p><strong>Damage Vulnerabilities:</strong> ${monsterDetails["Damage Vulnerabilities"]}</p>`;
                                     if (monsterDetails["Damage Resistances"]) monsterStatsContent += `<p><strong>Damage Resistances:</strong> ${monsterDetails["Damage Resistances"]}</p>`;
-                                    if (monsterDetails["damage immunities"]) monsterStatsContent += `<p><strong>Damage Immunities:</strong> ${monsterDetails["damage immunities"]}</p>`; // lowercase 'damage immunities'
+                                    const damageImmunitiesStr = formatDamageImmunities(monsterDetails["damage immunities"]);
+                                    if (damageImmunitiesStr) monsterStatsContent += `<p><strong>Damage Immunities:</strong> ${damageImmunitiesStr}</p>`;
                                     if (monsterDetails["condition immunities"]) monsterStatsContent += `<p><strong>Condition Immunities:</strong> ${monsterDetails["condition immunities"]}</p>`; // lowercase 'condition immunities'
-                                    if (monsterDetails.senses) monsterStatsContent += `<p><strong>Senses:</strong> ${monsterDetails.senses}</p>`; // lowercase 'senses'
+                                    const sensesStr = formatSenses(monsterDetails.senses);
+                                    if (sensesStr) monsterStatsContent += `<p><strong>Senses:</strong> ${sensesStr}</p>`;
                                     if (monsterDetails.languages && Array.isArray(monsterDetails.languages)) {
                                         monsterStatsContent += `<p><strong>Languages:</strong> ${monsterDetails.languages.join(', ')}</p>`;
                                     } else if (monsterDetails.languages) {
@@ -769,7 +861,8 @@ function renderStatBlock(monster) {
   statBlockHtml += `<p><em>${monster.size} ${monster.type}, ${monster.alignment}</em></p>`; // Using available fields for meta
   if (getProp(monster, "armor class")) statBlockHtml += `<p><strong>Armor Class:</strong> ${getProp(monster, "armor class")}</p>`;
   if (getProp(monster, "hit points")) statBlockHtml += `<p><strong>Hit Points:</strong> ${getProp(monster, "hit points")}</p>`;
-  if (monster.speed) statBlockHtml += `<p><strong>Speed:</strong> ${monster.speed}</p>`; // lowercase 'speed'
+  const speedStr = formatSpeed(monster.speed);
+  if (speedStr) statBlockHtml += `<p><strong>Speed:</strong> ${speedStr}</p>`;
   statBlockHtml += `<hr>`;
   statBlockHtml += `<p><strong>STR:</strong> ${monster.str} (${abilityScoreModifiers[0][String(monster.str)] ?? 'N/A'}) | ` +
                    `<strong>DEX:</strong> ${monster.dex} (${abilityScoreModifiers[0][String(monster.dex)] ?? 'N/A'}) | ` +
@@ -782,9 +875,11 @@ function renderStatBlock(monster) {
   if (monster.skills) statBlockHtml += `<p><strong>Skills:</strong> ${monster.skills}</p>`; // lowercase 'skills'
   if (monster["Damage Vulnerabilities"]) statBlockHtml += `<p><strong>Damage Vulnerabilities:</strong> ${monster["Damage Vulnerabilities"]}</p>`;
   if (monster["Damage Resistances"]) statBlockHtml += `<p><strong>Damage Resistances:</strong> ${monster["Damage Resistances"]}</p>`;
-  if (monster["damage immunities"]) statBlockHtml += `<p><strong>Damage Immunities:</strong> ${monster["damage immunities"]}</p>`; // lowercase 'damage immunities'
+  const damageImmunitiesStr = formatDamageImmunities(monster["damage immunities"]);
+  if (damageImmunitiesStr) statBlockHtml += `<p><strong>Damage Immunities:</strong> ${damageImmunitiesStr}</p>`;
   if (monster["condition immunities"]) statBlockHtml += `<p><strong>Condition Immunities:</strong> ${monster["condition immunities"]}</p>`; // lowercase 'condition immunities'
-  if (monster.senses) statBlockHtml += `<p><strong>Senses:</strong> ${monster.senses}</p>`; // lowercase 'senses'
+  const sensesStr = formatSenses(monster.senses);
+  if (sensesStr) statBlockHtml += `<p><strong>Senses:</strong> ${sensesStr}</p>`;
   if (monster.languages && Array.isArray(monster.languages)) {
       statBlockHtml += `<p><strong>Languages:</strong> ${monster.languages.join(', ')}</p>`;
   } else if (monster.languages) {
