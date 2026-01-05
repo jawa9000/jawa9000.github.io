@@ -79,41 +79,15 @@ The following properties need to be converted to arrays. Then update main.js, mo
 ## Monster list
 Check monsters.js to see if the following monsters are listed. If they are not, use a Google search "5e [monster name]" to find it, download a PDF of it, and use this Gemini Gem (https://gemini.google.com/gem/77b2f643d48c) to batch convert up to 10 monsters at a time. Use this prompt: "Convert these PDFs into a JSON object." Then, copy/paste into monsters.js at the end, remove the array brackets, and clean up anything that is amiss (like remove "[cite:...]", add associates, and check the newly added monsters in the monster_catalog.html list).
 
->> about 100 monsters are missing their associates property.
->> look for items marked with // ** in monsters.js to fix their missing properties.
+>> 100+ monsters are missing their associates property.
 >> check to see which monsters are missing their challenge ratings.
+>> look for comments that have ** in them and fix their properties.
 
-
-Bloodfray
-Blue Greatwyrm
-Blue slaad
-Bodytaker
-Boggle
-Bone Knight
-Bone Roc
-Bone Whelk
-Boneless
-Booyahg Booyahg Booyahg
-Booyahg Caster
-Booyahg Slave of the
 Booyahg Slave of the Arch
-Booyahg Slave of the Great Old One
-Booyahg Whip
-Booyahg Wielder
-Borborygmos
 Bore Worm
 Borthak
-Boss Augustus
-Boss Delour
-Bozak Draconian
 Brackish Trudge
 Brain Breaker
-Brain in a Jar
-Brass Greatwyrm
-Braxat
-Brazen Gorgon
-Breath Drinker
-Bridesmaid of Zuggtmoy
 Brigganock
 Broken King Antigonos
 Bronze Greatwyrm

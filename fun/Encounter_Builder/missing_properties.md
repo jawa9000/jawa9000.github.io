@@ -6,6 +6,6 @@ Total Monsters Analyzed: 669
 
 Monsters with Missing Properties: 61
 
->> Note: the sense of passive perception isn't displayed. Fix this.
+>> re-run this to see if anything else stands out.
 
 

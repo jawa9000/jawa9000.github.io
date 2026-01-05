@@ -381,7 +381,7 @@ const monsters = [
             },
       actions: "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +11 to hit, reach 10 ft. one target. <em>Hit:</em> 17 (2d10 + 6) piercing damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +11 to hit, reach 5 ft. one target. <em>Hit:</em> 13 (2d6 + 6) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +11 to hit, reach 15 ft. one target. <em>Hit:</em> 15 (2d8 + 6) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 16 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Breath Weapons (Recharge 5–6).</strong></em> The dragon uses one of the following breath weapons.</p><p><em><strong>Fire Breath.</strong></em> The dragon exhales fire in an 60-foot line that is 5 feet wide. Each creature in that line must make a DC 18 Dexterity saving throw, taking 45 (13d6) fire damage on a failed save, or half as much damage on a successful one.</p><p><em><strong>Sleep Breath.</strong></em> The dragon exhales sleep gas in a 60-foot cone. Each creature in that area must succeed on a DC 18 Constitution saving throw or fall unconscious for 10 minutes. This effect ends for a creature if the creature takes damage or someone uses an action to wake it.</p>",
       "legendary actions": "<p>The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn.</p><p><em><strong>Detect.</strong></em> The dragon makes a Wisdom (Perception) check.</p><p><em><strong>Tail Attack.</strong></em> The dragon makes a tail attack.</p><p><em><strong>Wing Attack (Costs 2 Actions).</strong></em> The dragon beats its wings. Each creature within 10 feet of the dragon must succeed on a DC 19 Dexterity saving throw or take 13 (2d6 + 6) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.</p>",
-      "lair actions": "<p><strong>Animate Statues</strong>: The dragon chooses up to three statues in the lair that it can see. Each of these statues briefly animates and attacks one creature within 5 feet of it, with a **+7 bonus to hit** and dealing 10 (3d6) bludgeoning damage on a hit.</p><p><strong>Blast of Wind</strong>: A mighty wind sweeps through the lair in a direction of the dragon's choice, blowing along a line 40 feet wide and 100 feet long. Each creature in that area except the dragon must succeed on a **DC 15 Strength saving throw** or be pushed 15 feet in the wind's direction and be knocked prone. Gases and vapors are dispersed by the wind, and unprotected flames are extinguished. Protected flames, such as lanterns, have a 50 percent chance of being extinguished. If the dragon is within the area of the wind, it can choose to be pushed 15 feet in the wind's direction, and the wind can't knock the dragon prone.</p>",
+      "lair actions": "<p><strong>Animate Statues</strong>: The dragon chooses up to three statues in the lair that it can see. Each of these statues briefly animates and attacks one creature within 5 feet of it, with a <strong>+7 bonus to hit</strong> and dealing 10 (3d6) bludgeoning damage on a hit.</p><p><strong>Blast of Wind</strong>: A mighty wind sweeps through the lair in a direction of the dragon's choice, blowing along a line 40 feet wide and 100 feet long. Each creature in that area except the dragon must succeed on a <strong>DC 15 Strength saving throw</strong> or be pushed 15 feet in the wind's direction and be knocked prone. Gases and vapors are dispersed by the wind, and unprotected flames are extinguished. Protected flames, such as lanterns, have a 50 percent chance of being extinguished. If the dragon is within the area of the wind, it can choose to be pushed 15 feet in the wind's direction, and the wind can't knock the dragon prone.</p>",
       "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/18/1000/1000/636238885681129014.jpeg"
     },
 {
@@ -462,7 +462,7 @@ const monsters = [
             },
       actions: "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +12 to hit, reach 10 ft. one target. <em>Hit:</em> 18 (2d10 + 7) piercing damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +12 to hit, reach 5 ft. one target. <em>Hit:</em> 14 (2d6 + 7) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +12 to hit, reach 15 ft. one target. <em>Hit:</em> 16 (2d8 + 7) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 17 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Breath Weapons (Recharge 5–6).</strong></em> The dragon uses one of the following breath weapons.</p><p><em><strong>Lightning Breath.</strong></em> The dragon exhales lightning in a 90- foot line that is 5 feet wide. Each creature in that line must make a DC 19 Dexterity saving throw, taking 66 (12d10) lightning damage on a failed save, or half as much damage on a successful one.</p><p><em><strong>Repulsion Breath.</strong></em> The dragon exhales repulsion energy in a 30-foot cone. Each creature in that area must succeed on a DC 19 Strength saving throw. On a failed save, the creature is pushed 60 feet away from the dragon.</p><p><em><strong>Change Shape.</strong></em> The dragon magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the dragon's choice).</p><p>In a new form, the dragon retains its alignment, hit points, Hit Dice, ability to speak, proficiencies, Legendary Resistance, lair actions, and Intelligence, Wisdom, and Charisma scores, as well as this action. Its statistics and capabilities are otherwise replaced by those of the new form, except any class features or legendary actions of that form.</p>",
       "legendary actions": "<p>The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn.</p><p><em><strong>Detect.</strong></em> The dragon makes a Wisdom (Perception) check.</p><p><em><strong>Tail Attack.</strong></em> The dragon makes a tail attack.</p><p><em><strong>Wing Attack (Costs 2 Actions).</strong></em> The dragon beats its wings. Each creature within 10 feet of the dragon must succeed on a DC 20 Dexterity saving throw or take 14 (2d6 + 7) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.</p>",
-      "lair actions": "<p><strong>Ocean's Call</strong>: The dragon conjures a swarm of spectral dolphins. Each creature in the water within 120 feet of the dragon must succeed on a **DC 15 Dexterity saving throw** or take 5 (1d10) slashing damage; then the swarm vanishes.</p><p><strong>Salt Burst</strong>: The dragon chooses a point it can see in the lair. The air in a 20-foot-radius sphere centered on that point bursts with abrasive salt crystals. Each creature in that area must succeed on a **DC 15 Dexterity saving throw** or take 10 (3d6) slashing damage.</p>",
+      "lair actions": "<p><strong>Ocean's Call</strong>: The dragon conjures a swarm of spectral dolphins. Each creature in the water within 120 feet of the dragon must succeed on a <strong>DC 15 Dexterity saving throw</strong> or take 5 (1d10) slashing damage; then the swarm vanishes.</p><p><strong>Salt Burst</strong>: The dragon chooses a point it can see in the lair. The air in a 20-foot-radius sphere centered on that point bursts with abrasive salt crystals. Each creature in that area must succeed on a <strong>DC 15 Dexterity saving throw</strong> or take 10 (3d6) slashing damage.</p>",
       "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/20/1000/1000/636238888310108665.jpeg"
     },
 {
@@ -543,7 +543,7 @@ const monsters = [
             },
       actions: "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +11 to hit, reach 10 ft. one target. <em>Hit:</em> 17 (2d10 + 6) piercing damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +11 to hit, reach 5 ft. one target. <em>Hit:</em> 13 (2d6 + 6) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +11 to hit, reach 15 ft. one target. <em>Hit:</em> 15 (2d8 + 6) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 16 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Breath Weapons (Recharge 5–6).</strong></em> The dragon uses one of the following breath weapons.</p><p><em><strong>Acid Breath.</strong></em> The dragon exhales acid in an 60-foot line that is 5 feet wide. Each creature in that line must make a DC 18 Dexterity saving throw, taking 54 (12d8) acid damage on a failed save, or half as much damage on a successful one.</p><p><em><strong>Slowing Breath.</strong></em> The dragon exhales gas in a 60-foot cone. Each creature in that area must succeed on a DC 18 Constitution saving throw. On a failed save, the creature can't use reactions, its speed is halved, and it can't make more than one attack on its turn. In addition, the creature can use either an action or a bonus action on its turn, but not both. These effects last for 1 minute. The creature can repeat the saving throw at the end of each of its turns, ending the effect on itself with a successful save.</p>",
       "legendary actions": "<p>The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn.</p><p><em><strong>Detect.</strong></em> The dragon makes a Wisdom (Perception) check.</p><p><em><strong>Tail Attack.</strong></em> The dragon makes a tail attack.</p><p><em><strong>Wing Attack (Costs 2 Actions).</strong></em> The dragon beats its wings. Each creature within 10 feet of the dragon must succeed on a DC 19 Dexterity saving throw or take 13 (2d6 + 6) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.</p>",
-      "lair actions": "<p><strong>Laughing Gas</strong>: The dragon chooses a point on the ground that it can see within 120 feet of it. A cloud of pink gas fills a 20-foot-radius sphere centered on that point. Each creature in that area that fails a **DC 15 Wisdom saving throw** is incapacitated with laughter until the end of its next turn.</p>",
+      "lair actions": "<p><strong>Laughing Gas</strong>: The dragon chooses a point on the ground that it can see within 120 feet of it. A cloud of pink gas fills a 20-foot-radius sphere centered on that point. Each creature in that area that fails a <strong>DC 15 Wisdom saving throw</strong> is incapacitated with laughter until the end of its next turn.</p>",
       "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/22/1000/1000/636238956325913912.jpeg"
     },
 {
@@ -1216,7 +1216,7 @@ const monsters = [
             },
       actions: "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 15 ft. one target. <em>Hit:</em> 20 (2d10 + 9) piercing damage plus 11 (2d10) lightning damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 10 ft. one target. <em>Hit:</em> 16 (2d6 + 9) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 20 ft. one target. <em>Hit:</em> 18 (2d8 + 9) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 20 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Lightning Breath (Recharge 5–6).</strong></em> The dragon exhales lightning in a 120-­-foot line that is 10 feet wide. Each creature in that line must make a DC 23 Dexterity saving throw, taking 88 (16d10) lightning damage on a failed save, or half as much damage on a successful one.</p>",
       "legendary actions": "<p>The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn.</p><p><em><strong>Detect.</strong></em> The dragon makes a Wisdom (Perception) check.</p><p><em><strong>Tail Attack.</strong></em> The dragon makes a tail attack.</p><p><em><strong>Wing Attack (Costs 2 Actions).</strong></em> The dragon beats its wings. Each creature within 15 feet of the dragon must succeed on a DC 24 Dexterity saving throw or take 16 (2d6 + 9) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.</p>",
-      "lair actions": "<p><strong>Misleading Mirage</strong>: Until initiative count 20 on the next round, at each intersection or branching passage in the lair, a creature other than the dragon has a 50 percent chance of going in a different direction from the direction it intends.</p><p><strong>Sudden Sinkhole</strong>: The dragon chooses a point on the ground that it can see within 120 feet of it. A 5-foot-radius, 20-foot-deep pit forms centered on that point. A creature on the ground above where the pit formed must make a **DC 15 Dexterity saving throw**. On a failed save, a creature falls to the bottom of the pit, taking 7 (2d6) bludgeoning damage and landing prone. On a successful save, a creature moves to the nearest unoccupied space instead of falling in the pit.</p>",
+      "lair actions": "<p><strong>Misleading Mirage</strong>: Until initiative count 20 on the next round, at each intersection or branching passage in the lair, a creature other than the dragon has a 50 percent chance of going in a different direction from the direction it intends.</p><p><strong>Sudden Sinkhole</strong>: The dragon chooses a point on the ground that it can see within 120 feet of it. A 5-foot-radius, 20-foot-deep pit forms centered on that point. A creature on the ground above where the pit formed must make a <strong>DC 15 Dexterity saving throw</strong>. On a failed save, a creature falls to the bottom of the pit, taking 7 (2d6) bludgeoning damage and landing prone. On a successful save, a creature moves to the nearest unoccupied space instead of falling in the pit.</p>",
       "regional effects": "<p>The region containing a legendary blue dragon's lair is warped by the dragon's magic, which creates one or more of the following effects:</p><p><ul><li>Thunderstorms rage within 6 miles of the lair.</li><li>Dust devils scour the land within 6 miles of the lair. A dust devil has the statistics of an air elemental, but it can't fly, has a speed of 50 feet, and has an Intelligence and Charisma of 1.</li><li>Hidden sinkholes form in and around the dragon's lair. A sinkhole can be spotted from a safe distance with a successful DC 20 Wisdom (Perception) check. Otherwise, the first creature to step on the thin crust covering the sinkhole must succeed on a DC 15 Dexterity saving throw or fall 1d6 × 10 feet into the sinkhole.</li></ul></p><p>If the dragon dies, the dust devils disappear immediately, and the thunderstorms abate within 1d10 days. Any sinkholes remain where they are.</p><p><strong>Additional Regional Effects</strong></p><p>Any of these effects might appear in the area around a blue dragon's lair, in addition to or instead of the effects described in the Monster Manual:</p><p><strong>Blue Luster</strong>. Creatures that spend a year within 1 mile of the dragon's lair find blue objects fascinating and feel compelled to acquire them at every opportunity.</p><p><strong>Mirage Terrain</strong>. The area immediately surrounding the lair appears to be a lush oasis. A creature carefully examining the illusion can attempt a DC 15 Intelligence (Investigation) check to disbelieve it. A creature who disbelieves the illusion sees it as a vague image superimposed on the underlying terrain.</p><p><strong>Sandstorm</strong>. A sandstorm blows constantly within 1 mile of the lair.</p>",
       notes: "<p><strong>Variant: Dragons as Innate Spellcasters</strong></p><p>This dragon can innately cast three spells, once per day each, requiring no material components. Each spell's level can be no higher than 4th. The dragon's spell save DC is DC 19, and it has +9 to hit with spell attacks.</p><p>A suggested spell list is shown below, but you can also choose spells to reflect the dragon's character. A dragon who innately casts druid spells feels different from one who casts warlock spells. You can also give a dragon spells of a higher level than this rule allows, but such a tweak might increase the dragon's challenge rating—especially if those spells deal damage or impose conditions on targets.</p><p><ul><li>lightning bolt</li><li>thunderwave</li><li>gust of wind</li></ul></p>",
       description: "<p>Blue dragons make their lairs in barren places, using their lightning breath and their burrowing ability to carve out crystallized caverns and tunnels beneath the sands. Thunderstorms rage around a legendary blue dragon’s lair, and narrow tubes lined with glassy sand ventilate the lair, all the while avoiding the deadly sinkholes that are the dragon’s first line of defense. A blue dragon will collapse the caverns that make up its lair if that lair is invaded. The dragon then burrows out, leaving its attackers to be crushed and suffocated. When it returns later, it collects its possessions — along with the wealth of the dead intruders.</p>",
@@ -1300,7 +1300,7 @@ const monsters = [
             },
       actions: "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 15 ft. one target. <em>Hit:</em> 19 (2d10 + 8) piercing damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 10 ft. one target. <em>Hit:</em> 15 (2d6 + 8) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +14 to hit, reach 20 ft. one target. <em>Hit:</em> 17 (2d8 + 8) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 18 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Breath Weapons (Recharge 5–6).</strong></em> The dragon uses one of the following breath weapons: </p><p><em><strong>Fire Breath.</strong></em> The dragon exhales fire in an 90-foot line that is 10 feet wide. Each creature in that line must make a DC 21 Dexterity saving throw, taking 56 (16d6) fire damage on a failed save, or half as much damage on a successful one.</p><p><em><strong>Sleep Breath.</strong></em> The dragon exhales sleep gas in a 90-foot cone. Each creature in that area must succeed on a DC 21 Constitution saving throw or fall unconscious for 10 minutes. This effect ends for a creature if the creature takes damage or someone uses an action to wake it.</p><p><em><strong>Change Shape.</strong></em> The dragon magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the dragon's choice).</p><p>In a new form, the dragon retains its alignment, hit points, Hit Dice, ability to speak, proficiencies, Legendary Resistance, lair actions, and Intelligence, Wisdom, and Charisma scores, as well as this action. Its statistics and capabilities are otherwise replaced by those of the new form, except any class features or legendary actions of that form.</p>",
       "legendary actions": "<p>The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn.</p><p><em><strong>Detect.</strong></em> The dragon makes a Wisdom (Perception) check.</p><p><em><strong>Tail Attack.</strong></em> The dragon makes a tail attack.</p><p><em><strong>Wing Attack (Costs 2 Actions).</strong></em> The dragon beats its wings. Each creature within 15 feet of the dragon must succeed on a DC 22 Dexterity saving throw or take 15 (2d6 + 8) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.</p>",
-      "lair actions": "<p><strong>Animate Statues</strong>: The dragon chooses up to three statues in the lair that it can see. Each of these statues briefly animates and attacks one creature within 5 feet of it, with a **+7 bonus to hit** and dealing 10 (3d6) bludgeoning damage on a hit.</p><p><strong>Blast of Wind</strong>: A mighty wind sweeps through the lair in a direction of the dragon's choice, blowing along a line 40 feet wide and 100 feet long. Each creature in that area except the dragon must succeed on a **DC 15 Strength saving throw** or be pushed 15 feet in the wind's direction and be knocked prone. Gases and vapors are dispersed by the wind, and unprotected flames are extinguished. Protected flames, such as lanterns, have a 50 percent chance of being extinguished. If the dragon is within the area of the wind, it can choose to be pushed 15 feet in the wind's direction, and the wind can't knock the dragon prone.</p>",
+      "lair actions": "<p><strong>Animate Statues</strong>: The dragon chooses up to three statues in the lair that it can see. Each of these statues briefly animates and attacks one creature within 5 feet of it, with a <strong>+7 bonus to hit</strong> and dealing 10 (3d6) bludgeoning damage on a hit.</p><p><strong>Blast of Wind</strong>: A mighty wind sweeps through the lair in a direction of the dragon's choice, blowing along a line 40 feet wide and 100 feet long. Each creature in that area except the dragon must succeed on a <strong>DC 15 Strength saving throw</strong> or be pushed 15 feet in the wind's direction and be knocked prone. Gases and vapors are dispersed by the wind, and unprotected flames are extinguished. Protected flames, such as lanterns, have a 50 percent chance of being extinguished. If the dragon is within the area of the wind, it can choose to be pushed 15 feet in the wind's direction, and the wind can't knock the dragon prone.</p>",
       "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/133/1000/1000/636252756157427258.jpeg"
     },
 {
@@ -1381,7 +1381,7 @@ const monsters = [
             },
       actions: "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 15 ft. one target. <em>Hit:</em> 20 (2d10 + 9) piercing damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 10 ft. one target. <em>Hit:</em> 16 (2d6 + 9) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 20 ft. one target. <em>Hit:</em> 18 (2d8 + 9) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 20 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Breath Weapons (Recharge 5–6).</strong></em> The dragon uses one of the following breath weapons.</p><p><em><strong>Lightning Breath.</strong></em> The dragon exhales lightning in a 120-foot line that is 10 feet wide. Each creature in that line must make a DC 23 Dexterity saving throw, taking 88 (16d10) lightning damage on a failed save, or half as much damage on a successful one.</p><p><em><strong>Repulsion Breath.</strong></em> The dragon exhales repulsion energy in a 30-foot cone. Each creature in that area must succeed on a DC 23 Strength saving throw. On a failed save, the creature is pushed 60 feet away from the dragon.</p><p><em><strong>Change Shape.</strong></em> The dragon magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the dragon's choice).</p><p>In a new form, the dragon retains its alignment, hit points, Hit Dice, ability to speak, proficiencies, Legendary Resistance, lair actions, and Intelligence, Wisdom, and Charisma scores, as well as this action. Its statistics and capabilities are otherwise replaced by those of the new form, except any class features or legendary actions of that form.</p>",
       "legendary actions": "<p>The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn.</p><p><em><strong>Detect.</strong></em> The dragon makes a Wisdom (Perception) check.</p><p><em><strong>Tail Attack.</strong></em> The dragon makes a tail attack.</p><p><em><strong>Wing Attack (Costs 2 Actions).</strong></em> The dragon beats its wings. Each creature within 15 feet of the dragon must succeed on a DC 24 Dexterity saving throw or take 16 (2d6 + 9) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.</p>",
-      "lair actions": "<p><strong>Ocean's Call</strong>: The dragon conjures a swarm of spectral dolphins. Each creature in the water within 120 feet of the dragon must succeed on a **DC 15 Dexterity saving throw** or take 5 (1d10) slashing damage; then the swarm vanishes.</p><p><strong>Salt Burst</strong>: The dragon chooses a point it can see in the lair. The air in a 20-foot-radius sphere centered on that point bursts with abrasive salt crystals. Each creature in that area must succeed on a **DC 15 Dexterity saving throw** or take 10 (3d6) slashing damage.</p>",
+      "lair actions": "<p><strong>Ocean's Call</strong>: The dragon conjures a swarm of spectral dolphins. Each creature in the water within 120 feet of the dragon must succeed on a <strong>DC 15 Dexterity saving throw</strong> or take 5 (1d10) slashing damage; then the swarm vanishes.</p><p><strong>Salt Burst</strong>: The dragon chooses a point it can see in the lair. The air in a 20-foot-radius sphere centered on that point bursts with abrasive salt crystals. Each creature in that area must succeed on a <strong>DC 15 Dexterity saving throw</strong> or take 10 (3d6) slashing damage.</p>",
       "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/135/315/315/636252756372367681.jpeg"
     },
 {
@@ -1462,7 +1462,7 @@ const monsters = [
             },
       actions: "<p><em><strong>Multiattack.</strong></em> The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +15 to hit, reach 15 ft. one target. <em>Hit:</em> 19 (2d10 + 8) piercing damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +15 to hit, reach 10 ft. one target. <em>Hit:</em> 15 (2d6 + 8) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +15 to hit, reach 20 ft. one target. <em>Hit:</em> 17 (2d8 + 8) bludgeoning damage.</p><p><em><strong>Frightful Presence.</strong></em> Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 19 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours.</p><p><em><strong>Breath Weapons (Recharge 5–6).</strong></em> The dragon uses one of the following breath weapons.</p><p><em><strong>Acid Breath.</strong></em> The dragon exhales acid in an 90-foot line that is 10 feet wide. Each creature in that line must make a DC 22 Dexterity saving throw, taking 63 (14d8) acid damage on a failed save, or half as much damage on a successful one.</p><p><em><strong>Slowing Breath.</strong></em> The dragon exhales gas in a 90-foot cone. Each creature in that area must succeed on a DC 22 Constitution saving throw. On a failed save, the creature can't use reactions, its speed is halved, and it can't make more than one attack on its turn. In addition, the creature can use either an action or a bonus action on its turn, but not both. These effects last for 1 minute. The creature can repeat the saving throw at the end of each of its turns, ending the effect on itself with a successful save.</p><p><em><strong>Change Shape.</strong></em> The dragon magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (the dragon's choice).</p><p>In a new form, the dragon retains its alignment, hit points, Hit Dice, ability to speak, proficiencies, Legendary Resistance, lair actions, and Intelligence, Wisdom, and Charisma scores, as well as this action. Its statistics and capabilities are otherwise replaced by those of the new form, except any class features or legendary actions of that form.</p>",
       "legendary actions": "<p>The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The dragon regains spent legendary actions at the start of its turn.</p><p><em><strong>Detect.</strong></em> The dragon makes a Wisdom (Perception) check.</p><p><em><strong>Tail Attack.</strong></em> The dragon makes a tail attack.</p><p><em><strong>Wing Attack (Costs 2 Actions).</strong></em> The dragon beats its wings. Each creature within 15 feet of the dragon must succeed on a DC 23 Dexterity saving throw or take 15 (2d6 + 8) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.</p>",
-      "lair actions": "<p><strong>Laughing Gas</strong>: The dragon chooses a point on the ground that it can see within 120 feet of it. A cloud of pink gas fills a 20-foot-radius sphere centered on that point. Each creature in that area that fails a **DC 15 Wisdom saving throw** is incapacitated with laughter until the end of its next turn.</p>",
+      "lair actions": "<p><strong>Laughing Gas</strong>: The dragon chooses a point on the ground that it can see within 120 feet of it. A cloud of pink gas fills a 20-foot-radius sphere centered on that point. Each creature in that area that fails a <strong>DC 15 Wisdom saving throw</strong> is incapacitated with laughter until the end of its next turn.</p>",
       "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/137/1000/1000/636252756714896878.jpeg"
     },
 {
@@ -11766,7 +11766,7 @@ const monsters = [
             },
       actions: "<p><em><strong>Claws.</strong></em>(Hag Form Only). <em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft. one target. <em>Hit:</em> 13 (2d8 + 4) slashing damage.</p><p><em><strong>Change Shape.</strong></em> The hag magically polymorphs into a Small or Medium female humanoid, or back into her true form. Her statistics are the same in each form. Any equipment she is wearing or carrying isn't transformed. She reverts to her true form if she dies.</p><p><em><strong>Etherealness.</strong></em> The hag magically enters the Ethereal from the Material Plane, or vice versa. To do so, the hag must have a heartstone in her possession.</p><p><em><strong>Nightmare Haunting (1/Day).</strong></em> While on the Ethereal, the hag magically touches a sleeping humanoid on the Material Plane. A protection from evil and good spell cast on the target prevents this contact, as does a magic circle. As long as the contact persists, the target has dreadful visions. If these visions last for at least 1 hour, the target gains no benefit from its rest, and its hit point maximum is reduced by 5 (1d10). If this effect reduces the target's hit point maximum to 0, the target dies, and if the target was evil, its soul is trapped in the hag's soul bag. The reduction to the target's hit point maximum lasts until removed by the greater restoration spell or similar magic.</p>",
       "img url": "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/269/1000/1000/636252769277562895.jpeg",
-      "lair actions": "<p><strong>Banishment to Demiplane</strong>: One creature the hag can see within 120 feet of her must succeed on a **DC 15 Charisma saving throw** or be banished to a prison demiplane. To escape, the creature must use its action to make a Charisma check contested by the hag's. If the creature wins, it escapes the demiplane. Otherwise, the effect ends on initiative count 20 on the next round. When the effect ends, the creature reappears in the space it left or in the nearest unoccupied space if that one is occupied.</p>"
+      "lair actions": "<p><strong>Banishment to Demiplane</strong>: One creature the hag can see within 120 feet of her must succeed on a <strong>DC 15 Charisma saving throw</strong> or be banished to a prison demiplane. To escape, the creature must use its action to make a Charisma check contested by the hag's. If the creature wins, it escapes the demiplane. Otherwise, the effect ends on initiative count 20 on the next round. When the effect ends, the creature reappears in the space it left or in the nearest unoccupied space if that one is occupied.</p>"
     },
 {
       name: "Nightmare",
@@ -20340,7 +20340,7 @@ const monsters = [
             },
       actions: "<p><em><strong>Multiattack.</strong></em> Orcus makes two Wand of Orcus attacks.</p><p><em><strong>Wand of Orcus.</strong></em> <em>Melee Weapon Attack:</em> +19 to hit, reach 10 ft. one target. <em>Hit:</em> 21 (3d8+8) bludgeoning damage plus 13 (2d12) necrotic damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 10 ft. one target. <em>Hit:</em> 21 (3d8+8) piercing damage plus 9 (2d8) poison damage.</p>",
       "legendary actions": "<p>Legendary Action Uses: 3. Immediately after another creature's turn, Orcus can expend a use to take one of the following actions. Orcus regains all expended uses at the start of each of their turns.</p><p><em><strong>Tail.</strong></em> Orcus makes one tail attack.</p><p><em><strong>A Taste of Undeath.</strong></em> Orcus casts chill touch (17th level).</p><p><em><strong>Creeping Death (Costs 2 Actions).</strong></em> Orcus chooses a point on the ground that he can see within 100 feet of him. A cylinder of swirling necrotic energy 60 feet tall and with a 10-foot radius rises from that point and lasts until the end of Orcus's next turn. Creatures in that area have vulnerability to necrotic damage.</p>",
-      "lair actions": "<p>On initiative count 20 (losing initiative ties), Orcus can take a lair action to cause one of the following effects; he can’t use the same effect two rounds in a row:</p><p><strong>Deadly Utterance</strong>: Orcus’s voice booms throughout the lair. His utterance causes one creature of his choice to be subjected to *power word kill*. Orcus needn’t see the creature, but he must be aware that the individual is in the lair.</p><p><strong>Grasp of the Dead</strong>: Orcus causes skeletal arms to rise from an area on the ground in a 20-foot square that he can see. They last until the next initiative count 20. Each creature in that area when the arms appear must succeed on a **DC 23 Strength saving throw** or be restrained until the arms disappear or until Orcus releases them (no action required).</p><p><strong>Undead Servants</strong>: Orcus causes up to six corpses within the lair to rise as skeletons, zombies, or ghouls (all appear in the *Monster Manual*). These Undead obey his telepathic commands, which can reach anywhere in the lair.</p>",
+      "lair actions": "<p>On initiative count 20 (losing initiative ties), Orcus can take a lair action to cause one of the following effects; he can’t use the same effect two rounds in a row:</p><p><strong>Deadly Utterance</strong>: Orcus’s voice booms throughout the lair. His utterance causes one creature of his choice to be subjected to *power word kill*. Orcus needn’t see the creature, but he must be aware that the individual is in the lair.</p><p><strong>Grasp of the Dead</strong>: Orcus causes skeletal arms to rise from an area on the ground in a 20-foot square that he can see. They last until the next initiative count 20. Each creature in that area when the arms appear must succeed on a <strong>DC 23 Strength saving throw</strong> or be restrained until the arms disappear or until Orcus releases them (no action required).</p><p><strong>Undead Servants</strong>: Orcus causes up to six corpses within the lair to rise as skeletons, zombies, or ghouls (all appear in the *Monster Manual*). These Undead obey his telepathic commands, which can reach anywhere in the lair.</p>",
       "regional effects": "<p>The region containing Orcus's lair is warped by his magic, creating one or more of the following effects:</p><p><ul><li>Dead beasts periodically animate as undead mockeries of their former selves. Skeletal and zombie versions of local wildlife are commonly seen in the area.</li><li>The air becomes filled with the stench of rotting flesh, and buzzing flies grow thick within the region, even when there is no carrion to be found.</li><li>If a humanoid spends at least 1 hour within 1 mile of the lair, that creature must succeed on a DC 23 Wisdom saving throw or descend into a madness determined by the Madness of Orcus table. A creature that succeeds on this saving throw can't be affected by this regional effect again for 24 hours.</li></ul></p><p>If Orcus dies, these effects fade over the course of 1d10 days.</p>",
       notes: "<p><strong>Madness of Orcus</strong></p><p>If a creature goes mad in Orcus's lair or within line of sight of the demon lord, roll on the Madness of Orcus table to determine the nature of the madness, which is a character flaw that lasts until cured. See the Dungeon Master's Guide for more on madness.</p><p>Madness of Orcus</p><p></p><p>d100\tFlaw (lasts until cured)</p><p>01-20\t\"I often become withdrawn and moody, dwelling on the insufferable state of life.\"</p><p>21-40\t\"I am compelled to make the weak suffer.\"</p><p>41-60\t\"I have no compunction against tampering with the dead in my search to better understand death.\"</p><p>61-80\t\"I want to achieve the everlasting existence of undeath.\"</p><p>81-00\t\"I am awash in the awareness of life's futility.\"</p>"
     },
@@ -20405,7 +20405,7 @@ const monsters = [
       actions: "<p><em><strong>Multiattack.</strong></em> Yeenoghu makes three flail attacks. If an attack hits, he can cause it to create an additional effect of his choice or at random (each effect can be used only once per Multiattack):</p><p>1. The attack deals an extra 13 (2d12) bludgeoning damage.</p><p>2. The target must succeed on a DC 17 Constitution saving throw or be paralyzed until the start of Yeenoghu's next turn.</p><p>3. The target must succeed on a DC 17 Wisdom saving throw or be affected by the confusion spell until the start of Yeenoghu's next turn.</p><p><em><strong>Flail.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 15 ft. one target. <em>Hit:</em> 15 (1d12+9) bludgeoning damage.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +16 to hit, reach 10 ft. one target. <em>Hit:</em> 14 (1d10+9) piercing damage.</p>",
       "legendary actions": "<p>Legendary Action Uses: 3. Immediately after another creature's turn, Yeenoghu can expend a use to take one of the following actions. Yeenoghu regains all expended uses at the start of each of their turns.</p><p><em><strong>Charge.</strong></em> Yeenoghu moves up to his speed.</p><p><em><strong>Swat Away.</strong></em> Yeenoghu makes a flail attack. If the attack hits, the target must succeed on a DC 24 Strength saving throw or be pushed 15 feet in a straight line away from Yeenoghu. If the saving throw fails by 5 or more, the target falls prone.</p><p><em><strong>Savage (Costs 2 Actions).</strong></em> Yeenoghu makes a bite attack against each creature within 10 feet of him.</p>",
       "bonus actions": "<p><strong>Rampage</strong>: When Yeenoghu reduces a creature to 0 hit points with a melee attack, he moves up to half his speed and makes one Bite attack.</p>",
-      "lair actions": "<p>On initiative count 20 (losing initiative ties), Yeenoghu can take one of the following lair actions; he can’t take the same lair action two rounds in a row:</p><p><strong>Incite the Pack</strong>: Until the next initiative count 20, all gnolls and hyenas within the lair are enraged, causing them to have advantage on melee weapon attack rolls and causing attack rolls to have advantage against them.</p><p><strong>Iron Spike</strong>: Yeenoghu causes an iron spike—5 feet tall and 1 inch in diameter—to burst from the ground at a point he can see within 60 feet of him. Each creature in the spike's space must make a **DC 23 Dexterity saving throw**, taking 21 (6d6) piercing damage on a failed save, or half as much damage on a successful one. If the spike is struck by lightning, it melts and disappears.</p>",
+      "lair actions": "<p>On initiative count 20 (losing initiative ties), Yeenoghu can take one of the following lair actions; he can’t take the same lair action two rounds in a row:</p><p><strong>Incite the Pack</strong>: Until the next initiative count 20, all gnolls and hyenas within the lair are enraged, causing them to have advantage on melee weapon attack rolls and causing attack rolls to have advantage against them.</p><p><strong>Iron Spike</strong>: Yeenoghu causes an iron spike—5 feet tall and 1 inch in diameter—to burst from the ground at a point he can see within 60 feet of him. Each creature in the spike's space must make a <strong>DC 23 Dexterity saving throw</strong>, taking 21 (6d6) piercing damage on a failed save, or half as much damage on a successful one. If the spike is struck by lightning, it melts and disappears.</p>",
       "regional effects": "<p>The region containing Yeenoghu's lair is warped by his magic, creating one or more of the following effects:</p><p><ul><li>Within 1 mile of the lair, large iron spikes grow out of the ground and stone surfaces. Yeenoghu impales the bodies of the slain on these spikes.</li><li>Predatory beasts within 6 miles of the lair become unusually savage, killing far more than what they need for food. Carcasses of prey are left to rot in an unnatural display of wasteful slaughter.</li><li>If a humanoid spends at least 1 hour within 1 mile of the lair, that creature must succeed on a DC 17 Wisdom saving throw or descend into a madness determined by the Madness of Yeenoghu table. A creature that succeeds on this saving throw can't be affected by this regional effect again for 24 hours.</li></ul></p><p>If Yeenoghu dies, these effects fade over the course of 1d10 days.</p>",
       notes: "<p><strong>Madness of Yeenoghu</strong></p><p>If a creature goes mad in Yeenoghu's lair or within line of sight of the demon lord, roll on the Madness of Yeenoghu table to determine the nature of the madness, which is a character flaw that lasts until cured. See the Dungeon Master's Guide for more on madness.</p><p>Madness of Yeenoghu</p><p></p><p>d100\tFlaw (lasts until cured)</p><p>01-20\t\"I get caught up in the flow of anger, and try to stoke others around me into forming an angry mob.\"</p><p>21-40\t\"The flesh of other intelligent creatures is delicious!\"</p><p>41-60\t\"I rail against the laws and customs of civilization, attempting to return to a more primitive time.\"</p><p>61-80\t\"I hunger for the deaths of others, and am constantly starting fights in the hope of seeing bloodshed.\"</p><p>81-00\t\"I keep trophies from the bodies I have slain, turning them into adornments.\"</p>"
     },
@@ -23967,7 +23967,7 @@ const monsters = [
             },
       actions: "<p><em><strong>Multiattack.</strong></em> The dragon makes one Bite attack and two Claw attacks.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +9 to hit, reach 10 ft. one target. <em>Hit:</em> 16 (2d10+5) piercing damage plus 5 (1d10) poison damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +9 to hit, reach 5 ft. one target. <em>Hit:</em> 9 (1d8+5) slashing damage.</p><p><em><strong>Nightmare Breath (Recharge 5-6).</strong></em> The dragon exhales a cloud of spores in a 45-foot cone. Each creature in that area must make a DC 16 Wisdom saving throw. On a failed save, the creature takes 36 (8d8) psychic damage, and it is frightened of the dragon for 1 minute. On a successful save, the creature takes half as much damage with no additional effects. A frightened creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p>",
       "legendary actions": "<p>The adult deep dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The adult deep dragon regains spent legendary actions at the start of its turn.</p><p><em><strong>Detect.</strong></em> The dragon makes a Wisdom (Perception) check.</p><p><em><strong>Tail Attack.</strong></em> The dragon makes one Tail attack.</p><p><em><strong>Wing Attack (Costs 2 Actions).</strong></em> The dragon beats its wings. Each creature within 10 feet of the dragon must succeed on a DC 17 Dexterity saving throw or take 12 (2d6 + 5) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.</p>",
-      "lair actions": "<p><strong>Deep Torpor</strong>: The dragon casts the *slow* spell, requiring no spell components and using Charisma as the spellcasting ability (spell save **DC 16** for an adult dragon or **DC 19** for an ancient dragon). The spell ends early if the dragon uses this lair action again or if the dragon dies.</p><p><strong>Mossy Sludge</strong>: The dragon conjures sludge-like moss that briefly covers surfaces in the lair. The ceiling, floor, and walls of the lair become difficult terrain until initiative count 20 on the next round.</p><p><strong>Toxic Spores</strong>: The dragon fills a 20-foot cube it can see within 120 feet of itself with toxic spores. Each creature in that area must succeed on a **DC 15 Constitution saving throw** or take 14 (4d6) poison damage and be poisoned until the end of its next turn.</p>",
+      "lair actions": "<p><strong>Deep Torpor</strong>: The dragon casts the *slow* spell, requiring no spell components and using Charisma as the spellcasting ability (spell save <strong>DC 16</strong> for an adult dragon or <strong>DC 19</strong> for an ancient dragon). The spell ends early if the dragon uses this lair action again or if the dragon dies.</p><p><strong>Mossy Sludge</strong>: The dragon conjures sludge-like moss that briefly covers surfaces in the lair. The ceiling, floor, and walls of the lair become difficult terrain until initiative count 20 on the next round.</p><p><strong>Toxic Spores</strong>: The dragon fills a 20-foot cube it can see within 120 feet of itself with toxic spores. Each creature in that area must succeed on a <strong>DC 15 Constitution saving throw</strong> or take 14 (4d6) poison damage and be poisoned until the end of its next turn.</p>",
       "regional effects": "<p>The region surrounding a legendary deep dragon's lair is altered by the dragon's magic, creating one or more of the following effects:</p><p><strong>Preservation of Knowledge</strong>. Books, letters, and any other physical forms of writing within 6 miles of the dragon's lair become magically charged and can't be damaged by nonmagical means.</p><p><strong>Restless Sleep</strong>. When a creature finishes a long rest within 6 miles of the lair, the creature must first succeed on a DC 10 Constitution saving throw or be unable to reduce its level of exhaustion. Creatures immune to the poisoned condition are immune to this effect.</p><p><strong>Verdant Growth</strong>. Vegetation and fungi within 6 miles of the dragon's lair grow faster and cover a greater area than they normally would. Foraging in this area yields twice the usual amount of food.</p><p>If the dragon dies, these effects fade over the course of 1d10 days.</p>"
     },
 {
@@ -24053,7 +24053,7 @@ const monsters = [
             },
       actions: "<p><em><strong>Multiattack.</strong></em> The dragon makes one Bite attack and two Claw attacks.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +12 to hit, reach 10 ft. one target. <em>Hit:</em> 17 (2d10+6) piercing damage plus 11 (2d10) poison damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +12 to hit, reach 5 ft. one target. <em>Hit:</em> 13 (2d6+6) slashing damage.</p><p><em><strong>Tail.</strong></em> <em>Melee Weapon Attack:</em> +12 to hit, reach 15 ft. one target. <em>Hit:</em> 10 (1d8+6) bludgeoning damage. If the target is a creature, it must succeed on a DC 20 Strength saving throw or be knocked prone.</p><p><em><strong>Change Shape.</strong></em> The dragon magically transforms into any creature that is Medium or Small, while retaining its game statistics (other than its size). This transformation ends if the dragon is reduced to 0 hit points or uses its action to end it.</p><p><em><strong>Nightmare Breath (Recharge 5-6).</strong></em> The dragon exhales a cloud of spores in a 60-foot cone. Each creature in that area must make a DC 19 Wisdom saving throw. On a failed save, the creature takes 55 (10d10) psychic damage, and it is frightened of the dragon for 1 minute. On a successful save, the creature takes half as much damage with no additional effects. A frightened creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p>",
       "legendary actions": "<p>The ancient deep dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The ancient deep dragon regains spent legendary actions at the start of its turn.</p><p><em><strong>Detect.</strong></em> The dragon makes a Wisdom (Perception) check.</p><p><em><strong>Tail Attack.</strong></em> The dragon makes one Tail attack.</p><p><em><strong>Wing Attack (Costs 2 Actions).</strong></em> The dragon beats its wings. Each creature within 15 feet of the dragon must succeed on a DC 20 Dexterity saving throw or take 15 (2d8 + 6) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.</p>",
-      "lair actions": "<p><strong>Deep Torpor</strong>: The dragon casts the *slow* spell, requiring no spell components and using Charisma as the spellcasting ability (spell save **DC 16** for an adult dragon or **DC 19** for an ancient dragon). The spell ends early if the dragon uses this lair action again or if the dragon dies.</p><p><strong>Mossy Sludge</strong>: The dragon conjures sludge-like moss that briefly covers surfaces in the lair. The ceiling, floor, and walls of the lair become difficult terrain until initiative count 20 on the next round.</p><p><strong>Toxic Spores</strong>: The dragon fills a 20-foot cube it can see within 120 feet of itself with toxic spores. Each creature in that area must succeed on a **DC 15 Constitution saving throw** or take 14 (4d6) poison damage and be poisoned until the end of its next turn.</p>",
+      "lair actions": "<p><strong>Deep Torpor</strong>: The dragon casts the *slow* spell, requiring no spell components and using Charisma as the spellcasting ability (spell save <strong>DC 16</strong> for an adult dragon or <strong>DC 19</strong> for an ancient dragon). The spell ends early if the dragon uses this lair action again or if the dragon dies.</p><p><strong>Mossy Sludge</strong>: The dragon conjures sludge-like moss that briefly covers surfaces in the lair. The ceiling, floor, and walls of the lair become difficult terrain until initiative count 20 on the next round.</p><p><strong>Toxic Spores</strong>: The dragon fills a 20-foot cube it can see within 120 feet of itself with toxic spores. Each creature in that area must succeed on a <strong>DC 15 Constitution saving throw</strong> or take 14 (4d6) poison damage and be poisoned until the end of its next turn.</p>",
       "regional effects": "<p>The region surrounding a legendary deep dragon's lair is altered by the dragon's magic, creating one or more of the following effects:</p><p><strong>Preservation of Knowledge</strong>. Books, letters, and any other physical forms of writing within 6 miles of the dragon's lair become magically charged and can't be damaged by nonmagical means.</p><p><strong>Restless Sleep</strong>. When a creature finishes a long rest within 6 miles of the lair, the creature must first succeed on a DC 10 Constitution saving throw or be unable to reduce its level of exhaustion. Creatures immune to the poisoned condition are immune to this effect.</p><p><strong>Verdant Growth</strong>. Vegetation and fungi within 6 miles of the dragon's lair grow faster and cover a greater area than they normally would. Foraging in this area yields twice the usual amount of food.</p><p>If the dragon dies, these effects fade over the course of 1d10 days.</p>"
     },
 {
@@ -24351,7 +24351,7 @@ const monsters = [
             },
       actions: "<p><em><strong>Multiattack.</strong></em> The dragon makes one Bite attack and two Claw attacks.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +9 to hit, reach 10 ft. one target. <em>Hit:</em> 16 (2d10+5) piercing damage plus 4 (1d8) radiant damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +9 to hit, reach 5 ft. one target. <em>Hit:</em> 9 (1d8+5) slashing damage.</p><p><em><strong>Scintillating Breath (Recharge 5-6).</strong></em> The dragon exhales a burst of brilliant radiance in a 60-foot cone. Each creature in that area must make a DC 17 Constitution saving throw, taking 40 (9d8) radiant damage on a failed save, or half as much damage on a successful one. The dragon then gains 15 temporary hit points by absorbing a portion of the radiant energy.</p><p><em><strong>Spellcasting (Psionics).</strong></em> The dragon casts one of the following spells, requiring no spell components and using Intelligence as the spellcasting ability (spell save DC 16): At will: <em>dancing lights, guidance</em>; 1/day each: <em>hypnotic pattern, lesser restoration, sending</em></p>",
       "legendary actions": "<p>The adult crystal dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The adult crystal dragon regains spent legendary actions at the start of its turn.</p><p><em><strong>Detect.</strong></em> The dragon makes a Wisdom (Perception) check.</p><p><em><strong>Tail Attack.</strong></em> The dragon makes one Tail attack.</p><p><em><strong>Wing Attack (Costs 2 Actions).</strong></em> The dragon beats its wings. Each creature within 10 feet of the dragon must succeed on a DC 17 Dexterity saving throw or take 12 (2d6 + 5) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.</p>",
-      "lair actions": "<p><strong>Beguiling Whisper</strong>: The dragon telepathically whispers to one creature within range of the dragon's telepathy. The creature must succeed on a **DC 15 Wisdom saving throw** or be charmed by the dragon until initiative count 20 on the next round. A creature charmed in this way obeys to the best of its ability any command the dragon issues that isn't directly harmful to the creature.</p><p><strong>Dazzling Light</strong>: The dragon causes sparkling motes of light to fill a 20-foot-radius sphere centered on a point it can see within 120 feet of it. The motes cause the area to be brightly lit. Each creature in that area that isn't a dragon must succeed on a **DC 15 Dexterity saving throw** or be blinded until initiative count 20 on the next round.</p>"
+      "lair actions": "<p><strong>Beguiling Whisper</strong>: The dragon telepathically whispers to one creature within range of the dragon's telepathy. The creature must succeed on a <strong>DC 15 Wisdom saving throw</strong> or be charmed by the dragon until initiative count 20 on the next round. A creature charmed in this way obeys to the best of its ability any command the dragon issues that isn't directly harmful to the creature.</p><p><strong>Dazzling Light</strong>: The dragon causes sparkling motes of light to fill a 20-foot-radius sphere centered on a point it can see within 120 feet of it. The motes cause the area to be brightly lit. Each creature in that area that isn't a dragon must succeed on a <strong>DC 15 Dexterity saving throw</strong> or be blinded until initiative count 20 on the next round.</p>"
     },
 {
       name: "Ancient Crystal Dragon",
@@ -24424,7 +24424,7 @@ const monsters = [
             },
       actions: "<p><em><strong>Multiattack.</strong></em> The dragon makes one Bite attack and two Claw attacks.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +13 to hit, reach 15 ft. one target. <em>Hit:</em> 18 (2d10+7) piercing damage plus 9 (2d8) radiant damage.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +13 to hit, reach 10 ft. one target. <em>Hit:</em> 14 (2d6+7) slashing damage.</p><p><em><strong>Scintillating Breath (Recharge 5-6).</strong></em> The dragon exhales a burst of brilliant radiance in a 90-foot cone. Each creature in that area must make a DC 22 Constitution saving throw, taking 49 (11d8) radiant damage on a failed save, or half as much damage on a successful one. The dragon then gains 25 temporary hit points by absorbing a portion of the radiant energy.</p><p><em><strong>Spellcasting (Psionics).</strong></em> The dragon casts one of the following spells, requiring no spell components and using Intelligence as the spellcasting ability (spell save DC 19): At will: <em>dancing lights, guidance</em>; 3/day each: <em>hypnotic pattern, lesser restoration, sending</em>; 1/day each: <em>dream, geas, teleportation circle</em></p>",
       "legendary actions": "<p>The ancient crystal dragon can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The ancient crystal dragon regains spent legendary actions at the start of its turn.</p><p><em><strong>Detect.</strong></em> The dragon makes a Wisdom (Perception) check.</p><p><em><strong>Tail Attack.</strong></em> The dragon makes one Tail attack.</p><p><em><strong>Wing Attack (Costs 2 Actions).</strong></em> The dragon beats its wings. Each creature within 15 feet of the dragon must succeed on a DC 21 Dexterity saving throw or take 17 (2d8 + 8) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.</p>",
-      "lair actions": "<p><strong>Beguiling Whisper</strong>: The dragon telepathically whispers to one creature within range of the dragon's telepathy. The creature must succeed on a **DC 15 Wisdom saving throw** or be charmed by the dragon until initiative count 20 on the next round. A creature charmed in this way obeys to the best of its ability any command the dragon issues that isn't directly harmful to the creature.</p><p><strong>Dazzling Light</strong>: The dragon causes sparkling motes of light to fill a 20-foot-radius sphere centered on a point it can see within 120 feet of it. The motes cause the area to be brightly lit. Each creature in that area that isn't a dragon must succeed on a **DC 15 Dexterity saving throw** or be blinded until initiative count 20 on the next round.</p>"
+      "lair actions": "<p><strong>Beguiling Whisper</strong>: The dragon telepathically whispers to one creature within range of the dragon's telepathy. The creature must succeed on a <strong>DC 15 Wisdom saving throw</strong> or be charmed by the dragon until initiative count 20 on the next round. A creature charmed in this way obeys to the best of its ability any command the dragon issues that isn't directly harmful to the creature.</p><p><strong>Dazzling Light</strong>: The dragon causes sparkling motes of light to fill a 20-foot-radius sphere centered on a point it can see within 120 feet of it. The motes cause the area to be brightly lit. Each creature in that area that isn't a dragon must succeed on a <strong>DC 15 Dexterity saving throw</strong> or be blinded until initiative count 20 on the next round.</p>"
     },
 {
       name: "Conjurer Wizard",
@@ -39120,7 +39120,7 @@ const monsters = [
     con: 17,
     cha: 18,
     "skills": "Perception +11, Religion +7",
-    cr: 
+    cr: "9 (XP 5,000)",
     "armor class": 16,
     "hit points": "172 (23d8 + 69)",
     "speed": {
@@ -39151,25 +39151,6 @@ const monsters = [
     },
     "actions": "<p><em><strong>Multiattack.</strong></em> The avoral makes two Talon attacks, or it can replace one Talon attack with Spellcasting.</p><p><em><strong>Talon.</strong></em> <em>Melee Weapon Attack:</em> +8 to hit, reach 5 ft., one target. <em>Hit:</em> 11 (2d6 + 4) piercing damage plus 13 (2d12) radiant damage.</p><p><em><strong>Spellcasting (1/Day Each).</strong></em> The avoral casts one of the following spells, using Charisma as the spellcasting ability (spell save DC 16): <em>command</em>, <em>hold person</em>.</p>",
     "description": "<p>Avoral Guardinals are eagle-like bipeds with winged arms and keen, golden eyes, typically Neutral Good Medium Celestials. They are prone to wander from Elysium across the Outlands. They function as solitary scouts and skirmishers, known for being nimble aerial combatants that can swiftly dive at foes and attack with razor-sharp talons.</p>"
-  },
-  {
-    "name": "Awakened Wasp",
-    // ** redo this entry
-    "type": "Beast",
-    "challenge": "1/2",
-    "notes": "<p>Direct stats description for an Awakened Wasp was not explicitly found. Information primarily discusses 'Awakened Giant Wasp', which is listed as a Beast with a Challenge Rating of 1/2.</p>"
-  },
-  {
-    "name": "Awakened Brown Bear",
-    // ** redo this entry
-    "size": "Large",
-    "type": "Beast",
-    "environments": ["Varies"],
-    "armor class": 15,
-    "str": 19,
-    "dex": 15,
-    "challenge": "1",
-    "notes": "<p>It usually has six 'Monster levels' represented by six hit dice. The <em>Awaken</em> spell grants an additional 2 Hit Dice.</p><p>Its Armor Class of 15 is derived from a -1 penalty for size, a +1 bonus for Dexterity, and +5 for Natural Armor.</p>"
   },
   {
     "name": "Awakened Elk",
@@ -39214,10 +39195,15 @@ const monsters = [
   },
   {
     "name": "Awakened Rat",
-    // ** missing ability scores
     "size": "Tiny",
     "type": "Beast",
     "alignment": "Unaligned",
+    str: 2,
+    int: 10,
+    dex: 11,
+    wis: 10,
+    con: 9,
+    cha: 4,
     "environments": ["Varies"],
     "armor class": 10,
     "hit points": "1 (1d4 - 1)",
@@ -39248,10 +39234,15 @@ const monsters = [
   },
   {
     "name": "Awakened White Moose",
-    // ** missing ability scores
     "size": "Large",
     "type": "Beast",
     "alignment": "Unaligned",
+    str: 19,
+    int: 10,
+    dex: 11,
+    wis: 12,
+    con: 16,
+    cha: 6,
     "environments": [
       "Forest",
       "Grassland"
@@ -39302,10 +39293,15 @@ const monsters = [
   },
   {
     "name": "Awakened Zurkhwood",
-    // ** missing ability scores
     "size": "Huge",
     "type": "Plant",
     "alignment": "Unaligned",
+    str: 19,
+    dex: 6,
+    con: 15,
+    int: 10,
+    wis: 10,
+    cha: 7,
     "environments": [
       "Underdark"
     ],
@@ -39341,10 +39337,15 @@ const monsters = [
   },
   {
     "name": "Azer Sentinel",
-    // ** missing ability scores
     "size": "Medium",
     "type": "Elemental",
     "alignment": "Lawful Neutral",
+    str: 17,
+    dex: 12,
+    con: 15,
+    int: 12,
+    wis: 13,
+    cha: 10,
     "environments": [
       "Dungeon"
     ],
@@ -39388,10 +39389,15 @@ const monsters = [
   },
   {
     "name": "Baaz Draconian",
-    // ** missing ability scores
     "size": "Medium",
-    "type": "Dragon",
+    "type": "Monstrosity",
     "alignment": "Chaotic Evil",
+    str: 13,
+    int: 8,
+    dex: 11,
+    wis: 8,
+    con: 13,
+    cha: 10,
     "environments": [
       "Varies"
     ],
@@ -39450,10 +39456,15 @@ const monsters = [
   },
   {
     "name": "Bandit Crime Lord",
-    // ** missing ability scores
     "size": "Medium",
     "type": "Humanoid",
     "alignment": "Any Evil Alignment",
+    str: 10,
+    int: 18,
+    dex: 20,
+    wis: 14,
+    con: 14,
+    cha: 15,
     "environments": [
       "Urban",
       "Dungeon",
@@ -39511,10 +39522,15 @@ const monsters = [
   },
   {
     "name": "Bandit Deceiver",
-    // ** missing ability scores
     "size": "Medium",
     "type": "Humanoid",
     "alignment": "Neutral",
+    str: 8,
+    int: 17,
+    dex: 16,
+    wis: 12,
+    con: 14,
+    cha: 16,
     "environments": [
       "Urban",
       "Dungeon",
@@ -39559,10 +39575,15 @@ const monsters = [
   },
   {
     "name": "Barovian Witch",
-    // ** missing ability scores
     "size": "Medium",
     "type": "Humanoid",
     "alignment": "Chaotic Evil",
+    str: 7,
+    int: 14,
+    dex: 11,
+    wis: 11,
+    con: 13,
+    cha: 12,
     "environments": [
       "Urban",
       "Forest"
@@ -39611,10 +39632,15 @@ const monsters = [
   },
   {
     "name": "Barrowghast",
-    // ** missing ability scores
     "size": "Huge",
     "type": "Undead",
     "alignment": "Chaotic Evil",
+    str: 21,
+    int: 5,
+    dex: 8,
+    wis: 9,
+    con: 20,
+    cha: 6,
     "environments": [
       "Dungeon",
       "Wasteland"
@@ -39670,10 +39696,15 @@ const monsters = [
   },
   {
     "name": "Beledros Witherbloom",
-    // ** missing ability scores
     "size": "Gargantuan",
     "type": "Dragon",
     "alignment": "Neutral Good",
+    str: 28,
+    int: 18,
+    dex: 14,
+    wis: 28,
+    con: 27,
+    cha: 17,
     "environments": [
       "Varies"
     ],
@@ -39732,10 +39763,15 @@ const monsters = [
   },
   {
     "name": "Bestial Spirit",
-    // ** missing ability scores
     "size": "Small",
     "type": "Beast",
     "alignment": "Any",
+    str: 18,
+    dex: 11,
+    con: 16,
+    int: 4,
+    wis: 14,
+    chat: 5,
     "environments": [
       "Varies"
     ],
@@ -39979,10 +40015,15 @@ const monsters = [
   },
   {
     "name": "Blade Scout",
-    // ** missing ability scores
     "size": "Medium",
     "type": "Construct",
     "alignment": "Lawful Evil",
+    str: 14,
+    int: 10,
+    dex: 20,
+    wis: 19,
+    con: 16,
+    cha: 10,
     "environments": [
       "Dungeon"
     ],
@@ -40069,10 +40110,15 @@ const monsters = [
   },
   {
     "name": "Blistercoil Weird",
-    // ** missing ability scores, description
     "size": "Medium",
     "type": "Elemental",
-    "alignment": "Any",
+    "alignment": "Chaotic Neutral",
+    str: 16,
+    int: 5,
+    dex: 16,
+    wis: 10,
+    con: 15,
+    cha: 7,
     "environments": [
       "Varies"
     ],
@@ -40103,8 +40149,7 @@ const monsters = [
     "actions": "<p><em><strong>Slam.</strong></em> <em>Melee Weapon Attack:</em> +5 to hit, reach 5 ft., one target. <em>Hit:</em> 7 (1d8 + 3) bludgeoning damage plus 7 (2d6) fire damage, or 11 (2d8 + 3) bludgeoning damage plus 14 (4d6) fire damage if the blistercoil is Large or bigger.</p>"
   },
   {
-    "name": "Blob Of Annihilation",
-    // ** reconsider trait descriptions
+    "name": "Blob of Annihilation",
     "size": "Gargantuan",
     "type": "Ooze",
     "alignment": "Neutral Evil",
@@ -40139,6 +40184,7 @@ const monsters = [
     "languages": "N/A",
     "challenge": "23 (50,000 XP)",
     "traits": "<p><em><strong>Astral Implosion.</strong></em> This is a trait mentioned.</p><p><em><strong>Legendary Resistance (4/Day).</strong></em> If the Blob fails a saving throw, it can choose to succeed instead.</p><p><em><strong>Magic Resistance.</strong></em> This is a trait mentioned.</p>",
+    "traits": "<em><strong>Astral Implosion</strong></em>. If the blob is reduced to 0 Hit Points, it implodes and ejects any creatures and objects engulfed by it into the Astral Sea. The blob itself vanishes, leaving behind a layer of slime on everything that was within 600 feet of it. In 1d20 years, the blob reconstitutes on a random world in the Material Plane.<br/><em><strong>Legendary Resistance (4/Day)</strong></em>. If the blob fails a saving throw, it can choose to succeed instead.<br/><em><strong>Magic Resistance</strong></em>. The blob has Advantage on saving throws against spells and other magical effects.</p>",
     "attacks": {
       "Pseudopod": {
         "type": "Melee Weapon Attack",
@@ -40413,28 +40459,16 @@ const monsters = [
     "description": "<p>The Boneless is an undead creature devoid of a skeleton, appearing as lanky humanoid creatures with withered limbs and small, wrinkled, ball-like heads. They are astonishingly flexible and strong.</p>"
   },
   {
-    "name": "Booyahg Booyahg Booyahg", // ** redo these stats and confirm the name
-    "size": "Small",
-    "type": "Humanoid",
-    "environments": [
-      "Dungeon"
-    ],
-    "armor class": 12,
-    "hit points": "40",
-    "senses": {
-      "Darkvision": {
-        "range": 60
-      }
-    },
-    "traits": "<p><em><strong>Wild Magic Surge.</strong></em> Every spellcasting (including cantrips) is accompanied by a wild magic surge.</p><p><em><strong>Nimble Escape.</strong></em> The Booyahg Booyahg Booyahg can take the Disengage or Hide action as a bonus action on each of its turns.</p>",
-    "description": "<p>This term refers to a goblin sorcerer with the wild magic origin. They typically use the mage stat block from the Monster Manual, with added darkvision and the Nimble Escape traits common to all goblins.</p>",
-    "notes": "<p>Armor Class can be 15 with <em>mage armor</em>.</p>"
-  },
-  {
     "name": "Booyahg Slave of the Great Old One",
-    // ** missing alignment, missing ability scores, redo saving throws
     "size": "Small",
     "type": "Humanoid",
+    alignment: "Any",
+    str: 9,
+    int: 12,
+    dex: 14,
+    wis: 12,
+    con: 15,
+    cha: 18,
     "environments": [
       "Dungeon"
     ],
@@ -40445,8 +40479,8 @@ const monsters = [
         "movement": 30
       }
     },
-    "saving throws": "WIS, CHA",
-    "skills": "Arcana, History",
+    
+    "skills": "Arcana +4, History +4",
     "damage resistances": "Psychic",
     "senses": {
       "Darkvision": {
@@ -40574,6 +40608,305 @@ const monsters = [
     "actions": "<p><em><strong>Multiattack.</strong></em> Borborygmos uses Frightful Presence if he can. He then makes one maul attack and one stomp attack.</p><p><em><strong>Maul.</strong></em> <em>Melee Weapon Attack:</em> Deals bludgeoning damage and can knock targets prone.</p><p><em><strong>Stomp.</strong></em> <em>Melee Weapon Attack:</em> Deals bludgeoning damage.</p><p><em><strong>Rock.</strong></em> <em>Ranged Weapon Attack:</em> Borborygmos throws a rock.</p><p><em><strong>Frightful Presence.</strong></em> Borborygmos can frighten creatures within 60 feet.</p>",
     "legendary actions": "<p>Borborygmos can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. Borborygmos regains spent legendary actions at the start of its turn.</p><p><em><strong>Attack.</strong></em> Borborygmos makes one weapon attack.</p><p><em><strong>Bellow (Costs 2 Actions).</strong></em> Borborygmos can frighten or stun creatures.</p>",
     "description": "<p>Borborygmos is the enormous cyclops leader of the Burning Tree clan of Gruul.</p>"
+  },
+  {
+    "name": "Awakened Giant Wasp",
+    "size": "Medium",
+    "type": "Beast",
+    "alignment": "Unaligned",
+    str: 10,
+    int: 10,
+    dex: 14,
+    wis: 10,
+    con: 10,
+    cha: 3,
+    challenge: "1/2 (XP 100)",
+    "environments": [
+      "Varies"
+    ],
+    "armor class": 12,
+    "hit points": "13 (3d8)",
+    "speed": {
+      "surface": {
+        "movement": 10
+      },
+      "fly": {
+        "movement": 50
+      }
+    },
+    "number of attacks": 1,
+    "attacks": {
+      "Sting": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+4",
+        "reach": "5 ft.",
+        "target": "one creature",
+        "hit": "5 (1d6 + 2)",
+        "damage type": "piercing",
+        "magical": false,
+        "silvered": false,
+        "effects": [
+          {
+            "type": "Poison",
+            "condition": "Target must make a DC 11 Constitution saving throw, taking Poison damage on a failed save, or half as much damage on a successful one. If the poison damage reduces the target to 0 hit points, the target becomes stable but poisoned and paralyzed for 1 hour, even after regaining hit points.",
+            "dc": 11,
+            "ability": "Constitution",
+            "one-time damage": "10 (3d6)"
+          }
+        ]
+      }
+    },
+    "actions": "<p><em><strong>Sting.</strong></em> <em>Melee Weapon Attack:</em> +4 to hit, reach 5 ft., one creature. <em>Hit:</em> 5 (1d6 + 2) piercing damage, and the target must make a DC 11 Constitution saving throw. On a failed save, the target takes 10 (3d6) poison damage, or half as much on a successful one. If the poison damage reduces the target to 0 hit points, the target becomes stable but poisoned and paralyzed for 1 hour, even after regaining hit points.</p>"
+  },
+  {
+    "name": "Awakened Brown Bear",
+    "size": "Large",
+    "type": "Beast",
+    alignment: "Unaligned",
+    str: 19,
+    int: 10,
+    dex: 10,
+    wis: 13,
+    con: 16,
+    cha: 7,
+    challenge: "1 (XP 200)",
+    "environments": [
+      "Varies"
+    ],
+    "armor class": 11,
+    "hit points": "34 (4d10 + 12)",
+    "speed": {
+      "surface": {
+        "movement": 40
+      },
+      "climb": {
+        "movement": 30
+      }
+    },
+    "traits": "<p><em><strong>Keen Smell.</strong></em> The Awakened Brown Bear has advantage on Wisdom (Perception) checks that rely on smell.</p>",
+    "number of attacks": 2,
+    "attacks": {
+      "Bite": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+6",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "8 (1d8 + 4)",
+        "damage type": "piercing",
+        "magical": false,
+        "silvered": false
+      },
+      "Claws": {
+        "type": "Melee Weapon Attack",
+        "to hit": "+6",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "11 (2d6 + 4)",
+        "damage type": "slashing",
+        "magical": false,
+        "silvered": false
+      }
+    },
+    "actions": "<p><em><strong>Multiattack.</strong></em> The Awakened Brown Bear makes two attacks: one with its bite and one with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft., one target. <em>Hit:</em> 8 (1d8 + 4) piercing damage.</p><p><em><strong>Claws.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 5 ft., one target. <em>Hit:</em> 11 (2d6 + 4) slashing damage.</p>"
+  },
+  {
+    "name": "Booyahg Booyahg Booyahg",
+    "size": "Small",
+    "type": "Humanoid",
+    "alignment": "Any",
+    str: 9,
+    int: 17,
+    dex: 14,
+    wis: 12,
+    con: 11,
+    cha: 11,
+    "environments": [
+      "Dungeon"
+    ],
+    "armor class": 12,
+    "hit points": "40 (9d8)",
+    challenge: "6 (XP 2,300)",
+    "speed": {
+      "surface": {
+        "movement": 30
+      }
+    },
+    "traits": "<p><em><strong>Spellcasting.</strong></em> The Booyahg is a 9th-level spellcaster. Its spellcasting ability is Intelligence (spell save DC 14, +6 to hit with spell attacks). It knows the following wizard cantrips: <em>fire bolt</em>, <em>light</em>, <em>mage hand</em>, <em>prestidigitation</em>. It knows various spells up to 5th level (e.g., <em>detect magic</em>, <em>mage armor</em>, <em>magic missile</em>, <em>shield</em>, <em>misty step</em>, <em>suggestion</em>, <em>counterspell</em>, <em>fireball</em>, <em>fly</em>, <em>greater invisibility</em>, <em>ice storm</em>, <em>cone of cold</em>). Every spell casting, including cantrips, is accompanied by a wild magic surge, requiring a roll on the Wild Magic Surge table.</p>",
+    "number of attacks": 1,
+    "attacks": {
+      "Dagger": {
+        "type": "Melee or Ranged Weapon Attack",
+        "to hit": "+5",
+        "reach": "5 ft.",
+        "target": "one target",
+        "hit": "4 (1d4 + 2)",
+        "damage type": "piercing",
+        "magical": false,
+        "silvered": false
+      }
+    },
+    "actions": "<p><em><strong>Dagger.</strong></em> <em>Melee or Ranged Weapon Attack:</em> +5 to hit, reach 5 ft. or range 20/60 ft., one target. <em>Hit:</em> 4 (1d4 + 2) piercing damage.</p>",
+    "bonus actions": "<p><em><strong>Nimble Escape.</strong></em> The Booyahg can take the Disengage or Hide action as a bonus action on each of its turns.</p>",
+    "description": "<p>Booyahgs are Small Humanoids (Goblinoid) of any alignment. A common variant, referred to as 'Booyahg Booyahg Booyahg,' functions as a sorcerer with a wild magic origin.</p><p>Another variant is the 'Booyahg Slave of the Archfey,' which is an 11th-level warlock spellcaster with Charisma as its spellcasting ability (spell save DC 14, +6 to hit with spell attacks). It regains expended spell slots on a short or long rest and knows various warlock cantrips (<em>dancing lights</em>, <em>eldritch blast</em>, <em>friends</em>, <em>mage hand</em>, <em>minor illusion</em>, <em>prestidigitation</em>, <em>vicious mockery</em>). This Booyahg also has Innate Spellcasting, allowing it to cast spells like <em>disguise self</em>, <em>mage armor</em>, <em>silent image</em>, and <em>speak with animals</em> at will, and <em>conjure fey</em> once per day, using Charisma as its spellcasting ability (spell save DC 15).</p>"
+  },
+  {
+    "name": "Booyahg Caster",
+    "size": "Small",
+    "type": "Humanoid",
+    "alignment": "Neutral Evil",
+    str: 8,
+    int: 10,
+    dex: 14,
+    wis: 8,
+    con: 10,
+    cha: 8,
+    challenge: "1/4 (XP 50)",
+    "environments": ["Dungeon"],
+    "armor class": 15,
+    "hit points": "7 (2d6)",
+    "speed": {
+      "surface": { "movement": 30 }
+    },
+    "languages": "Common, Goblin",
+    "traits": "<p><em><strong>Nimble Escape.</strong></em> The booyahg can take the Disengage or Hide action as a bonus action.</p><p><em><strong>Spellcasting (1/Day).</strong></em> The Booyahg Caster can cast a randomly determined 1st-level wizard spell once per day, using Intelligence as its spellcasting ability.</p>",
+    "description": "<p>This goblin learned wizardry by observing a hobgoblin wizard.</p>"
+  },
+  
+  {
+    "name": "Bozak Draconian",
+    "size": "Medium",
+    "type": "Monstrosity",
+    "alignment": "Lawful Evil",
+    str: 14,
+    int: 11,
+    dex: 10,
+    wis: 10,
+    con: 11,
+    cha: 14,
+    challenge: "2 (XP 450)",
+    "environments": ["Varies"],
+    "armor class": 15,
+    "hit points": "40 (9d8)",
+    // ** missing attack info
+    "speed": {
+      "surface": { "movement": 30 }
+    },
+    "condition immunities": "Paralyzed, Sleep",
+    "senses": {
+      "Darkvision": { "range": 60 }
+    },
+    "traits": "<p><em><strong>Death Throes.</strong></em> When the Bozak dies, its bones explode, dealing force damage to creatures within 10 feet.</p><p><em><strong>Glide.</strong></em> The Bozak can glide, negating fall damage and moving horizontally.</p>",
+    "actions": "<p><em><strong>Multiattack.</strong></em> The Bozak makes two attacks, either two with its Trident or two with its Lightning Discharge.</p><p><em><strong>Spellcasting.</strong></em> The Bozak can cast spells like <em>enlarge/reduce</em>, <em>invisibility</em>, <em>stinking cloud</em>, and <em>web</em>.</p>"
+  },
+  {
+    "name": "Brain in a Jar",
+    "size": "Small",
+    "type": "Undead",
+    "alignment": "Unaligned",
+    str: 1,
+    int: 19,
+    dex: 1,
+    wis: 10,
+    con: 15,
+    cha: 15,
+    challenge: "6 (XP 2,300)",
+    "environments": ["Varies"],
+    "armor class": 11,
+    "hit points": "55 (10d6 + 20)",
+    "speed": {
+      "surface": { "movement": 0 },
+      "fly": { "movement": 10 }
+    },
+    "condition immunities": "Exhaustion, Paralyzed, Poisoned, Prone",
+    "senses": {
+      "Blindsight": { "range": 120 }
+    },
+    "traits": "<p><em><strong>Detect Sentience.</strong></em> The brain can sense the presence and location of any creature within 300 feet of it that has an Intelligence of 3 or higher, regardless of interposing barriers, unless the creature is protected by a <em>mind blank</em> spell.</p><p><em><strong>Magic Resistance.</strong></em> The brain has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Unusual Nature.</strong></em> The brain doesn't require air, food, drink, or sleep.</p><p><em><strong>Innate Spellcasting (Psionics).</strong></em> The brain's innate spellcasting ability is Intelligence. It can innately cast the following spells, requiring no components and no spell attack bonus:</p><ul><li>At will: <em>chill touch</em>, <em>detect thoughts</em>, <em>mage hand</em>, <em>zone of truth</em></li></ul>",
+    "actions": "<p><em><strong>Mind Blast.</strong></em> The brain magically emits psychic energy in a cone. Each creature in that cone must make an Intelligence saving throw. On a failed save, a creature takes psychic damage and is stunned until the end of the brain's next turn. On a successful save, a creature takes half as much damage and isn't stunned.</p>"
+  },
+  {
+    "name": "Brass Greatwyrm",
+    "size": "Colossal",
+    "type": "Dragon",
+    "alignment": "Chaotic Good",
+    "environments": ["Desert"],
+    str: 30,
+    int: 21,
+    dex: 16,
+    wis: 22,
+    con: 29,
+    cha: 30,
+    challenge: " 28 (XP 120,000, or 240,000 as a mythic encounter)",
+    "armor class": 25,
+    "hit points": "507 (26d20 + 234)",
+    "speed": {
+      "surface": { "movement": 60 },
+      "burrow": { "movement": 60 },
+      "fly": { "movement": 120 }
+    },
+    "damage immunities": ["Fire", "Bludgeoning, Piercing, and Slashing from nonmagical attacks"],
+    "condition immunities": "Charmed, Frightened, Paralyzed, Unconscious",
+    "senses": {
+      "Blindsight": { "range": 80 },
+      "Darkvision": { "range": 160 }
+    },
+    "actions": "<p><em><strong>Multiattack.</strong></em> The Brass Greatwyrm makes three attacks: one with its Bite and two with its Claws.</p><p><em><strong>Tail.</strong></em> The Brass Greatwyrm makes one Tail attack.</p><p><em><strong>Change Shape.</strong></em> The Brass Greatwyrm magically polymorphs into a humanoid or beast that has a challenge rating no higher than its own, or back into its true form.</p><p><em><strong>Breath Weapon.</strong></em> The Brass Greatwyrm can use either Elemental Breath or Sapping Breath.</p>",
+    "legendary actions": "<p>The Brass Greatwyrm can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The Brass Greatwyrm regains spent legendary actions at the start of its turn.</p><p><em><strong>Attack.</strong></em> The Brass Greatwyrm makes one weapon attack.</p><p><em><strong>Wing Attack (Costs 2 Actions).</strong></em> The Brass Greatwyrm beats its wings.</p>"
+  },
+  {
+    "name": "Braxat",
+    "size": "Huge",
+    "type": "Giant",
+    "alignment": "Neutral",
+    "environments": ["Dungeon"],
+    str: 26,
+    int: 14,
+    dex: 8,
+    wis: 13,
+    con: 22,
+    cha: 7,
+    challenge: "9 (XP 5,000)",
+    "armor class": 18,
+    "hit points": "162 (13d12 + 78)",
+    "speed": {
+      "surface": { "movement": 40 }
+    },
+    "senses": {
+      "Darkvision": { "range": 60 }
+    },
+    "languages": "Giant, Telepathy 1 mile",
+    "traits": "<p><em><strong>Magic Resistance.</strong></em> The Braxat has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Charge.</strong></em> If the Braxat moves at least 10 feet straight toward a target and then hits it with a melee attack on the same turn, the target takes extra damage and must succeed on a Strength saving throw or be knocked prone.</p>",
+    "actions": "<p><em><strong>Multiattack.</strong></em> The Braxat typically makes two attacks, usually with its Greatclub and Gore, or it makes two Claw attacks.</p><p><em><strong>Acid Breath (Variant).</strong></em> The Braxat exhales acid in a cone.</p><p><em><strong>Mind Blast (Variant).</strong></em> The Braxat magically emits psychic energy in a cone.</p>",
+    "description": "<p>Braxats are monstrous, chitinous-shelled creatures, 15 feet tall, known for hunting sentient creatures with psionic abilities.</p>"
+  },
+  {
+    "name": "Brazen Gorgon",
+    "size": "Large",
+    "type": "Construct",
+    "alignment": "Unaligned",
+    "environments": ["Dungeon"],
+    str: 18,
+    int: 2,
+    dex: 14,
+    wis: 14,
+    con: 19,
+    cha: 7,
+    challenge: "9 (XP 5,000)",
+    languages: "none",
+    "armor class": 19,
+    "hit points": "161 (17d10 + 68)",
+    "speed": {
+      "surface": { "movement": 40 }
+    },
+    "damage immunities": ["Fire"],
+    "condition immunities": "Exhaustion, Petrified",
+    "senses": {
+      "Darkvision": { "range": 60 }
+    },
+    "challenge": "9 (5,000 XP)",
+    "traits": "<p><em><strong>Flame Aura.</strong></em> At the start of each of the gorgon's turns, each creature within 5 feet of it takes fire damage.</p><p><em><strong>Illumination.</strong></em> The gorgon sheds bright light in a 10-foot radius and dim light for an additional 10 feet.</p>",
+    "actions": "<p><em><strong>Multiattack.</strong></em> The Brazen Gorgon makes two Gore attacks.</p><p><em><strong>Smelting Charge.</strong></em> The Brazen Gorgon moves up to its speed. During this move, it can move through other creatures. A creature whose space the gorgon enters must make a Dexterity saving throw. On a failed save, the creature takes piercing and fire damage and is either grappled or knocked prone (gorgon's choice). On a successful save, the creature takes half as much damage and isn't grappled or knocked prone.</p>",
+    "description": "<p>Brazen gorgons are hollow, bull-like automatons that glow with intense heat and are often found in sites dedicated to archdevils.</p>"
   }
 ]
 
