@@ -1,0 +1,100 @@
+@font-face {
+    font-family: 'Iokharic';
+    src: url('iokharic.ttf') format('truetype');
+    /* No unicode-range here so it applies to numbers too */
+}
+
+body {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    width: 90%;
+    max-width: 800px;
+}
+
+.translator-box {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background: #2d2d2d;
+    padding: 25px;
+    border-radius: 12px;
+    border: 2px solid #444;
+}
+
+textarea {
+    width: 100%;
+    height: 120px;
+    background: #333;
+    border: 1px solid #555;
+    color: white;
+    padding: 12px;
+    font-size: 1.1rem;
+    border-radius: 6px;
+    resize: none;
+    margin-top: 5px;
+}
+
+/* This class applies the Iokharic font to everything inside */
+#outputWrapper {
+    background: #2d2d2d;
+    padding: 40px; /* Extra padding for the image "border" */
+    border: 1px solid #444;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.iokharic-text {
+    font-family: 'Iokharic', sans-serif;
+    font-size: 2.5rem;
+    color: #ffd700;
+    text-transform: uppercase;
+    
+    /* Crucial for multi-line support */
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    text-align: center;
+    
+    /* This makes the div behave like a block that grows */
+    width: 100%;
+    min-height: 50px;
+    line-height: 1.4;
+    display: block;
+}
+
+#warning {
+    color: #ff4757;
+    height: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.controls {
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+}
+
+#clearBtn { background: #7f8c8d; }
+#downloadBtn { background: #27ae60; }

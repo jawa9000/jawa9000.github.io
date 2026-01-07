@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draconic Translator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Iokharic Translator</h1>
+        <div id="warning"></div>
+        <div class="translator-box">
+            <div class="field">
+                <label>Common Tongue</label>
+                <textarea id="englishInput" placeholder="Enter text and numbers..."></textarea>
+            </div>
+            <div class="field">
+                <label>Iokharic Script</label>
+                <div id="outputWrapper">
+                    <div id="draconicOutput" class="iokharic-text" contenteditable="false"></div>
+                </div>
+            </div>
+        </div>
+        <div class="controls">
+            <button id="clearBtn">Clear</button>
+            <button id="downloadBtn">Download PNG</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
