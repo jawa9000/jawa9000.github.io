@@ -43,7 +43,18 @@ let samples = {
     //         other: ''
     //     }
     // },
-    '': {
+    'Integrate Weights and Biases with PyTorch': {
+        title: 'Integrate Weights and Biases with PyTorch',
+        htmlLink: 'Integrate_Weights_and_Biases_with_PyTorch.html',
+        pdfLink: 'Integrate_Weights_and_Biases_with_PyTorch.pdf',
+        description: 'This guide provides a step-by-step tutorial on integrating Weights & Biases (W&B) with PyTorch to automate machine learning experiment tracking. It covers initializing runs, capturing hyperparameters, tracking real-time metrics and gradients, and saving model artifacts to a centralized dashboard.',
+        labels: ['Guide', 'Code Sample'],
+        projectDetails: {
+            audience: 'The primary audience is machine learning engineers and data scientists who are proficient in Python and PyTorch. It is designed for developers looking to move beyond manual logging (e.g., spreadsheets) to a more scalable, automated experiment management system.',
+            starNotes: 'In response to a need for more professional documentation, I rewrote engineer-authored technical content regarding Weights & Biases integration with PyTorch to better serve a developer audience while adhering to the Google Developer Documentation Style Guide. I restructured the material by adding a "Before you begin" section and a Table of Contents to improve discoverability, and I converted all headings to the imperative mood to align with industry standards. By consolidating helper functions into the procedural steps and standardizing technical callouts and syntax highlighting, I removed redundant narrative filler and ensured the code was logically complete. This effort resulted in a clear, high-quality guide that enables developers to successfully integrate the platform in five concise steps, supported by best practices for reproducibility and clear paths for advanced configuration.'
+        }
+    },
+    'Critical Hit and Fumble Roller Overview': {
         title: 'Critical Hit and Fumble Roller Overview',
         htmlLink: 'Critical-Hit-Fumble.html',
         pdfLink: 'Critical_Hit_Fumble.pdf',

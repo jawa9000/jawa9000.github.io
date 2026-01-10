@@ -79,152 +79,15 @@ The following properties need to be converted to arrays. Then update main.js, mo
 ## Monster list
 Check monsters.js to see if the following monsters are listed. If they are not, use a Google search "5e [monster name]" to find it, download a PDF of it, and use this Gemini Gem (https://gemini.google.com/gem/77b2f643d48c) to batch convert up to 10 monsters at a time. Use this prompt: "Convert these PDFs into a JSON object." Then, copy/paste into monsters.js at the end, remove the array brackets, and clean up anything that is amiss (like remove "[cite:...]", add associates, and check the newly added monsters in the monster_catalog.html list).
 
->> about 100 monsters are missing their associates property.
+>> 100+ monsters are missing their associates property.
+>> check to see which monsters are missing their challenge ratings.
+>> look for comments that have ** in them and fix their properties.
 
-
-Aberrant Zealot
-
-Albino Dwarf Spirit Warrior
-Albino Dwarf Warrior
-Aldani (Lobsterfolk)
-Altisaur
-Ambitious Assassin
-
-Amethyst Greatwyrm
-
-
-Animated Armor Detention Drone
-Animated Ballista
-
-Animated Chained Library
-Animated Drow Statue
-Animated Flying Sword
-Animated Halberd
-Animated Jade Serpent
-Animated Object
-Animated Rug of Shering
-Animated Staff
-Animated Statue of Lolth
-Animated Stove
-Animated Table
-Animated Tile Chimera
-Animated Wand
-Animatronic Allosaurus
-Ankylosaurus Zombie
-Anvilwrought Raptor
-Aphemia
-Apprentice
-Aquatic Ghoul
-Aquatic Troll
-Arasta
-Archaic
-Archelon
-Armored Saber-Toothed Tiger
-Art  Mascot
-Ashen Animated Armor
-Ashen Flying Sword
-Ashen Heir Anarchist
-Ashen Heir Assassin
-Ashen Heir Mage
-Ashen Heir Veteran
-Ashen Knight
-Ashen Rider
-Ashen Shambling Mound
-Ashen Veteran
-Ashen Warhorse
-Aspirant of the Comet
-Assassin Vine
-Asteria
-Astral Blight
-Astral Elf Aristocrat
-Astral Elf Commander
-Astral Elf Honor Guard
-Astral Elf Star Priest
-Astral Elf Warrior
-Athar Null
-Atropal
-Aurak Draconian
-Aurnozci
-Aurumach Rilmani
-Aurumvorax
-Aurumvorax Den Leader
-Autognome
-Avatar of Death
-Avoral Guardinal
-Awakened  Wasp
-Awakened Brown Bear
-Awakened Elk
-Awakened Rat
-Awakened White Moose
-Awakened Zurkhwood
-Axe of Mirabar Soldier
-Azer Pyromancer
-Azer Sentinel
-B'rohg
-Baaz Draconian
-Baernaloth
-Bag Jelly
-Bakunawa
-Bandit Crime Lord
-Bandit Deceiver
-Bariaur Wanderer
-Barkburr
-Barlgura
-Barovian Commoner
-Barovian Scout
-Barovian Witch
-Barrowghast
-Battlehammer Dwarf
-Beder
-Beder Zombie
-Belashyrra
-Beledros Witherbloom
-Berserker Commander
-Bestial Spirit
-Big Xorn
-bjurer
-Black Earth Guard
-Black Earth Priest
-Black Gauntlet of Bane
-Black Greatwyrm
-Black Rose Bearer
-Blade Lieutenant
-Blade Scout
-Blazebear
-Bleak Cabal Void Soother
-Blistercoil Weird
-Blob of Annihilation
-Blood-Toll Harpy
-Bloodfray
-Blue Greatwyrm
-Blue slaad
-Bodytaker
-Boggle
-Bone Knight
-Bone Roc
-Bone Whelk
-Boneless
-Booyahg Booyahg Booyahg
-Booyahg Caster
-Booyahg Slave of the
 Booyahg Slave of the Arch
-Booyahg Slave of the Great Old One
-Booyahg Whip
-Booyahg Wielder
-Borborygmos
 Bore Worm
 Borthak
-Boss Augustus
-Boss Delour
-Bozak Draconian
 Brackish Trudge
 Brain Breaker
-Brain in a Jar
-Brass Greatwyrm
-Braxat
-Brazen Gorgon
-Breath Drinker
-Bridesmaid of Zuggtmoy
 Brigganock
 Broken King Antigonos
 Bronze Greatwyrm
