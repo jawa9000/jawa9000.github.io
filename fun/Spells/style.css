@@ -1,8 +1,8 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
     line-height: 1.6;
-    background-color: #f0ece2;
-    color: #333;
+    /* background-color: #f0ece2; */
+    /* color: #333; */
     margin: 0;
     padding: 20px;
 }
@@ -12,8 +12,35 @@ header {
     margin-bottom: 20px;
 }
 
+label, .label {
+    display: block;
+    margin: 0.5em 0 0.2em 0;
+    color: black;
+    font-size: large;
+}
+
+.label {
+    font-weight: bold;
+    margin: 4px 0 0 0;
+    line-height: normal;
+}
+
+button {
+    color: #23272f;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5em 1.2em;
+    margin: 0.5em 0.5em 0.5em 0;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+    background-color: #f2ce9e;
+    text-align: center;
+}
+
 .filters-container {
-    background: #fff;
+    /* background: #fff; */
+    background: rgba(0,0,0,0.05);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -55,6 +82,34 @@ input, select {
 
 .reset-btn:hover { background-color: #c0392b; }
 
+.view-toggle {
+    display: flex;
+    gap: 5px;
+    margin-left: auto;
+}
+
+.view-btn {
+    background-color: #ecf0f1;
+    color: #333;
+    border: 2px solid #bdc3c7;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.view-btn:hover {
+    background-color: #d5dbdb;
+    border-color: #95a5a6;
+}
+
+.view-btn.active {
+    background-color: #5d0000;
+    color: white;
+    border-color: #5d0000;
+}
+
 #spellList {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -62,10 +117,10 @@ input, select {
 }
 
 .spell-card {
-    background: white;
+    background: rgba(0,0,0,0.05);
     padding: 20px;
     border-radius: 4px;
-    border-top: 5px solid #5d0000; /* D&D Red */
+    /* border-top: 5px solid #5d0000; D&D Red */
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
@@ -77,8 +132,7 @@ input, select {
 .spell-meta {
     font-style: italic;
     font-size: 0.85em;
-    color: #666;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 /* Badge Styles */
@@ -98,10 +152,10 @@ input, select {
 /* Save Tag */
 .save-tag {
     display: inline-block;
-    background: #eee;
+    background: rgba(0,0,0,0.05);
     padding: 2px 8px;
     border-radius: 12px;
-    font-size: 0.8em;
+    font-size: 1em;
     margin-bottom: 10px;
     font-weight: bold;
 }
@@ -110,7 +164,7 @@ input, select {
 .higher-levels {
     margin-top: 15px;
     padding: 10px;
-    background-color: #fdf2f2;
+    background-color: rgba(0,0,0,0.05);
     border-left: 3px solid #e74c3c;
     font-size: 0.9em;
     font-style: italic;
@@ -127,12 +181,130 @@ input, select {
 .spell-footer {
     margin-top: 15px;
     padding-top: 10px;
-    border-top: 1px dashed #ccc;
-    font-size: 0.8em;
     color: #555;
 }
 
 .description {
     font-size: 0.95em;
-    white-space: pre-wrap; /* Maintains paragraph breaks from JSON */
+}
+
+/* List View Styles */
+.spell-list {
+    background: rgba(0,0,0,0.05);
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 20px;
+}
+
+.spell-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.spell-item {
+    padding: 12px 0;
+    /* border-bottom: 1px solid #ecf0f1; */
+    list-style: none;
+}
+
+.spell-item:last-child {
+    border-bottom: none;
+}
+
+.spell-link {
+    color: #5d0000;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.05em;
+    transition: color 0.2s ease;
+}
+
+.spell-link:hover {
+    color: #8b0000;
+    text-decoration: underline;
+}
+
+/* Inline Spell Details */
+.spell-details-inline {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-left: 4px solid #5d0000;
+    border-radius: 4px;
+}
+
+.spell-details-content {
+    font-size: 0.95em;
+}
+
+.spell-details-content h4 {
+    margin-top: 0;
+    color: #5d0000;
+}
+
+.spell-details-content .spell-header {
+    margin-bottom: 10px;
+}
+
+.spell-details-content .spell-stats p {
+    margin: 5px 0;
+    font-size: 0.9em;
+}
+
+.spell-details-content .description {
+    margin: 10px 0;
+    font-style: italic;
+    font-size: 0.9em;
+    line-height: 1.5;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: auto;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 0;
+    width: 90%;
+    max-width: 700px;
+    border-radius: 4px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+.modal-close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+    color: #000;
+}
+
+.modal-content .spell-card {
+    border-top: none;
+    box-shadow: none;
+    border-radius: 0;
+    margin: 0;
+    padding: 30px;
 }
