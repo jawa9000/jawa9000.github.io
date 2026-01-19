@@ -26,7 +26,7 @@
     "concentration": false,
     "ritual": false,
     "classes": ["Artificer", "Sorcerer", "Warlock", "Wizard"],
-    "description": "You extend your hand and trace a sigi! of warding in the air. Unti! the end of your next turn, you have resistance against bludgeoning, piercing, and slashing damage dealt by weapon attacks.",
+    "description": "You extend your hand and trace a sigil of warding in the air. Until the end of your next turn, you have resistance against bludgeoning, piercing, and slashing damage dealt by weapon attacks.",
     "higher_levels": "None.",
     "save_type": "None",
     "tags": ["Defense"]
@@ -186,7 +186,7 @@
     "concentration": true,
     "ritual": false,
     "classes": ["Bard", "Sorcerer", "Warlock", "Wizard"],
-    "description": "For the duration, you have advantage on ali Charisma checks directed at one creature of your choice that isn't hostile toward you. When the spell ends, the creature realizes it was influenced and becomes hostile.",
+    "description": "For the duration, you have advantage on all Charisma checks directed at one creature of your choice that isn't hostile toward you. When the spell ends, the creature realizes it was influenced and becomes hostile.",
     "higher_levels": "None.",
     "save_type": "None",
     "tags": ["Utility", "Social"]
