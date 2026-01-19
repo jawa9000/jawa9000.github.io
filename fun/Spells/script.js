@@ -119,7 +119,7 @@ function displayCardView(container, spells) {
 
                 ${saveSection}
 
-                <hr>
+                
 
                 <div class="description">
                     ${spell.description}
