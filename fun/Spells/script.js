@@ -1,4 +1,5 @@
 let allSpells = [];
+let viewMode = 'card'; // 'card' or 'list'
 
 // 1. Fetch Data
 async function loadSpells() {
@@ -70,6 +71,14 @@ function displaySpells(spells) {
         return;
     }
 
+    if (viewMode === 'card') {
+        displayCardView(container, spells);
+    } else {
+        displayListView(container, spells);
+    }
+}
+
+function displayCardView(container, spells) {
     container.innerHTML = spells.map(spell => {
         // Handle Concentration Badge
         const conBadge = spell.concentration ? '<span class="badge concentration">C</span>' : '';
@@ -126,11 +135,101 @@ function displaySpells(spells) {
     }).join('');
 }
 
+function displayListView(container, spells) {
+    container.innerHTML = `<div class="spell-list"><ul>${spells.map((spell, index) => {
+        return `
+            <li class="spell-item" data-spell-name="${spell.name}">
+                <a href="#" class="spell-link" data-spell-index="${index}">${spell.name}</a>
+                <div class="spell-details-inline" style="display: none;"></div>
+            </li>
+        `;
+    }).join('')}</ul></div>`;
+    
+    // Add event listeners to spell links
+    container.querySelectorAll('.spell-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const index = this.getAttribute('data-spell-index');
+            const spellItem = this.closest('.spell-item');
+            const detailsDiv = spellItem.querySelector('.spell-details-inline');
+            
+            // Toggle display
+            if (detailsDiv.style.display === 'none') {
+                detailsDiv.innerHTML = createSpellDetails(spells[index]);
+                detailsDiv.style.display = 'block';
+            } else {
+                detailsDiv.style.display = 'none';
+            }
+        });
+    });
+}
+
+function createSpellDetails(spell) {
+    const conBadge = spell.concentration ? '<span class="badge concentration">C</span>' : '';
+    const ritualBadge = spell.ritual ? '<span class="badge ritual">R</span>' : '';
+    const saveSection = spell.save_type 
+        ? `<span class="save-tag">Save: ${spell.save_type}</span>` 
+        : '';
+    const higherLevelsSection = spell.higher_levels 
+        ? `<div class="higher-levels"><strong>At Higher Levels:</strong> ${spell.higher_levels}</div>` 
+        : '';
+    const classList = spell.classes.join(', ');
+
+    return `
+        <div class="spell-details-content">
+            <div class="spell-header">
+                <div>
+                    <h4>${spell.name}</h4>
+                    <div class="spell-meta">Level ${spell.level === 0 ? 'Cantrip' : spell.level} • ${spell.school}</div>
+                </div>
+                <div class="badges">
+                    ${conBadge}
+                    ${ritualBadge}
+                </div>
+            </div>
+
+            <div class="spell-stats">
+                <p><strong>Casting Time:</strong> ${spell.casting_time}</p>
+                <p><strong>Range:</strong> ${spell.range}</p>
+                <p><strong>Duration:</strong> ${spell.duration}</p>
+                <p><strong>Components:</strong> ${spell.components}</p>
+            </div>
+
+            ${saveSection}
+
+            <div class="description">
+                ${spell.description}
+            </div>
+
+            ${higherLevelsSection}
+
+            <div class="spell-footer">
+                <strong>Classes:</strong> ${classList}
+            </div>
+        </div>
+    `;
+}
+
 // Event Listeners
 document.querySelectorAll('input, select').forEach(el => {
     el.addEventListener(el.type === 'text' ? 'input' : 'change', filterSpells);
 });
 document.getElementById('clearFilters').addEventListener('click', resetFilters);
+
+// View Toggle Event Listeners
+document.getElementById('cardViewBtn').addEventListener('click', function() {
+    viewMode = 'card';
+    document.getElementById('cardViewBtn').classList.add('active');
+    document.getElementById('listViewBtn').classList.remove('active');
+    filterSpells();
+});
+
+document.getElementById('listViewBtn').addEventListener('click', function() {
+    viewMode = 'list';
+    document.getElementById('listViewBtn').classList.add('active');
+    document.getElementById('cardViewBtn').classList.remove('active');
+    filterSpells();
+});
 
 // Start
 loadSpells();

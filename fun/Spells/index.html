@@ -1,15 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spell Finder</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-06DGRLH7V4"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', 'G-06DGRLH7V4');
+		</script>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+        <title>Spell Catalog</title>
+        <meta name='description' content='Spell Catalog'>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <meta name="keywords" content="spells">
+        <meta name="author" content="Brian Immel">
+        <meta name="note" content="For Jimmy.">
+		<meta name="level" content="2">
+        <meta name="version" content="0.0.1">
+        <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+        <link href="../../css/normalize.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="main.css" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        <link href="../Running_Fantasy_Business/css/main.css" rel="stylesheet" />
+        
+        <script src="../../js/jquery-3.7.1.min.js"></script>
+        <script src="../js/RPG_navigation.js"></script>
+    
 </head>
 <body>
-
     <header>
-        <h1>Spell Finder</h1>
+        <h1>Spell Catalog</h1>
     </header>
 
     <div class="filters-container">
@@ -59,10 +84,18 @@
         <div class="filter-row">
             <div class="checkbox-group">
                 <label><input type="checkbox" id="ritualFilter"> Ritual Only</label>
-                <span>| Components:</span>
+                <span class="label">| Components:</span>
                 <label><input type="checkbox" id="vComp" value="V"> V</label>
                 <label><input type="checkbox" id="sComp" value="S"> S</label>
                 <label><input type="checkbox" id="mComp" value="M"> M</label>
+            </div>
+            <div class="view-toggle">
+                <button id="cardViewBtn" class="view-btn active" title="Card View">
+                    <span>🃏 Cards</span>
+                </button>
+                <button id="listViewBtn" class="view-btn" title="List View">
+                    <span>☰ List</span>
+                </button>
             </div>
             <button id="clearFilters" class="reset-btn">Clear All Filters</button>
         </div>

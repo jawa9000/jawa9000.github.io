@@ -14,7 +14,8 @@ $(document).ready(function() {
       "../Running_Fantasy_Business/mines.html, Mines",
       "../Running_Fantasy_Business/ulrye.html, Ulrye",
       "../Spell_list/index.html, Spells",
-      "../Treasure_Generator/index.html, Treasure"
+      "../Treasure_Generator/index.html, Treasure",
+      "../Spells/index.html, Spell Catalog"
     ];
   
     let bannerHTML = '<div class="banner_nav">';
