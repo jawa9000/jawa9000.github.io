@@ -6,11 +6,33 @@ async function loadSpells() {
     try {
         const response = await fetch('spells.json');
         allSpells = await response.json();
+        populateTagFilter(); // Populate tag dropdown
         filterSpells(); // Display initial list
     } catch (error) {
         console.error("Error loading spells:", error);
         document.getElementById('spellList').innerHTML = "<p>Error loading spell data.</p>";
     }
+}
+
+// Populate Tag Filter Dropdown
+function populateTagFilter() {
+    const allTags = new Set();
+    
+    allSpells.forEach(spell => {
+        if (spell.tags && Array.isArray(spell.tags)) {
+            spell.tags.forEach(tag => allTags.add(tag));
+        }
+    });
+
+    const tagFilter = document.getElementById('tagFilter');
+    const sortedTags = Array.from(allTags).sort();
+    
+    sortedTags.forEach(tag => {
+        const option = document.createElement('option');
+        option.value = tag;
+        option.textContent = tag;
+        tagFilter.appendChild(option);
+    });
 }
 
 // 2. Filter and Sort Logic
@@ -19,6 +41,7 @@ function filterSpells() {
     const selectedClass = document.getElementById('classFilter').value;
     const selectedLevel = document.getElementById('levelFilter').value;
     const selectedSchool = document.getElementById('schoolFilter').value;
+    const selectedTag = document.getElementById('tagFilter').value;
     const isRitualOnly = document.getElementById('ritualFilter').checked;
     
     const vReq = document.getElementById('vComp').checked;
@@ -30,6 +53,7 @@ function filterSpells() {
         const matchesClass = selectedClass === 'all' || spell.classes.includes(selectedClass);
         const matchesLevel = selectedLevel === 'all' || spell.level.toString() === selectedLevel;
         const matchesSchool = selectedSchool === 'all' || spell.school === selectedSchool;
+        const matchesTag = selectedTag === 'all' || (spell.tags && spell.tags.includes(selectedTag));
         const matchesRitual = !isRitualOnly || spell.ritual === true;
         
         const matchesV = !vReq || spell.components.includes('V');
@@ -37,7 +61,7 @@ function filterSpells() {
         const matchesM = !mReq || spell.components.includes('M');
 
         return matchesSearch && matchesClass && matchesLevel && 
-               matchesSchool && matchesRitual && matchesV && matchesS && matchesM;
+               matchesSchool && matchesTag && matchesRitual && matchesV && matchesS && matchesM;
     });
 
     // Sort by Level, then Alphabetically
@@ -55,6 +79,7 @@ function resetFilters() {
     document.getElementById('classFilter').value = 'all';
     document.getElementById('levelFilter').value = 'all';
     document.getElementById('schoolFilter').value = 'all';
+    document.getElementById('tagFilter').value = 'all';
     document.getElementById('ritualFilter').checked = false;
     document.getElementById('vComp').checked = false;
     document.getElementById('sComp').checked = false;
