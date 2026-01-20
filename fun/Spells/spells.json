@@ -3963,7 +3963,7 @@
     "ritual": false,
     "classes": ["Bard", "Sorcerer", "Wizard"],
     "description": "You create a 20-foot-radius sphere of yellow, nauseating gas centered on a point within range. The cloud spreads around corners, and its area is heavily obscured. The cloud lingers in the air for the duration.<br/>Each creature that is completely within the cloud at the start of its turn must make a Constitution saving throw against poison. On a failed save, the creature spends its action that turn retching and reeling. Creatures that don’t need to breathe or are immune to poison automatically succeed on this saving throw. A moderate wind (at least 10 miles per hour) disperses the cloud after 4 rounds. A strong wind (at least 20 miles per hour) disperses it after 1 round.",
-    "higher_levels": "None provided in sources.",
+    "higher_levels": "Does not increase the size of the cloud or the DC of the saving throw.",
     "save_type": "Constitution",
     "tags": ["Control"]
   },
@@ -4059,7 +4059,7 @@
     "ritual": false,
     "classes": ["Druid", "Sorcerer", "Wizard"],
     "description": "You conjure up a wave of water that crashes down on an area within range. Each creature in that area must make a Dexterity saving throw; on a failure, it takes 4d8 bludgeoning damage and is knocked prone. The water spreads out and extinguishes unprotected flames in the area.",
-    "higher_levels": "None provided in sources.",
+    "higher_levels": "None",
     "save_type": "Dexterity",
     "tags": ["Damage", "Control"]
   },
@@ -4123,7 +4123,7 @@
     "ritual": false,
     "classes": ["Wizard"],
     "description": "You create a wall of swirling sand on the ground at a point you can see within range. The wall is up to 30 feet long, 10 feet high, and 10 feet thick, and it vanishes when the spell ends. It blocks line of sight but not movement; a creature is blinded while in the wall's space.",
-    "higher_levels": "None provided in sources.",
+    "higher_levels": "None",
     "save_type": "None",
     "tags": ["Control", "Defense"]
   },
@@ -4187,7 +4187,7 @@
     "ritual": false,
     "classes": ["Druid", "Ranger"],
     "description": "A wall of strong wind rises from the ground at a point you choose within range. You can make the wall up to 50 feet long, 15 feet high, and 1 foot thick. You can shape the wall in any way you choose so long as it makes one continuous path along the ground. The wall lasts for the duration.<br/>When the wall appears, each creature within its area must make a Strength saving throw. A creature takes 3d8 slashing damage on a failed save, or half as much damage on a successful one.<br/>The strong wind keeps fog, smoke, and other gases at bay. Small or smaller flying creatures or objects can’t pass through the wall. Loose, lightweight materials brought into the wall fly upward. Arrows, bolts, and other ordinary projectiles launched at targets behind the wall are deflected upward and automatically miss. (Boulders hurled by giants or siege engines, and similar projectiles, are unaffected.) Creatures in gaseous form can’t pass through it.",
-    "higher_levels": "None provided in sources.",
+    "higher_levels": "None",
     "save_type": "Dexterity",
     "tags": ["Control", "Defense"]
   },
@@ -4203,7 +4203,7 @@
     "ritual": false,
     "classes": ["Wizard", "Artificer"],
     "description": "You create an invisible, magical eye within range that hovers in the air for the duration. You mentally receive visual information from the eye, which has normal vision and darkvision out to 30 feet. The eye can look in every direction.<br/>As an action, you can move the eye up to 30 feet in any direction. There is no limit to how far away from you the eye can move, but it can’t enter another plane of existence. A solid barrier, such as a wall, blocks the eye’s movement, but the eye can pass through an opening as small as 1 inch in diameter.",
-    "higher_levels": "None provided in sources.",
+    "higher_levels": "Provides no benefit. It is purely a utility scouting spell.",
     "save_type": "None",
     "tags": ["Detection", "Utility"]
   },
@@ -4219,7 +4219,7 @@
     "ritual": false,
     "classes": ["Cleric", "Paladin"],
     "description": "Life-preserving energy radiates from you in an aura with a 30-foot radius. Until the spell ends, the aura moves with you, centered on you. Each nonhostile creature in the aura (including you) has resistance to necrotic damage, and its hit point maximum can't be reduced. In addition, a nonhostile creature with 0 hit points regains 1 hit point when it starts its turn in the aura.",
-    "higher_levels": "None provided in sources.",
+    "higher_levels": "Does not improve the healing or the resistance. It is often considered a \"binary\" spell—it's either on or off.",
     "save_type": "None",
     "tags": ["Healing", "Buff"]
   },
@@ -4299,7 +4299,7 @@
     "ritual": false,
     "classes": ["Bard"],
     "description": "Creatures of your choice that you can see within range and that can hear you must make a Wisdom saving throw. On a failed save, a target is affected. Until the spell ends, you can use a bonus action to designate a direction, and each affected target must move in that direction on its next turn.",
-    "higher_levels": "None provided in sources.",
+    "higher_levels": "Unlike Hold Person or Banishment, this spell does not allow you to target additional creatures when using a higher slot. It remains a single-target or multi-target effect based on your original choice within the 30-foot range.",
     "save_type": "Wisdom",
     "tags": ["Control"]
   },
@@ -7333,7 +7333,7 @@
     "ritual": false,
     "classes": ["Druid"],
     "description": "A wall of water up to 300 feet long, 300 feet high, and 50 feet thick appears. When it appears, creatures within take 6d10 bludgeoning damage (Strength save for half). At the start of each of your turns, the wall moves 50 feet away from you. Any creature the wall moves over or that is inside it must make a Strength save or take damage and be caught. The damage decreases by 1d10 each round.",
-    "higher_levels": "None.",
+    "higher_levels": "Does not increase the wall's health when frozen or the damage reduction against fire.",
     "save_type": "Strength",
     "tags": ["Damage", "Control"]
   },
