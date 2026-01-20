@@ -314,7 +314,7 @@
     "concentration": false,
     "ritual": false,
     "classes": ["Artificer", "Bard", "Sorcerer", "Warlock", "Wizard"],
-    "description": "A spectral, floating hand appears at a point you choose within range. The hand lasts for the duration ar until you dismiss it as an action. The hand vanishes if it is ever more than 30 feet away from you.",
+    "description": "A spectral, floating hand appears at a point you choose within range. The hand lasts for the duration or until you dismiss it as an action. The hand vanishes if it is ever more than 30 feet away from you.",
     "higher_levels": "None.",
     "save_type": "None",
     "tags": ["Utility"]
@@ -426,8 +426,8 @@
     "concentration": false,
     "ritual": false,
     "classes": ["Artificer", "Druid", "Sorcerer", "Warlock", "Wizard"],
-    "description": "You extend your hand toward a creature you can see within range and project a puff of noxious gas from your paIm. The creature must succeed on a Constitution saving throw ar take Idl2 poison damage.",
-    "higher_levels": "This spell's damage increases by Idl2 when you reach 5th leveI (2dI2), 11th levei (3dI2), and 17th leveI (4dI2).",
+    "description": "You extend your hand toward a creature you can see within range and project a puff of noxious gas from your paIm. The creature must succeed on a Constitution saving throw or take 1d12 poison damage.",
+    "higher_levels": "This spell's damage increases by 1dl2 when you reach 5th leveI (2dI2), 11th levei (3dI2), and 17th leveI (4dI2).",
     "save_type": "Constitution",
     "tags": ["Damage"]
   },
