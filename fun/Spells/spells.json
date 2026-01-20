@@ -6361,22 +6361,6 @@
     "save_type": "None",
     "tags": ["Utility"]
   },
-  {
-    "name": "Tasha's Otherworldly Guise",
-    "level": 6,
-    "school": "Transmutation",
-    "casting_time": "1 bonus action",
-    "range": "Self",
-    "components": "V, S, M (an object engraved with a symbol of the Outer Planes worth at least 500 gp)",
-    "duration": "Concentration, up to 1 minute",
-    "concentration": true,
-    "ritual": false,
-    "classes": ["Sorcerer", "Warlock", "Wizard"],
-    "description": "You draw on the magic of the Outer Planes to transform. You gain: Immunity to fire and poison (Lower Planes) or radiant and necrotic (Upper Planes); immunity to the poisoned (Lower) or charmed (Upper) condition; spectral wings with a 40-foot flying speed; a +2 bonus to AC; and the ability to attack twice with your action using your spellcasting modifier for weapon rolls.",
-    "higher_levels": "None.",
-    "save_type": "None",
-    "tags": ["Buff", "Mobility"]
-  }, 
     {
     "name": "Otiluke's Freezing Sphere",
     "level": 6,
@@ -7706,22 +7690,6 @@
     "tags": ["Utility", "Buff"]
   },
   {
-    "name": "Finger of Death",
-    "level": 7,
-    "school": "Necromancy",
-    "casting_time": "1 action",
-    "range": "60 feet",
-    "components": "V, S",
-    "duration": "Instantaneous",
-    "concentration": false,
-    "ritual": false,
-    "classes": ["Sorcerer", "Warlock", "Wizard"],
-    "description": "You send negative energy coursing through a creature that you can see within range, causing it searing pain. The target must make a Constitution saving throw. It takes 7d8 + 30 necrotic damage on a failed save, or half as much damage on a successful one. A humanoid killed by this spell rises at the start of your next turn as a zombie that is permanently under your command.",
-    "higher_levels": null,
-    "save_type": "Constitution",
-    "tags": ["Damage", "Summon"]
-  },
-  {
     "name": "Arcane Weapon (UA)",
     "level": 1,
     "school": "Transmutation",
@@ -7754,38 +7722,6 @@
     "tags": ["Damage", "Control"]
   },
   {
-    "name": "Air Bubble",
-    "level": 2,
-    "school": "Conjuration",
-    "casting_time": "1 action",
-    "range": "60 feet",
-    "components": "S",
-    "duration": "24 hours",
-    "concentration": false,
-    "ritual": false,
-    "classes": ["Artificer", "Druid", "Ranger", "Sorcerer", "Wizard"],
-    "description": "You create a globe of fresh air around the head of a willing creature or object within range. The globe grants the creature the ability to breathe in environments where they otherwise couldn't and lasts for the duration.",
-    "higher_levels": "When you cast this spell using a spell slot of 3rd level or higher, you can create two additional bubbles for each slot level above 2nd.",
-    "save_type": "None",
-    "tags": ["Utility", "Buff"]
-  },
-  {
-    "name": "Borrowed Knowledge",
-    "level": 2,
-    "school": "Divination",
-    "casting_time": "1 action",
-    "range": "Self",
-    "components": "V, S, M (a book worth at least 25 gp)",
-    "duration": "1 hour",
-    "concentration": false,
-    "ritual": false,
-    "classes": ["Bard", "Cleric", "Warlock", "Wizard"],
-    "description": "You draw on the knowledge of spirits past. You gain proficiency in one skill of your choice which lasts until the spell ends.",
-    "higher_levels": null,
-    "save_type": "None",
-    "tags": ["Utility", "Buff"]
-  },
-  {
     "name": "Finger of Death",
     "level": 7,
     "school": "Necromancy",
@@ -7800,38 +7736,6 @@
     "higher_levels": null,
     "save_type": "Constitution",
     "tags": ["Damage", "Summon"]
-  },
-  {
-    "name": "Arcane Weapon (UA)",
-    "level": 1,
-    "school": "Transmutation",
-    "casting_time": "1 bonus action",
-    "range": "Self",
-    "components": "V, S",
-    "duration": "Concentration, up to 1 hour",
-    "concentration": true,
-    "ritual": false,
-    "classes": ["Artificer"],
-    "description": "You channel lethal energy into a weapon you’re holding. Choose one damage type: acid, cold, fire, lightning, poison, or thunder. Until the spell ends, you deal an extra 1d6 damage of the chosen type to any target you hit with the weapon.",
-    "higher_levels": "When you cast this spell using a spell slot of 2nd level or higher, you can maintain your concentration on the spell for up to 8 hours.",
-    "save_type": "None",
-    "tags": ["Damage", "Buff"]
-  },
-  {
-    "name": "Frost Fingers",
-    "level": 1,
-    "school": "Evocation",
-    "casting_time": "1 action",
-    "range": "Self (15-foot cone)",
-    "components": "V, S",
-    "duration": "Instantaneous",
-    "concentration": false,
-    "ritual": false,
-    "classes": ["Wizard"],
-    "description": "Freezing cold blasts from your fingertips. Each creature in a 15-foot cone must make a Constitution saving throw. On a failed save, a creature takes 2d8 cold damage and has its speed reduced by 10 feet until the start of your next turn. On a success, it takes half damage.",
-    "higher_levels": "When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d8 for each slot level above 1st.",
-    "save_type": "Constitution",
-    "tags": ["Damage", "Control"]
   },
     {
     "name": "Galder's Speedy Courier",
@@ -8042,22 +7946,6 @@
     "tags": ["Damage", "Control"]
   },
   {
-    "name": "Sapping Sting",
-    "level": 0,
-    "school": "Necromancy",
-    "casting_time": "1 action",
-    "range": "30 feet",
-    "components": "V, S",
-    "duration": "Instantaneous",
-    "concentration": false,
-    "ritual": false,
-    "classes": ["Wizard (Dunamancy)"],
-    "description": "You sap the vitality of a creature you can see. The target must succeed on a Constitution saving throw or take 1d4 necrotic damage and fall prone.",
-    "higher_levels": "The damage increases by 1d4 at 5th, 11th, and 17th level.",
-    "save_type": "Constitution",
-    "tags": ["Damage", "Control"]
-  },
-  {
     "name": "Silvery Barbs",
     "level": 1,
     "school": "Enchantment",
@@ -8186,22 +8074,6 @@
     "tags": ["Technomagic", "Utility"]
   },
   {
-    "name": "Rime's Binding Ice",
-    "level": 2,
-    "school": "Evocation",
-    "casting_time": "1 action",
-    "range": "Self (30-foot cone)",
-    "components": "S, M (a vial of meltwater)",
-    "duration": "Instantaneous",
-    "concentration": false,
-    "ritual": false,
-    "classes": ["Sorcerer", "Wizard"],
-    "description": "A burst of cold energy erupts from you. Each creature in a 30-foot cone must make a Constitution save. On a failure, a creature takes 3d8 cold damage and its speed is 0 for 1 minute. A creature can use an action to break the ice and end the effect.",
-    "higher_levels": "The damage increases by 1d8 for each slot level above 2nd.",
-    "save_type": "Constitution",
-    "tags": ["Damage", "Control"]
-  },
-  {
     "name": "Sense Emotion (UA)",
     "level": 1,
     "school": "Divination",
@@ -8234,22 +8106,6 @@
     "tags": ["Technomagic", "Control"]
   },
   {
-    "name": "Skywrite",
-    "level": 2,
-    "school": "Transmutation",
-    "casting_time": "1 action",
-    "range": "Sight",
-    "components": "V, S",
-    "duration": "Concentration, up to 1 hour",
-    "concentration": true,
-    "ritual": true,
-    "classes": ["Bard", "Druid", "Wizard"],
-    "description": "You cause up to ten words to form in a part of the sky you can see. The words appear to be made of clouds and remain for the duration. Strong winds can disperse the clouds early.",
-    "higher_levels": null,
-    "save_type": "None",
-    "tags": ["Utility", "Social"]
-  },
-  {
     "name": "Spirit of Death (UA)",
     "level": 4,
     "school": "Necromancy",
@@ -8280,23 +8136,6 @@
     "higher_levels": "The damage increases by 1d10 for each slot level above 2nd.",
     "save_type": "Dexterity",
     "tags": ["Damage", "Control"]
-  },
-  
-  {
-    "name": "Sudden Awakening (UA)",
-    "level": 1,
-    "school": "Evocation",
-    "casting_time": "1 bonus action",
-    "range": "10 feet",
-    "components": "V",
-    "duration": "Instantaneous",
-    "concentration": false,
-    "ritual": false,
-    "classes": ["Sorcerer", "Wizard"],
-    "description": "Each sleeping creature you choose within range awakens, and then can stand up without expending any movement.",
-    "higher_levels": null,
-    "save_type": "None",
-    "tags": ["Utility"]
   },
   {
     "name": "Summon Draconic Spirit (UA)",
@@ -8361,22 +8200,6 @@
     "higher_levels": null,
     "save_type": "None",
     "tags": ["Technomagic", "Utility"]
-  },
-  {
-    "name": "Tasha's Otherworldly Guise",
-    "level": 6,
-    "school": "Transmutation",
-    "casting_time": "1 bonus action",
-    "range": "Self",
-    "components": "V, S, M (an object engraved with a symbol of the Outer Planes worth 500 gp)",
-    "duration": "Concentration, up to 1 minute",
-    "concentration": true,
-    "ritual": false,
-    "classes": ["Sorcerer", "Warlock", "Wizard"],
-    "description": "You utter an incantation to transform yourself. Choose: Upper Planes or Lower Planes. You gain immunity to fire and poison (Lower) or radiant and necrotic (Upper), immunity to the poisoned condition, a flying speed of 40 ft, +2 AC, and can attack twice when you take the Attack action.",
-    "higher_levels": null,
-    "save_type": "None",
-    "tags": ["Buff", "Combat"]
   },
   {
     "name": "Temporal Shunt",
@@ -8553,22 +8376,6 @@
     "higher_levels": null,
     "save_type": "None",
     "tags": ["Utility", "Stealth"]
-  },
-  {
-    "name": "Ravenous Void",
-    "level": 9,
-    "school": "Evocation",
-    "casting_time": "1 action",
-    "range": "1,000 feet",
-    "components": "V, S, M (a tiny dead star worth 1,000 gp)",
-    "duration": "Concentration, up to 1 minute",
-    "concentration": true,
-    "ritual": false,
-    "classes": ["Wizard (Dunamancy)"],
-    "description": "A 20-foot-radius sphere of gravitational force centerd on a point you choose. Any creature within 100 feet is pulled toward it. Creatures inside take 5d10 force damage and are restrained.",
-    "higher_levels": null,
-    "save_type": "Strength",
-    "tags": ["Damage", "Control"]
   },
   {
     "name": "Spray of Cards (UA)",
