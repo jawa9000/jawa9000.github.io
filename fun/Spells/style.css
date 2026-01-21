@@ -70,6 +70,18 @@ input, select {
     font-size: 0.9em;
 }
 
+.random-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.random-btn:hover { background-color: #2980b9; }
+
 .reset-btn {
     background-color: #e74c3c;
     color: white;

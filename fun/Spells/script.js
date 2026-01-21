@@ -36,7 +36,7 @@ function populateTagFilter() {
 }
 
 // 2. Filter and Sort Logic
-function filterSpells() {
+function getFilteredSpells() {
     const searchTerm = document.getElementById('searchBar').value.toLowerCase();
     const selectedClass = document.getElementById('classFilter').value;
     const selectedLevel = document.getElementById('levelFilter').value;
@@ -70,6 +70,11 @@ function filterSpells() {
         return a.name.localeCompare(b.name);
     });
 
+    return filtered;
+}
+
+function filterSpells() {
+    const filtered = getFilteredSpells();
     displaySpells(filtered);
 }
 
@@ -87,7 +92,25 @@ function resetFilters() {
     filterSpells();
 }
 
-// 4. Render to HTML
+// 4. Random Spell Picker
+function pickRandomSpell() {
+    const filtered = getFilteredSpells();
+    
+    if (filtered.length === 0) {
+        const container = document.getElementById('spellList');
+        container.innerHTML = "<p class='no-results'>No spells match your filters. Please adjust your filters and try again.</p>";
+        return;
+    }
+    
+    // Pick a random spell from the filtered list
+    const randomIndex = Math.floor(Math.random() * filtered.length);
+    const randomSpell = filtered[randomIndex];
+    
+    // Display only the random spell
+    displaySpells([randomSpell]);
+}
+
+// 5. Render to HTML
 function displaySpells(spells) {
     const container = document.getElementById('spellList');
     
@@ -240,6 +263,7 @@ document.querySelectorAll('input, select').forEach(el => {
     el.addEventListener(el.type === 'text' ? 'input' : 'change', filterSpells);
 });
 document.getElementById('clearFilters').addEventListener('click', resetFilters);
+document.getElementById('randomSpellBtn').addEventListener('click', pickRandomSpell);
 
 // View Toggle Event Listeners
 document.getElementById('cardViewBtn').addEventListener('click', function() {
