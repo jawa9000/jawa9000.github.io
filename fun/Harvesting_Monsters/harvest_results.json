@@ -1,0 +1,290 @@
+{
+  "dragon_parts": [
+    {
+      "name": "Dragon Meat",
+      "tier": "easy",
+      "base_dc": { "young": 10, "adult": 12, "ancient": 14 },
+      "yield": "Meat in kg based on size",
+      "value_gp": 50,
+      "notes": "Counts as a luxury ingredient; sells at full value even when in Sell mode."
+    },
+    {
+      "name": "Blood",
+      "tier": "easy",
+      "base_dc": { "young": 12, "adult": 14, "ancient": 16 },
+      "yield": "Blood in liters based on size",
+      "value_gp": 25,
+      "notes": "Used in potions, inks, and rituals."
+    },
+    {
+      "name": "Teeth",
+      "tier": "easy",
+      "base_dc": { "young": 13, "adult": 15, "ancient": 17 },
+      "yield": "6d6 + 4 teeth",
+      "value_gp": 10,
+      "notes": "Commonly carved into talismans or jewelry."
+    },
+    {
+      "name": "Claws",
+      "tier": "easy",
+      "base_dc": { "young": 13, "adult": 15, "ancient": 17 },
+      "yield": "2d6 claws",
+      "value_gp": 15,
+      "notes": "Excellent for light weaponry and fetishes."
+    },
+    {
+      "name": "Scales",
+      "tier": "tricky",
+      "base_dc": { "young": 15, "adult": 18, "ancient": 20 },
+      "yield": "1 set of armor",
+      "value_gp": 500,
+      "failure": "Sloppy materials: -1 to crafted item modifier and rarity"
+    },
+    {
+      "name": "Bones",
+      "tier": "tricky",
+      "base_dc": { "young": 14, "adult": 17, "ancient": 19 },
+      "yield": "Enough bone for 1–2 large weapons",
+      "value_gp": 250,
+      "failure": "Sloppy materials: -1 to crafted item modifier and rarity"
+    },
+    {
+      "name": "Horns/Spines",
+      "tier": "tricky",
+      "base_dc": { "young": 14, "adult": 17, "ancient": 19 },
+      "yield": "1d4 + 2 horns or spines",
+      "value_gp": 150,
+      "failure": "Sloppy materials: -1 to crafted item modifier and rarity"
+    },
+    {
+      "name": "Wings",
+      "tier": "tricky",
+      "base_dc": { "young": 15, "adult": 18, "ancient": 20 },
+      "yield": "1 pair of wings",
+      "value_gp": 350,
+      "failure": "Sloppy materials: -1 to crafted item modifier and rarity"
+    },
+    {
+      "name": "Draconis Fundamentum",
+      "tier": "deadly",
+      "base_dc": { "young": 18, "adult": 20, "ancient": 22 },
+      "yield": "1 draconis fundamentum",
+      "value_gp": 1500,
+      "failure": "Explosion of elemental energy; nearby creatures may take heavy damage."
+    },
+    {
+      "name": "Heart",
+      "tier": "deadly",
+      "base_dc": { "young": 18, "adult": 20, "ancient": 22 },
+      "yield": "1 heart",
+      "value_gp": 1000,
+      "failure": "Dragon's Disease; mishandling may curse the harvester."
+    }
+  ],
+  "standard_parts": [
+    {
+      "name": "Meat",
+      "tier": "easy",
+      "base_dc_formula": "10 + CR",
+      "yield": "Meat in kg based on size",
+      "value_gp": 5
+    },
+    {
+      "name": "Blood / Venom / Grisly Part",
+      "tier": "easy",
+      "base_dc_formula": "10 + CR",
+      "yield": "1 dose / 1 unit",
+      "value_gp": 25
+    },
+    {
+      "name": "Hide / Bones",
+      "tier": "tricky",
+      "base_dc_formula": "10 + CR + 2",
+      "yield": "Hide or bones for 1 piece of armor or 1–2 weapons",
+      "value_gp": 150,
+      "failure": "Sloppy materials: -1 to crafted item modifier and rarity"
+    },
+    {
+      "creature": "Beholder",
+      "name": "Eyestalks",
+      "tier": "deadly",
+      "base_dc_formula": "14 + CR",
+      "yield": "1d10 stalks",
+      "value_gp": 500,
+      "failure_description": "Accidental Ray Discharge: A clumsy extraction triggers a residual magical spasm. The harvester must succeed on a DC 16 Dexterity saving throw or be struck by a random Beholder eye ray from the surviving stalks."
+    },
+    {
+      "creature": "Basilisk",
+      "name": "Petrifying Eye",
+      "tier": "tricky",
+      "base_dc_formula": "12 + CR",
+      "yield": "1d2 eyes",
+      "value_gp": 150,
+      "failure_description": "Sloppy removal punctures the ocular fluid; the eye loses its magical properties and cannot be used to craft oils for curing petrification."
+    },
+    {
+      "creature": "Displacer Beast",
+      "name": "Displacer Tentacle",
+      "tier": "tricky",
+      "base_dc_formula": "12 + CR",
+      "yield": "2 tentacles",
+      "value_gp": 100,
+      "failure_description": "The delicate light-bending organ within the tentacle is severed incorrectly, resulting in a 'sloppy' material that imposes a -1 penalty to any crafted item's rarity or modifiers."
+    },
+    {
+      "creature": "Catoblepas",
+      "name": "Death Eye",
+      "tier": "deadly",
+      "base_dc_formula": "12 + CR",
+      "yield": "1 eye",
+      "value_gp": 250,
+      "failure_description": "The eye releases a final burst of necrotic energy. The harvester must succeed on a DC 16 Constitution saving throw or take 36 (8d8) necrotic damage as if targeted by the creature's Death Ray."
+    },
+    {
+      "creature": "Cave Fisher",
+      "name": "Adhesive Filament",
+      "tier": "easy",
+      "base_dc_formula": "10 + CR",
+      "yield": "1d4 spools",
+      "value_gp": 15,
+      "failure_description": "The filament adheres to the harvester's tools and tangles into a useless knot, becoming magically inert and losing its structural integrity."
+    },
+    {
+      "creature": "Yuan-ti Abomination",
+      "name": "Acidic Skin Gland",
+      "tier": "tricky",
+      "base_dc_formula": "12 + CR",
+      "yield": "1d6 glands",
+      "value_gp": 75,
+      "failure_description": "The gland ruptures during harvesting, drenching the harvester in corrosive slime and dealing 5 (1d10) acid damage."
+    }
+
+
+  ],
+  "dragon_blood_liters_by_size": {
+    "medium": 40,
+    "large": 80,
+    "huge": 160,
+    "gargantuan": 320
+  },
+  "standard_blood_liters_by_size": {
+    "small": 5,
+    "medium": 15,
+    "large": 30,
+    "huge": 60,
+    "gargantuan": 120
+  },
+  "plant_sap_liters_by_size": {
+    "small": 5,
+    "medium": 10,
+    "large": 25,
+    "huge": 60,
+    "gargantuan": 100
+  },
+  "ooze_acid_liters_by_size": {
+    "small": 2,
+    "medium": 5,
+    "large": 15,
+    "huge": 40,
+    "gargantuan": 80
+  },
+  "dragon_meat_kg_by_size": {
+    "medium": 80,
+    "large": 160,
+    "huge": 320,
+    "gargantuan": 640
+  },
+  "standard_meat_kg_by_size": {
+    "small": 10,
+    "medium": 25,
+    "large": 50,
+    "huge": 100,
+    "gargantuan": 200
+  },
+  "fiend_parts": [ // >> added new fiend_parts property to harvest_results.json that needs to taken into app.js to handle fiend type monsters.
+    {
+      "name": "Vial of Demon Ichor",
+      "tier": "easy",
+      "base_dc_formula": "10 + CR",
+      "yield": "1d4 vials",
+      "value_gp": 10,
+      "failure_description": "The ichor is contaminated with mundane fluids or the vial shatters during collection, rendering the substance magically inert."
+    },
+    {
+      "name": "Barbed Devil Spines",
+      "tier": "tricky",
+      "base_dc_formula": "12 + CR",
+      "yield": "2d6 spines",
+      "value_gp": 50,
+      "failure_description": "Sloppy removal causes the spines to shatter; the harvester takes 1d10 piercing damage from the jagged remains."
+    },
+    {
+      "name": "Hellfire Heart",
+      "tier": "deadly",
+      "base_dc_formula": "12 + CR",
+      "yield": "1 heart",
+      "value_gp": 5000,
+      "failure_description": "Explosive Failure: An ill-timed cut causes the heart to destabilize and explode. The harvester and all creatures within 15 feet take fire damage equal to the creature's CR in d10s."
+    },
+    {
+      "name": "Pit Fiend Wing Leather",
+      "tier": "tricky",
+      "base_dc_formula": "12 + CR",
+      "yield": "1d4 square yards",
+      "value_gp": 500,
+      "failure_description": "The hide is torn during the skinning process, resulting in 'sloppy' materials; any armor crafted from this leather suffers a -1 penalty to its AC modifier."
+    },
+    {
+      "name": "Imp Tail Barb",
+      "tier": "easy",
+      "base_dc_formula": "10 + CR",
+      "yield": "1 barb",
+      "value_gp": 5,
+      "failure_description": "The poison gland is punctured, draining the barb of its toxic potency and exposing the harvester to the imp's poison."
+    }
+  ],
+  "plant_parts": [ // >> added new plant_parts property to harvest_results.json that needs to taken into app.js to handle plant type monsters.
+    {
+      "name": "Paralytic Spores",
+      "tier": "deadly",
+      "base_dc_formula": "10 + CR",
+      "yield": "1d4 pouches",
+      "value_gp": 150,
+      "failure_description": "Hazard: The harvester accidentally inhales the spores and must succeed on a Constitution saving throw or be paralyzed for 1 minute [4, 5]."
+    },
+    {
+      "name": "Heartwood",
+      "tier": "tricky",
+      "base_dc_formula": "10 + CR",
+      "yield": "1 core log",
+      "value_gp": 500,
+      "failure_description": "Sloppy materials: The wood is splintered, resulting in a -1 penalty to the AC or attack modifier of the final crafted item [6, 7]."
+    },
+    {
+      "name": "Wind Spores",
+      "tier": "easy",
+      "base_dc_formula": "10 + CR",
+      "yield": "2d4 spores",
+      "value_gp": 30,
+      "failure_description": "The spores are released prematurely, granting 1 hour of non-breathing to the harvester but destroying the harvestable sample [8]."
+    },
+    {
+      "name": "Ruby Morel",
+      "tier": "tricky",
+      "base_dc_formula": "10 + CR",
+      "yield": "1 fungus",
+      "value_gp": 200,
+      "failure_description": "The delicate brain-like structure is bruised, losing the potency required to create an elixir of health [9, 10]."
+    },
+    {
+      "name": "Blight Ichor",
+      "tier": "easy",
+      "base_dc_formula": "10 + CR",
+      "yield": "1d6 doses",
+      "value_gp": 200,
+      "failure_description": "The ichor is contaminated, causing the harvester to suffer the effects of a confusion spell for 1 minute [11]."
+    }
+  ]
+}
+
+

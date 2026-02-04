@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="version" content="0.2.0">
+    <title>Monster Harvesting Reference</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>Monster Harvesting Reference</h1>
+      <p class="subtitle">
+        Quick DCs and yields for harvesting dragons and other creatures mid-game.
+      </p>
+    </header>
+
+    <main class="app-main">
+      <section class="controls">
+        <div class="field-group">
+          <label for="monster-name">Monster Name</label>
+          <input
+            type="text"
+            id="monster-name"
+            list="monster-list"
+            placeholder="Start typing a monster name..."
+            autocomplete="off"
+          />
+          <datalist id="monster-list"></datalist>
+          <p class="helper-text" id="monster-meta"></p>
+        </div>
+
+        <div class="field-row">
+          <div class="field-group">
+            <label for="days-since-death">Days Since Death</label>
+            <input
+              type="number"
+              id="days-since-death"
+              min="0"
+              step="1"
+              value="0"
+            />
+            <p class="helper-text">
+              +3 DC per full day the corpse has been dead.
+            </p>
+          </div>
+
+          <div class="field-group">
+            <span class="label-block">Chosen Skill</span>
+            <select id="skill-select">
+              <option value="Survival">Survival</option>
+              <option value="Nature">Nature</option>
+              <option value="Arcana">Arcana</option>
+            </select>
+            <p class="helper-text">
+              Use this skill against the listed DCs when rolling.
+            </p>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field-group">
+            <span class="label-block">Condition Modifiers</span>
+            <label class="checkbox">
+              <input type="checkbox" id="elem-damage" />
+              <span>Elemental Damage (+5 DC)</span>
+            </label>
+            <label class="checkbox">
+              <input type="checkbox" id="massive-blow" />
+              <span>Massive Fatal Blow (+10 DC)</span>
+            </label>
+          </div>
+
+          <div class="field-group">
+            <span class="label-block">Tools & Economy</span>
+            <label class="checkbox">
+              <input type="checkbox" id="harvest-tools" />
+              <span>Harvesting Tools (advantage, proficiency, &amp; half time)</span>
+            </label>
+
+            <div id="proficiency-group" class="proficiency-group" style="display: none;">
+              <label for="proficiency-bonus">Proficiency Bonus</label>
+              <input
+                type="number"
+                id="proficiency-bonus"
+                min="0"
+                max="12"
+                step="1"
+                value="0"
+                placeholder="+0"
+              />
+              <p class="helper-text">
+                Your proficiency bonus reduces the DC when using Harvesting Tools.
+              </p>
+            </div>
+
+            <label class="checkbox">
+              <input type="radio" name="price-mode" value="buy" checked />
+              <span>Buy Price</span>
+            </label>
+            <label class="checkbox">
+              <input type="radio" name="price-mode" value="sell" />
+              <span>Sell Price (½ value, except Dragon Meat)</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="summary-flags" id="summary-flags"></div>
+      </section>
+
+      <section class="results">
+        <h2>Harvest Table</h2>
+        <p class="helper-text" id="results-helper">
+          Select a monster to see harvestable parts, DCs, yields, and risks.
+        </p>
+        <div class="table-wrapper">
+          <table id="results-table">
+            <thead>
+              <tr>
+                <th>Part</th>
+                <th>Tier</th>
+                <th>Skill Check DC</th>
+                <th>Yield</th>
+                <th>Value (gp)</th>
+                <th>Risk / Notes</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <template id="deadly-warning-template">
+      Failure to remove this part safely can trigger catastrophic effects.
+    </template>
+
+    <footer class="app-footer">
+      <p>
+        Based on "Dragon Harvesting" guidelines and 5e-style harvesting rules.
+      </p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+  </html>
+
+

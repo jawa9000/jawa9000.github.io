@@ -1,0 +1,72 @@
+[
+  {
+    "name": "Young Red Dragon",
+    "type": "dragon",
+    "age": "young",
+    "size": "large",
+    "cr": 10
+  },
+  {
+    "name": "Adult Red Dragon",
+    "type": "dragon",
+    "age": "adult",
+    "size": "huge",
+    "cr": 17
+  },
+  {
+    "name": "Ancient Red Dragon",
+    "type": "dragon",
+    "age": "ancient",
+    "size": "gargantuan",
+    "cr": 24
+  },
+  {
+    "name": "Young Blue Dragon",
+    "type": "dragon",
+    "age": "young",
+    "size": "large",
+    "cr": 9
+  },
+  {
+    "name": "Adult Blue Dragon",
+    "type": "dragon",
+    "age": "adult",
+    "size": "huge",
+    "cr": 16
+  },
+  {
+    "name": "Ancient Blue Dragon",
+    "type": "dragon",
+    "age": "ancient",
+    "size": "gargantuan",
+    "cr": 23
+  },
+  {
+    "name": "Owlbear",
+    "type": "other",
+    "size": "large",
+    "cr": 3
+  },
+  {
+    "name": "Adult Green Dragon",
+    "type": "dragon",
+    "age": "adult",
+    "size": "huge",
+    "cr": 15
+  },
+  {
+    "name": "Young Black Dragon",
+    "type": "dragon",
+    "age": "young",
+    "size": "large",
+    "cr": 7
+  },
+  {
+    "name": "Troll",
+    "type": "other",
+    "size": "large",
+    "cr": 5
+  }
+]
+
+
