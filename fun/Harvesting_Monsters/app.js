@@ -294,8 +294,26 @@
 
     const parts = [];
 
+    // Helper function to check if a part matches the current monster
+    const doesPartMatchMonster = (part, monster) => {
+      if (!part.creature) return true; // If no creature specified, show for all
+      if (Array.isArray(part.creature)) {
+        return part.creature.some(creature => 
+          monster.name.toLowerCase().includes(creature.toLowerCase()) ||
+          (monster.type && monster.type.toLowerCase().includes(creature.toLowerCase()))
+        );
+      }
+      return (
+        monster.name.toLowerCase().includes(part.creature.toLowerCase()) ||
+        (monster.type && monster.type.toLowerCase().includes(part.creature.toLowerCase()))
+      );
+    };
+
     if (isDragonType && Array.isArray(harvestConfig.dragon_parts)) {
       harvestConfig.dragon_parts.forEach((part) => {
+        // Skip if this part doesn't match the current monster
+        if (!doesPartMatchMonster(part, monster)) return;
+        
         const ageKey = monster.age || extractAgeFromName(monster.name) || "adult";
         const baseFromMap =
           (part.base_dc && part.base_dc[ageKey]) || part.base_dc?.adult || 10;
@@ -321,6 +339,8 @@
 
     if (!isDragonType && Array.isArray(harvestConfig.standard_parts)) {
       harvestConfig.standard_parts.forEach((part) => {
+        // Skip if this part doesn't match the current monster
+        if (!doesPartMatchMonster(part, monster)) return;
         const baseFromFormula = computeBaseDCForStandardPart(part, monster);
         const finalDc = computeFinalDC({
           baseDc: baseFromFormula,
@@ -339,6 +359,41 @@
         });
       });
     }
+
+    const additionalTypes = [
+      'aberration_parts',
+      'beast_parts',
+      'fiend_parts',
+      'monstrosity_parts',
+      'ooze_parts',
+      'plant_parts'
+    ];
+
+    additionalTypes.forEach(type => {
+      if (Array.isArray(harvestConfig[type])) {
+        harvestConfig[type].forEach(part => {
+          // Skip if this part doesn't match the current monster
+          if (!doesPartMatchMonster(part, monster)) return;
+          
+          const baseFromFormula = computeBaseDCForStandardPart(part, monster);
+          const finalDc = computeFinalDC({
+            baseDc: baseFromFormula,
+            days,
+            elemDamage,
+            massiveBlow,
+            proficiencyBonus,
+          });
+
+          parts.push({
+            source: type.replace('_parts', ''),
+            config: part,
+            finalDc,
+            baseDc: baseFromFormula,
+            isDragonMeat: false,
+          });
+        });
+      }
+    });
 
     // Ensure Draconis Fundamentum appears before Heart in the table.
     parts.sort((a, b) => {
