@@ -201,8 +201,9 @@
     "huge": 100,
     "gargantuan": 200
   },
-  "fiend_parts": [ // >> added new fiend_parts property to harvest_results.json that needs to taken into app.js to handle fiend type monsters.
+  "fiend_parts": [
     {
+      "creature": "Demon",
       "name": "Vial of Demon Ichor",
       "tier": "easy",
       "base_dc_formula": "10 + CR",
@@ -211,6 +212,37 @@
       "failure_description": "The ichor is contaminated with mundane fluids or the vial shatters during collection, rendering the substance magically inert."
     },
     {
+      "creature": "Barbed Devil",
+      "name": "Barbed Devil Stinger",
+      "tier": "tricky",
+      "base_dc_formula": "14 + CR",
+      "yield": "1 stinger",
+      "value_gp": 500,
+      "notes": "Can be used as a +1 dagger that deals an additional 1d6 fire damage, though it breaks on a natural 1.",
+      "failure_description": "The stinger breaks during extraction, becoming too brittle to use as a weapon."
+    },
+    {
+      "creature": "Succubus",
+      "name": "Succubus/Incubus Pheromone Gland",
+      "tier": "tricky",
+      "base_dc_formula": "15 + CR",
+      "yield": "1 gland",
+      "value_gp": 750,
+      "notes": "Can be brewed into a Philter of Love or used to gain advantage on a single Persuasion check.",
+      "failure_description": "The gland ruptures, releasing its contents and affecting the harvester with its effects."
+    },
+    {
+      "creature": "Nightmare",
+      "name": "Nightmare Mane",
+      "tier": "tricky",
+      "base_dc_formula": "12 + CR",
+      "yield": "1d4 strands",
+      "value_gp": 400,
+      "notes": "The hair remains hot to the touch. It can be woven into a \"Fire-Resistant Lariat\" that deals 1d4 fire damage to anyone restrained by it.",
+      "failure_description": "The mane loses its magical heat, becoming ordinary hair."
+    },
+    {
+      "creature": "Barbed Devi",
       "name": "Barbed Devil Spines",
       "tier": "tricky",
       "base_dc_formula": "12 + CR",
@@ -219,6 +251,7 @@
       "failure_description": "Sloppy removal causes the spines to shatter; the harvester takes 1d10 piercing damage from the jagged remains."
     },
     {
+      "creature": "Fiend",
       "name": "Hellfire Heart",
       "tier": "deadly",
       "base_dc_formula": "12 + CR",
@@ -227,6 +260,7 @@
       "failure_description": "Explosive Failure: An ill-timed cut causes the heart to destabilize and explode. The harvester and all creatures within 15 feet take fire damage equal to the creature's CR in d10s."
     },
     {
+      "creature": "Pit Fiend",
       "name": "Pit Fiend Wing Leather",
       "tier": "tricky",
       "base_dc_formula": "12 + CR",
@@ -235,6 +269,7 @@
       "failure_description": "The hide is torn during the skinning process, resulting in 'sloppy' materials; any armor crafted from this leather suffers a -1 penalty to its AC modifier."
     },
     {
+      "creature": "Imp",
       "name": "Imp Tail Barb",
       "tier": "easy",
       "base_dc_formula": "10 + CR",
@@ -243,8 +278,9 @@
       "failure_description": "The poison gland is punctured, draining the barb of its toxic potency and exposing the harvester to the imp's poison."
     }
   ],
-  "plant_parts": [ // >> added new plant_parts property to harvest_results.json that needs to taken into app.js to handle plant type monsters.
+  "plant_parts": [
     {
+      "creature": ["Gas Spores", "Myconid Sovereign"],
       "name": "Paralytic Spores",
       "tier": "deadly",
       "base_dc_formula": "10 + CR",
@@ -253,6 +289,7 @@
       "failure_description": "Hazard: The harvester accidentally inhales the spores and must succeed on a Constitution saving throw or be paralyzed for 1 minute [4, 5]."
     },
     {
+      "creature": ["Treant", "Dryad"],
       "name": "Heartwood",
       "tier": "tricky",
       "base_dc_formula": "10 + CR",
@@ -261,6 +298,7 @@
       "failure_description": "Sloppy materials: The wood is splintered, resulting in a -1 penalty to the AC or attack modifier of the final crafted item [6, 7]."
     },
     {
+      "creature": ["Gas Spore", "Myconid", "Vrock"],
       "name": "Wind Spores",
       "tier": "easy",
       "base_dc_formula": "10 + CR",
@@ -269,6 +307,7 @@
       "failure_description": "The spores are released prematurely, granting 1 hour of non-breathing to the harvester but destroying the harvestable sample [8]."
     },
     {
+      "creature": "Myconid",
       "name": "Ruby Morel",
       "tier": "tricky",
       "base_dc_formula": "10 + CR",
@@ -277,12 +316,122 @@
       "failure_description": "The delicate brain-like structure is bruised, losing the potency required to create an elixir of health [9, 10]."
     },
     {
+      "creature": "Blight",
       "name": "Blight Ichor",
       "tier": "easy",
       "base_dc_formula": "10 + CR",
       "yield": "1d6 doses",
       "value_gp": 200,
       "failure_description": "The ichor is contaminated, causing the harvester to suffer the effects of a confusion spell for 1 minute [11]."
+    }
+  ],
+  "aberration_parts": [
+    {
+      "creature": "Aboleth",
+      "name": "Aboleth Mucus (Flask)",
+      "tier": "tricky",
+      "base_dc_formula": "12 + CR",
+      "yield": "1 flask",
+      "value_gp": 200,
+      "notes": "If kept in a sealed container, this can be used to coat a weapon. On a hit, the target must succeed on a CON save or lose the ability to breathe air for 1d4 hours.",
+      "failure_description": "The mucus dries out and loses its potency, becoming useless."
+    },
+    {
+      "creature": "Beholder",
+      "name": "Beholder Eye-Stalk Retina",
+      "tier": "deadly",
+      "base_dc_formula": "14 + CR",
+      "yield": "1d4 retinas",
+      "value_gp": 1000,
+      "notes": "Can be processed by an alchemist into a Potion of True Seeing or a one-time use scroll of Ray of Enfeeblement.",
+      "failure_description": "The delicate retina is damaged during extraction, rendering it useless."
+    },
+    {
+      "creature": "Mind Flayer",
+      "name": "Mind Flayer Brain-Stem",
+      "tier": "deadly",
+      "base_dc_formula": "15 + CR",
+      "yield": "1 brain-stem",
+      "value_gp": 1500,
+      "notes": "When dried and ground into a powder, it acts as a powerful component for psychic spells, increasing the DC by 1.",
+      "failure_description": "The brain-stem is damaged during extraction, losing its psionic properties."
+    }
+  ],
+  "beast_parts": [
+    {
+      "creature": "Winter Wolf",
+      "name": "Winter Wolf Vocal Chords",
+      "tier": "tricky",
+      "base_dc_formula": "12 + CR",
+      "yield": "1 set",
+      "value_gp": 300,
+      "notes": "Can be fashioned into a whistle that, when blown, mimics the terrifying howl of the pack, forcing a DC 12 WIS save against the Frightened condition.",
+      "failure_description": "The vocal chords are damaged during extraction, unable to produce the proper sound."
+    },
+    {
+      "creature": "Giant Spider",
+      "name": "Giant Spider Spinneret",
+      "tier": "tricky",
+      "base_dc_formula": "10 + CR",
+      "yield": "1 spinneret",
+      "value_gp": 250,
+      "notes": "Can be harvested intact to create 50 feet of \"Silk Rope\" that is nearly invisible (+5 to DC to spot) and has double the hit points of standard rope.",
+      "failure_description": "The spinneret is damaged, producing only half the normal amount of silk."
+    },
+    {
+      "creature": "Crag Cat",
+      "name": "Crag Cat Hide",
+      "tier": "tricky",
+      "base_dc_formula": "12 + CR",
+      "yield": "1 hide",
+      "value_gp": 600,
+      "notes": "Naturally reflects some magic; can be used to craft Bracers of Defense that specifically provide advantage on saves against Magic Missile.",
+      "failure_description": "The hide is damaged during skinning, losing some of its magical reflective properties."
+    }
+  ],
+  "monstrosity_parts": [
+    {
+      "creature": "Basilisk",
+      "name": "Basilisk Eye-Lens",
+      "tier": "deadly",
+      "base_dc_formula": "16 + CR",
+      "yield": "2 lenses",
+      "value_gp": 1200,
+      "notes": "If harvested without cracking, it can be polished into \"Petrifying Spectacles.\" Looking through them gives you a +2 to Investigation, but you have a 5% chance of accidentally petrifying yourself for 1 round on a natural 1.",
+      "failure_description": "The lenses crack during extraction, losing their petrifying properties."
+    },
+    {
+      "creature": "Displacer Beast",
+      "name": "Displacer Beast Tendon",
+      "tier": "tricky",
+      "base_dc_formula": "14 + CR",
+      "yield": "1 tendon",
+      "value_gp": 800,
+      "notes": "Highly elastic and magically \"shifty.\" Makes for a superior bowstring that adds +10 feet to the weapon's long range.",
+      "failure_description": "The tendon loses its magical elasticity, becoming no better than a normal bowstring."
+    },
+    {
+      "creature": "Hydra",
+      "name": "Hydra Gallbladder",
+      "tier": "deadly",
+      "base_dc_formula": "15 + CR",
+      "yield": "1 gallbladder",
+      "value_gp": 1000,
+      "notes": "Extremely potent bile. Can be used as a powerful acid that ignores the damage threshold of non-magical objects.",
+      "failure_description": "The gallbladder ruptures, spilling its contents and dealing acid damage to the harvester."
+    }
+  ],
+  "ooze_parts": [
+    {
+      "creature": "Black Pudding",
+      "name": "Black Pudding Residue",
+      "tier": "easy",
+      "base_dc_formula": "10 + CR",
+      "yield": "1d4 vials",
+      "value_gp": 150,
+      "notes": "A corrosive sludge that, when applied to a lock, dissolves it in 1d4 rounds (though it makes a lot of noise and smoke).",
+      "failure_description": "The residue dries out, losing its corrosive properties.",
+      "special_notes": "Makes a loud sizzling noise and produces thick smoke when used."
     }
   ]
 }
