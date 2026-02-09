@@ -1,18 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-06DGRLH7V4"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', 'G-06DGRLH7V4');
+		</script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="version" content="0.2.0">
+    <meta name='description' content='Monester Harvesting Reference'>
+    <meta name="version" content="0.2.1">
     <title>Monster Harvesting Reference</title>
+    <meta name="keywords" content="harvest, monster, javascript">
+    <meta name="author" content="Brian Immel">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="en-us">
+    <meta name="note" content="For Jimmy.">
+    <meta name="level" content="2">
+
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+    <link href="../../css/normalize.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../Running_Fantasy_Business/main.css" rel="stylesheet" />
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/RPG_navigation.js"></script>
+    <link href="../Running_Fantasy_Business/css/main.css" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
+
   </head>
   <body>
     <header class="app-header">
       <h1>Monster Harvesting Reference</h1>
-      <p class="subtitle">
-        Quick DCs and yields for harvesting dragons and other creatures mid-game.
-      </p>
+      <p>Quick DCs and yields for harvesting monsters.</p>
     </header>
 
     <main class="app-main">
@@ -27,7 +51,7 @@
             autocomplete="off"
           />
           <datalist id="monster-list"></datalist>
-          <p class="helper-text" id="monster-meta"></p>
+          <p id="monster-meta"></p>
         </div>
 
         <div class="field-row">
@@ -40,7 +64,7 @@
               step="1"
               value="0"
             />
-            <p class="helper-text">
+            <p>
               +3 DC per full day the corpse has been dead.
             </p>
           </div>
@@ -52,7 +76,7 @@
               <option value="Nature">Nature</option>
               <option value="Arcana">Arcana</option>
             </select>
-            <p class="helper-text">
+            <p>
               Use this skill against the listed DCs when rolling.
             </p>
           </div>
@@ -89,7 +113,7 @@
                 value="0"
                 placeholder="+0"
               />
-              <p class="helper-text">
+              <p>
                 Your proficiency bonus reduces the DC when using Harvesting Tools.
               </p>
             </div>
@@ -105,12 +129,12 @@
           </div>
         </div>
 
-        <div class="summary-flags" id="summary-flags"></div>
+        <!-- <div class="summary-flags" id="summary-flags"></div> -->
       </section>
 
       <section class="results">
         <h2>Harvest Table</h2>
-        <p class="helper-text" id="results-helper">
+        <p id="results-helper">
           Select a monster to see harvestable parts, DCs, yields, and risks.
         </p>
         <div class="table-wrapper">
@@ -121,7 +145,7 @@
                 <th>Tier</th>
                 <th>Skill Check DC</th>
                 <th>Yield</th>
-                <th>Value (gp)</th>
+                <th>Value</th>
                 <th>Risk / Notes</th>
               </tr>
             </thead>
@@ -134,12 +158,6 @@
     <template id="deadly-warning-template">
       Failure to remove this part safely can trigger catastrophic effects.
     </template>
-
-    <footer class="app-footer">
-      <p>
-        Based on "Dragon Harvesting" guidelines and 5e-style harvesting rules.
-      </p>
-    </footer>
 
     <script src="app.js"></script>
   </body>
