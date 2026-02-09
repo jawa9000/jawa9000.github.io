@@ -188,46 +188,6 @@
     return span;
   }
 
-  function renderSummaryFlags(monster) {
-    summaryFlags.innerHTML = "";
-    if (!monster) return;
-
-    const typeFlag = document.createElement("span");
-    typeFlag.className = "flag-pill flag-pill--accent";
-    typeFlag.textContent =
-      isDragon(monster)
-        ? "Dragon: age-based DCs"
-        : "Other: CR-based DCs";
-    summaryFlags.appendChild(typeFlag);
-
-    const age = monster.age || extractAgeFromName(monster.name);
-    if (age) {
-      const ageFlag = document.createElement("span");
-      ageFlag.className = "flag-pill";
-      ageFlag.textContent = `Age: ${age}`;
-      summaryFlags.appendChild(ageFlag);
-    }
-
-    if (monster.size) {
-      const sizeFlag = document.createElement("span");
-      sizeFlag.className = "flag-pill";
-      sizeFlag.textContent = `Size: ${monster.size}`;
-      summaryFlags.appendChild(sizeFlag);
-    }
-
-    if (harvestToolsInput.checked) {
-      const toolsFlag = document.createElement("span");
-      toolsFlag.className = "flag-pill flag-pill--accent";
-      const profBonus = Number(proficiencyBonusInput.value) || 0;
-      if (profBonus > 0) {
-        toolsFlag.textContent = `Harvesting tools: advantage, half time, -${profBonus} DC`;
-      } else {
-        toolsFlag.textContent = "Harvesting tools: advantage & half time";
-      }
-      summaryFlags.appendChild(toolsFlag);
-    }
-  }
-
   function renderMonsterMeta(monster) {
     if (!monster) {
       monsterMeta.textContent = "";
@@ -264,7 +224,7 @@
     const monster = findMonsterByName(name);
 
     renderMonsterMeta(monster);
-    renderSummaryFlags(monster);
+    // renderSummaryFlags(monster);
 
     resultsTableBody.innerHTML = "";
 
@@ -443,7 +403,7 @@
         wrapper.appendChild(warnBtn);
 
         const span = document.createElement("span");
-        span.textContent = " Failure may cause explosion or Dragon's Disease.";
+        span.textContent = " Failure may cause explosion or Monster's (i.e. Dragon's) Disease.";
         wrapper.appendChild(span);
 
         // Enforce reminder that Fundamentum must be harvested before Heart.
@@ -451,7 +411,7 @@
           const constraint = document.createElement("div");
           constraint.style.marginTop = "0.15rem";
           constraint.textContent =
-            "Fundamentum must be harvested safely before attempting the heart.";
+            "Fundamentum must be harvested safely before attempting the heart (if it exists).";
           wrapper.appendChild(constraint);
         }
       } else if (part.tier === "tricky") {
