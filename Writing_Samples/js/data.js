@@ -43,6 +43,50 @@ let samples = {
     //         other: ''
     //     }
     // },
+    'Manage IT Assets by Using a Service Request Workflow': {
+        title: 'Manage IT Assets by Using a Service Request Workflow',
+        htmlLink: 'https://help.salesforce.com/s/articleView?id=release-notes.rn_transition_it_asset_management_requests_to_structured_service_request_workflow.htm&release=260&type=5',
+        pdfLink: '',
+        description: 'This Spring ’26 release note details how to transition IT asset management from the Case object to a standardized Service Request workflow. This update allows for better structure regarding fulfillment lifecycles, SLAs, and assignments within the Agentforce IT Service environment.',
+        labels: ['Release Note'],
+        projectDetails: {
+            audience: 'Administrators and IT Service Managers using Salesforce for IT asset management.',
+            starNotes: 'To document the new IT asset management process for the Spring ’26 release, I had to first identified the transition from the Case object to the Service Request workflow. I needed to clearly outline the shift to a standardized structure for fulfillment lifecycles and SLAs while providing specific implementation steps, such as enabling the Unified Catalog. The resulting release note effectively guides users through the technical migration required for Agentforce IT Service while adhering to the technical writer\'s style guide.'
+        }
+    },
+    'Simplify User Onboarding with the Unified Employee License (UEL)': {
+        title: 'Simplify User Onboarding with the Unified Employee License (UEL)',
+        htmlLink: 'https://help.salesforce.com/s/articleView?id=release-notes.rn_it_service_unified_employee.htm&release=260&type=5',
+        pdfLink: '',
+        description: 'This release note introduces the Unified Employee License (UEL), which simplifies onboarding by replacing custom profiles with a standardized system for new employee records. It allows administrators to create an employee record from a user record with a single click within the Agentforce IT Service environment.',
+        labels: ['Release Note'],
+        projectDetails: {
+            audience: 'Administrators and IT Service Managers using Salesforce for IT asset management.',
+            starNotes: 'To document the new Unified Employee License (UEL), I identified the need to explain how this change streamlines employee provisioning by replacing legacy custom profiles. I collaborated with product teams to detail the specific requirements for Agentforce IT Service and the one-click record creation process. By clearly defining the impact on new versus existing users, I produced a concise guide that helps administrators transition to the new licensing model effectively that follows the technical writer\'s style guide.'
+        }
+    },
+    'Create Asset Records from Configuration Items': {
+        title: 'Create Asset Records from Configuration Items',
+        htmlLink: 'https://help.salesforce.com/s/articleView?id=release-notes.rn_link_cis_to_assets_for_it_am.htm&release=260&type=5',
+        pdfLink: '',
+        description: 'This release note introduces a feature that automatically creates and links asset records from discovered configuration items (CIs) in the CMDB. It enables one-way synchronization between IT Asset Management and the Configuration Management Database based on user-defined matching rules.',
+        labels: ['Release Note'],
+        projectDetails: {
+            audience: 'Administrators and IT Service Managers using Salesforce for IT asset management.',
+            starNotes: 'To document the new asset-to-CI synchronization feature, I identified the technical need for automated record creation to eliminate manual data entry in the CMDB. I collaborated with the engineering team to define the specific "Where" and "How" requirements, ensuring users knew which editions were supported and how to access the Asset and CI Sync settings. By distilling these complex synchronization rules into a concise release note, I provided a clear path for administrators to automate their asset management workflows. I followed the technical writer\'s style guide to produce this document.'
+        }
+    },
+    'Centralize Support Issue Tracking in My Tickets and Requests': {
+        title: 'Centralize Support Issue Tracking in My Tickets and Requests',
+        htmlLink: 'https://help.salesforce.com/s/articleView?id=release-notes.rn_centralize_support_issue_tracking_in_my_tickets_amp_requests.htm&release=260&type=5',
+        pdfLink: '',
+        description: 'The My Tickets and Requests hub provides employees with a centralized location to track IT requests, incidents, and cases using filterable list views and progress timelines. This feature is available for Agentforce IT Service users and is configured using the Agentforce Center template in Experience Cloud Sites.',
+        labels: ['Release Note'],
+        projectDetails: {
+            audience: 'Administrators and IT Service Managers using Salesforce for IT asset management.',
+            starNotes: 'To document the "My Tickets and Requests" hub, I identified the need for a unified interface that consolidates various support records into a single lifecycle view. I worked with product teams to specify the exact Experience Cloud template and permission sets required for administrators to enable this centralized tracking. By organizing the feature\'s visibility and configuration details into a "Where" and "How" format, I ensured IT teams can quickly deploy this streamlined fulfillment process for their employees. I followed the technical writer\'s style guide to produce this document.'
+        }
+    },
     'Integrate Weights and Biases with PyTorch': {
         title: 'Integrate Weights and Biases with PyTorch',
         htmlLink: 'Integrate_Weights_and_Biases_with_PyTorch.html',
