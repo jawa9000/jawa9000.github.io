@@ -19,7 +19,8 @@ let skills = {
         "Confluence": ['Administration', 'Front-end development', 'Theme design', 'Plugin management', 'User Macro development', 'Instructor'],
         "Jira": ['Project management', 'Workflows', 'Instructor']
     },
-    "Technical writing skills": ['API', 'API documentaiton', 'Archives wiki', 'Attention to detail', 'Automation in application development', 'Confluence API', 'Content analysis', 'Content curation', 'Content development', 'Content feedback integration', 'Content management systems', 'Content planning', 'Content research', 'Documentation', 'Documentation analysis', 'Documentation at scale', 'Documentation automation', 'Documentation communication', 'Documentation maintenance', 'Documentation procedures', 'Documentation publication automation', 'Documentation reporting', 'Documentation site design', 'Documentation tracking', 'Information architecture', 'IT documentation', 'Learning agility', 'Live classroom training', 'Program/project reporting', 'Project management scheduling', 'Problem-solving', 'Project manager', 'Project planning management', 'Proofreading', 'Remote training', 'REST API', 'ReSTful', 'SDK', 'Site documentation', 'Style guide', 'Technical writing', 'Verbal communication', 'Wiki documentation', 'Writing', 'Written communication'],
+    "Technical writing skills": ['API', 'API documentaiton', 'Archives wiki', 'Attention to detail', 'Automation in application development', 'Confluence API', 'Content analysis', 'Content curation', 'Content development', 'Content feedback integration', 'Content management systems', 'Content planning', 'Content research', 'Documentation', 'Documentation analysis', 'Documentation at scale', 'Documentation automation', 'Documentation communication', 'Documentation maintenance', 'Documentation procedures', 'Documentation publication automation', 'Documentation reporting', 'Documentation site design', 'Documentation tracking', 'Information architecture', 'IT documentation', 'Learning agility', 'Live classroom training', 'Program/project reporting', 'Project management scheduling', 'Problem-solving', 'Project manager', 'Project planning management', 'Proofreading', 'Remote training', 'REST API', 'ReSTful', 'SDK', 'Site documentation', 'Style guide', 'Technical writing', 'Verbal communication', 'Wiki documentation', 'Writing', 'Written communication', , 'Accountability', 'Adaptability', 'Emotional Intelligence', 'Agent & AI Literacy', 'Human Agent Collaboration', 'Interpersonal', 'Creative Thinking', 'Enterprise Skills', 'Leadership', 'Management', 'Organizational', 'Professionalism', 'Self-management', 'Teamwork', 'Time management', 'Work ethic'],
+    
     "Documentation types": ['Animated images', 'API documentation', 'Application note', 'Architecture guide', 'Diagrams', 'Glossary', 'Help manual', 'Illustration', 'Integration documentation', 'Landing page', 'Long-form video', 'Online help system', 'Overview', 'Reference', 'Reference manual', 'Release note', 'SDK reference', 'Short-form video', 'Static images', 'Training Guide', 'Tutorials', 'User guides'],
 
     "Photography and video": ['Desktop recording', 'Digital Photography', 'Photography', 'Video editing', 'Video production', 'Video recording'],
@@ -31,10 +32,11 @@ let skills = {
         "3D": ['Unreal Engine', 'Autodesk Maya'],
         "FTP": ['FileZilla'],
         "Google": ['Calendar', 'Docs', 'Drawings', 'Drive', 'Forms', 'Gmail', 'Sheets', 'Sites', 'Slides'],
-        "IDEs": ['Appcelerator Studio', 'Aptana', 'Atom', 'Dreamweaver', 'Eclipse', 'VS Code'],
+        "IDEs": ['Appcelerator Studio', 'Aptana', 'Atom', 'Dreamweaver', 'Eclipse', 'VS Code', 'Cursor', 'Oxygen XML Editor', 'Windsurf'],
         "Wiki": ['Confluence', 'MediaWiki'],
         "Misc graphics": ['Camtasia', 'Gimp', 'Lucidchart', 'Record My Desktop', 'SnagIt', 'Visio', 'Miro', 'Figma'],
         "Microsoft": ['Excel', 'Outlook', 'PowerPoint', 'Sharepoint', 'Word'],
-        "Misc": ['Quip', 'ADP', 'Workday', 'Docusaurus', 'Postman', 'Gemini', 'ChatGPT']
+        "AI Tools": ['Gemini', 'ChatGPT', 'NotebookLM'],
+        "Misc": ['Quip', 'ADP', 'Workday', 'Docusaurus', 'Postman', ]
     }
 }
