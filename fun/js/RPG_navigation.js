@@ -13,9 +13,10 @@ $(document).ready(function() {
       "../Running_Fantasy_Business/index.html, Business",
       "../Running_Fantasy_Business/mines.html, Mines",
       "../Running_Fantasy_Business/ulrye.html, Ulrye",
-      "../Spell_list/index.html, Spells",
+      // "../Spell_list/index.html, Spells", // This functionality is now in the Spell Catalog, so this link is redundant.
       "../Treasure_Generator/index.html, Treasure",
-      "../Spells/index.html, Spell Catalog"
+      "../Spells/index.html, Spell Catalog",
+      "../Harvesting_Monsters/index.html, Monster Harvesting"
     ];
   
     let bannerHTML = '<div class="banner_nav">';
