@@ -243,8 +243,13 @@ $(document).ready(function() {
 function displaySkillsArray(array, title, target) { // display skills that are listed from an array
     var output = '<h3>' + title + '</h3><ul>';
         
-    for (k in array[i]) {
-        output += '<li>' + array[i][k] + '</li>';
+    // Convert to array and sort alphabetically
+    var sortedSkills = array[i].sort(function(a, b) {
+        return a.localeCompare(b);
+    });
+    
+    for (k in sortedSkills) {
+        output += '<li>' + sortedSkills[k] + '</li>';
     }
 
     output += '</ul>';
@@ -255,12 +260,22 @@ function displaySkillsArray(array, title, target) { // display skills that are l
 function displaySkillsObjects(array, title, target) { // display skills that listed from an object
     var output = '<h3>' + title + '</h3><ul>';
 
-    for (k in array[i]) { // category of skill
+    // Sort categories alphabetically
+    var sortedCategories = Object.keys(array[i]).sort(function(a, b) {
+        return a.localeCompare(b);
+    });
+
+    for (k of sortedCategories) { // category of skill
         output += '<li>' + k + '</li><ul>';
 
         if (typeof(array[i][k]) != 'string') {
-            for (j in array[i][k]) { // particular skill
-                output += '<li>' + array[i][k][j] + '</li>';
+            // Sort skills within category alphabetically
+            var sortedSkills = array[i][k].sort(function(a, b) {
+                return a.localeCompare(b);
+            });
+            
+            for (j in sortedSkills) { // particular skill
+                output += '<li>' + sortedSkills[j] + '</li>';
             }
         } else {
             if (k != array[i][k]) { // only display the top level li if the content is the same as the nested li
