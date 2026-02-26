@@ -22,7 +22,7 @@ var MagicItemTableA = [
     [51, 60, 'Spell scroll (cantrip)'],
     [61, 70, 'Potion of climbing'],
     [71, 90, 'Spell scroll (1st level)'],
-    [91, 94, 'Spell scroll (2nd leve l)'],
+    [91, 94, 'Spell scroll (2nd level)'],
     [95, 98, 'Potion of greater healing'],
     [99, 99, 'Bag of holding'],
     [0, 0, 'Driftglobe']
@@ -37,7 +37,7 @@ var MagicItemTableB = [
     [45, 49, 'Potion of growth'],
     [50, 54, 'Potion of water breathing'],
     [55, 59, 'Spell scroll (2nd level)'],
-    [60, 64, 'Spell scroll (3rd leve l)'],
+    [60, 64, 'Spell scroll (3rd level)'],
     [65, 67, 'Bag of holding'],
     [68, 70, 'Keoghtom\'s ointment'],
     [71, 73, 'Oil of slipperiness'],
