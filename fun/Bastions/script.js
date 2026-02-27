@@ -311,18 +311,58 @@ function resolveBastionEvent() {
     else if (roll === 20) text += 'Magical Discovery: Temporary magic item found!';
     return text;
 }
+
+function determineMagicItemTable(level) {
+    const roll = Math.floor(Math.random() * 100) + 1;
+    let table = 'A';
+    if (level <= 4) {
+        if (roll <= 50) table = 'A';
+        else if (roll <= 78) table = 'B';
+        else if (roll <= 97) table = 'C';
+        else if (roll <= 99) table = 'F';
+        else table = 'G';
+    } else if (level <= 10) {
+        if (roll <= 5) table = 'A';
+        else if (roll <= 15) table = 'B';
+        else if (roll <= 35) table = 'C';
+        else if (roll <= 75) table = 'F';
+        else table = 'G';
+    } else if (level <= 16) {
+        if (roll <= 1) table = 'A';
+        else if (roll <= 7) table = 'B';
+        else if (roll <= 17) table = 'C';
+        else if (roll <= 67) table = 'F';
+        else table = 'G';
+    } else {
+        // Level 17 and up
+        if (roll <= 1) table = 'A';
+        else if (roll <= 3) table = 'B';
+        else if (roll <= 8) table = 'C';
+        else if (roll <= 33) table = 'F';
+        else if (roll <= 83) table = 'G';
+        else table = 'H';
+    }
+    return { table, roll };
+}
+
 // --- BP Spending ---
 document.getElementById('spendMagicItemBtn').addEventListener('click', function() {
     if (bp < 20) { alert('Not enough BP!'); return; }
+    if (!character || !Number.isFinite(character.level)) {
+        alert('Please enter a valid character level before generating a magic item.');
+        return;
+    }
+    const { table, roll } = determineMagicItemTable(character.level);
     bp -= 20;
-    if (character) character.bp = bp;
+    character.bp = bp;
     updateCharacterSummary();
-    document.getElementById('bpResults').innerHTML = 'You spent 20 BP for a magic item!';
+    const message = `You spent 20 BP for a magic item from <b>Table ${table}</b>.`;
+    document.getElementById('bpResults').innerHTML = message;
     // --- Add to turn log ---
     const now = new Date();
     turnLog.push({
         date: now.toLocaleString(),
-        result: 'Spent 20 BP for a magic item.'
+        result: message
     });
     if (turnLog.length > 50) turnLog = turnLog.slice(-50);
     renderTurnLog();
