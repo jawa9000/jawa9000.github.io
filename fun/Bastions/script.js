@@ -4,6 +4,9 @@ let bastion = null;
 let facilities = [];
 let bp = 0;
 let turnLog = [];
+let numDefenders = 0;
+let numLieutenants = 0;
+let armoryStocked = false;
 
 function updateCharacterSummary() {
     if (!character) {
@@ -156,6 +159,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const bastionOrderInput = document.getElementById('bastionOrder');
     const spendGoldLabel = document.getElementById('spendGoldLabel');
     const charLevelInput = document.getElementById('charLevel');
+    const numDefendersInput = document.getElementById('numDefenders');
+    const numLieutenantsInput = document.getElementById('numLieutenants');
+    const armoryStockedInput = document.getElementById('armoryStocked');
     const updateOrderUi = () => {
         const order = bastionOrderInput.value;
         if (maintainOptionsDiv) {
@@ -173,11 +179,27 @@ document.addEventListener('DOMContentLoaded', () => {
             renderFacilityCheckboxes();
         });
     }
+    if (numDefendersInput) {
+        numDefendersInput.addEventListener('input', () => {
+            syncStateFromForms();
+        });
+    }
+    if (numLieutenantsInput) {
+        numLieutenantsInput.addEventListener('input', () => {
+            syncStateFromForms();
+        });
+    }
+    if (armoryStockedInput) {
+        armoryStockedInput.addEventListener('change', () => {
+            syncStateFromForms();
+        });
+    }
     renderFacilityCheckboxes();
     updateFacilitiesList();
     renderTurnLog();
     updateBPButtons();
     initializeImportExportControls();
+    updateMaintainInputsFromState();
 });
 document.getElementById('turnForm').addEventListener('submit', function(e) {
     e.preventDefault();
@@ -430,7 +452,10 @@ function getCurrentState() {
         bastion,
         facilities,
         turnLog,
-        bp
+        bp,
+        numDefenders,
+        numLieutenants,
+        armoryStocked
     };
 }
 
@@ -441,6 +466,21 @@ function refreshUiFromState() {
     renderFacilityCheckboxes();
     renderTurnLog();
     updateBPButtons();
+}
+
+function updateMaintainInputsFromState() {
+    const numDefendersInput = document.getElementById('numDefenders');
+    const numLieutenantsInput = document.getElementById('numLieutenants');
+    const armoryStockedInput = document.getElementById('armoryStocked');
+    if (numDefendersInput) {
+        numDefendersInput.value = Number.isFinite(numDefenders) ? numDefenders : 0;
+    }
+    if (numLieutenantsInput) {
+        numLieutenantsInput.value = Number.isFinite(numLieutenants) ? numLieutenants : 0;
+    }
+    if (armoryStockedInput) {
+        armoryStockedInput.checked = !!armoryStocked;
+    }
 }
 
 function exportBastionState() {
@@ -494,6 +534,9 @@ function applyImportedState(state) {
     if (character) {
         character.bp = bp;
     }
+    numDefenders = typeof state.numDefenders === 'number' && !Number.isNaN(state.numDefenders) ? state.numDefenders : 0;
+    numLieutenants = typeof state.numLieutenants === 'number' && !Number.isNaN(state.numLieutenants) ? state.numLieutenants : 0;
+    armoryStocked = typeof state.armoryStocked === 'boolean' ? state.armoryStocked : !!state.armoryStocked;
     refreshUiFromState();
     if (!character) {
         $('#characterSummary').html('<em>No character data found in file.</em>');
@@ -526,6 +569,9 @@ function resetAllData() {
     facilities = [];
     turnLog = [];
     bp = 0;
+    numDefenders = 0;
+    numLieutenants = 0;
+    armoryStocked = false;
     const spendGold = document.getElementById('spendGold');
     if (spendGold) spendGold.checked = false;
     const turnResults = document.getElementById('turnResults');
@@ -609,6 +655,11 @@ function syncStateFromForms() {
     }
     const formBastion = collectBastionFromForm();
     bastion = formBastion || null;
+    const defendersVal = parseInt($('#numDefenders').val(), 10);
+    const lieutenantsVal = parseInt($('#numLieutenants').val(), 10);
+    numDefenders = Number.isFinite(defendersVal) ? defendersVal : 0;
+    numLieutenants = Number.isFinite(lieutenantsVal) ? lieutenantsVal : 0;
+    armoryStocked = $('#armoryStocked').is(':checked');
     updateCharacterSummary();
     updateBastionSummary();
 }
