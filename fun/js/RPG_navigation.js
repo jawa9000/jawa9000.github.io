@@ -1,22 +1,22 @@
 $(document).ready(function() {
     const urls = [ // update this list with new RGP tools are added.
       // "../Apothecary/index.html, Apothecary",
-      "../Culinarian/index.html, Culinarian",
-      "../Critical_Hit_Fumble/index.html, Criticals",
-      "../Dragon_Generator/index.html, Dragon Gen",
-      "../Encounter_Builder/monster_catalog.html, Monster Catalog",
-      "../Encounter_Builder/index.html, Monster Encounters",
-      "../Fantasy_Character_Generator/index.html, Char Gen",
-      "../Monster_Sheet/index.html, Monster Sheet",
-      "../Random_Weather/index.html, Weather",
       "../Bastions/index.html, Bastions",
       "../Running_Fantasy_Business/index.html, Business",
+      "../Fantasy_Character_Generator/index.html, Char Generator",
+      "../Critical_Hit_Fumble/index.html, Critical Hit and Fumble",
+      "../Culinarian/index.html, Culinarian",
+      "../Dragon_Generator/index.html, Dragon Generator",
       "../Running_Fantasy_Business/mines.html, Mines",
-      "../Running_Fantasy_Business/ulrye.html, Ulrye",
-      // "../Spell_list/index.html, Spells", // This functionality is now in the Spell Catalog, so this link is redundant.
-      "../Treasure_Generator/index.html, Treasure",
+      "../Encounter_Builder/monster_catalog.html, Monster Catalog",
+      "../Encounter_Builder/index.html, Monster Encounters",
+      "../Harvesting_Monsters/index.html, Monster Harvesting",
+      "../Monster_Sheet/index.html, Monster Sheet",
       "../Spells/index.html, Spell Catalog",
-      "../Harvesting_Monsters/index.html, Monster Harvesting"
+      "../Treasure_Generator/index.html, Treasure",
+      "../Running_Fantasy_Business/ulrye.html, Ulrye",
+      "../Random_Weather/index.html, Weather",
+      // "../Spell_list/index.html, Spells", // This functionality is now in the Spell Catalog, so this link is redundant.
     ];
 
     const hamburgerStyles = `
