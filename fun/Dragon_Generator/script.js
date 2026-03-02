@@ -1,5 +1,7 @@
 
 var nicknames = [];
+var currentAge = null;
+var currentColor = null;
 
 function generateDragon() {
     // reset nicknames each time
@@ -11,6 +13,10 @@ function generateDragon() {
 
     var dragonAge = selectedAge || roller(age);
     var dragonColor = selectedColor || roller(colors);
+
+    // track current age/color for per-field regeneration
+    currentAge = dragonAge;
+    currentColor = dragonColor;
 
     var hoard = pickHoard(dragonAge, dragonColor);
     var appearance = rndAppearanceMods(dragonAge);
@@ -136,6 +142,155 @@ $(function () {
         e.preventDefault();
         generateDragon();
     });
+
+    // click-to-regenerate single fields
+    $('p#mannerism').on('click', function () {
+        $(this).html('<strong>Mannerism</strong>: ' + roller(mannerisms));
+    });
+
+    $('p#bond').on('click', function () {
+        $(this).html('<strong>Bond</strong>: ' + roller(bonds));
+    });
+
+    $('p#flawSecret').on('click', function () {
+        $(this).html('<strong>Flaw/Secret</strong>: ' + roller(flawsSecrets));
+    });
+
+    $('p#goal').on('click', function () {
+        if (currentAge) {
+            $(this).html('<strong>Goal</strong>: ' + pickGoal(currentAge));
+        }
+    });
+
+    $('p#personality').on('click', function () {
+        if (currentColor) {
+            $(this).html('<strong>Personality</strong>: ' + pickPersonality(currentColor));
+        }
+    });
+
+    $('p#ideal').on('click', function () {
+        if (currentColor) {
+            $(this).html('<strong>Ideal</strong>: ' + pickIdeal(currentColor));
+        }
+    });
+
+    $('p#hook').on('click', function () {
+        if (currentColor) {
+            $(this).html('<strong>Hook</strong>: ' + pickHook(currentColor));
+        }
+    });
+
+    $('p#connection').on('click', function () {
+        if (currentColor && currentAge) {
+            $(this).html('<strong>Connection</strong>: ' + pickConnection(currentColor, currentAge));
+        }
+    });
+
+    $('p#origninDragonEgg').on('click', function () {
+        $(this).html('<strong>Origin Dragon Egg</strong>: ' + roller(originDragonAges));
+    });
+
+    $('p#deathThroe').on('click', function () {
+        $(this).html('<strong>Death Throe</strong>: ' + roller(deathThroes));
+    });
+
+    $('p#echo').on('click', function () {
+        $(this).html('<strong>Echo</strong>: ' + roller(echoCharacteristics));
+    });
+
+    $('p#encounterComplication').on('click', function () {
+        $(this).html('<strong>Encounter Complication</strong>: ' + roller(encounterComplications));
+    });
+
+    $('p#location').on('click', function () {
+        $(this).html('<strong>Location</strong>: ' + roller(lairLocation));
+    });
+
+    $('p#hoardItemQuark').on('click', function () {
+        $(this).html('<strong>Hoard Item Quark</strong>: ' + roller(hoardItemQuarks));
+    });
+
+    $('p#hoardLinkingItem').on('click', function () {
+        $(this).html('<strong>Hoard Linking Item</strong>: ' + roller(hoardLinkingItems));
+    });
+
+    $('p#unfinishedBusiness').on('click', function () {
+        $(this).html('<strong>Unfinished Business</strong>: ' + roller(unfinishedBusiness));
+    });
+
+    $('p#hoardCurseEffect').on('click', function () {
+        $(this).html('<strong>Hoard Curse Effect</strong>: ' + roller(hoardCurseEffects));
+    });
+
+    $('p#breakingHoardCurse').on('click', function () {
+        $(this).html('<strong>Breaking Hoard Curse</strong>: ' + roller(breakingHoardCurse));
+    });
+
+    $('p#hoardMagic').on('click', function () {
+        $(this).html('<strong>Hoard Magic</strong>: ' + roller(hoardMagic));
+    });
+
+    $('p#coinOrigin').on('click', function () {
+        $(this).html('<strong>Coin Origin</strong>: ' + pickCoinOrigin());
+    });
+
+    // regenerate appearance block
+    $('p#appearance').on('click', function () {
+        if (!currentAge) {
+            return;
+        }
+        var appearance = rndAppearanceMods(currentAge);
+        if (appearance.length > 0) {
+            if (appearance == 'Normal appearance') {
+                $(this).html('<strong>Appearance</strong>: normal');
+            } else if (appearance[0] && appearance[0].length > 0) {
+                var output = '<div id="appearanceMod"><strong>Appearance</strong><ol>';
+                for (var j = 0; j < appearance[0].length; j++) {
+                    output += '<li>' + appearance[0][j] + '</li>';
+                }
+                output += '</ol></div>';
+                $(this).html(output);
+            }
+        }
+    });
+
+    // clicking any hoard value regenerates the full hoard for current age/color
+    function regenHoard() {
+        if (!currentAge || !currentColor) {
+            return;
+        }
+        var hoard = pickHoard(currentAge, currentColor);
+        $('p#cp').html(hoard.cp);
+        $('p#sp').html(hoard.sp);
+        $('p#gp').html(hoard.gp);
+        if (hoard.pp) {
+            $('p#pp').html(hoard.pp);
+        } else {
+            $('p#pp').html('');
+        }
+        if (hoard.gems) {
+            renderHoard(hoard.gems, 'p#gems');
+        } else {
+            $('p#gems').html('');
+        }
+        if (hoard.art) {
+            renderHoard(hoard.art, 'p#art');
+        } else {
+            $('p#art').html('');
+        }
+        if (hoard.mundane) {
+            renderHoard(hoard.mundane, 'p#mundane');
+        } else {
+            $('p#mundane').html('');
+        }
+        if (hoard.magic) {
+            renderHoard(hoard.magic, 'p#magic');
+        } else {
+            $('p#magic').html('');
+        }
+    }
+
+    $('p#cp, p#sp, p#gp, p#pp, p#gems, p#art, p#mundane, p#magic').on('click', regenHoard);
 
     // generate an initial random dragon
     generateDragon();
