@@ -143,6 +143,35 @@ $(function () {
         generateDragon();
     });
 
+    // regenerate name only
+    $('h1#name').on('click', function () {
+        $(this).html(pickName());
+    });
+
+    // regenerate nicknames only
+    $('h3#nicknames').on('click', function () {
+        if (!currentAge) {
+            return;
+        }
+        nicknames = [];
+        if (currentAge == 'Wyrmling') { // 0-2
+            nicknameLoop(pickNum(3));
+        } else if (currentAge == 'Young') { // 1-3
+            nicknameLoop(pickNum(3) + 1);
+        } else if (currentAge == 'Adult') { // 1-4
+            nicknameLoop(pickNum(4) + 1);
+        } else if (currentAge == 'Ancient') { // 3-7
+            nicknameLoop(pickNum(4) + 3);
+        }
+
+        var nickname = '';
+        for (var i in nicknames) {
+            nickname += '"' + nicknames[i] + '", ';
+        }
+        nickname = nickname.replace(/,\s*$/, '');
+        $(this).html(nickname);
+    });
+
     // click-to-regenerate single fields
     $('p#mannerism').on('click', function () {
         $(this).html('<strong>Mannerism</strong>: ' + roller(mannerisms));
@@ -254,8 +283,8 @@ $(function () {
         }
     });
 
-    // clicking any hoard value regenerates the full hoard for current age/color
-    function regenHoard() {
+    // separate regeneration for treasure sections
+    function regenCoins() {
         if (!currentAge || !currentColor) {
             return;
         }
@@ -268,21 +297,49 @@ $(function () {
         } else {
             $('p#pp').html('');
         }
+    }
+
+    function regenGems() {
+        if (!currentAge || !currentColor) {
+            return;
+        }
+        var hoard = pickHoard(currentAge, currentColor);
         if (hoard.gems) {
             renderHoard(hoard.gems, 'p#gems');
         } else {
             $('p#gems').html('');
         }
-        if (hoard.art) {
-            renderHoard(hoard.art, 'p#art');
-        } else {
-            $('p#art').html('');
+    }
+
+    function regenMundane() {
+        if (!currentAge || !currentColor) {
+            return;
         }
+        var hoard = pickHoard(currentAge, currentColor);
         if (hoard.mundane) {
             renderHoard(hoard.mundane, 'p#mundane');
         } else {
             $('p#mundane').html('');
         }
+    }
+
+    function regenArt() {
+        if (!currentAge || !currentColor) {
+            return;
+        }
+        var hoard = pickHoard(currentAge, currentColor);
+        if (hoard.art) {
+            renderHoard(hoard.art, 'p#art');
+        } else {
+            $('p#art').html('');
+        }
+    }
+
+    function regenMagic() {
+        if (!currentAge || !currentColor) {
+            return;
+        }
+        var hoard = pickHoard(currentAge, currentColor);
         if (hoard.magic) {
             renderHoard(hoard.magic, 'p#magic');
         } else {
@@ -290,7 +347,13 @@ $(function () {
         }
     }
 
-    $('p#cp, p#sp, p#gp, p#pp, p#gems, p#art, p#mundane, p#magic').on('click', regenHoard);
+    // coins: clicking any coin line regenerates all coins
+    $('p#cp, p#sp, p#gp, p#pp').on('click', regenCoins);
+    // each treasure group regenerates independently
+    $('p#gems').on('click', regenGems);
+    $('p#mundane').on('click', regenMundane);
+    $('p#art').on('click', regenArt);
+    $('p#magic').on('click', regenMagic);
 
     // generate an initial random dragon
     generateDragon();
