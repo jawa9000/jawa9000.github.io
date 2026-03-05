@@ -18,7 +18,7 @@
     <meta name="keywords" content="javascript, random">
     <meta name="author" content="Brian Immel">
     <meta name="level" content="2">
-    <meta name="version" content="0.0.1">
+    <meta name="version" content="0.1.0">
     <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
     <link href="../../css/normalize.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
@@ -27,11 +27,6 @@
     <script src="../../js/jquery-3.7.1.min.js"></script>
     <script src="../js/RPG_navigation.js"></script>
     <link href="../Running_Fantasy_Business/css/main.css" rel="stylesheet" />
-    <style>
-        input {
-            width: 60px;
-        }
-    </style>
 </head>
 
 <body>
@@ -40,15 +35,81 @@
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-10">
-                <label for="days">Days</label>
-                <input id="days" type="number" min="1" step="1" max="365" value="7">
-                <label for="dailyCosts">Daily Costs (gp)</label>
-                <input id="dailyCosts" type="number" min=".5" step=".5" value="5">
-                <label for="balance">Starting Balance (gp)</label>
-                <input id="balance" type="number" min="1" step="1" value="100">
-                <button>Run</button>
+                <div class="form-group">
+                    <label for="businessType">Business Type</label>
+                    <select id="businessType">
+                        <option value="">-- Select a Business --</option>
+                        <option value="Inn / Tavern">Inn / Tavern</option>
+                        <option value="General Store">General Store</option>
+                        <option value="Smithy">Smithy</option>
+                        <option value="Shrine / Chapel">Shrine / Chapel</option>
+                        <option value="Market Square">Market Square</option>
+                        <option value="Stables">Stables</option>
+                        <option value="Apothecary">Apothecary</option>
+                        <option value="Armorer / Weaponsmith">Armorer / Weaponsmith</option>
+                        <option value="Bank / Moneychanger">Bank / Moneychanger</option>
+                        <option value="Bowyer / Fletcher">Bowyer / Fletcher</option>
+                        <option value="Jeweler / Gemcutter">Jeweler / Gemcutter</option>
+                        <option value="Leatherworker">Leatherworker</option>
+                        <option value="Scribe / Cartographer">Scribe / Cartographer</option>
+                        <option value="Tailor / Clothier">Tailor / Clothier</option>
+                        <option value="Arcane Shop / Magic Shop">Arcane Shop / Magic Shop</option>
+                        <option value="Alchemist's Laboratory">Alchemist's Laboratory</option>
+                        <option value="Wainwright / Wheelwright">Wainwright / Wheelwright</option>
+                        <option value="Tattoo Parlor">Tattoo Parlor</option>
+                        <option value="University / Great Library">University / Great Library</option>
+                        <option value="Auction House">Auction House</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Business Category:</label>
+                    <div class="tier-display" id="tierDisplay">-- Select a business --</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="days">Days</label>
+                    <input id="days" type="number" min="1" step="1" max="365" value="7">
+                </div>
+
+                <div class="form-group">
+                    <label for="dailyCosts">Daily Maintenance Costs (gp)</label>
+                    <input id="dailyCosts" type="number" min=".5" step=".1" value="2">
+                </div>
+
+                <div class="form-group">
+                    <label for="balance">Starting Balance (gp)</label>
+                    <input id="balance" type="number" min="1" step="1" value="100">
+                </div>
+
+                <div class="form-group">
+                    <label for="season">Starting Season</label>
+                    <select id="season">
+                        <option value="Spring">Spring</option>
+                        <option value="Summer">Summer</option>
+                        <option value="Fall" selected>Fall</option>
+                        <option value="Winter">Winter</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="taxRate">Daily Tax Rate (%)</label>
+                    <input id="taxRate" type="number" min="0" max="100" step="0.1" value="10">
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="ownerAdventuring"> Owner is Adventuring (No profit, maintenance costs apply)
+                    </label>
+                </div>
+
+                <button>Run Simulation</button>
                 <br/>
                 <a href="reference.html" title="Reference information for different types of businesses and construction costs and time." class="rpg_link" target="_blank">Buildings Reference</a>
+
+                <div class="legend">
+                    <strong>Legend:</strong> <span class="common">● Common</span> | <span class="uncommon">● Uncommon</span> | <span class="rare">● Rare/Specialized</span>
+                </div>
             </div>
             <div class="col-md-1"></div>
         </div>
@@ -66,205 +127,6 @@
     </div>
 </body>
 
-<script>
-    let businessEvents = {
-        'negative-1p5': {
-            name: 'negative-1p5',
-            first: 1,
-            second: 20,
-            description: 'You must pay one and a halftimes the business\'s maintenance cost for each of the days.',
-            effect: '-1.5'
-        },
-        'negative-1': {
-            name: 'negative-1',
-            first: 21,
-            second: 30,
-            description: '21-30 You must pay the business\'s full maintenance cost for each of the days.',
-            effect: '-1'
-        },
-        'negative-p5': {
-            name: 'negative-p5',
-            first: 31,
-            second: 40,
-            description: 'You must pay half the business\'s maintenance cost for each of the days. Profits cover the other half.',
-            effect: '-0.5'
-        },
-        'breakeven': {
-            name: 'breakeven',
-            first: 41,
-            second: 60,
-            description: 'The business covers its own maintenance cost for each of the days.',
-            effect: '0'
-        },
-        'profit1d6x5': {
-            name: 'profit1d6x5',
-            first: 61,
-            second: 80,
-            description: 'The business covers its own maintenance cost for each of the days. It earns a profit of ld6 x 5 gp.',
-            effect: '1d6x5'
-        },
-        'profit2d8x5': {
-            name: 'profit2d8x5',
-            first: 81,
-            second: 90,
-            description: 'The business covers its own maintenance cost for each of the days. It earns a profit of 2d8 x 5 gp.',
-            effect: '2d8x5'
-        },
-        'profit3d10x5': {
-            name: 'profit3d10x5',
-            first: 91,
-            second: 100,
-            description: 'The business covers its own maintenance cost for higher each of the days. It earns a profit of 3dl0 x 5 gp.',
-            effect: '3d10x5'
-        }
-    }
-
-    $('button').on('click', function () {
-        $('div#output').html('');
-        var days = $('input#days').val(); // number of days to simulate
-
-        if (days > 365) { // limit the amount of days to simulate. When testing, I found performance problems trying to simulate 10 years.
-            days = 365;
-            $('input#days').val(365);
-        }
-
-        var worth = parseInt($('input#balance').val()); // balance
-        var initWorth = worth;
-        var dailyCosts = $('input#dailyCosts').val(); // how much it costs to run the business daily
-        var output = '';
-        var totals = []; // daily results to be used in a chart
-        var allDays = [];
-
-            
-        /*
-            Mining output reference: https://angrygolem-games.com/dwarves-mining-4-dd-mining-guide-mining-output/
-            Wages reference: https://www.dandwiki.com/wiki/Wages_(DnD_Other)
-            Digging out a mountain reference: https://rpg.stackexchange.com/questions/145167/roughly-how-much-would-it-cost-to-hire-a-team-of-dwarves-to-build-a-home-into-a
-        */
-
-        for (var i = 0; i < days; i++) {        
-            var roll = rndNum(100); // roll d100
-
-            for (j in businessEvents) {
-                if (roll >= businessEvents[j].first && roll <= businessEvents[j].second) {
-                    var result = businessEvents[j].name;
-                    var day = 'day ' + (i + 1);
-
-                    if (result == 'negative-1p5') {
-                        var plusMinus = ' lost ';
-                        var dayCosts = dailyCosts * 1.5;
-
-                        worth = worth - dayCosts;
-
-                        output += '<p>' + day + plusMinus + dayCosts + 'gp. Balance: ' + worth + 'gp.' + '</p>'
-                    } else if (result == 'negative-1') {
-                        var plusMinus = ' lost ';
-                        var dayCosts = dailyCosts * 1;
-
-                        worth = worth - dayCosts;
-                        output += '<p>' + day + plusMinus + dayCosts + 'gp. Balance: ' + worth + 'gp.' + '</p>'
-                    } else if (result == 'negative-p5') {
-                        var plusMinus = ' lost ';
-                        var dayCosts = dailyCosts * 0.5;
-
-                        worth = worth - dayCosts;
-                        
-                        output += '<p>' + day + plusMinus + dayCosts + 'gp. Balance: ' + worth + 'gp.' + '</p>'
-                    } else if (result == 'breakeven') { // no change
-                        output += '<p>' + day + ' broke even. Balance: ' + worth + 'gp.' + '</p>'
-                    } else if (result == 'profit1d6x5') {
-                        var plusMinus = ' gained ';
-                        var dayCosts = rndNum(6) * dailyCosts;
-
-                        worth += dayCosts;
-                        
-                        output += '<p>' + day + plusMinus + dayCosts + 'gp. Balance: ' + worth + 'gp.' + '</p>'
-                    } else if (result == 'profit2d8x5') {
-                        var dayCosts = 0;
-                        var plusMinus = ' gained ';
-
-                        for (var k = 0; k < 2; k++) {
-                            dayCosts += rndNum(8) * dailyCosts;
-                        }
-
-                        worth += dayCosts;
-                    
-                        output += '<p>' + day + plusMinus + dayCosts + 'gp. Balance: ' + worth + 'gp.' + '</p>'
-                    } else if (result == 'profit3d10x5') {
-                        var dayCosts = 0;
-                        var plusMinus = ' gained ';
-
-                        for (var k = 0; k < 3; k++) {
-                            dayCosts += rndNum(10) * dailyCosts;
-                        }
-
-                        worth += dayCosts;
-                        
-                        output += '<p>' + day + plusMinus + dayCosts + 'gp. Balance: ' + worth + 'gp.' + '</p>'
-                    }                   
-                }
-            }
-
-            totals.push(worth);
-        }
-
-        drawGraph(totals);
-
-        if (initWorth > worth) {
-            var summary = '<h4>Starting amount: ' + numberWithCommas(initWorth) + 'gp. Net lost of ' + numberWithCommas((worth - initWorth) * -1) + 'gp over ' + days + ' days. Balance: ' + numberWithCommas(worth) + 'gp.</h3>';
-        } else if (initWorth == worth) {
-            var summary = '<h4>Your business broke even.</h3>';
-        } else {
-            var summary = '<h4>Starting amount: ' + initWorth + 'gp. Net gain of ' + numberWithCommas(worth - initWorth) + 'gp over ' + days + ' days. Balance: ' + numberWithCommas(worth) + 'gp.</h3>';
-        }
-        
-        $('div#output').append(output);
-        $('div#output').prepend(summary);
-    });
-    
-
-    function rndNum(x) {
-        return Math.floor(Math.random() * x) + 1;
-    }
-
-    function drawGraph(dataArr) {  // borrowed from https://instructobit.com/tutorial/90/Creating-line-graphs-with-Javascript-using-an-HTML-canvas
-        var canvas = document.getElementById("balanceCanvas");  
-        var context = canvas.getContext("2d");  
-        var GRAPH_TOP = 25;  
-        var GRAPH_BOTTOM = 375;  
-        var GRAPH_LEFT = 25;  
-        var GRAPH_RIGHT = 475;  
-        var GRAPH_HEIGHT = 350;  
-        var GRAPH_WIDTH = 450;  
-        var largest = 0;  
-
-        for (var i = 0; i < dataArr.length; i++) {
-            if (dataArr[ i ] > largest) {
-                largest = dataArr[i];
-            }  
-        }  
-    
-        context.clearRect(0, 0, 500, 400);
-        context.font = "12px Arial";  
-        context.beginPath();  
-        context.lineJoin = "round";  
-        context.strokeStyle = "black";  
-        context.moveTo(GRAPH_LEFT, (GRAPH_HEIGHT - dataArr[0] / largest * GRAPH_HEIGHT) + GRAPH_TOP);  
-        context.fillText("1", 15, GRAPH_BOTTOM + 25);
-
-        for (var i = 1; i < dataArr.length; i++) {  
-            context.lineTo(GRAPH_RIGHT / dataArr.length * i + GRAPH_LEFT, (GRAPH_HEIGHT - dataArr[i] / largest * GRAPH_HEIGHT) + GRAPH_TOP);
-            context.fillText((i + 1), GRAPH_RIGHT / dataArr.length * i, GRAPH_BOTTOM + 25);
-        }  
-
-        context.stroke();  
-    }
-
-    function numberWithCommas(x) {
-        var parts = x.toString().split(".");
-        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        return parts.join(".");
-    }
-</script>
+<script src="js/main.js"></script>
 
 </html>
