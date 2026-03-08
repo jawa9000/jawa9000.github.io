@@ -8,6 +8,7 @@ $(function () {
     let minedOutputTotal = {};
     let grandTotal = 0;
     let miningLocks = {}; // {coal: true, gold: true, ...} true=can mine
+    let disabledItems = new Set(); // items removed via checkbox
 
     // --- Event Handlers ---
     $('#mine').on('click', function () {
@@ -16,22 +17,86 @@ $(function () {
 
     $('#toggle').on('click', function () {
         const enable = $(this).val() === 'Enable';
-        $('#output input[type="checkbox"]').prop('checked', enable);
+        $('#output input[type="checkbox"].mined').prop('checked', enable);
+        // When enabling all, clear disabledItems; when disabling all, add all.
+        $('#output input[type="checkbox"].mined').each(function () {
+            const id = $(this).attr('id');
+            if (enable) {
+                disabledItems.delete(id);
+            } else {
+                disabledItems.add(id);
+            }
+        });
         $(this).val(enable ? 'Disable' : 'Enable').text(enable ? 'Disable' : 'Enable');
         updateSummary();
     });
 
     $('#showHide').on('click', function () {
-        const show = $(this).val() === 'Show';
-        $('#output input[type="checkbox"]').each(function () {
-            if (!$(this).is(':checked')) {
-                $(this).closest('p').toggle(show);
-            }
-        });
-        $(this).val(show ? 'Hide' : 'Show').text(show ? 'Hide' : 'Show');
+        // Treat initial "Show/Hide" value as "Show"
+        const isShowAction = $(this).val() === 'Show' || $(this).val() === 'Show/Hide';
+
+        if (isShowAction) {
+            // Rebuild the output list to include all materials, even ones that
+            // were previously removed/hidden. Disabled items will appear with
+            // unchecked checkboxes and zero output unless they've generated.
+            const allIds = new Set();
+            [stones, metals, exotics, gemstones].forEach(group => {
+                Object.keys(group).forEach(key => allIds.add(key));
+            });
+
+            let outputHtml = '';
+            allIds.forEach(id => {
+                const source =
+                    (stones[id] && stones[id]) ||
+                    (metals[id] && metals[id]) ||
+                    (exotics[id] && exotics[id]) ||
+                    (gemstones[id] && gemstones[id]);
+                if (!source) {
+                    return;
+                }
+
+                const stats = minedOutputTotal[id] || { id, name: source.name, tally: 0, count: 0 };
+                const isLocked = !!miningLocks[id];
+                const icon = isLocked ? '🔒' : '🔓';
+                const lockedAttr = isLocked ? 'true' : 'false';
+                const isDisabled = disabledItems.has(id);
+                const checkedAttr = isDisabled ? '' : 'checked';
+
+                outputHtml += `<p class="indented">
+                    <input type="checkbox" class="mined" id="${id}" ${checkedAttr}>
+                    <span class="mining-lock-icon" data-lock-id="${id}" data-locked="${lockedAttr}" title="Toggle mining lock" style="cursor:pointer;user-select:none;font-size:1.2em;margin-left:7px;vertical-align:middle;">${icon}</span>
+                    ${stats.name}: <span>${numberWithCommas(Math.round(stats.tally || 0))} gp (${numberWithCommas(stats.count || 0)} units)</span>
+                </p>`;
+            });
+
+            $('#output').html(outputHtml);
+            $('#toggle, #showHide').prop('disabled', false);
+            $(this).val('Hide').text('Hide');
+        } else {
+            // Hide disabled/unchecked materials from view, keep enabled items visible.
+            $('#output input[type="checkbox"].mined').each(function () {
+                const id = $(this).attr('id');
+                const isDisabled = disabledItems.has(id) || !$(this).is(':checked');
+                $(this).closest('p').toggle(!isDisabled);
+            });
+            $(this).val('Show').text('Show');
+        }
+
+        updateSummary();
     });
 
-    $('#output').on('change', 'input[type="checkbox"]', function () {
+    $('#output').on('change', 'input[type="checkbox"].mined', function () {
+        const id = $(this).attr('id');
+        // If the user unchecks this box, remove the item from the list
+        // and mark it as disabled so it is no longer generated.
+        if (!$(this).is(':checked')) {
+            disabledItems.add(id);
+            $(this).closest('p').remove();
+        } else {
+            // Re-enabling via checkbox clears the disabled state so
+            // the item can be generated again.
+            disabledItems.delete(id);
+        }
         updateSummary();
     });
 
@@ -44,7 +109,24 @@ $(function () {
     function initLocksFromDOMorDefault() {
         $("#output .mining-lock-icon").each(function() {
             const id = $(this).data('lock-id');
-            miningLocks[id] = $(this).attr('data-locked') === 'false' ? false : true;
+            // data-locked="true" means the icon is in a LOCKED state,
+            // which we interpret as "this item is allowed to be mined".
+            miningLocks[id] = $(this).attr('data-locked') === 'true';
+        });
+    }
+
+    // Ensure every material has an explicit lock state. By default,
+    // items start as "locked" (allowed to be mined) until the user unlocks them.
+    function initDefaultLocks() {
+        if (Object.keys(miningLocks).length > 0) {
+            return;
+        }
+        [stones, metals, exotics, gemstones].forEach(group => {
+            Object.keys(group).forEach(key => {
+                if (!miningLocks.hasOwnProperty(key)) {
+                    miningLocks[key] = true;
+                }
+            });
         });
     }
 
@@ -77,6 +159,8 @@ $(function () {
         initTally(exotics);
         initTally(gemstones);
 
+        // Make sure we have default lock states, then sync from UI
+        initDefaultLocks();
         // Always re-initialize locks based on UI before running
         initLocksFromDOMorDefault();
 
@@ -105,8 +189,14 @@ $(function () {
                     for (const key in group) {
                         const mat = group[key];
                         if (matRoll >= mat.first && matRoll <= mat.second) {
-                            // Only add output if unlocked
-                            if (miningLocks[key] === false) break;
+                            // Do not generate output for items the user has removed
+                            if (disabledItems.has(key)) {
+                                break;
+                            }
+                            // Only add output if this item is currently "locked" (allowed)
+                            if (!miningLocks[key]) {
+                                break;
+                            }
                             // 3. Pick output from gpOutput
                             const output = mat.gpOutput[Math.floor(Math.random() * mat.gpOutput.length)];
                             minedOutputTotal[key].tally += output;
@@ -301,18 +391,20 @@ $(function () {
             if (context.minerPct !== undefined) $('#percentage_minerTip').val(context.minerPct);
             if (context.dragonPct !== undefined) $('#percentage_dragonTip').val(context.dragonPct);
         }
-        // Render output for ALL items in minedOutputTotal, showing 0 for locked ones
+        // Render output for ALL items in minedOutputTotal
         let outputHtml = '';
         Object.values(minedOutputTotal)
             .sort((a, b) => b.tally - a.tally)
             .forEach(res => {
-                const icon = miningLocks[res.id] === false ? '🔒' : '🔓';
-                const lockedAttr = miningLocks[res.id] === false ? 'false' : 'true';
-                // If locked, show 0; else show actual result
-                const displayTally = miningLocks[res.id] === false ? 0 : Math.round(res.tally);
-                const displayCount = miningLocks[res.id] === false ? 0 : res.count;
+                const isLocked = !!miningLocks[res.id];
+                const icon = isLocked ? '🔒' : '🔓';
+                const lockedAttr = isLocked ? 'true' : 'false';
+                const isDisabled = disabledItems.has(res.id);
+                const checkedAttr = isDisabled ? '' : 'checked';
+                const displayTally = Math.round(res.tally);
+                const displayCount = res.count;
                 outputHtml += `<p class="indented">
-                    <input type="checkbox" class="mined" id="${res.id}" checked>
+                    <input type="checkbox" class="mined" id="${res.id}" ${checkedAttr}>
                     <span class="mining-lock-icon" data-lock-id="${res.id}" data-locked="${lockedAttr}" title="Toggle mining lock" style="cursor:pointer;user-select:none;font-size:1.2em;margin-left:7px;vertical-align:middle;">${icon}</span>
                     ${res.name}: <span>${numberWithCommas(displayTally)} gp (${numberWithCommas(displayCount)} units)</span>
                 </p>`;
@@ -333,17 +425,20 @@ $(function () {
     $('#output').off('change', "input[type='checkbox'].lock-mining");
     $('#output').on('click', '.mining-lock-icon', function() {
         const id = $(this).data('lock-id');
-        const wasLocked = $(this).attr('data-locked') === 'false';
-        miningLocks[id] = wasLocked ? true : false;
+        const wasLocked = $(this).attr('data-locked') === 'true';
+        miningLocks[id] = !wasLocked;
         // Update icon and DOM attribute immediately
-        $(this).attr('data-locked', miningLocks[id] ? 'true' : 'false');
-        $(this).text(miningLocks[id] ? '🔓' : '🔒');
+        const isLocked = !!miningLocks[id];
+        $(this).attr('data-locked', isLocked ? 'true' : 'false');
+        $(this).text(isLocked ? '🔒' : '🔓');
     });
 
     function updateSummary() {
         let total = 0;
         Object.keys(minedOutputTotal).forEach(id => {
-            if ($(`#${id}`).is(':checked') && (miningLocks[id] !== false)) {
+            // Only include items that are still present in the list,
+            // whose checkbox is checked, and which are locked (allowed to be mined).
+            if (!disabledItems.has(id) && $(`#${id}`).is(':checked') && miningLocks[id]) {
                 total += minedOutputTotal[id].tally;
             }
         });
@@ -446,6 +541,16 @@ $(function () {
                 } else {
                     miningLocks = {}; // fallback
                 }
+
+                // Rebuild disabledItems based on any saved output checkbox states
+                disabledItems = new Set();
+                if (data.outputCheckboxStates) {
+                    Object.keys(data.outputCheckboxStates).forEach(id => {
+                        if (data.outputCheckboxStates[id] === false) {
+                            disabledItems.add(id);
+                        }
+                    });
+                }
                 
                 // Regenerate resources if we have the data
                 if (data.minedOutputTotal && data.grandTotal !== undefined) {
@@ -455,14 +560,14 @@ $(function () {
                     // Re-render output checkboxes
                     let outputHtml = '';
                     Object.values(minedOutputTotal)
-                        .filter(res => res.count > 0)
                         .sort((a, b) => b.tally - a.tally)
                         .forEach(res => {
                             const checked = data.outputCheckboxStates && data.outputCheckboxStates[res.id] !== undefined 
                                 ? data.outputCheckboxStates[res.id] 
                                 : true;
-                            const icon = miningLocks[res.id] === false ? '🔒' : '🔓';
-                            const lockedAttr = miningLocks[res.id] === false ? 'false' : 'true';
+                            const isLocked = !!miningLocks[res.id];
+                            const icon = isLocked ? '🔒' : '🔓';
+                            const lockedAttr = isLocked ? 'true' : 'false';
                             outputHtml += `<p class="indented">
                                 <input type="checkbox" class="mined" id="${res.id}" ${checked ? 'checked' : ''}>
                                 <span class="mining-lock-icon" data-lock-id="${res.id}" data-locked="${lockedAttr}" title="Toggle mining lock" style="cursor:pointer;user-select:none;font-size:1.2em;margin-left:7px;vertical-align:middle;">${icon}</span>
