@@ -618,9 +618,51 @@ $(function () {
         $(this).val('');
     });
 
+    // Render all possible materials on initial load so the user
+    // can pick and choose what they want to mine before running.
+    function renderInitialMaterialsList() {
+        initDefaultLocks();
+
+        const allIds = new Set();
+        [stones, metals, exotics, gemstones].forEach(group => {
+            Object.keys(group).forEach(key => allIds.add(key));
+        });
+
+        let outputHtml = '';
+        allIds.forEach(id => {
+            const source =
+                (stones[id] && stones[id]) ||
+                (metals[id] && metals[id]) ||
+                (exotics[id] && exotics[id]) ||
+                (gemstones[id] && gemstones[id]);
+            if (!source) {
+                return;
+            }
+
+            const isLocked = !!miningLocks[id];
+            const icon = isLocked ? '🔒' : '🔓';
+            const lockedAttr = isLocked ? 'true' : 'false';
+            const isDisabled = disabledItems.has(id);
+            const checkedAttr = isDisabled ? '' : 'checked';
+
+            outputHtml += `<p class="indented">
+                <input type="checkbox" class="mined" id="${id}" ${checkedAttr}>
+                <span class="mining-lock-icon" data-lock-id="${id}" data-locked="${lockedAttr}" title="Toggle mining lock" style="cursor:pointer;user-select:none;font-size:1.2em;margin-left:7px;vertical-align:middle;">${icon}</span>
+                ${source.name}: <span>${numberWithCommas(0)} gp (${numberWithCommas(0)} units)</span>
+            </p>`;
+        });
+
+        $('#output').html(outputHtml);
+        $('#toggle, #showHide').prop('disabled', false);
+        updateSummary();
+    }
+
     // Format a number with commas (e.g., 1234567 -> 1,234,567)
     function numberWithCommas(x) {
         if (isNaN(x)) return x;
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
+
+    // Show the full list of minable materials on first load.
+    renderInitialMaterialsList();
 });
