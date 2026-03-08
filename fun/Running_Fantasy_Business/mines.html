@@ -19,7 +19,7 @@
     <meta name="keywords" content="javascript, random" />
     <meta name="author" content="Brian Immel" />
     <meta name="level" content="2" />
-    <meta name="version" content="2.3.0" />
+    <meta name="version" content="2.3.2" />
     <link rel="shortcut icon" href="../../assets/ico/favicon.ico" />
     <link href="../../css/normalize.css" rel="stylesheet" />
     <link href="../../css/bootstrap.min.css" rel="stylesheet" />
@@ -41,7 +41,7 @@
           <button id="saveJSON">Save JSON</button>
           <input type="file" id="jsonFileInput" accept=".json" style="display: none;" />
           <br />
-          <p>Mine Settings</p>
+          <h2 style="text-align: left;">Mine Settings</h2>
           <label for="percentage_mineUpkeep">Mine upkeep (%)</label>
           <input id="percentage_mineUpkeep" type="number" min="0" step="1" max="100" value="10" />
           <label for="percentage_miscExpenses">Mine expenses (%)</label>
@@ -59,7 +59,7 @@
       </div>
       <div class="row">
         <div class="col-md-12">
-          <p>Mine Profit Settings</p>
+          <h2 style="text-align: left;">Mine Profit Settings</h2>
           <label for="percentage_dragonTip">Dragon's cut (%)</label>
           <input id="percentage_dragonTip" type="number" min="0" step="1" max="100" value="50" />
           <label for="percentage_minerTip">Miner's cut (%)</label>
@@ -67,7 +67,7 @@
           <label for="mineOwnerCount"># of mine owners</label>
           <input id="mineOwnerCount" type="number" min="1" step="1" value="1" />
           <br />
-          <p>Mine Simulation Settings</p>
+          <h2 style="text-align: left;">Mine Simulation Settings</h2>
           <label for="days">Days</label>
           <input id="days" type="number" min="1" step="1" max="365" value="30"/>
           <label for="minerCount"># of Miners</label>
