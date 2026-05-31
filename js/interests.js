@@ -1,5 +1,5 @@
 let interests = {
-    "interests": ['Cycling', 'Full-stack Development', 'Front-end Web Development', 'Node.js', 'Photography', 'Lego', 'Lego Robotics', 'Hiking', 'Reading'],
+    "interests": ['Cycling', 'Full-stack Development', 'Front-end Web Development', 'Node.js', 'Photography', 'Lego', 'Lego Robotics', 'Hiking', 'Fiction Writing', 'Reading'],
     "organizations": {
         "current": {
             "SFNode": {

@@ -124,6 +124,8 @@ for (i in skills) {
         displaySkillsArray(skills, i, 'skills-communication');
     } else if (i == 'General skills') {
         displaySkillsArray(skills, i, 'skills-general');
+    } else if (i == 'AI') {
+        displaySkillsObjects(skills, 'AI', 'skills-AI');
     } else if (i =='Software') {
         displaySkillsObjects(skills, i, 'skills-software');
     } else if (i =='Photography and video') {

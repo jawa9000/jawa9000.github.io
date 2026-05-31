@@ -10,10 +10,15 @@ let skills = {
         "General": ['Database design', 'Front-end web development', 'Regular expressions', 'Responsive design', 'Web design', 'Web development']
     },
     "Operating systems": {
-        "Windows": ['7.x', '8.x', '10.x'],
+        "Windows": ['7.x', '8.x', '10.x', '11.x'],
         "Linux": ['Redhat', 'Ubuntu'],
-        "Mac": ['Big Sur', 'Catalina', 'High Sierra', 'Monterey', 'Mojave', 'Sierra', 'Venture'],
+        "Mac": ['Big Sur', 'Catalina', 'High Sierra', 'Monterey', 'Mojave', 'Sierra', 'Venture', 'Tahoe', 'Sequoia', 'Sonoma'],
         "Unix": "Unix"
+    },
+    "AI": {
+        "AI Tools": ['Gemini', 'Cursor', 'NotebookLM', 'Claude Code', 'Windsurf'],
+        "Artificial Intelligence": ['Generative AI', 'Prompt Engineering', 'AI Prompting', 'AI Tools', 'AI Literacy'],
+        "AI-Assisted Content Development": ['Content Generation', 'Curation', 'Editing', 'Optimization', 'Review', 'Summarization', 'Personalization']
     },
     "Atlassian": {
         "Confluence": ['Administration', 'Front-end development', 'Theme design', 'Plugin management', 'User Macro development', 'Instructor'],
@@ -31,12 +36,11 @@ let skills = {
         "Adobe Suite": ['After Effects', 'FrameMaker', 'Illustrator', 'Lightroom', 'Photoshop', 'Premiere'],
         "3D": ['Unreal Engine', 'Autodesk Maya'],
         "FTP": ['FileZilla'],
-        "Google": ['Calendar', 'Docs', 'Drawings', 'Drive', 'Forms', 'Gmail', 'Sheets', 'Sites', 'Slides'],
-        "IDEs": ['Appcelerator Studio', 'Aptana', 'Atom', 'Dreamweaver', 'Eclipse', 'VS Code', 'Cursor', 'Oxygen XML Editor', 'Windsurf'],
+        "Google Suite": ['Calendar', 'Docs', 'Drawings', 'Drive', 'Forms', 'Gmail', 'Sheets', 'Sites', 'Slides', 'App Script'],
+        "IDEs": ['Appcelerator Studio', 'Aptana', 'Atom', 'Dreamweaver', 'Eclipse', 'VS Code', 'Oxygen XML Editor', 'Oxygen XML Editor'],
         "Wiki": ['Confluence', 'MediaWiki'],
         "Misc graphics": ['Camtasia', 'Gimp', 'Lucidchart', 'Record My Desktop', 'SnagIt', 'Visio', 'Miro', 'Figma'],
         "Microsoft": ['Excel', 'Outlook', 'PowerPoint', 'Sharepoint', 'Word'],
-        "AI Tools": ['Gemini', 'ChatGPT', 'NotebookLM'],
         "Misc": ['Quip', 'ADP', 'Workday', 'Docusaurus', 'Postman', ]
     }
 }

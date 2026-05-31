@@ -1,4 +1,14 @@
 let volunteer = {
+    "Event Volunteer": {
+        "title": "BUSC/Rage Annual Poker Tournament Event Volunteer, Balistic United Soccer Club, Pleasanton CA",
+        "date": "March 10, 2026",
+        "note": "<li>Operational Logistics: Orchestrated the registration and seating assignments for 54 players, ensuring an organized and professional tournament start.</li><li>Financial Management: Facilitated high-volume transactions for raffle sales and chip re-buys, contributing to a total of $3,600 raised for the RAGE and BUSC 501c3 Scholarship Fund.</li><li>Problem Solving: Acted as a point of contact for technical troubleshooting, resolving QR code and payment processing issues to ensure uninterrupted revenue flow.</li><li>Audit & Documentation: Conducted final reconciliation of all event proceeds and captured event photography for future promotional use.</li>"
+    },
+    "Tournament Field Marshal": {
+        "title": "Field Marshal, Balistic United Soccer Club, Pleasanton CA",
+        "date": "September 27-28, 2025",
+        "note": "<p>Managed field logistics for 4 fields, checked in teams, enforced game schedules, supported referees, and ensured a safe environment for all participants.</p>"
+    },
     "Assistant coach Jan 2023": {
         "title": "Assistant coach, Balistic United Soccer Club, Pleasanton CA",
         "date": "January 2023 - March 2022",

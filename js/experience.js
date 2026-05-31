@@ -10,16 +10,16 @@ let experience = {
     //     "skills": [],
     //     "technology": []
     // },
-    // "Salesforce Technical Writing Lead": {  
-    //     "title": "Technical Writing Lead",
-    //     "company": "Salesforce",
-    //     "dates": ['October 21, 2024', 'present'],
-    //     "location": "San Francisco; Hybrid",
-    //     "summary": "",
-    //     "responsbilities": [],
-    //     "skills": [],
-    //     "technology": []
-    // },
+    "Staff Technical Writer": {  
+        "title": "Staff Technical Writer",
+        "company": "Salesforce",
+        "dates": ['October 21, 2024', 'present'],
+        "location": "San Francisco; Hybrid",
+        "summary": "Drafted and published 80+ technical documents and dozens of release notes for Agentforce IT Services (AITS) IT Asset Management (ITAM) features, collaborated with engineering and Data Model Organization (DMO) teams to standardize hundreds of UI elements and dozens of DMO object fields, engineered 11 AI tools and 8 custom prompts for the CX Gen AI Library to streamline content creation, built centralized NotebookLM repositories to serve as cross-functional product sources of truth, spearheaded global workflow training and presented at three Salesforce CX AI Expos to 450+ attendees (achieving a 4.7/5 rating), automated release deadline tracking for engineering teams, and served as an internal AI Champion while earning Double Star Ranger status within the first year.",
+        "responsbilities": ["End-to-End Technical Documentation: Owning the complete content lifecycle for core product features, including strategic content planning, drafting release notes, auditing legacy documentation, and driving editorial peer reviews.", "Cross-Functional Collaboration & Content Governance: Partnering with Product Managers, Engineering, and Data Model (DMO) teams to standardize technical terminology, establishing review workflows (\"doc blitzes\"), and maintaining cross-functional communication pipelines.", "UX/Product Writing: Contributing directly to the product user experience by designing clear, standardized UI text, field names, labels, and descriptions for software objects.", "AI Enablement & Workflow Automation: Leading the adoption of generative AI tools within the writing team, building centralized knowledge repositories (like NotebookLM), developing automated tracking tools for engineering deadlines, and presenting training workshops to global stakeholders."],
+        "skills": ['API documentation', 'Attention to detail', 'Content analysis', 'Content curation', 'Content development', 'Content feedback integration', 'Content planning', 'Content research', 'Documentation', 'Documentation analysis', 'Documentation at scale', 'Documentation automation', 'Documentation communication', 'Documentation maintenance', 'Documentation procedures', 'Documentation tracking', 'Information architecture', 'IT documentation', 'Learning agility', 'Program/project reporting', 'Problem-solving', 'Proofreading', 'Remote training', 'Style guide', 'Technical writing', 'Verbal communication', 'Writing', 'Written communication', 'Accountability', 'Adaptability', 'Agent & AI Literacy', 'Human Agent Collaboration', 'Interpersonal', 'Creative Thinking', 'Leadership', 'Management', 'Organizational', 'Professionalism', 'Self-management', 'Teamwork', 'Time management', 'Work ethic', 'Glossary', 'Overview', 'Reference', 'Release note', 'Training Guide', 'Asynchronous communication', 'Collaboration', 'Cross-functional team communication', 'Cross-functional team relationship development', 'Educator', 'Fluency in English', 'Mentor', 'Presenter', 'Software training', 'Synchronous communication', 'Teaching', 'Trainer', 'NotebookLM', 'Slack', 'XML', 'Prompt Engineering', 'Generative AI', 'AI Tools', 'AI Prompting', 'AI Content Generation', 'AI Content Curation', 'AI Content Editing', 'AI Content Review', 'AI Content Optimization', 'AI Content Summarization', 'AI Content Personalization'],
+        "technology": ['Salesforce', 'NotebookLM', 'Gemini', 'Cursor', 'Claude Code', 'Figma', 'Google Suite', 'Slack', 'Slackbot', 'Zoom', 'Snagit', 'GitHub', 'VS Code', 'Zoomin', 'GUS', 'Oxygen XML Editor', 'Acrolinx']
+    },
     "XOPS Senior Technical Content Engineer Contractor": {  
         "title": "Senior Technical Content Engineer Contractor",
         "company": "XperienceOps, Inc (XOPS)",
