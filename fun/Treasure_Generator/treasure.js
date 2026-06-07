@@ -190,7 +190,7 @@ var MagicItemTableF = [
 
 var MagicItemTableG = [
     [1, 11, 'Weapon, +2'],
-    [12, 14, 'Figurine of wondrous power (see DMG 147, 169)'],
+    [12, 14, 'Figurine of wondrous power'],
     [15, 15, 'Adamantine armor (breastplate)'],
     [16, 16, 'Adamantine armor (splint)'],
     [17, 17, 'Amulet of health'],
@@ -379,7 +379,7 @@ var MagicItemTableI = [
     [70, 71, 'Armor, +2 splint'],
     [72, 73, 'Armor, +2 studded leather'],
     [74, 75, 'Well of many worlds'],
-    [76, 76, 'Magic armor (see DMG 149)'],
+    [76, 76, 'Magic armor'],
     [77, 77, 'Apparatus of Kwalish'],
     [78, 78, 'Armor of invulnerability'],
     [79, 79, 'Belt of storm giant strength'],
