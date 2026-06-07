@@ -7,6 +7,7 @@ $(document).ready(function() {
       "../Critical_Hit_Fumble/index.html, Critical Hit and Fumble",
       "../Culinarian/index.html, Culinarian",
       "../Dragon_Generator/index.html, Dragon Generator",
+      "../Magic_Shop/index.html, Magic Shop",
       "../Running_Fantasy_Business/mines.html, Mines",
       "../Encounter_Builder/monster_catalog.html, Monster Catalog",
       "../Encounter_Builder/index.html, Monster Encounters",
@@ -16,6 +17,7 @@ $(document).ready(function() {
       "../Treasure_Generator/index.html, Treasure",
       "../Running_Fantasy_Business/ulrye.html, Ulrye",
       "../Random_Weather/index.html, Weather",
+      
       // "../Spell_list/index.html, Spells", // This functionality is now in the Spell Catalog, so this link is redundant.
     ];
 

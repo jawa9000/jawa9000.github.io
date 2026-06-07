@@ -1,0 +1,47 @@
+.shop-controls {
+        margin-bottom: 1.5em;
+      }
+      .shop-controls label {
+        margin-right: 0.5em;
+      }
+      .shop-controls select {
+        margin-right: 1.5em;
+      }
+      .stats {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.35);
+        border: 1px solid rgba(139, 69, 19, 0.25);
+      }
+      .stats-row {
+        display: flex;
+        align-items: flex-start;
+      }
+      .stats .section_title {
+        flex: 0 0 8em;
+        padding: 0.75em 1em;
+        font-weight: bold;
+        color: #8b4513;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+      .stats .section_title:hover {
+        text-decoration: underline;
+      }
+      .stats .value {
+        flex: 1 1 auto;
+        padding: 0.75em 1em;
+        min-width: 0;
+      }
+      .stats .value ol {
+        margin: 0;
+        padding-left: 1.5em;
+      }
+      .stats .value li {
+        margin-bottom: 0.75em;
+      }
+      .attribution {
+        margin-top: 2em;
+        font-size: 0.9em;
+        color: #5b3d0c;
+        text-align: center;
+      }

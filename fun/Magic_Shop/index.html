@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>d20 Random Magic Shop Generator</title>
+    <meta
+      name="description"
+      content="Generate random d20/Pathfinder magic shops with location, shopkeeper, and inventory."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="keywords" content="d20, magic shop, random generator, pathfinder, srd" />
+    <meta name="author" content="Brian Immel" />
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize.css/8.0.1/normalize.min.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto+Slab"
+      rel="stylesheet"
+    />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../Running_Fantasy_Business/css/main.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="../js/RPG_navigation.js"></script>
+    <link href="magic_shop.css" rel="stylesheet" />
+  </head>
+  <body>
+    <h1 class="center" id="shopName">Random Magic Shop</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+          <div class="center shop-controls">
+            <label for="townSize">Location:</label>
+            <select id="townSize" name="town_size">
+              <option value="Thorp">Thorp</option>
+              <option value="Hamlet">Hamlet</option>
+              <option value="Village">Village</option>
+              <option value="Small Town">Small Town</option>
+              <option value="Large Town">Large Town</option>
+              <option value="Small City">Small City</option>
+              <option value="Large City">Large City</option>
+              <option value="Metropolis" selected>Metropolis</option>
+            </select>
+            <label for="shopType">Type:</label>
+            <select id="shopType" name="shop_type">
+              <option value="Alchemist">Alchemist</option>
+              <option value="Armorer">Armorer</option>
+              <option value="Jeweler">Jeweler</option>
+              <option value="Scribe">Scribe</option>
+              <option value="Tailor">Tailor</option>
+              <option value="Trader" selected>Trader</option>
+              <option value="Wandwright">Wandwright</option>
+              <option value="Weaponsmith">Weaponsmith</option>
+            </select>
+            <label for="itemAmount">Stock:</label>
+            <select id="itemAmount" name="item_amount">
+              <option value="lower">Lower (−25%)</option>
+              <option value="normal" selected>Normal</option>
+              <option value="greater">Greater (+25%)</option>
+              <option value="extreme">Extreme (+50%)</option>
+            </select>
+            <button type="button" id="regenerateAll">Regenerate All</button>
+          </div>
+
+          <div class="stats">
+            <div class="stats-row section">
+              <div id="newLoc" class="section_title" title="Click to reroll">Location</div>
+              <div id="location" class="value"><p>Loading...</p></div>
+            </div>
+            <div class="stats-row section">
+              <div id="newDesc" class="section_title" title="Click to reroll">Description</div>
+              <div id="description" class="value"><p>Loading...</p></div>
+            </div>
+            <div class="stats-row section">
+              <div id="newKeeper" class="section_title" title="Click to reroll">Shopkeeper</div>
+              <div id="shopkeeper" class="value"><p>Loading...</p></div>
+            </div>
+            <div class="stats-row section">
+              <div id="newItems" class="section_title" title="Click to reroll">Items</div>
+              <div id="items" class="value"><p>Loading...</p></div>
+            </div>
+          </div>
+<!-- 
+          <p class="attribution">
+            Inspired by
+            <a href="https://donjon.bin.sh/d20/magic/shop.html" target="_blank" rel="noopener"
+              >donjon's d20 Random Magic Shop Generator</a
+            >. Item and flavor text drawn from the d20 SRD.
+          </p> -->
+        </div>
+        <div class="col-md-1"></div>
+      </div>
+    </div>
+    <script src="magic_shop.js"></script>
+  </body>
+</html>
