@@ -736,6 +736,23 @@
     "tags": ["Damage"]
   },
   {
+    "name": "Pocket Dimension",
+    "level": 1,
+    "school": "Conjuration",
+    "casting_time": "1 action",
+    "range": "Self",
+    "components": "V, S, M (a needle and a piece of silk thread)",
+    "duration": "Until dispelled",
+    "concentration": false,
+    "ritual": false,
+    "classes": ["Artificer", "Bard", "Sorcerer", "Warlock", "Wizard"],
+    "description": "You touch an empty pocket, pouch, or satchel on your person and stitch it to a personal demiplane. As an action while wearing or holding this container, you can deposit an object into it or retrieve an object from it. The dimension can hold up to 50 pounds of gear. Any object placed inside must be small enough to be held comfortably in one of your hands. No ambient air or light exists inside the space, and living creatures automatically fail any attempt to enter it. Only you can access this storage. If another creature opens the container, it functions as a completely normal, empty pocket or pouch. If you die, or if the spell is ended via Dispel Magic, the pocket dimension collapses. All contents immediately spill out safely into the nearest unoccupied spaces around the container or your corpse.",
+    "higher_levels": "When you cast this spell using a spell slot of 2nd level or higher, the weight capacity increases by 50 pounds for each slot level above 1st.",
+    "save_type": "None",
+    "notes": "homebrew spell",
+    "tags": ["Utility", "Storage"]
+  },
+  {
     "name": "Absorb Elements",
     "level": 1,
     "school": "Abjuration",
