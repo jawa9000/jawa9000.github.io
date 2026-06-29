@@ -81,7 +81,8 @@ $(document).ready(function() { // listeners
             var xp = 0;
             var m = monsters.find(m => m.name === monsterName);
             if (m && m.challenge) {
-                var parts = m.challenge.split(' ');
+                var challengeStr = String(m.challenge);
+                var parts = challengeStr.split(' ');
                 if (parts.length > 1 && parts[1]) xp = parseInt(parts[1].replace(/[(),]/g, ""), 10);
             }
             totalXP += xp;
@@ -434,12 +435,14 @@ function generatePcLevelInputs(pcCount, pcLevel, difficulty, environment) {
                 console.warn(`Monster ${monsterData.name} is missing Challenge information.`);
                 continue;
             }
+            // Convert challenge to string to handle both string and numeric formats
+            const challengeStr = String(challengeString);
             // Extract CR value (first part of challenge string)
-            const crString = challengeString.split(' ')[0];
+            const crString = challengeStr.split(' ')[0];
             const crNum = crToNumber(crString);
             // Only include monsters within CR min/max
             if (crNum < crMinNum || crNum > crMaxNum) continue;
-            const challengeParts = challengeString.split(' ');
+            const challengeParts = challengeStr.split(' ');
             let monsterXpString = "0";
             if (challengeParts.length > 1 && challengeParts[1]) {
                 monsterXpString = challengeParts[1].replace(/[(),]/g, "");
@@ -500,8 +503,9 @@ function generatePcLevelInputs(pcCount, pcLevel, difficulty, environment) {
                             let crString = "CR N/A";
                             let monsterXpDisplayString = "XP N/A"; // Renamed to avoid conflict
                             if (fullMonsterData && fullMonsterData.challenge) { // Use lowercase 'challenge'
-                                crString = fullMonsterData.challenge.split(' ')[0];
-                                const challengeParts = fullMonsterData.challenge.split('(');
+                                const challengeStr = String(fullMonsterData.challenge);
+                                crString = challengeStr.split(' ')[0];
+                                const challengeParts = challengeStr.split('(');
                                 if (challengeParts.length > 1 && challengeParts[1]) {
                                     monsterXpDisplayString = challengeParts[1].replace(/[(),]/g, "").replace("XP", "").trim();
                                 }

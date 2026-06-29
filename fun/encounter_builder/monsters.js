@@ -23063,7 +23063,7 @@ const monsters = [
       cha: 5,
       senses: {},
       languages: "N/A",
-      challenge: 2,
+      challenge: "2",
       traits: "<p><em><strong>Keen Smell.</strong></em> The crawler has advantage on Wisdom (Perception) checks that rely on smell.</p><p><em><strong>Spider Climb.</strong></em> The crawler can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check.</p>",
       "number of attacks": 2,
       attacks: {
@@ -34716,7 +34716,7 @@ const monsters = [
                         movement: 120
                       }
             },
-      challenge: 10,
+      challenge: "10",
       str: 26,
       dex: 10,
       con: 21,
