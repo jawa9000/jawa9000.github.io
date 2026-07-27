@@ -16,7 +16,7 @@ let skills = {
         "Unix": "Unix"
     },
     "AI": {
-        "AI Tools": ['Gemini', 'Cursor', 'NotebookLM', 'Claude Code', 'Windsurf'],
+        "AI Tools": ['Gemini', 'Cursor', 'Gemini Notebook', 'Claude Code', 'Windsurf'],
         "Artificial Intelligence": ['Generative AI', 'Prompt Engineering', 'AI Prompting', 'AI Tools', 'AI Literacy'],
         "AI-Assisted Content Development": ['Content Generation', 'Curation', 'Editing', 'Optimization', 'Review', 'Summarization', 'Personalization']
     },
