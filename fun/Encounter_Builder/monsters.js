@@ -40907,7 +40907,9 @@ const monsters = [
     "traits": "<p><em><strong>Flame Aura.</strong></em> At the start of each of the gorgon's turns, each creature within 5 feet of it takes fire damage.</p><p><em><strong>Illumination.</strong></em> The gorgon sheds bright light in a 10-foot radius and dim light for an additional 10 feet.</p>",
     "actions": "<p><em><strong>Multiattack.</strong></em> The Brazen Gorgon makes two Gore attacks.</p><p><em><strong>Smelting Charge.</strong></em> The Brazen Gorgon moves up to its speed. During this move, it can move through other creatures. A creature whose space the gorgon enters must make a Dexterity saving throw. On a failed save, the creature takes piercing and fire damage and is either grappled or knocked prone (gorgon's choice). On a successful save, the creature takes half as much damage and isn't grappled or knocked prone.</p>",
     "description": "<p>Brazen gorgons are hollow, bull-like automatons that glow with intense heat and are often found in sites dedicated to archdevils.</p>"
-  }
+  },
+  // >>
+  
 ]
 
 // module.exports = monsters;

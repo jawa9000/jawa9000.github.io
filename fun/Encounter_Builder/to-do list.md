@@ -2,12 +2,13 @@
 >> grab the monster sheets in https://drive.google.com/drive/folders/1grk6JaWnyaJoS6jWxtbJV78_RxgxrfpH?ths=true and add them to monsters.js using the Gemini Gem called "D&D Monster Sheet Object Generator".
 
 ## Gemini Gem
-Use https://gemini.google.com/gem/77b2f643d48c "D&D Monster Sheet Object Generator" (a Gemini Gem) to automatically covert downloaded monster sheet PDFs into JSON objects so it can be added to monsters.js.
+**outdated! use https://aistudio.google.com/apps/2a9cd6b8-91b9-47d1-9110-e55f02d96951?showPreview=true&showAssistant=true to pull a list of monster's stats directly**
+Use https://gemini.google.com/gem/77b2f643d48c "D&D Monster Sheet Object Generator" (a Gemini Gem) to automatically convert downloaded monster sheet PDFs into JSON objects so it can be added to monsters.js.
 Using this PDF, generate a json object using this template:
 
 If you have the stats for [], generate a JSONobject using this template. If you don't, response with "I don't have the stats for the monster."
 {
-  "name": "Monster Name",
+  name: "Monster Name",
   "size": "Size (e.g., Medium, Large)",
   "type": "Type (e.g., humanoid, beast, fiend)",
   "alignment": "Alignment (e.g., lawful evil, unaligned)",
@@ -79,15 +80,184 @@ The following properties need to be converted to arrays. Then update main.js, mo
 ## Monster list
 Check monsters.js to see if the following monsters are listed. If they are not, use a Google search "5e [monster name]" to find it, download a PDF of it, and use this Gemini Gem (https://gemini.google.com/gem/77b2f643d48c) to batch convert up to 10 monsters at a time. Use this prompt: "Convert these PDFs into a JSON object." Then, copy/paste into monsters.js at the end, remove the array brackets, and clean up anything that is amiss (like remove "[cite:...]", add associates, and check the newly added monsters in the monster_catalog.html list).
 
->> 100+ monsters are missing their associates property.
->> check to see which monsters are missing their challenge ratings.
->> look for comments that have ** in them and fix their properties.
+There are 363 monsters who are missing their attacks properties.
 
+Plesiosaurus
+Poisonous Snake
+Polar Bear
+Pony
+Priest
+Pseudodragon
+Pteranodon
+Purple Worm
+Quasit
+Quipper
+
+
+>> about 100 monsters are missing their associates property.
+
+Aarakocra Aeromancer, Aarakocra Simulacrum, Aarakocra Skirmisher
+Aarakocra Spelljammer
+Aartuk Elder
+Aartuk Starhorror
+Aartuk Weedling
+Aberrant Cultist
+Aberrant Spirit
+Aberrant Zealot
+Aberrant Zealot (Tentacled)
+Abhorrent Overlord
+Abyssal Chicken
+Abyssal Wretch
+Adult Oblex
+Advanced Detention Drone
+Aerosaur
+Air
+Air  Myrmidon
+Akroan Hoplite
+Albino Dwarf Spirit Warrior
+Albino Dwarf Warrior
+Aldani (Lobsterfolk)
+Almiraj
+Alseid
+Altisaur
+Amber Golem
+Ambitious Assassin
+Ambush Drake
+Amethyst Greatwyrm
+Amphisbaena
+Anchorite of Talos
+Animated Armor Detention Drone
+Animated Ballista
+Animated Broom
+Animated Chained Library
+Animated Drow Statue
+Animated Flying Sword
+Animated Halberd
+Animated Jade Serpent
+Animated Object
+Animated Rug of Shering
+Animated Staff
+Animated Statue of Lolth
+Animated Stove
+Animated Table
+Animated Tile Chimera
+Animated Wand
+Animatronic Allosaurus
+Ankylosaurus Zombie
+Anvilwrought Raptor
+Aphemia
+Apprentice
+Aquatic Ghoul
+Aquatic Troll
+Arasta
+Archaic
+Archelon
+Armored Saber-Toothed Tiger
+Art  Mascot
+Ashen Animated Armor
+Ashen Flying Sword
+Ashen Heir Anarchist
+Ashen Heir Assassin
+Ashen Heir Mage
+Ashen Heir Veteran
+Ashen Knight
+Ashen Rider
+Ashen Shambling Mound
+Ashen Veteran
+Ashen Warhorse
+Aspirant of the Comet
+Assassin Vine
+Asteria
+Astral Blight
+Astral Elf Aristocrat
+Astral Elf Commander
+Astral Elf Honor Guard
+Astral Elf Star Priest
+Astral Elf Warrior
+Athar Null
+Atropal
+Aurak Draconian
+Aurnozci
+Aurumach Rilmani
+Aurumvorax
+Aurumvorax Den Leader
+Autognome
+Avatar of Death
+Avoral Guardinal
+Awakened  Wasp
+Awakened Brown Bear
+Awakened Elk
+Awakened Rat
+Awakened White Moose
+Awakened Zurkhwood
+Axe of Mirabar Soldier
+Azer Pyromancer
+Azer Sentinel
+B'rohg
+Baaz Draconian
+Baernaloth
+Bag Jelly
+Bakunawa
+Bandit Crime Lord
+Bandit Deceiver
+Bariaur Wanderer
+Barkburr
+Barlgura
+Barovian Commoner
+Barovian Scout
+Barovian Witch
+Barrowghast
+Battlehammer Dwarf
+Beder
+Beder Zombie
+Belashyrra
+Beledros Witherbloom
+Berserker Commander
+Bestial Spirit
+Big Xorn
+bjurer
+Black Earth Guard
+Black Earth Priest
+Black Gauntlet of Bane
+Black Greatwyrm
+Black Rose Bearer
+Blade Lieutenant
+Blade Scout
+Blazebear
+Bleak Cabal Void Soother
+Blistercoil Weird
+Blob of Annihilation
+Blood-Toll Harpy
+Bloodfray
+Blue Greatwyrm
+Blue slaad
+Bodytaker
+Boggle
+Bone Knight
+Bone Roc
+Bone Whelk
+Boneless
+Booyahg Booyahg Booyahg
+Booyahg Caster
+Booyahg Slave of the
 Booyahg Slave of the Arch
+Booyahg Slave of the Great Old One
+Booyahg Whip
+Booyahg Wielder
+Borborygmos
 Bore Worm
 Borthak
+Boss Augustus
+Boss Delour
+Bozak Draconian
 Brackish Trudge
 Brain Breaker
+Brain in a Jar
+Brass Greatwyrm
+Braxat
+Brazen Gorgon
+Breath Drinker
+Bridesmaid of Zuggtmoy
 Brigganock
 Broken King Antigonos
 Bronze Greatwyrm
@@ -309,7 +479,6 @@ Dwarf Skeleton
 Dybbuk
 Dyrrn
 Earth  Myrmidon
-Earth Elemental
 Eater of Hope
 Eater of Knowledge
 Eblis
@@ -1095,111 +1264,11 @@ Tabaxi
 Tabaxi Hunter
 Tabaxi Minstrel
 Tainted Servant of Tsathogga
-Talon
-Tanarukk
-Tanazir Quandrix
-Tarkanan Assassin
-Tattooed Pit Champion
-Telepathic Pentacle
-Tempest Spirit
-Terracotta Warrior
-Tharizdun
-Thayan Apprentice
-Thayan Warrior
-The Bagman
-The Lord of Blades
-The Transient
-The Wretched
-Theran Chimera
-Theurgist
-Thief
-Thief Lord
-Thorn Slinger
-Thorny Vegepygmy
-Thought Spy
-Thri-keen
-Thri-kreen Gladiator
-Thri-kreen Hunter
-Thri-kreen Marauder
-Thri-kreen Mystic
-Thri-kreen Psion
-Thunder Skeleton
-Tiamat
-Tick
-Tidal Sorcerer
-Tiefling
-Tiefling Acrobat
-Tin Soldier
-Tiny Servant
-Titanothere
-Titivilus
-Tlacatecolo
-Tlexolotl
-Tlincalli
-Tomb Dwarf
-Tomb Guardian
-Tomb Tapper
-Topaz Greatwyrm
-Tortle
-Tortle Druid
-Tough
-Tough Boss
-Tower Hand
-Tower Sage
-Townsfolk
-Trained Rust Monster
-Transcendent Order Conduit
-Transcendent Order Instinct
-Transmuter
-Transmuter Wizard
-Trapper
+
+
 Tree
-Tressym
-Tri-flower Frond
-Tribal Warrior
-Tribal Warrior Spore Servant
-Tridrone
-Triton
-Triton Master of Waves
-Triton Shorestalker
-Troll Limb
-Troll Mutate
-Tromokratis
-Trostani
-Tsucora Quori
-Typhon
-Tyrannosaurus Zombie
-Ulitharid
-Ultroloth
-Undercity Medusa
-Underworld Cerberus
-Undying Councilor
-Undying Soldier
-Unspeakable Horror
-Urbane Magician
-Uthgardt Barbarian Leader
-Vampiric Ixitxachitl
-Vampiric Ixitxachitl Cleric
-Vargouille
-Vargouille Reflection
-Vecna Impersonator
-Verbeeg Longstrider
-Verbeeg Marauder
-Veteran of the Gauntlet
-Viashino
-Violet Fungus Necrohulk
-Vistana Assassin
-Vistana Bandit
-Vistana Bandit Captain
-Vistana Commoner
-Vistana Guard
-Vistana Spy
-Vistana Thug
-Vlazok
-Void Scavver
-Walking Corpse
-Walking Statue of Waterdeep
-Wizard
+
+
 
 ## Add these monster's attacks properties to monsters.js
 BTW, there are several attacks properties that use arrays instead of objects. The property attacks property should use objects with the type of attack as the name of the attack property. See "Frost Giant Everlasting One" as a valid example of what the attacks property should look like.
@@ -1212,59 +1281,66 @@ BTW, there are several attacks properties that use arrays instead of objects. Th
 * "effect damage": "3d6" // or whatever the damage dice are.
 
 These two are missing their attacks properties:
-  "Giant Centipede" 
-  "Adult Red Dragon"
+Demilich
+
+missing monsters:
+Tidal Sorcerer
+Tiefling
+Tiefling Acrobat
+Tlacatecolo
+Tlexolotl
+Tomb Dwarf
+Tomb Guardian
+Topaz Greatwyrm
+Tortle
+Tortle Druid
+Tower Hand
+Tower Sage
+Townsfolk
+Trained Rust Monster
+Transcendent Order Conduit
+Transcendent Order Instinct
+Transmuter Wizard
+Trapper
+Talon
+Tanazir Quandrix
+Tattooed Pit Champion
+Tempest Spirit
+Terracotta Warrior
+Tharizdun
+Thayan Apprentice
+Thayan Warrior
+The Bagman
+The Lord of Blades
+The Transient
+Theurgist
+Thought Spy
+Thri-keen
+Thri-kreen Gladiator
+Thri-kreen Hunter
+Thri-kreen Marauder
+Thri-kreen Mystic
+Thunder Skeleton
 
 
-## Other notes
-"damage resistances" is a text string that has content typically separated by commas. For example, '"damage resistances": "Force, Psychic",'. But then, there are values for this property like this: '"damage resistances": "Bludgeoning, Piercing, and Slashing from nonmagical attacks",'. In order for me to implement damage resistance into the fight system, I'm gonna need to normalize these values or write a very robust routine for handling this data.
-This too:
-* '"damage resistances": "Fire, Radiant; Bludgeoning, Piercing, and Slashing from nonmagical attacks that aren't silvered",'
-* '"damage resistances": "Bludgeoning, Piercing, and Slashing while in dim light or darkness",'
-* '"damage resistances": "damage of the type matching the animated breath's form (acid, cold, fire, lightning, or poison)",'
-
-Conditions:
-This list can be used for condition immunities and resistances in addition to identifying properties of attacks
-* Blinded
-* Charmed
-* Deafened
-* Exhaustion
-* Frightened
-* Grappled
-* Incapacitated
-* Invisible
-* Paralysis
-* Paralyzed
-* Petrified
-* Poisoned
-* Prone
-* Restrained
-* Stunned
-* Unconscious
+Added monsters:
+Tanarukk
+Tarkanan Assassin
+Telepathic Pentacle
+The Wretched
+Theran Chimera
+Thief Lord
+Thorn Slinger
+Thorny Vegepygmy
+Thri-kreen Psion
 
 
 
 
-
-Damage Immunities: Acid, Bludgeoning, Cold, Fire, Force, Lightning, Necrotic, Piercing, Poison, Psychic, Radiant, Slashing, Thunder, and Force
-
-Physical Damage:
-* Bludgeoning
-* Piercing
-* Slashing
-Magical Damage:
-* Acid - code added but the monster properties haven't been updated as this attack type seems to be rather complicated.
-* Cold - code added but the monster properties haven't been updated as this attack type seems to be rather complicated.
-* Fire - done
-* Force - code added but the monster properties haven't been updated yet, untested and no effect properties added to the monsters yet.
-* Lightning - code added but the monster properties haven't been updated yet, untested and no effect properties added to the monsters yet.
-* Necrotic - code added but the monster properties haven't been updated yet, untested and no effect properties added to the monsters yet.
-* Poison - done
-* Psychic - code added but the monster properties haven't been updated yet, untested and no effect properties added to the monsters yet.
-* Radiant - code added but the monster properties haven't been updated yet, untested and no effect properties added to the monsters yet.
-* Thunder - code added but the monster properties haven't been updated yet, untested and no effect properties added to the monsters yet.
-
-Note: I've been using this Gemini session (https://gemini.google.com/app/aa2282d7bc91cf8c) to convert the JSON data of various monsters to include attack effects.
-
-Attack properties that extend beyond normal damage:
-* 
+  {
+    "name": "Vargouille Reflection",
+    "environments": ["Dungeon"],
+    "associates": ["Humanoid"],
+    "actions": "<p><em><strong>Horrific Reflection (Recharge 5–6).</strong></em> The vargouille's head mimics a humanoid it can see within 120 feet. The target must succeed on a DC 12 Wisdom saving throw or take 10 (3d6) psychic damage and be frightened for 1 hour or until the vargouille loses concentration. The curse operates similarly to a regular vargouille's kiss: the target's Charisma is reduced by 1 each hour. If the curse reduces the target's Charisma to 2, the target dies and its head transforms into a new vargouille reflection. The curse can be removed by the <em>remove curse</em> or <em>greater restoration</em> spell, or similar magic. The curse is halted by direct sunlight or a <em>daylight</em> spell.</p>",
+    "description": "<p>A Vargouille Reflection is a variant of a vargouille that resides in Undersigil. When it spots a humanoid target, it mimics that creature's visage to terrify it, appearing as its own disembodied head.</p>"
+  },
