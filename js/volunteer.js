@@ -1,4 +1,9 @@
 let volunteer = {
+    "Team Manager": {
+        "title": "BUSC U14 E1 Team Manager, Balistic United Soccer Club, Pleasanton CA",
+        "date": "July, 2026 - current",
+        "note": "<li>Communication Link: Manage all scheduling updates, club announcements, and day-to-day logistics between the coach, parents, and players.</li><li>Administrative Compliance: Maintain the official team roster, player registration cards, and medical release forms required for game-day check-ins.</li>
+    },
     "Event Volunteer": {
         "title": "BUSC/Rage Annual Poker Tournament Event Volunteer, Balistic United Soccer Club, Pleasanton CA",
         "date": "March 10, 2026",
