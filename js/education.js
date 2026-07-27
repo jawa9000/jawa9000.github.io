@@ -2,7 +2,7 @@ let education = {
     "Udemy": {
         "location": "<a href='https://www.udemy.com/user/brianimmel/' title='Udemy' target='_blank'>Udemy</a>",
         "degree": "N/A",
-        "dates": "2013 - present",
+        "dates": "2013 - 2023",
         "grade": "N/A",
         "address": "N/A",
         "notes": "Completed several courses on front-end web development, Git/Github, and Bash. Ongoing training includes topics on Node.js, React, front-end web development, Java, PHP, MySQL, Unity, Python, Express, Angular, and MongoDB."
