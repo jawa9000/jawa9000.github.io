@@ -1,33 +1,33 @@
 let interests = {
-    "interests": ['Cycling', 'Full-stack Development', 'Front-end Web Development', 'Node.js', 'Photography', 'Lego', 'Lego Robotics', 'Hiking', 'Fiction Writing', 'Reading'],
+    "interests": ['Cycling', 'Full-stack Development', 'Front-end Web Development', 'Node.js', 'Hiking', 'Applied Artificial Intelligence & Prompt Crafting', 'Photography', 'Fiction Writing', 'Reading'],
     "organizations": {
         "current": {
             "SFNode": {
                 "link": "https://www.meetup.com/sfnode/",
                 "title": "SFNode",
                 "membership": "Member",
-                "dates": "September 17, 2014 - current",
+                "dates": "September 17, 2014 - 2020",
                 "notes": "SFNode is a community run Node.js meetup in San Francisco created by <a href='https://twitter.com/dshaw'>dshaw</a>. We meet on the first Thursday of each month."
             },
             "Wildlife and Landscape Photography": {
                 "link": "https://www.meetup.com/Wildlife-and-Landscape-Photography/",
                 "title": "Wildlife and Landscape Photography",
                 "membership": "Member",
-                "dates": "December 15, 2019 - current",
+                "dates": "December 15, 2019 - 2022",
                 "notes": "Join us for wildlife and landscape photography. Enjoy nature at it's finest and bring it back and share with friends and family. Enjoy monthly meetings, assignments, field trips, workshops, and new friends."
             },
             "Bay Area Electron": {
                 "link": "https://www.meetup.com/Bay-Area-Electron-User-Group/",
                 "title": "Bay Area Electron",
                 "membership": "Member",
-                "dates": "December 15, 2019 - current",
+                "dates": "December 15, 2019 - 2021",
                 "notes": "Discussions about building cross platform native applications using JavaScript, CSS, and HTML with Electron."
             },
             "Bay Area d3 User Group": {
                 "link": "https://www.meetup.com/Bay-Area-d3-User-Group/",
                 "title": "Bay Area d3 User Group",
                 "membership": "Member",
-                "dates": "December 15, 2019 - current",
+                "dates": "December 15, 2019 - 2022",
                 "notes": "We are all about <a href='http://d3js.org'>d3.js</a>!"
             },
             "SFHTML5": {
@@ -41,7 +41,7 @@ let interests = {
                 "link": "https://www.meetup.com/Silicon-Valley-HTML5-WebGL-Meetup/",
                 "title": "Silicon Valley WebGL/WebVR Meetup",
                 "membership": "Member",
-                "dates": "October 13, 2014 - current",
+                "dates": "October 13, 2014 - 2022",
                 "notes": "HTML5 and WebGL are quickly coalescing into \"WebVR\""
             },
             "The SF JavaScript Meetup": {
@@ -62,14 +62,14 @@ let interests = {
                 "link": "https://www.meetup.com/javascript-9/",
                 "title": "Mountain View JavaScript Meetup Group",
                 "membership": "Member",
-                "dates": "January 16, 2015 - current",
+                "dates": "January 16, 2015 - 2017",
                 "notes": "Meet other local JavaScripters to share knowledge, to review the state of the art, or to dream up new applications."
             },
             "Unity User Group San Francisco Official": {
                 "link": "https://www.meetup.com/Unity-official/",
                 "title": "Unity User Group: San Francisco [Official]",
                 "membership": "Member",
-                "dates": "December 16, 2019 - current",
+                "dates": "December 16, 2019 - 2021",
                 "notes": "Unity User Group: San Francisco supports local game, app, & media creators using Unity across the Bay Area!"
             },
             "Hills Hops Hiking Club": {
@@ -78,13 +78,6 @@ let interests = {
                 "membership": "Member",
                 "dates": "December 15, 2019 - current",
                 "notes": "Hills & Hops pretty well describes everything you need to know about the Bay Area's most unique hiking club. We hike some of the most spectacular and awe-inspiring trails on the planet (they all just happen to be located in the Bay Area). Then we sacrifice all those burnt calories to the beer gods. Any questions?"
-            },
-            "NodeBotsSF": {
-                "link": "https://www.meetup.com/nodebotssf/",
-                "title": "NodeBotsSF",
-                "membership": "Member",
-                "dates": "December 15, 2019 - current",
-                "notes": "NodeBotsSF is a monthly meetup for NodeBot hackers to create, explore and share."
             },
             "Bay Areas 3D Printing 3D Modeling 3D Scanning Mixers": {
                 "link": "https://www.meetup.com/Bay-Area-3D-Printing-3D-Modeling-3D-Scanning-mixers/",
