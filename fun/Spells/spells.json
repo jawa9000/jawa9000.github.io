@@ -1,5 +1,21 @@
 [
   {
+  "name": "Unmend",
+  "level": 0,
+  "school": "Transmutation",
+  "casting_time": "1 action",
+  "range": "Touch",
+  "components": "V, S",
+  "duration": "Instantaneous",
+  "concentration": false,
+  "ritual": false,
+  "classes": ["Artificer", "Wizard"],
+  "description": "This spell weakens an object you touch, the mirror image of mending. You create a small crack, tear, fray, or break at a single point on a nonmagical object no larger than 1 foot in any dimension — snapping a thin rope or strap, cracking glass or pottery, splitting a wooden handle, or corroding a metal fitting until it fails. This spell can't affect a magic item, a structural element integral to something larger (a support beam, a hull plate under load), or an object currently worn or held by another creature without their consent. If cast on an object previously repaired by mending, the break reopens exactly as it was, unraveling that magic outright with no ability check required.",
+  "higher_levels": "None.",
+  "save_type": "None",
+  "tags": ["Utility", "Sabotage"]
+},
+  {
     "name": "Acid Splash",
     "level": 0,
     "school": "Conjuration",
