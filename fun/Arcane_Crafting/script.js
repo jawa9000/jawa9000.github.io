@@ -1,9 +1,9 @@
 const rarities = [
-    { name: 'Common', effect: '+1 to damage only; glows in the dark', mass: 'A pinch (1-2 grams)', value: '50-100 gp', time: '1 hour (Short Rest)', dc: 10, yield: 'A tiny dusting', yieldValue: 25 },
-    { name: 'Uncommon', effect: 'Full +1 weapon; Weapon of Warning', mass: 'Small vial (1 ounce)', value: '200-500 gp', time: '8 hours (1 full day)', dc: 13, yield: '1/2 ounce', yieldValue: 125 },
-    { name: 'Rare', effect: 'Full +2 weapon; Flametongue', mass: 'Large pouch (1/2 pound)', value: '2,000-5,000 gp', time: '3 days (Downtime)', dc: 15, yield: '1/4 pound', yieldValue: 1000 },
-    { name: 'Very Rare', effect: 'Full +3 weapon; Dancing Sword', mass: 'Small brick (2 pounds)', value: '20,000-50,000 gp', time: '1 week (7 days)', dc: 18, yield: '1 pound', yieldValue: 10000 },
-    { name: 'Legendary', effect: 'Holy Avenger; Luck Blade', mass: 'Large ingot (5 pounds)', value: '100,000-200,000 gp', time: '1 month (30 days)', dc: 22, yield: '2.5-pound ingot', yieldValue: 50000 },
+    { name: 'Common', effect: '+1 to damage only; glows in the dark', mass: 'A pinch (1-2 grams)', value: '50-100 gp', time: '1 hour (Short Rest)', dc: 10, yield: 'A tiny dusting', yieldValue: 25, catastrophicDamage: '1d6' },
+    { name: 'Uncommon', effect: 'Full +1 weapon; Weapon of Warning', mass: 'Small vial (1 ounce)', value: '200-500 gp', time: '8 hours (1 full day)', dc: 13, yield: '1/2 ounce', yieldValue: 125, catastrophicDamage: '2d6' },
+    { name: 'Rare', effect: 'Full +2 weapon; Flametongue', mass: 'Large pouch (1/2 pound)', value: '2,000-5,000 gp', time: '3 days (Downtime)', dc: 15, yield: '1/4 pound', yieldValue: 1000, catastrophicDamage: '4d6' },
+    { name: 'Very Rare', effect: 'Full +3 weapon; Dancing Sword', mass: 'Small brick (2 pounds)', value: '20,000-50,000 gp', time: '1 week (7 days)', dc: 18, yield: '1 pound', yieldValue: 10000, catastrophicDamage: '6d6' },
+    { name: 'Legendary', effect: 'Holy Avenger; Luck Blade', mass: 'Large ingot (5 pounds)', value: '100,000-200,000 gp', time: '1 month (30 days)', dc: 22, yield: '2.5-pound ingot', yieldValue: 50000, catastrophicDamage: '10d6' },
     { name: 'Artifact', effect: 'Campaign-defining items', mass: 'Impossibly dense cosmic shard', value: '500,000+ gp / Priceless', time: '1 year (or Celestial Event)', dc: 26, yield: 'Cannot be safely disenchanted', yieldValue: null }
 ];
 
@@ -93,18 +93,24 @@ document.getElementById('disenchantForm').addEventListener('submit', event => {
     const flawed = document.getElementById('isFlawed').checked;
     const yieldMultiplier = flawed ? 0.75 : 1;
     const cursed = document.getElementById('isCursed').checked;
+    const proficiencyMultiplier = Number(document.getElementById('disenchantProficiency').value);
+    const volatileItem = cursed || flawed;
+    const itemDisadvantage = volatileItem && proficiencyMultiplier === 1;
     const firstRoll = rollD20();
-    const secondRoll = cursed ? rollD20() : firstRoll;
-    const checkRoll = cursed ? Math.min(firstRoll, secondRoll) : firstRoll;
+    const secondRoll = itemDisadvantage ? rollD20() : firstRoll;
+    const checkRoll = itemDisadvantage ? Math.min(firstRoll, secondRoll) : firstRoll;
     const total = checkRoll + bonus;
-    const checkSummary = cursed ? `Checks: ${firstRoll} and ${secondRoll}; disadvantage uses ${checkRoll} + bonus ${bonus} = <strong>${total}</strong>.` : `Check: ${checkRoll} + bonus ${bonus} = <strong>${total}</strong>.`;
-    if (checkRoll === 1) return showResult('disenchantResult', `<strong>Critical failure.</strong> ${checkSummary} The item is destroyed, zero Residuum is salvaged, and you must roll on the Mishap Table.`, true);
+    const checkSummary = itemDisadvantage ? `Checks: ${firstRoll} and ${secondRoll}; disadvantage uses ${checkRoll} + bonus ${bonus} = <strong>${total}</strong>.` : `Check: ${checkRoll} + bonus ${bonus} = <strong>${total}</strong>.`;
+    const canceledNotice = volatileItem && !itemDisadvantage ? ' Proficiency or expertise cancels the item\'s disadvantage.' : '';
+    if (checkRoll === 1) return showResult('disenchantResult', `<strong>Critical failure.</strong> ${checkSummary} The item is destroyed and zero Residuum is salvaged. No crafting mishap is rolled during disenchantment.`, true);
     if (total >= dc) {
         const adjustedValue = Math.floor(rarity.yieldValue * yieldMultiplier);
-        showResult('disenchantResult', `<strong>Full yield:</strong> ${checkSummary} ${rarity.yield}, worth ${adjustedValue.toLocaleString()} gp.${flawed ? ' The flawed matrix reduces this yield by 25%.' : ''}`);
+        showResult('disenchantResult', `<strong>Full yield:</strong> ${checkSummary}${canceledNotice} ${rarity.yield}, worth ${adjustedValue.toLocaleString()} gp.${flawed ? ' The flawed matrix reduces this yield by 25%.' : ''}`);
+    } else if (dc - total >= 5) {
+        showResult('disenchantResult', `<strong>Catastrophic failure:</strong> ${checkSummary}${canceledNotice} The item is destroyed, yields zero Residuum because the check failed by ${dc - total}, and releases <strong>${rarity.catastrophicDamage} force damage</strong> against the character.`, true);
     } else {
         const adjustedValue = Math.floor(rarity.yieldValue * 0.5 * yieldMultiplier);
-        showResult('disenchantResult', `<strong>Half yield:</strong> ${checkSummary} The item is destroyed and yields ${adjustedValue.toLocaleString()} gp worth of Residuum, but magic bleeds away inefficiently.${flawed ? ' The flawed matrix reduces this yield by another 25%.' : ''}`, true);
+        showResult('disenchantResult', `<strong>Half yield:</strong> ${checkSummary}${canceledNotice} The item is destroyed and yields ${adjustedValue.toLocaleString()} gp worth of Residuum, but magic bleeds away inefficiently.${flawed ? ' The flawed matrix reduces this yield by another 25%.' : ''}`, true);
     }
 });
 
