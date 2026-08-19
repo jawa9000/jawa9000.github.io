@@ -1,6 +1,7 @@
 $(document).ready(function() {
     const urls = [ // update this list with new RGP tools are added.
       // "../Apothecary/index.html, Apothecary",
+      "../Arcane_Crafting/index.html, Arcane Crafting",
       "../Bastions/index.html, Bastions",
       "../Running_Fantasy_Business/index.html, Business",
       "../Fantasy_Character_Generator/index.html, Char Generator",

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Arcane crafting, mishap, and disenchantment tools for magic items.">
+    <title>Arcane Crafting Workshop</title>
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+    <link href="../../css/normalize.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../Running_Fantasy_Business/css/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/RPG_navigation.js"></script>
+</head>
+<body>
+    <div class="container workshop">
+        <header class="page-header">
+            <h1>Arcane Crafting Workshop</h1>
+            <p class="lead">Turn temporary magic into permanent power, survive the consequences, and reclaim what remains.</p>
+        </header>
+
+        <section class="workbench" aria-labelledby="crafting-heading">
+            <h2 id="crafting-heading">Enchantment Ritual</h2>
+            <form id="craftForm" class="tool-form">
+                <label for="raritySelect">Desired item rarity</label>
+                <select id="raritySelect"></select>
+                <label for="craftDc">Crafting DC</label>
+                <input id="craftDc" type="number" readonly>
+                <label for="craftBonus">Arcana / tools bonus</label>
+                <input id="craftBonus" type="number" min="-5" max="20" value="5" required>
+                <label for="craftProficiency">Proficiency</label>
+                <select id="craftProficiency">
+                    <option value="1">None (1x)</option>
+                    <option value="2">Proficient (2x)</option>
+                    <option value="3">Expertise (3x)</option>
+                </select>
+                <label for="craftMethod">Check method</label>
+                <select id="craftMethod">
+                    <option>Intelligence (Arcana)</option>
+                    <option>Smith's Tools</option>
+                </select>
+                <button type="submit">Resolve Ritual</button>
+            </form>
+            <div id="craftDetails" class="result-panel"></div>
+            <div id="craftResult" class="result-panel result-hidden" aria-live="polite"></div>
+        </section>
+
+        <div class="two-column">
+            <section class="workbench" aria-labelledby="disenchant-heading">
+                <h2 id="disenchant-heading">Disenchantment</h2>
+                <form id="disenchantForm" class="tool-form compact-form">
+                    <label for="disenchantRarity">Item rarity</label>
+                    <select id="disenchantRarity"></select>
+                    <label for="disenchantDc">Disenchant DC</label>
+                    <input id="disenchantDc" type="number" readonly>
+                    <label for="disenchantBonus">Arcana bonus</label>
+                    <input id="disenchantBonus" type="number" min="-5" max="20" value="5" required>
+                    <label for="disenchantProficiency">Proficiency</label>
+                    <select id="disenchantProficiency">
+                        <option value="1">None (1x)</option>
+                        <option value="2">Proficient (2x)</option>
+                        <option value="3">Expertise (3x)</option>
+                    </select>
+                    <label class="check-label"><input id="isCursed" type="checkbox"> Cursed item</label>
+                    <label class="check-label"><input id="isFlawed" type="checkbox"> Flawed item</label>
+                    <button type="submit">Disenchant Item</button>
+                </form>
+                <div id="disenchantResult" class="result-panel result-hidden" aria-live="polite"></div>
+            </section>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
