@@ -104,6 +104,7 @@ $(() => { // jQuery's DOM ready shorthand
 
     function filterAndSortMonsters() {
         let filtered = [...monsters];
+        const name = $('#filter-name').val().trim().toLowerCase();
         const env = $('#filter-environment').val();
         const type = $('#filter-type').val();
         const size = $('#filter-size').val();
@@ -111,6 +112,7 @@ $(() => { // jQuery's DOM ready shorthand
         const align = $('#filter-alignment').val();
         const language = $('#filter-language').val();
         const sort = $('#sort-monsters').val();
+        if (name) filtered = filtered.filter(m => String(m.name || '').toLowerCase().includes(name));
         // Only filter by environment if not 'Any' (or blank)
         if (env && env !== 'Any') filtered = filtered.filter(m => Array.isArray(m.environments) && m.environments.includes(env));
         if (type) filtered = filtered.filter(m => m.type === type);
@@ -195,6 +197,8 @@ $(() => { // jQuery's DOM ready shorthand
         });
         // Remove associates from the index list, keep click handler for monster name only
     }
+
+    $('#filter-name').on('input', renderMonsterList);
 
     function getAbilityScoreDisplay(scoreValue) {
         // Handles cases where scoreValue is undefined, null, or an empty/whitespace string

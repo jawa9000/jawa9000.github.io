@@ -159,3 +159,9 @@ label, select, input[type='number'], input[type='checkbox'] {
     width: 48px;
   }
 }
+
+/* filter-name input field */
+input#filter-name {
+  width: 150px;
+  margin-right: 10px;
+}
