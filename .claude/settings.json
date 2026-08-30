@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Read(//tmp/claude/e--jawa9000-github-io/a1e637ad-d640-4321-84dd-125736e8611c/**)",
+      "Bash(node -e ' *)",
+      "Bash(curl -sL \"https://raw.githubusercontent.com/5etools-mirror-3/5etools-src/main/data/bestiary/bestiary-phb.json\" -o bestiary-phb.json)",
+      "Bash(node convert.js)",
+      "Bash(rm -f OUT_Animated_Object_Tiny.json)",
+      "Bash(node assemble.js)",
+      "Bash(cat /tmp/claude/e--jawa9000-github-io/a1e637ad-d640-4321-84dd-125736e8611c/scratchpad/hand_built.txt /tmp/claude/e--jawa9000-github-io/a1e637ad-d640-4321-84dd-125736e8611c/scratchpad/INSERT_BLOCK_AUTO.txt)",
+      "Bash(grep -n '^\\\\]$' /e/jawa9000.github.io/fun/Encounter_Builder/monsters.js)",
+      "Bash(head -n 46424 /e/jawa9000.github.io/fun/Encounter_Builder/monsters.js)",
+      "Bash(cp \"/tmp/claude/e--jawa9000-github-io/a1e637ad-d640-4321-84dd-125736e8611c/scratchpad/monsters_new.js\" \"/e/jawa9000.github.io/fun/Encounter_Builder/monsters.js\" *)",
+      "PowerShell(node -e \"const fs=require\\('fs'\\);const s=fs.readFileSync\\('e:/jawa9000.github.io/fun/Encounter_Builder/monsters.js','utf8'\\);const m=eval\\(s+';monsters'\\);console.log\\('total:',m.length\\);const names=m.map\\(x=>x.name\\);const dupes=names.filter\\(\\(n,i\\)=>names.indexOf\\(n\\)!==i\\);console.log\\('dupes:',[...new Set\\(dupes\\)]\\);\")",
+      "Bash(SCRATCH=/tmp/claude/e--jawa9000-github-io/a1e637ad-d640-4321-84dd-125736e8611c/scratchpad *)",
+      "Bash(cat hand_built.txt INSERT_BLOCK_AUTO.txt)",
+      "Bash(curl -sL \"https://raw.githubusercontent.com/5etools-mirror-3/5etools-src/main/data/bestiary/bestiary-xdmg.json\" -o bestiary-xdmg.json)",
+      "Bash(curl -sL \"https://raw.githubusercontent.com/5etools-mirror-3/5etools-src/main/data/bestiary/bestiary-xmm.json\" -o bestiary-xmm.json)",
+      "Bash(curl -sL \"https://raw.githubusercontent.com/5etools-mirror-3/5etools-src/main/data/bestiary/bestiary-mm.json\" -o bestiary-mm.json)"
+    ],
+    "additionalDirectories": [
+      "\\tmp\\claude\\e--jawa9000-github-io\\a1e637ad-d640-4321-84dd-125736e8611c\\scratchpad"
+    ]
+  }
+}

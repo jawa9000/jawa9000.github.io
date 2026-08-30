@@ -93,177 +93,12 @@ Purple Worm
 Quasit
 Quipper
 
+>> There are several monsters who don't have CRs.
+
 
 >> about 100 monsters are missing their associates property.
 
-Aarakocra Aeromancer, Aarakocra Simulacrum, Aarakocra Skirmisher
-Aarakocra Spelljammer
-Aartuk Elder
-Aartuk Starhorror
-Aartuk Weedling
-Aberrant Cultist
-Aberrant Spirit
-Aberrant Zealot
-Aberrant Zealot (Tentacled)
-Abhorrent Overlord
-Abyssal Chicken
-Abyssal Wretch
-Adult Oblex
-Advanced Detention Drone
-Aerosaur
-Air
-Air  Myrmidon
-Akroan Hoplite
-Albino Dwarf Spirit Warrior
-Albino Dwarf Warrior
-Aldani (Lobsterfolk)
-Almiraj
-Alseid
-Altisaur
-Amber Golem
-Ambitious Assassin
-Ambush Drake
-Amethyst Greatwyrm
-Amphisbaena
-Anchorite of Talos
-Animated Armor Detention Drone
-Animated Ballista
-Animated Broom
-Animated Chained Library
-Animated Drow Statue
-Animated Flying Sword
-Animated Halberd
-Animated Jade Serpent
-Animated Object
-Animated Rug of Shering
-Animated Staff
-Animated Statue of Lolth
-Animated Stove
-Animated Table
-Animated Tile Chimera
-Animated Wand
-Animatronic Allosaurus
-Ankylosaurus Zombie
-Anvilwrought Raptor
-Aphemia
-Apprentice
-Aquatic Ghoul
-Aquatic Troll
-Arasta
-Archaic
-Archelon
-Armored Saber-Toothed Tiger
-Art  Mascot
-Ashen Animated Armor
-Ashen Flying Sword
-Ashen Heir Anarchist
-Ashen Heir Assassin
-Ashen Heir Mage
-Ashen Heir Veteran
-Ashen Knight
-Ashen Rider
-Ashen Shambling Mound
-Ashen Veteran
-Ashen Warhorse
-Aspirant of the Comet
-Assassin Vine
-Asteria
-Astral Blight
-Astral Elf Aristocrat
-Astral Elf Commander
-Astral Elf Honor Guard
-Astral Elf Star Priest
-Astral Elf Warrior
-Athar Null
-Atropal
-Aurak Draconian
-Aurnozci
-Aurumach Rilmani
-Aurumvorax
-Aurumvorax Den Leader
-Autognome
-Avatar of Death
-Avoral Guardinal
-Awakened  Wasp
-Awakened Brown Bear
-Awakened Elk
-Awakened Rat
-Awakened White Moose
-Awakened Zurkhwood
-Axe of Mirabar Soldier
-Azer Pyromancer
-Azer Sentinel
-B'rohg
-Baaz Draconian
-Baernaloth
-Bag Jelly
-Bakunawa
-Bandit Crime Lord
-Bandit Deceiver
-Bariaur Wanderer
-Barkburr
-Barlgura
-Barovian Commoner
-Barovian Scout
-Barovian Witch
-Barrowghast
-Battlehammer Dwarf
-Beder
-Beder Zombie
-Belashyrra
-Beledros Witherbloom
-Berserker Commander
-Bestial Spirit
-Big Xorn
-bjurer
-Black Earth Guard
-Black Earth Priest
-Black Gauntlet of Bane
-Black Greatwyrm
-Black Rose Bearer
-Blade Lieutenant
-Blade Scout
-Blazebear
-Bleak Cabal Void Soother
-Blistercoil Weird
-Blob of Annihilation
-Blood-Toll Harpy
-Bloodfray
-Blue Greatwyrm
-Blue slaad
-Bodytaker
-Boggle
-Bone Knight
-Bone Roc
-Bone Whelk
-Boneless
-Booyahg Booyahg Booyahg
-Booyahg Caster
-Booyahg Slave of the
-Booyahg Slave of the Arch
-Booyahg Slave of the Great Old One
-Booyahg Whip
-Booyahg Wielder
-Borborygmos
-Bore Worm
-Borthak
-Boss Augustus
-Boss Delour
-Bozak Draconian
-Brackish Trudge
-Brain Breaker
-Brain in a Jar
-Brass Greatwyrm
-Braxat
-Brazen Gorgon
-Breath Drinker
-Bridesmaid of Zuggtmoy
-Brigganock
-Broken King Antigonos
-Bronze Greatwyrm
-Bronze Sable
-Bronze scout
-Broom of Animated Attack
+
 Brown Scavver
 Brusipha
 Bugbear Gardener
@@ -333,12 +168,6 @@ Clawfoot
 Clay Gladiator
 Cleric
 Cloaker Mutate
-Clockwork Behir
-Clockwork Defender
-Clockwork Mule
-Clockwork Observer
-Clockwork Stone Defender
-Cloud
 Cloud  Destiny Gambler
 Cloud  Ghost
 Cloud  Noble
@@ -376,9 +205,7 @@ Crocodile
 Crow
 Crushing Wave Priest
 Crushing Wave Reaver
-Crystal Battleaxe
-Crystal Golem
-Crystal Greatwyrm
+
 Cultist Hierophant
 Cuprilach Rilmani
 Cyclops Oracle
@@ -440,27 +267,8 @@ Dolphin Delighter
 Doomguard  Blade
 Doomguard Doom Lord
 Doomwake
-Draconian Dreadnought
-Draconian Foot Soldier
-Draconian Infiltrator
-Draconian Mage
-Draconian Mastermind
-Draconians (various types listed in list, but stat blocks not specified which types)
-Draconic Shard
-Draconic Spirit
-Dracophage Subject
-Drake Companion
-Dread Warrior
-Drow Acolyte
-Drow Bandit
-Drow Commander
-Drow Commoner
-Drow Cultist
-Drow Gunslinger
-Drow Noble
-Drow Scout
-Drow Spore Servant
-Drow Spy
+
+
 Drowned Ascetic
 Drowned Assassin
 Drowned Blade
@@ -473,9 +281,7 @@ Duergar Spore Servant
 Duergar Spy
 Dullahan
 Dust Hulk
-Dwarf explorer
-Dwarf prospector
-Dwarf Skeleton
+
 Dybbuk
 Dyrrn
 Earth  Myrmidon
@@ -492,11 +298,7 @@ Elder Black Pudding
 Elder Brain
 Elder Oblex
 Eldritch Horror Hatchling
-Elemental General
-Elemental Myrmidon, Earth
-Elemental Myrmidon, Fire
-Elemental Myrmidon, Water
-Elemental Prince of Evil Fire
+
 Elise
 Emberhorn Minotaur
 Emerald Enclave Scout
@@ -544,16 +346,7 @@ Fighter
 Firbolg Primeval Warden
 Firbolg Wanderer
 First-Year Student
-Fish
-Fly
-Flying Dagger
-Flying Horror
-Flying Monkey
-Flying Rocking Horse
-Flying Shield
-Flying Spider
-Flying Staff
-Flying Trident
+
 Fox
 Froghemoth
 Frost  Ice Shaper
@@ -570,51 +363,10 @@ Gargantua
 Gauth
 Gazer
 Geryon
-Giant Poisonous Snakes
-Giant raven
-Giant seahorse
-Giant skeleton
-Giant Spiders
-Giant squid
-Giant Strider
-Gibberling
-Giff Shock Trooper
-Giff Warlord
-Gigant
-Gingwatzim
-Girallon
-Girallon Zombie
-Githyanki Buccaneer
-Githyanki Dracomancer
-Githyanki Star Seer
-Githyanki Xenomancer
-Githzerai Futurist
-Githzerai Psion
-Githzerai Traveler
-Githzerai Uniter
-Glass Pegasus
-Glasswork Golem
 Gloamwing
 Gloom weaver
-Gnoll Demoniac
-Gnoll Fang of Yeenoghu
-Gnoll Flesh Gnawer
-Gnoll Hunter
-Gnoll Pack Lord
-Gnoll Tribal Shaman
-Gnoll Vampire
-Gnoll Warrior
-Gnoll Witherling
 Gnome Ceremorph
 Gnome Squidling
-Goblin Boss Archer
-Goblin Commoner
-Goblin Gang Member
-Goblin Hexer
-Goblin Minion
-Goblin Psi Brawler
-Goblin Psi Commander
-Goblin warlock
 Goblinoids
 Gold Greatwyrm
 Gold-Forged Sentinel
@@ -638,7 +390,6 @@ Gray Render
 Gray Scavver
 Gray Slaad
 Graz'zt
-
 Greater Devil
 Greater Star Spawn Emissary
 Greater Zombie
@@ -678,21 +429,13 @@ Gruul Stone giant
 Gruul Sunder shaman
 Gruul Trog
 Gruul Viashino
-Guard (Thrall)
-Guard Captain
-Guard Drake
-Guardian
-Guardian giant
-Guardian of Gorm
-Guardian Portrait
-Guardinals
+
 Gulthias Blight
 Hadozee Explorer
 Hadozee Shipmate
 Hadozee Warrior
 Hadrosaurus
 Hag
-Hag (Annis, Bheur, Dusk, Green, Night)
 Hag Minion
 Hag of the Fetid Gaze
 Hag Servant
@@ -715,28 +458,7 @@ Hippomus
 Hoard Mimic
 Hoard Scarab
 Hoard Scarab (base, Swarm)
-Huge  Crab
-Huge Gray
-Huge Ochre Jelly
-Huge Polar Bear
-Huge Stone Golem
-Hungry Sorrowsworn
-Ice mephits
-Ice Piercer
-Ice Spider
-Ice Spider Queen
-Ice Troll
-Illithid
-Illithid Arcanist
-Illithid Elder Brain
-Illithid Lich
-Illithid Mind Flayer
-Illithid Psion
-Illithid Sorcerer
-Illithid Warlock
-Illithilich
-Illusionist
-Illusionist Wizard
+
 Isolde
 Isperia
 Istarian Drone
@@ -744,12 +466,7 @@ Iuz
 Ixitxachitl
 Ixitxachitl Cleric
 Jarad Vod Savo
-Koalinth
-Koalinth Sergeant
-Kobold Commoner
-Kobold Elite
-Kobold Tinkerer
-Kobold Vampire Spawn
+
 Koi Prawn
 Kolyarut
 Korred
@@ -792,44 +509,7 @@ Leucrotta
 Leucta
 Leviathan
 Levistus
-Lichen Lich
-Lightning Eel
-Lightning Golem
-Lightning Hulk
-Liondrake
-Living Bigby's Hand
-Living Blade of Disaster
-Living Burning Hands
-Living Cloudkill
-Living Demiplane
-Living Doll
-Living Iron Statue
-Living Lightning Bolt
-Living Portent
-Living Unseen Servant
-Lizard king/queen
-Lizardfolk (Viashino)
-Lizardfolk champion
-Lizardfolk Commoner
-Lizardfolk Geomancer
-Lizardfolk priest
-Lizardfolk Queen
-Lizardfolk Render
-Lizardfolk Scaleshield
-Lizardfolk scout
-Lizardfolk shaman
-Lizardfolk Sovereign
-Lizardfolk Subchief
-Lizardfolk tribe leader
-Lizardfolk warrior
-Locathah
-Locathah Hunter
-Lonely Sorrowsworn
-Lonelywood Banshee
-Lord of Blades
-Lords of Dust
-Lords' Alliance Guard
-Lords' Alliance Spy
+
 Lored Apprentice
 Lored Pledgemage
 Lored Professor of Chaos
@@ -840,12 +520,7 @@ Loup Garou
 Lycanthrope
 Lynx
 lyphant
-Mad Golem
-Maelephant
-Mage Apprentice
-Mage Hunter
-Mage of Usamigaras
-Magewright
+
 Malaxxix
 Male Steeder
 Malformed Kraken
@@ -859,16 +534,7 @@ Marid
 Martial Arts Adept
 Marut
 Maschin-i-Bozorg
-Master of Cruelties
-Master of Souls
-Master Sage
-Master Thief
-Maurezhi
-Maw Demon
-Maw of Yeenoghu
-Meazel
-Mechachimera
-Mechanical Bird
+
 Meenlock
 Megapede
 Meletian Hoplite
@@ -886,31 +552,11 @@ Merregon
 Merrenoloth
 Merrow
 Merrow Extortionist
-Metal Wasp
-Metallic Dragons
-Metallic Greatwyrm
-Metallic Peacekeeper
-Metallic Sentinels (various types listed in list, but stat blocks not specified which types)
+
 Metallic Warbler
 Mezzoloth
 Mighty Servant of Leuk-o
-Mimic
-Mimic Chair
-Mind Drinker Vampire
-Mind Flayer Arcanist
-Mind Flayer Clairvoyant
-Mind flayer lich (alhoon variant)
-Mind Flayer Nothic
-Mind Flayer Prophet
-Mind Flayer Psion
-Mind Mage
-Mind's Eye Matter Smith
-Mindwitness
-Minotaur Archaeologist
-Minotaur Infiltrator
-Minotaur Living Crystal Statue
-Minotaur of Baphomet
-Mirror Shade
+
 Mist Hulk
 Modron Duodrone
 Modron Monodrone
@@ -946,7 +592,6 @@ Myconid Spore Servant
 Myconid Sprout
 Nabassu
 Naga
-Naga Bone
 Nagpa
 Naiad
 Narzugon
@@ -986,32 +631,14 @@ Nycaloth
 Nymph
 Nyx-Fleece Ram
 Oaken bolter
-Oblex (Adult, Elder)
 Oblex Spawn
 Obzedat Ghost
 Octon Modron
 Oculorb
 Oddlewin
-Ogre Battering Ram
-Ogre Bolt Launcher
-Ogre Chain Brute
-Ogre Goblin Hucker
-Ogre Howdah
-Ogre Skeleton
-Ogrillon Ogre
 Oinoloth
 Old Troglodyte
 One-Eyed Shiver
-Ooze
-Oracle
-Oracle of Strixhaven
-Orc Claw of Luthic
-Orc Commoner
-Oread
-Oriq Blood Mage
-Oriq Recruiter
-Orthon
-Orzhov
 Orzhov Giant
 Otherworldly Corrupter
 Otherworldly Steed
@@ -1028,9 +655,6 @@ Peacock
 Pech
 Peddler
 Pegasi
-Performer
-Performer Legend
-Performer Maestro
 Peryton
 Pest Mascot
 Phantom Warrior
@@ -1042,29 +666,15 @@ Piercer
 Pig
 Piranha
 Piranha beetles
-Pirate
-Pirate Admiral
-Pirate Bosun
-Pirate Captain
-Pirate Deck Wizard
-Pirate First Mate
 Pit
 Pit Spawn
 Pixie Wonderbringer
 Planar Incarnate
-Planetar
-Plasmoid Boss
-Plasmoid Explorer
-Plasmoid Warrior
 Podling
 Poison Weird
 Poltergeist
 Polukranos
 Precognitive Mage
-Priest Acolyte
-Priest of Osybus
-Priest of the Forgotten God
-Priest of the Old Faith
 Primeval Owlbear
 Primus
 Prismari Apprentice
@@ -1145,14 +755,6 @@ Salamander Fire Snake
 Salamanders
 Scaladar
 Scarecrow
-Sea Elf
-Sea Elf Scout
-Sea Lion
-Sea Mare
-Sea Serpent
-Sea Serpents (Ancient, Young)
-Sea Spawn
-Seahorse
 Seal
 Sergeant
 Serra angel
@@ -1169,36 +771,10 @@ Shrieker Fungus
 Sibriex
 Sigil
 Skyjek Roc
-Slaad (any, Blue, Death, Gray, Green, Red, Tadpole)
+Slaad (any, Death, Gray, Green, Red, Tadpole)
 Sled Dog
 Slithering Tracker
-Smoke Mephit
-Snail
-Snake
-Snake Horror
-Snapping Turtle
-Sneak
-Soldier
-Sorcerer
-Space Guppy
-Space Hamster
-Space Mollymawk
-Space Swine
-Spawn of Kyuss
-Spellcaster
-Spellcaster vampire
-Sperm Whale
-Sphinx
-Sphinx of Judgment
-Sphinx of Lore
-Sphinx of Secrets
-Sphinx of Valor
-Sphinx of Wonder
-Spider Swarm
-Spiderwebs
-Spirit
-Spirit Statue Mascot
-Spirit Troll
+
 Splugoth the Returned
 Spore Servant Octopus
 Spotted Lion
@@ -1209,16 +785,6 @@ Squire
 Ssurran Defiler
 Ssurran Poisoner
 Stalker of Baphomet
-Star Angler
-Star moth
-Star Spawn Grue
-Star Spawn Hulk
-Star Spawn Larva Mage
-Star Spawn Mangler
-Star Spawn Seer
-Starlight Apparition
-Statue of Talos
-Statue of Vergadain
 Steaurus
 Steeder, Female
 Steeder, Male
@@ -1235,30 +801,6 @@ Svirfneblin scout
 Svirfneblin Wererat
 Swamp-bred chimera
 Swan
-Swarm of giant Grubs
-Swarm of Animated Books
-Swarm of Books
-Swarm of Campestris
-Swarm of Cranium Rats
-Swarm of Crawling Claws
-Swarm of Dretches
-Swarm of Gibberlings
-Swarm of Gremishkas
-Swarm of Hoard Scarabs
-Swarm of Larvae
-Swarm of Lemures
-Swarm of Maggots
-Swarm of Mechanical Spiders
-Swarm of Piranhas
-Swarm of Rot Grubs
-Swarm of Scarabs
-Swarm of spiders
-Swarm of Stirges
-Swarm of Sunflies
-Swarm of Tiny Monstrosities
-Swarm of Venomous Snakes
-Swarm of Zombie Limbs
-Swarmkeeper ranger
 Swashbuckler
 Tabaxi
 Tabaxi Hunter
@@ -1321,26 +863,4 @@ Thri-kreen Hunter
 Thri-kreen Marauder
 Thri-kreen Mystic
 Thunder Skeleton
-
-
-Added monsters:
-Tanarukk
-Tarkanan Assassin
-Telepathic Pentacle
-The Wretched
-Theran Chimera
-Thief Lord
-Thorn Slinger
-Thorny Vegepygmy
-Thri-kreen Psion
-
-
-
-
-  {
-    "name": "Vargouille Reflection",
-    "environments": ["Dungeon"],
-    "associates": ["Humanoid"],
-    "actions": "<p><em><strong>Horrific Reflection (Recharge 5–6).</strong></em> The vargouille's head mimics a humanoid it can see within 120 feet. The target must succeed on a DC 12 Wisdom saving throw or take 10 (3d6) psychic damage and be frightened for 1 hour or until the vargouille loses concentration. The curse operates similarly to a regular vargouille's kiss: the target's Charisma is reduced by 1 each hour. If the curse reduces the target's Charisma to 2, the target dies and its head transforms into a new vargouille reflection. The curse can be removed by the <em>remove curse</em> or <em>greater restoration</em> spell, or similar magic. The curse is halted by direct sunlight or a <em>daylight</em> spell.</p>",
-    "description": "<p>A Vargouille Reflection is a variant of a vargouille that resides in Undersigil. When it spots a humanoid target, it mimics that creature's visage to terrify it, appearing as its own disembodied head.</p>"
-  },
+Vargouille Reflection
