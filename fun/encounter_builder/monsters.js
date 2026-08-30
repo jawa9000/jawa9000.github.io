@@ -10565,7 +10565,7 @@ const monsters = [
       name: "Lich",
       size: "Medium",
       type: "Undead",
-      alignment: "Any Evil Alignment",
+      alignment: "Any Evil",
       environments: ["Varies"],
       associates: ["Jarad Vod Savo", "Devkarin lich", "Alhoon", "Mind Flayer", "Goblin warlock", "Vampire", "Vampire spawn", "Vampire lord", "Vampire mage", "Acolyte", "Adult Red Dragon", "Ancient Red Dragon", "Archmage", "Green Hag", "Imp", "Ogre Zombie", "Shadow", "Skeleton", "Specter", "Swarm of Bats", "Warhorse Skeleton", "Zombie"],
       "armor class": 17,
@@ -21453,7 +21453,7 @@ const monsters = [
       name: "Alhoon",
       size: "Medium",
       type: "Undead",
-      alignment: "Any Evil Alignment",
+      alignment: "Any Evil",
       environments: ["Underdark"],
       associates: ["Mind Flayer"],
       "armor class": 15,
@@ -34134,7 +34134,7 @@ const monsters = [
     },
 {
       name: "Aberrant Cultist",
-      size: "Medium or Small",
+      size: "Small or Medium",
       type: "Humanoid",
       alignment: "Neutral Evil",
       environments: ["Varies"],
@@ -35549,7 +35549,7 @@ const monsters = [
       name: "Wizard",
       size: "Medium",
       type: "Humanoid",
-      alignment: "Any alignment",
+      alignment: "Any",
       environments: ["Dungeon"],
       associates: ["Undead", "Construct"],
       "armor class": 10,
@@ -36760,7 +36760,7 @@ const monsters = [
       name: "Tarkanan Assassin",
       size: "Medium",
       type: "Humanoid",
-      alignment: "Lawful Chaotic Evil",
+      alignment: "Any Non-Good",
       environments: ["Urban"],
       associates: ["Thora Tavin", "Boromar Clan"],
       "armor class": 15,
@@ -37348,7 +37348,7 @@ const monsters = [
     "name": "Albino Dwarf Spirit Warrior",
     "size": "Medium",
     "type": "Humanoid",
-    alignment: "Any Alignment",
+    alignment: "Any",
     associates: ["Albino Dwarf Warrior"],
     "environments": [
       "Dungeon"
@@ -37398,7 +37398,7 @@ const monsters = [
     wis: 14,
     con: 17, 
     cha: 11,
-    alignment: "Any Alignment",
+    alignment: "Any",
     "environments": [
       "Dungeon"
     ],
@@ -38145,7 +38145,7 @@ const monsters = [
         "movement": 30
       }
     },
-    "challenge": "Not specified",
+    "challenge": 2,
     "traits": "<p><em><strong>Spellcasting.</strong></em> 5th-level spellcaster. Spellcasting ability is Wisdom (spell save DC 13, +5 to hit with spell attacks). Has cleric spells prepared:</p><ul><li>Cantrips (at will): <em>light, sacred flame, thaumaturgy</em></li><li>1st level (4 slots): <em>cure wounds, guiding bolt, sanctuary</em></li><li>2nd level (3 slots): <em>lesser restoration, spiritual weapon</em></li><li>3rd level (2 slots): <em>dispel magic, spirit guardians</em></li></ul><p><em><strong>Divine Eminence.</strong></em> As a bonus action, can expend a spell slot to cause melee weapon attacks to magically deal an extra 10 (3d6) radiant damage on a hit until the end of the turn. Extra damage increases by 1d6 for each level above 1st if a 2nd level or higher spell slot is expended.</p>",
     "number of attacks": 1,
     "attacks": {
@@ -38168,7 +38168,7 @@ const monsters = [
     "name": "Ashen Heir Assassin",
     "size": "Medium",
     "type": "Humanoid",
-    "alignment": "Any Non-Good Alignment",
+    "alignment": "Any Non-Good",
     str: 11,
     int: 13,
     dex: 16,
@@ -38185,7 +38185,7 @@ const monsters = [
         "movement": 30
       }
     },
-    "challenge": "Not specified",
+    "challenge": 8,
     "traits": "<p><em><strong>Assassinate.</strong></em> During its first turn, has advantage on attack rolls against any creature that hasn't taken a turn. Any hit the assassin scores against a surprised creature is a critical hit.</p><p><em><strong>Evasion.</strong></em> If subjected to an effect allowing a Dexterity saving throw for half damage, the assassin instead takes no damage on a success and half on a failure.</p><p><em><strong>Sneak Attack (1/Turn).</strong></em> Deals an extra 14 (4d6) damage when it hits a target with a weapon attack and has advantage, or when the target is within 5 feet of an ally that isn't incapacitated and the assassin doesn't have disadvantage.</p>",
     "number of attacks": 2,
     "attacks": {
@@ -38252,7 +38252,7 @@ const monsters = [
         "movement": 30
       }
     },
-    "challenge": "Not specified",
+    "challenge": 6,
     "traits": "<p><em><strong>Spellcasting.</strong></em> 9th-level spellcaster. Spellcasting ability is Intelligence (spell save DC 14, +6 to hit with spell attacks). Has wizard spells prepared:</p><ul><li>Cantrips (at will): <em>fire bolt, light, mage hand, prestidigitation</em></li><li>1st level (4 slots): <em>detect magic, mage armor, magic missile, shield</em></li><li>2nd level (3 slots): <em>misty step, suggestion</em></li><li>3rd level (3 slots): <em>counterspell, fireball, fly</em></li><li>4th level (3 slots): <em>greater invisibility, ice storm</em></li><li>5th level (1 slot): <em>cone of cold</em></li></ul>",
     "number of attacks": 1,
     "attacks": {
@@ -39231,7 +39231,7 @@ const monsters = [
     "name": "Bandit Crime Lord",
     "size": "Medium",
     "type": "Humanoid",
-    "alignment": "Any Evil Alignment",
+    "alignment": "Any Evil",
     str: 10,
     int: 18,
     dex: 20,
@@ -40165,7 +40165,7 @@ const monsters = [
     wis: 14,
     con: 14,
     cha: 16,
-    "alignment": "Any non-good alignment",
+    "alignment": "Any Non-Good",
     "environments": [
       "Varies"
     ],
@@ -40919,7 +40919,7 @@ const monsters = [
     "name": "Draconian Dreadnought",
     "size": "Large",
     "type": "Monstrosity",
-    "alignment": "Any Alignment",
+    "alignment": "Any",
     "environments": ["Mountain", "Grassland", "Urban", "Ruins"],
     "associates": ["Draconian Foot Soldier", "Draconian Infiltrator", "Draconian Mage", "Draconian Mastermind", "Blue Dragon", "Red Dragon"],
     "armor class": 16,
@@ -40975,7 +40975,7 @@ const monsters = [
     "name": "Draconian Foot Soldier",
     "size": "Medium",
     "type": "Monstrosity",
-    "alignment": "Any Alignment",
+    "alignment": "Any",
     "environments": ["Mountain", "Grassland", "Urban", "Ruins"],
     "associates": ["Draconian Dreadnought", "Draconian Infiltrator", "Draconian Mage", "Draconian Mastermind", "Blue Dragon", "Red Dragon"],
     "armor class": 14,
@@ -41016,7 +41016,7 @@ const monsters = [
     "name": "Draconian Infiltrator",
     "size": "Medium",
     "type": "Monstrosity",
-    "alignment": "Any Alignment",
+    "alignment": "Any",
     "environments": ["Mountain", "Urban", "Ruins", "Underdark"],
     "associates": ["Draconian Dreadnought", "Draconian Foot Soldier", "Draconian Mage", "Draconian Mastermind", "Blue Dragon", "Red Dragon"],
     "armor class": 15,
@@ -41063,7 +41063,7 @@ const monsters = [
     "name": "Draconian Mage",
     "size": "Medium",
     "type": "Monstrosity",
-    "alignment": "Any Alignment",
+    "alignment": "Any",
     "environments": ["Mountain", "Urban", "Ruins"],
     "associates": ["Draconian Dreadnought", "Draconian Foot Soldier", "Draconian Infiltrator", "Draconian Mastermind", "Blue Dragon", "Red Dragon"],
     "armor class": 15,
@@ -41117,7 +41117,7 @@ const monsters = [
     "name": "Draconian Mastermind",
     "size": "Medium",
     "type": "Monstrosity",
-    "alignment": "Any Alignment",
+    "alignment": "Any",
     "environments": ["Mountain", "Urban", "Ruins"],
     "associates": ["Draconian Dreadnought", "Draconian Foot Soldier", "Draconian Infiltrator", "Draconian Mage", "Blue Dragon", "Red Dragon"],
     "armor class": 17,
@@ -41411,7 +41411,7 @@ const monsters = [
     "name": "Drow Gunslinger",
     "size": "Medium",
     "type": "Humanoid",
-    "alignment": "Any Alignment",
+    "alignment": "Any",
     "environments": ["Underdark", "Urban"],
     "associates": ["Drow", "Drow Elite Warrior", "Drow Commander", "Drow Spy"],
     "armor class": 18,
@@ -42314,7 +42314,7 @@ const monsters = [
     "name": "Giff Shock Trooper",
     "size": "Medium",
     "type": "Humanoid",
-    "alignment": "Any Alignment",
+    "alignment": "Any",
     "associates": [
       "Giff Warlord",
       "Space Amoeba",
@@ -42348,7 +42348,7 @@ const monsters = [
     "name": "Giff Warlord",
     "size": "Medium",
     "type": "Humanoid",
-    "alignment": "Any Alignment",
+    "alignment": "Any",
     "associates": [
       "Giff Shock Trooper",
       "Space Amoeba"
@@ -42546,7 +42546,7 @@ const monsters = [
     "name": "Githyanki Buccaneer",
     "size": "Medium",
     "type": "Humanoid",
-    "alignment": "Any Alignment",
+    "alignment": "Any",
     "associates": [
       "Githyanki Supreme Commander",
       "Githyanki Knight",
@@ -42623,7 +42623,7 @@ const monsters = [
     "name": "Githyanki Star Seer",
     "size": "Medium",
     "type": "Humanoid",
-    "alignment": "Any Alignment",
+    "alignment": "Any",
     "associates": [
       "Githyanki Supreme Commander",
       "Githyanki Knight",
@@ -42658,7 +42658,7 @@ const monsters = [
     "name": "Githyanki Xenomancer",
     "size": "Medium",
     "type": "Humanoid",
-    "alignment": "Any Alignment",
+    "alignment": "Any",
     "associates": [
       "Githyanki Supreme Commander",
       "Githyanki Warrior"
@@ -42689,7 +42689,7 @@ const monsters = [
     "name": "Githzerai Futurist",
     "size": "Medium",
     "type": "Aberration",
-    "alignment": "Any Alignment",
+    "alignment": "Any",
     "associates": [
       "Githzerai Monk",
       "Githzerai Enlightened",
@@ -42765,7 +42765,7 @@ const monsters = [
     "name": "Githzerai Traveler",
     "size": "Medium",
     "type": "Aberration",
-    "alignment": "Any Alignment",
+    "alignment": "Any",
     "associates": [
       "Githzerai Monk",
       "Githzerai Enlightened"
@@ -42797,7 +42797,7 @@ const monsters = [
     "name": "Githzerai Uniter",
     "size": "Medium",
     "type": "Aberration",
-    "alignment": "Any Alignment",
+    "alignment": "Any",
     "associates": [
       "Githzerai Enlightened",
       "Githyanki Warrior",
@@ -43349,7 +43349,7 @@ const monsters = [
     "name": "Goblin Psi Brawler",
     "size": "Small",
     "type": "Aberration",
-    "alignment": "Any Alignment",
+    "alignment": "Any",
     "associates": [
       "Goblin Psi Commander",
       "Mind Flayer"
@@ -43388,7 +43388,7 @@ const monsters = [
     "name": "Goblin Psi Commander",
     "size": "Small",
     "type": "Aberration",
-    "alignment": "Any Alignment",
+    "alignment": "Any",
     "associates": [
       "Goblin Psi Brawler",
       "Mind Flayer"
@@ -45216,7 +45216,7 @@ const monsters = [
     "name": "Pirate Bosun",
     "size": "Medium",
     "type": "Humanoid",
-    "alignment": "Any Alignment",
+    "alignment": "Any",
     "associates": [
       "Pirate",
       "Pirate Captain",
@@ -45247,7 +45247,7 @@ const monsters = [
     "name": "Pirate Captain",
     "size": "Medium",
     "type": "Humanoid",
-    "alignment": "Any Alignment",
+    "alignment": "Any",
     "associates": [
       "Pirate",
       "Pirate Bosun",
@@ -45280,7 +45280,7 @@ const monsters = [
     "name": "Pirate Deck Wizard",
     "size": "Medium",
     "type": "Humanoid",
-    "alignment": "Any Alignment",
+    "alignment": "Any",
     "associates": [
       "Pirate",
       "Pirate Captain"
@@ -45310,7 +45310,7 @@ const monsters = [
     "name": "Pirate First Mate",
     "size": "Medium",
     "type": "Humanoid",
-    "alignment": "Any Alignment",
+    "alignment": "Any",
     "associates": [
       "Pirate",
       "Pirate Bosun",
@@ -45341,7 +45341,7 @@ const monsters = [
     "name": "Plasmoid Boss",
     "size": "Large",
     "type": "Ooze",
-    "alignment": "Any Alignment",
+    "alignment": "Any",
     "associates": [
       "Plasmoid Warrior",
       "Plasmoid Explorer"
@@ -45381,7 +45381,7 @@ const monsters = [
     "name": "Plasmoid Explorer",
     "size": "Medium",
     "type": "Ooze",
-    "alignment": "Any Alignment",
+    "alignment": "Any",
     "associates": [
       "Plasmoid Warrior",
       "Plasmoid Boss"
@@ -45419,7 +45419,7 @@ const monsters = [
     "name": "Plasmoid Warrior",
     "size": "Medium",
     "type": "Ooze",
-    "alignment": "Any Alignment",
+    "alignment": "Any",
     "associates": [
       "Plasmoid Boss",
       "Plasmoid Explorer"
@@ -45528,7 +45528,7 @@ const monsters = [
     "name": "Sea Elf Scout",
     "size": "Medium",
     "type": "Humanoid",
-    "alignment": "Any Alignment",
+    "alignment": "Any",
     "associates": [
       "Sea Elf",
       "Merfolk",
@@ -46958,7 +46958,7 @@ const monsters = [
     "name": "Aspirant of the Comet",
     "size": "Medium",
     "type": "Humanoid",
-    "alignment": "Any Alignment",
+    "alignment": "Any",
     "associates": [
       "Cultist",
       "Cult Fanatic"
@@ -47027,7 +47027,7 @@ const monsters = [
     "name": "Astral Elf Aristocrat",
     "size": "Medium",
     "type": "Humanoid",
-    "alignment": "Any Alignment",
+    "alignment": "Any",
     "associates": [
       "Astral Elf Commander",
       "Astral Elf Honor Guard",
@@ -47064,7 +47064,7 @@ const monsters = [
     "name": "Astral Elf Commander",
     "size": "Medium",
     "type": "Humanoid",
-    "alignment": "Any Alignment",
+    "alignment": "Any",
     "associates": [
       "Astral Elf Aristocrat",
       "Astral Elf Honor Guard",
@@ -47100,7 +47100,7 @@ const monsters = [
     "name": "Astral Elf Honor Guard",
     "size": "Medium",
     "type": "Humanoid",
-    "alignment": "Any Alignment",
+    "alignment": "Any",
     "associates": [
       "Astral Elf Aristocrat",
       "Astral Elf Commander",
@@ -47136,7 +47136,7 @@ const monsters = [
     "name": "Astral Elf Warrior",
     "size": "Medium",
     "type": "Humanoid",
-    "alignment": "Any Alignment",
+    "alignment": "Any",
     "associates": [
       "Astral Elf Aristocrat",
       "Astral Elf Commander",
@@ -47196,7 +47196,7 @@ const monsters = [
     "senses": {
       "Blindsight": { "range": 120 }
     },
-    "languages": "Telepathy 1 mile; understands Common, Deep Speech, and Undercommon but can't speak",
+    "languages": "Telepathy 1 mile; understands Common, Deep Speech, Undercommon, Can't speak",
     "challenge": "12 (8,400 XP)",
     "traits": "<p><em><strong>Creature Sense.</strong></em> The brain breaker is aware of creatures within 1 mile of itself that have an Intelligence score of 4 or higher. It knows the distance and direction to each creature, as well as each one's Intelligence score, but can't sense anything else about it. A creature protected by a mind blank spell, a nondetection spell, or similar magic can't be perceived in this manner.</p><p><em><strong>Magic Resistance.</strong></em> The brain breaker has advantage on saving throws against spells and other magical effects.</p><p><em><strong>Telepathic Hub.</strong></em> The brain breaker can use its telepathy to initiate and maintain telepathic conversations with up to ten creatures at a time. The brain breaker can let those creatures telepathically hear each other while connected in this way.</p>",
     "actions": "<p><em><strong>Multiattack.</strong></em> The brain breaker makes two Tentacle attacks.</p><p><em><strong>Tentacle.</strong></em> <em>Melee Weapon Attack:</em> +6 to hit, reach 30 ft., one target. <em>Hit:</em> 15 (3d8 + 2) bludgeoning damage. If the target is a Huge or smaller creature, it is grappled (escape DC 14) and takes 9 (1d8 + 5) psychic damage at the start of each of its turns until the grapple ends. The brain breaker can have up to four targets grappled at a time.</p><p><em><strong>Mind Blast (Recharge 5-6).</strong></em> Creatures of the brain breaker's choice within 60 feet of itself must succeed on a DC 17 Intelligence saving throw or take 32 (5d10 + 5) psychic damage and be stunned for 1 minute. A stunned creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p><p><em><strong>Innate Spellcasting (Psionics).</strong></em> The brain breaker casts one of the following spells, requiring no spell components and using Intelligence as the spellcasting ability (spell save DC 17):<br>At will: detect thoughts, levitate</p>",
@@ -48782,7 +48782,7 @@ const monsters = [
     "name": "Illusionist",
     "size": "Medium",
     "type": "Humanoid",
-    "alignment": "Any Alignment",
+    "alignment": "Any",
     "environments": [
       "Urban"
     ],
@@ -48817,7 +48817,7 @@ const monsters = [
     "name": "Illusionist Wizard",
     "size": "Medium",
     "type": "Humanoid",
-    "alignment": "Any Alignment",
+    "alignment": "Any",
     "environments": [
       "Urban"
     ],
@@ -48930,7 +48930,7 @@ const monsters = [
     "name": "Kobold Tinkerer",
     "size": "Small",
     "type": "Humanoid",
-    "alignment": "Any Alignment",
+    "alignment": "Any",
     "associates": [
       "Kobold",
       "Kobold Elite",
@@ -49861,7 +49861,7 @@ const monsters = [
     "name": "Autognome",
     "size": "Small",
     "type": "Construct",
-    "alignment": "Any Alignment",
+    "alignment": "Any",
     "associates": [
       "B'rohg",
       "Chwinga"
@@ -50191,7 +50191,7 @@ const monsters = [
     "name": "B'rohg",
     "size": "Huge",
     "type": "Giant",
-    "alignment": "Any Alignment",
+    "alignment": "Any",
     "associates": [
       "Autognome",
       "Ettin"
@@ -50220,7 +50220,7 @@ const monsters = [
     "name": "Conjurer",
     "size": "Medium",
     "type": "Humanoid",
-    "alignment": "Any Alignment",
+    "alignment": "Any",
     "environments": [
       "Urban"
     ],
@@ -50253,7 +50253,7 @@ const monsters = [
   {
     "name": "Red Dragonborn Elite Centurion",
     "size": "Medium",
-    "type": "Humanoid (Dragonborn)",
+    "type": "Humanoid",
     "alignment": "Any",
     "armor class": 19,
     "hit points": "112 (15d8 + 45)",
@@ -50283,7 +50283,7 @@ const monsters = [
   {
     "name": "Dragon Wagon",
     "size": "Gargantuan",
-    "type": "Construct (Vehicle)",
+    "type": "Construct",
     "alignment": "Unaligned",
     "armor class": 18,
     "hit points": "150",
@@ -50317,7 +50317,7 @@ const monsters = [
     "name": "Booyahg Slave of the Fiend",
     "size": "Small",
     "type": "Humanoid",
-    "alignment": "Any Alignment",
+    "alignment": "Any",
     "associates": ["Booyahg Caster", "Booyahg Whip", "Booyahg Booyahg Booyahg"],
     "environments": ["Underdark", "Desert", "Arctic", "Urban"],
     "armor class": 12,
@@ -50352,7 +50352,7 @@ const monsters = [
     "name": "Booyahg Slave of the Archfey",
     "size": "Small",
     "type": "Humanoid",
-    "alignment": "Any Alignment",
+    "alignment": "Any",
     "associates": ["Booyahg Caster", "Booyahg Whip", "Booyahg Booyahg Booyahg"],
     "environments": ["Arctic", "Forest", "Mountain", "Swamp", "Urban"],
     "armor class": 11,
