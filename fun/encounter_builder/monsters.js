@@ -50250,12 +50250,11 @@ const monsters = [
     "traits": "<p><em><strong>Benign Transportation (Recharges after the Conjurer Casts a Conjuration Spell of 1st Level or Higher).</strong></em> As a bonus action, the conjurer teleports up to 30 feet to an unoccupied space that it can see. If it instead chooses a space within range that is occupied by a willing Small or Medium creature, they both teleport, swapping places.</p>",
     "actions": "<p><em><strong>Dagger.</strong></em> Melee or Ranged Weapon Attack: +5 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 4 (1d4 + 2) piercing damage.</p><p><em><strong>Spellcasting.</strong></em> The conjurer is a 9th-level spellcaster. Its spellcasting ability is intelligence (spell save DC 14, +6 to hit with spell attacks). The conjurer has the following wizard spells prepared:<br>Cantrips (at will): acid splash, mage hand, poison spray, prestidigitation<br>1st level (4 slots): mage armor, magic missile, unseen servant*<br>2nd level (3 slots): cloud of daggers*, misty step*, web*<br>3rd level (3 slots): fireball, stinking cloud*<br>4th level (3 slots): Evard's black tentacles*, stoneskin<br>5th level (2 slots): cloudkill*, conjure elemental*</p>"
   },
-  // >>
   {
     "name": "Red Dragonborn Elite Centurion",
     "size": "Medium",
     "type": "Humanoid (Dragonborn)",
-    "alignment": "Lawful Neutral",
+    "alignment": "Any",
     "armor class": 19,
     "hit points": "112 (15d8 + 45)",
     "speed": {
@@ -50280,7 +50279,468 @@ const monsters = [
     "traits": "<p><em><strong>Draconic Resilience.</strong></em> The centurion's heavy armor and scales provide exceptional protection. While wearing plate armor, the centurion's base AC cannot be reduced by non-magical means.</p><p><em><strong>Phalanx Fighter.</strong></em> While adjacent to at least one friendly creature with a shield, the centurion gains a +1 bonus to its Armor Class and advantage on saving throws against being knocked prone or moved against its will.</p><p><em><strong>Relentless Leadership.</strong></em> Allied humanoids and dragonborn within 30 feet of the centurion have advantage on saving throws against being frightened.</p>",
     "actions": "<p><em><strong>Multiattack.</strong></em> The centurion makes three attacks: two with its Masterwork War Spear and one with its Shield Bash, or it uses Fire Breath in place of one attack.</p><p><em><strong>Masterwork War Spear.</strong></em> Melee Weapon Attack: +7 to hit, reach 10 ft., one target. Hit: 8 (1d8 + 4) piercing damage, or 9 (1d10 + 4) piercing damage if used with two hands.</p><p><em><strong>Shield Bash.</strong></em> Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 6 (1d4 + 4) bludgeoning damage, and if the target is Large or smaller, it must succeed on a DC 15 Strength saving throw or be pushed 5 feet away or knocked prone.</p><p><em><strong>Fire Breath (Recharge 5-6).</strong></em> The centurion exhales destructive fire in a 30-foot cone. Each creature in that area must make a DC 15 Dexterity saving throw, taking 28 (8d6) fire damage on a failed save, or half as much damage on a successful one.</p>",
     "reactions": "<p><em><strong>Interception.</strong></em> When a creature the centurion can see hits a target within 5 feet of it with an attack, the centurion can use its reaction to reduce the damage the target takes by 1d10 + 4 (to a minimum of 0), provided the centurion is wielding a shield or a reach weapon.</p>"
+  },
+  {
+    "name": "Dragon Wagon",
+    "size": "Gargantuan",
+    "type": "Construct (Vehicle)",
+    "alignment": "Unaligned",
+    "armor class": 18,
+    "hit points": "150",
+    "speed": {
+      "surface": {
+        "movement": 40
+      }
+    },
+    "str": 22,
+    "dex": 8,
+    "con": 20,
+    "int": 3,
+    "wis": 10,
+    "cha": 1,
+    "saving throws": "None (relies on pilot or crew checks)",
+    "damage immunities": [
+      "Fire",
+      "Poison",
+      "Psychic"
+    ],
+    "condition immunities": "Blinded, Charmed, Deafened, Exhaustion, Frightened, Paralyzed, Petrified, Poisoned, Prone, Restrained, Stunned",
+    "senses": {},
+    "languages": "Understands commands given in Draconic or Common by its designated pilot, but cannot speak.",
+    "challenge": "8 (3,900 XP)",
+    "traits": "<p><em><strong>Object Vulnerability.</strong></em> As a construct vehicle, the wagon has disadvantage on saving throws against spells that target objects.</p><p><em><strong>Crew.</strong></em> The wagon requires a minimum of 2 crew members to operate-one Pilot (driver) and one Weapon Operator (gunner)-and can comfortably transport up to 6 total occupants inside its fortified cabin.<br><strong>Pilot:</strong> Takes an action on their turn to drive the vehicle, using their own proficiency bonus and Strength or Dexterity modifier for vehicle maneuvers. The wagon moves on the pilot's initiative count.<br><strong>Weapon Operator:</strong> Takes an action to aim and fire the vehicle's mounted weaponry.<br><strong>Passengers (Up to 4):</strong> Have total cover inside the armored cabin and can fire ranged weapons or cast spells through narrow arrow slits (providing three-quarters cover to the occupants).</p><p><em><strong>Armored Compartment.</strong></em> The cabin is completely sealed against external hazards. Occupants inside have total cover from attacks and effects originating outside the vehicle. If the wagon takes more than 30 damage in a single turn, the occupants must succeed on a DC 13 Strength saving throw or be knocked prone.</p><p><em><strong>Combustion Engine.</strong></em> The wagon's internal furnace is fueled by oil or magical fire. While the furnace is lit, the wagon provides bright light in a 30-foot radius and dim light for an additional 30 feet.</p>",
+    "actions": "<p>The wagon can take actions only if it has at least one pilot and one weapon operator aboard, consuming their respective actions.</p><p><em><strong>Trample.</strong></em> The pilot steers the wagon through the space of any Large or smaller creature. Each creature in the wagon's path must make a DC 15 Dexterity saving throw, taking 16 (3d8 + 6) bludgeoning damage and being knocked prone on a failed save, or half as much damage on a successful one.</p><p><em><strong>Dragon-Core Projector (Recharge 5-6).</strong></em> The weapon operator unleashes a torrent of flame from the dragon-shaped figurehead at the front of the vehicle. The fire erupts in a 30-foot cone. Each creature in that area must make a DC 15 Dexterity saving throw, taking 35 (10d6) fire damage on a failed save, or half as much damage on a successful one.</p>"
   }
+,
+  // >>
+  {
+    "name": "Booyahg Slave of the Fiend",
+    "size": "Small",
+    "type": "Humanoid",
+    "alignment": "Any Alignment",
+    "associates": ["Booyahg Caster", "Booyahg Whip", "Booyahg Booyahg Booyahg"],
+    "environments": ["Underdark", "Desert", "Arctic", "Urban"],
+    "armor class": 12,
+    "hit points": "78 (12d8 + 24)",
+    "speed": {
+      "surface": {
+        "movement": 30
+      }
+    },
+    "str": 10,
+    "dex": 14,
+    "con": 15,
+    "int": 12,
+    "wis": 12,
+    "cha": 18,
+    "saving throws": "WIS +4, CHA +7",
+    "skills": "Arcana +4, Deception +7, Persuasion +7, Religion +4",
+    "damage resistances": ["Slashing (from nonmagical attacks not made with silvered weapons)"],
+    "senses": {
+      "Darkvision": {
+        "range": 60
+      }
+    },
+    "languages": "Any two languages (usually Abyssal or Infernal), Goblin",
+    "challenge": "7 (2,900 XP)",
+    "traits": "<p><em><strong>Dark One's Own Luck (Recharges after a Short or Long Rest).</strong></em> When the goblin makes an ability check or saving throw, it can add a d10 to the roll. It can do this after the roll is made but before any of the roll's effects occur.</p><p><em><strong>Nimble Escape.</strong></em> The goblin can take the Disengage or Hide action as a bonus action on each of its turns.</p>",
+    "actions": "<p><em><strong>Mace.</strong></em> Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 3 (1d6) bludgeoning damage plus 10 (3d6) fire damage.</p><p><em><strong>Innate Spellcasting.</strong></em> The goblin's innate spellcasting ability is Charisma. It can innately cast the following spells (spell save DC 15), requiring no material components: At will: alter self, false life, levitate (self only), mage armor (self only), silent image; 1/day each: feeblemind, finger of death, plane shift.</p><p><em><strong>Spellcasting.</strong></em> The goblin is a 17th-level spellcaster. Its spellcasting ability is Charisma (spell save DC 15, +7 to hit with spell attacks). It regains its expended spell slots when it finishes a short or long rest. It knows the following warlock spells: Cantrips (at will): eldritch blast, fire bolt, friends, mage hand, minor illusion, prestidigitation, shocking grasp; 1st-5th level (4 slots): banishment, burning hands, flame strike, hellish rebuke, magic circle, scorching ray, scrying, stinking cloud, suggestion, wall of fire.</p>",
+    "description": "<p>This goblin has forged a pact with an archfiend of the Lower Planes, trading its old life among its goblin kin for infernal power. It is one of the Booyahg's Booyahg Booyahg's slaves, kept close for the fiendish magic it can offer.</p>"
+  },
+  // >>
+  {
+    "name": "Booyahg Slave of the Archfey",
+    "size": "Small",
+    "type": "Humanoid",
+    "alignment": "Any Alignment",
+    "associates": ["Booyahg Caster", "Booyahg Whip", "Booyahg Booyahg Booyahg"],
+    "environments": ["Arctic", "Forest", "Mountain", "Swamp", "Urban"],
+    "armor class": 11,
+    "hit points": "49 (11d8)",
+    "speed": {
+      "surface": {
+        "movement": 30
+      }
+    },
+    "str": 9,
+    "dex": 13,
+    "con": 11,
+    "int": 11,
+    "wis": 12,
+    "cha": 18,
+    "saving throws": "WIS +3, CHA +6",
+    "skills": "Arcana +2, Deception +6, Nature +2, Persuasion +6",
+    "condition immunities": "Charmed",
+    "senses": {
+      "Darkvision": {
+        "range": 60
+      }
+    },
+    "languages": "Any two languages (usually Sylvan), Goblin",
+    "challenge": "4 (1,100 XP)",
+    "traits": "<p><em><strong>Nimble Escape.</strong></em> The goblin can take the Disengage or Hide action as a bonus action on each of its turns.</p>",
+    "actions": "<p><em><strong>Dagger.</strong></em> Melee or Ranged Weapon Attack: +3 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 4 (1d4 + 2) piercing damage.</p><p><em><strong>Innate Spellcasting.</strong></em> The goblin's innate spellcasting ability is Charisma. It can innately cast the following spells (spell save DC 15), requiring no material components: At will: disguise self, mage armor (self only), silent image, speak with animals; 1/day: conjure fey.</p><p><em><strong>Spellcasting.</strong></em> The goblin is an 11th-level spellcaster. Its spellcasting ability is Charisma (spell save DC 14, +6 to hit with spell attacks). It regains its expended spell slots when it finishes a short or long rest. It knows the following warlock spells: Cantrips (at will): dancing lights, eldritch blast, friends, mage hand, minor illusion, prestidigitation, vicious mockery; 1st-5th level (3 slots): blink, charm person, dimension door, dominate beast, faerie fire, fear, hold monster, misty step, phantasmal force, seeming, sleep.</p>",
+    "reactions": "<p><em><strong>Misty Escape (Recharges after a Short or Long Rest).</strong></em> In response to taking damage, the goblin turns invisible and teleports up to 60 feet to an unoccupied space it can see. It remains invisible until the start of its next turn or until it attacks, makes a damage roll, or casts a spell.</p>",
+    "description": "<p>This goblin has bound itself to a fickle lord or lady of the Feywild, gaining eldritch power in exchange for service. Among the Booyahg's slaves, it is prized for its ability to vanish from danger in an eye-blink.</p>"
+  },
+  // >>
+  {
+    "name": "Blood-Toll Harpy",
+    "size": "Medium",
+    "type": "Monstrosity",
+    "alignment": "Chaotic Evil",
+    "environments": [
+      "Grassland",
+      "Hill"
+    ],
+    "associates": [
+      "Harpy"
+    ],
+    "armor class": 11,
+    "hit points": "9 (2d8)",
+    "speed": {
+      "surface": {
+        "movement": 20
+      },
+      "fly": {
+        "movement": 40
+      }
+    },
+    "str": 12,
+    "dex": 13,
+    "con": 10,
+    "int": 6,
+    "wis": 11,
+    "cha": 13,
+    "skills": "Intimidation +3",
+    "senses": {},
+    "languages": "Common",
+    "challenge": "1/8 (25 XP)",
+    "traits": "<p><em><strong>Blood Frenzy.</strong></em> The harpy has advantage on melee attack rolls against any creature that doesn't have all its hit points.</p><p><em><strong>Dark Devotion.</strong></em> The harpy has advantage on saving throws against being charmed or frightened.</p>",
+    "actions": "<p><em><strong>Multiattack.</strong></em> The harpy makes two melee attacks: one with its bite and one with its claws.</p><p><em><strong>Bite.</strong></em> Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 3 (1d4 + 1) piercing damage.</p><p><em><strong>Claws.</strong></em> Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 3 (1d4 + 1) slashing damage.</p>"
+  },
+  // >>
+  {
+    "name": "Bone Roc",
+    "size": "Huge",
+    "type": "Undead",
+    "alignment": "Neutral Evil",
+    "environments": [
+      "Mountain",
+      "Ruins"
+    ],
+    "associates": [
+      "Roc",
+      "Zombie"
+    ],
+    "armor class": 15,
+    "hit points": "133 (14d12 + 42)",
+    "speed": {
+      "surface": {
+        "movement": 15
+      },
+      "fly": {
+        "movement": 90
+      }
+    },
+    "str": 18,
+    "dex": 20,
+    "con": 16,
+    "int": 2,
+    "wis": 17,
+    "cha": 10,
+    "saving throws": "DEX +8, WIS +6",
+    "skills": "Perception +6",
+    "damage immunities": [
+      "Poison"
+    ],
+    "damage vulnerabilities": [
+      "Bludgeoning"
+    ],
+    "condition immunities": "Exhaustion, Poisoned",
+    "senses": {
+      "Darkvision": {
+        "range": 120
+      }
+    },
+    "languages": "N/A",
+    "challenge": "8 (3,900 XP)",
+    "actions": "<p><em><strong>Multiattack.</strong></em> The bone roc makes one Beak attack and two Talons attacks.</p><p><em><strong>Beak.</strong></em> Melee Weapon Attack: +8 to hit, reach 5 ft., one target. Hit: 14 (2d8 + 5) piercing damage.</p><p><em><strong>Talons.</strong></em> Melee Weapon Attack: +8 to hit, reach 5 ft., one target. Hit: 12 (2d6 + 5) slashing damage plus 10 (3d6) necrotic damage.</p>"
+  },
+  // >>
+  {
+    "name": "Bone Whelk",
+    "size": "Large",
+    "type": "Monstrosity",
+    "alignment": "Unaligned",
+    "environments": [
+      "Underdark",
+      "Dungeon"
+    ],
+    "armor class": 12,
+    "hit points": "27 (5d10)",
+    "speed": {
+      "surface": {
+        "movement": 15
+      },
+      "climb": {
+        "movement": 15
+      }
+    },
+    "str": 10,
+    "dex": 5,
+    "con": 11,
+    "int": 6,
+    "wis": 9,
+    "cha": 3,
+    "senses": {
+      "Darkvision": {
+        "range": 60
+      }
+    },
+    "languages": "N/A",
+    "challenge": "1/4 (50 XP)",
+    "traits": "<p><em><strong>Adhesive.</strong></em> The bone whelk can cause Medium or smaller objects to adhere to it. A Medium or smaller creature that touches the bone whelk is grappled by it (escape DC 10).</p><p><em><strong>Death Scream.</strong></em> When the bone whelk dies, it emits a blood-curdling shriek than can be heard out to a range of 120 feet. This shriek causes nonmagical, organic material within 10 feet of the bone whelk to rot. Each creature within 10 feet of the bone whelk when it dies takes 9 (2d8) necrotic damage.</p><p><em><strong>Spider Climb.</strong></em> The bone whelk can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check.</p>",
+    "actions": "<p><em><strong>Bite.</strong></em> Melee Weapon Attack: +2 to hit, reach 5 ft., one creature. Hit: 4 (1d8) piercing damage.</p>"
+  },
+  // >>
+  {
+    "name": "Bore Worm",
+    "size": "Gargantuan",
+    "type": "Construct",
+    "alignment": "Unaligned",
+    "environments": [
+      "Underdark",
+      "Mountain"
+    ],
+    "armor class": 18,
+    "hit points": "247 (15d20 + 90)",
+    "speed": {
+      "surface": {
+        "movement": 50
+      },
+      "burrow": {
+        "movement": 30
+      }
+    },
+    "str": 28,
+    "dex": 7,
+    "con": 22,
+    "int": 1,
+    "wis": 8,
+    "cha": 4,
+    "saving throws": "CON +11, WIS +4",
+    "damage immunities": [
+      "Poison",
+      "Psychic",
+      "Bludgeoning, Piercing, Slashing (from nonmagical attacks that aren't adamantine)"
+    ],
+    "condition immunities": "Blinded, Charmed, Deafened, Exhaustion, Frightened, Paralyzed, Petrified, Poisoned, Prone",
+    "senses": {
+      "Blindsight": {
+        "range": 30
+      },
+      "Tremorsense": {
+        "range": 60
+      }
+    },
+    "languages": "N/A",
+    "challenge": "16 (15,000 XP)",
+    "traits": "<p><em><strong>Tunneler.</strong></em> The worm can burrow through solid rock at half its burrow speed and leaves a 10-foot-diameter tunnel in its wake.</p><p><em><strong>Regeneration.</strong></em> The worm regains 10 hit points at the start of each of its turns if it has at least 1 hit point.</p>",
+    "actions": "<p><em><strong>Multiattack.</strong></em> The worm makes two attacks: one with its grinding jaws and one with its stinger.</p><p><em><strong>Grinding Jaws.</strong></em> Melee Weapon Attack: +9 to hit, reach 10 ft., one target. Hit: 22 (3d8 + 9) slashing damage.</p><p><em><strong>Tail Stinger.</strong></em> Melee Weapon Attack: +14 to hit, reach 10 ft., one creature. Hit: 19 (3d6 + 9) piercing damage, and the target must make a DC 19 Constitution saving throw, taking 42 (12d6) poison damage on a failed save, or half as much damage on a successful one.</p>"
+  },
+  // >>
+  {
+    "name": "Borthak",
+    "size": "Huge",
+    "type": "Monstrosity",
+    "alignment": "Chaotic Evil",
+    "environments": [
+      "Arctic",
+      "Mountain"
+    ],
+    "armor class": 16,
+    "hit points": "200 (16d12 + 96)",
+    "speed": {
+      "surface": {
+        "movement": 30
+      }
+    },
+    "str": 25,
+    "dex": 16,
+    "con": 22,
+    "int": 4,
+    "wis": 14,
+    "cha": 15,
+    "saving throws": "STR +12, CON +11, CHA +7",
+    "damage resistances": [
+      "Acid",
+      "Cold"
+    ],
+    "senses": {
+      "Darkvision": {
+        "range": 60
+      }
+    },
+    "languages": "N/A",
+    "challenge": "15 (13,000 XP)",
+    "traits": "<p><em><strong>Glacial Aura.</strong></em> At the end of the borthak's turn, slippery ice covers surfaces within 10 feet of the borthak. This ice is difficult terrain. When a creature other than the borthak enters the ice's area for the first time on a turn or starts its turn there, it must succeed on a DC 16 Dexterity saving throw or have the prone condition. The ice disappears at the start of the borthak's next turn.</p><p><em><strong>Webbed Feet.</strong></em> The borthak can move across icy surfaces without needing to make an ability check. Additionally, difficult terrain composed of ice or snow doesn't cost it extra movement.</p>",
+    "actions": "<p><em><strong>Multiattack.</strong></em> The borthak makes one Bite attack or uses Noxious Regurgitation if available, and it makes two Stomp attacks.</p><p><em><strong>Bite.</strong></em> Melee Weapon Attack: +12 to hit, reach 5 ft., one target. Hit: 16 (2d8 + 7) piercing damage plus 7 (2d6) acid damage.</p><p><em><strong>Stomp.</strong></em> Melee Weapon Attack: +12 to hit, reach 10 ft., one target. Hit: 11 (1d8 + 7) bludgeoning damage.</p><p><em><strong>Noxious Regurgitation (Recharge 5-6).</strong></em> The borthak spews acid at a creature it can see within 120 feet of itself. The target must make a DC 21 Constitution saving throw. On a failed save, the creature takes 24 (7d6) acid damage and has the poisoned condition until the start of the borthak's next turn. On a successful save, the creature takes half as much damage only.</p>",
+    "reactions": "<p><em><strong>Reactive Tail.</strong></em> When a creature within 10 feet of the borthak hits the borthak with an attack roll, the borthak swings its tail in retaliation. The triggering creature and any creature within 5 feet of it must succeed on a DC 16 Dexterity saving throw or take 16 (2d8 + 7) bludgeoning damage.</p>",
+    "legendary actions": "<p>The borthak can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. The borthak regains spent legendary actions at the start of its turn.</p><p><em><strong>Move.</strong></em> The borthak moves up to its speed without provoking opportunity attacks.</p><p><em><strong>Bite (Costs 2 Actions).</strong></em> The borthak makes one Bite attack.</p>"
+  },
+  // >>
+  {
+    "name": "Boss Augustus",
+    "size": "Medium",
+    "type": "Monstrosity",
+    "alignment": "Neutral",
+    "environments": [
+      "Urban",
+      "Forest"
+    ],
+    "associates": [
+      "Werewolf"
+    ],
+    "armor class": 13,
+    "hit points": "150 (20d8 + 60)",
+    "speed": {
+      "surface": {
+        "movement": 40
+      }
+    },
+    "str": 18,
+    "dex": 16,
+    "con": 17,
+    "int": 14,
+    "wis": 15,
+    "cha": 12,
+    "saving throws": "STR +8, DEX +7",
+    "skills": "Perception +10, Sleight of Hand +7, Stealth +7",
+    "senses": {},
+    "languages": "Common, Thieves' cant (can't speak in wolf form)",
+    "challenge": "9 (5,000 XP)",
+    "traits": "<p><em><strong>Regeneration.</strong></em> Augustus regains 10 hit points at the start of his turn. If he takes damage from a silver weapon, this trait doesn't function at the start of his next turn. Augustus dies only if he starts his turn with 0 hit points and doesn't regenerate.</p><p><em><strong>Special Equipment.</strong></em> Augustus wields a +2 Longsword.</p>",
+    "actions": "<p><em><strong>Multiattack.</strong></em> Augustus makes any combination of two Bite, Claw, or Magic Longsword attacks.</p><p><em><strong>Bite (Wolf or Hybrid Form Only).</strong></em> Melee Weapon Attack: +8 to hit, reach 5 ft., one target. Hit: 26 (5d8 + 4) piercing damage. If the target is a Humanoid, it must succeed on a DC 15 Constitution saving throw or be cursed with lycanthropy. While cursed in this way, the target retains its alignment, languages, and equipment but otherwise uses the werewolf stat block, excluding actions that require equipment the target doesn't have. During any night when there's a full moon in the sky, the target becomes an NPC under the DM's control and remains so until the night ends. A Remove Curse spell or similar magic ends this curse.</p><p><em><strong>Claw (Wolf or Hybrid Form Only).</strong></em> Melee Weapon Attack: +8 to hit, reach 5 ft., one target. Hit: 21 (5d6 + 4) piercing damage. If the target is a creature, it must succeed on a DC 16 Strength saving throw or have the prone condition.</p><p><em><strong>Magic Longsword (Humanoid or Hybrid Form Only).</strong></em> Melee Weapon Attack: +10 to hit, reach 5 ft., one target. Hit: 28 (4d10 + 6) slashing damage.</p>",
+    "bonus actions": "<p><em><strong>Change Shape.</strong></em> Augustus polymorphs into a wolf-humanoid hybrid, a wolf, or his humanoid form. His statistics, other than his speed, are the same in each form. Any equipment he is wearing or carrying isn't transformed. He reverts to his humanoid form if he dies.</p><p><em><strong>Cunning Action.</strong></em> Augustus takes the Dash, Disengage, or Hide action.</p>"
+  },
+  // >>
+  {
+    "name": "Boss Delour",
+    "size": "Small",
+    "type": "Monstrosity",
+    "alignment": "Lawful Evil",
+    "environments": [
+      "Urban"
+    ],
+    "associates": [
+      "Wererat"
+    ],
+    "armor class": 14,
+    "hit points": "110 (20d6 + 40)",
+    "speed": {
+      "surface": {
+        "movement": 30
+      }
+    },
+    "str": 12,
+    "dex": 18,
+    "con": 15,
+    "int": 17,
+    "wis": 14,
+    "cha": 16,
+    "saving throws": "DEX +8, INT +7",
+    "skills": "Deception +11, Perception +10, Sleight of Hand +8, Stealth +8",
+    "senses": {
+      "Darkvision": {
+        "range": 60
+      }
+    },
+    "languages": "Common, Thieves' cant (can't speak in rat form)",
+    "challenge": "9 (5,000 XP)",
+    "traits": "<p><em><strong>Evasion.</strong></em> If Delour is subjected to an effect that allows him to make a Dexterity saving throw to take only half damage, he instead takes no damage if he succeeds on the saving throw and only half damage if he fails, provided he doesn't have the incapacitated condition.</p><p><em><strong>Nimbleness.</strong></em> Delour can move through the space of a Medium or larger creature.</p><p><em><strong>Regeneration.</strong></em> Delour regains 10 hit points at the start of his turn. If he takes damage from a silver weapon, this trait doesn't function at the start of his next turn. Delour dies only if he starts his turn with 0 hit points and doesn't regenerate.</p>",
+    "actions": "<p><em><strong>Multiattack.</strong></em> Delour makes any combination of three Bite, Shortsword, or Hand Crossbow attacks.</p><p><em><strong>Bite (Rat or Hybrid Form Only).</strong></em> Melee Weapon Attack: +8 to hit, reach 5 ft., one target. Hit: 26 (5d8 + 4) piercing damage. If the target is a Humanoid, it must succeed on a DC 14 Constitution saving throw or be cursed with lycanthropy. While cursed in this way, the target retains its alignment, languages, and equipment but otherwise uses the wererat stat block, excluding actions that require equipment the target doesn't have. During any night when there's a full moon in the sky, the target becomes an NPC under the DM's control and remains so until the night ends. A Remove Curse spell or similar magic ends this curse.</p><p><em><strong>Shortsword (Humanoid or Hybrid Form Only).</strong></em> Melee Weapon Attack: +8 to hit, reach 5 ft., one target. Hit: 11 (2d6 + 4) piercing damage plus 10 (3d6) poison damage.</p><p><em><strong>Hand Crossbow (Humanoid or Hybrid Form Only).</strong></em> Ranged Weapon Attack: +8 to hit, range 30/120 ft., one target. Hit: 11 (2d6 + 4) piercing damage plus 10 (3d6) poison damage.</p>",
+    "bonus actions": "<p><em><strong>Change Shape.</strong></em> Delour polymorphs into a rat-humanoid hybrid, a Medium giant rat, or his humanoid form. His statistics, other than his size and speed, are the same in each form. Any equipment he is wearing or carrying isn't transformed. He reverts to his humanoid form if he dies.</p><p><em><strong>Cunning Action.</strong></em> Delour takes the Dash, Disengage, or Hide action.</p>"
+  },
+  // >>
+  {
+    "name": "Brackish Trudge",
+    "size": "Large",
+    "type": "Plant",
+    "alignment": "Unaligned",
+    "environments": [
+      "Swamp"
+    ],
+    "associates": [
+      "Shambling Mound"
+    ],
+    "armor class": 12,
+    "hit points": "68 (8d10 + 24)",
+    "speed": {
+      "surface": {
+        "movement": 30
+      },
+      "swim": {
+        "movement": 30
+      }
+    },
+    "str": 20,
+    "dex": 10,
+    "con": 17,
+    "int": 4,
+    "wis": 14,
+    "cha": 4,
+    "skills": "Perception +4",
+    "damage resistances": [
+      "Fire"
+    ],
+    "senses": {
+      "Blindsight": {
+        "range": 10
+      }
+    },
+    "languages": "N/A",
+    "challenge": "3 (700 XP)",
+    "traits": "<p><em><strong>Fungal Fortitude.</strong></em> If damage reduces the trudge to 0 hit points, it must make a Constitution saving throw with a DC of 5 + the damage taken, unless the damage is radiant or from a critical hit. On a success, the trudge drops to 1 hit point instead.</p>",
+    "actions": "<p><em><strong>Tusk.</strong></em> Melee Weapon Attack: +7 to hit, reach 10 ft., one target. Hit: 16 (2d10 + 5) piercing damage plus 3 (1d6) poison damage. If the target is a creature, it must succeed on a DC 15 Strength saving throw or be knocked prone.</p>"
+  },
+  // >>
+  {
+    "name": "Broken King Antigonos",
+    "size": "Large",
+    "type": "Monstrosity",
+    "alignment": "Chaotic Evil",
+    "environments": [
+      "Ruins",
+      "Underdark"
+    ],
+    "associates": [
+      "Minotaur"
+    ],
+    "armor class": 14,
+    "hit points": "38 (9d10 + 27)",
+    "speed": {
+      "surface": {
+        "movement": 40
+      }
+    },
+    "str": 18,
+    "dex": 11,
+    "con": 16,
+    "int": 6,
+    "wis": 16,
+    "cha": 9,
+    "skills": "Perception +7",
+    "senses": {
+      "Darkvision": {
+        "range": 60
+      }
+    },
+    "languages": "Abyssal",
+    "challenge": "3 (700 XP)",
+    "traits": "<p><em><strong>Charge.</strong></em> If Antigonos moves at least 10 feet straight toward a target and then hits it with a gore attack on the same turn, the target takes an extra 9 (2d8) piercing damage. If the target is a creature, it must succeed on a DC 14 Strength saving throw or be pushed up to 10 feet away and knocked prone.</p><p><em><strong>Labyrinthine Recall.</strong></em> Antigonos can perfectly recall any path he has traveled.</p><p><em><strong>Reckless.</strong></em> At the start of his turn, Antigonos can gain advantage on all melee weapon attack rolls he makes during that turn, but attack rolls against him have advantage until the start of his next turn.</p><p><em><strong>Decrepit State.</strong></em> Antigonos has disadvantage on his attack rolls.</p>",
+    "actions": "<p><em><strong>Greataxe.</strong></em> Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 17 (2d12 + 4) slashing damage.</p><p><em><strong>Gore.</strong></em> Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 13 (2d8 + 4) piercing damage.</p><p><em><strong>Amphora.</strong></em> Melee Weapon Attack: +6 to hit, reach 5 ft., one Medium or smaller creature. Hit: 8 (1d8 + 4) bludgeoning damage. If there is not already a creature inside the amphora, the target is restrained inside. As an action, the restrained creature can make a DC 14 Dexterity (Acrobatics) check, escaping from the amphora on a success. The effect also ends if the amphora is destroyed. The amphora has AC 8, 20 hit points, and immunity to poison and psychic damage.</p>"
+  },
 
 ]
 
