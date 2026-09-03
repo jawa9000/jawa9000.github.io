@@ -98,7 +98,6 @@ Quipper
 
 >> about 100 monsters are missing their associates property.
 
-
 Brown Scavver
 Brusipha
 Bugbear Gardener
@@ -106,12 +105,6 @@ Bugbear Lieutenant
 Bugbear Stalker
 Bulette Pup
 Bulezau
-Bullywug
-Bullywug Bog Sage
-Bullywug Croaker
-Bullywug Knight
-Bullywug Royal
-Bullywug Warrior
 Burnished Hart
 Burrowshark
 Cackler
@@ -151,12 +144,6 @@ Chardalyn Berserker
 Chasme
 Chemister
 Child
-Chimeric Baboon
-Chimeric Cat
-Chimeric Fox
-Chimeric Hare
-Chimeric Rat
-Chimeric Weasel
 Chitine
 Choldrith
 Chuul Spore Servant
@@ -205,7 +192,6 @@ Crocodile
 Crow
 Crushing Wave Priest
 Crushing Wave Reaver
-
 Cultist Hierophant
 Cuprilach Rilmani
 Cyclops Oracle
@@ -267,21 +253,13 @@ Dolphin Delighter
 Doomguard  Blade
 Doomguard Doom Lord
 Doomwake
-
-
 Drowned Ascetic
 Drowned Assassin
 Drowned Blade
 Drowned Master
 Dryad Spirit
-Duergar Alchemist
-Duergar Darkhaft
-Duergar Keeper of the Flame
-Duergar Spore Servant
-Duergar Spy
 Dullahan
 Dust Hulk
-
 Dybbuk
 Dyrrn
 Earth  Myrmidon
@@ -298,7 +276,6 @@ Elder Black Pudding
 Elder Brain
 Elder Oblex
 Eldritch Horror Hatchling
-
 Elise
 Emberhorn Minotaur
 Emerald Enclave Scout
@@ -346,7 +323,6 @@ Fighter
 Firbolg Primeval Warden
 Firbolg Wanderer
 First-Year Student
-
 Fox
 Froghemoth
 Frost  Ice Shaper
@@ -367,18 +343,6 @@ Gloamwing
 Gloom weaver
 Gnome Ceremorph
 Gnome Squidling
-Goblinoids
-Gold Greatwyrm
-Gold-Forged Sentinel
-Golden Stag
-Golgari
-Golgari agent
-Golgari Shaman
-Golgari Swarm
-Golgari troll
-Goliath -Kin
-Goliath Warrior
-Goliath Werebear
 Goose
 Goristro
 Gorodan Ashford
@@ -429,7 +393,6 @@ Gruul Stone giant
 Gruul Sunder shaman
 Gruul Trog
 Gruul Viashino
-
 Gulthias Blight
 Hadozee Explorer
 Hadozee Shipmate
@@ -458,7 +421,6 @@ Hippomus
 Hoard Mimic
 Hoard Scarab
 Hoard Scarab (base, Swarm)
-
 Isolde
 Isperia
 Istarian Drone
@@ -466,7 +428,6 @@ Iuz
 Ixitxachitl
 Ixitxachitl Cleric
 Jarad Vod Savo
-
 Koi Prawn
 Kolyarut
 Korred
@@ -509,7 +470,6 @@ Leucrotta
 Leucta
 Leviathan
 Levistus
-
 Lored Apprentice
 Lored Pledgemage
 Lored Professor of Chaos
@@ -520,7 +480,6 @@ Loup Garou
 Lycanthrope
 Lynx
 lyphant
-
 Malaxxix
 Male Steeder
 Malformed Kraken
@@ -534,7 +493,6 @@ Marid
 Martial Arts Adept
 Marut
 Maschin-i-Bozorg
-
 Meenlock
 Megapede
 Meletian Hoplite
@@ -552,11 +510,9 @@ Merregon
 Merrenoloth
 Merrow
 Merrow Extortionist
-
 Metallic Warbler
 Mezzoloth
 Mighty Servant of Leuk-o
-
 Mist Hulk
 Modron Duodrone
 Modron Monodrone
@@ -774,7 +730,6 @@ Skyjek Roc
 Slaad (any, Death, Gray, Green, Red, Tadpole)
 Sled Dog
 Slithering Tracker
-
 Splugoth the Returned
 Spore Servant Octopus
 Spotted Lion
@@ -796,20 +751,7 @@ Sul Khatesh
 Sunder Shaman
 Sunfly
 Surtur
-Svirfneblin
-Svirfneblin scout
-Svirfneblin Wererat
-Swamp-bred chimera
-Swan
-Swashbuckler
-Tabaxi
-Tabaxi Hunter
-Tabaxi Minstrel
-Tainted Servant of Tsathogga
-
-
 Tree
-
 
 
 ## Add these monster's attacks properties to monsters.js

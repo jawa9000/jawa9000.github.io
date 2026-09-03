@@ -18412,10 +18412,10 @@ const monsters = [
       attacks: {
               Quarterstaff: {
                         type: "Melee Weapon Attack",
-                        "to hit": "+7",
+                        "to hit": "+8",
                         reach: "5 ft.",
                         target: "one target",
-                        hit: "8 (1d8 + 4)",
+                        hit: "5 (1d6 + 2)",
                         "damage type": "bludgeoning",
                         magical: false,
                         silvered: false,
@@ -18423,17 +18423,17 @@ const monsters = [
                       },
               Bite: {
                         type: "Melee Weapon Attack",
-                        "to hit": "+7",
+                        "to hit": "+8",
                         reach: "5 ft.",
                         target: "one target",
-                        hit: "10 (1d10 + 4)",
+                        hit: "13 (2d10 + 2)",
                         "damage type": "piercing, lightning",
                         magical: false,
                         silvered: false,
                         effects: []
                       }
             },
-      actions: "<p><em><strong>Multiattack.</strong></em> The abishai makes two attacks: one with its quarterstaff and one with its bite.</p>",
+      actions: "<p><em><strong>Multiattack.</strong></em> The abishai makes two attacks: one with its quarterstaff and one with its bite.</p><p><em><strong>Quarterstaff.</strong></em> <em>Melee Weapon Attack:</em> +8 to hit, reach 5 ft. one target. <em>Hit:</em> 5 (1d6 + 2) bludgeoning damage, or 6 (1d8 + 2) bludgeoning damage if used with two hands.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +8 to hit, reach 5 ft. one target. <em>Hit:</em> 13 (2d10 + 2) piercing damage plus 14 (4d6) lightning damage.</p>",
       "img url": "https://5e.tools/img/MTF/Blue%20Abishai.png"
     },
 {
@@ -18513,31 +18513,22 @@ const monsters = [
             },
       languages: "Draconic, Infernal, Telepathy 120 ft.",
       challenge: "15 (13,000 XP)",
-      traits: "<p><em><strong>Devil's Sight.</strong></em> Magical darkness doesn't impede the abishai's darkvision.</p>",
+      traits: "<p><em><strong>Devil's Sight.</strong></em> Magical darkness doesn't impede the abishai's darkvision.</p><p><em><strong>Magic Resistance.</strong></em> The abishai has advantage on saving throws against spells and other magical effects.</p>",
       "number of attacks": 2,
       attacks: {
-              Longsword: {
-                        type: "Melee Weapon Attack",
-                        "to hit": "+6",
-                        reach: "5 ft.",
-                        hit: "5 (1d8 + 1) slashing damage (or 6 (1d10 + 1) if used with two hands)",
-                        "damage type": "slashing",
-                        magical: false,
-                        silvered: false,
-                        effects: []
-                      },
-              Claws: {
+              "Fiendish Claw": {
                         type: "Melee Weapon Attack",
                         "to hit": "+8",
                         reach: "5 ft.",
-                        hit: "12 (2d8 + 3) piercing damage, and if the target is a creature, it must succeed on a DC 16 Constitution saving throw or take 11 (2d10) poison damage and become poisoned for 1 minute",
-                        "damage type": "piercing, poison",
+                        target: "one target",
+                        hit: "12 (2d8 + 3)",
+                        "damage type": "force, poison",
                         magical: false,
                         silvered: false,
                         effects: []
                       }
             },
-      actions: "<p><em><strong>Multiattack.</strong></em> The abishai makes two Fiendish Claw attacks, or it makes one Fiendish Claw attack and uses Spellcasting.",
+      actions: "<p><em><strong>Multiattack.</strong></em> The abishai makes two Fiendish Claw attacks, or it makes one Fiendish Claw attack and uses Spellcasting.</p><p><em><strong>Fiendish Claw.</strong></em> <em>Melee Weapon Attack:</em> +8 to hit, reach 5 ft. one target. <em>Hit:</em> 12 (2d8 + 3) force damage. If the target is a creature, it must succeed on a DC 16 Constitution saving throw or take 16 (3d10) poison damage and become poisoned for 1 minute. The poisoned target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p><p><em><strong>Spellcasting.</strong></em> The abishai casts one of the following spells, requiring no material components and using Charisma as the spellcasting ability (spell save DC 17):</p><ul><li>At will: alter self, major image</li><li>3/day each: charm person, detect thoughts, fear</li><li>1/day each: confusion, dominate person, mass suggestion</li></ul>",
       "img url": "https://5e.tools/img/MPMM/Green%20Abishai.png"
     },
 {
@@ -37746,6 +37737,7 @@ const monsters = [
     wis: 14,
     con: 19,
     cha: 10,
+    "challenge": 6,
     "armor class": 14,
     "hit points": "114 (12d10 + 48)",
     "speed": {
@@ -38655,6 +38647,7 @@ const monsters = [
     "int": 16,
     "wis": 16,
     "cha": 16,
+    "challenge": 13,
     "damage immunities": [
       "necrotic",
       "poison"
@@ -38826,57 +38819,6 @@ const monsters = [
       }
     },
     "actions": "<p><em><strong>Multiattack.</strong></em> The aurumvorax can use its rake action if possible, if not, it otherwise makes five attacks: one with its bite and four with its claws.</p><p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft., one target. <em>Hit:</em> 10 (1d10 + 5) piercing damage and the target is grappled (Escape DC 16). While grappled, the target automatically takes 11 (2d6 + 4) piercing damage at the start of each of the aurumvorax's turns.</p><p><em><strong>Claw.</strong></em> <em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft., one target. <em>Hit:</em> 12 (2d6 + 5) slashing damage.</p><p><em><strong>Rake.</strong></em> As long as the aurumvorax is attached to a target via lockjaw, it can attack the target making 4 claw attacks and 1 bite attack per attack action. It has advantage on these attacks. (Another description specifies: The aurumvorax rakes its victim with 2d4 of its legs, causing 6 (2d4+1) slashing damage per additional hit. An opponent who is held by an aurumvorax receives no dexterity adjustment to Armor Class. The aurumvorax can use this ability only in combination with the jaws lock.)</p>"
-  },
-  {
-    "name": "Avatar Of Death",
-    "size": "Medium",
-    "type": "Undead",
-    "alignment": "Neutral Evil",
-    "environments": [
-      "Varies"
-    ],
-    "armor class": 20,
-    "hit points": "half its summoner's maximum hit points (or 0 HP with specific rules)",
-    "speed": {
-      "surface": {
-        "movement": 60
-      },
-      "fly": {
-        "movement": 60,
-        "condition": "hover"
-      }
-    },
-    "str": 16,
-    "dex": 16,
-    "con": 16,
-    "int": 16,
-    "wis": 16,
-    "cha": 16,
-    "damage immunities": [
-      "necrotic",
-      "poison"
-    ],
-    "condition immunities": "charmed, frightened, paralyzed, petrified, poisoned, and unconscious",
-    "senses": {
-      "Darkvision": {
-        "range": 60
-      },
-      "Truesight": {
-        "range": 60
-      }
-    },
-    "languages": "all languages known to its summoner",
-    "traits": "<p><em><strong>Incorporeal Movement.</strong></em> The avatar can move through other creatures and objects as if they were difficult terrain. It takes 5 (1d10) force damage if it ends its turn inside an object.</p><p><em><strong>Turning Immunity.</strong></em> The avatar is immune to features that turn undead.</p>",
-    "attacks": {
-      "Reaping Scythe": {
-        "type": "Melee Weapon Attack",
-        "reach": "5 feet",
-        "target": "a creature within 5 feet of it",
-        "hit": "7 (1d8 + 3) slashing damage plus 4 (1d8) necrotic damage",
-        "damage type": "slashing, necrotic"
-      }
-    },
-    "actions": "<p><em><strong>Reaping Scythe.</strong></em> The avatar sweeps its spectral scythe through a creature within 5 feet of it, dealing 7 (1d8 + 3) slashing damage plus 4 (1d8) necrotic damage.</p>"
   },
   {
     "name": "Avoral Guardinal",
@@ -46587,6 +46529,7 @@ const monsters = [
     "speed": {
       "surface": { "movement": 30 }
     },
+    "challenge": "None",
     "str": 4,
     "dex": 18,
     "con": 10,
@@ -46707,6 +46650,7 @@ const monsters = [
     "int": 18,
     "wis": 14,
     "cha": 10,
+    "challenge": "None",
     "damage immunities": [
       "Poison"
     ],
@@ -47635,6 +47579,7 @@ const monsters = [
       "Darkvision": { "range": 60 }
     },
     "languages": "Draconic, understands the languages of its summoner",
+    "challenge": "None",
     "traits": "<p><em><strong>Shared Resistances.</strong></em> When the dragon is summoned, its summoner chooses one of its damage resistances. The summoner has resistance to the chosen damage type until the spell ends.</p>",
     "actions": "<p><em><strong>Multiattack.</strong></em> The dragon makes a number of Rend attacks equal to half the spell's level (rounded down), and it uses Breath Weapon.</p><p><em><strong>Rend.</strong></em> <em>Melee Weapon Attack:</em> the summoner's spell attack modifier to hit, reach 10 ft., one target. <em>Hit:</em> 1d6 + 4 + the spell's level piercing damage.</p><p><em><strong>Breath Weapon.</strong></em> The dragon exhales destructive energy in a 30-foot cone. Each creature in that area must make a Dexterity saving throw against the summoner's spell save DC. A creature takes 2d6 damage of a type this dragon has resistance to (summoner's choice) on a failed save, or half as much damage on a successful one.</p>",
     "description": "<p>A ghostly, spectral dragon summoned by the Summon Draconic Spirit spell, its exact statistics scaling with the level of the spell slot used to conjure it (level 5 minimum), and its form and resistances tied to the chromatic, metallic, or gem lineage its summoner chooses.</p>"
@@ -47664,6 +47609,7 @@ const monsters = [
       "Darkvision": { "range": 60 }
     },
     "languages": "Draconic",
+    "challenge": "None",
     "traits": "<p><em><strong>Draconic Essence.</strong></em> When the drake is summoned, its summoner chooses a damage type: acid, cold, fire, lightning, or poison. The chosen type determines the drake's damage immunity and the damage of its Infused Strikes trait.</p>",
     "actions": "<p><em><strong>Bite.</strong></em> <em>Melee Weapon Attack:</em> +3 plus the summoner's proficiency bonus to hit, reach 5 ft., one target. <em>Hit:</em> 1d6 plus the summoner's proficiency bonus piercing damage.</p>",
     "reactions": "<p><em><strong>Infused Strikes.</strong></em> When another creature within 30 feet of the drake that it can see hits a target with a weapon attack, the drake infuses the strike with its essence, causing the target to take an extra 1d6 damage of the type determined by its Draconic Essence.</p>",
@@ -49489,6 +49435,7 @@ const monsters = [
     "skills": "Arcana +3, History +3",
     "senses": {},
     "languages": "any one language (usually Common)",
+    "challenge": "1/4 (50 XP)",
     "actions": "<p><em><strong>Quarterstaff.</strong></em> Melee Weapon Attack: +1 to hit, reach 5 ft., one target. Hit: 2 (1d6 - 1) bludgeoning damage, or 3 (1d8 - 1) bludgeoning damage if used with two hands.</p><p><em><strong>Burning Hands (1st-Level Spell; 2/Day).</strong></em> You shoot forth a 15-foot cone of fire. Each creature in that area must make a DC 11 Dexterity saving throw. A creature takes 10 (3d6) fire damage on a failed save, or half as much damage on a successful one The fire ignites any flammable objects in the area that aren't being worn or carried.</p><p><em><strong>Fire Bolt (Cantrip).</strong></em> Ranged Spell Attack: Ranged Spell Attack: +3 to hit, range 120 ft., one target. Hit: 5 (1d10) fire damage. A flammable object hit by this spell ignites if it isn't being worn or carried.</p><p><em><strong>Spellcasting.</strong></em> You cast one of the following wizard spells (spell save DC 11), using Intelligence as the spellcasting ability:<br>At will: minor illusion, Fire Bolt<br>2/day: grease<br>2/day each: [object Object]</p>"
   },
   // >>
@@ -50742,6 +50689,7 @@ const monsters = [
     "actions": "<p><em><strong>Greataxe.</strong></em> Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 17 (2d12 + 4) slashing damage.</p><p><em><strong>Gore.</strong></em> Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 13 (2d8 + 4) piercing damage.</p><p><em><strong>Amphora.</strong></em> Melee Weapon Attack: +6 to hit, reach 5 ft., one Medium or smaller creature. Hit: 8 (1d8 + 4) bludgeoning damage. If there is not already a creature inside the amphora, the target is restrained inside. As an action, the restrained creature can make a DC 14 Dexterity (Acrobatics) check, escaping from the amphora on a success. The effect also ends if the amphora is destroyed. The amphora has AC 8, 20 hit points, and immunity to poison and psychic damage.</p>"
   },
 
+  
 ]
 
 // module.exports = monsters;
