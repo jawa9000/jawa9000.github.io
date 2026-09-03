@@ -97,7 +97,7 @@ label, select, input[type='number'], input[type='checkbox'] {
     gap: 20px;
 }
 #monster-index-container {
-    flex: 1 1 380px;
+    flex: 1 1 400px;
     min-width: 0;
 }
 #monster-list {
@@ -122,7 +122,7 @@ label, select, input[type='number'], input[type='checkbox'] {
     background-color: #8b4513;
 }
 #stat-block-container {
-    flex: 2 1 500px;
+    flex: 2 1 450px;
     min-width: 0;
     min-height: 100px;
     /* border: 1px solid #ccc; */
