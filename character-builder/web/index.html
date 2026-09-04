@@ -6,14 +6,14 @@
     <title>D&amp;D Character Manager</title>
     <meta name="description" content="Self-hosted D&amp;D 5e character manager — 2014/2024 rules, level history, session tools">
     <meta name="author" content="Brian Immel">
-    <meta name="version" content="0.0.10">
+    <meta name="version" content="0.0.11">
     <link rel="icon" href="data:,">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="tailwind.js"></script>
     <!-- app.js must execute BEFORE Alpine boots, since it attaches window.appState that
          Alpine's x-data="appState()" needs. Module scripts and `defer` scripts both run
          after parsing, in document order — so this tag has to come first, not Alpine's. -->
     <script type="module" src="app.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="alpine.js"></script>
 </head>
 <body class="bg-gray-950 text-gray-100 min-h-screen flex" x-data="appState()" x-init="init()">
 
