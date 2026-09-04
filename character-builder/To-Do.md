@@ -14,17 +14,18 @@
 * The ability to add a custom background.
 The item in the gear area should include damage type, damage dice, modifiers, etc.
 * Add a button (sword icon or wand or scroll or whatever is appropriate for the item type) that rolls the attack, damage, and displays the effect/result in the Roll Log (which should be renamed to Activity Log).
-
+* Update the appearance so it better matches my other D&D apps.
+* When picking a background, the gear should be added to the Gear list automatically.
 
 ## Things to fix
 
-* Leveling up a character, it doesn't show the current stats of the character.
+* Leveling up or editing a character, it doesn't show the current stats of the character. When going into this edit mode, the system should load the current stats.
 * Where does it state the character's class and level? This becomes a problem especially with multi-classed character.
 
 ## Things to figure out
 
 * Do the buttons for short rest and long rest do anything? If not what would it take to add the features to regain a character's abilities upon this rest.
-* 
+* Build and add a library of standard gear and magical gear. I think there is a JSON that has the magical gear but it may not have damage, effects, etc. that this system can use.
 
 Look up the features of the following species and add them to character-builder\data\2014\species.json:
 * Aasimar

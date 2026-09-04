@@ -8,3 +8,15 @@ node_modules/
 /fun/encounter_builder
 fun/encounter_builder/monsters.js
 fun/encounter_builder/monsters.js
+
+# Character Builder: code is versioned, but player data and non-SRD content are not.
+# This repo is public. Anything under packs-private/ or compendium-private/ is
+# copyrighted material that must not be published; the SRD 5.2 packs under data/ are
+# CC-BY-4.0 and are safe.
+character-builder/data/packs-private/
+character-builder/data/compendium-private/
+character-builder/data/characters.db
+character-builder/data/characters.db-journal
+character-builder/data/characters.db-wal
+character-builder/data/characters.db-shm
+character-builder/backups/
