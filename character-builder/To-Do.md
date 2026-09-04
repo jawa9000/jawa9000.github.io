@@ -5,9 +5,31 @@
 * Add all the backgrounds to E:\jawa9000.github.io\character-builder\data\2014\backgrounds.json from the content found in C:\Users\jawa9\Downloads\5e_backgrounds_compendium.md.
 * Ability to add customer armor with stats
 * Encumbered system
-* Gear area should have an input field for weight
 * Adjust the display of the character sheet to better match a traditional character sheet
-* An input field for XP
+    * input fields for coins
+    * Ability saving throws
+    * Passive Insight
+    * Passive Perception
+    * Proficiencies with armor, weapons, expertise, tools, etc.
+    * Languages
+    * Number of attacks
+    * Death saves (success (3) failure (3)) as checkboxes
+    * Hit dice (sorted by class)
+    * Status if the character is encumbered or unencumbered.
+    * Alignment input field
+    * Diety input field
+    * Background input field (drop down)
+    * Features/Abilities (which is clickable if it is rollable)
+    * In a separate tab:
+        * Appearance
+        * Personality Traits
+        * Ideals
+        * Bonds
+        * Flaws
+
+* Allow for mastery of skills.
+* Confirm that
+* The gear inputs should include range and notes inputs.
 * Spell sheet page
 * Clicking on a weapon or spell name in the Gear or Spell list rolls the dice, damage, and displays the effect.
 * A button that will create a completely random character (picks everything!)
@@ -16,6 +38,8 @@ The item in the gear area should include damage type, damage dice, modifiers, et
 * Add a button (sword icon or wand or scroll or whatever is appropriate for the item type) that rolls the attack, damage, and displays the effect/result in the Roll Log (which should be renamed to Activity Log).
 * Update the appearance so it better matches my other D&D apps.
 * When picking a background, the gear should be added to the Gear list automatically.
+* The armor needs to add to the total wear.
+* Add a tab for Bag of Holding (based on the structure and formalus found in https://docs.google.com/spreadsheets/d/1ITYUVlq_18Gg-a4mnczVDSFXkl33ndqjnMQmRQjOJvc/edit)
 
 ## Things to fix
 
