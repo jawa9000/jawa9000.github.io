@@ -17,10 +17,29 @@
       "Bash(cat hand_built.txt INSERT_BLOCK_AUTO.txt)",
       "Bash(curl -sL \"https://raw.githubusercontent.com/5etools-mirror-3/5etools-src/main/data/bestiary/bestiary-xdmg.json\" -o bestiary-xdmg.json)",
       "Bash(curl -sL \"https://raw.githubusercontent.com/5etools-mirror-3/5etools-src/main/data/bestiary/bestiary-xmm.json\" -o bestiary-xmm.json)",
-      "Bash(curl -sL \"https://raw.githubusercontent.com/5etools-mirror-3/5etools-src/main/data/bestiary/bestiary-mm.json\" -o bestiary-mm.json)"
+      "Bash(curl -sL \"https://raw.githubusercontent.com/5etools-mirror-3/5etools-src/main/data/bestiary/bestiary-mm.json\" -o bestiary-mm.json)",
+      "Bash(mkdir -p \"/c/Users/jawa9/AppData/Local/Temp/claude/e--jawa9000-github-io/a1e637ad-d640-4321-84dd-125736e8611c/scratchpad\")",
+      "Bash(curl -s https://raw.githubusercontent.com/5etools-mirror-3/5etools-src/main/data/bestiary/index.json)",
+      "Bash(rm -f /tmp/names.txt)",
+      "Bash(node extract.js)",
+      "Bash(node extract2.js)",
+      "Bash(npm --version)",
+      "Bash(node -e \"console.log\\(process.arch, process.platform\\)\")",
+      "Bash(node --test test/)",
+      "Bash(node --test \"test/*.test.js\")",
+      "Bash(CB_DEV_USER=test@local CB_DB=__TRACKED_VAR__/test-run.db node server/index.js)",
+      "Read(//tmp/**)",
+      "Bash(curl -s localhost:8787/api/me)",
+      "Bash(curl -s \"localhost:8787/api/content?edition=2024\")",
+      "Bash(node -e \"let d='';process.stdin.on\\('data',c=>d+=c\\).on\\('end',\\(\\)=>{const j=JSON.parse\\(d\\);console.log\\('species:',j.species.map\\(s=>s.name\\).join\\(', '\\)\\);console.log\\('classes:',j.classes.map\\(c=>c.name\\).join\\(', '\\)\\);console.log\\('backgrounds:',j.backgrounds.map\\(b=>b.name\\).join\\(', '\\)\\)}\\)\")",
+      "Bash(curl -s -o /dev/null -w \"index.html %{http_code}\\\\n\" localhost:8787/)",
+      "Bash(curl -s -o /dev/null -w \"app.js %{http_code}\\\\n\" localhost:8787/app.js)",
+      "Bash(curl -s -o /dev/null -w \"style.css %{http_code}\\\\n\" localhost:8787/style.css)",
+      "Bash(curl -s -o /dev/null -w \"engine/rules.js %{http_code}\\\\n\" localhost:8787/engine/rules.js)"
     ],
     "additionalDirectories": [
-      "\\tmp\\claude\\e--jawa9000-github-io\\a1e637ad-d640-4321-84dd-125736e8611c\\scratchpad"
+      "\\tmp\\claude\\e--jawa9000-github-io\\a1e637ad-d640-4321-84dd-125736e8611c\\scratchpad",
+      "\\tmp"
     ]
   }
 }

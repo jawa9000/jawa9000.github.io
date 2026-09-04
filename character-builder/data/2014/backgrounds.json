@@ -1,0 +1,37 @@
+{
+  "_note": "2014 backgrounds grant fixed skills and no ability score increases. The absence of an 'ability' grant here — versus data/2024/backgrounds.json, which is full of them — is the entire edition difference. No engine code is aware of it.",
+
+  "soldier": {
+    "id": "soldier",
+    "name": "Soldier",
+    "source": "PHB",
+    "edition": "2014",
+    "grants": [
+      { "type": "skillProficiency", "skill": "athletics" },
+      { "type": "skillProficiency", "skill": "intimidation" },
+      { "type": "toolProficiency", "value": "gaming-set" },
+      { "type": "toolProficiency", "value": "vehicles-land" },
+      {
+        "type": "feature",
+        "name": "Military Rank",
+        "text": "You have a military rank from your career as a soldier. Soldiers loyal to your former military organization still recognize your authority and influence."
+      }
+    ]
+  },
+
+  "acolyte": {
+    "id": "acolyte",
+    "name": "Acolyte",
+    "source": "PHB",
+    "edition": "2014",
+    "grants": [
+      { "type": "skillProficiency", "skill": "insight" },
+      { "type": "skillProficiency", "skill": "religion" },
+      {
+        "type": "feature",
+        "name": "Shelter of the Faithful",
+        "text": "You and your adventuring companions can expect to receive free healing and care at a temple, shrine, or other established presence of your faith."
+      }
+    ]
+  }
+}

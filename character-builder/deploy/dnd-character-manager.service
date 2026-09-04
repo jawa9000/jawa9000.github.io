@@ -1,0 +1,17 @@
+[Unit]
+Description=D&D Character Manager
+After=network.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/dnd-character-manager
+ExecStart=/usr/bin/node server/index.js
+Environment=NODE_ENV=production
+Environment=CB_PORT=3000
+Environment=CB_HOST=0.0.0.0
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

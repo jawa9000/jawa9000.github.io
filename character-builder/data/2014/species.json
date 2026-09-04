@@ -1,0 +1,56 @@
+{
+  "_note": "In the 2014 rules the RACE grants ability score increases. Compare data/2024/species.json, where species grant none and the background carries them instead. Same engine, different data.",
+
+  "human": {
+    "id": "human",
+    "name": "Human",
+    "source": "PHB",
+    "edition": "2014",
+    "grants": [
+      { "type": "speed", "value": 30 },
+      { "type": "language", "value": "common" },
+      { "type": "ability", "ability": "str", "value": 1 },
+      { "type": "ability", "ability": "dex", "value": 1 },
+      { "type": "ability", "ability": "con", "value": 1 },
+      { "type": "ability", "ability": "int", "value": 1 },
+      { "type": "ability", "ability": "wis", "value": 1 },
+      { "type": "ability", "ability": "cha", "value": 1 },
+      {
+        "type": "feature",
+        "name": "Ability Score Increase",
+        "text": "Your ability scores each increase by 1."
+      }
+    ]
+  },
+
+  "hill-dwarf": {
+    "id": "hill-dwarf",
+    "name": "Hill Dwarf",
+    "source": "PHB",
+    "edition": "2014",
+    "grants": [
+      { "type": "speed", "value": 25 },
+      { "type": "darkvision", "value": 60 },
+      { "type": "language", "value": "common" },
+      { "type": "language", "value": "dwarvish" },
+      { "type": "ability", "ability": "con", "value": 2 },
+      { "type": "ability", "ability": "wis", "value": 1 },
+      { "type": "hpPerLevel", "value": 1 },
+      {
+        "type": "feature",
+        "name": "Dwarven Resilience",
+        "text": "You have advantage on saving throws against poison, and you have resistance against poison damage."
+      },
+      {
+        "type": "feature",
+        "name": "Dwarven Toughness",
+        "text": "Your hit point maximum increases by 1, and it increases by 1 every time you gain a level."
+      },
+      {
+        "type": "feature",
+        "name": "Stonecunning",
+        "text": "Whenever you make an Intelligence (History) check related to the origin of stonework, you are considered proficient and add double your proficiency bonus."
+      }
+    ]
+  }
+}

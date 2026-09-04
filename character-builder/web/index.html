@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>D&amp;D Character Manager</title>
+    <meta name="description" content="Self-hosted D&amp;D 5e character manager — 2014/2024 rules, level history, session tools">
+    <meta name="author" content="Brian Immel">
+    <!-- No analytics: this runs on a private home server for a known group of players. -->
+    <link rel="icon" href="data:,">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- app.js must execute BEFORE Alpine boots, since it attaches window.appState that
+         Alpine's x-data="appState()" needs. Module scripts and `defer` scripts both run
+         after parsing, in document order — so this tag has to come first, not Alpine's. -->
+    <script type="module" src="app.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="bg-gray-950 text-gray-100 min-h-screen flex" x-data="appState()" x-init="init()">
+
+    <!-- ============================== Roster sidebar ============================== -->
+    <aside class="w-64 shrink-0 bg-gray-900 border-r border-gray-800 p-4 flex flex-col">
+        <h2 class="text-lg font-bold mb-4 text-emerald-400">Roster</h2>
+        <div class="flex-1 space-y-2 overflow-y-auto">
+            <template x-for="char in characterList" :key="char.id">
+                <button
+                    @click="loadCharacter(char.id)"
+                    class="w-full text-left p-2 rounded hover:bg-gray-800 transition border"
+                    :class="activeCharacterId === char.id ? 'bg-emerald-900/40 border-emerald-700' : 'border-transparent'"
+                >
+                    <div class="font-semibold truncate" x-text="char.name"></div>
+                    <div class="text-xs text-gray-400" x-text="(char.className || 'Unbuilt') + ' · ' + char.edition"></div>
+                </button>
+            </template>
+            <p x-show="!characterList.length" class="text-sm text-gray-500 italic">No characters yet.</p>
+        </div>
+        <button @click="startNewCharacter()" class="mt-4 bg-emerald-600 hover:bg-emerald-500 py-2 rounded text-sm font-semibold transition">
+            + New Character
+        </button>
+        <label class="mt-2 text-center bg-gray-800 hover:bg-gray-700 py-2 rounded text-sm font-semibold transition cursor-pointer">
+            Import JSON
+            <input type="file" accept="application/json" class="hidden" @change="importFile($event)">
+        </label>
+    </aside>
+
+    <div class="flex-1 flex flex-col min-w-0">
+
+        <p x-show="error" x-text="error" @click="error=''" class="bg-red-950 border-b border-red-800 text-red-200 text-sm px-4 py-2 cursor-pointer"></p>
+
+        <!-- ============================== Toolbar ============================== -->
+        <header x-show="activeMeta" class="flex flex-wrap justify-between items-center gap-3 bg-gray-900 border-b border-gray-800 px-4 py-3">
+            <div class="flex items-center gap-3 min-w-0">
+                <h1 class="text-xl font-black truncate" x-text="activeMeta?.name"></h1>
+                <span class="text-xs px-2.5 py-1 bg-gray-800 rounded-full text-emerald-300 shrink-0" x-text="'Level ' + activeLevel"></span>
+                <span class="text-xs text-gray-400 shrink-0" x-text="activeMeta?.edition + ' rules'"></span>
+            </div>
+
+            <div class="flex items-center gap-2 flex-wrap">
+                <template x-if="mode === 'play'">
+                    <div class="flex items-center gap-2 flex-wrap">
+                        <label class="text-xs text-gray-400">Level:</label>
+                        <select x-model.number="activeLevel" @change="switchLevel(activeLevel)" class="bg-gray-800 border border-gray-700 rounded p-1.5 text-sm">
+                            <template x-for="v in availableVersions" :key="v.level">
+                                <option :value="v.level" x-text="'Level ' + v.level"></option>
+                            </template>
+                        </select>
+                        <button @click="startLevelUp()" class="bg-blue-600 hover:bg-blue-500 px-3 py-1.5 rounded text-sm font-semibold">+ Level Up</button>
+                        <button @click="exportVersion()" class="bg-gray-800 hover:bg-gray-700 px-3 py-1.5 rounded text-sm">Export</button>
+                        <button @click="deleteThisVersion()" class="text-red-400 hover:text-red-300 px-2 py-1.5 rounded text-sm">Delete level</button>
+                        <button @click="deleteCharacter()" class="text-red-400 hover:text-red-300 px-2 py-1.5 rounded text-sm">Delete character</button>
+                        <span class="text-xs text-gray-400 italic w-16" x-text="saveStatus"></span>
+                    </div>
+                </template>
+                <template x-if="mode === 'build'">
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs text-gray-400" x-text="isNewCharacter ? 'Creating character' : 'Leveling up'"></span>
+                        <button @click="isNewCharacter ? confirmCreate() : confirmLevelUp()" class="bg-emerald-600 hover:bg-emerald-500 px-3 py-1.5 rounded text-sm font-semibold" x-text="isNewCharacter ? 'Create' : 'Confirm Level Up'"></button>
+                        <button x-show="!isNewCharacter || characterList.length" @click="cancelBuild()" class="bg-gray-800 hover:bg-gray-700 px-3 py-1.5 rounded text-sm">Cancel</button>
+                    </div>
+                </template>
+            </div>
+        </header>
+
+        <main class="flex-1 overflow-y-auto p-6">
+
+            <!-- ============================== BUILD MODE ============================== -->
+            <div x-show="mode === 'build'" class="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl">
+                <section class="space-y-4">
+                    <div class="bg-gray-900 border border-gray-800 rounded-lg p-4 space-y-3">
+                        <div>
+                            <label class="text-xs text-gray-400 block mb-1">Name</label>
+                            <input type="text" x-model="draft.name" @input="refreshDraftPreview()" class="w-full bg-gray-800 border border-gray-700 rounded p-2 text-sm">
+                        </div>
+                        <div x-show="isNewCharacter">
+                            <label class="text-xs text-gray-400 block mb-1">Rules edition</label>
+                            <select x-model="draft.edition" @change="onEditionChange()" class="w-full bg-gray-800 border border-gray-700 rounded p-2 text-sm">
+                                <option value="2024">2024 rules</option>
+                                <option value="2014">2014 rules</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="text-xs text-gray-400 block mb-1" x-text="draft.edition === '2024' ? 'Species' : 'Race'"></label>
+                            <select x-model="draft.speciesId" @change="refreshDraftPreview()" class="w-full bg-gray-800 border border-gray-700 rounded p-2 text-sm">
+                                <option value="">— choose —</option>
+                                <template x-for="s in content?.speciesList || []" :key="s.id">
+                                    <option :value="s.id" x-text="s.name"></option>
+                                </template>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="text-xs text-gray-400 block mb-1">Background</label>
+                            <select x-model="draft.backgroundId" @change="refreshDraftPreview()" class="w-full bg-gray-800 border border-gray-700 rounded p-2 text-sm">
+                                <option value="">— choose —</option>
+                                <template x-for="b in content?.backgroundList || []" :key="b.id">
+                                    <option :value="b.id" x-text="b.name"></option>
+                                </template>
+                            </select>
+                        </div>
+                        <div class="flex gap-3">
+                            <div class="flex-1">
+                                <label class="text-xs text-gray-400 block mb-1">Class</label>
+                                <select x-model="draft.classes[0].classId" @change="draft.classes[0].subclassId=''; refreshDraftPreview()" class="w-full bg-gray-800 border border-gray-700 rounded p-2 text-sm">
+                                    <option value="">— choose —</option>
+                                    <template x-for="k in content?.classList || []" :key="k.id">
+                                        <option :value="k.id" x-text="k.name"></option>
+                                    </template>
+                                </select>
+                            </div>
+                            <div class="w-24">
+                                <label class="text-xs text-gray-400 block mb-1">Level</label>
+                                <input type="number" min="1" max="20" x-model.number="draft.classes[0].level" @input="refreshDraftPreview()" class="w-full bg-gray-800 border border-gray-700 rounded p-2 text-sm">
+                            </div>
+                        </div>
+                        <div x-show="availableSubclasses.length && draft.classes[0].level >= 3">
+                            <label class="text-xs text-gray-400 block mb-1">Subclass</label>
+                            <select x-model="draft.classes[0].subclassId" @change="refreshDraftPreview()" class="w-full bg-gray-800 border border-gray-700 rounded p-2 text-sm">
+                                <option value="">— choose —</option>
+                                <template x-for="s in availableSubclasses" :key="s.id">
+                                    <option :value="s.id" x-text="s.name"></option>
+                                </template>
+                            </select>
+                        </div>
+                        <p class="text-[11px] text-gray-500">Multiclassing isn't in this form yet — edit <code>draft.classes</code> via Export/Import JSON if you need a second class.</p>
+                    </div>
+
+                    <div class="bg-gray-900 border border-gray-800 rounded-lg p-4">
+                        <h3 class="text-xs uppercase tracking-wider text-gray-400 mb-3">Base ability scores</h3>
+                        <div class="grid grid-cols-3 gap-2">
+                            <template x-for="a in ABILITIES" :key="a">
+                                <div>
+                                    <label class="text-[11px] text-gray-400 block" x-text="ABILITY_NAMES[a]"></label>
+                                    <input type="number" min="1" max="20" x-model.number="draft.abilities[a]" @input="refreshDraftPreview()" class="w-full bg-gray-800 border border-gray-700 rounded p-1.5 text-sm">
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-900 border border-gray-800 rounded-lg p-4 space-y-2">
+                        <h3 class="text-xs uppercase tracking-wider text-gray-400 mb-1">Armor</h3>
+                        <select x-model="draft.equipment.armor" @change="refreshDraftPreview()" class="w-full bg-gray-800 border border-gray-700 rounded p-2 text-sm">
+                            <option value="">Unarmored</option>
+                            <template x-for="a in content?.armorList || []" :key="a.id">
+                                <option :value="a.id" x-text="a.name + ' (AC ' + a.baseAC + ', ' + a.category + ')'"></option>
+                            </template>
+                        </select>
+                        <label class="flex items-center gap-2 text-sm">
+                            <input type="checkbox" x-model="draft.equipment.shield" @change="refreshDraftPreview()"> Shield
+                        </label>
+                    </div>
+
+                    <div class="bg-gray-900 border border-gray-800 rounded-lg p-4 space-y-3" x-show="draftSheet?.pendingChoices.length">
+                        <h3 class="text-xs uppercase tracking-wider text-gray-400">Choices</h3>
+                        <template x-for="choice in draftSheet?.pendingChoices || []" :key="choice.id">
+                            <div>
+                                <p class="text-sm flex items-center gap-2 flex-wrap mb-1.5">
+                                    <span x-text="choice.label"></span>
+                                    <span class="text-xs text-gray-500" x-text="choice.source"></span>
+                                    <span x-show="!choice.satisfied" class="text-[10px] bg-amber-600 text-black rounded-full px-2 py-0.5 font-semibold" x-text="'pick ' + choice.count"></span>
+                                </p>
+                                <div class="flex flex-wrap gap-1.5">
+                                    <template x-for="opt in choice.options" :key="opt.id">
+                                        <button
+                                            type="button"
+                                            :title="opt.text || ''"
+                                            @click="applyChoice(choice.id, opt.id, choice.count > 1, choice.count)"
+                                            class="text-xs px-2.5 py-1 rounded border transition"
+                                            :class="isChoicePicked(choice.id, opt.id) ? 'bg-emerald-900/50 border-emerald-600' : 'border-gray-700 hover:border-gray-500'"
+                                            x-text="opt.name"
+                                        ></button>
+                                    </template>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </section>
+
+                <!-- Live preview -->
+                <section class="bg-gray-900 border border-gray-800 rounded-lg p-4 h-fit">
+                    <h3 class="text-xs uppercase tracking-wider text-gray-400 mb-3">Live preview</h3>
+                    <template x-if="draftSheet">
+                        <div>
+                            <p class="text-sm text-gray-400 mb-3" x-text="draftSheet.classLine + ' — HP ' + draftSheet.hitPoints + ' · AC ' + draftSheet.armorClass.value"></p>
+                            <ul x-show="draftSheet.problems.length" class="text-xs text-red-300 bg-red-950/50 border border-red-900 rounded p-2 mb-3 space-y-1">
+                                <template x-for="p in draftSheet.problems"><li x-text="p"></li></template>
+                            </ul>
+                            <div class="grid grid-cols-6 gap-1.5 mb-3">
+                                <template x-for="a in ABILITIES" :key="a">
+                                    <div class="text-center bg-gray-800 rounded p-1.5">
+                                        <div class="text-[10px] text-gray-400" x-text="a.toUpperCase()"></div>
+                                        <div class="font-bold" x-text="draftSheet.scores[a]"></div>
+                                        <div class="text-xs text-emerald-400" x-text="fmt(draftSheet.modifiers[a])"></div>
+                                    </div>
+                                </template>
+                            </div>
+                            <div x-show="draftSheet.features.length">
+                                <h4 class="text-xs text-gray-400 mb-1">Features</h4>
+                                <ul class="text-xs text-gray-300 space-y-1 max-h-64 overflow-y-auto">
+                                    <template x-for="f in draftSheet.features" :key="f.name + f.level">
+                                        <li><span class="font-semibold" x-text="f.name"></span> <span class="text-gray-500" x-text="f.source"></span></li>
+                                    </template>
+                                </ul>
+                            </div>
+                        </div>
+                    </template>
+                </section>
+            </div>
+
+            <!-- ============================== PLAY MODE ============================== -->
+            <div x-show="mode === 'play' && version" class="grid grid-cols-1 xl:grid-cols-3 gap-6 max-w-7xl">
+
+                <!-- Stat blocks -->
+                <section class="xl:col-span-2 space-y-4">
+                    <div class="grid grid-cols-3 sm:grid-cols-6 gap-2">
+                        <div class="bg-gray-900 border border-gray-800 rounded-lg p-3 text-center">
+                            <div class="text-2xl font-bold" x-text="version?.sheetData.derived.armorClass.value"></div>
+                            <div class="text-[10px] text-gray-400 uppercase">AC</div>
+                        </div>
+                        <div class="bg-gray-900 border border-gray-800 rounded-lg p-3 text-center col-span-2">
+                            <div class="flex items-center justify-center gap-2">
+                                <button @click="adjustHp(-1)" class="text-gray-400 hover:text-red-400 px-1">−</button>
+                                <input type="number" x-model.number="version.sheetData.play.currentHp" @input="autoSaveDebounced()" class="w-14 bg-transparent text-2xl font-bold text-center">
+                                <span class="text-gray-500">/ <span x-text="version?.sheetData.derived.hitPoints"></span></span>
+                                <button @click="adjustHp(1)" class="text-gray-400 hover:text-emerald-400 px-1">+</button>
+                            </div>
+                            <div class="text-[10px] text-gray-400 uppercase">Hit Points <span x-show="version?.sheetData.play.tempHp" x-text="'(+' + version?.sheetData.play.tempHp + ' temp)'"></span></div>
+                        </div>
+                        <div class="bg-gray-900 border border-gray-800 rounded-lg p-3 text-center">
+                            <div class="text-2xl font-bold" x-text="fmt(version?.sheetData.derived.initiative)"></div>
+                            <div class="text-[10px] text-gray-400 uppercase">Init</div>
+                        </div>
+                        <div class="bg-gray-900 border border-gray-800 rounded-lg p-3 text-center">
+                            <div class="text-2xl font-bold" x-text="version?.sheetData.derived.speed"></div>
+                            <div class="text-[10px] text-gray-400 uppercase">Speed</div>
+                        </div>
+                        <div class="bg-gray-900 border border-gray-800 rounded-lg p-3 text-center">
+                            <div class="text-2xl font-bold" x-text="fmt(version?.sheetData.derived.proficiencyBonus)"></div>
+                            <div class="text-[10px] text-gray-400 uppercase">Prof</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-900 border border-gray-800 rounded-lg p-4">
+                        <h3 class="text-xs uppercase tracking-wider text-gray-400 mb-2">Abilities — click to roll a check</h3>
+                        <div class="grid grid-cols-6 gap-1.5">
+                            <template x-for="a in ABILITIES" :key="a">
+                                <button @click="roll(ABILITY_NAMES[a] + ' check', version.sheetData.derived.modifiers[a])" class="text-center bg-gray-800 hover:bg-gray-700 rounded p-2 transition">
+                                    <div class="text-[10px] text-gray-400" x-text="a.toUpperCase()"></div>
+                                    <div class="font-bold" x-text="version?.sheetData.derived.scores[a]"></div>
+                                    <div class="text-xs text-emerald-400" x-text="fmt(version?.sheetData.derived.modifiers[a])"></div>
+                                </button>
+                            </template>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-gray-900 border border-gray-800 rounded-lg p-4">
+                            <h3 class="text-xs uppercase tracking-wider text-gray-400 mb-2">Saving Throws</h3>
+                            <ul class="text-sm space-y-1">
+                                <template x-for="a in ABILITIES" :key="a">
+                                    <li class="flex items-center gap-2 cursor-pointer hover:text-white" :class="version.sheetData.derived.saves[a].proficient ? 'text-gray-100' : 'text-gray-500'" @click="roll(ABILITY_NAMES[a] + ' save', version.sheetData.derived.saves[a].modifier)">
+                                        <span class="w-1.5 h-1.5 rounded-full" :class="version.sheetData.derived.saves[a].proficient ? 'bg-emerald-500' : 'bg-gray-700'"></span>
+                                        <span x-text="ABILITY_NAMES[a]"></span>
+                                        <span class="ml-auto" x-text="fmt(version.sheetData.derived.saves[a].modifier)"></span>
+                                    </li>
+                                </template>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-900 border border-gray-800 rounded-lg p-4">
+                            <h3 class="text-xs uppercase tracking-wider text-gray-400 mb-2">Skills</h3>
+                            <ul class="text-sm space-y-1 max-h-72 overflow-y-auto">
+                                <template x-for="s in SKILL_IDS" :key="s">
+                                    <li class="flex items-center gap-2 cursor-pointer hover:text-white" :class="version.sheetData.derived.skills[s].proficient ? 'text-gray-100' : 'text-gray-500'" @click="roll(skillLabel(s), version.sheetData.derived.skills[s].modifier)">
+                                        <span class="w-1.5 h-1.5 rounded-full" :class="version.sheetData.derived.skills[s].expertise ? 'bg-blue-400' : version.sheetData.derived.skills[s].proficient ? 'bg-emerald-500' : 'bg-gray-700'"></span>
+                                        <span x-text="skillLabel(s)"></span>
+                                        <span class="ml-auto" x-text="fmt(version.sheetData.derived.skills[s].modifier)"></span>
+                                    </li>
+                                </template>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-900 border border-gray-800 rounded-lg p-4" x-show="version?.sheetData.derived.features.length">
+                        <h3 class="text-xs uppercase tracking-wider text-gray-400 mb-2">Features</h3>
+                        <ul class="text-sm space-y-2">
+                            <template x-for="f in version?.sheetData.derived.features || []" :key="f.name + f.level">
+                                <li>
+                                    <p class="font-semibold" x-text="f.name + (f.level ? ' (Lv ' + f.level + ')' : '')"></p>
+                                    <p class="text-xs text-gray-400" x-text="f.text"></p>
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Session panel -->
+                <section class="space-y-4">
+                    <div class="bg-gray-900 border border-gray-800 rounded-lg p-4">
+                        <h3 class="text-xs uppercase tracking-wider text-gray-400 mb-2">Rest</h3>
+                        <div class="flex gap-2 mb-3">
+                            <button @click="applyRest('short')" class="flex-1 bg-gray-800 hover:bg-gray-700 rounded py-2 text-sm">Short Rest</button>
+                            <button @click="applyRest('long')" class="flex-1 bg-blue-700 hover:bg-blue-600 rounded py-2 text-sm">Long Rest</button>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 text-sm">
+                            <label class="flex items-center gap-2"><input type="checkbox" x-model="version.sheetData.play.inspiration" @change="autoSaveDebounced()"> Inspiration</label>
+                            <div class="flex items-center gap-2">
+                                <span class="text-gray-400">Exhaustion</span>
+                                <input type="number" min="0" max="6" x-model.number="version.sheetData.play.exhaustion" @input="autoSaveDebounced()" class="w-14 bg-gray-800 border border-gray-700 rounded p-1 text-center">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-900 border border-gray-800 rounded-lg p-4" x-show="version?.sheetData.derived.spellSlots.length">
+                        <h3 class="text-xs uppercase tracking-wider text-gray-400 mb-2">Spell Slots</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <template x-for="(max, i) in version?.sheetData.derived.spellSlots || []" :key="i">
+                                <button @click="toggleSlot(i)" class="text-xs px-2 py-1.5 rounded border" :class="(version.sheetData.play.spellSlotsUsed[i]||0) >= max ? 'border-gray-800 text-gray-600' : 'border-emerald-700 text-emerald-300'">
+                                    <span x-text="'Lv' + (i+1)"></span>
+                                    <span x-text="' ' + (max - (version.sheetData.play.spellSlotsUsed[i]||0)) + '/' + max"></span>
+                                </button>
+                            </template>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-900 border border-gray-800 rounded-lg p-4" x-show="version?.sheetData.derived.pactMagic">
+                        <h3 class="text-xs uppercase tracking-wider text-gray-400 mb-2">Pact Magic</h3>
+                        <button @click="togglePactSlot()" class="text-xs px-2 py-1.5 rounded border border-purple-700 text-purple-300">
+                            <span x-text="'Lv' + version?.sheetData.derived.pactMagic?.level"></span>
+                            <span x-text="' ' + (version?.sheetData.derived.pactMagic?.count - (version?.sheetData.play.pactSlotsUsed||0)) + '/' + version?.sheetData.derived.pactMagic?.count"></span>
+                        </button>
+                    </div>
+
+                    <div class="bg-gray-900 border border-gray-800 rounded-lg p-4">
+                        <h3 class="text-xs uppercase tracking-wider text-gray-400 mb-2">Gear</h3>
+                        <div class="space-y-1.5 mb-2">
+                            <template x-for="(item, i) in version?.sheetData.play.gear || []" :key="i">
+                                <div class="flex gap-1.5">
+                                    <input type="text" x-model="item.name" @input="autoSaveDebounced()" placeholder="Item" class="flex-1 bg-gray-800 border border-gray-700 rounded p-1 text-xs">
+                                    <input type="number" min="0" x-model.number="item.qty" @input="autoSaveDebounced()" class="w-12 bg-gray-800 border border-gray-700 rounded p-1 text-xs text-center">
+                                    <button @click="removeGear(i)" class="text-red-400 hover:text-red-300 px-1">×</button>
+                                </div>
+                            </template>
+                        </div>
+                        <button @click="addGear()" class="text-xs text-emerald-400 hover:text-emerald-300">+ Add item</button>
+                    </div>
+
+                    <div class="bg-gray-900 border border-gray-800 rounded-lg p-4">
+                        <h3 class="text-xs uppercase tracking-wider text-gray-400 mb-2">Notes</h3>
+                        <textarea x-model="version.sheetData.play.notes" @input="autoSaveDebounced()" rows="4" class="w-full bg-gray-800 border border-gray-700 rounded p-2 text-sm"></textarea>
+                    </div>
+
+                    <div class="bg-gray-900 border border-gray-800 rounded-lg p-4">
+                        <h3 class="text-xs uppercase tracking-wider text-gray-400 mb-2">Roll Log</h3>
+                        <ul class="text-sm space-y-1 max-h-48 overflow-y-auto">
+                            <template x-for="r in rollLog" :key="r.id">
+                                <li class="flex justify-between" :class="r.crit ? 'text-emerald-400' : r.fumble ? 'text-red-400' : 'text-gray-300'">
+                                    <span x-text="r.label"></span>
+                                    <span x-text="r.die + (r.modifier ? ' ' + fmt(r.modifier) : '') + ' = ' + r.total"></span>
+                                </li>
+                            </template>
+                            <li x-show="!rollLog.length" class="text-gray-600 italic">No rolls yet — click an ability, save, or skill.</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
