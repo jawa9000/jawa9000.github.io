@@ -1,7 +1,8 @@
 # D&D Character Manager
 
-A self-hosted D&D 5e character manager supporting both the 2014 and 2024 rules, designed
-to run directly on a Raspberry Pi — no Docker, no build step.
+A self-hosted D&D 5e character manager with a single unified ruleset (merged from the 2014
+and 2024 rules — see **The content merge**, below), designed to run directly on a
+Raspberry Pi — no Docker, no build step.
 
 - **Rules-driven creation.** A grant-based rules engine derives stats from choices
   (species, background, class, ability scores) instead of you typing HP and AC by hand.
@@ -19,7 +20,7 @@ to run directly on a Raspberry Pi — no Docker, no build step.
 cd character-builder
 npm install         # express, better-sqlite3
 npm run dev          # http://localhost:3000
-npm test              # 47 tests: engine, versioning, and db layers
+npm test              # 62 tests: engine, versioning, and db layers
 ```
 
 `npm start` is identical to `npm run dev` right now — there's no auth yet to strip out
@@ -30,10 +31,10 @@ for development (see **Security**, below).
 ```
 engine/     Pure rules engine, zero Node-specific imports — the BROWSER RUNS THE SAME
             CODE as the server (served at /engine/). Live preview can't drift from what
-            gets derived and saved. No edition branching: 2014 vs 2024 differences live
-            entirely in data/ (see engine/grants.js for the grant-type catalogue).
-data/       2024/, 2014/, common/ — rules-engine content packs (species, classes,
-            backgrounds, armor) that FEED the engine.
+            gets derived and saved. No rules-branching in code (see engine/grants.js for
+            the grant-type catalogue) — every mechanical difference lives in data/.
+data/       species.json, classes.json, backgrounds.json, armor.json — the single
+            unified content pool that feeds the engine.
             compendium/ — flat reference JSON (spells, feats, magic items) for lookup,
             served as-is via /api/compendium/:type. Deliberately separate from the
             packs above: dropping a file in here can't change how a saved character
@@ -50,7 +51,7 @@ test/       engine, versioning, and db tests (node --test).
 
 ### The data model: choices produce a version, a version is played
 
-A **character** is a roster entry (name, edition). A **version** is one row per level:
+A **character** is a roster entry (just a name). A **version** is one row per level:
 
 ```
 choices    the rules-engine INPUT that produced this version — species, background,
@@ -69,14 +70,27 @@ full) while `derived` is computed fresh. See `server/versioning.js` and
 `test/db.test.js` for the exact rules, including why HP carries forward as a delta
 rather than resetting.
 
-### Edition differences live in data, never in code
+### The content merge
 
-There is no `if (edition === '2024')` anywhere in the engine. Every benefit — an ability
-score bump, a proficiency, a feature — is a *grant* the engine interprets. The 2024
-rules move ability score increases from species to background; that shows up as an
-`ability` grant present in `data/2024/backgrounds.json` and absent from
-`data/2014/backgrounds.json`. Same engine, different JSON. A third edition means a new
-directory, not new code.
+This started as two parallel packs — 2014-rules and 2024-rules content, selectable per
+character. They were merged into the single pool under `data/` you see today, on two
+rules:
+
+1. **On a name conflict, the 2024 version wins outright.** Fighter, Wizard, Cleric,
+   Soldier, and Acolyte each existed in both packs; the 2024 version of each was kept,
+   the 2014 version dropped. This is why the Fighter has Weapon Mastery (a 2024
+   mechanic) and why backgrounds — not species — grant the ability score increase.
+2. **Species were additive, not conflicting**, except for Human (2024's version kept,
+   since it already had zero species-side ability grants) and the bare 2024 Dwarf/Elf
+   (dropped as redundant once their richer, more specific 2014-sourced siblings — Hill
+   Dwarf, Duergar, High Elf, Drow, and so on — exist with their `ability` grants
+   stripped for consistency with rule 1). The other ~75 species from the 2014 pack
+   carried straight through, unchanged except for that same ability-grant strip.
+
+There's still no `if (edition === ...)` anywhere in the engine — it never existed there
+in the first place. This was purely a data-layer merge; every grant type it touched
+(`ability`, mainly) was already interpreted generically. See `engine/grants.js` for the
+full grant-type catalogue.
 
 ## Deploying to a Raspberry Pi
 
@@ -114,13 +128,14 @@ assumes single-tenant in a way that would fight that change.
 
 ## Content and copyright
 
-`data/2024/`, `data/2014/`, `data/common/`, and `data/compendium/` hold SRD 5.1/5.2
-content, licensed CC-BY-4.0 and safe to publish. **This repo is public.**
+`data/species.json`, `classes.json`, `backgrounds.json`, `armor.json`, and
+`data/compendium/` hold SRD 5.1/5.2 content, licensed CC-BY-4.0 and safe to publish.
+**This repo is public.**
 
 Non-SRD material — subclasses, feats, and backgrounds from Xanathar's, Tasha's,
-Fizban's, and similar — belongs in `data/packs-private/<edition>/` (merged over the
-rules-engine packs) or `data/compendium-private/` (merged over the reference
-compendium). Both are gitignored and must never be committed.
+Fizban's, and similar — belongs in `data/packs-private/` (merged over the rules-engine
+packs) or `data/compendium-private/` (merged over the reference compendium). Both are
+gitignored and must never be committed.
 
 ## Backups
 
@@ -137,17 +152,35 @@ torn state that restores as silently stale data. Schedule it nightly via cron an
 ## Status
 
 **Built and verified:** the rules engine (grant system, multiclass spell-slot math,
-2014/2024 divergence — see `test/rules.test.js`), the versioned persistence layer
-(independent per-level snapshots, verified in `test/db.test.js` to never mutate a prior
-level), rest/resource logic (`test/versioning.test.js`), and the full HTTP API —
-create, level up, auto-save, rest, export, import — smoke-tested end to end.
+including the 2024 Paladin/Ranger "round-up" half-caster progression — see
+`test/rules.test.js`), the versioned persistence layer (independent per-level
+snapshots, verified in `test/db.test.js` to never mutate a prior level), rest/resource
+logic (`test/versioning.test.js`), XP-to-level tracking (`test/experience.test.js`),
+and the full HTTP API — create, level up, auto-save, rest, export, import — smoke-tested
+end to end. The species pool covers ~77 species/lineages sourced from official 5e
+material (see git history for the sourcing methodology and the two names left out for
+lack of verifiable official stats).
+
+12 classes are playable: Fighter, Wizard, Cleric, and 9 newly added (Barbarian, Bard,
+Druid, Monk, Paladin, Ranger, Rogue, Sorcerer, Warlock), each with a full base-class
+progression through level 20. Those 9 classes' subclasses were sourced from real
+sourcebook data and added — identity plus first (usually 3rd-level) feature only, not
+the full level 6/10/14+ progression. A handful of requested subclass names didn't
+resolve against any official source and were left out rather than fabricated (see git
+history for the full list and sourcing methodology).
+
+**Explicitly NOT done this pass, despite being on the original subclass list:**
+Artificer (the whole class — base and its 4 subclasses), Fighter's other 8 subclasses
+(only Champion exists), Wizard's 13 schools (none exist yet), and Cleric's 20 domains
+(none exist yet). These were scoped out of this batch, not silently dropped — they're
+the next follow-up pass, alongside the level 6/10/14+ tiers for everything done here.
 
 **Present but intentionally thin:** Wizard and Cleric carry only enough detail to
-exercise multiclass spell-slot math — no feature lists or spell selection yet. The
-Build form only edits a single class line; multiclassing works in the engine and via
-JSON import, just not through the UI yet.
+exercise multiclass spell-slot math — no feature lists yet, per the gap above. Spell
+selection isn't built for any class. The Build form only edits a single class line;
+multiclassing works in the engine and via JSON import, just not through the UI yet.
 
-**Not built yet:** the remaining classes/subclasses/feats, equipment beyond armor,
-spell selection (though `fun/Spells/spells.json` is ready to fold into
+**Not built yet:** everything in the gap above, feats, equipment beyond armor, spell
+selection (though `fun/Spells/spells.json` is ready to fold into
 `data/compendium/spells.json`), a level-up wizard that walks new choices one at a time
 instead of re-showing the whole build form, and remote access.

@@ -16,7 +16,7 @@ import { spellSlots, spellSaveDC, spellAttackBonus, pactSlots } from './spellcas
 
 /**
  * @param {Object} character  the stored character record
- * @param {Object} content    content pack index for the character's edition
+ * @param {Object} content    the unified content pack
  * @returns {Object} the derived sheet
  */
 export function deriveCharacter(character, content) {
@@ -155,7 +155,6 @@ export function deriveCharacter(character, content) {
 
     return {
         name: character.name || 'Unnamed',
-        edition: character.edition,
         speciesName: species?.name ?? null,
         backgroundName: background?.name ?? null,
         classLine: classEntries.map((c) => `${c.def.name} ${c.level}`).join(' / ') || '—',

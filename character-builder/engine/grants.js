@@ -2,9 +2,10 @@
 //
 // Every benefit a character receives — from a species, a background, a class feature,
 // a feat — is expressed in the content packs as a "grant". The engine interprets grants;
-// it never hardcodes what a specific species or class does. This is what lets 2014 and
-// 2024 coexist without the engine branching on edition: the two editions ship different
-// grants, not different code.
+// it never hardcodes what a specific species or class does. This is what let the old
+// 2014/2024 content split live entirely in data before it was merged into one pool
+// (see README's "The content merge") — different content shipped different grants, no
+// branching in the engine either way.
 //
 // Grant types:
 //   { type: 'ability',           ability: 'str', value: 2 }

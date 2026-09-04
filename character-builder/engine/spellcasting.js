@@ -33,22 +33,34 @@ const MULTICLASS_SLOTS = {
 // Declared per-class in the content packs as `casterProgression`.
 const PROGRESSION_DIVISOR = { full: 1, half: 2, third: 3 };
 
+// The 2024 Paladin and Ranger (and the 2014 Artificer) use a half-caster progression
+// that rounds UP instead of down — they have slots starting at level 1, unlike the
+// classic half-caster (2014 Paladin/Ranger), which has none until level 2. 5etools'
+// own data tags this progression "artificer" since Artificer originated it; content
+// packs here use the clearer name `halfRoundUp`.
+const ROUND_UP_PROGRESSIONS = new Set(['halfRoundUp']);
+
 /**
  * Combined caster level for a set of classes.
  *
- * Each progression is divided and rounded down SEPARATELY, then summed. Rounding the
- * sum instead would wrongly give Paladin 1 / Ranger 1 a slot.
+ * Each progression is divided and rounded SEPARATELY (down for full/half/third, up for
+ * halfRoundUp), then summed. Rounding the sum instead would wrongly give Paladin 1 /
+ * Ranger 1 a slot under the classic progression.
  *
  * @param {Array<{casterProgression?: string, level: number}>} classEntries
  */
 export function casterLevel(classEntries) {
     let total = 0;
     for (const entry of classEntries) {
+        if (ROUND_UP_PROGRESSIONS.has(entry.casterProgression)) {
+            total += Math.ceil(entry.level / 2);
+            continue;
+        }
         const divisor = PROGRESSION_DIVISOR[entry.casterProgression];
         if (!divisor) continue; // "none" or undefined — non-casters contribute nothing.
 
-        // A single-classed half-caster has slots at level 1, but contributes 0 here.
-        // That asymmetry is in the rules as written, not a bug.
+        // A single-classed classic half-caster has slots at level 1, but contributes 0
+        // here. That asymmetry is in the rules as written, not a bug.
         total += Math.floor(entry.level / divisor);
     }
     return total;

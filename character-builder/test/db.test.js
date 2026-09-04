@@ -32,7 +32,6 @@ describe('level history is independent and permanent', () => {
         const { id } = createCharacter({
             name: 'Durgan',
             className: 'Fighter 1',
-            edition: '2024',
             choices: { classes: [{ classId: 'fighter', level: 1 }] },
             sheetData: sheet(12)
         });
@@ -51,7 +50,7 @@ describe('level history is independent and permanent', () => {
     });
 
     test('every level stays listed and independently fetchable after several level-ups', () => {
-        const { id } = createCharacter({ name: 'X', edition: '2024', choices: {}, sheetData: sheet(10) });
+        const { id } = createCharacter({ name: 'X', choices: {}, sheetData: sheet(10) });
         insertVersion(id, 2, {}, sheet(17));
         insertVersion(id, 3, {}, sheet(24));
 
@@ -65,19 +64,19 @@ describe('level history is independent and permanent', () => {
     });
 
     test('inserting a level that already exists is rejected, not silently overwritten', () => {
-        const { id } = createCharacter({ name: 'X', edition: '2024', choices: {}, sheetData: sheet(10) });
+        const { id } = createCharacter({ name: 'X', choices: {}, sheetData: sheet(10) });
         assert.throws(() => insertVersion(id, 1, {}, sheet(999)));
         assert.equal(getVersion(id, 1).sheetData.derived.hitPoints, 10, 'the original level 1 must survive the rejected insert');
     });
 
     test('deleting the only remaining version is refused', () => {
-        const { id } = createCharacter({ name: 'X', edition: '2024', choices: {}, sheetData: sheet(10) });
+        const { id } = createCharacter({ name: 'X', choices: {}, sheetData: sheet(10) });
         assert.equal(deleteVersion(id, 1), false);
         assert.ok(getVersion(id, 1));
     });
 
     test('deleting one historical version leaves the others intact', () => {
-        const { id } = createCharacter({ name: 'X', edition: '2024', choices: {}, sheetData: sheet(10) });
+        const { id } = createCharacter({ name: 'X', choices: {}, sheetData: sheet(10) });
         insertVersion(id, 2, {}, sheet(17));
         assert.equal(deleteVersion(id, 1), true);
         assert.equal(getVersion(id, 1), null);
@@ -85,7 +84,7 @@ describe('level history is independent and permanent', () => {
     });
 
     test('deleting a character cascades to all of its versions', () => {
-        const { id } = createCharacter({ name: 'X', edition: '2024', choices: {}, sheetData: sheet(10) });
+        const { id } = createCharacter({ name: 'X', choices: {}, sheetData: sheet(10) });
         insertVersion(id, 2, {}, sheet(17));
         deleteCharacter(id);
         assert.equal(getVersion(id, 1), null);
@@ -94,7 +93,7 @@ describe('level history is independent and permanent', () => {
     });
 
     test('renaming updates the roster listing without touching version data', () => {
-        const { id } = createCharacter({ name: 'Old Name', className: 'Fighter 1', edition: '2024', choices: {}, sheetData: sheet(10) });
+        const { id } = createCharacter({ name: 'Old Name', className: 'Fighter 1', choices: {}, sheetData: sheet(10) });
         renameCharacter(id, { name: 'New Name', className: 'Fighter 2' });
         const roster = listCharacters();
         assert.equal(roster[0].name, 'New Name');
@@ -104,7 +103,7 @@ describe('level history is independent and permanent', () => {
 
 describe('import at an arbitrary starting level', () => {
     test('a character can be created directly at level 5, not just level 1', () => {
-        const { id } = createCharacter({ name: 'Imported', edition: '2024', choices: {}, sheetData: sheet(40), level: 5 });
+        const { id } = createCharacter({ name: 'Imported', choices: {}, sheetData: sheet(40), level: 5 });
         assert.deepEqual(listVersionMeta(id).map((v) => v.level), [5]);
         assert.equal(getHighestLevel(id), 5);
     });
@@ -112,7 +111,7 @@ describe('import at an arbitrary starting level', () => {
 
 describe('editing a version can re-key its level (Edit Choices)', () => {
     test('updating in place at the same level leaves it filed under that level', () => {
-        const { id } = createCharacter({ name: 'X', edition: '2024', choices: { a: 1 }, sheetData: sheet(10) });
+        const { id } = createCharacter({ name: 'X', choices: { a: 1 }, sheetData: sheet(10) });
         updateVersionChoices(id, 1, 1, { a: 2 }, sheet(11));
         const v = getVersion(id, 1);
         assert.equal(v.choices.a, 2);
@@ -120,7 +119,7 @@ describe('editing a version can re-key its level (Edit Choices)', () => {
     });
 
     test('moving to an unoccupied level renumbers the row instead of creating a new one', () => {
-        const { id } = createCharacter({ name: 'X', edition: '2024', choices: {}, sheetData: sheet(10) });
+        const { id } = createCharacter({ name: 'X', choices: {}, sheetData: sheet(10) });
         updateVersionChoices(id, 1, 4, { retyped: true }, sheet(30));
 
         assert.equal(getVersion(id, 1), null, 'the old level number must no longer exist');
@@ -131,7 +130,7 @@ describe('editing a version can re-key its level (Edit Choices)', () => {
     });
 
     test('moving onto a level another version already occupies is rejected, not clobbered', () => {
-        const { id } = createCharacter({ name: 'X', edition: '2024', choices: {}, sheetData: sheet(10) });
+        const { id } = createCharacter({ name: 'X', choices: {}, sheetData: sheet(10) });
         insertVersion(id, 2, {}, sheet(17));
 
         assert.throws(() => updateVersionChoices(id, 1, 2, { attempted: true }, sheet(999)));

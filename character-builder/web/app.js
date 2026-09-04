@@ -22,10 +22,9 @@ function debounce(fn, ms) {
     };
 }
 
-function blankDraft(edition = '2024') {
+function blankDraft() {
     return {
         name: 'New Character',
-        edition,
         speciesId: '',
         backgroundId: '',
         classes: [{ classId: '', level: 1, subclassId: '' }],
@@ -79,8 +78,9 @@ window.appState = function appState() {
         // The loaded, persisted version.
         version: null,
 
-        // Content packs, cached per edition. contentByEdition[edition] = { raw, speciesList, ... }.
-        contentByEdition: {},
+        // The unified content pack — { raw, speciesList, backgroundList, classList, armorList }.
+        // Loaded once at boot; there's a single content pool, no per-edition split.
+        content: null,
 
         // 'play' (session sheet) or 'build' (creating, leveling up, or editing in place).
         mode: 'play',
@@ -95,20 +95,12 @@ window.appState = function appState() {
         error: '',
         rollLog: [],
 
-        get content() {
-            return this.contentByEdition[this.draft.edition] || null;
-        },
-
-        get playContent() {
-            return this.contentByEdition[this.activeMeta?.edition] || null;
-        },
-
         // --- Boot ----------------------------------------------------------------------
 
         async init() {
             this.autoSaveDebounced = debounce(() => this.autoSave(), 500);
             try {
-                await this.loadContentFor('2024');
+                await this.loadContent();
                 await this.fetchCharacterList();
                 if (this.characterList.length) {
                     await this.loadCharacter(this.characterList[0].id);
@@ -128,18 +120,18 @@ window.appState = function appState() {
             return body;
         },
 
-        async loadContentFor(edition) {
-            if (this.contentByEdition[edition]) return this.contentByEdition[edition];
-            const raw = await this.api(`/api/content/detail?edition=${encodeURIComponent(edition)}`);
-            const entry = {
+        async loadContent() {
+            if (this.content) return this.content;
+            const raw = await this.api('/api/content/detail');
+            const byName = (a, b) => a.name.localeCompare(b.name);
+            this.content = {
                 raw,
-                speciesList: Object.values(raw.species),
-                backgroundList: Object.values(raw.backgrounds),
-                classList: Object.values(raw.classes),
-                armorList: Object.values(raw.armor)
+                speciesList: Object.values(raw.species).sort(byName),
+                backgroundList: Object.values(raw.backgrounds).sort(byName),
+                classList: Object.values(raw.classes).sort(byName),
+                armorList: Object.values(raw.armor).sort(byName)
             };
-            this.contentByEdition = { ...this.contentByEdition, [edition]: entry };
-            return entry;
+            return this.content;
         },
 
         async fetchCharacterList() {
@@ -152,7 +144,6 @@ window.appState = function appState() {
         async loadCharacter(id) {
             try {
                 const { character, versions } = await this.api(`/api/characters/${id}/versions`);
-                await this.loadContentFor(character.edition);
                 this.activeCharacterId = id;
                 this.activeMeta = character;
                 this.availableVersions = versions;
@@ -215,8 +206,8 @@ window.appState = function appState() {
             this.isNewCharacter = true;
             this.isEditingInPlace = false;
             this.abilityRolls = {};
-            this.draft = blankDraft(this.activeMeta?.edition || '2024');
-            this.loadContentFor(this.draft.edition).then(() => this.refreshDraftPreview());
+            this.draft = blankDraft();
+            this.refreshDraftPreview();
         },
 
         startLevelUp() {
@@ -226,7 +217,7 @@ window.appState = function appState() {
             this.abilityRolls = {};
             const base = structuredClone(this.version.choices);
             if (base.classes?.[0]) base.classes[0].level = Math.min(20, (base.classes[0].level || 1) + 1);
-            this.draft = { ...blankDraft(this.activeMeta.edition), ...base, edition: this.activeMeta.edition };
+            this.draft = { ...blankDraft(), ...base };
             this.refreshDraftPreview();
         },
 
@@ -239,7 +230,7 @@ window.appState = function appState() {
             this.isEditingInPlace = true;
             this.abilityRolls = {};
             const base = structuredClone(this.version.choices);
-            this.draft = { ...blankDraft(this.activeMeta.edition), ...base, edition: this.activeMeta.edition };
+            this.draft = { ...blankDraft(), ...base };
             this.refreshDraftPreview();
         },
 
@@ -307,15 +298,6 @@ window.appState = function appState() {
             this.refreshDraftPreview();
         },
 
-        async onEditionChange() {
-            this.draft.speciesId = '';
-            this.draft.backgroundId = '';
-            this.draft.classes = [{ classId: '', level: 1, subclassId: '' }];
-            this.draft.choices = {};
-            await this.loadContentFor(this.draft.edition);
-            this.refreshDraftPreview();
-        },
-
         refreshDraftPreview() {
             if (!this.content) return;
             this.draftSheet = deriveCharacter(this.draft, this.content.raw);
@@ -359,7 +341,6 @@ window.appState = function appState() {
                     method: 'POST',
                     body: JSON.stringify({
                         name: this.draft.name,
-                        edition: this.draft.edition,
                         choices: this.draft,
                         gear: this.draft.gear
                     })
@@ -428,7 +409,7 @@ window.appState = function appState() {
         },
 
         subclassesAt(index) {
-            return Object.values(this.classDefAt(index)?.subclasses || {});
+            return Object.values(this.classDefAt(index)?.subclasses || {}).sort((a, b) => a.name.localeCompare(b.name));
         },
 
         get draftTotalLevel() {
@@ -524,7 +505,6 @@ window.appState = function appState() {
         exportVersion() {
             const payload = {
                 name: this.activeMeta.name,
-                edition: this.activeMeta.edition,
                 level: this.activeLevel,
                 choices: this.version.choices,
                 play: this.version.sheetData.play

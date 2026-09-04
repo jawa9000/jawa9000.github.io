@@ -1,11 +1,10 @@
 // Content pack loading.
 //
-// Packs are plain JSON on disk, indexed by edition. `data/common/` holds anything the
-// two editions genuinely share (armor, for instance). Later, non-SRD packs land in
-// `data/packs-private/<edition>/` and are merged on top — that directory is gitignored
-// because this repo is public.
+// A single unified content pool — species, classes, backgrounds, armor — with no edition
+// split. Non-SRD packs land in `data/packs-private/` and are merged on top; that
+// directory is gitignored because this repo is public.
 
-import { readFile, readdir } from 'node:fs/promises';
+import { readFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -14,9 +13,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = join(ROOT, 'data');
 const PRIVATE = join(DATA, 'packs-private');
 
-export const EDITIONS = ['2024', '2014'];
-
-const cache = new Map();
+let cache = null;
 
 async function readJson(path) {
     const raw = await readFile(path, 'utf8');
@@ -32,51 +29,40 @@ async function readIfPresent(path) {
     return existsSync(path) ? readJson(path) : {};
 }
 
-/**
- * Load and cache the merged content index for one edition.
- * Private packs override public ones on key collision.
- */
-export async function loadContent(edition) {
-    if (!EDITIONS.includes(edition)) throw new Error(`Unknown edition: ${edition}`);
-    if (cache.has(edition)) return cache.get(edition);
-
-    const pub = join(DATA, edition);
-    const priv = join(PRIVATE, edition);
+/** Load and cache the merged content index. Private packs override public ones on key collision. */
+export async function loadContent() {
+    if (cache) return cache;
 
     const [species, classes, backgrounds, armor, pSpecies, pClasses, pBackgrounds] = await Promise.all([
-        readJson(join(pub, 'species.json')),
-        readJson(join(pub, 'classes.json')),
-        readJson(join(pub, 'backgrounds.json')),
-        readJson(join(DATA, 'common', 'armor.json')),
-        readIfPresent(join(priv, 'species.json')),
-        readIfPresent(join(priv, 'classes.json')),
-        readIfPresent(join(priv, 'backgrounds.json'))
+        readJson(join(DATA, 'species.json')),
+        readJson(join(DATA, 'classes.json')),
+        readJson(join(DATA, 'backgrounds.json')),
+        readJson(join(DATA, 'armor.json')),
+        readIfPresent(join(PRIVATE, 'species.json')),
+        readIfPresent(join(PRIVATE, 'classes.json')),
+        readIfPresent(join(PRIVATE, 'backgrounds.json'))
     ]);
 
-    const content = {
-        edition,
+    cache = {
         species: { ...species, ...pSpecies },
         classes: { ...classes, ...pClasses },
         backgrounds: { ...backgrounds, ...pBackgrounds },
         armor
     };
-
-    cache.set(edition, content);
-    return content;
+    return cache;
 }
 
 /** Drop the cache so edits to the JSON packs show up without a restart. */
 export function invalidateContent() {
-    cache.clear();
+    cache = null;
 }
 
 /** Compact listing for the builder UI — ids and names only, not full grant trees. */
-export async function contentSummary(edition) {
-    const content = await loadContent(edition);
+export async function contentSummary() {
+    const content = await loadContent();
     const brief = (map) => Object.values(map).map((e) => ({ id: e.id, name: e.name, source: e.source }));
 
     return {
-        edition,
         species: brief(content.species),
         backgrounds: brief(content.backgrounds),
         classes: Object.values(content.classes).map((c) => ({

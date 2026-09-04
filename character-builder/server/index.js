@@ -25,7 +25,7 @@ import {
     insertVersion,
     deleteVersion
 } from './db.js';
-import { loadContent, contentSummary, invalidateContent, EDITIONS } from './content.js';
+import { loadContent, contentSummary, invalidateContent } from './content.js';
 import { readCompendium, listCompendiumTypes } from './compendium.js';
 import { deriveCharacter } from '../engine/rules.js';
 import {
@@ -46,10 +46,17 @@ const HOST = process.env.CB_HOST || '0.0.0.0';
 
 const app = express();
 app.use(express.json());
-app.use(express.static(WEB, { cacheControl: false }));
+
+// no-store, not just cacheControl:false: this app is under active iteration, and
+// cacheControl:false alone still leaves Last-Modified/ETag in place, which some browsers'
+// heuristic caching can treat as "fresh enough" and skip revalidation entirely. no-store
+// forces every request to hit the (fast, local) filesystem instead of ever serving a stale
+// cached copy of app.js/index.html after an edit.
+const staticOpts = { cacheControl: false, setHeaders: (res) => res.set('Cache-Control', 'no-store') };
+app.use(express.static(WEB, staticOpts));
 // The engine is pure ESM with no Node-only imports, so the browser runs the exact same
 // derivation code the server does — live preview can't drift from what gets saved.
-app.use('/engine', express.static(ENGINE, { cacheControl: false }));
+app.use('/engine', express.static(ENGINE, staticOpts));
 
 function classLineOf(sheet) {
     return sheet.classLine === '—' ? null : sheet.classLine;
@@ -63,12 +70,11 @@ app.get('/api/characters', (req, res) => {
 
 app.post('/api/characters', async (req, res, next) => {
     try {
-        const { name, edition = '2024', choices, gear } = req.body || {};
+        const { name, choices, gear } = req.body || {};
         if (!name || !choices) return res.status(400).json({ error: 'name and choices are required' });
-        if (!EDITIONS.includes(edition)) return res.status(400).json({ error: `Unknown edition: ${edition}` });
 
-        const content = await loadContent(edition);
-        const derived = deriveCharacter({ ...choices, name, edition }, content);
+        const content = await loadContent();
+        const derived = deriveCharacter({ ...choices, name }, content);
         const sheetData = buildSheetData(derived, initialPlayState(derived, gear));
 
         // File under the choices' OWN total level, not a hardcoded 1 — a character can be
@@ -76,7 +82,7 @@ app.post('/api/characters', async (req, res, next) => {
         // and the row's level must always match its derived stats.
         const level = Math.max(1, Math.min(20, derived.totalLevel || 1));
 
-        const created = createCharacter({ name, className: classLineOf(derived), edition, choices, sheetData, level });
+        const created = createCharacter({ name, className: classLineOf(derived), choices, sheetData, level });
         res.status(201).json({ id: created.id, level, versions: created.versions, sheet: sheetData });
     } catch (err) {
         next(err);
@@ -94,16 +100,15 @@ app.post('/api/characters', async (req, res, next) => {
 // and on Edit Choices' re-keying).
 app.post('/api/characters/import', async (req, res, next) => {
     try {
-        const { name, edition = '2024', choices, play } = req.body || {};
+        const { name, choices, play } = req.body || {};
         if (!name || !choices) return res.status(400).json({ error: 'name and choices are required' });
-        if (!EDITIONS.includes(edition)) return res.status(400).json({ error: `Unknown edition: ${edition}` });
 
-        const content = await loadContent(edition);
-        const derived = deriveCharacter({ ...choices, name, edition }, content);
+        const content = await loadContent();
+        const derived = deriveCharacter({ ...choices, name }, content);
         const sheetData = buildSheetData(derived, sanitizePlayState(play || initialPlayState(derived), derived));
         const level = Math.max(1, Math.min(20, derived.totalLevel || 1));
 
-        const created = createCharacter({ name, className: classLineOf(derived), edition, choices, sheetData, level });
+        const created = createCharacter({ name, className: classLineOf(derived), choices, sheetData, level });
         res.status(201).json({ id: created.id, level, sheet: sheetData });
     } catch (err) {
         next(err);
@@ -177,8 +182,8 @@ app.put('/api/characters/:id/version/:level/choices', async (req, res, next) => 
         if (!newChoices) return res.status(400).json({ error: 'choices is required' });
         const newName = newChoices.name || meta.name; // the Build form's Name field lives on choices
 
-        const content = await loadContent(meta.edition);
-        const newDerived = deriveCharacter({ ...newChoices, name: newName, edition: meta.edition }, content);
+        const content = await loadContent();
+        const newDerived = deriveCharacter({ ...newChoices, name: newName }, content);
         const newLevel = newDerived.totalLevel;
         if (newLevel < 1 || newLevel > 20) {
             return res.status(400).json({ error: 'Total character level must be between 1 and 20' });
@@ -230,8 +235,8 @@ app.post('/api/characters/:id/levelup', async (req, res, next) => {
         const newChoices = req.body?.choices || base.choices;
         const newName = newChoices.name || meta.name; // the Build form's Name field lives on choices
 
-        const content = await loadContent(meta.edition);
-        const newDerived = deriveCharacter({ ...newChoices, name: newName, edition: meta.edition }, content);
+        const content = await loadContent();
+        const newDerived = deriveCharacter({ ...newChoices, name: newName }, content);
 
         // The new row's level is always the CHOICES' own derived total — never a
         // client-supplied number — so a version's level and its own derived stats can
@@ -262,10 +267,9 @@ app.post('/api/characters/:id/levelup', async (req, res, next) => {
 // Live preview while building/leveling, without writing anything.
 app.post('/api/preview', async (req, res, next) => {
     try {
-        const { edition = '2024', choices } = req.body || {};
-        if (!EDITIONS.includes(edition)) return res.status(400).json({ error: `Unknown edition: ${edition}` });
-        const content = await loadContent(edition);
-        res.json({ sheet: deriveCharacter({ ...choices, edition }, content) });
+        const { choices } = req.body || {};
+        const content = await loadContent();
+        res.json({ sheet: deriveCharacter(choices, content) });
     } catch (err) {
         next(err);
     }
@@ -292,9 +296,7 @@ app.post('/api/characters/:id/version/:level/rest', (req, res) => {
 
 app.get('/api/content', async (req, res, next) => {
     try {
-        const edition = req.query.edition || '2024';
-        if (!EDITIONS.includes(edition)) return res.status(400).json({ error: `Unknown edition: ${edition}` });
-        res.json(await contentSummary(edition));
+        res.json(await contentSummary());
     } catch (err) {
         next(err);
     }
@@ -302,9 +304,7 @@ app.get('/api/content', async (req, res, next) => {
 
 app.get('/api/content/detail', async (req, res, next) => {
     try {
-        const edition = req.query.edition || '2024';
-        if (!EDITIONS.includes(edition)) return res.status(400).json({ error: `Unknown edition: ${edition}` });
-        res.json(await loadContent(edition));
+        res.json(await loadContent());
     } catch (err) {
         next(err);
     }

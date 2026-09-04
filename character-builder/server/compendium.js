@@ -1,14 +1,14 @@
 // The reference compendium: /api/compendium/:type reading data/compendium/<type>.json directly.
 //
-// This is deliberately separate from content.js (which loads the edition-scoped species/
-// classes/backgrounds packs that FEED the rules engine's grant system). The compendium is
-// flat, un-merged, reference-only data — spells, feats, magic items — for lookup and for
-// the level-up UI to browse, not for the engine to compute from. Keeping them apart means
+// This is deliberately separate from content.js (which loads the species/classes/
+// backgrounds packs that FEED the rules engine's grant system). The compendium is flat,
+// un-merged, reference-only data — spells, feats, magic items — for lookup and for the
+// level-up UI to browse, not for the engine to compute from. Keeping them apart means
 // dropping a new spells.json in here can't accidentally change how a saved character derives.
 //
 // Files are plain JSON on disk so other local tools can read or edit them directly, per the
 // original design brief. data/compendium-private/ overlays data/compendium/ the same way
-// packs-private overlays the edition packs, for non-SRD reference content that can't be
+// packs-private overlays the content packs, for non-SRD reference content that can't be
 // published in this public repo.
 
 import { readFile, readdir } from 'node:fs/promises';

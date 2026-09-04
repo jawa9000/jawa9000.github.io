@@ -6,7 +6,7 @@
     <title>D&amp;D Character Manager</title>
     <meta name="description" content="Self-hosted D&amp;D 5e character manager — 2014/2024 rules, level history, session tools">
     <meta name="author" content="Brian Immel">
-    <meta name="version" content="0.0.11">
+    <meta name="version" content="0.1.6">
     <link rel="icon" href="data:,">
     <script src="tailwind.js"></script>
     <!-- app.js must execute BEFORE Alpine boots, since it attaches window.appState that
@@ -28,7 +28,7 @@
                     :class="activeCharacterId === char.id ? 'bg-emerald-900/40 border-emerald-700' : 'border-transparent'"
                 >
                     <div class="font-semibold truncate" x-text="char.name"></div>
-                    <div class="text-xs text-gray-400" x-text="(char.className || 'Unbuilt') + ' · ' + char.edition"></div>
+                    <div class="text-xs text-gray-400" x-text="char.className || 'Unbuilt'"></div>
                 </button>
             </template>
             <p x-show="!characterList.length" class="text-sm text-gray-500 italic">No characters yet.</p>
@@ -53,7 +53,6 @@
                     <div class="flex items-center gap-3 min-w-0">
                         <h1 class="text-xl font-black truncate" x-text="activeMeta.name"></h1>
                         <span class="text-xs px-2.5 py-1 bg-gray-800 rounded-full text-emerald-300 shrink-0" x-text="'Level ' + activeLevel"></span>
-                        <span class="text-xs text-gray-400 shrink-0" x-text="activeMeta.edition + ' rules'"></span>
                     </div>
                 </template>
                 <h1 x-show="!activeMeta" class="text-xl font-black text-gray-400">New Character</h1>
@@ -108,15 +107,8 @@
                             <label class="text-xs text-gray-400 block mb-1">Name</label>
                             <input type="text" x-model="draft.name" @input="refreshDraftPreview()" class="w-full bg-gray-800 border border-gray-700 rounded p-2 text-sm">
                         </div>
-                        <div x-show="isNewCharacter">
-                            <label class="text-xs text-gray-400 block mb-1">Rules edition</label>
-                            <select x-model="draft.edition" @change="onEditionChange()" class="w-full bg-gray-800 border border-gray-700 rounded p-2 text-sm">
-                                <option value="2024">2024 rules</option>
-                                <option value="2014">2014 rules</option>
-                            </select>
-                        </div>
                         <div>
-                            <label class="text-xs text-gray-400 block mb-1" x-text="draft.edition === '2024' ? 'Species' : 'Race'"></label>
+                            <label class="text-xs text-gray-400 block mb-1">Species</label>
                             <select x-model="draft.speciesId" @change="refreshDraftPreview()" class="w-full bg-gray-800 border border-gray-700 rounded p-2 text-sm">
                                 <option value="">— choose —</option>
                                 <template x-for="s in content?.speciesList || []" :key="s.id">
@@ -316,7 +308,14 @@
             </div>
 
             <!-- ============================== PLAY MODE ============================== -->
-            <div x-show="mode === 'play' && version" class="grid grid-cols-1 xl:grid-cols-3 gap-6 max-w-7xl">
+            <!-- x-if (not x-show) is required here: x-show only toggles display:none, it
+                 doesn't stop Alpine from evaluating the bound expressions inside — so every
+                 version.sheetData... reference below would still throw while version is
+                 null (e.g. the moment before init()'s loadCharacter() resolves). x-if
+                 actually removes this subtree from the DOM when false, which is what
+                 prevents that. -->
+            <template x-if="mode === 'play' && version">
+            <div class="grid grid-cols-1 xl:grid-cols-3 gap-6 max-w-7xl">
 
                 <!-- Stat blocks -->
                 <section class="xl:col-span-2 space-y-4">
@@ -498,6 +497,7 @@
                     </div>
                 </section>
             </div>
+            </template>
         </main>
     </div>
 </body>

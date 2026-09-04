@@ -36,7 +36,6 @@ export function openDatabase(file = process.env.CB_DB || join(ROOT, 'data', 'cha
             id          TEXT PRIMARY KEY,
             name        TEXT NOT NULL,
             className   TEXT,
-            edition     TEXT NOT NULL DEFAULT '2024',
             createdAt   TEXT NOT NULL DEFAULT (datetime('now'))
         );
 
@@ -89,18 +88,17 @@ export function getCharacterMeta(id) {
  * Create a character and its first version in one transaction. `level` defaults to 1 for
  * normal character creation; the JSON import flow passes whatever level was exported, since
  * an imported character may already be well into its career.
- * @param {{name: string, className?: string, edition: string, choices: object, sheetData: object, level?: number}} args
+ * @param {{name: string, className?: string, choices: object, sheetData: object, level?: number}} args
  */
-export function createCharacter({ name, className, edition, choices, sheetData, level = 1 }) {
+export function createCharacter({ name, className, choices, sheetData, level = 1 }) {
     const id = randomUUID();
     const db = requireDb();
 
     const tx = db.transaction(() => {
-        db.prepare('INSERT INTO characters (id, name, className, edition) VALUES (?, ?, ?, ?)').run(
+        db.prepare('INSERT INTO characters (id, name, className) VALUES (?, ?, ?)').run(
             id,
             name,
-            className || null,
-            edition
+            className || null
         );
         db.prepare(
             `INSERT INTO character_versions (characterId, level, choices, sheetData)
