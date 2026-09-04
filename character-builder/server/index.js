@@ -70,12 +70,12 @@ app.get('/api/characters', (req, res) => {
 
 app.post('/api/characters', async (req, res, next) => {
     try {
-        const { name, choices, gear } = req.body || {};
+        const { name, choices, gear, notes } = req.body || {};
         if (!name || !choices) return res.status(400).json({ error: 'name and choices are required' });
 
         const content = await loadContent();
         const derived = deriveCharacter({ ...choices, name }, content);
-        const sheetData = buildSheetData(derived, initialPlayState(derived, gear));
+        const sheetData = buildSheetData(derived, initialPlayState(derived, gear, notes));
 
         // File under the choices' OWN total level, not a hardcoded 1 — a character can be
         // created directly at any level (e.g. starting straight into a multiclass build),

@@ -6,7 +6,7 @@
     <title>D&amp;D Character Manager</title>
     <meta name="description" content="Self-hosted D&amp;D 5e character manager — 2014/2024 rules, level history, session tools">
     <meta name="author" content="Brian Immel">
-    <meta name="version" content="0.1.6">
+    <meta name="version" content="0.1.8">
     <link rel="icon" href="data:,">
     <script src="tailwind.js"></script>
     <!-- app.js must execute BEFORE Alpine boots, since it attaches window.appState that
@@ -248,6 +248,11 @@
                         </div>
                         <button type="button" @click="addDraftGear()" class="text-xs text-emerald-400 hover:text-emerald-300">+ Add item</button>
                         <p class="text-[11px] text-gray-500 mt-2">More gear can be added later from the character sheet.</p>
+                    </div>
+
+                    <div class="bg-gray-900 border border-gray-800 rounded-lg p-4" x-show="isNewCharacter">
+                        <h3 class="text-xs uppercase tracking-wider text-gray-400 mb-2">Notes</h3>
+                        <textarea x-model="draft.notes" rows="4" class="w-full bg-gray-800 border border-gray-700 rounded p-2 text-sm"></textarea>
                     </div>
 
                     <div class="bg-gray-900 border border-gray-800 rounded-lg p-4 space-y-3" x-show="draftSheet?.pendingChoices.length">

@@ -161,26 +161,30 @@ end to end. The species pool covers ~77 species/lineages sourced from official 5
 material (see git history for the sourcing methodology and the two names left out for
 lack of verifiable official stats).
 
-12 classes are playable: Fighter, Wizard, Cleric, and 9 newly added (Barbarian, Bard,
-Druid, Monk, Paladin, Ranger, Rogue, Sorcerer, Warlock), each with a full base-class
-progression through level 20. Those 9 classes' subclasses were sourced from real
-sourcebook data and added — identity plus first (usually 3rd-level) feature only, not
-the full level 6/10/14+ progression. A handful of requested subclass names didn't
-resolve against any official source and were left out rather than fabricated (see git
-history for the full list and sourcing methodology).
+13 classes are playable — every 5e class, including Artificer, each with a full
+base-class progression through level 20. All 13 have their full requested subclass
+roster — 121 subclasses total, each sourced from real sourcebook data and verified
+through the engine (every one confirmed to actually apply its feature, not just exist).
+Subclasses carry their identity plus first (usually 3rd-level) feature only, not the
+full level 6/10/14+ progression. A handful of requested subclass names across several
+classes didn't resolve against any official source (Cleric's Blood and Protection
+Domains among them) and were left out rather than fabricated — see git history for the
+full list and sourcing methodology. Cleric's four Amonkhet domains (Solidarity,
+Strength, Ambition, Zeal) come from *Plane Shift: Amonkhet*, an official WotC PDF
+rather than a physical sourcebook — noted directly in those entries. Artificer
+originated the "round-up" half-caster progression that 2024 Paladin/Ranger also use
+(spell slots from level 1, not level 2) — see `engine/spellcasting.js`.
 
-**Explicitly NOT done this pass, despite being on the original subclass list:**
-Artificer (the whole class — base and its 4 subclasses), Fighter's other 8 subclasses
-(only Champion exists), Wizard's 13 schools (none exist yet), and Cleric's 20 domains
-(none exist yet). These were scoped out of this batch, not silently dropped — they're
-the next follow-up pass, alongside the level 6/10/14+ tiers for everything done here.
+**Explicitly NOT done yet:** the level 6/10/14+ feature tiers for every subclass above
+(each currently has only its identity/3rd-level feature). That's the next follow-up
+pass, not silently dropped.
 
-**Present but intentionally thin:** Wizard and Cleric carry only enough detail to
-exercise multiclass spell-slot math — no feature lists yet, per the gap above. Spell
-selection isn't built for any class. The Build form only edits a single class line;
-multiclassing works in the engine and via JSON import, just not through the UI yet.
+**Present but intentionally thin:** no class has spell selection built — every caster
+computes correct spell slots but doesn't yet let you pick which spells you know. The
+Build form only edits a single class line; multiclassing works in the engine and via
+JSON import, just not through the UI yet.
 
-**Not built yet:** everything in the gap above, feats, equipment beyond armor, spell
-selection (though `fun/Spells/spells.json` is ready to fold into
-`data/compendium/spells.json`), a level-up wizard that walks new choices one at a time
-instead of re-showing the whole build form, and remote access.
+**Not built yet:** the deeper subclass feature tiers noted above, feats,
+equipment beyond armor, spell selection (though `fun/Spells/spells.json` is ready to
+fold into `data/compendium/spells.json`), a level-up wizard that walks new choices one
+at a time instead of re-showing the whole build form, and remote access.

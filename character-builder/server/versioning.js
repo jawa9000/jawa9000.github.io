@@ -12,8 +12,10 @@
  * @param {Array} [startingGear] gear picked during character creation — see sanitizeGear
  *   for the {name, qty, weight} shape. Defaults to empty for level-ups and imports that
  *   don't supply one.
+ * @param {string} [startingNotes] notes typed during character creation. Defaults to
+ *   empty for level-ups and imports that don't supply one.
  */
-export function initialPlayState(derived, startingGear) {
+export function initialPlayState(derived, startingGear, startingNotes) {
     return {
         currentHp: derived.hitPoints,
         tempHp: 0,
@@ -25,7 +27,7 @@ export function initialPlayState(derived, startingGear) {
         conditions: [],
         deathSaves: { successes: 0, failures: 0 },
         gear: sanitizeGear(startingGear),
-        notes: '',
+        notes: typeof startingNotes === 'string' ? startingNotes : '',
         xp: 0
     };
 }

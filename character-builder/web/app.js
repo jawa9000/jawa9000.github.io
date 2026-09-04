@@ -31,7 +31,8 @@ function blankDraft() {
         abilities: { str: 15, dex: 14, con: 13, int: 12, wis: 10, cha: 8 },
         choices: {},
         equipment: { armor: '', shield: false },
-        gear: [] // starting gear, only edited/sent during character creation — see confirmCreate()
+        gear: [], // starting gear, only edited/sent during character creation — see confirmCreate()
+        notes: '' // starting notes, only edited/sent during character creation — see confirmCreate()
     };
 }
 
@@ -342,7 +343,8 @@ window.appState = function appState() {
                     body: JSON.stringify({
                         name: this.draft.name,
                         choices: this.draft,
-                        gear: this.draft.gear
+                        gear: this.draft.gear,
+                        notes: this.draft.notes
                     })
                 });
                 await this.fetchCharacterList();
