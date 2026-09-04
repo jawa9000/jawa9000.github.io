@@ -8,7 +8,12 @@
 //
 // Pure functions, no I/O — easy to test without a database.
 
-export function initialPlayState(derived) {
+/**
+ * @param {Array} [startingGear] gear picked during character creation — see sanitizeGear
+ *   for the {name, qty, weight} shape. Defaults to empty for level-ups and imports that
+ *   don't supply one.
+ */
+export function initialPlayState(derived, startingGear) {
     return {
         currentHp: derived.hitPoints,
         tempHp: 0,
@@ -19,9 +24,22 @@ export function initialPlayState(derived) {
         exhaustion: 0,
         conditions: [],
         deathSaves: { successes: 0, failures: 0 },
-        gear: [],
-        notes: ''
+        gear: sanitizeGear(startingGear),
+        notes: '',
+        xp: 0
     };
+}
+
+/** Normalize a gear list to {name, qty, weight} entries with sane defaults. Blank rows
+ *  (no name typed yet) are kept as-is rather than dropped, since the player is often
+ *  still filling the row in when this runs on every auto-save keystroke. */
+export function sanitizeGear(gear) {
+    if (!Array.isArray(gear)) return [];
+    return gear.map((item) => ({
+        name: typeof item?.name === 'string' ? item.name : '',
+        qty: Math.max(0, Number(item?.qty) || 0),
+        weight: Math.max(0, Number(item?.weight) || 0)
+    }));
 }
 
 export function buildSheetData(derived, play) {
@@ -86,7 +104,9 @@ export function sanitizePlayState(play, derived) {
         hitDiceUsed: clamp(play.hitDiceUsed, 0, derived.totalLevel || 0),
         exhaustion: clamp(play.exhaustion, 0, 6),
         spellSlotsUsed: maxSlots.map((max, i) => clamp(play.spellSlotsUsed?.[i] ?? 0, 0, max)),
-        pactSlotsUsed: derived.pactMagic ? clamp(play.pactSlotsUsed, 0, derived.pactMagic.count) : 0
+        pactSlotsUsed: derived.pactMagic ? clamp(play.pactSlotsUsed, 0, derived.pactMagic.count) : 0,
+        gear: sanitizeGear(play.gear),
+        xp: Math.max(0, Math.trunc(Number(play.xp) || 0))
     };
 }
 

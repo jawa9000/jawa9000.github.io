@@ -6,7 +6,8 @@ import {
     carryForwardPlayState,
     applyShortRest,
     applyLongRest,
-    sanitizePlayState
+    sanitizePlayState,
+    sanitizeGear
 } from '../server/versioning.js';
 
 function fakeDerived(overrides = {}) {
@@ -48,6 +49,13 @@ describe('carryForwardPlayState', () => {
         const full = { ...initialPlayState(oldDerived), currentHp: 20 };
         const carried = carryForwardPlayState(full, oldDerived, newDerived);
         assert.equal(carried.currentHp, 21);
+    });
+
+    test('XP carries forward untouched — leveling up never spends or resets it', () => {
+        const derived = fakeDerived();
+        const withXp = { ...initialPlayState(derived), xp: 2700 };
+        const carried = carryForwardPlayState(withXp, derived, fakeDerived({ hitPoints: 27 }));
+        assert.equal(carried.xp, 2700);
     });
 
     test('resources reset to the new maximums', () => {
@@ -114,5 +122,50 @@ describe('sanitizePlayState', () => {
         const derived = fakeDerived({ pactMagic: null, spellSlots: [] });
         const clean = sanitizePlayState({ currentHp: 10, pactSlotsUsed: 3, spellSlotsUsed: [] }, derived);
         assert.equal(clean.pactSlotsUsed, 0);
+    });
+
+    test('gear entries are normalized to {name, qty, weight}, including negative/garbage input', () => {
+        const derived = fakeDerived({ spellSlots: [] });
+        const clean = sanitizePlayState(
+            { currentHp: 10, spellSlotsUsed: [], gear: [{ name: 'Rope', qty: -3, weight: 'heavy' }, { qty: 2, weight: 1.5 }] },
+            derived
+        );
+        assert.deepEqual(clean.gear, [
+            { name: 'Rope', qty: 0, weight: 0 },
+            { name: '', qty: 2, weight: 1.5 }
+        ]);
+    });
+
+    test('XP is clamped to a non-negative integer', () => {
+        const derived = fakeDerived({ spellSlots: [] });
+        assert.equal(sanitizePlayState({ currentHp: 10, spellSlotsUsed: [], xp: -500 }, derived).xp, 0);
+        assert.equal(sanitizePlayState({ currentHp: 10, spellSlotsUsed: [], xp: 2700.9 }, derived).xp, 2700);
+        assert.equal(sanitizePlayState({ currentHp: 10, spellSlotsUsed: [], xp: 'lots' }, derived).xp, 0);
+        assert.equal(sanitizePlayState({ currentHp: 10, spellSlotsUsed: [], xp: 6500 }, derived).xp, 6500);
+    });
+});
+
+describe('sanitizeGear', () => {
+    test('a non-array input becomes an empty list rather than throwing', () => {
+        assert.deepEqual(sanitizeGear(undefined), []);
+        assert.deepEqual(sanitizeGear(null), []);
+        assert.deepEqual(sanitizeGear('not an array'), []);
+    });
+
+    test('a blank row (still being typed) is kept, not dropped', () => {
+        assert.deepEqual(sanitizeGear([{ name: '', qty: 1, weight: 0 }]), [{ name: '', qty: 1, weight: 0 }]);
+    });
+});
+
+describe('initialPlayState with starting gear', () => {
+    test('starting gear passed at character creation seeds the play state', () => {
+        const derived = fakeDerived();
+        const play = initialPlayState(derived, [{ name: 'Backpack', qty: 1, weight: 5 }]);
+        assert.deepEqual(play.gear, [{ name: 'Backpack', qty: 1, weight: 5 }]);
+    });
+
+    test('no starting gear argument defaults to an empty list, as it always has', () => {
+        const play = initialPlayState(fakeDerived());
+        assert.deepEqual(play.gear, []);
     });
 });

@@ -11,6 +11,7 @@ import {
     getVersion,
     getHighestLevel,
     updateVersionSheet,
+    updateVersionChoices,
     insertVersion,
     deleteVersion,
     deleteCharacter,
@@ -106,5 +107,38 @@ describe('import at an arbitrary starting level', () => {
         const { id } = createCharacter({ name: 'Imported', edition: '2024', choices: {}, sheetData: sheet(40), level: 5 });
         assert.deepEqual(listVersionMeta(id).map((v) => v.level), [5]);
         assert.equal(getHighestLevel(id), 5);
+    });
+});
+
+describe('editing a version can re-key its level (Edit Choices)', () => {
+    test('updating in place at the same level leaves it filed under that level', () => {
+        const { id } = createCharacter({ name: 'X', edition: '2024', choices: { a: 1 }, sheetData: sheet(10) });
+        updateVersionChoices(id, 1, 1, { a: 2 }, sheet(11));
+        const v = getVersion(id, 1);
+        assert.equal(v.choices.a, 2);
+        assert.equal(v.sheetData.derived.hitPoints, 11);
+    });
+
+    test('moving to an unoccupied level renumbers the row instead of creating a new one', () => {
+        const { id } = createCharacter({ name: 'X', edition: '2024', choices: {}, sheetData: sheet(10) });
+        updateVersionChoices(id, 1, 4, { retyped: true }, sheet(30));
+
+        assert.equal(getVersion(id, 1), null, 'the old level number must no longer exist');
+        const moved = getVersion(id, 4);
+        assert.ok(moved);
+        assert.equal(moved.choices.retyped, true);
+        assert.deepEqual(listVersionMeta(id).map((v) => v.level), [4], 'still exactly one version, just renumbered');
+    });
+
+    test('moving onto a level another version already occupies is rejected, not clobbered', () => {
+        const { id } = createCharacter({ name: 'X', edition: '2024', choices: {}, sheetData: sheet(10) });
+        insertVersion(id, 2, {}, sheet(17));
+
+        assert.throws(() => updateVersionChoices(id, 1, 2, { attempted: true }, sheet(999)));
+
+        // Both original rows must survive the rejected attempt, untouched.
+        assert.equal(getVersion(id, 1).sheetData.derived.hitPoints, 10);
+        assert.equal(getVersion(id, 2).sheetData.derived.hitPoints, 17);
+        assert.equal(getVersion(id, 2).choices.attempted, undefined);
     });
 });

@@ -12,6 +12,7 @@
 
 import { deriveCharacter } from '/engine/rules.js';
 import { ABILITIES, ABILITY_NAMES, SKILLS, skillLabel, formatModifier } from '/engine/abilities.js';
+import { levelForXp, xpToNextLevel } from '/engine/experience.js';
 
 function debounce(fn, ms) {
     let timer;
@@ -30,12 +31,33 @@ function blankDraft(edition = '2024') {
         classes: [{ classId: '', level: 1, subclassId: '' }],
         abilities: { str: 15, dex: 14, con: 13, int: 12, wis: 10, cha: 8 },
         choices: {},
-        equipment: { armor: '', shield: false }
+        equipment: { armor: '', shield: false },
+        gear: [] // starting gear, only edited/sent during character creation — see confirmCreate()
     };
 }
 
 function rollD20() {
     return 1 + Math.floor(Math.random() * 20);
+}
+
+function rollD6() {
+    return 1 + Math.floor(Math.random() * 6);
+}
+
+/**
+ * Standard ability-score generation: roll 4d6, drop the lowest, sum the rest.
+ * `dropIndex` identifies WHICH die was dropped by position, not by value — tracking the
+ * value alone would strike through every die that happens to match it when two dice tie
+ * for lowest, not just the one actually discarded.
+ */
+function roll4d6DropLowest() {
+    const dice = [rollD6(), rollD6(), rollD6(), rollD6()];
+    let dropIndex = 0;
+    for (let i = 1; i < dice.length; i++) {
+        if (dice[i] < dice[dropIndex]) dropIndex = i;
+    }
+    const total = dice.reduce((sum, d, i) => (i === dropIndex ? sum : sum + d), 0);
+    return { dice, dropIndex, total };
 }
 
 window.appState = function appState() {
@@ -60,11 +82,14 @@ window.appState = function appState() {
         // Content packs, cached per edition. contentByEdition[edition] = { raw, speciesList, ... }.
         contentByEdition: {},
 
-        // 'play' (session sheet) or 'build' (creating or leveling up).
+        // 'play' (session sheet) or 'build' (creating, leveling up, or editing in place).
         mode: 'play',
         isNewCharacter: false,
+        isEditingInPlace: false, // true = confirming PUTs choices to the CURRENT level, no new version
         draft: blankDraft(),
         draftSheet: null,
+        abilityRolls: {}, // { str: {dice:[..], dropIndex, total}, ... } — last 4d6-drop-lowest roll shown per ability
+        dragSource: null, // ability id currently being dragged for a score swap, or null
 
         saveStatus: 'Saved',
         error: '',
@@ -142,6 +167,24 @@ window.appState = function appState() {
         async switchLevel(level) {
             this.version = await this.api(`/api/characters/${this.activeCharacterId}/version/${level}`);
             this.activeLevel = level;
+            // A version saved before XP tracking existed has no `xp` field — default it to
+            // 0 so the input shows a number immediately rather than blank until first edit.
+            if (this.version.sheetData.play.xp == null) this.version.sheetData.play.xp = 0;
+        },
+
+        // XP still needed to reach the next level, or null at max level.
+        get xpToNext() {
+            return this.version ? xpToNextLevel(this.version.sheetData.play.xp) : null;
+        },
+
+        // The level this character's CURRENT XP qualifies for, if it's higher than the
+        // level they're actually filed at — i.e. "you have enough XP, go click Level Up."
+        // XP never levels a character up automatically; it's just a notice.
+        get xpLevelUpAvailable() {
+            if (!this.version) return null;
+            const qualifies = levelForXp(this.version.sheetData.play.xp);
+            const current = this.version.sheetData.derived.totalLevel;
+            return qualifies > current ? qualifies : null;
         },
 
         async deleteCharacter() {
@@ -170,6 +213,8 @@ window.appState = function appState() {
         startNewCharacter() {
             this.mode = 'build';
             this.isNewCharacter = true;
+            this.isEditingInPlace = false;
+            this.abilityRolls = {};
             this.draft = blankDraft(this.activeMeta?.edition || '2024');
             this.loadContentFor(this.draft.edition).then(() => this.refreshDraftPreview());
         },
@@ -177,8 +222,23 @@ window.appState = function appState() {
         startLevelUp() {
             this.mode = 'build';
             this.isNewCharacter = false;
+            this.isEditingInPlace = false;
+            this.abilityRolls = {};
             const base = structuredClone(this.version.choices);
             if (base.classes?.[0]) base.classes[0].level = Math.min(20, (base.classes[0].level || 1) + 1);
+            this.draft = { ...blankDraft(this.activeMeta.edition), ...base, edition: this.activeMeta.edition };
+            this.refreshDraftPreview();
+        },
+
+        // Fix a mistake at the CURRENT level — a mis-picked skill, a typo'd ability score
+        // — without it counting as a level gain. Unlike startLevelUp, the class level is
+        // NOT bumped, and confirming PUTs to this same version instead of inserting a new one.
+        startEditChoices() {
+            this.mode = 'build';
+            this.isNewCharacter = false;
+            this.isEditingInPlace = true;
+            this.abilityRolls = {};
+            const base = structuredClone(this.version.choices);
             this.draft = { ...blankDraft(this.activeMeta.edition), ...base, edition: this.activeMeta.edition };
             this.refreshDraftPreview();
         },
@@ -186,6 +246,65 @@ window.appState = function appState() {
         cancelBuild() {
             this.mode = 'play';
             this.error = '';
+        },
+
+        // Standard 4d6-drop-lowest ability generation, rolled per-ability so the player can
+        // reroll just one score without redoing the whole array.
+        rollAbilityScore(ability) {
+            const result = roll4d6DropLowest();
+            this.draft.abilities[ability] = result.total;
+            this.abilityRolls = { ...this.abilityRolls, [ability]: result };
+            this.refreshDraftPreview();
+        },
+
+        // Roll all six at once. Builds the whole batch before a single state assignment and
+        // a single preview refresh, rather than calling rollAbilityScore() six times, so
+        // Alpine doesn't re-render the form (and the derived sheet doesn't re-derive) six
+        // times over for one click.
+        rollAllAbilityScores() {
+            const rolls = {};
+            for (const ability of this.ABILITIES) {
+                const result = roll4d6DropLowest();
+                this.draft.abilities[ability] = result.total;
+                rolls[ability] = result;
+            }
+            this.abilityRolls = rolls;
+            this.refreshDraftPreview();
+        },
+
+        // --- Drag-and-drop reassignment of ability scores ---------------------------------
+        // Dragging one ability's LABEL onto another's box SWAPS their scores (and whichever
+        // dice breakdown goes with each), which is the "roll six numbers, then decide who
+        // gets what" workflow. The label is the only draggable element — the number input
+        // and die button stay normal, so dragging never fights with typing or clicking them.
+
+        startDragAbility(ability) {
+            this.dragSource = ability;
+        },
+
+        endDragAbility() {
+            this.dragSource = null;
+        },
+
+        dropAbilityScore(target) {
+            const source = this.dragSource;
+            this.dragSource = null;
+            if (!source || source === target) return;
+
+            const abilities = this.draft.abilities;
+            [abilities[source], abilities[target]] = [abilities[target], abilities[source]];
+
+            // The dice-roll breakdown shown under a score belongs to that VALUE, so it
+            // has to travel with the swap too, or the struck-through die would end up
+            // labeled under the wrong ability.
+            const rolls = { ...this.abilityRolls };
+            const sourceRoll = rolls[source];
+            const targetRoll = rolls[target];
+            if (targetRoll) rolls[source] = targetRoll; else delete rolls[source];
+            if (sourceRoll) rolls[target] = sourceRoll; else delete rolls[target];
+            this.abilityRolls = rolls;
+
+            this.refreshDraftPreview();
         },
 
         async onEditionChange() {
@@ -200,6 +319,17 @@ window.appState = function appState() {
         refreshDraftPreview() {
             if (!this.content) return;
             this.draftSheet = deriveCharacter(this.draft, this.content.raw);
+        },
+
+        // Starting gear, edited only while creating a new character (draft.gear has no
+        // effect during Level Up / Edit Choices — see blankDraft()). Once a character
+        // exists, gear is managed in Play mode via addGear()/removeGear() below instead.
+        addDraftGear() {
+            this.draft.gear.push({ name: '', qty: 1, weight: 0 });
+        },
+
+        removeDraftGear(index) {
+            this.draft.gear.splice(index, 1);
         },
 
         applyChoice(choiceId, optionId, isMulti, max) {
@@ -227,7 +357,12 @@ window.appState = function appState() {
                 this.error = '';
                 const result = await this.api('/api/characters', {
                     method: 'POST',
-                    body: JSON.stringify({ name: this.draft.name, edition: this.draft.edition, choices: this.draft })
+                    body: JSON.stringify({
+                        name: this.draft.name,
+                        edition: this.draft.edition,
+                        choices: this.draft,
+                        gear: this.draft.gear
+                    })
                 });
                 await this.fetchCharacterList();
                 await this.loadCharacter(result.id);
@@ -239,24 +374,65 @@ window.appState = function appState() {
         async confirmLevelUp() {
             try {
                 this.error = '';
-                const toLevel = this.draft.classes.reduce((sum, c) => sum + (Number(c.level) || 0), 0);
-                await this.api(`/api/characters/${this.activeCharacterId}/levelup`, {
+                // The server derives the new level from `choices` itself (the total of every
+                // class's level) — it's the single source of truth, so we don't compute or
+                // send it here and then have to trust our own copy matches.
+                const result = await this.api(`/api/characters/${this.activeCharacterId}/levelup`, {
                     method: 'POST',
-                    body: JSON.stringify({ fromLevel: this.activeLevel, toLevel, choices: this.draft })
+                    body: JSON.stringify({ fromLevel: this.activeLevel, choices: this.draft })
                 });
+                await this.fetchCharacterList(); // the sidebar shows name/className — refresh it too
                 await this.loadCharacter(this.activeCharacterId);
-                await this.switchLevel(toLevel);
+                await this.switchLevel(result.level);
             } catch (err) {
                 this.error = err.message;
             }
         },
 
-        get selectedClass() {
-            return this.content?.raw.classes[this.draft.classes[0]?.classId];
+        // Save an edit to the CURRENT version's choices — no new version is inserted. If the
+        // total level you set differs from what this version was filed under, the server
+        // RE-KEYS this same row to the new level (rejecting it with an error if another
+        // version already occupies that level) — so this is how you freely retarget a
+        // version's level without going through the history-preserving Level Up flow.
+        async confirmEditChoices() {
+            const editedLevel = this.activeLevel; // capture before loadCharacter() below can change it
+            try {
+                this.error = '';
+                const result = await this.api(`/api/characters/${this.activeCharacterId}/version/${editedLevel}/choices`, {
+                    method: 'PUT',
+                    body: JSON.stringify({ choices: this.draft })
+                });
+                await this.fetchCharacterList(); // the sidebar shows name/className — refresh it too
+                await this.loadCharacter(this.activeCharacterId);
+                await this.switchLevel(result.level); // may differ from editedLevel if it was re-keyed
+            } catch (err) {
+                this.error = err.message;
+            }
         },
 
-        get availableSubclasses() {
-            return Object.values(this.selectedClass?.subclasses || {});
+        // --- Multiclassing: draft.classes is a list, one entry per class taken -------------
+
+        addClass() {
+            this.draft.classes.push({ classId: '', level: 1, subclassId: '' });
+            this.refreshDraftPreview();
+        },
+
+        removeClass(index) {
+            if (this.draft.classes.length <= 1) return; // always keep at least one row
+            this.draft.classes.splice(index, 1);
+            this.refreshDraftPreview();
+        },
+
+        classDefAt(index) {
+            return this.content?.raw.classes[this.draft.classes[index]?.classId];
+        },
+
+        subclassesAt(index) {
+            return Object.values(this.classDefAt(index)?.subclasses || {});
+        },
+
+        get draftTotalLevel() {
+            return this.draft.classes.reduce((sum, c) => sum + (Number(c.level) || 0), 0);
         },
 
         // --- Play mode: auto-save session state -------------------------------------------
@@ -300,8 +476,15 @@ window.appState = function appState() {
         },
 
         addGear() {
-            this.version.sheetData.play.gear.push({ name: '', qty: 1 });
+            this.version.sheetData.play.gear.push({ name: '', qty: 1, weight: 0 });
             this.autoSaveDebounced();
+        },
+
+        get totalGearWeight() {
+            return (this.version?.sheetData.play.gear || []).reduce(
+                (sum, item) => sum + (Number(item.qty) || 0) * (Number(item.weight) || 0),
+                0
+            );
         },
 
         removeGear(index) {

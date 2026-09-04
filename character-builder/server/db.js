@@ -158,6 +158,27 @@ export function updateVersionSheet(characterId, level, sheetData) {
 }
 
 /**
+ * Correct a mistake on an EXISTING version — a mis-picked skill, a typo'd ability score,
+ * a reworked multiclass split — without it counting as a level gain. Unlike level-up,
+ * this overwrites `choices` and `sheetData` on the SAME row rather than inserting a new
+ * one. `newLevel` may differ from `oldLevel`: if the edited choices now total a
+ * different character level, this RE-KEYS the row to that level number instead of
+ * leaving it mismatched with its own derived stats. The UNIQUE(characterId, level)
+ * constraint means this throws if another version already occupies `newLevel` — callers
+ * should catch that and surface a clear "that level is taken" error rather than let a
+ * generic 500 through.
+ */
+export function updateVersionChoices(characterId, oldLevel, newLevel, choices, sheetData) {
+    const result = requireDb()
+        .prepare(
+            `UPDATE character_versions SET level = ?, choices = ?, sheetData = ?, updatedAt = datetime('now')
+             WHERE characterId = ? AND level = ?`
+        )
+        .run(Number(newLevel), JSON.stringify(choices), JSON.stringify(sheetData), characterId, Number(oldLevel));
+    return result.changes > 0;
+}
+
+/**
  * Level up: insert a brand-new row. Never mutates the version it was cloned from.
  * Throws (via the UNIQUE constraint) if that level already exists for this character.
  */

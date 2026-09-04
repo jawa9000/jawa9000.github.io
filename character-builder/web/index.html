@@ -6,7 +6,7 @@
     <title>D&amp;D Character Manager</title>
     <meta name="description" content="Self-hosted D&amp;D 5e character manager — 2014/2024 rules, level history, session tools">
     <meta name="author" content="Brian Immel">
-    <!-- No analytics: this runs on a private home server for a known group of players. -->
+    <meta name="version" content="0.0.10">
     <link rel="icon" href="data:,">
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- app.js must execute BEFORE Alpine boots, since it attaches window.appState that
@@ -47,11 +47,16 @@
         <p x-show="error" x-text="error" @click="error=''" class="bg-red-950 border-b border-red-800 text-red-200 text-sm px-4 py-2 cursor-pointer"></p>
 
         <!-- ============================== Toolbar ============================== -->
-        <header x-show="activeMeta" class="flex flex-wrap justify-between items-center gap-3 bg-gray-900 border-b border-gray-800 px-4 py-3">
+        <header x-show="activeMeta || mode === 'build'" class="flex flex-wrap justify-between items-center gap-3 bg-gray-900 border-b border-gray-800 px-4 py-3">
             <div class="flex items-center gap-3 min-w-0">
-                <h1 class="text-xl font-black truncate" x-text="activeMeta?.name"></h1>
-                <span class="text-xs px-2.5 py-1 bg-gray-800 rounded-full text-emerald-300 shrink-0" x-text="'Level ' + activeLevel"></span>
-                <span class="text-xs text-gray-400 shrink-0" x-text="activeMeta?.edition + ' rules'"></span>
+                <template x-if="activeMeta">
+                    <div class="flex items-center gap-3 min-w-0">
+                        <h1 class="text-xl font-black truncate" x-text="activeMeta.name"></h1>
+                        <span class="text-xs px-2.5 py-1 bg-gray-800 rounded-full text-emerald-300 shrink-0" x-text="'Level ' + activeLevel"></span>
+                        <span class="text-xs text-gray-400 shrink-0" x-text="activeMeta.edition + ' rules'"></span>
+                    </div>
+                </template>
+                <h1 x-show="!activeMeta" class="text-xl font-black text-gray-400">New Character</h1>
             </div>
 
             <div class="flex items-center gap-2 flex-wrap">
@@ -63,6 +68,7 @@
                                 <option :value="v.level" x-text="'Level ' + v.level"></option>
                             </template>
                         </select>
+                        <button @click="startEditChoices()" class="bg-gray-800 hover:bg-gray-700 px-3 py-1.5 rounded text-sm" title="Fix a build choice on THIS level without gaining a level">Edit Choices</button>
                         <button @click="startLevelUp()" class="bg-blue-600 hover:bg-blue-500 px-3 py-1.5 rounded text-sm font-semibold">+ Level Up</button>
                         <button @click="exportVersion()" class="bg-gray-800 hover:bg-gray-700 px-3 py-1.5 rounded text-sm">Export</button>
                         <button @click="deleteThisVersion()" class="text-red-400 hover:text-red-300 px-2 py-1.5 rounded text-sm">Delete level</button>
@@ -72,13 +78,25 @@
                 </template>
                 <template x-if="mode === 'build'">
                     <div class="flex items-center gap-2">
-                        <span class="text-xs text-gray-400" x-text="isNewCharacter ? 'Creating character' : 'Leveling up'"></span>
-                        <button @click="isNewCharacter ? confirmCreate() : confirmLevelUp()" class="bg-emerald-600 hover:bg-emerald-500 px-3 py-1.5 rounded text-sm font-semibold" x-text="isNewCharacter ? 'Create' : 'Confirm Level Up'"></button>
+                        <span class="text-xs text-gray-400" x-text="isNewCharacter ? 'Creating character' : isEditingInPlace ? 'Editing this level — no level gained' : 'Leveling up'"></span>
+                        <button
+                            @click="isNewCharacter ? confirmCreate() : isEditingInPlace ? confirmEditChoices() : confirmLevelUp()"
+                            class="bg-emerald-600 hover:bg-emerald-500 px-3 py-1.5 rounded text-sm font-semibold"
+                            x-text="isNewCharacter ? 'Create' : isEditingInPlace ? 'Save Changes' : 'Confirm Level Up'"
+                        ></button>
                         <button x-show="!isNewCharacter || characterList.length" @click="cancelBuild()" class="bg-gray-800 hover:bg-gray-700 px-3 py-1.5 rounded text-sm">Cancel</button>
                     </div>
                 </template>
             </div>
         </header>
+
+        <div
+            x-show="mode === 'play' && xpLevelUpAvailable"
+            class="flex items-center justify-between gap-3 bg-amber-900/30 border-b border-amber-700 text-amber-200 text-sm px-4 py-2"
+        >
+            <span>🎉 Enough XP to reach <strong>level <span x-text="xpLevelUpAvailable"></span></strong>!</span>
+            <button @click="startLevelUp()" class="bg-amber-600 hover:bg-amber-500 text-black px-3 py-1 rounded text-xs font-semibold shrink-0">Level Up Now</button>
+        </div>
 
         <main class="flex-1 overflow-y-auto p-6">
 
@@ -115,40 +133,90 @@
                                 </template>
                             </select>
                         </div>
-                        <div class="flex gap-3">
-                            <div class="flex-1">
-                                <label class="text-xs text-gray-400 block mb-1">Class</label>
-                                <select x-model="draft.classes[0].classId" @change="draft.classes[0].subclassId=''; refreshDraftPreview()" class="w-full bg-gray-800 border border-gray-700 rounded p-2 text-sm">
-                                    <option value="">— choose —</option>
-                                    <template x-for="k in content?.classList || []" :key="k.id">
-                                        <option :value="k.id" x-text="k.name"></option>
-                                    </template>
-                                </select>
-                            </div>
-                            <div class="w-24">
-                                <label class="text-xs text-gray-400 block mb-1">Level</label>
-                                <input type="number" min="1" max="20" x-model.number="draft.classes[0].level" @input="refreshDraftPreview()" class="w-full bg-gray-800 border border-gray-700 rounded p-2 text-sm">
-                            </div>
+                        <div class="space-y-2">
+                            <template x-for="(entry, idx) in draft.classes" :key="idx">
+                                <div class="bg-gray-950/50 border border-gray-800 rounded p-2 space-y-2">
+                                    <div class="flex gap-2 items-end">
+                                        <div class="flex-1">
+                                            <label class="text-xs text-gray-400 block mb-1" x-text="idx === 0 ? 'Class' : 'Class ' + (idx + 1) + ' (multiclass)'"></label>
+                                            <select x-model="entry.classId" @change="entry.subclassId=''; refreshDraftPreview()" class="w-full bg-gray-800 border border-gray-700 rounded p-2 text-sm">
+                                                <option value="">— choose —</option>
+                                                <template x-for="k in content?.classList || []" :key="k.id">
+                                                    <option :value="k.id" x-text="k.name"></option>
+                                                </template>
+                                            </select>
+                                        </div>
+                                        <div class="w-20">
+                                            <label class="text-xs text-gray-400 block mb-1">Level</label>
+                                            <input type="number" min="1" max="20" x-model.number="entry.level" @input="refreshDraftPreview()" class="w-full bg-gray-800 border border-gray-700 rounded p-2 text-sm">
+                                        </div>
+                                        <button x-show="draft.classes.length > 1" @click="removeClass(idx)" type="button" class="text-red-400 hover:text-red-300 px-2 py-2 text-sm" title="Remove this class">×</button>
+                                    </div>
+                                    <div x-show="subclassesAt(idx).length && entry.level >= 3">
+                                        <label class="text-xs text-gray-400 block mb-1">Subclass</label>
+                                        <select x-model="entry.subclassId" @change="refreshDraftPreview()" class="w-full bg-gray-800 border border-gray-700 rounded p-2 text-sm">
+                                            <option value="">— choose —</option>
+                                            <template x-for="s in subclassesAt(idx)" :key="s.id">
+                                                <option :value="s.id" x-text="s.name"></option>
+                                            </template>
+                                        </select>
+                                    </div>
+                                </div>
+                            </template>
                         </div>
-                        <div x-show="availableSubclasses.length && draft.classes[0].level >= 3">
-                            <label class="text-xs text-gray-400 block mb-1">Subclass</label>
-                            <select x-model="draft.classes[0].subclassId" @change="refreshDraftPreview()" class="w-full bg-gray-800 border border-gray-700 rounded p-2 text-sm">
-                                <option value="">— choose —</option>
-                                <template x-for="s in availableSubclasses" :key="s.id">
-                                    <option :value="s.id" x-text="s.name"></option>
-                                </template>
-                            </select>
+                        <div class="flex items-center justify-between">
+                            <button @click="addClass()" type="button" class="text-xs text-emerald-400 hover:text-emerald-300">+ Add Class (multiclass)</button>
+                            <span class="text-xs text-gray-400">Total level: <span class="font-semibold text-gray-200" x-text="draftTotalLevel"></span></span>
                         </div>
-                        <p class="text-[11px] text-gray-500">Multiclassing isn't in this form yet — edit <code>draft.classes</code> via Export/Import JSON if you need a second class.</p>
+                        <p x-show="isEditingInPlace" class="text-[11px] text-amber-400/80">
+                            Changing the total level here moves this saved version to that level number instead of creating new history — it'll fail if a version already exists there. Use <span class="font-semibold">+ Level Up</span> instead if you want to keep this level's snapshot intact.
+                        </p>
                     </div>
 
                     <div class="bg-gray-900 border border-gray-800 rounded-lg p-4">
-                        <h3 class="text-xs uppercase tracking-wider text-gray-400 mb-3">Base ability scores</h3>
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xs uppercase tracking-wider text-gray-400">Base ability scores</h3>
+                            <button
+                                type="button"
+                                @click="rollAllAbilityScores()"
+                                title="Roll 4d6, drop the lowest, for all six abilities"
+                                class="flex items-center gap-1.5 bg-gray-800 hover:bg-gray-700 border border-gray-700 hover:border-emerald-600 rounded px-2 py-1 text-[11px] text-gray-300"
+                            >🎲 Roll All</button>
+                        </div>
+                        <p class="text-[11px] text-gray-500 -mt-2 mb-2">Drag a label onto another to swap scores.</p>
                         <div class="grid grid-cols-3 gap-2">
                             <template x-for="a in ABILITIES" :key="a">
-                                <div>
-                                    <label class="text-[11px] text-gray-400 block" x-text="ABILITY_NAMES[a]"></label>
-                                    <input type="number" min="1" max="20" x-model.number="draft.abilities[a]" @input="refreshDraftPreview()" class="w-full bg-gray-800 border border-gray-700 rounded p-1.5 text-sm">
+                                <div
+                                    @dragover.prevent
+                                    @drop="dropAbilityScore(a)"
+                                    class="rounded transition"
+                                    :class="dragSource && dragSource !== a ? 'ring-1 ring-emerald-600 ring-inset' : ''"
+                                >
+                                    <label
+                                        draggable="true"
+                                        @dragstart="startDragAbility(a)"
+                                        @dragend="endDragAbility()"
+                                        :title="'Drag onto another ability to swap scores'"
+                                        class="text-[11px] text-gray-400 flex items-center gap-1 mb-1 cursor-move select-none"
+                                        :class="dragSource === a ? 'opacity-40' : ''"
+                                    >
+                                        <span class="text-gray-600">⠿</span>
+                                        <span x-text="ABILITY_NAMES[a]"></span>
+                                    </label>
+                                    <div class="flex gap-1">
+                                        <input type="number" min="1" max="20" x-model.number="draft.abilities[a]" @input="refreshDraftPreview()" class="w-full min-w-0 bg-gray-800 border border-gray-700 rounded p-1.5 text-sm">
+                                        <button
+                                            type="button"
+                                            @click="rollAbilityScore(a)"
+                                            :title="'Roll 4d6, drop the lowest, for ' + ABILITY_NAMES[a]"
+                                            class="shrink-0 w-8 bg-gray-800 hover:bg-gray-700 border border-gray-700 hover:border-emerald-600 rounded text-sm"
+                                        >🎲</button>
+                                    </div>
+                                    <p x-show="abilityRolls[a]" class="text-[10px] text-gray-500 mt-0.5">
+                                        <template x-for="(die, i) in (abilityRolls[a]?.dice || [])" :key="i">
+                                            <span :class="i === abilityRolls[a].dropIndex ? 'line-through text-gray-600' : ''" x-text="die + (i < 3 ? ', ' : '')"></span>
+                                        </template>
+                                    </p>
                                 </div>
                             </template>
                         </div>
@@ -165,6 +233,29 @@
                         <label class="flex items-center gap-2 text-sm">
                             <input type="checkbox" x-model="draft.equipment.shield" @change="refreshDraftPreview()"> Shield
                         </label>
+                    </div>
+
+                    <div class="bg-gray-900 border border-gray-800 rounded-lg p-4" x-show="isNewCharacter">
+                        <h3 class="text-xs uppercase tracking-wider text-gray-400 mb-2">Starting Gear</h3>
+                        <div class="flex gap-1.5 mb-1 px-0.5 text-[10px] text-gray-500" x-show="draft.gear.length">
+                            <span class="flex-1">Item</span>
+                            <span class="w-12 text-center">Qty</span>
+                            <span class="w-14 text-center">Wt (lb)</span>
+                            <span class="w-4"></span>
+                        </div>
+                        <div class="space-y-1.5 mb-2">
+                            <template x-for="(item, i) in draft.gear" :key="i">
+                                <div class="flex gap-1.5">
+                                    <input type="text" x-model="item.name" placeholder="Item" class="flex-1 min-w-0 bg-gray-800 border border-gray-700 rounded p-1 text-xs">
+                                    <input type="number" min="0" x-model.number="item.qty" title="Quantity" class="w-12 bg-gray-800 border border-gray-700 rounded p-1 text-xs text-center">
+                                    <input type="number" min="0" step="0.1" x-model.number="item.weight" title="Weight per item, in pounds" class="w-14 bg-gray-800 border border-gray-700 rounded p-1 text-xs text-center">
+                                    <button type="button" @click="removeDraftGear(i)" class="text-red-400 hover:text-red-300 px-1">×</button>
+                                </div>
+                            </template>
+                            <p x-show="!draft.gear.length" class="text-xs text-gray-500 italic">No starting gear yet.</p>
+                        </div>
+                        <button type="button" @click="addDraftGear()" class="text-xs text-emerald-400 hover:text-emerald-300">+ Add item</button>
+                        <p class="text-[11px] text-gray-500 mt-2">More gear can be added later from the character sheet.</p>
                     </div>
 
                     <div class="bg-gray-900 border border-gray-800 rounded-lg p-4 space-y-3" x-show="draftSheet?.pendingChoices.length">
@@ -241,7 +332,14 @@
                                 <span class="text-gray-500">/ <span x-text="version?.sheetData.derived.hitPoints"></span></span>
                                 <button @click="adjustHp(1)" class="text-gray-400 hover:text-emerald-400 px-1">+</button>
                             </div>
-                            <div class="text-[10px] text-gray-400 uppercase">Hit Points <span x-show="version?.sheetData.play.tempHp" x-text="'(+' + version?.sheetData.play.tempHp + ' temp)'"></span></div>
+                            <div class="flex items-center justify-center gap-1.5 mt-1">
+                                <span class="text-[10px] text-gray-400 uppercase">Hit Points</span>
+                                <span class="flex items-center gap-0.5" title="Temporary hit points">
+                                    <span class="text-[10px] text-cyan-400">+</span>
+                                    <input type="number" min="0" x-model.number="version.sheetData.play.tempHp" @input="autoSaveDebounced()" class="w-9 bg-gray-800 border border-cyan-800 rounded text-[11px] text-cyan-300 text-center leading-tight">
+                                    <span class="text-[10px] text-cyan-400">temp</span>
+                                </span>
+                            </div>
                         </div>
                         <div class="bg-gray-900 border border-gray-800 rounded-lg p-3 text-center">
                             <div class="text-2xl font-bold" x-text="fmt(version?.sheetData.derived.initiative)"></div>
@@ -285,12 +383,12 @@
                         </div>
                         <div class="bg-gray-900 border border-gray-800 rounded-lg p-4">
                             <h3 class="text-xs uppercase tracking-wider text-gray-400 mb-2">Skills</h3>
-                            <ul class="text-sm space-y-1 max-h-72 overflow-y-auto">
+                            <ul class="text-sm space-y-1 columns-2 gap-x-4">
                                 <template x-for="s in SKILL_IDS" :key="s">
-                                    <li class="flex items-center gap-2 cursor-pointer hover:text-white" :class="version.sheetData.derived.skills[s].proficient ? 'text-gray-100' : 'text-gray-500'" @click="roll(skillLabel(s), version.sheetData.derived.skills[s].modifier)">
+                                    <li class="flex items-center gap-2 cursor-pointer hover:text-white break-inside-avoid" :class="version.sheetData.derived.skills[s].proficient ? 'text-gray-100' : 'text-gray-500'" @click="roll(skillLabel(s), version.sheetData.derived.skills[s].modifier)">
                                         <span class="w-1.5 h-1.5 rounded-full" :class="version.sheetData.derived.skills[s].expertise ? 'bg-blue-400' : version.sheetData.derived.skills[s].proficient ? 'bg-emerald-500' : 'bg-gray-700'"></span>
                                         <span x-text="skillLabel(s)"></span>
-                                        <span class="ml-auto" x-text="fmt(version.sheetData.derived.skills[s].modifier)"></span>
+                                        <span class="ml-auto mr-2.5" x-text="fmt(version.sheetData.derived.skills[s].modifier)"></span>
                                     </li>
                                 </template>
                             </ul>
@@ -327,6 +425,16 @@
                         </div>
                     </div>
 
+                    <div class="bg-gray-900 border border-gray-800 rounded-lg p-4">
+                        <h3 class="text-xs uppercase tracking-wider text-gray-400 mb-2">Experience</h3>
+                        <div class="flex items-center gap-2">
+                            <input type="number" min="0" step="1" x-model.number="version.sheetData.play.xp" @input="autoSaveDebounced()" class="flex-1 min-w-0 bg-gray-800 border border-gray-700 rounded p-1.5 text-sm">
+                            <span class="text-xs text-gray-500 shrink-0">XP</span>
+                        </div>
+                        <p class="text-[11px] text-gray-500 mt-1" x-show="xpToNext !== null" x-text="xpToNext + ' XP to level ' + (version?.sheetData.derived.totalLevel + 1)"></p>
+                        <p class="text-[11px] text-gray-500 mt-1" x-show="xpToNext === null">Max level reached.</p>
+                    </div>
+
                     <div class="bg-gray-900 border border-gray-800 rounded-lg p-4" x-show="version?.sheetData.derived.spellSlots.length">
                         <h3 class="text-xs uppercase tracking-wider text-gray-400 mb-2">Spell Slots</h3>
                         <div class="flex flex-wrap gap-2">
@@ -348,12 +456,22 @@
                     </div>
 
                     <div class="bg-gray-900 border border-gray-800 rounded-lg p-4">
-                        <h3 class="text-xs uppercase tracking-wider text-gray-400 mb-2">Gear</h3>
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="text-xs uppercase tracking-wider text-gray-400">Gear</h3>
+                            <span class="text-[11px] text-gray-500" x-show="version?.sheetData.play.gear.length">Total: <span x-text="totalGearWeight"></span> lb</span>
+                        </div>
+                        <div class="flex gap-1.5 mb-1 px-0.5 text-[10px] text-gray-500" x-show="version?.sheetData.play.gear.length">
+                            <span class="flex-1">Item</span>
+                            <span class="w-12 text-center">Qty</span>
+                            <span class="w-14 text-center">Wt (lb)</span>
+                            <span class="w-4"></span>
+                        </div>
                         <div class="space-y-1.5 mb-2">
                             <template x-for="(item, i) in version?.sheetData.play.gear || []" :key="i">
                                 <div class="flex gap-1.5">
-                                    <input type="text" x-model="item.name" @input="autoSaveDebounced()" placeholder="Item" class="flex-1 bg-gray-800 border border-gray-700 rounded p-1 text-xs">
-                                    <input type="number" min="0" x-model.number="item.qty" @input="autoSaveDebounced()" class="w-12 bg-gray-800 border border-gray-700 rounded p-1 text-xs text-center">
+                                    <input type="text" x-model="item.name" @input="autoSaveDebounced()" placeholder="Item" class="flex-1 min-w-0 bg-gray-800 border border-gray-700 rounded p-1 text-xs">
+                                    <input type="number" min="0" x-model.number="item.qty" @input="autoSaveDebounced()" title="Quantity" class="w-12 bg-gray-800 border border-gray-700 rounded p-1 text-xs text-center">
+                                    <input type="number" min="0" step="0.1" x-model.number="item.weight" @input="autoSaveDebounced()" title="Weight per item, in pounds" class="w-14 bg-gray-800 border border-gray-700 rounded p-1 text-xs text-center">
                                     <button @click="removeGear(i)" class="text-red-400 hover:text-red-300 px-1">×</button>
                                 </div>
                             </template>

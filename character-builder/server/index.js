@@ -21,6 +21,7 @@ import {
     getVersion,
     getHighestLevel,
     updateVersionSheet,
+    updateVersionChoices,
     insertVersion,
     deleteVersion
 } from './db.js';
@@ -62,16 +63,21 @@ app.get('/api/characters', (req, res) => {
 
 app.post('/api/characters', async (req, res, next) => {
     try {
-        const { name, edition = '2024', choices } = req.body || {};
+        const { name, edition = '2024', choices, gear } = req.body || {};
         if (!name || !choices) return res.status(400).json({ error: 'name and choices are required' });
         if (!EDITIONS.includes(edition)) return res.status(400).json({ error: `Unknown edition: ${edition}` });
 
         const content = await loadContent(edition);
         const derived = deriveCharacter({ ...choices, name, edition }, content);
-        const sheetData = buildSheetData(derived, initialPlayState(derived));
+        const sheetData = buildSheetData(derived, initialPlayState(derived, gear));
 
-        const created = createCharacter({ name, className: classLineOf(derived), edition, choices, sheetData });
-        res.status(201).json({ id: created.id, versions: created.versions, sheet: sheetData });
+        // File under the choices' OWN total level, not a hardcoded 1 — a character can be
+        // created directly at any level (e.g. starting straight into a multiclass build),
+        // and the row's level must always match its derived stats.
+        const level = Math.max(1, Math.min(20, derived.totalLevel || 1));
+
+        const created = createCharacter({ name, className: classLineOf(derived), edition, choices, sheetData, level });
+        res.status(201).json({ id: created.id, level, versions: created.versions, sheet: sheetData });
     } catch (err) {
         next(err);
     }
@@ -81,25 +87,24 @@ app.post('/api/characters', async (req, res, next) => {
 // character. Re-derives from the imported choices rather than trusting the imported
 // `derived` block, so importing onto a since-updated content pack self-corrects instead
 // of carrying forward stale math; the imported play state (HP, gear, notes) is kept as-is.
+//
+// The row's level always comes from the CHOICES' own derived total, never from an
+// imported `level` field — that field could be stale or hand-edited, and a version's
+// level must never disagree with its own derived stats (same rule enforced on create
+// and on Edit Choices' re-keying).
 app.post('/api/characters/import', async (req, res, next) => {
     try {
-        const { name, edition = '2024', level = 1, choices, play } = req.body || {};
+        const { name, edition = '2024', choices, play } = req.body || {};
         if (!name || !choices) return res.status(400).json({ error: 'name and choices are required' });
         if (!EDITIONS.includes(edition)) return res.status(400).json({ error: `Unknown edition: ${edition}` });
 
         const content = await loadContent(edition);
         const derived = deriveCharacter({ ...choices, name, edition }, content);
         const sheetData = buildSheetData(derived, sanitizePlayState(play || initialPlayState(derived), derived));
+        const level = Math.max(1, Math.min(20, derived.totalLevel || 1));
 
-        const created = createCharacter({
-            name,
-            className: classLineOf(derived),
-            edition,
-            choices,
-            sheetData,
-            level: Number(level) || 1
-        });
-        res.status(201).json({ id: created.id, level: Number(level) || 1, sheet: sheetData });
+        const created = createCharacter({ name, className: classLineOf(derived), edition, choices, sheetData, level });
+        res.status(201).json({ id: created.id, level, sheet: sheetData });
     } catch (err) {
         next(err);
     }
@@ -146,6 +151,59 @@ app.put('/api/characters/:id/version/:level', (req, res) => {
     res.json({ ok: true, sheetData });
 });
 
+/**
+ * Correct a mistake on an EXISTING version — a mis-picked skill, a typo'd ability score,
+ * a reworked multiclass split — without it counting as a level gain. Unlike /levelup,
+ * this overwrites choices+derived on the SAME row rather than inserting a new one; play
+ * state (HP, gear, notes) carries over as-is, just re-sanitized in case the edit changed
+ * a max (e.g. a Constitution change shifting max HP).
+ *
+ * The player is free to change class levels here too — if the edited choices now total a
+ * different character level than this row was filed under, the row is RE-KEYED to match,
+ * so the URL's :level and the version's own derived total level never disagree. That
+ * fails with 409 if another version already occupies the target level; nothing is ever
+ * silently overwritten.
+ */
+app.put('/api/characters/:id/version/:level/choices', async (req, res, next) => {
+    try {
+        const meta = getCharacterMeta(req.params.id);
+        if (!meta) return res.status(404).json({ error: 'Not found' });
+
+        const oldLevel = Number(req.params.level);
+        const existing = getVersion(req.params.id, oldLevel);
+        if (!existing) return res.status(404).json({ error: 'Version not found' });
+
+        const newChoices = req.body?.choices;
+        if (!newChoices) return res.status(400).json({ error: 'choices is required' });
+        const newName = newChoices.name || meta.name; // the Build form's Name field lives on choices
+
+        const content = await loadContent(meta.edition);
+        const newDerived = deriveCharacter({ ...newChoices, name: newName, edition: meta.edition }, content);
+        const newLevel = newDerived.totalLevel;
+        if (newLevel < 1 || newLevel > 20) {
+            return res.status(400).json({ error: 'Total character level must be between 1 and 20' });
+        }
+
+        const sheetData = buildSheetData(newDerived, sanitizePlayState(existing.sheetData.play, newDerived));
+
+        try {
+            updateVersionChoices(req.params.id, oldLevel, newLevel, newChoices, sheetData);
+        } catch (err) {
+            if (newLevel !== oldLevel && String(err.message).includes('UNIQUE')) {
+                return res.status(409).json({
+                    error: `Level ${newLevel} already exists for this character — delete or move that version first.`
+                });
+            }
+            throw err;
+        }
+
+        renameCharacter(req.params.id, { name: newName, className: classLineOf(newDerived) });
+        res.json({ ok: true, level: newLevel, sheetData });
+    } catch (err) {
+        next(err);
+    }
+});
+
 app.delete('/api/characters/:id/version/:level', (req, res) => {
     const ok = deleteVersion(req.params.id, req.params.level);
     if (!ok) return res.status(409).json({ error: 'Cannot delete the only remaining version' });
@@ -170,19 +228,30 @@ app.post('/api/characters/:id/levelup', async (req, res, next) => {
         // class level and any newly-available selections), falling back to the base's own
         // choices unchanged so this endpoint also works as a "re-derive this level" tool.
         const newChoices = req.body?.choices || base.choices;
-        const newLevel = req.body?.toLevel || baseLevel + 1;
+        const newName = newChoices.name || meta.name; // the Build form's Name field lives on choices
 
+        const content = await loadContent(meta.edition);
+        const newDerived = deriveCharacter({ ...newChoices, name: newName, edition: meta.edition }, content);
+
+        // The new row's level is always the CHOICES' own derived total — never a
+        // client-supplied number — so a version's level and its own derived stats can
+        // never disagree (same rule the create and Edit Choices routes enforce).
+        const newLevel = newDerived.totalLevel;
+        if (newLevel < 1 || newLevel > 20) {
+            return res.status(400).json({ error: 'Total character level must be between 1 and 20' });
+        }
+        if (newLevel === baseLevel) {
+            return res.status(400).json({ error: `These choices are still level ${baseLevel} — use Edit Choices to update the current level in place instead of Level Up.` });
+        }
         if (getVersion(req.params.id, newLevel)) {
             return res.status(409).json({ error: `Level ${newLevel} already exists for this character` });
         }
 
-        const content = await loadContent(meta.edition);
-        const newDerived = deriveCharacter({ ...newChoices, name: meta.name, edition: meta.edition }, content);
         const newPlay = carryForwardPlayState(base.sheetData.play, base.sheetData.derived, newDerived);
         const sheetData = buildSheetData(newDerived, newPlay);
 
         insertVersion(req.params.id, newLevel, newChoices, sheetData);
-        renameCharacter(req.params.id, { name: meta.name, className: classLineOf(newDerived) });
+        renameCharacter(req.params.id, { name: newName, className: classLineOf(newDerived) });
 
         res.status(201).json({ level: newLevel, sheetData });
     } catch (err) {
