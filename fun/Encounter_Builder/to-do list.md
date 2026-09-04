@@ -94,138 +94,9 @@ Quasit
 Quipper
 
 >> There are several monsters who don't have CRs.
-
-
 >> about 100 monsters are missing their associates property.
 
-Brown Scavver
-Brusipha
-Bugbear Gardener
-Bugbear Lieutenant
-Bugbear Stalker
-Bulette Pup
-Bulezau
-Burnished Hart
-Burrowshark
-Cackler
-Cadaver Collector
-Cairnwight
-Cambion
-Campestri
-Canary
-Canoloth
-Canopic Golem
-Carnivorous Flower
-Carrion Crawler
-Carrion Ogre
-Carrionette
-Cataclysm
-Category 1 Krasis
-Category 2 Krasis
-Category 3 Krasis
-Catoblepas
-Cave Badger
-Cave Bear
-Cave Fisher
-Cdrith
-Centaur Mummy
-Centaur Trooper
-Centaur Warden
-Centipede
-Ceratops
-Chamberlain of Zuggtmoy
-Champion
-Champion of Gorm
-Champion of Madarua
-Champion of Usamigaras
-Changeling
-Chaos Quadrapod
-Chardalyn Berserker
-Chasme
-Chemister
-Child
-Chitine
-Choldrith
-Chuul Spore Servant
-Chwinga
-Chwinga Astronaut
-Cinder Hulk
-Citadel Spider
-Clawfoot
-Clay Gladiator
-Cleric
-Cloaker Mutate
-Cloud  Destiny Gambler
-Cloud  Ghost
-Cloud  Noble
-Cloud  of Evil Air
-Cloud  Smiling One
-Cockatrice Regent
-Cogwork Archivist
-Coldlight Walker
-Colossus
-Colossus of Akros
-Combat Robot
-Conservatory Student
-Copper Greatwyrm
-Coral Snake
-Corpse Flower
-Corrupted Avatar of Lurue
-Cosmotronic Blastseeker
-Couatls
-Cougar
-Counterflux Blastseeker
-Cradle of the Cloud Scion
-Cradle of the Fire Scion
-Cradle of the Frost Scion
-Cradle of the Hill Scion
-Cradle of the Stone Scion
-Cradle of the Storm Scion
-Crag Cat
-Cranium Rat
-Cranium Rat Squeaker
-Cranium Rat Squeaker Swarm
-Crawling Claw
-Crayfish
-Crimson Helmed Horror
-Crocodile
-Crow
-Crushing Wave Priest
-Crushing Wave Reaver
-Cultist Hierophant
-Cuprilach Rilmani
-Cyclops Oracle
-Cyclops Sentry
-Dabus
-Daelkyr
-Daelkyr (Belashyrra, Dyrrn)
-Daemogoth
-Daemogoth Titan
-Dancing Item
-Dao
-Dark Tide Knight
-Darkweaver
-Deadbark Dryad
-Deadstone Cleft Stone
-Death  Reaper
-Death  Shrouded One
-Death Cultist
-Death Knight Aspirant
-Death Slaad
-Death's Head
-Death's Head of Bhaal
-Deathwolf
-Decaton Modron
-Deck Defender
-Deep Crow
-Deep hé
-Deep rothe
-Deep Sashelas
-Deep Scion
-Degloth
-Deinonychus
-Demon
-Demos Magen
+
 Derro
 Derro Apprentice
 Derro Raider
@@ -319,7 +190,6 @@ Feral Ashenwight
 Ferrumach Rilmani
 Fey
 Fiend
-Fighter
 Firbolg Primeval Warden
 Firbolg Wanderer
 First-Year Student
@@ -349,7 +219,6 @@ Gorodan Ashford
 Gorzil's Gang Troglodyte
 Granite Juggernaut
 Graveyard Revenant
-Gray
 Gray Render
 Gray Scavver
 Gray Slaad
@@ -600,7 +469,6 @@ Otherworldly Corrupter
 Otherworldly Steed
 Otyugh Mutate
 Ox
-Paladin
 Panopticus Wizard
 Paper Bird
 Paper Whirlwind
@@ -622,7 +490,6 @@ Piercer
 Pig
 Piranha
 Piranha beetles
-Pit
 Pit Spawn
 Pixie Wonderbringer
 Planar Incarnate
@@ -672,7 +539,6 @@ Rakdos Performer, High-Wire Acrobat
 Raklupis Spyder-
 Raktusk
 Ram
-Ranger
 Ravnica Guildless
 Razerblast
 Razorvine Blight
@@ -696,7 +562,6 @@ Rip Tide Priest
 Riverine
 Rock Gnome Recluse
 Rocktopus
-Rogue
 ronic Blastseeker
 Rooster
 Rot troll
@@ -751,7 +616,6 @@ Sul Khatesh
 Sunder Shaman
 Sunfly
 Surtur
-Tree
 
 
 ## Add these monster's attacks properties to monsters.js
