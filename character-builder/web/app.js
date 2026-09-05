@@ -223,7 +223,9 @@ window.appState = function appState() {
             this.isNewCharacter = false;
             this.isEditingInPlace = false;
             this.abilityRolls = {};
-            const base = structuredClone(this.version.choices);
+            // this.version is an Alpine reactive Proxy — structuredClone can't clone that
+            // directly (throws DataCloneError), so unwrap it to the plain object first.
+            const base = structuredClone(Alpine.raw(this.version.choices));
             if (base.classes?.[0]) base.classes[0].level = Math.min(20, (base.classes[0].level || 1) + 1);
             this.draft = { ...blankDraft(), ...base };
             this.refreshDraftPreview();
@@ -237,7 +239,9 @@ window.appState = function appState() {
             this.isNewCharacter = false;
             this.isEditingInPlace = true;
             this.abilityRolls = {};
-            const base = structuredClone(this.version.choices);
+            // this.version is an Alpine reactive Proxy — structuredClone can't clone that
+            // directly (throws DataCloneError), so unwrap it to the plain object first.
+            const base = structuredClone(Alpine.raw(this.version.choices));
             this.draft = { ...blankDraft(), ...base };
             this.refreshDraftPreview();
         },

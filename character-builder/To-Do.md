@@ -41,7 +41,6 @@ The item in the gear area should include damage type, damage dice, modifiers, et
 
 ## Things to fix
 
-* When editing an existing character, the character sheet should be populated with the current character stats. Right now, when I hit the edit button, it treats the existing character sheet as if it was blank.
 * For much later: tailwind.js:64 cdn.tailwindcss.com should not be used in production. To use Tailwind CSS in production, install it as a PostCSS plugin or use the Tailwind CLI: https://tailwindcss.com/docs/installation
 To the Start Gear area, create and add a catalog of gear. Start with armor. Once an armor has been selected from the filter list, it updates the AC automatically.
 
