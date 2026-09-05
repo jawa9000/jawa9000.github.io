@@ -30,7 +30,7 @@ function blankDraft() {
         classes: [{ classId: '', level: 1, subclassId: '' }],
         abilities: { str: 15, dex: 14, con: 13, int: 12, wis: 10, cha: 8 },
         choices: {},
-        equipment: { armor: '', shield: false },
+        equipment: { armor: '' },
         gear: [], // starting gear, only edited/sent during character creation — see confirmCreate()
         notes: '' // starting notes, only edited/sent during character creation — see confirmCreate()
     };
@@ -475,6 +475,17 @@ window.appState = function appState() {
                 (sum, item) => sum + (Number(item.qty) || 0) * (Number(item.weight) || 0),
                 0
             );
+        },
+
+        // A shield isn't a build-time choice — it's just an inventory item. Rather than
+        // re-deriving the whole sheet whenever the Gear list changes, AC's shield bonus is
+        // computed live from whatever's currently in `gear`, on top of the frozen `armorClass`.
+        hasShield(gear) {
+            return (gear || []).some((item) => /shield/i.test(item.name || '') && (Number(item.qty) || 0) >= 1);
+        },
+        effectiveArmorClass(armorClass, gear) {
+            if (!armorClass) return null;
+            return armorClass.value + (this.hasShield(gear) ? 2 : 0);
         },
 
         removeGear(index) {

@@ -6,7 +6,7 @@
     <title>D&amp;D Character Manager</title>
     <meta name="description" content="Self-hosted D&amp;D 5e character manager — 2014/2024 rules, level history, session tools">
     <meta name="author" content="Brian Immel">
-    <meta name="version" content="0.2.1">
+    <meta name="version" content="0.2.5">
     <link rel="icon" href="data:,">
     <script src="tailwind.js"></script>
     <!-- app.js must execute BEFORE Alpine boots, since it attaches window.appState that
@@ -240,9 +240,7 @@
                                 <option :value="a.id" x-text="a.name + ' (AC ' + a.baseAC + ', ' + a.category + ')'"></option>
                             </template>
                         </select>
-                        <label class="flex items-center gap-2 text-sm">
-                            <input type="checkbox" x-model="draft.equipment.shield" @change="refreshDraftPreview()"> Shield
-                        </label>
+                        <p class="text-[11px] text-gray-500">A shield is no longer a toggle here — add a "Shield" item to your Gear list and it applies automatically.</p>
                     </div>
 
                     <div class="bg-gray-900 border border-gray-800 rounded-lg p-4" x-show="isNewCharacter">
@@ -304,7 +302,7 @@
                     <h3 class="text-xs uppercase tracking-wider text-gray-400 mb-3">Live preview</h3>
                     <template x-if="draftSheet">
                         <div>
-                            <p class="text-sm text-gray-400 mb-3" x-text="draftSheet.classLine + ' — HP ' + draftSheet.hitPoints + ' · AC ' + draftSheet.armorClass.value"></p>
+                            <p class="text-sm text-gray-400 mb-3" x-text="draftSheet.classLine + ' — HP ' + draftSheet.hitPoints + ' · AC ' + effectiveArmorClass(draftSheet.armorClass, isNewCharacter ? draft.gear : version?.sheetData.play.gear)"></p>
                             <ul x-show="draftSheet.problems.length" class="text-xs text-red-300 bg-red-950/50 border border-red-900 rounded p-2 mb-3 space-y-1">
                                 <template x-for="p in draftSheet.problems"><li x-text="p"></li></template>
                             </ul>
@@ -348,8 +346,11 @@
                 <!-- Stat blocks -->
                 <section class="xl:col-span-2 space-y-4">
                     <div class="grid grid-cols-3 sm:grid-cols-6 gap-2">
-                        <div class="bg-gray-900 border border-gray-800 rounded-lg p-3 text-center">
-                            <div class="text-2xl font-bold" x-text="version?.sheetData.derived.armorClass.value"></div>
+                        <div
+                            class="bg-gray-900 border border-gray-800 rounded-lg p-3 text-center"
+                            :title="hasShield(version?.sheetData.play.gear) ? 'Includes +2 from a Shield in your Gear list' : ''"
+                        >
+                            <div class="text-2xl font-bold" x-text="effectiveArmorClass(version?.sheetData.derived.armorClass, version?.sheetData.play.gear)"></div>
                             <div class="text-[10px] text-gray-400 uppercase">AC</div>
                         </div>
                         <div class="bg-gray-900 border border-gray-800 rounded-lg p-3 text-center col-span-2">

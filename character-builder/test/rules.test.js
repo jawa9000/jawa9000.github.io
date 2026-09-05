@@ -213,9 +213,9 @@ describe('armor class', () => {
         assert.equal(sheet.armorClass.value, 18);
     });
 
-    test('a shield adds 2', () => {
+    test('a shield is not modeled here — it lives in the Gear list and is applied live client-side', () => {
         const sheet = deriveCharacter(fighter({ equipment: { armor: 'plate', shield: true } }), content);
-        assert.equal(sheet.armorClass.value, 20);
+        assert.equal(sheet.armorClass.value, 18);
     });
 
     test('the Defense fighting style applies only while armored', () => {

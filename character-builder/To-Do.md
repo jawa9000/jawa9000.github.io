@@ -39,15 +39,13 @@ The item in the gear area should include damage type, damage dice, modifiers, et
 * The armor needs to add to the total weight.
 * Add a tab for Bag of Holding (based on the structure and formalus found in https://docs.google.com/spreadsheets/d/1ITYUVlq_18Gg-a4mnczVDSFXkl33ndqjnMQmRQjOJvc/edit)
 
-Since every background allows you to distribute ability score increases (+2 to one and +1 to another, OR +1 to three distinct scores), add system to track how many points were spent and where.
-
 ## Things to fix
 
-* Leveling up or editing a character, it doesn't show the current stats of the character. When going into this edit mode, the system should load the current stats.
+* When editing an existing character, the character sheet should be populated with the current character stats. Right now, when I hit the edit button, it treats the existing character sheet as if it was blank.
 * For much later: tailwind.js:64 cdn.tailwindcss.com should not be used in production. To use Tailwind CSS in production, install it as a PostCSS plugin or use the Tailwind CLI: https://tailwindcss.com/docs/installation
 To the Start Gear area, create and add a catalog of gear. Start with armor. Once an armor has been selected from the filter list, it updates the AC automatically.
-* Get rid of the Shield toggle. That should be an inventory item.
-* When editing an existing character, the character sheet should be populated with the current character stats. Right now, when I hit the edit button, it treats the existing character sheet as if it was blank.
+
+
 
 ## Things to figure out
 

@@ -196,10 +196,12 @@ export function deriveCharacter(character, content) {
     };
 }
 
+// Shield is deliberately NOT modeled here. Unlike armor (a build-time choice that only
+// changes on Level Up/Edit Choices), a shield is just an inventory item — the client adds
+// its +2 live on top of this value by checking the current Play-mode Gear list, so picking
+// it up or dropping it doesn't require a re-derive. See web/app.js's `armorClass` getter.
 function computeArmorClass(character, content, modifiers, acc, problems) {
     const equippedId = character.equipment?.armor;
-    const shieldEquipped = Boolean(character.equipment?.shield);
-    const shieldBonus = shieldEquipped ? 2 : 0;
 
     const armor = equippedId ? content.armor?.[equippedId] : null;
     if (equippedId && !armor) problems.push(`Unknown armor: ${equippedId}`);
@@ -207,9 +209,8 @@ function computeArmorClass(character, content, modifiers, acc, problems) {
     if (!armor) {
         // Unarmored: 10 + Dex. Bonuses gated on wearing armor (Defense) do not apply.
         return {
-            value: 10 + modifiers.dex + shieldBonus + acc.acBonus,
-            source: 'Unarmored',
-            shield: shieldEquipped
+            value: 10 + modifiers.dex + acc.acBonus,
+            source: 'Unarmored'
         };
     }
 
@@ -228,9 +229,8 @@ function computeArmorClass(character, content, modifiers, acc, problems) {
     }
 
     return {
-        value: armor.baseAC + dex + shieldBonus + acc.acBonus + acc.acBonusWhenArmored,
-        source: armor.name,
-        shield: shieldEquipped
+        value: armor.baseAC + dex + acc.acBonus + acc.acBonusWhenArmored,
+        source: armor.name
     };
 }
 
