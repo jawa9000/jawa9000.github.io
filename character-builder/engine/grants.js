@@ -33,6 +33,9 @@ import { ABILITIES } from './abilities.js';
 export function emptyAccumulator() {
     return {
         abilityBonuses: { str: 0, dex: 0, con: 0, int: 0, wis: 0, cha: 0 },
+        // Per-ability list of { source, value } — lets the UI show WHERE a bonus came
+        // from (species, background, a feat...), not just the summed total above.
+        abilityBonusSources: { str: [], dex: [], con: [], int: [], wis: [], cha: [] },
         skillProficiencies: new Set(),
         saveProficiencies: new Set(),
         armorProficiencies: new Set(),
@@ -101,8 +104,9 @@ export function applyGrants(grants, choices, out, sourceLabel = '') {
 function applyOne(grant, out, sourceLabel) {
     switch (grant.type) {
         case 'ability':
-            if (ABILITIES.includes(grant.ability)) {
-                out.abilityBonuses[grant.ability] += grant.value || 0;
+            if (ABILITIES.includes(grant.ability) && grant.value) {
+                out.abilityBonuses[grant.ability] += grant.value;
+                out.abilityBonusSources[grant.ability].push({ source: sourceLabel, value: grant.value });
             }
             break;
         case 'skillProficiency':

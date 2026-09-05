@@ -69,6 +69,13 @@ window.appState = function appState() {
         skillLabel,
         fmt: formatModifier,
 
+        // Tooltip text for the ability-score bonus badge — lists each contributing
+        // source (species, background, a feat...) and how much it added.
+        abilityBonusTitle(bonus) {
+            if (!bonus || !bonus.sources.length) return '';
+            return bonus.sources.map((s) => `${s.source}: ${formatModifier(s.value)}`).join('\n');
+        },
+
         // Roster.
         characterList: [],
         activeCharacterId: null,

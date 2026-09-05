@@ -1,158 +1,4 @@
 {
-  "soldier": {
-    "id": "soldier",
-    "name": "Soldier",
-    "source": "XPHB",
-    "abilityOptions": [
-      "str",
-      "dex",
-      "con"
-    ],
-    "grants": [
-      {
-        "type": "skillProficiency",
-        "skill": "athletics"
-      },
-      {
-        "type": "skillProficiency",
-        "skill": "intimidation"
-      },
-      {
-        "type": "toolProficiency",
-        "value": "gaming-set"
-      },
-      {
-        "type": "feature",
-        "name": "Origin Feat: Savage Attacker",
-        "text": "Once per turn when you hit a target with a weapon, you can roll the weapon's damage dice twice and use either roll."
-      },
-      {
-        "type": "choice",
-        "id": "soldier:asi",
-        "label": "Ability Scores — +2/+1, or +1 to each",
-        "count": 1,
-        "from": [
-          {
-            "id": "str2-dex1",
-            "name": "+2 Strength, +1 Dexterity",
-            "grants": [
-              {
-                "type": "ability",
-                "ability": "str",
-                "value": 2
-              },
-              {
-                "type": "ability",
-                "ability": "dex",
-                "value": 1
-              }
-            ]
-          },
-          {
-            "id": "str2-con1",
-            "name": "+2 Strength, +1 Constitution",
-            "grants": [
-              {
-                "type": "ability",
-                "ability": "str",
-                "value": 2
-              },
-              {
-                "type": "ability",
-                "ability": "con",
-                "value": 1
-              }
-            ]
-          },
-          {
-            "id": "dex2-str1",
-            "name": "+2 Dexterity, +1 Strength",
-            "grants": [
-              {
-                "type": "ability",
-                "ability": "dex",
-                "value": 2
-              },
-              {
-                "type": "ability",
-                "ability": "str",
-                "value": 1
-              }
-            ]
-          },
-          {
-            "id": "dex2-con1",
-            "name": "+2 Dexterity, +1 Constitution",
-            "grants": [
-              {
-                "type": "ability",
-                "ability": "dex",
-                "value": 2
-              },
-              {
-                "type": "ability",
-                "ability": "con",
-                "value": 1
-              }
-            ]
-          },
-          {
-            "id": "con2-str1",
-            "name": "+2 Constitution, +1 Strength",
-            "grants": [
-              {
-                "type": "ability",
-                "ability": "con",
-                "value": 2
-              },
-              {
-                "type": "ability",
-                "ability": "str",
-                "value": 1
-              }
-            ]
-          },
-          {
-            "id": "con2-dex1",
-            "name": "+2 Constitution, +1 Dexterity",
-            "grants": [
-              {
-                "type": "ability",
-                "ability": "con",
-                "value": 2
-              },
-              {
-                "type": "ability",
-                "ability": "dex",
-                "value": 1
-              }
-            ]
-          },
-          {
-            "id": "each1",
-            "name": "+1 Strength, +1 Dexterity, +1 Constitution",
-            "grants": [
-              {
-                "type": "ability",
-                "ability": "str",
-                "value": 1
-              },
-              {
-                "type": "ability",
-                "ability": "dex",
-                "value": 1
-              },
-              {
-                "type": "ability",
-                "ability": "con",
-                "value": 1
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
   "acolyte": {
     "id": "acolyte",
     "name": "Acolyte",
@@ -203,22 +49,6 @@
             ]
           },
           {
-            "id": "int2-cha1",
-            "name": "+2 Intelligence, +1 Charisma",
-            "grants": [
-              {
-                "type": "ability",
-                "ability": "int",
-                "value": 2
-              },
-              {
-                "type": "ability",
-                "ability": "cha",
-                "value": 1
-              }
-            ]
-          },
-          {
             "id": "wis2-int1",
             "name": "+2 Wisdom, +1 Intelligence",
             "grants": [
@@ -235,12 +65,12 @@
             ]
           },
           {
-            "id": "wis2-cha1",
-            "name": "+2 Wisdom, +1 Charisma",
+            "id": "int2-cha1",
+            "name": "+2 Intelligence, +1 Charisma",
             "grants": [
               {
                 "type": "ability",
-                "ability": "wis",
+                "ability": "int",
                 "value": 2
               },
               {
@@ -262,6 +92,22 @@
               {
                 "type": "ability",
                 "ability": "int",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "wis2-cha1",
+            "name": "+2 Wisdom, +1 Charisma",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "wis",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "cha",
                 "value": 1
               }
             ]
@@ -289,6 +135,2316 @@
               {
                 "type": "ability",
                 "ability": "int",
+                "value": 1
+              },
+              {
+                "type": "ability",
+                "ability": "wis",
+                "value": 1
+              },
+              {
+                "type": "ability",
+                "ability": "cha",
+                "value": 1
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "artisan": {
+    "id": "artisan",
+    "name": "Artisan",
+    "source": "XPHB",
+    "abilityOptions": [
+      "str",
+      "dex",
+      "int"
+    ],
+    "grants": [
+      {
+        "type": "skillProficiency",
+        "skill": "investigation"
+      },
+      {
+        "type": "skillProficiency",
+        "skill": "persuasion"
+      },
+      {
+        "type": "toolProficiency",
+        "value": "artisans-tools"
+      },
+      {
+        "type": "feature",
+        "name": "Origin Feat: Crafter",
+        "text": "You gain proficiency with three artisan's tools of your choice, can craft nonmagical items in a quarter of the usual time, and buy nonmagical items at a 20% discount."
+      },
+      {
+        "type": "choice",
+        "id": "artisan:asi",
+        "label": "Ability Scores — +2/+1, or +1 to each",
+        "count": 1,
+        "from": [
+          {
+            "id": "str2-dex1",
+            "name": "+2 Strength, +1 Dexterity",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "str",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "dex",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "dex2-str1",
+            "name": "+2 Dexterity, +1 Strength",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "dex",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "str",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "str2-int1",
+            "name": "+2 Strength, +1 Intelligence",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "str",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "int",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "int2-str1",
+            "name": "+2 Intelligence, +1 Strength",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "int",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "str",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "dex2-int1",
+            "name": "+2 Dexterity, +1 Intelligence",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "dex",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "int",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "int2-dex1",
+            "name": "+2 Intelligence, +1 Dexterity",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "int",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "dex",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "each1",
+            "name": "+1 Strength, +1 Dexterity, +1 Intelligence",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "str",
+                "value": 1
+              },
+              {
+                "type": "ability",
+                "ability": "dex",
+                "value": 1
+              },
+              {
+                "type": "ability",
+                "ability": "int",
+                "value": 1
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "charlatan": {
+    "id": "charlatan",
+    "name": "Charlatan",
+    "source": "XPHB",
+    "abilityOptions": [
+      "dex",
+      "con",
+      "cha"
+    ],
+    "grants": [
+      {
+        "type": "skillProficiency",
+        "skill": "deception"
+      },
+      {
+        "type": "skillProficiency",
+        "skill": "sleight-of-hand"
+      },
+      {
+        "type": "toolProficiency",
+        "value": "forgery-kit"
+      },
+      {
+        "type": "feature",
+        "name": "Origin Feat: Skilled",
+        "text": "You gain proficiency in any combination of three skills or tools of your choice."
+      },
+      {
+        "type": "choice",
+        "id": "charlatan:asi",
+        "label": "Ability Scores — +2/+1, or +1 to each",
+        "count": 1,
+        "from": [
+          {
+            "id": "dex2-con1",
+            "name": "+2 Dexterity, +1 Constitution",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "dex",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "con",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "con2-dex1",
+            "name": "+2 Constitution, +1 Dexterity",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "con",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "dex",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "dex2-cha1",
+            "name": "+2 Dexterity, +1 Charisma",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "dex",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "cha",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "cha2-dex1",
+            "name": "+2 Charisma, +1 Dexterity",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "cha",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "dex",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "con2-cha1",
+            "name": "+2 Constitution, +1 Charisma",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "con",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "cha",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "cha2-con1",
+            "name": "+2 Charisma, +1 Constitution",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "cha",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "con",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "each1",
+            "name": "+1 Dexterity, +1 Constitution, +1 Charisma",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "dex",
+                "value": 1
+              },
+              {
+                "type": "ability",
+                "ability": "con",
+                "value": 1
+              },
+              {
+                "type": "ability",
+                "ability": "cha",
+                "value": 1
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "criminal": {
+    "id": "criminal",
+    "name": "Criminal",
+    "source": "XPHB",
+    "abilityOptions": [
+      "dex",
+      "con",
+      "int"
+    ],
+    "grants": [
+      {
+        "type": "skillProficiency",
+        "skill": "sleight-of-hand"
+      },
+      {
+        "type": "skillProficiency",
+        "skill": "stealth"
+      },
+      {
+        "type": "toolProficiency",
+        "value": "thieves-tools"
+      },
+      {
+        "type": "feature",
+        "name": "Origin Feat: Alert",
+        "text": "You add your proficiency bonus to Initiative rolls, and can swap your rolled Initiative with a willing ally's."
+      },
+      {
+        "type": "choice",
+        "id": "criminal:asi",
+        "label": "Ability Scores — +2/+1, or +1 to each",
+        "count": 1,
+        "from": [
+          {
+            "id": "dex2-con1",
+            "name": "+2 Dexterity, +1 Constitution",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "dex",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "con",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "con2-dex1",
+            "name": "+2 Constitution, +1 Dexterity",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "con",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "dex",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "dex2-int1",
+            "name": "+2 Dexterity, +1 Intelligence",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "dex",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "int",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "int2-dex1",
+            "name": "+2 Intelligence, +1 Dexterity",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "int",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "dex",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "con2-int1",
+            "name": "+2 Constitution, +1 Intelligence",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "con",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "int",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "int2-con1",
+            "name": "+2 Intelligence, +1 Constitution",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "int",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "con",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "each1",
+            "name": "+1 Dexterity, +1 Constitution, +1 Intelligence",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "dex",
+                "value": 1
+              },
+              {
+                "type": "ability",
+                "ability": "con",
+                "value": 1
+              },
+              {
+                "type": "ability",
+                "ability": "int",
+                "value": 1
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "entertainer": {
+    "id": "entertainer",
+    "name": "Entertainer",
+    "source": "XPHB",
+    "abilityOptions": [
+      "str",
+      "dex",
+      "cha"
+    ],
+    "grants": [
+      {
+        "type": "skillProficiency",
+        "skill": "acrobatics"
+      },
+      {
+        "type": "skillProficiency",
+        "skill": "performance"
+      },
+      {
+        "type": "toolProficiency",
+        "value": "musical-instrument"
+      },
+      {
+        "type": "feature",
+        "name": "Origin Feat: Musician",
+        "text": "You gain proficiency with three musical instruments of your choice, and can give allies within 60 feet a d4 to add to an attack roll, ability check, or damage roll, a number of times equal to your proficiency bonus per long rest."
+      },
+      {
+        "type": "choice",
+        "id": "entertainer:asi",
+        "label": "Ability Scores — +2/+1, or +1 to each",
+        "count": 1,
+        "from": [
+          {
+            "id": "str2-dex1",
+            "name": "+2 Strength, +1 Dexterity",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "str",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "dex",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "dex2-str1",
+            "name": "+2 Dexterity, +1 Strength",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "dex",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "str",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "str2-cha1",
+            "name": "+2 Strength, +1 Charisma",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "str",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "cha",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "cha2-str1",
+            "name": "+2 Charisma, +1 Strength",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "cha",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "str",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "dex2-cha1",
+            "name": "+2 Dexterity, +1 Charisma",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "dex",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "cha",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "cha2-dex1",
+            "name": "+2 Charisma, +1 Dexterity",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "cha",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "dex",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "each1",
+            "name": "+1 Strength, +1 Dexterity, +1 Charisma",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "str",
+                "value": 1
+              },
+              {
+                "type": "ability",
+                "ability": "dex",
+                "value": 1
+              },
+              {
+                "type": "ability",
+                "ability": "cha",
+                "value": 1
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "farmer": {
+    "id": "farmer",
+    "name": "Farmer",
+    "source": "XPHB",
+    "abilityOptions": [
+      "str",
+      "con",
+      "wis"
+    ],
+    "grants": [
+      {
+        "type": "skillProficiency",
+        "skill": "animal-handling"
+      },
+      {
+        "type": "skillProficiency",
+        "skill": "nature"
+      },
+      {
+        "type": "toolProficiency",
+        "value": "carpenters-tools"
+      },
+      {
+        "type": "feature",
+        "name": "Origin Feat: Tough",
+        "text": "Your hit point maximum increases by an amount equal to twice your character level, and increases by 2 again whenever you gain a level."
+      },
+      {
+        "type": "choice",
+        "id": "farmer:asi",
+        "label": "Ability Scores — +2/+1, or +1 to each",
+        "count": 1,
+        "from": [
+          {
+            "id": "str2-con1",
+            "name": "+2 Strength, +1 Constitution",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "str",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "con",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "con2-str1",
+            "name": "+2 Constitution, +1 Strength",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "con",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "str",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "str2-wis1",
+            "name": "+2 Strength, +1 Wisdom",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "str",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "wis",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "wis2-str1",
+            "name": "+2 Wisdom, +1 Strength",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "wis",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "str",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "con2-wis1",
+            "name": "+2 Constitution, +1 Wisdom",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "con",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "wis",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "wis2-con1",
+            "name": "+2 Wisdom, +1 Constitution",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "wis",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "con",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "each1",
+            "name": "+1 Strength, +1 Constitution, +1 Wisdom",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "str",
+                "value": 1
+              },
+              {
+                "type": "ability",
+                "ability": "con",
+                "value": 1
+              },
+              {
+                "type": "ability",
+                "ability": "wis",
+                "value": 1
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "guard": {
+    "id": "guard",
+    "name": "Guard",
+    "source": "XPHB",
+    "abilityOptions": [
+      "str",
+      "int",
+      "wis"
+    ],
+    "grants": [
+      {
+        "type": "skillProficiency",
+        "skill": "athletics"
+      },
+      {
+        "type": "skillProficiency",
+        "skill": "perception"
+      },
+      {
+        "type": "toolProficiency",
+        "value": "gaming-set"
+      },
+      {
+        "type": "feature",
+        "name": "Origin Feat: Alert",
+        "text": "You add your proficiency bonus to Initiative rolls, and can swap your rolled Initiative with a willing ally's."
+      },
+      {
+        "type": "choice",
+        "id": "guard:asi",
+        "label": "Ability Scores — +2/+1, or +1 to each",
+        "count": 1,
+        "from": [
+          {
+            "id": "str2-int1",
+            "name": "+2 Strength, +1 Intelligence",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "str",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "int",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "int2-str1",
+            "name": "+2 Intelligence, +1 Strength",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "int",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "str",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "str2-wis1",
+            "name": "+2 Strength, +1 Wisdom",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "str",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "wis",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "wis2-str1",
+            "name": "+2 Wisdom, +1 Strength",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "wis",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "str",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "int2-wis1",
+            "name": "+2 Intelligence, +1 Wisdom",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "int",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "wis",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "wis2-int1",
+            "name": "+2 Wisdom, +1 Intelligence",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "wis",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "int",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "each1",
+            "name": "+1 Strength, +1 Intelligence, +1 Wisdom",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "str",
+                "value": 1
+              },
+              {
+                "type": "ability",
+                "ability": "int",
+                "value": 1
+              },
+              {
+                "type": "ability",
+                "ability": "wis",
+                "value": 1
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "guide": {
+    "id": "guide",
+    "name": "Guide",
+    "source": "XPHB",
+    "abilityOptions": [
+      "dex",
+      "con",
+      "wis"
+    ],
+    "grants": [
+      {
+        "type": "skillProficiency",
+        "skill": "stealth"
+      },
+      {
+        "type": "skillProficiency",
+        "skill": "survival"
+      },
+      {
+        "type": "toolProficiency",
+        "value": "cartographers-tools"
+      },
+      {
+        "type": "feature",
+        "name": "Origin Feat: Magic Initiate (Druid)",
+        "text": "You learn two cantrips and one level 1 spell from the Druid spell list."
+      },
+      {
+        "type": "choice",
+        "id": "guide:asi",
+        "label": "Ability Scores — +2/+1, or +1 to each",
+        "count": 1,
+        "from": [
+          {
+            "id": "dex2-con1",
+            "name": "+2 Dexterity, +1 Constitution",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "dex",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "con",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "con2-dex1",
+            "name": "+2 Constitution, +1 Dexterity",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "con",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "dex",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "dex2-wis1",
+            "name": "+2 Dexterity, +1 Wisdom",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "dex",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "wis",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "wis2-dex1",
+            "name": "+2 Wisdom, +1 Dexterity",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "wis",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "dex",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "con2-wis1",
+            "name": "+2 Constitution, +1 Wisdom",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "con",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "wis",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "wis2-con1",
+            "name": "+2 Wisdom, +1 Constitution",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "wis",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "con",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "each1",
+            "name": "+1 Dexterity, +1 Constitution, +1 Wisdom",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "dex",
+                "value": 1
+              },
+              {
+                "type": "ability",
+                "ability": "con",
+                "value": 1
+              },
+              {
+                "type": "ability",
+                "ability": "wis",
+                "value": 1
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "hermit": {
+    "id": "hermit",
+    "name": "Hermit",
+    "source": "XPHB",
+    "abilityOptions": [
+      "con",
+      "wis",
+      "cha"
+    ],
+    "grants": [
+      {
+        "type": "skillProficiency",
+        "skill": "medicine"
+      },
+      {
+        "type": "skillProficiency",
+        "skill": "religion"
+      },
+      {
+        "type": "toolProficiency",
+        "value": "herbalism-kit"
+      },
+      {
+        "type": "feature",
+        "name": "Origin Feat: Healer",
+        "text": "As an action, you can spend a Healer's Kit charge to let a creature within 5 feet spend a Hit Die to regain hit points, rerolling any 1 on the healing die."
+      },
+      {
+        "type": "choice",
+        "id": "hermit:asi",
+        "label": "Ability Scores — +2/+1, or +1 to each",
+        "count": 1,
+        "from": [
+          {
+            "id": "con2-wis1",
+            "name": "+2 Constitution, +1 Wisdom",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "con",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "wis",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "wis2-con1",
+            "name": "+2 Wisdom, +1 Constitution",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "wis",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "con",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "con2-cha1",
+            "name": "+2 Constitution, +1 Charisma",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "con",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "cha",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "cha2-con1",
+            "name": "+2 Charisma, +1 Constitution",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "cha",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "con",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "wis2-cha1",
+            "name": "+2 Wisdom, +1 Charisma",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "wis",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "cha",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "cha2-wis1",
+            "name": "+2 Charisma, +1 Wisdom",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "cha",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "wis",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "each1",
+            "name": "+1 Constitution, +1 Wisdom, +1 Charisma",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "con",
+                "value": 1
+              },
+              {
+                "type": "ability",
+                "ability": "wis",
+                "value": 1
+              },
+              {
+                "type": "ability",
+                "ability": "cha",
+                "value": 1
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "merchant": {
+    "id": "merchant",
+    "name": "Merchant",
+    "source": "XPHB",
+    "abilityOptions": [
+      "con",
+      "int",
+      "cha"
+    ],
+    "grants": [
+      {
+        "type": "skillProficiency",
+        "skill": "animal-handling"
+      },
+      {
+        "type": "skillProficiency",
+        "skill": "persuasion"
+      },
+      {
+        "type": "toolProficiency",
+        "value": "navigators-tools"
+      },
+      {
+        "type": "feature",
+        "name": "Origin Feat: Lucky",
+        "text": "You gain a number of Luck Points equal to your proficiency bonus; spend one to give yourself advantage on a d20 test or impose disadvantage on an attack roll against you."
+      },
+      {
+        "type": "choice",
+        "id": "merchant:asi",
+        "label": "Ability Scores — +2/+1, or +1 to each",
+        "count": 1,
+        "from": [
+          {
+            "id": "con2-int1",
+            "name": "+2 Constitution, +1 Intelligence",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "con",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "int",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "int2-con1",
+            "name": "+2 Intelligence, +1 Constitution",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "int",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "con",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "con2-cha1",
+            "name": "+2 Constitution, +1 Charisma",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "con",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "cha",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "cha2-con1",
+            "name": "+2 Charisma, +1 Constitution",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "cha",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "con",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "int2-cha1",
+            "name": "+2 Intelligence, +1 Charisma",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "int",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "cha",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "cha2-int1",
+            "name": "+2 Charisma, +1 Intelligence",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "cha",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "int",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "each1",
+            "name": "+1 Constitution, +1 Intelligence, +1 Charisma",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "con",
+                "value": 1
+              },
+              {
+                "type": "ability",
+                "ability": "int",
+                "value": 1
+              },
+              {
+                "type": "ability",
+                "ability": "cha",
+                "value": 1
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "noble": {
+    "id": "noble",
+    "name": "Noble",
+    "source": "XPHB",
+    "abilityOptions": [
+      "str",
+      "int",
+      "cha"
+    ],
+    "grants": [
+      {
+        "type": "skillProficiency",
+        "skill": "history"
+      },
+      {
+        "type": "skillProficiency",
+        "skill": "persuasion"
+      },
+      {
+        "type": "toolProficiency",
+        "value": "gaming-set"
+      },
+      {
+        "type": "feature",
+        "name": "Origin Feat: Skilled",
+        "text": "You gain proficiency in any combination of three skills or tools of your choice."
+      },
+      {
+        "type": "choice",
+        "id": "noble:asi",
+        "label": "Ability Scores — +2/+1, or +1 to each",
+        "count": 1,
+        "from": [
+          {
+            "id": "str2-int1",
+            "name": "+2 Strength, +1 Intelligence",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "str",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "int",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "int2-str1",
+            "name": "+2 Intelligence, +1 Strength",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "int",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "str",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "str2-cha1",
+            "name": "+2 Strength, +1 Charisma",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "str",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "cha",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "cha2-str1",
+            "name": "+2 Charisma, +1 Strength",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "cha",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "str",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "int2-cha1",
+            "name": "+2 Intelligence, +1 Charisma",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "int",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "cha",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "cha2-int1",
+            "name": "+2 Charisma, +1 Intelligence",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "cha",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "int",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "each1",
+            "name": "+1 Strength, +1 Intelligence, +1 Charisma",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "str",
+                "value": 1
+              },
+              {
+                "type": "ability",
+                "ability": "int",
+                "value": 1
+              },
+              {
+                "type": "ability",
+                "ability": "cha",
+                "value": 1
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sage": {
+    "id": "sage",
+    "name": "Sage",
+    "source": "XPHB",
+    "abilityOptions": [
+      "con",
+      "int",
+      "wis"
+    ],
+    "grants": [
+      {
+        "type": "skillProficiency",
+        "skill": "arcana"
+      },
+      {
+        "type": "skillProficiency",
+        "skill": "history"
+      },
+      {
+        "type": "toolProficiency",
+        "value": "calligraphers-supplies"
+      },
+      {
+        "type": "feature",
+        "name": "Origin Feat: Magic Initiate (Wizard)",
+        "text": "You learn two cantrips and one level 1 spell from the Wizard spell list."
+      },
+      {
+        "type": "choice",
+        "id": "sage:asi",
+        "label": "Ability Scores — +2/+1, or +1 to each",
+        "count": 1,
+        "from": [
+          {
+            "id": "con2-int1",
+            "name": "+2 Constitution, +1 Intelligence",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "con",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "int",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "int2-con1",
+            "name": "+2 Intelligence, +1 Constitution",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "int",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "con",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "con2-wis1",
+            "name": "+2 Constitution, +1 Wisdom",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "con",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "wis",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "wis2-con1",
+            "name": "+2 Wisdom, +1 Constitution",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "wis",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "con",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "int2-wis1",
+            "name": "+2 Intelligence, +1 Wisdom",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "int",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "wis",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "wis2-int1",
+            "name": "+2 Wisdom, +1 Intelligence",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "wis",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "int",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "each1",
+            "name": "+1 Constitution, +1 Intelligence, +1 Wisdom",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "con",
+                "value": 1
+              },
+              {
+                "type": "ability",
+                "ability": "int",
+                "value": 1
+              },
+              {
+                "type": "ability",
+                "ability": "wis",
+                "value": 1
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sailor": {
+    "id": "sailor",
+    "name": "Sailor",
+    "source": "XPHB",
+    "abilityOptions": [
+      "str",
+      "dex",
+      "wis"
+    ],
+    "grants": [
+      {
+        "type": "skillProficiency",
+        "skill": "acrobatics"
+      },
+      {
+        "type": "skillProficiency",
+        "skill": "perception"
+      },
+      {
+        "type": "toolProficiency",
+        "value": "navigators-tools"
+      },
+      {
+        "type": "feature",
+        "name": "Origin Feat: Tavern Brawler",
+        "text": "Your unarmed strikes deal 1d4 + Strength modifier damage and you can reroll a 1 on that damage die, and you gain proficiency with improvised weapons."
+      },
+      {
+        "type": "choice",
+        "id": "sailor:asi",
+        "label": "Ability Scores — +2/+1, or +1 to each",
+        "count": 1,
+        "from": [
+          {
+            "id": "str2-dex1",
+            "name": "+2 Strength, +1 Dexterity",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "str",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "dex",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "dex2-str1",
+            "name": "+2 Dexterity, +1 Strength",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "dex",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "str",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "str2-wis1",
+            "name": "+2 Strength, +1 Wisdom",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "str",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "wis",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "wis2-str1",
+            "name": "+2 Wisdom, +1 Strength",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "wis",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "str",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "dex2-wis1",
+            "name": "+2 Dexterity, +1 Wisdom",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "dex",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "wis",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "wis2-dex1",
+            "name": "+2 Wisdom, +1 Dexterity",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "wis",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "dex",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "each1",
+            "name": "+1 Strength, +1 Dexterity, +1 Wisdom",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "str",
+                "value": 1
+              },
+              {
+                "type": "ability",
+                "ability": "dex",
+                "value": 1
+              },
+              {
+                "type": "ability",
+                "ability": "wis",
+                "value": 1
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "scribe": {
+    "id": "scribe",
+    "name": "Scribe",
+    "source": "XPHB",
+    "abilityOptions": [
+      "dex",
+      "int",
+      "wis"
+    ],
+    "grants": [
+      {
+        "type": "skillProficiency",
+        "skill": "investigation"
+      },
+      {
+        "type": "skillProficiency",
+        "skill": "perception"
+      },
+      {
+        "type": "toolProficiency",
+        "value": "calligraphers-supplies"
+      },
+      {
+        "type": "feature",
+        "name": "Origin Feat: Skilled",
+        "text": "You gain proficiency in any combination of three skills or tools of your choice."
+      },
+      {
+        "type": "choice",
+        "id": "scribe:asi",
+        "label": "Ability Scores — +2/+1, or +1 to each",
+        "count": 1,
+        "from": [
+          {
+            "id": "dex2-int1",
+            "name": "+2 Dexterity, +1 Intelligence",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "dex",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "int",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "int2-dex1",
+            "name": "+2 Intelligence, +1 Dexterity",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "int",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "dex",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "dex2-wis1",
+            "name": "+2 Dexterity, +1 Wisdom",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "dex",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "wis",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "wis2-dex1",
+            "name": "+2 Wisdom, +1 Dexterity",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "wis",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "dex",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "int2-wis1",
+            "name": "+2 Intelligence, +1 Wisdom",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "int",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "wis",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "wis2-int1",
+            "name": "+2 Wisdom, +1 Intelligence",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "wis",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "int",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "each1",
+            "name": "+1 Dexterity, +1 Intelligence, +1 Wisdom",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "dex",
+                "value": 1
+              },
+              {
+                "type": "ability",
+                "ability": "int",
+                "value": 1
+              },
+              {
+                "type": "ability",
+                "ability": "wis",
+                "value": 1
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "soldier": {
+    "id": "soldier",
+    "name": "Soldier",
+    "source": "XPHB",
+    "abilityOptions": [
+      "str",
+      "dex",
+      "con"
+    ],
+    "grants": [
+      {
+        "type": "skillProficiency",
+        "skill": "athletics"
+      },
+      {
+        "type": "skillProficiency",
+        "skill": "intimidation"
+      },
+      {
+        "type": "toolProficiency",
+        "value": "gaming-set"
+      },
+      {
+        "type": "feature",
+        "name": "Origin Feat: Savage Attacker",
+        "text": "Once per turn when you hit a target with a weapon, you can roll the weapon's damage dice twice and use either roll."
+      },
+      {
+        "type": "choice",
+        "id": "soldier:asi",
+        "label": "Ability Scores — +2/+1, or +1 to each",
+        "count": 1,
+        "from": [
+          {
+            "id": "str2-dex1",
+            "name": "+2 Strength, +1 Dexterity",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "str",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "dex",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "dex2-str1",
+            "name": "+2 Dexterity, +1 Strength",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "dex",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "str",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "str2-con1",
+            "name": "+2 Strength, +1 Constitution",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "str",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "con",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "con2-str1",
+            "name": "+2 Constitution, +1 Strength",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "con",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "str",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "dex2-con1",
+            "name": "+2 Dexterity, +1 Constitution",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "dex",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "con",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "con2-dex1",
+            "name": "+2 Constitution, +1 Dexterity",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "con",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "dex",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "each1",
+            "name": "+1 Strength, +1 Dexterity, +1 Constitution",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "str",
+                "value": 1
+              },
+              {
+                "type": "ability",
+                "ability": "dex",
+                "value": 1
+              },
+              {
+                "type": "ability",
+                "ability": "con",
+                "value": 1
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "wayfarer": {
+    "id": "wayfarer",
+    "name": "Wayfarer",
+    "source": "XPHB",
+    "abilityOptions": [
+      "dex",
+      "wis",
+      "cha"
+    ],
+    "grants": [
+      {
+        "type": "skillProficiency",
+        "skill": "insight"
+      },
+      {
+        "type": "skillProficiency",
+        "skill": "stealth"
+      },
+      {
+        "type": "toolProficiency",
+        "value": "thieves-tools"
+      },
+      {
+        "type": "feature",
+        "name": "Origin Feat: Lucky",
+        "text": "You gain a number of Luck Points equal to your proficiency bonus; spend one to give yourself advantage on a d20 test or impose disadvantage on an attack roll against you."
+      },
+      {
+        "type": "choice",
+        "id": "wayfarer:asi",
+        "label": "Ability Scores — +2/+1, or +1 to each",
+        "count": 1,
+        "from": [
+          {
+            "id": "dex2-wis1",
+            "name": "+2 Dexterity, +1 Wisdom",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "dex",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "wis",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "wis2-dex1",
+            "name": "+2 Wisdom, +1 Dexterity",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "wis",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "dex",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "dex2-cha1",
+            "name": "+2 Dexterity, +1 Charisma",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "dex",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "cha",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "cha2-dex1",
+            "name": "+2 Charisma, +1 Dexterity",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "cha",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "dex",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "wis2-cha1",
+            "name": "+2 Wisdom, +1 Charisma",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "wis",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "cha",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "cha2-wis1",
+            "name": "+2 Charisma, +1 Wisdom",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "cha",
+                "value": 2
+              },
+              {
+                "type": "ability",
+                "ability": "wis",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "each1",
+            "name": "+1 Dexterity, +1 Wisdom, +1 Charisma",
+            "grants": [
+              {
+                "type": "ability",
+                "ability": "dex",
                 "value": 1
               },
               {

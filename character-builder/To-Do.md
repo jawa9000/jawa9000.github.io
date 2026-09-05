@@ -38,20 +38,19 @@ The item in the gear area should include damage type, damage dice, modifiers, et
 * Add a button (sword icon or wand or scroll or whatever is appropriate for the item type) that rolls the attack, damage, and displays the effect/result in the Roll Log (which should be renamed to Activity Log).
 * Update the appearance so it better matches my other D&D apps.
 * When picking a background, the gear should be added to the Gear list automatically.
-* The armor needs to add to the total wear.
+* The armor needs to add to the total weight.
 * Add a tab for Bag of Holding (based on the structure and formalus found in https://docs.google.com/spreadsheets/d/1ITYUVlq_18Gg-a4mnczVDSFXkl33ndqjnMQmRQjOJvc/edit)
+
+Since every background allows you to distribute ability score increases (+2 to one and +1 to another, OR +1 to three distinct scores), add system to track how many points were spent and where.
 
 ## Things to fix
 
 * Leveling up or editing a character, it doesn't show the current stats of the character. When going into this edit mode, the system should load the current stats.
 * Where does it state the character's class and level? This becomes a problem especially with multi-classed character.
 * For much later: tailwind.js:64 cdn.tailwindcss.com should not be used in production. To use Tailwind CSS in production, install it as a PostCSS plugin or use the Tailwind CLI: https://tailwindcss.com/docs/installation
-* ~~List the Race, Background, and Class in alphabetical order.~~ Done — species, background, class, subclass, and armor dropdowns now sort alphabetically by name.
-* Are species bonuses being added to the ability scores after the class is added or updated? If so, there should be an indicator of some kind saying that the ability score was modified by the species and by how much.
 * When picking a dragonborn, there should a listing of each color because each of them have different features (dragon breath types mostly).
 To the Start Gear area, create and add a catalog of gear. Start with armor. Once an armor has been selected from the filter list, it updates the AC automatically.
 * Get rid of the Shield toggle. That should be an inventory item.
-* Notes section is missing when creating a new character
 
 ## Things to figure out
 

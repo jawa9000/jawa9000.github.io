@@ -91,12 +91,17 @@ export function deriveCharacter(character, content) {
     // --- Ability scores ----------------------------------------------------------
     const scores = {};
     const modifiers = {};
+    const abilityBonuses = {};
     for (const ability of ABILITIES) {
         const base = character.abilities?.[ability] ?? 10;
         // 20 is the cap without magic; feats and ASIs cannot push past it.
         const total = Math.min(20, base + acc.abilityBonuses[ability]);
         scores[ability] = total;
         modifiers[ability] = abilityModifier(total);
+        abilityBonuses[ability] = {
+            value: acc.abilityBonuses[ability],
+            sources: acc.abilityBonusSources[ability]
+        };
     }
 
     // --- Hit points --------------------------------------------------------------
@@ -162,6 +167,7 @@ export function deriveCharacter(character, content) {
         proficiencyBonus: profBonus,
         scores,
         modifiers,
+        abilityBonuses,
         hitPoints,
         hitDice: classEntries.map((c) => `${c.level}d${c.def.hitDie}`),
         armorClass,
