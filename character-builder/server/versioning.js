@@ -8,6 +8,8 @@
 //
 // Pure functions, no I/O — easy to test without a database.
 
+import { XP_THRESHOLDS } from '../engine/experience.js';
+
 /**
  * @param {Array} [startingGear] gear picked during character creation — see sanitizeGear
  *   for the {name, qty, weight} shape. Defaults to empty for level-ups and imports that
@@ -28,7 +30,9 @@ export function initialPlayState(derived, startingGear, startingNotes) {
         deathSaves: { successes: 0, failures: 0 },
         gear: sanitizeGear(startingGear),
         notes: typeof startingNotes === 'string' ? startingNotes : '',
-        xp: 0
+        // A character created straight at, say, level 5 starts with that level's minimum
+        // XP rather than 0 — otherwise the XP tracker would claim they're still level 1.
+        xp: XP_THRESHOLDS[derived.totalLevel - 1] ?? 0
     };
 }
 
@@ -53,10 +57,15 @@ export function buildSheetData(derived, play) {
  * exhaustion persist as-is. HP increases by the max-HP delta rather than resetting to full,
  * so mid-level damage isn't erased by leveling. Resources reset to full — leveling up is
  * assumed to follow a long rest, per the standard 5e rule that XP/level advancement happens
- * between sessions.
+ * between sessions. XP itself is raised to the new level's minimum threshold if it isn't
+ * there already (e.g. a manual level-up with no XP tracked), but never lowered.
  */
 export function carryForwardPlayState(oldPlay, oldDerived, newDerived) {
     const hpGain = Math.max(0, newDerived.hitPoints - oldDerived.hitPoints);
+    // A level-up never lowers XP, but if the character is now sitting above a level its own
+    // XP wouldn't justify (added manually, or via a big multiclass jump), it's bumped up to
+    // that level's minimum — the XP tracker should never claim a lower level than the sheet.
+    const minXp = XP_THRESHOLDS[newDerived.totalLevel - 1] ?? 0;
     return {
         ...oldPlay,
         currentHp: Math.min(newDerived.hitPoints, Math.max(0, oldPlay.currentHp) + hpGain),
@@ -64,7 +73,8 @@ export function carryForwardPlayState(oldPlay, oldDerived, newDerived) {
         hitDiceUsed: 0,
         spellSlotsUsed: newDerived.spellSlots.map(() => 0),
         pactSlotsUsed: 0,
-        deathSaves: { successes: 0, failures: 0 }
+        deathSaves: { successes: 0, failures: 0 },
+        xp: Math.max(oldPlay.xp || 0, minXp)
     };
 }
 

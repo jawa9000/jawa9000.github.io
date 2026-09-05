@@ -28,6 +28,17 @@ describe('initialPlayState', () => {
         assert.equal(play.hitDiceUsed, 0);
         assert.equal(play.exhaustion, 0);
     });
+
+    test('a level 1 character starts at 0 XP', () => {
+        const play = initialPlayState(fakeDerived({ totalLevel: 1 }));
+        assert.equal(play.xp, 0);
+    });
+
+    test('a character created straight at a higher level starts at that level\'s minimum XP', () => {
+        // fakeDerived() defaults to totalLevel 4 — level 4's minimum is 2700 XP.
+        const play = initialPlayState(fakeDerived());
+        assert.equal(play.xp, 2700);
+    });
 });
 
 describe('carryForwardPlayState', () => {
@@ -51,11 +62,19 @@ describe('carryForwardPlayState', () => {
         assert.equal(carried.currentHp, 21);
     });
 
-    test('XP carries forward untouched — leveling up never spends or resets it', () => {
+    test('XP already above the new level\'s minimum carries forward untouched', () => {
         const derived = fakeDerived();
-        const withXp = { ...initialPlayState(derived), xp: 2700 };
+        const withXp = { ...initialPlayState(derived), xp: 10000 };
         const carried = carryForwardPlayState(withXp, derived, fakeDerived({ hitPoints: 27 }));
-        assert.equal(carried.xp, 2700);
+        assert.equal(carried.xp, 10000);
+    });
+
+    test('XP below the new level\'s minimum is bumped up to it, never down', () => {
+        const derived = fakeDerived({ totalLevel: 1 });
+        const withXp = { ...initialPlayState(derived), xp: 0 };
+        // Level 5's minimum is 6500 XP — a manual level-up with no XP tracked should land there.
+        const carried = carryForwardPlayState(withXp, derived, fakeDerived({ totalLevel: 5, hitPoints: 27 }));
+        assert.equal(carried.xp, 6500);
     });
 
     test('resources reset to the new maximums', () => {

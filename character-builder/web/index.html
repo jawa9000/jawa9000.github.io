@@ -53,6 +53,11 @@
                     <div class="flex items-center gap-3 min-w-0">
                         <h1 class="text-xl font-black truncate" x-text="activeMeta.name"></h1>
                         <span class="text-xs px-2.5 py-1 bg-gray-800 rounded-full text-emerald-300 shrink-0" x-text="'Level ' + activeLevel"></span>
+                        <span
+                            x-show="activeMeta.className"
+                            class="text-sm text-gray-400 truncate"
+                            x-text="activeMeta.className"
+                        ></span>
                     </div>
                 </template>
                 <h1 x-show="!activeMeta" class="text-xl font-black text-gray-400">New Character</h1>

@@ -45,7 +45,8 @@ export function deriveCharacter(character, content) {
             continue;
         }
         const level = clamp(taken.level, 1, 20);
-        classEntries.push({ def, level, casterProgression: def.casterProgression, subclassId: taken.subclassId });
+        const entry = { def, level, casterProgression: def.casterProgression, subclassId: taken.subclassId };
+        classEntries.push(entry);
 
         // Only the FIRST class taken grants saving throw proficiencies and the full
         // starting proficiency list. Multiclassing grants a reduced set — that
@@ -71,6 +72,7 @@ export function deriveCharacter(character, content) {
             problems.push(`Unknown subclass: ${taken.subclassId}`);
         }
         if (subclass) {
+            entry.subclassName = subclass.name;
             for (const feature of subclass.features || []) {
                 if (feature.level <= level) {
                     applyGrants(
@@ -162,7 +164,9 @@ export function deriveCharacter(character, content) {
         name: character.name || 'Unnamed',
         speciesName: species?.name ?? null,
         backgroundName: background?.name ?? null,
-        classLine: classEntries.map((c) => `${c.def.name} ${c.level}`).join(' / ') || '—',
+        classLine: classEntries
+            .map((c) => `${c.def.name}${c.subclassName ? ` (${c.subclassName})` : ''} ${c.level}`)
+            .join(' / ') || '—',
         totalLevel,
         proficiencyBonus: profBonus,
         scores,
